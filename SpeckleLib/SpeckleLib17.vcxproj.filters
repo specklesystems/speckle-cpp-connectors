@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Speckle">
+      <UniqueIdentifier>{bacfd662-e289-4d32-925c-478df65d01ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Container">
+      <UniqueIdentifier>{fccb627d-9084-44a2-8668-12ace3efc5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\File">
+      <UniqueIdentifier>{fce9ca8b-2049-4158-a66d-753d0db9624f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Geometry">
+      <UniqueIdentifier>{77038827-0b43-46c9-ba84-485ca6677995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise">
+      <UniqueIdentifier>{23bca613-7f6a-40bd-af6c-6da6288e6461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Setting">
+      <UniqueIdentifier>{ce5a1f2f-a851-4b91-ad98-630bf6a4795c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Utility">
+      <UniqueIdentifier>{2872ccda-08d8-4a2e-9d0a-345ac5b63187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\File\Interface">
+      <UniqueIdentifier>{d4e29f94-8464-40d2-8712-5b07f08023bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Setting\Values">
+      <UniqueIdentifier>{99fa8353-03a8-4755-9514-83fd647435d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Generic">
+      <UniqueIdentifier>{63e5ba37-04e3-4eb7-8507-3a544c3ebb68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Inventory">
+      <UniqueIdentifier>{e3a44283-b6ad-4d23-9071-4b8316d10631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Item">
+      <UniqueIdentifier>{f236a8b4-cbd3-4190-9f3b-5267ef7bf11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\JSON">
+      <UniqueIdentifier>{16b2d4a1-c813-414f-a914-320eac070ea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Package">
+      <UniqueIdentifier>{3e1d167a-ab92-4fe4-8ca5-2e2b800dd425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\XML">
+      <UniqueIdentifier>{807ffd4b-afbc-4ee1-997f-a9fca156a0c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Item\Wrapper">
+      <UniqueIdentifier>{941563ed-cdc5-4a85-98ae-7073541fed68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\XML\Item">
+      <UniqueIdentifier>{c8bf5c99-230f-4330-8856-e524c301f594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\XML\Package">
+      <UniqueIdentifier>{7779749e-242f-4775-8c64-d7052aa99d38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\XML\Package\Wrapper">
+      <UniqueIdentifier>{ebe91a04-7c60-4d76-a7ef-df2b4fdf23f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\XML\Package\Wrapper\Geometry">
+      <UniqueIdentifier>{053c9a32-3700-46f9-9631-3c84812bedfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Document">
+      <UniqueIdentifier>{00955044-4ada-4263-875f-1c30895afd67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Setting\Values\Measurement">
+      <UniqueIdentifier>{63c0c992-09d4-4445-972c-4e726270ed4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Setting\Values\Measurement\Units">
+      <UniqueIdentifier>{663b795b-894e-4d4f-b388-18a88f1da3ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Attributes">
+      <UniqueIdentifier>{2c4d0103-93f0-48d5-b616-955e81ed86f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Event">
+      <UniqueIdentifier>{6bf46721-5a13-4cc0-9645-dd25106baf93}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Speckle\Container\HashMap.h">
+      <Filter>Speckle\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Container\List.h">
+      <Filter>Speckle\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Container\Map.h">
+      <Filter>Speckle\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Container\Multimap.h">
+      <Filter>Speckle\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Container\Vector.h">
+      <Filter>Speckle\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\File\Directory.h">
+      <Filter>Speckle\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\File\File.h">
+      <Filter>Speckle\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\File\Path.h">
+      <Filter>Speckle\File</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\File\Interface\FSNode.h">
+      <Filter>Speckle\File\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\File\Interface\IOBase.h">
+      <Filter>Speckle\File\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Anchor2D.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Arc.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Box.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Faceter.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Leveller.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Line.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\LinEquation.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Matrix3x3.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Matrix4x4.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Plane.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Point.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\PolyEdge.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Polygon.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\PolyPoint.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Position.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Rotater.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Rotation.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Vector3.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\Vector4.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\BufferIn.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\BufferOut.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Cloner.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Defer.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Guid.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\MathFunctions.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Memory.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Status.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\String.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\TextEncoding.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\Time.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\UniqueString.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Setting.h">
+      <Filter>Speckle\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\SettingID.h">
+      <Filter>Speckle\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\ValueSetting.h">
+      <Filter>Speckle\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\BoolValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\DoubleValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\GuidValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Int32Value.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Int64Value.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\NullValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\StringValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\TimeValue.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\UInt32Value.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Value.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\ValueBase.h">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Cargo.h">
+      <Filter>Speckle\Serialise</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Generic\HexTransport.h">
+      <Filter>Speckle\Serialise\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Inventory\Entry.h">
+      <Filter>Speckle\Serialise\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Inventory\Identity.h">
+      <Filter>Speckle\Serialise\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Inventory\Inventory.h">
+      <Filter>Speckle\Serialise\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Encoding.h">
+      <Filter>Speckle\Serialise\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Item.h">
+      <Filter>Speckle\Serialise\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\BoolWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\DoubleWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\Int32Wrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\ItemWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\StringWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\ValueWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\JSON\JSONTransport.h">
+      <Filter>Speckle\Serialise\JSON</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\XMLTransport.h">
+      <Filter>Speckle\Serialise\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Item\XMLDateTime.h">
+      <Filter>Speckle\Serialise\XML\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Item\XMLNumber.h">
+      <Filter>Speckle\Serialise\XML\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Package\XMLProlog.h">
+      <Filter>Speckle\Serialise\XML\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\XMLValueSetting.h">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPoint.h">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolygon.h">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolyPoint.h">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Package\Package.h">
+      <Filter>Speckle\Serialise\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Package\PackageWrap.h">
+      <Filter>Speckle\Serialise\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Package\Pair.h">
+      <Filter>Speckle\Serialise\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Package\Unknown.h">
+      <Filter>Speckle\Serialise\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Item\Wrapper\AnyValueWrap.h">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Document\Object.h">
+      <Filter>Speckle\Serialise\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Document\Shipper.h">
+      <Filter>Speckle\Serialise\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Document\Transportable.h">
+      <Filter>Speckle\Serialise\Document</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\AngleUnit.h">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\AreaUnit.h">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\LengthUnit.h">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\MassUnit.h">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\Unit.h">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\AngleValue.h">
+      <Filter>Speckle\Setting\Values\Measurement</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\LengthValue.h">
+      <Filter>Speckle\Setting\Values\Measurement</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\Values\Measurement\MeasuredValue.h">
+      <Filter>Speckle\Setting\Values\Measurement</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Generic\Base64Transport.h">
+      <Filter>Speckle\Serialise\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\XInfo.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\XList.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Geometry\XPoint.h">
+      <Filter>Speckle\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Attribute\Colour.h">
+      <Filter>Speckle\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Attribute\Finish.h">
+      <Filter>Speckle\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Attribute\Pen.h">
+      <Filter>Speckle\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Attribute\TextStyle.h">
+      <Filter>Speckle\Attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Event.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Message.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Participant.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\PostBox.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Publisher.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Subscriber.h">
+      <Filter>Speckle\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Setting\SettingList.h">
+      <Filter>Speckle\Setting</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Speckle\File\Directory.cpp">
+      <Filter>Speckle\File</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\File\File.cpp">
+      <Filter>Speckle\File</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\File\Path.cpp">
+      <Filter>Speckle\File</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\File\Interface\FSNode.cpp">
+      <Filter>Speckle\File\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Arc.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Box.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Faceter.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Leveller.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Line.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\LinEquation.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Matrix3x3.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Matrix4x4.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Plane.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Point.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\PolyEdge.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Polygon.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\PolyPoint.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Rotater.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Vector3.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Vector4.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\BufferIn.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\BufferOut.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\Guid.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\Memory.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\String.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\TextEncoding.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\Time.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\UniqueString.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\ValueSetting.cpp">
+      <Filter>Speckle\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Generic\HexTransport.cpp">
+      <Filter>Speckle\Serialise\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Inventory\Inventory.cpp">
+      <Filter>Speckle\Serialise\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\JSON\JSONTransport.cpp">
+      <Filter>Speckle\Serialise\JSON</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\XMLTransport.cpp">
+      <Filter>Speckle\Serialise\XML</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\Item\XMLDateTime.cpp">
+      <Filter>Speckle\Serialise\XML\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\Package\XMLProlog.cpp">
+      <Filter>Speckle\Serialise\XML\Package</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\XMLValueSetting.cpp">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPoint.cpp">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolyPoint.cpp">
+      <Filter>Speckle\Serialise\XML\Package\Wrapper\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Package\Pair.cpp">
+      <Filter>Speckle\Serialise\Package</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\Anchor2D.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Value.cpp">
+      <Filter>Speckle\Setting\Values</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Item\Item.cpp">
+      <Filter>Speckle\Serialise\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Item\Wrapper\AnyValueWrap.cpp">
+      <Filter>Speckle\Serialise\Item\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Document\Object.cpp">
+      <Filter>Speckle\Serialise\Document</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\AngleUnit.cpp">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\AreaUnit.cpp">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\LengthUnit.cpp">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\MassUnit.cpp">
+      <Filter>Speckle\Setting\Values\Measurement\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\Values\Measurement\AngleValue.cpp">
+      <Filter>Speckle\Setting\Values\Measurement</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Generic\Base64Transport.cpp">
+      <Filter>Speckle\Serialise\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\DataFormat.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\XList.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Geometry\XPoint.cpp">
+      <Filter>Speckle\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Attribute\Colour.cpp">
+      <Filter>Speckle\Attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Event\Publisher.cpp">
+      <Filter>Speckle\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Setting\SettingList.cpp">
+      <Filter>Speckle\Setting</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Speckle\CMakeLists.txt">
+      <Filter>Speckle</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Speckle\Event\Event.md">
+      <Filter>Speckle\Event</Filter>
+    </None>
+  </ItemGroup>
+</Project>

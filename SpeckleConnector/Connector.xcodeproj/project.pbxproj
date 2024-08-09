@@ -1,0 +1,1629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		2102A0A22B14B10C00AD42A8 /* Connector-AC27-EN-GB-Notarise */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2102A0A62B14B10C00AD42A8 /* Build configuration list for PBXAggregateTarget "Connector-AC27-EN-GB-Notarise" */;
+			buildPhases = (
+				2102A0A52B14B10C00AD42A8 /* Notarise */,
+			);
+			dependencies = (
+				2102A0AA2B14B13300AD42A8 /* PBXTargetDependency */,
+			);
+			name = "Connector-AC27-EN-GB-Notarise";
+			productName = "Connector-VW24-EN-GB-Notarise";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
+		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
+		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
+		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
+		21D1E9B02BF14AF200957EAA /* GXMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9182BF14AEC00957EAA /* GXMedia.framework */; };
+		21D1E9B12BF14AF200957EAA /* GXImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9192BF14AEC00957EAA /* GXImage.framework */; };
+		21D1E9B22BF14AF200957EAA /* TeamworkServerSession.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91A2BF14AEC00957EAA /* TeamworkServerSession.framework */; };
+		21D1E9B32BF14AF200957EAA /* VBElemEditingInteractions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91B2BF14AEC00957EAA /* VBElemEditingInteractions.framework */; };
+		21D1E9B42BF14AF200957EAA /* ProfileGeneratorEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91C2BF14AEC00957EAA /* ProfileGeneratorEngine.framework */; };
+		21D1E9B52BF14AF200957EAA /* TeamworkServerNotificationPublisherClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91D2BF14AEC00957EAA /* TeamworkServerNotificationPublisherClient.framework */; };
+		21D1E9B62BF14AF200957EAA /* TeamworkServerMailboxManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91E2BF14AEC00957EAA /* TeamworkServerMailboxManagerMessages.framework */; };
+		21D1E9B72BF14AF200957EAA /* PointCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E91F2BF14AEC00957EAA /* PointCloud.framework */; };
+		21D1E9B82BF14AF200957EAA /* TWClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9202BF14AEC00957EAA /* TWClient.framework */; };
+		21D1E9B92BF14AF200957EAA /* TeamworkServerImpersonationMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9212BF14AEC00957EAA /* TeamworkServerImpersonationMessages.framework */; };
+		21D1E9BA2BF14AF200957EAA /* InputOutput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9222BF14AEC00957EAA /* InputOutput.framework */; };
+		21D1E9BB2BF14AF200957EAA /* TeamworkServerMailboxManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9232BF14AEC00957EAA /* TeamworkServerMailboxManagerClient.framework */; };
+		21D1E9BC2BF14AF200957EAA /* TeamworkServerBlobStoreChunkerDefaultImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9242BF14AEC00957EAA /* TeamworkServerBlobStoreChunkerDefaultImplementation.framework */; };
+		21D1E9BD2BF14AF200957EAA /* RS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9252BF14AED00957EAA /* RS.framework */; };
+		21D1E9BE2BF14AF200957EAA /* TeamworkServerNotificationPublisherCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9262BF14AED00957EAA /* TeamworkServerNotificationPublisherCommon.framework */; };
+		21D1E9BF2BF14AF200957EAA /* UserInterfaceAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9272BF14AED00957EAA /* UserInterfaceAPI.framework */; };
+		21D1E9C02BF14AF200957EAA /* GSUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9282BF14AED00957EAA /* GSUtils.framework */; };
+		21D1E9C12BF14AF200957EAA /* VectorImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9292BF14AED00957EAA /* VectorImage.framework */; };
+		21D1E9C22BF14AF200957EAA /* GSXMLUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92A2BF14AED00957EAA /* GSXMLUtils.framework */; };
+		21D1E9C32BF14AF200957EAA /* TextEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92B2BF14AED00957EAA /* TextEngine.framework */; };
+		21D1E9C42BF14AF200957EAA /* TeamworkServerBlobStoreChunkImplementations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92C2BF14AED00957EAA /* TeamworkServerBlobStoreChunkImplementations.framework */; };
+		21D1E9C52BF14AF200957EAA /* TeamworkServerSessionMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92D2BF14AED00957EAA /* TeamworkServerSessionMessages.framework */; };
+		21D1E9C62BF14AF200957EAA /* TeamworkServerSessionClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92E2BF14AED00957EAA /* TeamworkServerSessionClient.framework */; };
+		21D1E9C72BF14AF200957EAA /* AttributeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E92F2BF14AED00957EAA /* AttributeManager.framework */; };
+		21D1E9C82BF14AF200957EAA /* MEPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9302BF14AED00957EAA /* MEPAPI.framework */; };
+		21D1E9C92BF14AF200957EAA /* IESData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9312BF14AED00957EAA /* IESData.framework */; };
+		21D1E9CA2BF14AF200957EAA /* TeamworkBlobCacheUploader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9322BF14AED00957EAA /* TeamworkBlobCacheUploader.framework */; };
+		21D1E9CB2BF14AF200957EAA /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9332BF14AED00957EAA /* JSON.framework */; };
+		21D1E9CC2BF14AF200957EAA /* TeamworkCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9342BF14AED00957EAA /* TeamworkCrypto.framework */; };
+		21D1E9CD2BF14AF200957EAA /* TeamworkServerBlobStoreMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9352BF14AED00957EAA /* TeamworkServerBlobStoreMessages.framework */; };
+		21D1E9CE2BF14AF200957EAA /* TeamworkChunkerFastCDC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9362BF14AED00957EAA /* TeamworkChunkerFastCDC.framework */; };
+		21D1E9CF2BF14AF200957EAA /* libACAP_STAT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9372BF14AED00957EAA /* libACAP_STAT.a */; };
+		21D1E9D02BF14AF200957EAA /* Undo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9382BF14AED00957EAA /* Undo.framework */; };
+		21D1E9D12BF14AF200957EAA /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9392BF14AED00957EAA /* Crypto.framework */; };
+		21D1E9D22BF14AF200957EAA /* TeamworkServerBlobStoreCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93A2BF14AED00957EAA /* TeamworkServerBlobStoreCommon.framework */; };
+		21D1E9D32BF14AF200957EAA /* DG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93B2BF14AED00957EAA /* DG.framework */; };
+		21D1E9D42BF14AF200957EAA /* TeamworkServerCommunicationMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93C2BF14AED00957EAA /* TeamworkServerCommunicationMessages.framework */; };
+		21D1E9D52BF14AF200957EAA /* BasicMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93D2BF14AEE00957EAA /* BasicMath.framework */; };
+		21D1E9D62BF14AF200957EAA /* Geometry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93E2BF14AEE00957EAA /* Geometry.framework */; };
+		21D1E9D72BF14AF200957EAA /* CommunicationClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E93F2BF14AEE00957EAA /* CommunicationClient.framework */; };
+		21D1E9D82BF14AF200957EAA /* BuiltInLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9402BF14AEE00957EAA /* BuiltInLibrary.framework */; };
+		21D1E9D92BF14AF200957EAA /* ACUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9412BF14AEE00957EAA /* ACUtilities.framework */; };
+		21D1E9DA2BF14AF200957EAA /* TeamworkServerResourceManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9422BF14AEE00957EAA /* TeamworkServerResourceManagerMessages.framework */; };
+		21D1E9DB2BF14AF200957EAA /* Model3DViewerControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9432BF14AEE00957EAA /* Model3DViewerControl.framework */; };
+		21D1E9DC2BF14AF200957EAA /* LibPartFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9442BF14AEE00957EAA /* LibPartFile.framework */; };
+		21D1E9DD2BF14AF200957EAA /* TeamworkServerJobManagerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9452BF14AEE00957EAA /* TeamworkServerJobManagerCommon.framework */; };
+		21D1E9DE2BF14AF200957EAA /* TeamworkServerBlobStoreChunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9462BF14AEE00957EAA /* TeamworkServerBlobStoreChunk.framework */; };
+		21D1E9DF2BF14AF200957EAA /* TeamworkServerJobManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9472BF14AEE00957EAA /* TeamworkServerJobManagerMessages.framework */; };
+		21D1E9E02BF14AF200957EAA /* VBElemOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9482BF14AEE00957EAA /* VBElemOperations.framework */; };
+		21D1E9E12BF14AF200957EAA /* TeamworkCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9492BF14AEE00957EAA /* TeamworkCommon.framework */; };
+		21D1E9E22BF14AF200957EAA /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94A2BF14AEE00957EAA /* Network.framework */; };
+		21D1E9E32BF14AF200957EAA /* TWRoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94B2BF14AEE00957EAA /* TWRoot.framework */; };
+		21D1E9E42BF14AF200957EAA /* UD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94C2BF14AEE00957EAA /* UD.framework */; };
+		21D1E9E52BF14AF200957EAA /* LibraryLocalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94D2BF14AEE00957EAA /* LibraryLocalization.framework */; };
+		21D1E9E62BF14AF200957EAA /* TeamworkBitManipulation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94E2BF14AEE00957EAA /* TeamworkBitManipulation.framework */; };
+		21D1E9E72BF14AF200957EAA /* ACOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E94F2BF14AEE00957EAA /* ACOperations.framework */; };
+		21D1E9E82BF14AF200957EAA /* GSModeler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9502BF14AEE00957EAA /* GSModeler.framework */; };
+		21D1E9E92BF14AF200957EAA /* GSZLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9512BF14AEE00957EAA /* GSZLib.framework */; };
+		21D1E9EA2BF14AF200957EAA /* GSModeler2D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9522BF14AEE00957EAA /* GSModeler2D.framework */; };
+		21D1E9EB2BF14AF200957EAA /* TeamworkCommons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9532BF14AEE00957EAA /* TeamworkCommons.framework */; };
+		21D1E9EC2BF14AF200957EAA /* TeamworkChunkerAbstractImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9542BF14AEF00957EAA /* TeamworkChunkerAbstractImplementation.framework */; };
+		21D1E9ED2BF14AF200957EAA /* CommunicationServiceDescription.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9552BF14AEF00957EAA /* CommunicationServiceDescription.framework */; };
+		21D1E9EE2BF14AF200957EAA /* TeamworkServerCommunicationClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9562BF14AEF00957EAA /* TeamworkServerCommunicationClient.framework */; };
+		21D1E9EF2BF14AF200957EAA /* TeamworkServerFileManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9572BF14AEF00957EAA /* TeamworkServerFileManagerClient.framework */; };
+		21D1E9F02BF14AF200957EAA /* TeamworkServerBlobStoreChunker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9582BF14AEF00957EAA /* TeamworkServerBlobStoreChunker.framework */; };
+		21D1E9F12BF14AF200957EAA /* TeamworkServerJobManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9592BF14AEF00957EAA /* TeamworkServerJobManagerClient.framework */; };
+		21D1E9F22BF14AF200957EAA /* ObjectDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95A2BF14AEF00957EAA /* ObjectDatabase.framework */; };
+		21D1E9F32BF14AF200957EAA /* ElementManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95B2BF14AEF00957EAA /* ElementManager.framework */; };
+		21D1E9F42BF14AF200957EAA /* JavascriptEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95C2BF14AEF00957EAA /* JavascriptEngine.framework */; };
+		21D1E9F52BF14AF200957EAA /* TeamworkBlobCacheDownloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95D2BF14AEF00957EAA /* TeamworkBlobCacheDownloader.framework */; };
+		21D1E9F62BF14AF200957EAA /* LibraryManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95E2BF14AEF00957EAA /* LibraryManager.framework */; };
+		21D1E9F72BF14AF200957EAA /* Classification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E95F2BF14AEF00957EAA /* Classification.framework */; };
+		21D1E9F82BF14AF200957EAA /* TeamworkServerProjectManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9602BF14AEF00957EAA /* TeamworkServerProjectManagerClient.framework */; };
+		21D1E9F92BF14AF200957EAA /* ObjectHierarchyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9612BF14AEF00957EAA /* ObjectHierarchyUtils.framework */; };
+		21D1E9FA2BF14AF200957EAA /* PointCloudManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9622BF14AEF00957EAA /* PointCloudManager.framework */; };
+		21D1E9FB2BF14AF200957EAA /* TeamworkBlobCacheClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9632BF14AEF00957EAA /* TeamworkBlobCacheClient.framework */; };
+		21D1E9FC2BF14AF200957EAA /* GSTestEnvironment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9642BF14AEF00957EAA /* GSTestEnvironment.framework */; };
+		21D1E9FD2BF14AF200957EAA /* UC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9652BF14AEF00957EAA /* UC.framework */; };
+		21D1E9FE2BF14AF200957EAA /* EditingInteractions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9662BF14AEF00957EAA /* EditingInteractions.framework */; };
+		21D1E9FF2BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9672BF14AEF00957EAA /* TeamworkServerAttachmentContainerManagerMessages.framework */; };
+		21D1EA002BF14AF200957EAA /* TeamworkBlobCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9682BF14AEF00957EAA /* TeamworkBlobCache.framework */; };
+		21D1EA012BF14AF200957EAA /* GSProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9692BF14AEF00957EAA /* GSProfiler.framework */; };
+		21D1EA022BF14AF200957EAA /* TeamworkConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96A2BF14AEF00957EAA /* TeamworkConfiguration.framework */; };
+		21D1EA032BF14AF200957EAA /* TeamworkServerBlobStoreHasherDefaultImplementation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96B2BF14AEF00957EAA /* TeamworkServerBlobStoreHasherDefaultImplementation.framework */; };
+		21D1EA042BF14AF200957EAA /* UsageLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96C2BF14AEF00957EAA /* UsageLogger.framework */; };
+		21D1EA052BF14AF200957EAA /* CommunicationCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96D2BF14AEF00957EAA /* CommunicationCommon.framework */; };
+		21D1EA062BF14AF200957EAA /* TeamworkServerBlobStoreUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96E2BF14AF000957EAA /* TeamworkServerBlobStoreUtils.framework */; };
+		21D1EA072BF14AF200957EAA /* InteroperabilitySupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E96F2BF14AF000957EAA /* InteroperabilitySupport.framework */; };
+		21D1EA082BF14AF200957EAA /* Measure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9702BF14AF000957EAA /* Measure.framework */; };
+		21D1EA092BF14AF200957EAA /* VBAttributes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9712BF14AF000957EAA /* VBAttributes.framework */; };
+		21D1EA0A2BF14AF200957EAA /* TeamworkServerProjectManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9722BF14AF000957EAA /* TeamworkServerProjectManagerMessages.framework */; };
+		21D1EA0B2BF14AF200957EAA /* DGGraphix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9732BF14AF000957EAA /* DGGraphix.framework */; };
+		21D1EA0C2BF14AF200957EAA /* TeamworkServerBlobStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9742BF14AF000957EAA /* TeamworkServerBlobStore.framework */; };
+		21D1EA0D2BF14AF200957EAA /* CommunicationServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9752BF14AF000957EAA /* CommunicationServer.framework */; };
+		21D1EA0E2BF14AF200957EAA /* TeamworkServerApplicationServerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9762BF14AF000957EAA /* TeamworkServerApplicationServerCommon.framework */; };
+		21D1EA0F2BF14AF200957EAA /* TeamworkCommonsCollections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9772BF14AF000957EAA /* TeamworkCommonsCollections.framework */; };
+		21D1EA102BF14AF200957EAA /* SecureCommunication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9782BF14AF000957EAA /* SecureCommunication.framework */; };
+		21D1EA112BF14AF200957EAA /* TeamworkServerProjectManagerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9792BF14AF000957EAA /* TeamworkServerProjectManagerCommon.framework */; };
+		21D1EA122BF14AF200957EAA /* Phasing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97A2BF14AF000957EAA /* Phasing.framework */; };
+		21D1EA132BF14AF200957EAA /* AnalyticalModelAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97B2BF14AF000957EAA /* AnalyticalModelAPI.framework */; };
+		21D1EA142BF14AF200957EAA /* TeamworkServerFileManagerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97C2BF14AF000957EAA /* TeamworkServerFileManagerMessages.framework */; };
+		21D1EA152BF14AF200957EAA /* TeamworkServerNotificationPublisherMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97D2BF14AF000957EAA /* TeamworkServerNotificationPublisherMessages.framework */; };
+		21D1EA162BF14AF200957EAA /* TWClientBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97E2BF14AF000957EAA /* TWClientBase.framework */; };
+		21D1EA172BF14AF200957EAA /* TeamworkServerBlobStoreHasher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E97F2BF14AF000957EAA /* TeamworkServerBlobStoreHasher.framework */; };
+		21D1EA182BF14AF200957EAA /* Graphix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9802BF14AF000957EAA /* Graphix.framework */; };
+		21D1EA192BF14AF200957EAA /* TeamworkChunker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9812BF14AF000957EAA /* TeamworkChunker.framework */; };
+		21D1EA1A2BF14AF200957EAA /* Property.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9822BF14AF000957EAA /* Property.framework */; };
+		21D1EA1B2BF14AF200957EAA /* APIAddOnBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9832BF14AF000957EAA /* APIAddOnBridge.framework */; };
+		21D1EA1C2BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9842BF14AF000957EAA /* TeamworkServerAttachmentContainerManagerClient.framework */; };
+		21D1EA1D2BF14AF200957EAA /* TeamworkServerEventLoggerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9852BF14AF000957EAA /* TeamworkServerEventLoggerClient.framework */; };
+		21D1EA1E2BF14AF200957EAA /* CADInfrastructureBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9862BF14AF000957EAA /* CADInfrastructureBase.framework */; };
+		21D1EA1F2BF14AF200957EAA /* CommunicationClientUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9872BF14AF000957EAA /* CommunicationClientUtils.framework */; };
+		21D1EA202BF14AF200957EAA /* DesignVariantAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9882BF14AF100957EAA /* DesignVariantAPI.framework */; };
+		21D1EA212BF14AF200957EAA /* ArchicadAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9892BF14AF100957EAA /* ArchicadAPI.framework */; };
+		21D1EA222BF14AF200957EAA /* Brep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98A2BF14AF100957EAA /* Brep.framework */; };
+		21D1EA232BF14AF200957EAA /* VBUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98B2BF14AF100957EAA /* VBUtils.framework */; };
+		21D1EA242BF14AF200957EAA /* GSRoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98C2BF14AF100957EAA /* GSRoot.framework */; };
+		21D1EA252BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98D2BF14AF100957EAA /* TeamworkServerAttachmentContainerManagerCommon.framework */; };
+		21D1EA262BF14AF200957EAA /* Model3D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98E2BF14AF100957EAA /* Model3D.framework */; };
+		21D1EA272BF14AF200957EAA /* JSONConversion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E98F2BF14AF100957EAA /* JSONConversion.framework */; };
+		21D1EA282BF14AF200957EAA /* JACK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9902BF14AF100957EAA /* JACK.framework */; };
+		21D1EA292BF14AF200957EAA /* GXImageBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9912BF14AF100957EAA /* GXImageBase.framework */; };
+		21D1EA2A2BF14AF200957EAA /* TeamworkServerMailboxManagerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9922BF14AF100957EAA /* TeamworkServerMailboxManagerCommon.framework */; };
+		21D1EA2B2BF14AF200957EAA /* HTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9932BF14AF100957EAA /* HTTP.framework */; };
+		21D1EA2C2BF14AF200957EAA /* Pattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9942BF14AF100957EAA /* Pattern.framework */; };
+		21D1EA2D2BF14AF200957EAA /* CommandConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9952BF14AF100957EAA /* CommandConnection.framework */; };
+		21D1EA2E2BF14AF200957EAA /* TeamworkServerApplicationServerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9962BF14AF100957EAA /* TeamworkServerApplicationServerMessages.framework */; };
+		21D1EA2F2BF14AF200957EAA /* GX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9972BF14AF100957EAA /* GX.framework */; };
+		21D1EA302BF14AF200957EAA /* ProfileGeometry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9982BF14AF100957EAA /* ProfileGeometry.framework */; };
+		21D1EA312BF14AF200957EAA /* TeamworkServerApplicationServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9992BF14AF100957EAA /* TeamworkServerApplicationServerClient.framework */; };
+		21D1EA322BF14AF200957EAA /* ObjectAlgorithms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99A2BF14AF100957EAA /* ObjectAlgorithms.framework */; };
+		21D1EA332BF14AF200957EAA /* GSXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99B2BF14AF100957EAA /* GSXML.framework */; };
+		21D1EA342BF14AF200957EAA /* TeamworkBlobCacheMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99C2BF14AF100957EAA /* TeamworkBlobCacheMessages.framework */; };
+		21D1EA352BF14AF200957EAA /* TeamworkServerEventLoggerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99D2BF14AF100957EAA /* TeamworkServerEventLoggerCommon.framework */; };
+		21D1EA362BF14AF200957EAA /* TeamworkServerResourceManagerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99E2BF14AF100957EAA /* TeamworkServerResourceManagerClient.framework */; };
+		21D1EA372BF14AF200957EAA /* TransparentWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E99F2BF14AF100957EAA /* TransparentWindow.framework */; };
+		21D1EA382BF14AF200957EAA /* VBElemDialogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A02BF14AF100957EAA /* VBElemDialogs.framework */; };
+		21D1EA392BF14AF200957EAA /* VBElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A12BF14AF100957EAA /* VBElements.framework */; };
+		21D1EA3A2BF14AF200957EAA /* GSMSections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A22BF14AF200957EAA /* GSMSections.framework */; };
+		21D1EA3B2BF14AF200957EAA /* TeamworkServerBlobStoreClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A32BF14AF200957EAA /* TeamworkServerBlobStoreClient.framework */; };
+		21D1EA3C2BF14AF200957EAA /* Ssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A42BF14AF200957EAA /* Ssl.framework */; };
+		21D1EA3D2BF14AF200957EAA /* APICore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A52BF14AF200957EAA /* APICore.framework */; };
+		21D1EA3E2BF14AF200957EAA /* TeamworkServerImpersonationClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A62BF14AF200957EAA /* TeamworkServerImpersonationClient.framework */; };
+		21D1EA3F2BF14AF200957EAA /* GSDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A72BF14AF200957EAA /* GSDisplay.framework */; };
+		21D1EA402BF14AF200957EAA /* TeamworkServerResourceManagerEntities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A82BF14AF200957EAA /* TeamworkServerResourceManagerEntities.framework */; };
+		21D1EA412BF14AF200957EAA /* TeamworkServerEventLoggerMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9A92BF14AF200957EAA /* TeamworkServerEventLoggerMessages.framework */; };
+		21D1EA422BF14AF200957EAA /* TeamworkCommonsSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AA2BF14AF200957EAA /* TeamworkCommonsSecurity.framework */; };
+		21D1EA432BF14AF200957EAA /* GeoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AB2BF14AF200957EAA /* GeoLocation.framework */; };
+		21D1EA442BF14AF200957EAA /* TeamworkProductVersion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */; };
+		21F69ED42C64D40A008B6A06 /* Connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69ED22C64D40A008B6A06 /* Connector.cpp */; };
+		21F69ED72C64D417008B6A06 /* ConnectorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */; };
+		21F69EEC2C64FE31008B6A06 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
+		21F69EF82C64FE9B008B6A06 /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
+		21F69EFB2C6501AC008B6A06 /* ConnectorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2102A0A92B14B13300AD42A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 213CC3942B1101F500088049;
+			remoteInfo = "Connector-AC27-EN-GB";
+		};
+		21F69ECC2C64C035008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21379E082AE47A6400A1584C;
+			remoteInfo = Archicad27;
+		};
+		21F69ECE2C64C035008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 212A87EF2AE4868C001EAFE7;
+			remoteInfo = "SpeckleLib-test";
+		};
+		21F69EE12C64FE21008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21379E072AE47A6400A1584C;
+			remoteInfo = Archicad27;
+		};
+		21F69EF02C64FE91008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21379E072AE47A6400A1584C;
+			remoteInfo = ActiveLib;
+		};
+		21F69EF42C64FE91008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21379E082AE47A6400A1584C;
+			remoteInfo = ActiveLib;
+		};
+		21F69EF62C64FE91008B6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 212A87EF2AE4868C001EAFE7;
+			remoteInfo = "ActiveLib-test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		213CC3A52B1101F500088049 /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
+		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
+		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
+		21D1E9182BF14AEC00957EAA /* GXMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXMedia.framework; path = "../Archicad 27/Support/Frameworks/GXMedia.framework"; sourceTree = "<group>"; };
+		21D1E9192BF14AEC00957EAA /* GXImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXImage.framework; path = "../Archicad 27/Support/Frameworks/GXImage.framework"; sourceTree = "<group>"; };
+		21D1E91A2BF14AEC00957EAA /* TeamworkServerSession.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerSession.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerSession.framework"; sourceTree = "<group>"; };
+		21D1E91B2BF14AEC00957EAA /* VBElemEditingInteractions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElemEditingInteractions.framework; path = "../Archicad 27/Support/Frameworks/VBElemEditingInteractions.framework"; sourceTree = "<group>"; };
+		21D1E91C2BF14AEC00957EAA /* ProfileGeneratorEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProfileGeneratorEngine.framework; path = "../Archicad 27/Support/Frameworks/ProfileGeneratorEngine.framework"; sourceTree = "<group>"; };
+		21D1E91D2BF14AEC00957EAA /* TeamworkServerNotificationPublisherClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerNotificationPublisherClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerNotificationPublisherClient.framework"; sourceTree = "<group>"; };
+		21D1E91E2BF14AEC00957EAA /* TeamworkServerMailboxManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerMailboxManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerMailboxManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E91F2BF14AEC00957EAA /* PointCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PointCloud.framework; path = "../Archicad 27/Support/Frameworks/PointCloud.framework"; sourceTree = "<group>"; };
+		21D1E9202BF14AEC00957EAA /* TWClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TWClient.framework; path = "../Archicad 27/Support/Frameworks/TWClient.framework"; sourceTree = "<group>"; };
+		21D1E9212BF14AEC00957EAA /* TeamworkServerImpersonationMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerImpersonationMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerImpersonationMessages.framework"; sourceTree = "<group>"; };
+		21D1E9222BF14AEC00957EAA /* InputOutput.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InputOutput.framework; path = "../Archicad 27/Support/Frameworks/InputOutput.framework"; sourceTree = "<group>"; };
+		21D1E9232BF14AEC00957EAA /* TeamworkServerMailboxManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerMailboxManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerMailboxManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E9242BF14AEC00957EAA /* TeamworkServerBlobStoreChunkerDefaultImplementation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreChunkerDefaultImplementation.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreChunkerDefaultImplementation.framework"; sourceTree = "<group>"; };
+		21D1E9252BF14AED00957EAA /* RS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RS.framework; path = "../Archicad 27/Support/Frameworks/RS.framework"; sourceTree = "<group>"; };
+		21D1E9262BF14AED00957EAA /* TeamworkServerNotificationPublisherCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerNotificationPublisherCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerNotificationPublisherCommon.framework"; sourceTree = "<group>"; };
+		21D1E9272BF14AED00957EAA /* UserInterfaceAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserInterfaceAPI.framework; path = "../Archicad 27/Support/Frameworks/UserInterfaceAPI.framework"; sourceTree = "<group>"; };
+		21D1E9282BF14AED00957EAA /* GSUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSUtils.framework; path = "../Archicad 27/Support/Frameworks/GSUtils.framework"; sourceTree = "<group>"; };
+		21D1E9292BF14AED00957EAA /* VectorImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VectorImage.framework; path = "../Archicad 27/Support/Frameworks/VectorImage.framework"; sourceTree = "<group>"; };
+		21D1E92A2BF14AED00957EAA /* GSXMLUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSXMLUtils.framework; path = "../Archicad 27/Support/Frameworks/GSXMLUtils.framework"; sourceTree = "<group>"; };
+		21D1E92B2BF14AED00957EAA /* TextEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextEngine.framework; path = "../Archicad 27/Support/Frameworks/TextEngine.framework"; sourceTree = "<group>"; };
+		21D1E92C2BF14AED00957EAA /* TeamworkServerBlobStoreChunkImplementations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreChunkImplementations.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreChunkImplementations.framework"; sourceTree = "<group>"; };
+		21D1E92D2BF14AED00957EAA /* TeamworkServerSessionMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerSessionMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerSessionMessages.framework"; sourceTree = "<group>"; };
+		21D1E92E2BF14AED00957EAA /* TeamworkServerSessionClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerSessionClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerSessionClient.framework"; sourceTree = "<group>"; };
+		21D1E92F2BF14AED00957EAA /* AttributeManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AttributeManager.framework; path = "../Archicad 27/Support/Frameworks/AttributeManager.framework"; sourceTree = "<group>"; };
+		21D1E9302BF14AED00957EAA /* MEPAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MEPAPI.framework; path = "../Archicad 27/Support/Frameworks/MEPAPI.framework"; sourceTree = "<group>"; };
+		21D1E9312BF14AED00957EAA /* IESData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IESData.framework; path = "../Archicad 27/Support/Frameworks/IESData.framework"; sourceTree = "<group>"; };
+		21D1E9322BF14AED00957EAA /* TeamworkBlobCacheUploader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBlobCacheUploader.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBlobCacheUploader.framework"; sourceTree = "<group>"; };
+		21D1E9332BF14AED00957EAA /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = "../Archicad 27/Support/Frameworks/JSON.framework"; sourceTree = "<group>"; };
+		21D1E9342BF14AED00957EAA /* TeamworkCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkCrypto.framework; path = "../Archicad 27/Support/Frameworks/TeamworkCrypto.framework"; sourceTree = "<group>"; };
+		21D1E9352BF14AED00957EAA /* TeamworkServerBlobStoreMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreMessages.framework"; sourceTree = "<group>"; };
+		21D1E9362BF14AED00957EAA /* TeamworkChunkerFastCDC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkChunkerFastCDC.framework; path = "../Archicad 27/Support/Frameworks/TeamworkChunkerFastCDC.framework"; sourceTree = "<group>"; };
+		21D1E9372BF14AED00957EAA /* libACAP_STAT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libACAP_STAT.a; path = "../Archicad 27/Support/Lib/libACAP_STAT.a"; sourceTree = "<group>"; };
+		21D1E9382BF14AED00957EAA /* Undo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Undo.framework; path = "../Archicad 27/Support/Frameworks/Undo.framework"; sourceTree = "<group>"; };
+		21D1E9392BF14AED00957EAA /* Crypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crypto.framework; path = "../Archicad 27/Support/Frameworks/Crypto.framework"; sourceTree = "<group>"; };
+		21D1E93A2BF14AED00957EAA /* TeamworkServerBlobStoreCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreCommon.framework"; sourceTree = "<group>"; };
+		21D1E93B2BF14AED00957EAA /* DG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DG.framework; path = "../Archicad 27/Support/Frameworks/DG.framework"; sourceTree = "<group>"; };
+		21D1E93C2BF14AED00957EAA /* TeamworkServerCommunicationMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerCommunicationMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerCommunicationMessages.framework"; sourceTree = "<group>"; };
+		21D1E93D2BF14AEE00957EAA /* BasicMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BasicMath.framework; path = "../Archicad 27/Support/Frameworks/BasicMath.framework"; sourceTree = "<group>"; };
+		21D1E93E2BF14AEE00957EAA /* Geometry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geometry.framework; path = "../Archicad 27/Support/Frameworks/Geometry.framework"; sourceTree = "<group>"; };
+		21D1E93F2BF14AEE00957EAA /* CommunicationClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationClient.framework; path = "../Archicad 27/Support/Frameworks/CommunicationClient.framework"; sourceTree = "<group>"; };
+		21D1E9402BF14AEE00957EAA /* BuiltInLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuiltInLibrary.framework; path = "../Archicad 27/Support/Frameworks/BuiltInLibrary.framework"; sourceTree = "<group>"; };
+		21D1E9412BF14AEE00957EAA /* ACUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ACUtilities.framework; path = "../Archicad 27/Support/Frameworks/ACUtilities.framework"; sourceTree = "<group>"; };
+		21D1E9422BF14AEE00957EAA /* TeamworkServerResourceManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerResourceManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerResourceManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9432BF14AEE00957EAA /* Model3DViewerControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Model3DViewerControl.framework; path = "../Archicad 27/Support/Frameworks/Model3DViewerControl.framework"; sourceTree = "<group>"; };
+		21D1E9442BF14AEE00957EAA /* LibPartFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LibPartFile.framework; path = "../Archicad 27/Support/Frameworks/LibPartFile.framework"; sourceTree = "<group>"; };
+		21D1E9452BF14AEE00957EAA /* TeamworkServerJobManagerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerJobManagerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerJobManagerCommon.framework"; sourceTree = "<group>"; };
+		21D1E9462BF14AEE00957EAA /* TeamworkServerBlobStoreChunk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreChunk.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreChunk.framework"; sourceTree = "<group>"; };
+		21D1E9472BF14AEE00957EAA /* TeamworkServerJobManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerJobManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerJobManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9482BF14AEE00957EAA /* VBElemOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElemOperations.framework; path = "../Archicad 27/Support/Frameworks/VBElemOperations.framework"; sourceTree = "<group>"; };
+		21D1E9492BF14AEE00957EAA /* TeamworkCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkCommon.framework"; sourceTree = "<group>"; };
+		21D1E94A2BF14AEE00957EAA /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = "../Archicad 27/Support/Frameworks/Network.framework"; sourceTree = "<group>"; };
+		21D1E94B2BF14AEE00957EAA /* TWRoot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TWRoot.framework; path = "../Archicad 27/Support/Frameworks/TWRoot.framework"; sourceTree = "<group>"; };
+		21D1E94C2BF14AEE00957EAA /* UD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UD.framework; path = "../Archicad 27/Support/Frameworks/UD.framework"; sourceTree = "<group>"; };
+		21D1E94D2BF14AEE00957EAA /* LibraryLocalization.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LibraryLocalization.framework; path = "../Archicad 27/Support/Frameworks/LibraryLocalization.framework"; sourceTree = "<group>"; };
+		21D1E94E2BF14AEE00957EAA /* TeamworkBitManipulation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBitManipulation.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBitManipulation.framework"; sourceTree = "<group>"; };
+		21D1E94F2BF14AEE00957EAA /* ACOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ACOperations.framework; path = "../Archicad 27/Support/Frameworks/ACOperations.framework"; sourceTree = "<group>"; };
+		21D1E9502BF14AEE00957EAA /* GSModeler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSModeler.framework; path = "../Archicad 27/Support/Frameworks/GSModeler.framework"; sourceTree = "<group>"; };
+		21D1E9512BF14AEE00957EAA /* GSZLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSZLib.framework; path = "../Archicad 27/Support/Frameworks/GSZLib.framework"; sourceTree = "<group>"; };
+		21D1E9522BF14AEE00957EAA /* GSModeler2D.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSModeler2D.framework; path = "../Archicad 27/Support/Frameworks/GSModeler2D.framework"; sourceTree = "<group>"; };
+		21D1E9532BF14AEE00957EAA /* TeamworkCommons.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkCommons.framework; path = "../Archicad 27/Support/Frameworks/TeamworkCommons.framework"; sourceTree = "<group>"; };
+		21D1E9542BF14AEF00957EAA /* TeamworkChunkerAbstractImplementation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkChunkerAbstractImplementation.framework; path = "../Archicad 27/Support/Frameworks/TeamworkChunkerAbstractImplementation.framework"; sourceTree = "<group>"; };
+		21D1E9552BF14AEF00957EAA /* CommunicationServiceDescription.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationServiceDescription.framework; path = "../Archicad 27/Support/Frameworks/CommunicationServiceDescription.framework"; sourceTree = "<group>"; };
+		21D1E9562BF14AEF00957EAA /* TeamworkServerCommunicationClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerCommunicationClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerCommunicationClient.framework"; sourceTree = "<group>"; };
+		21D1E9572BF14AEF00957EAA /* TeamworkServerFileManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerFileManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerFileManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E9582BF14AEF00957EAA /* TeamworkServerBlobStoreChunker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreChunker.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreChunker.framework"; sourceTree = "<group>"; };
+		21D1E9592BF14AEF00957EAA /* TeamworkServerJobManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerJobManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerJobManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E95A2BF14AEF00957EAA /* ObjectDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectDatabase.framework; path = "../Archicad 27/Support/Frameworks/ObjectDatabase.framework"; sourceTree = "<group>"; };
+		21D1E95B2BF14AEF00957EAA /* ElementManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ElementManager.framework; path = "../Archicad 27/Support/Frameworks/ElementManager.framework"; sourceTree = "<group>"; };
+		21D1E95C2BF14AEF00957EAA /* JavascriptEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavascriptEngine.framework; path = "../Archicad 27/Support/Frameworks/JavascriptEngine.framework"; sourceTree = "<group>"; };
+		21D1E95D2BF14AEF00957EAA /* TeamworkBlobCacheDownloader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBlobCacheDownloader.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBlobCacheDownloader.framework"; sourceTree = "<group>"; };
+		21D1E95E2BF14AEF00957EAA /* LibraryManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LibraryManager.framework; path = "../Archicad 27/Support/Frameworks/LibraryManager.framework"; sourceTree = "<group>"; };
+		21D1E95F2BF14AEF00957EAA /* Classification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Classification.framework; path = "../Archicad 27/Support/Frameworks/Classification.framework"; sourceTree = "<group>"; };
+		21D1E9602BF14AEF00957EAA /* TeamworkServerProjectManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerProjectManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerProjectManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E9612BF14AEF00957EAA /* ObjectHierarchyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectHierarchyUtils.framework; path = "../Archicad 27/Support/Frameworks/ObjectHierarchyUtils.framework"; sourceTree = "<group>"; };
+		21D1E9622BF14AEF00957EAA /* PointCloudManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PointCloudManager.framework; path = "../Archicad 27/Support/Frameworks/PointCloudManager.framework"; sourceTree = "<group>"; };
+		21D1E9632BF14AEF00957EAA /* TeamworkBlobCacheClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBlobCacheClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBlobCacheClient.framework"; sourceTree = "<group>"; };
+		21D1E9642BF14AEF00957EAA /* GSTestEnvironment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSTestEnvironment.framework; path = "../Archicad 27/Support/Frameworks/GSTestEnvironment.framework"; sourceTree = "<group>"; };
+		21D1E9652BF14AEF00957EAA /* UC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UC.framework; path = "../Archicad 27/Support/Frameworks/UC.framework"; sourceTree = "<group>"; };
+		21D1E9662BF14AEF00957EAA /* EditingInteractions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EditingInteractions.framework; path = "../Archicad 27/Support/Frameworks/EditingInteractions.framework"; sourceTree = "<group>"; };
+		21D1E9672BF14AEF00957EAA /* TeamworkServerAttachmentContainerManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerAttachmentContainerManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerAttachmentContainerManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9682BF14AEF00957EAA /* TeamworkBlobCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBlobCache.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBlobCache.framework"; sourceTree = "<group>"; };
+		21D1E9692BF14AEF00957EAA /* GSProfiler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSProfiler.framework; path = "../Archicad 27/Support/Frameworks/GSProfiler.framework"; sourceTree = "<group>"; };
+		21D1E96A2BF14AEF00957EAA /* TeamworkConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkConfiguration.framework; path = "../Archicad 27/Support/Frameworks/TeamworkConfiguration.framework"; sourceTree = "<group>"; };
+		21D1E96B2BF14AEF00957EAA /* TeamworkServerBlobStoreHasherDefaultImplementation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreHasherDefaultImplementation.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreHasherDefaultImplementation.framework"; sourceTree = "<group>"; };
+		21D1E96C2BF14AEF00957EAA /* UsageLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UsageLogger.framework; path = "../Archicad 27/Support/Frameworks/UsageLogger.framework"; sourceTree = "<group>"; };
+		21D1E96D2BF14AEF00957EAA /* CommunicationCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationCommon.framework; path = "../Archicad 27/Support/Frameworks/CommunicationCommon.framework"; sourceTree = "<group>"; };
+		21D1E96E2BF14AF000957EAA /* TeamworkServerBlobStoreUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreUtils.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreUtils.framework"; sourceTree = "<group>"; };
+		21D1E96F2BF14AF000957EAA /* InteroperabilitySupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InteroperabilitySupport.framework; path = "../Archicad 27/Support/Frameworks/InteroperabilitySupport.framework"; sourceTree = "<group>"; };
+		21D1E9702BF14AF000957EAA /* Measure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Measure.framework; path = "../Archicad 27/Support/Frameworks/Measure.framework"; sourceTree = "<group>"; };
+		21D1E9712BF14AF000957EAA /* VBAttributes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBAttributes.framework; path = "../Archicad 27/Support/Frameworks/VBAttributes.framework"; sourceTree = "<group>"; };
+		21D1E9722BF14AF000957EAA /* TeamworkServerProjectManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerProjectManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerProjectManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9732BF14AF000957EAA /* DGGraphix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DGGraphix.framework; path = "../Archicad 27/Support/Frameworks/DGGraphix.framework"; sourceTree = "<group>"; };
+		21D1E9742BF14AF000957EAA /* TeamworkServerBlobStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStore.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStore.framework"; sourceTree = "<group>"; };
+		21D1E9752BF14AF000957EAA /* CommunicationServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationServer.framework; path = "../Archicad 27/Support/Frameworks/CommunicationServer.framework"; sourceTree = "<group>"; };
+		21D1E9762BF14AF000957EAA /* TeamworkServerApplicationServerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerApplicationServerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerApplicationServerCommon.framework"; sourceTree = "<group>"; };
+		21D1E9772BF14AF000957EAA /* TeamworkCommonsCollections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkCommonsCollections.framework; path = "../Archicad 27/Support/Frameworks/TeamworkCommonsCollections.framework"; sourceTree = "<group>"; };
+		21D1E9782BF14AF000957EAA /* SecureCommunication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecureCommunication.framework; path = "../Archicad 27/Support/Frameworks/SecureCommunication.framework"; sourceTree = "<group>"; };
+		21D1E9792BF14AF000957EAA /* TeamworkServerProjectManagerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerProjectManagerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerProjectManagerCommon.framework"; sourceTree = "<group>"; };
+		21D1E97A2BF14AF000957EAA /* Phasing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Phasing.framework; path = "../Archicad 27/Support/Frameworks/Phasing.framework"; sourceTree = "<group>"; };
+		21D1E97B2BF14AF000957EAA /* AnalyticalModelAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnalyticalModelAPI.framework; path = "../Archicad 27/Support/Frameworks/AnalyticalModelAPI.framework"; sourceTree = "<group>"; };
+		21D1E97C2BF14AF000957EAA /* TeamworkServerFileManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerFileManagerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerFileManagerMessages.framework"; sourceTree = "<group>"; };
+		21D1E97D2BF14AF000957EAA /* TeamworkServerNotificationPublisherMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerNotificationPublisherMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerNotificationPublisherMessages.framework"; sourceTree = "<group>"; };
+		21D1E97E2BF14AF000957EAA /* TWClientBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TWClientBase.framework; path = "../Archicad 27/Support/Frameworks/TWClientBase.framework"; sourceTree = "<group>"; };
+		21D1E97F2BF14AF000957EAA /* TeamworkServerBlobStoreHasher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreHasher.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreHasher.framework"; sourceTree = "<group>"; };
+		21D1E9802BF14AF000957EAA /* Graphix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Graphix.framework; path = "../Archicad 27/Support/Frameworks/Graphix.framework"; sourceTree = "<group>"; };
+		21D1E9812BF14AF000957EAA /* TeamworkChunker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkChunker.framework; path = "../Archicad 27/Support/Frameworks/TeamworkChunker.framework"; sourceTree = "<group>"; };
+		21D1E9822BF14AF000957EAA /* Property.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Property.framework; path = "../Archicad 27/Support/Frameworks/Property.framework"; sourceTree = "<group>"; };
+		21D1E9832BF14AF000957EAA /* APIAddOnBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIAddOnBridge.framework; path = "../Archicad 27/Support/Frameworks/APIAddOnBridge.framework"; sourceTree = "<group>"; };
+		21D1E9842BF14AF000957EAA /* TeamworkServerAttachmentContainerManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerAttachmentContainerManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerAttachmentContainerManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E9852BF14AF000957EAA /* TeamworkServerEventLoggerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerEventLoggerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerEventLoggerClient.framework"; sourceTree = "<group>"; };
+		21D1E9862BF14AF000957EAA /* CADInfrastructureBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CADInfrastructureBase.framework; path = "../Archicad 27/Support/Frameworks/CADInfrastructureBase.framework"; sourceTree = "<group>"; };
+		21D1E9872BF14AF000957EAA /* CommunicationClientUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationClientUtils.framework; path = "../Archicad 27/Support/Frameworks/CommunicationClientUtils.framework"; sourceTree = "<group>"; };
+		21D1E9882BF14AF100957EAA /* DesignVariantAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DesignVariantAPI.framework; path = "../Archicad 27/Support/Frameworks/DesignVariantAPI.framework"; sourceTree = "<group>"; };
+		21D1E9892BF14AF100957EAA /* ArchicadAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArchicadAPI.framework; path = "../Archicad 27/Support/Frameworks/ArchicadAPI.framework"; sourceTree = "<group>"; };
+		21D1E98A2BF14AF100957EAA /* Brep.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Brep.framework; path = "../Archicad 27/Support/Frameworks/Brep.framework"; sourceTree = "<group>"; };
+		21D1E98B2BF14AF100957EAA /* VBUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBUtils.framework; path = "../Archicad 27/Support/Frameworks/VBUtils.framework"; sourceTree = "<group>"; };
+		21D1E98C2BF14AF100957EAA /* GSRoot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSRoot.framework; path = "../Archicad 27/Support/Frameworks/GSRoot.framework"; sourceTree = "<group>"; };
+		21D1E98D2BF14AF100957EAA /* TeamworkServerAttachmentContainerManagerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerAttachmentContainerManagerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerAttachmentContainerManagerCommon.framework"; sourceTree = "<group>"; };
+		21D1E98E2BF14AF100957EAA /* Model3D.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Model3D.framework; path = "../Archicad 27/Support/Frameworks/Model3D.framework"; sourceTree = "<group>"; };
+		21D1E98F2BF14AF100957EAA /* JSONConversion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONConversion.framework; path = "../Archicad 27/Support/Frameworks/JSONConversion.framework"; sourceTree = "<group>"; };
+		21D1E9902BF14AF100957EAA /* JACK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JACK.framework; path = "../Archicad 27/Support/Frameworks/JACK.framework"; sourceTree = "<group>"; };
+		21D1E9912BF14AF100957EAA /* GXImageBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXImageBase.framework; path = "../Archicad 27/Support/Frameworks/GXImageBase.framework"; sourceTree = "<group>"; };
+		21D1E9922BF14AF100957EAA /* TeamworkServerMailboxManagerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerMailboxManagerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerMailboxManagerCommon.framework"; sourceTree = "<group>"; };
+		21D1E9932BF14AF100957EAA /* HTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTTP.framework; path = "../Archicad 27/Support/Frameworks/HTTP.framework"; sourceTree = "<group>"; };
+		21D1E9942BF14AF100957EAA /* Pattern.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pattern.framework; path = "../Archicad 27/Support/Frameworks/Pattern.framework"; sourceTree = "<group>"; };
+		21D1E9952BF14AF100957EAA /* CommandConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommandConnection.framework; path = "../Archicad 27/Support/Frameworks/CommandConnection.framework"; sourceTree = "<group>"; };
+		21D1E9962BF14AF100957EAA /* TeamworkServerApplicationServerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerApplicationServerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerApplicationServerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9972BF14AF100957EAA /* GX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GX.framework; path = "../Archicad 27/Support/Frameworks/GX.framework"; sourceTree = "<group>"; };
+		21D1E9982BF14AF100957EAA /* ProfileGeometry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProfileGeometry.framework; path = "../Archicad 27/Support/Frameworks/ProfileGeometry.framework"; sourceTree = "<group>"; };
+		21D1E9992BF14AF100957EAA /* TeamworkServerApplicationServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerApplicationServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerApplicationServerClient.framework"; sourceTree = "<group>"; };
+		21D1E99A2BF14AF100957EAA /* ObjectAlgorithms.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectAlgorithms.framework; path = "../Archicad 27/Support/Frameworks/ObjectAlgorithms.framework"; sourceTree = "<group>"; };
+		21D1E99B2BF14AF100957EAA /* GSXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSXML.framework; path = "../Archicad 27/Support/Frameworks/GSXML.framework"; sourceTree = "<group>"; };
+		21D1E99C2BF14AF100957EAA /* TeamworkBlobCacheMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkBlobCacheMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkBlobCacheMessages.framework"; sourceTree = "<group>"; };
+		21D1E99D2BF14AF100957EAA /* TeamworkServerEventLoggerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerEventLoggerCommon.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerEventLoggerCommon.framework"; sourceTree = "<group>"; };
+		21D1E99E2BF14AF100957EAA /* TeamworkServerResourceManagerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerResourceManagerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerResourceManagerClient.framework"; sourceTree = "<group>"; };
+		21D1E99F2BF14AF100957EAA /* TransparentWindow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TransparentWindow.framework; path = "../Archicad 27/Support/Frameworks/TransparentWindow.framework"; sourceTree = "<group>"; };
+		21D1E9A02BF14AF100957EAA /* VBElemDialogs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElemDialogs.framework; path = "../Archicad 27/Support/Frameworks/VBElemDialogs.framework"; sourceTree = "<group>"; };
+		21D1E9A12BF14AF100957EAA /* VBElements.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElements.framework; path = "../Archicad 27/Support/Frameworks/VBElements.framework"; sourceTree = "<group>"; };
+		21D1E9A22BF14AF200957EAA /* GSMSections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSMSections.framework; path = "../Archicad 27/Support/Frameworks/GSMSections.framework"; sourceTree = "<group>"; };
+		21D1E9A32BF14AF200957EAA /* TeamworkServerBlobStoreClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerBlobStoreClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerBlobStoreClient.framework"; sourceTree = "<group>"; };
+		21D1E9A42BF14AF200957EAA /* Ssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ssl.framework; path = "../Archicad 27/Support/Frameworks/Ssl.framework"; sourceTree = "<group>"; };
+		21D1E9A52BF14AF200957EAA /* APICore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APICore.framework; path = "../Archicad 27/Support/Frameworks/APICore.framework"; sourceTree = "<group>"; };
+		21D1E9A62BF14AF200957EAA /* TeamworkServerImpersonationClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerImpersonationClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerImpersonationClient.framework"; sourceTree = "<group>"; };
+		21D1E9A72BF14AF200957EAA /* GSDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSDisplay.framework; path = "../Archicad 27/Support/Frameworks/GSDisplay.framework"; sourceTree = "<group>"; };
+		21D1E9A82BF14AF200957EAA /* TeamworkServerResourceManagerEntities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerResourceManagerEntities.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerResourceManagerEntities.framework"; sourceTree = "<group>"; };
+		21D1E9A92BF14AF200957EAA /* TeamworkServerEventLoggerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerEventLoggerMessages.framework; path = "../Archicad 27/Support/Frameworks/TeamworkServerEventLoggerMessages.framework"; sourceTree = "<group>"; };
+		21D1E9AA2BF14AF200957EAA /* TeamworkCommonsSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkCommonsSecurity.framework; path = "../Archicad 27/Support/Frameworks/TeamworkCommonsSecurity.framework"; sourceTree = "<group>"; };
+		21D1E9AB2BF14AF200957EAA /* GeoLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GeoLocation.framework; path = "../Archicad 27/Support/Frameworks/GeoLocation.framework"; sourceTree = "<group>"; };
+		21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkProductVersion.framework; path = "../Archicad 27/Support/Frameworks/TeamworkProductVersion.framework"; sourceTree = "<group>"; };
+		21D1EA452BF14B0700957EAA /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = "../Vectorworks 2024/SDKLib/LibMac/Release/VWMM.framework"; sourceTree = "<group>"; };
+		21D1EA4A2BF14BBC00957EAA /* Connector.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = Connector.grc; path = RINT/Connector.grc; sourceTree = "<group>"; };
+		21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
+		21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Module-Info27.plist"; path = "RINT.Archicad/EN-GB/Module-Info27.plist"; sourceTree = "<group>"; };
+		21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeckleLib.xcodeproj; path = ../SpeckleLib/SpeckleLib.xcodeproj; sourceTree = "<group>"; };
+		21F69ED22C64D40A008B6A06 /* Connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Connector.cpp; path = Connector/Connector.cpp; sourceTree = "<group>"; };
+		21F69ED32C64D40A008B6A06 /* ConnectorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorResource.h; path = Connector/ConnectorResource.h; sourceTree = "<group>"; };
+		21F69ED52C64D417008B6A06 /* ConnectorMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorMenu.h; path = Connector/Interface/ConnectorMenu.h; sourceTree = SOURCE_ROOT; };
+		21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectorMenu.cpp; path = Connector/Interface/ConnectorMenu.cpp; sourceTree = SOURCE_ROOT; };
+		21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorMenu.grc; path = RINT/ConnectorMenu.grc; sourceTree = "<group>"; };
+		21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ActiveLib.xcodeproj; path = /Users/rwessel/Documents/Development/ActiveLib/ActiveLib.xcodeproj; sourceTree = "<absolute>"; };
+		21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectorPalette.cpp; path = Connector/Interface/ConnectorPalette.cpp; sourceTree = SOURCE_ROOT; };
+		21F69EFA2C6501AC008B6A06 /* ConnectorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorPalette.h; path = Connector/Interface/ConnectorPalette.h; sourceTree = SOURCE_ROOT; };
+		21F69EFC2C65062F008B6A06 /* ConnectorEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectorEventID.h; sourceTree = "<group>"; };
+		21F69EFE2C66AD55008B6A06 /* SpecklePalette.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = SpecklePalette.grc; path = RINT/SpecklePalette.grc; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		213CC39A2B1101F500088049 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F69EF82C64FE9B008B6A06 /* libActiveLib.a in Frameworks */,
+				21F69EEC2C64FE31008B6A06 /* libArchicad27.a in Frameworks */,
+				21D1E9DA2BF14AF200957EAA /* TeamworkServerResourceManagerMessages.framework in Frameworks */,
+				21D1EA1B2BF14AF200957EAA /* APIAddOnBridge.framework in Frameworks */,
+				21D1EA3E2BF14AF200957EAA /* TeamworkServerImpersonationClient.framework in Frameworks */,
+				21D1E9B42BF14AF200957EAA /* ProfileGeneratorEngine.framework in Frameworks */,
+				21D1E9F82BF14AF200957EAA /* TeamworkServerProjectManagerClient.framework in Frameworks */,
+				21D1EA3D2BF14AF200957EAA /* APICore.framework in Frameworks */,
+				21D1EA032BF14AF200957EAA /* TeamworkServerBlobStoreHasherDefaultImplementation.framework in Frameworks */,
+				21D1E9E82BF14AF200957EAA /* GSModeler.framework in Frameworks */,
+				21D1EA292BF14AF200957EAA /* GXImageBase.framework in Frameworks */,
+				21D1E9EE2BF14AF200957EAA /* TeamworkServerCommunicationClient.framework in Frameworks */,
+				21D1EA252BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerCommon.framework in Frameworks */,
+				21D1EA282BF14AF200957EAA /* JACK.framework in Frameworks */,
+				21D1E9BD2BF14AF200957EAA /* RS.framework in Frameworks */,
+				21D1EA2A2BF14AF200957EAA /* TeamworkServerMailboxManagerCommon.framework in Frameworks */,
+				21D1EA1C2BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerClient.framework in Frameworks */,
+				21D1EA362BF14AF200957EAA /* TeamworkServerResourceManagerClient.framework in Frameworks */,
+				21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */,
+				21D1E9D82BF14AF200957EAA /* BuiltInLibrary.framework in Frameworks */,
+				21D1E9DB2BF14AF200957EAA /* Model3DViewerControl.framework in Frameworks */,
+				21D1EA1F2BF14AF200957EAA /* CommunicationClientUtils.framework in Frameworks */,
+				21D1E9F62BF14AF200957EAA /* LibraryManager.framework in Frameworks */,
+				21D1EA392BF14AF200957EAA /* VBElements.framework in Frameworks */,
+				21D1E9D52BF14AF200957EAA /* BasicMath.framework in Frameworks */,
+				21D1EA402BF14AF200957EAA /* TeamworkServerResourceManagerEntities.framework in Frameworks */,
+				21D1EA022BF14AF200957EAA /* TeamworkConfiguration.framework in Frameworks */,
+				21D1EA042BF14AF200957EAA /* UsageLogger.framework in Frameworks */,
+				21D1EA1A2BF14AF200957EAA /* Property.framework in Frameworks */,
+				21D1EA332BF14AF200957EAA /* GSXML.framework in Frameworks */,
+				21D1E9B82BF14AF200957EAA /* TWClient.framework in Frameworks */,
+				21D1E9CB2BF14AF200957EAA /* JSON.framework in Frameworks */,
+				21D1E9E22BF14AF200957EAA /* Network.framework in Frameworks */,
+				21D1EA2C2BF14AF200957EAA /* Pattern.framework in Frameworks */,
+				21D1E9D72BF14AF200957EAA /* CommunicationClient.framework in Frameworks */,
+				21D1EA0D2BF14AF200957EAA /* CommunicationServer.framework in Frameworks */,
+				21D1EA2D2BF14AF200957EAA /* CommandConnection.framework in Frameworks */,
+				21D1E9BA2BF14AF200957EAA /* InputOutput.framework in Frameworks */,
+				21D1E9FD2BF14AF200957EAA /* UC.framework in Frameworks */,
+				21D1E9D42BF14AF200957EAA /* TeamworkServerCommunicationMessages.framework in Frameworks */,
+				21D1EA422BF14AF200957EAA /* TeamworkCommonsSecurity.framework in Frameworks */,
+				21D1E9FA2BF14AF200957EAA /* PointCloudManager.framework in Frameworks */,
+				21D1E9F52BF14AF200957EAA /* TeamworkBlobCacheDownloader.framework in Frameworks */,
+				21D1E9CE2BF14AF200957EAA /* TeamworkChunkerFastCDC.framework in Frameworks */,
+				21D1EA372BF14AF200957EAA /* TransparentWindow.framework in Frameworks */,
+				21D1EA082BF14AF200957EAA /* Measure.framework in Frameworks */,
+				21D1E9D22BF14AF200957EAA /* TeamworkServerBlobStoreCommon.framework in Frameworks */,
+				21D1E9F32BF14AF200957EAA /* ElementManager.framework in Frameworks */,
+				21D1EA112BF14AF200957EAA /* TeamworkServerProjectManagerCommon.framework in Frameworks */,
+				21D1E9D12BF14AF200957EAA /* Crypto.framework in Frameworks */,
+				21D1E9B32BF14AF200957EAA /* VBElemEditingInteractions.framework in Frameworks */,
+				21D1EA052BF14AF200957EAA /* CommunicationCommon.framework in Frameworks */,
+				21D1EA182BF14AF200957EAA /* Graphix.framework in Frameworks */,
+				21D1EA412BF14AF200957EAA /* TeamworkServerEventLoggerMessages.framework in Frameworks */,
+				21D1EA3B2BF14AF200957EAA /* TeamworkServerBlobStoreClient.framework in Frameworks */,
+				21D1EA432BF14AF200957EAA /* GeoLocation.framework in Frameworks */,
+				21D1EA192BF14AF200957EAA /* TeamworkChunker.framework in Frameworks */,
+				21D1E9CF2BF14AF200957EAA /* libACAP_STAT.a in Frameworks */,
+				21D1EA062BF14AF200957EAA /* TeamworkServerBlobStoreUtils.framework in Frameworks */,
+				21D1E9DF2BF14AF200957EAA /* TeamworkServerJobManagerMessages.framework in Frameworks */,
+				21D1EA1E2BF14AF200957EAA /* CADInfrastructureBase.framework in Frameworks */,
+				21D1E9F02BF14AF200957EAA /* TeamworkServerBlobStoreChunker.framework in Frameworks */,
+				21D1E9E32BF14AF200957EAA /* TWRoot.framework in Frameworks */,
+				21D1E9F42BF14AF200957EAA /* JavascriptEngine.framework in Frameworks */,
+				21D1E9D62BF14AF200957EAA /* Geometry.framework in Frameworks */,
+				21D1EA302BF14AF200957EAA /* ProfileGeometry.framework in Frameworks */,
+				21D1E9F72BF14AF200957EAA /* Classification.framework in Frameworks */,
+				21D1E9C92BF14AF200957EAA /* IESData.framework in Frameworks */,
+				21D1E9B12BF14AF200957EAA /* GXImage.framework in Frameworks */,
+				21D1E9E12BF14AF200957EAA /* TeamworkCommon.framework in Frameworks */,
+				21D1EA3A2BF14AF200957EAA /* GSMSections.framework in Frameworks */,
+				21D1EA102BF14AF200957EAA /* SecureCommunication.framework in Frameworks */,
+				21D1E9EC2BF14AF200957EAA /* TeamworkChunkerAbstractImplementation.framework in Frameworks */,
+				21D1E9DE2BF14AF200957EAA /* TeamworkServerBlobStoreChunk.framework in Frameworks */,
+				21D1EA322BF14AF200957EAA /* ObjectAlgorithms.framework in Frameworks */,
+				21D1EA0E2BF14AF200957EAA /* TeamworkServerApplicationServerCommon.framework in Frameworks */,
+				21D1EA222BF14AF200957EAA /* Brep.framework in Frameworks */,
+				21D1EA172BF14AF200957EAA /* TeamworkServerBlobStoreHasher.framework in Frameworks */,
+				21D1EA0C2BF14AF200957EAA /* TeamworkServerBlobStore.framework in Frameworks */,
+				21D1EA262BF14AF200957EAA /* Model3D.framework in Frameworks */,
+				21D1E9B52BF14AF200957EAA /* TeamworkServerNotificationPublisherClient.framework in Frameworks */,
+				21D1E9B02BF14AF200957EAA /* GXMedia.framework in Frameworks */,
+				21D1EA212BF14AF200957EAA /* ArchicadAPI.framework in Frameworks */,
+				21D1E9BC2BF14AF200957EAA /* TeamworkServerBlobStoreChunkerDefaultImplementation.framework in Frameworks */,
+				21D1EA152BF14AF200957EAA /* TeamworkServerNotificationPublisherMessages.framework in Frameworks */,
+				21D1EA3F2BF14AF200957EAA /* GSDisplay.framework in Frameworks */,
+				21D1EA232BF14AF200957EAA /* VBUtils.framework in Frameworks */,
+				213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */,
+				21D1E9C32BF14AF200957EAA /* TextEngine.framework in Frameworks */,
+				21D1E9FC2BF14AF200957EAA /* GSTestEnvironment.framework in Frameworks */,
+				21D1EA312BF14AF200957EAA /* TeamworkServerApplicationServerClient.framework in Frameworks */,
+				21D1EA072BF14AF200957EAA /* InteroperabilitySupport.framework in Frameworks */,
+				21D1E9F12BF14AF200957EAA /* TeamworkServerJobManagerClient.framework in Frameworks */,
+				21D1EA122BF14AF200957EAA /* Phasing.framework in Frameworks */,
+				21D1EA2B2BF14AF200957EAA /* HTTP.framework in Frameworks */,
+				21D1EA092BF14AF200957EAA /* VBAttributes.framework in Frameworks */,
+				21D1E9D92BF14AF200957EAA /* ACUtilities.framework in Frameworks */,
+				21D1E9FB2BF14AF200957EAA /* TeamworkBlobCacheClient.framework in Frameworks */,
+				21D1E9D02BF14AF200957EAA /* Undo.framework in Frameworks */,
+				21D1E9C52BF14AF200957EAA /* TeamworkServerSessionMessages.framework in Frameworks */,
+				21D1EA342BF14AF200957EAA /* TeamworkBlobCacheMessages.framework in Frameworks */,
+				21D1E9EF2BF14AF200957EAA /* TeamworkServerFileManagerClient.framework in Frameworks */,
+				21D1E9E52BF14AF200957EAA /* LibraryLocalization.framework in Frameworks */,
+				21D1EA0F2BF14AF200957EAA /* TeamworkCommonsCollections.framework in Frameworks */,
+				21D1E9E02BF14AF200957EAA /* VBElemOperations.framework in Frameworks */,
+				21D1E9F92BF14AF200957EAA /* ObjectHierarchyUtils.framework in Frameworks */,
+				21D1EA0A2BF14AF200957EAA /* TeamworkServerProjectManagerMessages.framework in Frameworks */,
+				21D1EA162BF14AF200957EAA /* TWClientBase.framework in Frameworks */,
+				21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */,
+				21D1EA002BF14AF200957EAA /* TeamworkBlobCache.framework in Frameworks */,
+				21D1E9C82BF14AF200957EAA /* MEPAPI.framework in Frameworks */,
+				21D1E9BF2BF14AF200957EAA /* UserInterfaceAPI.framework in Frameworks */,
+				21D1E9E72BF14AF200957EAA /* ACOperations.framework in Frameworks */,
+				21D1E9F22BF14AF200957EAA /* ObjectDatabase.framework in Frameworks */,
+				21D1E9C22BF14AF200957EAA /* GSXMLUtils.framework in Frameworks */,
+				21D1E9C02BF14AF200957EAA /* GSUtils.framework in Frameworks */,
+				21D1E9C72BF14AF200957EAA /* AttributeManager.framework in Frameworks */,
+				21D1EA352BF14AF200957EAA /* TeamworkServerEventLoggerCommon.framework in Frameworks */,
+				21D1EA1D2BF14AF200957EAA /* TeamworkServerEventLoggerClient.framework in Frameworks */,
+				21D1EA132BF14AF200957EAA /* AnalyticalModelAPI.framework in Frameworks */,
+				21D1E9FE2BF14AF200957EAA /* EditingInteractions.framework in Frameworks */,
+				21D1EA202BF14AF200957EAA /* DesignVariantAPI.framework in Frameworks */,
+				21D1E9C42BF14AF200957EAA /* TeamworkServerBlobStoreChunkImplementations.framework in Frameworks */,
+				21D1EA2F2BF14AF200957EAA /* GX.framework in Frameworks */,
+				21D1EA012BF14AF200957EAA /* GSProfiler.framework in Frameworks */,
+				21D1E9D32BF14AF200957EAA /* DG.framework in Frameworks */,
+				21D1E9B22BF14AF200957EAA /* TeamworkServerSession.framework in Frameworks */,
+				21D1E9CC2BF14AF200957EAA /* TeamworkCrypto.framework in Frameworks */,
+				21D1E9ED2BF14AF200957EAA /* CommunicationServiceDescription.framework in Frameworks */,
+				21D1EA2E2BF14AF200957EAA /* TeamworkServerApplicationServerMessages.framework in Frameworks */,
+				21D1EA0B2BF14AF200957EAA /* DGGraphix.framework in Frameworks */,
+				21D1E9FF2BF14AF200957EAA /* TeamworkServerAttachmentContainerManagerMessages.framework in Frameworks */,
+				21D1EA272BF14AF200957EAA /* JSONConversion.framework in Frameworks */,
+				21D1E9E92BF14AF200957EAA /* GSZLib.framework in Frameworks */,
+				21D1EA142BF14AF200957EAA /* TeamworkServerFileManagerMessages.framework in Frameworks */,
+				21D1E9C62BF14AF200957EAA /* TeamworkServerSessionClient.framework in Frameworks */,
+				21D1E9B92BF14AF200957EAA /* TeamworkServerImpersonationMessages.framework in Frameworks */,
+				21D1E9DC2BF14AF200957EAA /* LibPartFile.framework in Frameworks */,
+				21D1E9BE2BF14AF200957EAA /* TeamworkServerNotificationPublisherCommon.framework in Frameworks */,
+				21D1EA3C2BF14AF200957EAA /* Ssl.framework in Frameworks */,
+				21D1EA442BF14AF200957EAA /* TeamworkProductVersion.framework in Frameworks */,
+				21D1E9B72BF14AF200957EAA /* PointCloud.framework in Frameworks */,
+				21D1E9CD2BF14AF200957EAA /* TeamworkServerBlobStoreMessages.framework in Frameworks */,
+				21D1E9B62BF14AF200957EAA /* TeamworkServerMailboxManagerMessages.framework in Frameworks */,
+				21D1E9E62BF14AF200957EAA /* TeamworkBitManipulation.framework in Frameworks */,
+				21D1EA242BF14AF200957EAA /* GSRoot.framework in Frameworks */,
+				21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */,
+				21D1EA382BF14AF200957EAA /* VBElemDialogs.framework in Frameworks */,
+				21D1E9DD2BF14AF200957EAA /* TeamworkServerJobManagerCommon.framework in Frameworks */,
+				21D1E9EA2BF14AF200957EAA /* GSModeler2D.framework in Frameworks */,
+				21D1E9EB2BF14AF200957EAA /* TeamworkCommons.framework in Frameworks */,
+				21D1E9BB2BF14AF200957EAA /* TeamworkServerMailboxManagerClient.framework in Frameworks */,
+				21D1E9E42BF14AF200957EAA /* UD.framework in Frameworks */,
+				21D1E9CA2BF14AF200957EAA /* TeamworkBlobCacheUploader.framework in Frameworks */,
+				21D1E9C12BF14AF200957EAA /* VectorImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				213CC3A52B1101F500088049 /* Speckle Connector.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* SampleObject */ = {
+			isa = PBXGroup;
+			children = (
+				21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */,
+				21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */,
+				219388682C4E5DE2002A0180 /* CMakeLists.txt */,
+				2161FD902BF2600C006D9527 /* README.md */,
+				21F69ED22C64D40A008B6A06 /* Connector.cpp */,
+				21F69ED32C64D40A008B6A06 /* ConnectorResource.h */,
+				21F69EFD2C65062F008B6A06 /* Event */,
+				21D1E9032BF149D800957EAA /* Interface */,
+				81494D9D09DA5892006864FB /* Resource */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+				213CC4E02B1107CF00088049 /* Frameworks */,
+			);
+			name = SampleObject;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				213CC3AD2B11067400088049 /* Archicad27 */,
+				213CC3A82B1105E300088049 /* Vectorworks2024 */,
+				2151077C2AEDB9070022CD24 /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		213CC3A82B1105E300088049 /* Vectorworks2024 */ = {
+			isa = PBXGroup;
+			children = (
+				21D1EA452BF14B0700957EAA /* VWMM.framework */,
+			);
+			name = Vectorworks2024;
+			sourceTree = "<group>";
+		};
+		213CC3AD2B11067400088049 /* Archicad27 */ = {
+			isa = PBXGroup;
+			children = (
+				21D1E94F2BF14AEE00957EAA /* ACOperations.framework */,
+				21D1E9412BF14AEE00957EAA /* ACUtilities.framework */,
+				21D1E97B2BF14AF000957EAA /* AnalyticalModelAPI.framework */,
+				21D1E9832BF14AF000957EAA /* APIAddOnBridge.framework */,
+				21D1E9A52BF14AF200957EAA /* APICore.framework */,
+				21D1E9892BF14AF100957EAA /* ArchicadAPI.framework */,
+				21D1E92F2BF14AED00957EAA /* AttributeManager.framework */,
+				21D1E93D2BF14AEE00957EAA /* BasicMath.framework */,
+				21D1E9152BF14AEC00957EAA /* BIMData.framework */,
+				21D1E98A2BF14AF100957EAA /* Brep.framework */,
+				21D1E9402BF14AEE00957EAA /* BuiltInLibrary.framework */,
+				21D1E9862BF14AF000957EAA /* CADInfrastructureBase.framework */,
+				21D1E95F2BF14AEF00957EAA /* Classification.framework */,
+				21D1E9952BF14AF100957EAA /* CommandConnection.framework */,
+				21D1E93F2BF14AEE00957EAA /* CommunicationClient.framework */,
+				21D1E9872BF14AF000957EAA /* CommunicationClientUtils.framework */,
+				21D1E96D2BF14AEF00957EAA /* CommunicationCommon.framework */,
+				21D1E9752BF14AF000957EAA /* CommunicationServer.framework */,
+				21D1E9552BF14AEF00957EAA /* CommunicationServiceDescription.framework */,
+				21D1E9392BF14AED00957EAA /* Crypto.framework */,
+				21D1E9882BF14AF100957EAA /* DesignVariantAPI.framework */,
+				21D1E93B2BF14AED00957EAA /* DG.framework */,
+				21D1E9732BF14AF000957EAA /* DGGraphix.framework */,
+				21D1E9662BF14AEF00957EAA /* EditingInteractions.framework */,
+				21D1E95B2BF14AEF00957EAA /* ElementManager.framework */,
+				21D1E9172BF14AEC00957EAA /* GDL.framework */,
+				21D1E9AB2BF14AF200957EAA /* GeoLocation.framework */,
+				21D1E93E2BF14AEE00957EAA /* Geometry.framework */,
+				21D1E9802BF14AF000957EAA /* Graphix.framework */,
+				21D1E9A72BF14AF200957EAA /* GSDisplay.framework */,
+				21D1E9502BF14AEE00957EAA /* GSModeler.framework */,
+				21D1E9522BF14AEE00957EAA /* GSModeler2D.framework */,
+				21D1E9A22BF14AF200957EAA /* GSMSections.framework */,
+				21D1E9692BF14AEF00957EAA /* GSProfiler.framework */,
+				21D1E98C2BF14AF100957EAA /* GSRoot.framework */,
+				21D1E9642BF14AEF00957EAA /* GSTestEnvironment.framework */,
+				21D1E9282BF14AED00957EAA /* GSUtils.framework */,
+				21D1E99B2BF14AF100957EAA /* GSXML.framework */,
+				21D1E92A2BF14AED00957EAA /* GSXMLUtils.framework */,
+				21D1E9512BF14AEE00957EAA /* GSZLib.framework */,
+				21D1E9972BF14AF100957EAA /* GX.framework */,
+				21D1E9192BF14AEC00957EAA /* GXImage.framework */,
+				21D1E9912BF14AF100957EAA /* GXImageBase.framework */,
+				21D1E9182BF14AEC00957EAA /* GXMedia.framework */,
+				21D1E9932BF14AF100957EAA /* HTTP.framework */,
+				21D1E9312BF14AED00957EAA /* IESData.framework */,
+				21D1E9222BF14AEC00957EAA /* InputOutput.framework */,
+				21D1E96F2BF14AF000957EAA /* InteroperabilitySupport.framework */,
+				21D1E9902BF14AF100957EAA /* JACK.framework */,
+				21D1E95C2BF14AEF00957EAA /* JavascriptEngine.framework */,
+				21D1E9332BF14AED00957EAA /* JSON.framework */,
+				21D1E98F2BF14AF100957EAA /* JSONConversion.framework */,
+				21D1E9372BF14AED00957EAA /* libACAP_STAT.a */,
+				21D1E9442BF14AEE00957EAA /* LibPartFile.framework */,
+				21D1E94D2BF14AEE00957EAA /* LibraryLocalization.framework */,
+				21D1E95E2BF14AEF00957EAA /* LibraryManager.framework */,
+				21D1E9702BF14AF000957EAA /* Measure.framework */,
+				21D1E9302BF14AED00957EAA /* MEPAPI.framework */,
+				21D1E98E2BF14AF100957EAA /* Model3D.framework */,
+				21D1E9432BF14AEE00957EAA /* Model3DViewerControl.framework */,
+				21D1E94A2BF14AEE00957EAA /* Network.framework */,
+				21D1E99A2BF14AF100957EAA /* ObjectAlgorithms.framework */,
+				21D1E95A2BF14AEF00957EAA /* ObjectDatabase.framework */,
+				21D1E9612BF14AEF00957EAA /* ObjectHierarchyUtils.framework */,
+				21D1E9942BF14AF100957EAA /* Pattern.framework */,
+				21D1E97A2BF14AF000957EAA /* Phasing.framework */,
+				21D1E91F2BF14AEC00957EAA /* PointCloud.framework */,
+				21D1E9622BF14AEF00957EAA /* PointCloudManager.framework */,
+				21D1E91C2BF14AEC00957EAA /* ProfileGeneratorEngine.framework */,
+				21D1E9982BF14AF100957EAA /* ProfileGeometry.framework */,
+				21D1E9822BF14AF000957EAA /* Property.framework */,
+				21D1E9252BF14AED00957EAA /* RS.framework */,
+				21D1E9782BF14AF000957EAA /* SecureCommunication.framework */,
+				21D1E9A42BF14AF200957EAA /* Ssl.framework */,
+				21D1E94E2BF14AEE00957EAA /* TeamworkBitManipulation.framework */,
+				21D1E9682BF14AEF00957EAA /* TeamworkBlobCache.framework */,
+				21D1E9632BF14AEF00957EAA /* TeamworkBlobCacheClient.framework */,
+				21D1E95D2BF14AEF00957EAA /* TeamworkBlobCacheDownloader.framework */,
+				21D1E99C2BF14AF100957EAA /* TeamworkBlobCacheMessages.framework */,
+				21D1E9322BF14AED00957EAA /* TeamworkBlobCacheUploader.framework */,
+				21D1E9812BF14AF000957EAA /* TeamworkChunker.framework */,
+				21D1E9542BF14AEF00957EAA /* TeamworkChunkerAbstractImplementation.framework */,
+				21D1E9362BF14AED00957EAA /* TeamworkChunkerFastCDC.framework */,
+				21D1E9492BF14AEE00957EAA /* TeamworkCommon.framework */,
+				21D1E9532BF14AEE00957EAA /* TeamworkCommons.framework */,
+				21D1E9772BF14AF000957EAA /* TeamworkCommonsCollections.framework */,
+				21D1E9AA2BF14AF200957EAA /* TeamworkCommonsSecurity.framework */,
+				21D1E96A2BF14AEF00957EAA /* TeamworkConfiguration.framework */,
+				21D1E9342BF14AED00957EAA /* TeamworkCrypto.framework */,
+				21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */,
+				21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */,
+				21D1E9992BF14AF100957EAA /* TeamworkServerApplicationServerClient.framework */,
+				21D1E9762BF14AF000957EAA /* TeamworkServerApplicationServerCommon.framework */,
+				21D1E9962BF14AF100957EAA /* TeamworkServerApplicationServerMessages.framework */,
+				21D1E9842BF14AF000957EAA /* TeamworkServerAttachmentContainerManagerClient.framework */,
+				21D1E98D2BF14AF100957EAA /* TeamworkServerAttachmentContainerManagerCommon.framework */,
+				21D1E9672BF14AEF00957EAA /* TeamworkServerAttachmentContainerManagerMessages.framework */,
+				21D1E9742BF14AF000957EAA /* TeamworkServerBlobStore.framework */,
+				21D1E9462BF14AEE00957EAA /* TeamworkServerBlobStoreChunk.framework */,
+				21D1E9582BF14AEF00957EAA /* TeamworkServerBlobStoreChunker.framework */,
+				21D1E9242BF14AEC00957EAA /* TeamworkServerBlobStoreChunkerDefaultImplementation.framework */,
+				21D1E92C2BF14AED00957EAA /* TeamworkServerBlobStoreChunkImplementations.framework */,
+				21D1E9A32BF14AF200957EAA /* TeamworkServerBlobStoreClient.framework */,
+				21D1E93A2BF14AED00957EAA /* TeamworkServerBlobStoreCommon.framework */,
+				21D1E97F2BF14AF000957EAA /* TeamworkServerBlobStoreHasher.framework */,
+				21D1E96B2BF14AEF00957EAA /* TeamworkServerBlobStoreHasherDefaultImplementation.framework */,
+				21D1E9352BF14AED00957EAA /* TeamworkServerBlobStoreMessages.framework */,
+				21D1E96E2BF14AF000957EAA /* TeamworkServerBlobStoreUtils.framework */,
+				21D1E9562BF14AEF00957EAA /* TeamworkServerCommunicationClient.framework */,
+				21D1E93C2BF14AED00957EAA /* TeamworkServerCommunicationMessages.framework */,
+				21D1E9852BF14AF000957EAA /* TeamworkServerEventLoggerClient.framework */,
+				21D1E99D2BF14AF100957EAA /* TeamworkServerEventLoggerCommon.framework */,
+				21D1E9A92BF14AF200957EAA /* TeamworkServerEventLoggerMessages.framework */,
+				21D1E9572BF14AEF00957EAA /* TeamworkServerFileManagerClient.framework */,
+				21D1E97C2BF14AF000957EAA /* TeamworkServerFileManagerMessages.framework */,
+				21D1E9A62BF14AF200957EAA /* TeamworkServerImpersonationClient.framework */,
+				21D1E9212BF14AEC00957EAA /* TeamworkServerImpersonationMessages.framework */,
+				21D1E9592BF14AEF00957EAA /* TeamworkServerJobManagerClient.framework */,
+				21D1E9452BF14AEE00957EAA /* TeamworkServerJobManagerCommon.framework */,
+				21D1E9472BF14AEE00957EAA /* TeamworkServerJobManagerMessages.framework */,
+				21D1E9232BF14AEC00957EAA /* TeamworkServerMailboxManagerClient.framework */,
+				21D1E9922BF14AF100957EAA /* TeamworkServerMailboxManagerCommon.framework */,
+				21D1E91E2BF14AEC00957EAA /* TeamworkServerMailboxManagerMessages.framework */,
+				21D1E91D2BF14AEC00957EAA /* TeamworkServerNotificationPublisherClient.framework */,
+				21D1E9262BF14AED00957EAA /* TeamworkServerNotificationPublisherCommon.framework */,
+				21D1E97D2BF14AF000957EAA /* TeamworkServerNotificationPublisherMessages.framework */,
+				21D1E9602BF14AEF00957EAA /* TeamworkServerProjectManagerClient.framework */,
+				21D1E9792BF14AF000957EAA /* TeamworkServerProjectManagerCommon.framework */,
+				21D1E9722BF14AF000957EAA /* TeamworkServerProjectManagerMessages.framework */,
+				21D1E99E2BF14AF100957EAA /* TeamworkServerResourceManagerClient.framework */,
+				21D1E9A82BF14AF200957EAA /* TeamworkServerResourceManagerEntities.framework */,
+				21D1E9422BF14AEE00957EAA /* TeamworkServerResourceManagerMessages.framework */,
+				21D1E91A2BF14AEC00957EAA /* TeamworkServerSession.framework */,
+				21D1E92E2BF14AED00957EAA /* TeamworkServerSessionClient.framework */,
+				21D1E92D2BF14AED00957EAA /* TeamworkServerSessionMessages.framework */,
+				21D1E92B2BF14AED00957EAA /* TextEngine.framework */,
+				21D1E99F2BF14AF100957EAA /* TransparentWindow.framework */,
+				21D1E9202BF14AEC00957EAA /* TWClient.framework */,
+				21D1E97E2BF14AF000957EAA /* TWClientBase.framework */,
+				21D1E94B2BF14AEE00957EAA /* TWRoot.framework */,
+				21D1E9652BF14AEF00957EAA /* UC.framework */,
+				21D1E94C2BF14AEE00957EAA /* UD.framework */,
+				21D1E9382BF14AED00957EAA /* Undo.framework */,
+				21D1E96C2BF14AEF00957EAA /* UsageLogger.framework */,
+				21D1E9272BF14AED00957EAA /* UserInterfaceAPI.framework */,
+				21D1E9712BF14AF000957EAA /* VBAttributes.framework */,
+				21D1E9A02BF14AF100957EAA /* VBElemDialogs.framework */,
+				21D1E91B2BF14AEC00957EAA /* VBElemEditingInteractions.framework */,
+				21D1E9A12BF14AF100957EAA /* VBElements.framework */,
+				21D1E9482BF14AEE00957EAA /* VBElemOperations.framework */,
+				21D1E98B2BF14AF100957EAA /* VBUtils.framework */,
+				21D1E9292BF14AED00957EAA /* VectorImage.framework */,
+			);
+			name = Archicad27;
+			sourceTree = "<group>";
+		};
+		213CC4E02B1107CF00088049 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21D1E9032BF149D800957EAA /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */,
+				21F69ED52C64D417008B6A06 /* ConnectorMenu.h */,
+				21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */,
+				21F69EFA2C6501AC008B6A06 /* ConnectorPalette.h */,
+			);
+			name = Interface;
+			path = Source/Interface;
+			sourceTree = "<group>";
+		};
+		21D1EA472BF14B6C00957EAA /* Archicad */ = {
+			isa = PBXGroup;
+			children = (
+				21D1EA4A2BF14BBC00957EAA /* Connector.grc */,
+				21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */,
+				21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */,
+				21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */,
+				21F69EFE2C66AD55008B6A06 /* SpecklePalette.grc */,
+			);
+			name = Archicad;
+			sourceTree = "<group>";
+		};
+		21F69EC72C64C035008B6A06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21F69ECD2C64C035008B6A06 /* libArchicad27.a */,
+				21F69ECF2C64C035008B6A06 /* SpeckleLib-test.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21F69EEE2C64FE91008B6A06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21F69EF52C64FE91008B6A06 /* libActiveLib.a */,
+				21F69EF72C64FE91008B6A06 /* ActiveLib-test.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21F69EFD2C65062F008B6A06 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				21F69EFC2C65062F008B6A06 /* ConnectorEventID.h */,
+			);
+			name = Event;
+			path = Connector/Event;
+			sourceTree = "<group>";
+		};
+		7EA5F91E157FA18400693CEA /* EN-GB */ = {
+			isa = PBXGroup;
+			children = (
+				21D1EA472BF14B6C00957EAA /* Archicad */,
+			);
+			name = "EN-GB";
+			sourceTree = "<group>";
+		};
+		81494D9D09DA5892006864FB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7EA5F91E157FA18400693CEA /* EN-GB */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		213CC3942B1101F500088049 /* Connector-AC27-EN-GB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 213CC3A22B1101F500088049 /* Build configuration list for PBXNativeTarget "Connector-AC27-EN-GB" */;
+			buildPhases = (
+				213CC3972B1101F500088049 /* Sources */,
+				213CC39A2B1101F500088049 /* Frameworks */,
+				213CC3A02B1101F500088049 /* Compile GS resources */,
+				213CC3A12B1101F500088049 /* Install */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21F69EF12C64FE91008B6A06 /* PBXTargetDependency */,
+				21F69EE22C64FE21008B6A06 /* PBXTargetDependency */,
+			);
+			name = "Connector-AC27-EN-GB";
+			productName = "Connector24-EN-GB";
+			productReference = 213CC3A52B1101F500088049 /* Speckle Connector.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1530;
+			};
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "Connector" */;
+			compatibilityVersion = "Xcode 15.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				ja,
+				de,
+				Base,
+				fr,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* SampleObject */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 21F69EEE2C64FE91008B6A06 /* Products */;
+					ProjectRef = 21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */;
+				},
+				{
+					ProductGroup = 21F69EC72C64C035008B6A06 /* Products */;
+					ProjectRef = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				2102A0A22B14B10C00AD42A8 /* Connector-AC27-EN-GB-Notarise */,
+				213CC3942B1101F500088049 /* Connector-AC27-EN-GB */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		21F69ECD2C64C035008B6A06 /* libArchicad27.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libArchicad27.a;
+			remoteRef = 21F69ECC2C64C035008B6A06 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21F69ECF2C64C035008B6A06 /* SpeckleLib-test.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SpeckleLib-test.xctest";
+			remoteRef = 21F69ECE2C64C035008B6A06 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21F69EF52C64FE91008B6A06 /* libActiveLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libActiveLib.a;
+			remoteRef = 21F69EF42C64FE91008B6A06 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21F69EF72C64FE91008B6A06 /* ActiveLib-test.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ActiveLib-test.xctest";
+			remoteRef = 21F69EF62C64FE91008B6A06 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2102A0A52B14B10C00AD42A8 /* Notarise */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Notarise;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if [[ \"$CONFIGURATION\" = \"Release\" ]]; then\n\t\"$HEADER_PATH_3/Make.mac/notarise.sh\"\n\t/bin/tcsh \"$HEADER_PATH_3/Make.mac/install\"\n#fi\n";
+		};
+		213CC3A02B1101F500088049 /* Compile GS resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile GS resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$HEADER_PATH_3/ResourceObjects\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_6\" \"$SRCROOT\" \"$HEADER_PATH_3/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\ncp \"$HEADER_PATH_5/Inc/PkgInfo\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/PkgInfo\"\ntouch \"$HEADER_PATH_3/ResourceObjects/AddOnResources.stamp\"\n";
+		};
+		213CC3A12B1101F500088049 /* Install */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Install;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/tcsh;
+			shellScript = "/bin/tcsh \"$HEADER_PATH_3/Make.mac/install\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		213CC3972B1101F500088049 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F69EFB2C6501AC008B6A06 /* ConnectorPalette.cpp in Sources */,
+				21F69ED42C64D40A008B6A06 /* Connector.cpp in Sources */,
+				21F69ED72C64D417008B6A06 /* ConnectorMenu.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2102A0AA2B14B13300AD42A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 213CC3942B1101F500088049 /* Connector-AC27-EN-GB */;
+			targetProxy = 2102A0A92B14B13300AD42A8 /* PBXContainerItemProxy */;
+		};
+		21F69EE22C64FE21008B6A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Archicad27;
+			targetProxy = 21F69EE12C64FE21008B6A06 /* PBXContainerItemProxy */;
+		};
+		21F69EF12C64FE91008B6A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ActiveLib;
+			targetProxy = 21F69EF02C64FE91008B6A06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2102A0A72B14B10C00AD42A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				BIM_PATH = "/Applications/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = "";
+				BIM_VERSION = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+				);
+				HEADER_PATH_5 = "$(SRCROOT)/../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_6 = "$(SRCROOT)/Source";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_PATH_8 = "$(SRCROOT)/../ActiveBIM/ActiveBIM/$(BIM_PLATFORM)";
+				INSTALLER_PATH = $SRCROOT/Install/$BASE_NAME/$LOCALISATION_SUFFIX/$INSTALLER_FOLDER;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_NAME = "$(BASE_NAME)";
+				RESOURCE_EXTENSION = "";
+				SDK_PATH = Support;
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+					"\"$(HEADER_PATH_8)\"",
+				);
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		2102A0A82B14B10C00AD42A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				BIM_PATH = "/Applications/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = "";
+				BIM_VERSION = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+				);
+				HEADER_PATH_5 = "$(SRCROOT)/../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_6 = "$(SRCROOT)/Source";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_PATH_8 = "$(SRCROOT)/../ActiveBIM/ActiveBIM/$(BIM_PLATFORM)";
+				INSTALLER_PATH = $SRCROOT/Install/$BASE_NAME/$LOCALISATION_SUFFIX/$INSTALLER_FOLDER;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_NAME = "$(BASE_NAME)";
+				RESOURCE_EXTENSION = "";
+				SDK_PATH = Support;
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+					"\"$(HEADER_PATH_8)\"",
+				);
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		213CC3A32B1101F500088049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BIM_PATH = "/Applications/Graphisoft/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 27;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
+				CLANG_ANALYZER_GCD = NO;
+				CLANG_ANALYZER_OBJC_ATSYNC = NO;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = NO;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
+				CLANG_ANALYZER_OBJC_SELF_INIT = NO;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = NO;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = T4C464595P;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "RINT.$BIM_PLATFORM/$LOCALISATION_SUFFIX/Module-Info$(BIM_VERSION).plist";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+					"\"$(HEADER_PATH_9)\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				OTHER_LDFLAGS = "";
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				RESOURCE_EXTENSION = "";
+				SDKROOT = macosx;
+				SDK_PATH = Support;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = (
+					"-multiply_defined",
+					suppress,
+				);
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		213CC3A42B1101F500088049 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BIM_PATH = "/Applications/Graphisoft/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 27;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
+				CLANG_ANALYZER_GCD = NO;
+				CLANG_ANALYZER_OBJC_ATSYNC = NO;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = NO;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
+				CLANG_ANALYZER_OBJC_SELF_INIT = NO;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = NO;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Ralph Wessel (T4C464595P)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T4C464595P;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "RINT.$BIM_PLATFORM/$LOCALISATION_SUFFIX/Module-Info$(BIM_VERSION).plist";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+					"\"$(HEADER_PATH_9)\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				OTHER_LDFLAGS = "";
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				RESOURCE_EXTENSION = "";
+				SDKROOT = macosx;
+				SDK_PATH = Support;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = (
+					"-multiply_defined",
+					suppress,
+				);
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		7E2B7BFF18C0E73E00358572 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AC_PASSWORD = SpeckleDev;
+				AC_USERNAME = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_APP_IDENTIFIER = systems.speckle.connector;
+				BASE_NAME = "Speckle Connector";
+				BIM_PATH = "/Applications/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = "";
+				BIM_VERSION = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T4C464595P;
+				DISPLAY_NAME = "$(BASE_NAME)";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				EXEC_PATH = $BIM_PATH;
+				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/../../$BIM_PLATFORM $BIM_VERSION/SDKLib/LibMac/Debug\"";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "../Src/Prefix/$(CONFIGURATION)Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_PATH_1 = $SRCROOT/../../ActiveLib;
+				HEADER_PATH_2 = "";
+				HEADER_PATH_3 = "$(SRCROOT)/../SpeckleLib";
+				HEADER_PATH_4 = "";
+				HEADER_PATH_5 = "";
+				HEADER_PATH_6 = "$(SRCROOT)";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INSTALLER_FOLDER = "$(BASE_NAME)Mac$WORD_SIZE-$BIM_PLATFORM$BIM_VERSION-$LOCALISATION_SUFFIX";
+				INSTALLER_PATH = $SRCROOT/Install/$BASE_NAME/$LOCALISATION_SUFFIX/$INSTALLER_FOLDER;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/build/$(CONFIGURATION)\"",
+					"\"$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/SDKLib/LibMac/Debug\"",
+				);
+				LOCALISATION_SUFFIX = "EN-GB";
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
+				OBJROOT = "";
+				ONLY_ACTIVE_ARCH = YES;
+				PLUGIN_FOLDER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				RESOURCE_EXTENSION = "";
+				REZ_SEARCH_PATHS = (
+					"$(HEADER_PATH_5)",
+					"$(REZ_SEARCH_PATH_1)",
+				);
+				SDKROOT = macosx;
+				SDK_PATH = "";
+				SHARED_PRECOMPS_DIR = "$(OBJROOT)/SharedPrecompiledHeaders";
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				USE_HEADERMAP = YES;
+				WARNING_LDFLAGS = (
+					"-multiply_defined",
+					suppress,
+				);
+				WORD_SIZE = 64;
+				WRAPPER_EXTENSION = vwlibrary;
+			};
+			name = Debug;
+		};
+		7E2B7C0118C0E74800358572 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AC_PASSWORD = SpeckleDev;
+				AC_USERNAME = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_APP_IDENTIFIER = systems.speckle.connector;
+				BASE_NAME = "Speckle Connector";
+				BIM_PATH = "/Applications/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = "";
+				BIM_VERSION = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = T4C464595P;
+				DISPLAY_NAME = "$(BASE_NAME)";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				EXEC_PATH = $BIM_PATH;
+				FRAMEWORK_SEARCH_PATHS = "\"$SRCROOT/../../$BIM_PLATFORM $BIM_VERSION/SDKLib/LibMac/Release\"";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "./Source/Prefix/$(CONFIGURATION)Prefix.h";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_PATH_1 = $SRCROOT/../../ActiveLib;
+				HEADER_PATH_2 = "";
+				HEADER_PATH_3 = "$(SRCROOT)/../SpeckleLib";
+				HEADER_PATH_4 = "";
+				HEADER_PATH_5 = "";
+				HEADER_PATH_6 = "$(SRCROOT)";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INSTALLER_FOLDER = "$(BASE_NAME)Mac$WORD_SIZE-$BIM_PLATFORM$BIM_VERSION-$LOCALISATION_SUFFIX";
+				INSTALLER_PATH = $SRCROOT/Install/$BASE_NAME/$LOCALISATION_SUFFIX/$INSTALLER_FOLDER;
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/SDKLib/LibMac/Release\"",
+					"\"$(SRCROOT)/build/$(CONFIGURATION)\"",
+				);
+				LOCALISATION_SUFFIX = "EN-GB";
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
+				OBJROOT = "";
+				PLUGIN_FOLDER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				RESOURCE_EXTENSION = "";
+				REZ_SEARCH_PATHS = (
+					"$(HEADER_PATH_5)",
+					"$(REZ_SEARCH_PATH_1)",
+				);
+				SDKROOT = macosx;
+				SDK_PATH = "";
+				SHARED_PRECOMPS_DIR = "$(OBJROOT)/SharedPrecompiledHeaders";
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				USE_HEADERMAP = YES;
+				WORD_SIZE = 64;
+				WRAPPER_EXTENSION = vwlibrary;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "Connector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E2B7BFF18C0E73E00358572 /* Debug */,
+				7E2B7C0118C0E74800358572 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2102A0A62B14B10C00AD42A8 /* Build configuration list for PBXAggregateTarget "Connector-AC27-EN-GB-Notarise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2102A0A72B14B10C00AD42A8 /* Debug */,
+				2102A0A82B14B10C00AD42A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		213CC3A22B1101F500088049 /* Build configuration list for PBXNativeTarget "Connector-AC27-EN-GB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				213CC3A32B1101F500088049 /* Debug */,
+				213CC3A42B1101F500088049 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

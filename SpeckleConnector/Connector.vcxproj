@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugAC27|Win32">
+      <Configuration>DebugAC27</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugAC27|x64">
+      <Configuration>DebugAC27</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugRV2024|Win32">
+      <Configuration>DebugRV2024</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugRV2024|x64">
+      <Configuration>DebugRV2024</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugVW2024|Win32">
+      <Configuration>DebugVW2024</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseAC27|Win32">
+      <Configuration>ReleaseAC27</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseAC27|x64">
+      <Configuration>ReleaseAC27</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseRV2024|Win32">
+      <Configuration>ReleaseRV2024</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseRV2024|x64">
+      <Configuration>ReleaseRV2024</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseVW2024|Win32">
+      <Configuration>ReleaseVW2024</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugVW2024|x64">
+      <Configuration>DebugVW2024</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseVW2024|x64">
+      <Configuration>ReleaseVW2024</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Connector.cpp" />
+    <ClCompile Include="Source\Tool\ConnectorTool.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActiveLib\ActiveLib17.vcxproj">
+      <Project>{64ebdbc7-ab2d-4ae1-8e54-922b6fa6e1cc}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Make.win\Connector.addin">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="RFIX.win\Connector.rc2">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RFIX.win\Connector.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">true</ExcludedFromBuild>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Tool\ConnectorTool.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{cb120c04-054f-485b-bb5f-1ede23f7facb}</ProjectGuid>
+    <RootNamespace>ActiveLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <TargetFrameworkVersion>4.8</TargetFrameworkVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion>14.38.33130</VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion>
+    </VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion>14.38.33130</VCToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion>
+    </VCToolsVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\VW2024.props" />
+    <Import Project="Make.win\ConnectorVW2024.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\RV2024.props" />
+    <Import Project="Make.win\ConnectorRV2024.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\AC27.props" />
+    <Import Project="Make.win\ConnectorAC27.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\VW2024.props" />
+    <Import Project="Make.win\ConnectorVW2024.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\RV2024.props" />
+    <Import Project="Make.win\ConnectorRV2024.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\ActiveBIM\Make.win\AC27.props" />
+    <Import Project="Make.win\ConnectorAC27.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <TargetExt>.vlb</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <TargetExt>.apx</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.vlb</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.apx</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>VECTORWORKS;WIN32;_WINDOWS;WINDOWS;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+      <ForcedIncludeFiles>./ActiveBIM/Vectorworks/DebugPrefix.h</ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>VWSDK.lib;GSWinSDK.lib;VWMM.lib;USP10.lib;Rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>../$(BIM_PLATFORM) $(BIM_VERSION)/SDKLib/LibWin/Release/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\buildResVW.bat"
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+set RESOURCE_EXTENSION=$(Resource_Extension)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>REVIT;WIN32;_WINDOWS;WINDOWS;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libc; msvcrt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>../$(BIM_PLATFORM) $(BIM_VERSION)/SDKLib/LibWin/Debug/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>@COPY "$(SolutionDir)Make.win\$(BASE_NAME).$(RESOURCE_EXTENSION)" "$(SolutionDir)$(Platform)\$(CONFIGURATION)\$(BASE_NAME).$(RESOURCE_EXTENSION)"
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+set RESOURCE_EXTENSION=$(Resource_Extension)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+      <CallingConvention>FastCall</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STATD.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;msvcrtd.lib;msvcprtd.lib;Wininet.lib;IPHLPAPI.lib;Dbghelp.lib;wldap32.lib;wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>DllMainEntry</EntryPointSymbol>
+      <AdditionalOptions>/export:GetExportedFuncAddrs,%401 /export:SetImportedFuncAddrs,%402 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>REM Archicad installbuild script
+
+SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\ActiveBIM\Make.win\buildResAC.bat"</Command>
+    </PreBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>VECTORWORKS;WIN32;_WINDOWS;WINDOWS;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ForcedIncludeFiles>./ActiveBIM/Vectorworks/ReleasePrefix.h</ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>VWSDK.lib;GSWinSDK.lib;VWMM.lib;USP10.lib;Rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../$(BIM_PLATFORM) $(BIM_VERSION)/SDKLib/LibWin/Release/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\buildResVW.bat"
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+set RESOURCE_EXTENSION=$(Resource_Extension)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>REVIT;WIN32;_WINDOWS;WINDOWS;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../$(BIM_PLATFORM) $(BIM_VERSION)/SDKLib/LibWin/Release/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>@COPY "$(SolutionDir)Make.win\$(BASE_NAME).$(RESOURCE_EXTENSION)" "$(SolutionDir)$(Platform)\$(CONFIGURATION)\$(BASE_NAME).$(RESOURCE_EXTENSION)"
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+set RESOURCE_EXTENSION=$(Resource_Extension)
+CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Installing</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+      <CallingConvention>FastCall</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STAT.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;msvcrt.lib;msvcprt.lib;IPHLPAPI.lib;Wininet.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrtd.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/export:GetExportedFuncAddrs,%401 /export:SetImportedFuncAddrs,%402 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>REM Archicad installbuild script
+
+SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\ActiveBIM\Make.win\buildResAC.bat"</Command>
+    </PreBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,8 @@
+'STR#' 32500  "Connector Menu" {
+	/*[ 1]*/	"Speckle Connector"
+}
+
+
+'STR#' 32550  "Connector menu help" {
+	/*[ 1]*/	"Toggle the Speckle Connector palette visibility"
+}

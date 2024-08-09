@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Vectorworks 2024\Vectorworks2024.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Autodesk\Revit 2024\Revit.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Graphisoft\Archicad 27\Archicad.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Vectorworks 2024\Vectorworks2024.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Autodesk\Revit 2024\Revit.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Graphisoft\Archicad 27\Archicad.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

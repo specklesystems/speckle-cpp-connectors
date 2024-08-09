@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <HEADER_PATH_7>$(SolutionDir)RINT.$(BIM_PLATFORM)/$(LOCALISATION_SUFFIX)</HEADER_PATH_7>
+    <WORD_SIZE>64</WORD_SIZE>
+    <BASE_NAME>Connector</BASE_NAME>
+    <DISPLAY_NAME>$(BASE_NAME)</DISPLAY_NAME>
+    <WRAPPER_EXTENSION>dll</WRAPPER_EXTENSION>
+    <LOCALISATION_SUFFIX>EN-GB</LOCALISATION_SUFFIX>
+    <EXEC_PATH>C:\ProgramData\Autodesk\$(BIM_PLATFORM)</EXEC_PATH>
+    <INSTALL_FOLDER>$(BASE_NAME)Win$(WORD_SIZE)-$(BIM_PLATFORM)$(BIM_VERSION)-$(LOCALISATION_SUFFIX)</INSTALL_FOLDER>
+    <INSTALL_PATH>$(SolutionDir)Install/$(BASE_NAME)/$(LOCALISATION_SUFFIX)</INSTALL_PATH>
+    <PLUGIN_FOLDER>Addins\$(BIM_VERSION)</PLUGIN_FOLDER>
+    <RESOURCE_EXTENSION>addin</RESOURCE_EXTENSION>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="HEADER_PATH_7">
+      <Value>$(HEADER_PATH_7)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="WORD_SIZE">
+      <Value>$(WORD_SIZE)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BASE_NAME">
+      <Value>$(BASE_NAME)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="DISPLAY_NAME">
+      <Value>$(DISPLAY_NAME)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="WRAPPER_EXTENSION">
+      <Value>$(WRAPPER_EXTENSION)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LOCALISATION_SUFFIX">
+      <Value>$(LOCALISATION_SUFFIX)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="EXEC_PATH">
+      <Value>$(EXEC_PATH)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="INSTALL_FOLDER">
+      <Value>$(INSTALL_FOLDER)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="INSTALL_PATH">
+      <Value>$(INSTALL_PATH)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="PLUGIN_FOLDER">
+      <Value>$(PLUGIN_FOLDER)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="RESOURCE_EXTENSION">
+      <Value>$(RESOURCE_EXTENSION)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

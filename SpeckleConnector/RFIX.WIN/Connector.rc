@@ -1,0 +1,11 @@
+#if !defined (WINDOWS)
+#define WINDOWS
+#endif
+
+#include "GSLocalization.h"
+#include "DGDefs.h"
+
+#include "Connector.grc.rc2"
+#include "ConnectorFix.grc.rc2"
+
+1	ICON	LOADONCALL MOVEABLE IMPURE  ACAP.ico
