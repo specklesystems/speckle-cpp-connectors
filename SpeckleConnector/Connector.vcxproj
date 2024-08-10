@@ -51,12 +51,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Connector.cpp" />
-    <ClCompile Include="Source\Tool\ConnectorTool.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ActiveLib\ActiveLib17.vcxproj">
+    <ProjectReference Include="..\..\ActiveLib\ActiveLib17.vcxproj">
       <Project>{64ebdbc7-ab2d-4ae1-8e54-922b6fa6e1cc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeckleLib\SpeckleLib17.vcxproj">
+      <Project>{942743b7-b3cb-4f91-be46-28937f5e3fd1}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +71,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">true</ExcludedFromBuild>
     </None>
+    <None Include="RINT\Connector.grc" />
+    <None Include="RINT\ConnectorMenu.grc" />
+    <None Include="RINT\SpecklePalette.grc" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RFIX.win\Connector.rc">
@@ -90,7 +92,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Tool\ConnectorTool.h" />
+    <ClCompile Include="Connector\Connector.cpp" />
+    <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
+    <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Connector\ConnectorResource.h" />
+    <ClInclude Include="Connector\Event\ConnectorEventID.h" />
+    <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
+    <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -218,32 +228,32 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\VW2024.props" />
+    <Import Project="..\SpeckleLib\Make.win\VW2024.props" />
     <Import Project="Make.win\ConnectorVW2024.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\RV2024.props" />
+    <Import Project="..\SpeckleLib\Make.win\RV2024.props" />
     <Import Project="Make.win\ConnectorRV2024.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\AC27.props" />
+    <Import Project="..\SpeckleLib\Make.win\AC27.props" />
     <Import Project="Make.win\ConnectorAC27.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\VW2024.props" />
+    <Import Project="..\SpeckleLib\Make.win\VW2024.props" />
     <Import Project="Make.win\ConnectorVW2024.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\RV2024.props" />
+    <Import Project="..\SpeckleLib\Make.win\RV2024.props" />
     <Import Project="Make.win\ConnectorRV2024.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\ActiveBIM\Make.win\AC27.props" />
+    <Import Project="..\SpeckleLib\Make.win\AC27.props" />
     <Import Project="Make.win\ConnectorAC27.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -270,33 +280,39 @@
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetExt>.vlb</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">
     <LinkIncremental>true</LinkIncremental>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetExt>.dll</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
     <LinkIncremental>true</LinkIncremental>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetExt>.apx</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseVW2024|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.vlb</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.dll</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.apx</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|Win32'">
     <ClCompile>
@@ -416,12 +432,12 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/SpeckleLib/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <CallingConvention>Cdecl</CallingConvention>
       <CompileAs>Default</CompileAs>
-      <ForcedIncludeFiles>./ActiveBIM/Vectorworks/DebugPrefix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>./SpeckleLib/Vectorworks/DebugPrefix.h</ForcedIncludeFiles>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -445,14 +461,14 @@
 SET TARGETNAME=$(TargetName)
 SET TARGETDIR=$(TargetDir)
 SET BIMVERSION=$(BIM_VERSION)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\buildResVW.bat"
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\buildResVW.bat"
 ECHO ON
 ECHO "Starting Install"
 set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
 set RESOURCE_EXTENSION=$(Resource_Extension)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Creating VWR File</Message>
@@ -474,7 +490,7 @@ CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/SpeckleLib/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <CallingConvention>Cdecl</CallingConvention>
@@ -507,7 +523,7 @@ set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
 set RESOURCE_EXTENSION=$(Resource_Extension)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Installing</Message>
@@ -570,7 +586,7 @@ ECHO "Starting Install"
 set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
-"$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+"$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Creating VWR File</Message>
@@ -578,7 +594,7 @@ set SYMROOT=$(SolutionDir)
     <PreBuildEvent>
       <Command>set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
-"$(ProjectDir)..\ActiveBIM\Make.win\buildResAC.bat"</Command>
+"$(ProjectDir)..\SpeckleLib\Make.win\buildResAC.bat"</Command>
     </PreBuildEvent>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -596,9 +612,9 @@ set SYMROOT=$(SolutionDir)
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/SpeckleLib/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Kernel/;$(HEADER_PATH_5)/Interfaces/;$(HEADER_PATH_5)/VWMM/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <ForcedIncludeFiles>./ActiveBIM/Vectorworks/ReleasePrefix.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>./SpeckleLib/Vectorworks/ReleasePrefix.h</ForcedIncludeFiles>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -629,14 +645,14 @@ set SYMROOT=$(SolutionDir)
 SET TARGETNAME=$(TargetName)
 SET TARGETDIR=$(TargetDir)
 SET BIMVERSION=$(BIM_VERSION)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\buildResVW.bat"
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\buildResVW.bat"
 ECHO ON
 ECHO "Starting Install"
 set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
 set RESOURCE_EXTENSION=$(Resource_Extension)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Creating VWR File</Message>
@@ -654,7 +670,7 @@ CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/ActiveBIM/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1);$(HEADER_PATH_2);$(HEADER_PATH_3);$(HEADER_PATH_3)/SpeckleLib/$(BIM_PLATFORM);$(HEADER_PATH_4)/;$(HEADER_PATH_5)/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ForcedIncludeFiles>
       </ForcedIncludeFiles>
@@ -691,7 +707,7 @@ set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
 set RESOURCE_EXTENSION=$(Resource_Extension)
-CALL "$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Installing</Message>
@@ -753,11 +769,11 @@ SET TARGETNAME=$(TargetName)
 SET TARGETDIR=$(TargetDir)
 SET BIMVERSION=$(BIM_VERSION)
 ECHO ON
-ECHO "Starting Install"
+ECHO "Starting Install $(TargetName)"
 set CONFIGURATION=$(Configuration)
 set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
-"$(ProjectDir)..\ActiveBIM\Make.win\install.bat"</Command>
+"$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Creating VWR File</Message>
@@ -765,7 +781,7 @@ set SYMROOT=$(SolutionDir)
     <PreBuildEvent>
       <Command>set PLATFORM_NAME=$(Platform)
 set SYMROOT=$(SolutionDir)
-"$(ProjectDir)..\ActiveBIM\Make.win\buildResAC.bat"</Command>
+"$(ProjectDir)..\SpeckleLib\Make.win\buildResAC.bat"</Command>
     </PreBuildEvent>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

@@ -1,259 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug16|Win32">
-      <Configuration>Debug16</Configuration>
+    <ProjectConfiguration Include="DebugAC27|Win32">
+      <Configuration>DebugAC27</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug16|x64">
-      <Configuration>Debug16</Configuration>
+    <ProjectConfiguration Include="DebugAC27|x64">
+      <Configuration>DebugAC27</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug17|Win32">
-      <Configuration>Debug17</Configuration>
+    <ProjectConfiguration Include="ReleaseAC27|Win32">
+      <Configuration>ReleaseAC27</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release16|Win32">
-      <Configuration>Release16</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release16|x64">
-      <Configuration>Release16</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release17|Win32">
-      <Configuration>Release17</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug17|x64">
-      <Configuration>Debug17</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release17|x64">
-      <Configuration>Release17</Configuration>
+    <ProjectConfiguration Include="ReleaseAC27|x64">
+      <Configuration>ReleaseAC27</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Speckle\Attribute\Colour.h" />
-    <ClInclude Include="Speckle\Attribute\Finish.h" />
-    <ClInclude Include="Speckle\Attribute\Pen.h" />
-    <ClInclude Include="Speckle\Attribute\TextStyle.h" />
-    <ClInclude Include="Speckle\Container\HashMap.h" />
-    <ClInclude Include="Speckle\Container\List.h" />
-    <ClInclude Include="Speckle\Container\Map.h" />
-    <ClInclude Include="Speckle\Container\Multimap.h" />
-    <ClInclude Include="Speckle\Container\Vector.h" />
-    <ClInclude Include="Speckle\Event\Event.h" />
-    <ClInclude Include="Speckle\Event\Message.h" />
-    <ClInclude Include="Speckle\Event\Participant.h" />
-    <ClInclude Include="Speckle\Event\PostBox.h" />
-    <ClInclude Include="Speckle\Event\Publisher.h" />
-    <ClInclude Include="Speckle\Event\Subscriber.h" />
-    <ClInclude Include="Speckle\File\Directory.h" />
-    <ClInclude Include="Speckle\File\File.h" />
-    <ClInclude Include="Speckle\File\Interface\FSNode.h" />
-    <ClInclude Include="Speckle\File\Interface\IOBase.h" />
-    <ClInclude Include="Speckle\File\Path.h" />
-    <ClInclude Include="Speckle\Geometry\Anchor2D.h" />
-    <ClInclude Include="Speckle\Geometry\Arc.h" />
-    <ClInclude Include="Speckle\Geometry\Box.h" />
-    <ClInclude Include="Speckle\Geometry\Faceter.h" />
-    <ClInclude Include="Speckle\Geometry\Leveller.h" />
-    <ClInclude Include="Speckle\Geometry\Line.h" />
-    <ClInclude Include="Speckle\Geometry\LinEquation.h" />
-    <ClInclude Include="Speckle\Geometry\Matrix3x3.h" />
-    <ClInclude Include="Speckle\Geometry\Matrix4x4.h" />
-    <ClInclude Include="Speckle\Geometry\Plane.h" />
-    <ClInclude Include="Speckle\Geometry\Point.h" />
-    <ClInclude Include="Speckle\Geometry\PolyEdge.h" />
-    <ClInclude Include="Speckle\Geometry\Polygon.h" />
-    <ClInclude Include="Speckle\Geometry\PolyPoint.h" />
-    <ClInclude Include="Speckle\Geometry\Position.h" />
-    <ClInclude Include="Speckle\Geometry\Rotater.h" />
-    <ClInclude Include="Speckle\Geometry\Rotation.h" />
-    <ClInclude Include="Speckle\Geometry\Vector3.h" />
-    <ClInclude Include="Speckle\Geometry\Vector4.h" />
-    <ClInclude Include="Speckle\Geometry\XInfo.h" />
-    <ClInclude Include="Speckle\Geometry\XList.h" />
-    <ClInclude Include="Speckle\Geometry\XPoint.h" />
-    <ClInclude Include="Speckle\Serialise\Cargo.h" />
-    <ClInclude Include="Speckle\Serialise\Document\Object.h" />
-    <ClInclude Include="Speckle\Serialise\Document\Shipper.h" />
-    <ClInclude Include="Speckle\Serialise\Document\Transportable.h" />
-    <ClInclude Include="Speckle\Serialise\Generic\Base64Transport.h" />
-    <ClInclude Include="Speckle\Serialise\Generic\HexTransport.h" />
-    <ClInclude Include="Speckle\Serialise\Inventory\Entry.h" />
-    <ClInclude Include="Speckle\Serialise\Inventory\Identity.h" />
-    <ClInclude Include="Speckle\Serialise\Inventory\Inventory.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Encoding.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Item.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\AnyValueWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\BoolWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\DoubleWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\Int32Wrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\ItemWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\StringWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Item\Wrapper\ValueWrap.h" />
-    <ClInclude Include="Speckle\Serialise\JSON\JSONTransport.h" />
-    <ClInclude Include="Speckle\Serialise\Package\Package.h" />
-    <ClInclude Include="Speckle\Serialise\Package\PackageWrap.h" />
-    <ClInclude Include="Speckle\Serialise\Package\Pair.h" />
-    <ClInclude Include="Speckle\Serialise\Package\Unknown.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Item\XMLDateTime.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Item\XMLNumber.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPoint.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolygon.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolyPoint.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Package\Wrapper\XMLValueSetting.h" />
-    <ClInclude Include="Speckle\Serialise\XML\Package\XMLProlog.h" />
-    <ClInclude Include="Speckle\Serialise\XML\XMLTransport.h" />
-    <ClInclude Include="Speckle\Setting\Setting.h" />
-    <ClInclude Include="Speckle\Setting\SettingID.h" />
-    <ClInclude Include="Speckle\Setting\SettingList.h" />
-    <ClInclude Include="Speckle\Setting\ValueSetting.h" />
-    <ClInclude Include="Speckle\Setting\Values\BoolValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\DoubleValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\GuidValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\Int32Value.h" />
-    <ClInclude Include="Speckle\Setting\Values\Int64Value.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\AngleValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\LengthValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\MeasuredValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\AngleUnit.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\AreaUnit.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\LengthUnit.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\MassUnit.h" />
-    <ClInclude Include="Speckle\Setting\Values\Measurement\Units\Unit.h" />
-    <ClInclude Include="Speckle\Setting\Values\NullValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\StringValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\TimeValue.h" />
-    <ClInclude Include="Speckle\Setting\Values\UInt32Value.h" />
-    <ClInclude Include="Speckle\Setting\Values\Value.h" />
-    <ClInclude Include="Speckle\Setting\Values\ValueBase.h" />
-    <ClInclude Include="Speckle\Utility\BufferIn.h" />
-    <ClInclude Include="Speckle\Utility\BufferOut.h" />
-    <ClInclude Include="Speckle\Utility\Cloner.h" />
-    <ClInclude Include="Speckle\Utility\Defer.h" />
+    <ClInclude Include="Speckle\Database\Content\Index.h" />
+    <ClInclude Include="Speckle\Database\Content\Link.h" />
+    <ClInclude Include="Speckle\Environment\Addon.h" />
+    <ClInclude Include="Speckle\Event\Subscriber\MenuSubscriber.h" />
+    <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
+    <ClInclude Include="Speckle\Event\Type\MenuEvent.h" />
+    <ClInclude Include="Speckle\Event\Type\SelectionEvent.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
-    <ClInclude Include="Speckle\Utility\MathFunctions.h" />
-    <ClInclude Include="Speckle\Utility\Memory.h" />
-    <ClInclude Include="Speckle\Utility\Status.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
-    <ClInclude Include="Speckle\Utility\TextEncoding.h" />
-    <ClInclude Include="Speckle\Utility\Time.h" />
-    <ClInclude Include="Speckle\Utility\UniqueString.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Speckle\Attribute\Colour.cpp" />
-    <ClCompile Include="Speckle\Event\Publisher.cpp" />
-    <ClCompile Include="Speckle\File\Directory.cpp" />
-    <ClCompile Include="Speckle\File\File.cpp" />
-    <ClCompile Include="Speckle\File\Interface\FSNode.cpp" />
-    <ClCompile Include="Speckle\File\Path.cpp" />
-    <ClCompile Include="Speckle\Geometry\Anchor2D.cpp" />
-    <ClCompile Include="Speckle\Geometry\Arc.cpp" />
-    <ClCompile Include="Speckle\Geometry\Box.cpp" />
-    <ClCompile Include="Speckle\Geometry\Faceter.cpp" />
-    <ClCompile Include="Speckle\Geometry\Leveller.cpp" />
-    <ClCompile Include="Speckle\Geometry\Line.cpp" />
-    <ClCompile Include="Speckle\Geometry\LinEquation.cpp" />
-    <ClCompile Include="Speckle\Geometry\Matrix3x3.cpp" />
-    <ClCompile Include="Speckle\Geometry\Matrix4x4.cpp" />
-    <ClCompile Include="Speckle\Geometry\Plane.cpp" />
-    <ClCompile Include="Speckle\Geometry\Point.cpp" />
-    <ClCompile Include="Speckle\Geometry\PolyEdge.cpp" />
-    <ClCompile Include="Speckle\Geometry\Polygon.cpp" />
-    <ClCompile Include="Speckle\Geometry\PolyPoint.cpp" />
-    <ClCompile Include="Speckle\Geometry\Rotater.cpp" />
-    <ClCompile Include="Speckle\Geometry\Vector3.cpp" />
-    <ClCompile Include="Speckle\Geometry\Vector4.cpp" />
-    <ClCompile Include="Speckle\Geometry\XList.cpp" />
-    <ClCompile Include="Speckle\Geometry\XPoint.cpp" />
-    <ClCompile Include="Speckle\Serialise\Document\Object.cpp" />
-    <ClCompile Include="Speckle\Serialise\Generic\Base64Transport.cpp" />
-    <ClCompile Include="Speckle\Serialise\Generic\HexTransport.cpp" />
-    <ClCompile Include="Speckle\Serialise\Inventory\Inventory.cpp" />
-    <ClCompile Include="Speckle\Serialise\Item\Item.cpp" />
-    <ClCompile Include="Speckle\Serialise\Item\Wrapper\AnyValueWrap.cpp" />
-    <ClCompile Include="Speckle\Serialise\JSON\JSONTransport.cpp" />
-    <ClCompile Include="Speckle\Serialise\Package\Pair.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\Item\XMLDateTime.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPoint.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\Geometry\XMLPolyPoint.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\Package\Wrapper\XMLValueSetting.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\Package\XMLProlog.cpp" />
-    <ClCompile Include="Speckle\Serialise\XML\XMLTransport.cpp" />
-    <ClCompile Include="Speckle\Setting\SettingList.cpp" />
-    <ClCompile Include="Speckle\Setting\ValueSetting.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Measurement\AngleValue.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\AngleUnit.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\AreaUnit.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\LengthUnit.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Measurement\Units\MassUnit.cpp" />
-    <ClCompile Include="Speckle\Setting\Values\Value.cpp" />
-    <ClCompile Include="Speckle\Utility\BufferIn.cpp" />
-    <ClCompile Include="Speckle\Utility\BufferOut.cpp" />
-    <ClCompile Include="Speckle\Utility\DataFormat.cpp" />
+    <ClCompile Include="Speckle\Database\Content\Link.cpp" />
+    <ClCompile Include="Speckle\Environment\Addon.cpp" />
+    <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
+    <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
-    <ClCompile Include="Speckle\Utility\Memory.cpp" />
     <ClCompile Include="Speckle\Utility\String.cpp" />
-    <ClCompile Include="Speckle\Utility\TextEncoding.cpp" />
-    <ClCompile Include="Speckle\Utility\Time.cpp" />
-    <ClCompile Include="Speckle\Utility\UniqueString.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Speckle\CMakeLists.txt" />
+    <Text Include="Speckle\Environment\CMakeLists.txt" />
+    <Text Include="Speckle\Event\CMakeLists.txt" />
+    <Text Include="Speckle\Serialise\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Speckle\Environment\Environment.md" />
     <None Include="Speckle\Event\Event.md" />
+    <None Include="Speckle\Serialise\Serialisation.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{64EBDBC7-AB2D-4AE1-8E54-922B6FA6E1CC}</ProjectGuid>
+    <ProjectGuid>{942743B7-B3CB-4F91-BE46-28937F5E3FD1}</ProjectGuid>
     <RootNamespace>SpeckleLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release17|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <VCToolsVersion>
-    </VCToolsVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release16|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
-    <VCToolsVersion>
-    </VCToolsVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
@@ -262,17 +78,7 @@
     <VCToolsVersion>
     </VCToolsVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release17|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-    <VCToolsVersion>
-    </VCToolsVersion>
-    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release16|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
@@ -287,62 +93,37 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug17|Win32'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|Win32'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release17|Win32'">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Make.win\AC27.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release16|Win32'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug17|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release17|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release16|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Make.win\AC27.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release17|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release16|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
     <LinkIncremental>true</LinkIncremental>
     <SourcePath>$(SourcePath)</SourcePath>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <SourcePath>$(SourcePath)</SourcePath>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release17|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release16|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
@@ -358,23 +139,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release17|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -395,68 +160,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release16|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug17|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>WINDOWS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <PrecompiledHeaderOutputFile />
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <StringPooling>true</StringPooling>
-      <CallingConvention>Cdecl</CallingConvention>
-      <CompileAs>Default</CompileAs>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <FloatingPointExceptions>false</FloatingPointExceptions>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug16|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>
-      </SDLCheck>
-      <PreprocessorDefinitions>WINDOWS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;ARCHICAD;ACExtension;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -466,7 +175,7 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../ActiveLib/;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
       <CallingConvention>Cdecl</CallingConvention>
@@ -476,6 +185,8 @@
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -487,49 +198,18 @@
       </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release17|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WINDOWS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;ARCHICAD;ACExtension;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <StringPooling>true</StringPooling>
-      <PrecompiledHeaderOutputFile />
-      <ForceConformanceInForLoopScope />
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <SubSystem>
-      </SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-    <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-    </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release16|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WINDOWS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>./</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;../../ActiveLib/;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <StringPooling>true</StringPooling>
       <PrecompiledHeaderOutputFile>
@@ -538,6 +218,8 @@
       </ForceConformanceInForLoopScope>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
     </ClCompile>
     <Link>
       <SubSystem>

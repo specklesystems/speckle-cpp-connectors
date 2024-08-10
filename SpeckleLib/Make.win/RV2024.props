@@ -2,27 +2,29 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <BIM_VERSION>27</BIM_VERSION>
-    <BIM_PLATFORM>ARCHICAD</BIM_PLATFORM>
-    <BIM_PATH>C:\Program Files\Graphisoft\$(BIM_PLATFORM) $(BIM_VERSION)</BIM_PATH>
-    <HEADER_PATH_1>$(SolutionDir)..\..\ActiveLib</HEADER_PATH_1>
-    <HEADER_PATH_2>$(SolutionDir)</HEADER_PATH_2>
-    <HEADER_PATH_3>
-    </HEADER_PATH_3>
-    <HEADER_PATH_4>$(SolutionDir)..\SpeckleLib</HEADER_PATH_4>
-    <HEADER_PATH_5>$(SolutionDir)..\..\$(BIM_PLATFORM) $(BIM_VERSION)\Support</HEADER_PATH_5>
+    <BIM_VERSION>2024</BIM_VERSION>
+    <BIM_PLATFORM>Revit</BIM_PLATFORM>
+    <BIM_PATH>C:\Program Files\Autodesk\$(BIM_PLATFORM) $(BIM_VERSION)</BIM_PATH>
+    <HEADER_PATH_1>$(SolutionDir)../ActiveLib</HEADER_PATH_1>
+    <HEADER_PATH_2>$(SolutionDir)../CeruleanLib</HEADER_PATH_2>
+    <HEADER_PATH_3>$(SolutionDir)../CeruleanBIM</HEADER_PATH_3>
+    <HEADER_PATH_4>$(SolutionDir)../boost.org</HEADER_PATH_4>
+    <HEADER_PATH_5>
+    </HEADER_PATH_5>
     <HEADER_PATH_6>$(SolutionDir)</HEADER_PATH_6>
     <WORD_SIZE>64</WORD_SIZE>
-    <ARCHICAD>1</ARCHICAD>
+    <REVIT />
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
   <ItemGroup>
     <BuildMacro Include="BIM_VERSION">
       <Value>$(BIM_VERSION)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
     <BuildMacro Include="BIM_PLATFORM">
       <Value>$(BIM_PLATFORM)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
     <BuildMacro Include="BIM_PATH">
       <Value>$(BIM_PATH)</Value>
@@ -56,8 +58,8 @@
       <Value>$(WORD_SIZE)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
-    <BuildMacro Include="ARCHICAD">
-      <Value>$(ARCHICAD)</Value>
+    <BuildMacro Include="REVIT">
+      <Value>$(REVIT)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

@@ -5,26 +5,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source">
+    <Filter Include="Connector">
       <UniqueIdentifier>{3e120d58-60af-4e4b-a308-c32198aad172}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Tool">
-      <UniqueIdentifier>{f993adf9-f6ea-48dd-a5a6-d980b5bac7bb}</UniqueIdentifier>
+    <Filter Include="Connector\Event">
+      <UniqueIdentifier>{9e90da7d-1c9a-4ef5-827f-b0c03bf3a3b1}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\Connector.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Tool\ConnectorTool.cpp">
-      <Filter>Source\Tool</Filter>
-    </ClCompile>
+    <Filter Include="Connector\Interface">
+      <UniqueIdentifier>{c74d6482-b21c-4a58-a233-d529b7ba2253}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Make.win\Connector.addin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RINT\Connector.grc">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RINT\ConnectorMenu.grc">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RINT\SpecklePalette.grc">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -34,8 +38,28 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Tool\ConnectorTool.h">
-      <Filter>Source\Tool</Filter>
+    <ClCompile Include="Connector\Connector.cpp">
+      <Filter>Connector</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\ConnectorMenu.cpp">
+      <Filter>Connector\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\ConnectorPalette.cpp">
+      <Filter>Connector\Interface</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Connector\ConnectorResource.h">
+      <Filter>Connector</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Event\ConnectorEventID.h">
+      <Filter>Connector\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\ConnectorMenu.h">
+      <Filter>Connector\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\ConnectorPalette.h">
+      <Filter>Connector\Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
