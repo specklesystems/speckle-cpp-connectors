@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "213CC3942B1101F500088049"
-               BuildableName = "Connector.bundle"
+               BuildableName = "Speckle Connector.bundle"
                BlueprintName = "Connector-AC27-EN-GB"
                ReferencedContainer = "container:Connector.xcodeproj">
             </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "213CC3942B1101F500088049"
-            BuildableName = "Connector.bundle"
+            BuildableName = "Speckle Connector.bundle"
             BlueprintName = "Connector-AC27-EN-GB"
             ReferencedContainer = "container:Connector.xcodeproj">
          </BuildableReference>

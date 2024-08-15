@@ -41,10 +41,11 @@ namespace {
  	return: An add-on type identifier
  --------------------------------------------------------------------*/
 API_AddonType __ACENV_CALL CheckEnvironment(API_EnvirParams* envir) {
+	m_addonInstance = std::make_unique<ConnectorAddon>(String{});
 		//Populate the addon environent info
 	envir->addOnInfo.name = addon()->getLocalString(titleString, addonNameID);
 	envir->addOnInfo.description = addon()->getLocalString(titleString, addonDescriptionID);
-	m_addonInstance = std::make_unique<ConnectorAddon>(envir->addOnInfo.name);
+	addon()->setName(envir->addOnInfo.name);
 	return app()->audit() ? APIAddon_Preload : APIAddon_Unknown;
 } //CheckEnvironment
 

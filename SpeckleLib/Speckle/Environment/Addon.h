@@ -42,6 +42,11 @@ namespace speckle::environment {
 		// MARK: - Functions (mutating)
 		
 		/*!
+		 Set the add-on name
+		 @param nm The add-on name
+		 */
+		void setName(const speckle::utility::String& nm) { name = nm; }
+		/*!
 		 Publish an event from an external source to subscribers
 		 @param event The event to publish
 		 */

@@ -175,11 +175,11 @@
 		21D1EA422BF14AF200957EAA /* TeamworkCommonsSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AA2BF14AF200957EAA /* TeamworkCommonsSecurity.framework */; };
 		21D1EA432BF14AF200957EAA /* GeoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AB2BF14AF200957EAA /* GeoLocation.framework */; };
 		21D1EA442BF14AF200957EAA /* TeamworkProductVersion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */; };
-		21F69ED42C64D40A008B6A06 /* Connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69ED22C64D40A008B6A06 /* Connector.cpp */; };
-		21F69ED72C64D417008B6A06 /* ConnectorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */; };
 		21F69EEC2C64FE31008B6A06 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
 		21F69EF82C64FE9B008B6A06 /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
-		21F69EFB2C6501AC008B6A06 /* ConnectorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */; };
+		21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */; };
+		21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */; };
+		21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0F2C677BC0008B6A06 /* Connector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,16 +396,16 @@
 		21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
 		21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Module-Info27.plist"; path = "RINT.Archicad/EN-GB/Module-Info27.plist"; sourceTree = "<group>"; };
 		21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeckleLib.xcodeproj; path = ../SpeckleLib/SpeckleLib.xcodeproj; sourceTree = "<group>"; };
-		21F69ED22C64D40A008B6A06 /* Connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Connector.cpp; path = Connector/Connector.cpp; sourceTree = "<group>"; };
-		21F69ED32C64D40A008B6A06 /* ConnectorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorResource.h; path = Connector/ConnectorResource.h; sourceTree = "<group>"; };
-		21F69ED52C64D417008B6A06 /* ConnectorMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorMenu.h; path = Connector/Interface/ConnectorMenu.h; sourceTree = SOURCE_ROOT; };
-		21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectorMenu.cpp; path = Connector/Interface/ConnectorMenu.cpp; sourceTree = SOURCE_ROOT; };
 		21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorMenu.grc; path = RINT/ConnectorMenu.grc; sourceTree = "<group>"; };
 		21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ActiveLib.xcodeproj; path = /Users/rwessel/Documents/Development/ActiveLib/ActiveLib.xcodeproj; sourceTree = "<absolute>"; };
-		21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnectorPalette.cpp; path = Connector/Interface/ConnectorPalette.cpp; sourceTree = SOURCE_ROOT; };
-		21F69EFA2C6501AC008B6A06 /* ConnectorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectorPalette.h; path = Connector/Interface/ConnectorPalette.h; sourceTree = SOURCE_ROOT; };
-		21F69EFC2C65062F008B6A06 /* ConnectorEventID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectorEventID.h; sourceTree = "<group>"; };
 		21F69EFE2C66AD55008B6A06 /* SpecklePalette.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = SpecklePalette.grc; path = RINT/SpecklePalette.grc; sourceTree = "<group>"; };
+		21F69F082C677BC0008B6A06 /* ConnectorEventID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorEventID.h; sourceTree = "<group>"; };
+		21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorMenu.cpp; sourceTree = "<group>"; };
+		21F69F0B2C677BC0008B6A06 /* ConnectorMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorMenu.h; sourceTree = "<group>"; };
+		21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorPalette.cpp; sourceTree = "<group>"; };
+		21F69F0D2C677BC0008B6A06 /* ConnectorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorPalette.h; sourceTree = "<group>"; };
+		21F69F0F2C677BC0008B6A06 /* Connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connector.cpp; sourceTree = "<group>"; };
+		21F69F102C677BC0008B6A06 /* ConnectorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorResource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,10 +589,7 @@
 				21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */,
 				219388682C4E5DE2002A0180 /* CMakeLists.txt */,
 				2161FD902BF2600C006D9527 /* README.md */,
-				21F69ED22C64D40A008B6A06 /* Connector.cpp */,
-				21F69ED32C64D40A008B6A06 /* ConnectorResource.h */,
-				21F69EFD2C65062F008B6A06 /* Event */,
-				21D1E9032BF149D800957EAA /* Interface */,
+				21F69F112C677BC0008B6A06 /* Connector */,
 				81494D9D09DA5892006864FB /* Resource */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DDFF38A45A11DB9C8B /* Products */,
@@ -785,18 +782,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		21D1E9032BF149D800957EAA /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				21F69ED62C64D417008B6A06 /* ConnectorMenu.cpp */,
-				21F69ED52C64D417008B6A06 /* ConnectorMenu.h */,
-				21F69EF92C6501AC008B6A06 /* ConnectorPalette.cpp */,
-				21F69EFA2C6501AC008B6A06 /* ConnectorPalette.h */,
-			);
-			name = Interface;
-			path = Source/Interface;
-			sourceTree = "<group>";
-		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,13 +812,34 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21F69EFD2C65062F008B6A06 /* Event */ = {
+		21F69F092C677BC0008B6A06 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				21F69EFC2C65062F008B6A06 /* ConnectorEventID.h */,
+				21F69F082C677BC0008B6A06 /* ConnectorEventID.h */,
 			);
-			name = Event;
-			path = Connector/Event;
+			path = Event;
+			sourceTree = "<group>";
+		};
+		21F69F0E2C677BC0008B6A06 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */,
+				21F69F0B2C677BC0008B6A06 /* ConnectorMenu.h */,
+				21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */,
+				21F69F0D2C677BC0008B6A06 /* ConnectorPalette.h */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		21F69F112C677BC0008B6A06 /* Connector */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F0F2C677BC0008B6A06 /* Connector.cpp */,
+				21F69F102C677BC0008B6A06 /* ConnectorResource.h */,
+				21F69F092C677BC0008B6A06 /* Event */,
+				21F69F0E2C677BC0008B6A06 /* Interface */,
+			);
+			path = Connector;
 			sourceTree = "<group>";
 		};
 		7EA5F91E157FA18400693CEA /* EN-GB */ = {
@@ -1007,9 +1013,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F69EFB2C6501AC008B6A06 /* ConnectorPalette.cpp in Sources */,
-				21F69ED42C64D40A008B6A06 /* Connector.cpp in Sources */,
-				21F69ED72C64D417008B6A06 /* ConnectorMenu.cpp in Sources */,
+				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
+				21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */,
+				21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
