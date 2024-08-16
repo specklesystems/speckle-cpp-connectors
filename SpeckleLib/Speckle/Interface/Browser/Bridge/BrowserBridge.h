@@ -3,6 +3,8 @@
 
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/Functional.h"
+#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
 
 namespace active::setting {
 	class ValueSetting;
@@ -64,8 +66,11 @@ namespace speckle::interface::browser::bridge {
 		/*!
 		 Add a browser method
 		 */
-		template<typename T> requires (std::is_base_of_v<Functional<>, T>)
-		void addMethod() const { m_methods->emplace(T{}); }
+		template<typename T> requires (std::is_base_of_v<JSBridgeMethodBase, T>)
+		void addMethod() const {
+				//The argument type is registered against the bridge to enable an appropriate object to be deserialised from the JS args
+			m_methods->emplace(T{}.registerArgument(getName()));
+		}
 		
 	private:
 			///List of methods supported by the bridge

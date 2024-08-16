@@ -112,6 +112,7 @@
 		21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetCallResult.cpp; sourceTree = "<group>"; };
 		21F69F7D2C6FD9FC008B6A06 /* GetCallResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCallResult.h; sourceTree = "<group>"; };
 		21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSBridgeArgumentWrap.cpp; sourceTree = "<group>"; };
+		21F69F822C701A8E008B6A06 /* JSBridgeMethodBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBridgeMethodBase.h; sourceTree = "<group>"; };
 		21F93AE92B2F406D009A2C5B /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addon.h; sourceTree = "<group>"; };
 		21F93AEA2B2F406D009A2C5B /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Addon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -297,6 +298,7 @@
 				21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */,
 				21F69F692C6E0D59008B6A06 /* JSBridgeArgumentWrap.h */,
 				21F69F4F2C6CCC25008B6A06 /* JSBridgeMethod.h */,
+				21F69F822C701A8E008B6A06 /* JSBridgeMethodBase.h */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";

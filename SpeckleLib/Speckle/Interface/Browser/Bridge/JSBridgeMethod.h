@@ -3,6 +3,8 @@
 
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/NamedFunction.h"
+#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/JSBridgeMethodBase.h"
 
 #ifdef ARCHICAD
 #include "Speckle/Serialise/JSBase/JSBaseTransport.h"
@@ -19,7 +21,8 @@ namespace speckle::interface::browser::bridge {
 	 A class to provide JS bridging for Speckle connectors using a table of defined methods
 	*/
 	template<typename Param, typename Return>
-	class JSBridgeMethod : public NamedFunction<Param, Return> {
+	class JSBridgeMethod : public NamedFunction<Param, Return>, public JSBridgeMethodBase {
+	public:
 		
 		// MARK: - Types
 		
@@ -40,6 +43,18 @@ namespace speckle::interface::browser::bridge {
 		 @param source The object to copy
 		 */
 		JSBridgeMethod(const JSBridgeMethod& source) = default;
+		
+		// MARK: - Functions (const)
+		
+		/*!
+		 Register the method argument type for a specified bridge
+		 @param bridge The target bridge
+		 @return A reference to this
+		 */
+		JSBridgeMethod<Param, Return>& registerArgument(const speckle::utility::String& bridge) const override {
+			JSBridgeArgumentWrap::defineArgument<Param>(bridge, base::getName());
+			return *this;
+		}
 	};
 	
 }
