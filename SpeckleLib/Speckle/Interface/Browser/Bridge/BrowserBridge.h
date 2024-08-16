@@ -53,6 +53,12 @@ namespace speckle::interface::browser::bridge {
 		 @param requestID The resquest ID from the JS caller (to correctly pair up the caller and result)
 		 */
 		void cacheResult(std::unique_ptr<active::serialise::Cargo> result, speckle::utility::String requestID);
+		/*!
+		 Release the results linked to a specified request ID
+		 @param requestID The required result ID
+		 @return The results linked to the specified ID (nullptr on failure)
+		 */
+		std::unique_ptr<active::serialise::Cargo> releaseResult(speckle::utility::String requestID);
 		
 	protected:
 		/*!

@@ -142,8 +142,29 @@ namespace {
 		}
 	};
 	
+	using JSElements = std::vector<std::pair<JS::Base*, String::Option>>;
+	
 	using enum JSBaseIdentity::Type;
 	using enum JSBaseIdentity::Stage;
+
+	
+	/*--------------------------------------------------------------------
+		Add an item to a JSBase object
+	 
+		item: The item to write
+		destination: The JSBase destination
+	  --------------------------------------------------------------------*/
+	void addJSBase(GS::Ref<JS::Base> item, const String& tag, GS::Ref<JS::Base>& destination) {
+			//Attempt to add to object
+		if (auto object = dynamic_cast<JS::Object*>(destination.operator JS::Base*()); object != nullptr)
+			object->AddItem(tag, item);
+			//Attempt to add to array
+		else if (auto array = dynamic_cast<JS::Array*>(destination.operator JS::Base*()); object != nullptr)
+			array->AddItem(item);
+		else
+			throw std::system_error(makeJSBaseError(badDestination));	//The destination isn't a container
+		return;
+	} //addJSBase
 	
 	
 	/*--------------------------------------------------------------------
@@ -177,126 +198,104 @@ namespace {
 			   break;
 			}
 		}
-		if (destination) {
-			auto object = JSON::ObjectValue::Cast(destination);
-			if (object == nullptr)
-				throw std::system_error(makeJSBaseError(badDestination));
-			object->AddValue(tag, newValue);
-			return;
-		}
-		destination = newValue;
+		if (destination)
+			addJSBase(newValue, tag, destination);
+		else
+			destination = newValue;
 	} //writeValue
 
+	
+	/*--------------------------------------------------------------------
+		Decompose a JSBase into constitient items, paired with a name where possible
+	 
+		source: The source JSBase
+
+		return: The items in the JSBase
+	  --------------------------------------------------------------------*/
+	JSElements decomposeJSBase(JS::Base& source) {
+		JSElements result;
+		if (auto object = dynamic_cast<JS::Object*>(&source); object != nullptr) {
+				//Decomose an object
+			for (auto& item : object->GetItemTable())
+				result.push_back({item.value->operator JS::Base*(), String{*item.key}});
+		} else if (auto array = dynamic_cast<JS::Array*>(&source); object != nullptr) {
+				//Decomose an array
+			for (auto& item : array->GetItemArray())
+				result.push_back({item, std::nullopt});
+		} else
+			throw std::system_error(makeJSBaseError(badSource));	//The source isn't a container
+		return result;
+	} //decomposeJSBase
+	
+	
+	/*--------------------------------------------------------------------
+		Import a cargo item from a JSBase element
+
+		cargo: A cargo item to import the phrase
+		source: The JSBase element to be imported
+	  --------------------------------------------------------------------*/
+	void readValue(Cargo& cargo, JS::Base& source) {
+		auto* item = dynamic_cast<Item*>(&cargo);
+		if (item == nullptr)
+			throw std::system_error(makeJSBaseError(badValue));
+		
+	} //doJSBaseItemImport
+	
 	
 	/*--------------------------------------------------------------------
 		Import the contents of the specified cargo from JSBase
 	 
 		container: The cargo container to receive the imported data
 		containerIdentity: The container identity
-		importer: The JSBase data importer
-		depth: The recursion depth into the JSBase hierarchy
+		source: The JSBase source
 	  --------------------------------------------------------------------*/
-/*	void doJSBaseImport(Cargo& container, const JSBaseIdentity& containerIdentity, JSBaseImporter& importer, int32_t depth) {
-		if (containerIdentity.type == valueStart) {
-			if (auto* item = dynamic_cast<active::serialise::Item*>(&container); item != nullptr) {
-				importer.getContent(*item);
-				return;
-			}
+	void doJSBaseImport(Cargo& container, const JSBaseIdentity& containerIdentity, JS::Base& source) {
+		if (dynamic_cast<Item*>(&container) != nullptr) {
+				//If we've got a single-value item at the root, import the source value and end
+			readValue(container, source);
+			return;
 		}
-		Inventory inventory = getImportInventoryFor(container);
-		auto attributesRemaining = inventory.attributeSize(true);	//This is tracked where the container requires attributes first
-		auto parsingStage = containerIdentity.stage;
-		auto* package = dynamic_cast<Package*>(&container);
-		auto isReadingAttribute = (package != nullptr) && package->isAttributeFirst();
-		std::optional<Memory::size_type> restorePoint;
-		for (;;) {	//We break out of this loop when an error occurs or we run out of data
-			Memory::size_type readPoint = importer.getPosition();
-			auto identity = importer.getIdentity(parsingStage);	//Get the identity of the next item in the JSBase source
-			switch (identity.type) {
-				case undefined:	//End of file
-					if (depth != 0)	//Failure if tags haven't been balanced correctly
-						throw std::system_error(makeJSBaseError(unbalancedScope));
-					return;
-				case delimiter:
-					if (parsingStage != complete)	//A delimiter has been found before anything was read
-						throw std::system_error(makeJSBaseError(unbalancedScope));
-					parsingStage = containerIdentity.stage;
-					continue;	//Move onto the next item
-				case objectStart: case valueStart: case arrayStart: {
-					if (parsingStage == complete)	//An element has been read, but no delimiter reached - expected a closing symbol
-						throw std::system_error(makeJSBaseError(unbalancedScope));
-					Cargo::Unique cargo;
-					Inventory::iterator incomingItem = inventory.end();
-					bool isArrayStart = ((identity.type == arrayStart) && !identity.name.empty()), isKnown = true;
-					if (identity.name.empty() || isArrayStart) {
-						if (identity.name.empty() && parsingStage == object)	//An element within an object must be identified with a name
-							throw std::system_error(makeJSBaseError(nameMissing));
-						cargo = wrapped(container);	//The next element is a child (for array) or instance (for root) of the parent container
-						if (identity.name.empty()) {
-							auto incomingType = identity.type;
-							identity = containerIdentity;	//If no name is specified, we adopt the identity specified by the container
-							identity.type = incomingType;
-							if (parsingStage == root)
-								identity.stage = isArrayStart ? array : object;
-						}
-						if (parsingStage == root)
-							cargo->setDefault();	//The root object is sourced externally, so has to be reset to the default separately
-					}
-					if (!identity.name.empty() && (parsingStage != root) && !isArrayStart) {	//Allocate new cargo when a new element is reached
-						if (incomingItem = inventory.registerIncoming(identity); incomingItem != inventory.end()) {	//Seek the incoming element in the inventory
-							if (isReadingAttribute && !incomingItem->isAttribute())
-								incomingItem = inventory.end();
-							else {
-								if (!incomingItem->bumpAvailable())
-									throw std::system_error(makeJSBaseError(inventoryBoundsExceeded));
-								if ((attributesRemaining > 0) && incomingItem->isAttribute() && incomingItem->required)
-									--attributesRemaining;
-								cargo = (incomingItem == inventory.end()) ? nullptr : container.getCargo(*incomingItem);
-							}
-						}
-							//Allow the parser to move beyond unknown/unwanted elements
-						if (!cargo) {
-							if (importer.isUnknownSkipped() || isReadingAttribute) {
-								isKnown = false;
-								cargo = makeUnknown(identity);
-								if (isReadingAttribute && !restorePoint)	//If not all attributes read, parse data twice (first for attributes only)
-									restorePoint = readPoint;	//If this is the first instance, set a restore point so reading can resume here
-							} else
-								throw std::system_error(makeJSBaseError(unknownName));
-						}
-						cargo->setDefault();
-					}
-					doJSBaseImport(*cargo, JSBaseIdentity{identity}.atStage((identity.type == arrayStart) ? array : object), importer, depth + 1);
-					if (incomingItem != inventory.end()) {
-						if (incomingItem->isRepeating()) {
-							if ((package != nullptr) && !package->insert(std::move(cargo), *incomingItem))
-								throw std::system_error(makeJSBaseError(invalidObject));
-						}
-					} else if (isKnown && !isArrayStart)
-						return;	//If there is no defined item, we're in an array or the root - we need to return the imported element now
-					parsingStage = complete;	//An element has been parsed - we either expect a delimiter or a terminator
-					break;
-				}
-				case objectEnd: case arrayEnd:
-					if (containerIdentity.stage != (identity.type == objectEnd ? object : array))
-						throw std::system_error(makeJSBaseError(unbalancedScope));	//The scope end couldn't be paired with the atart
-					if (restorePoint) {
-						isReadingAttribute = false;
-						importer.setPosition(*restorePoint);	//Move the read position back to the first non-attribute
-						restorePoint.reset();
-						attributesRemaining = 0;	//It may not be an error is this is not already zero - the container will validate the result
-						if (!package->finaliseAttributes())
-							throw std::system_error(makeJSBaseError(invalidObject));
-						inventory = getImportInventoryFor(container);	//Having finalised attributes, the container inventory will probably change
-						parsingStage = object;	//Resuming reading at non-attributes is always in the context of an object
-						break;
-					}
-					if (!container.validate())
-						throw std::system_error(makeJSBaseError(invalidObject));	//The incoming data was rejected as invalid
-					return;
-			}
+			//Find out what the container can hold
+		Inventory inventory;
+		if (!container.fillInventory(inventory))
+			throw std::system_error(makeJSBaseError(missingInventory));
+		inventory.resetAvailable();	//Reset the availability of each entry to zero so we can count incoming items
+		auto elements = decomposeJSBase(source);
+		if (elements.empty())
+			return;
+		bool isArray = !elements[0].second;
+		Identity parentIdentity{containerIdentity};
+			//Anonymous arrays need an identity
+		if (isArray && parentIdentity.name.empty()) {
+			for (auto& entry : inventory)
+				if (entry.isRepeating())
+					parentIdentity = entry.identity();
+			if (parentIdentity.name.empty())
+				throw std::system_error(makeJSBaseError(invalidObject));
 		}
-	}*/ //doJSBaseImport
+		for (auto& element : elements) {
+			Cargo::Unique cargo;
+			Inventory::iterator incomingItem = inventory.end();
+			Identity identity{element.second.value_or(parentIdentity.name)};
+			if (incomingItem = inventory.registerIncoming(identity); incomingItem != inventory.end()) {	//Seek the incoming element in the inventory
+				if (!incomingItem->bumpAvailable())
+					throw std::system_error(makeJSBaseError(inventoryBoundsExceeded));
+				cargo = container.getCargo(*incomingItem);
+			}
+			if (!cargo)
+				continue;	//TODO: Add option to throw exception for unknown elements
+			cargo->setDefault();
+			doJSBaseImport(*cargo, identity, *element.first);
+			if (incomingItem->isRepeating()) {
+				if (auto package = dynamic_cast<Package*>(&container);
+						(package != nullptr) && !package->insert(std::move(cargo), *incomingItem))
+					throw std::system_error(makeJSBaseError(invalidObject));
+			}
+			break;
+		}
+		if (!container.validate())
+			throw std::system_error(makeJSBaseError(invalidObject));	//The incoming data was rejected as invalid
+	} //doJSBaseImport
 	
 		
 	/*--------------------------------------------------------------------
@@ -307,75 +306,56 @@ namespace {
 		destination: The JSBase destination
 	  --------------------------------------------------------------------*/
 	void doJSBaseExport(const Cargo& cargo, const JSBaseIdentity& identity, GS::Ref<JS::Base>& destination) {
-		String tag;
-		if (identity.stage != root) {
-			if (identity.name.empty())	//Non-root values, i.e. values embedded in an object, must have an identifying name
-				throw std::system_error(makeJSBaseError(nameMissing));
-				//Formulate and write the identifying name
-			tag = identity.name;
-		}
 		const auto* item = dynamic_cast<const Item*>(&cargo);
 		Inventory inventory;
 			//Single-value items won't specify an inventory (no point)
 		if (!cargo.fillInventory(inventory) || (inventory.empty())) {
 			if (item == nullptr)
-				throw std::system_error(makeJSBaseError(missingInventory));	//If anything other than a single-value item lands here, it's an error
-			writeValue(*item, tag, destination);
+				throw std::system_error(makeJSBaseError(badValue));	//Non-items must be named
+			writeValue(*item, identity.name, destination);
 			return;
 		}
-		if ((item != nullptr) && (inventory.size() != 1))	//An item can have multiple values but they must all be a homogenous type, e.g. an array
-			throw std::system_error(makeJSBaseError(badValue));
-			//Determine if this element acts as an object/array wrapper for values
-			//The package will have an outer object wrapper (even if an array) if the outer element has a name that differs from the inner item
-		bool isWrapper = (inventory.size() > 1) || (identity.stage == root) ||
-				(!identity.name.empty() && !inventory.begin()->identity().name.empty() && (inventory.begin()->identity() != identity));
-			//An array package will have a single item within more than one possible value
-		bool isArray = !isWrapper && (inventory.size() == 1) && !(inventory.begin()->maximum() == 1),
-			 isFirstItem = true;
-		if (isWrapper)
-			exporter.writeTag(tag, nameSpace, JSBaseIdentity::Type::objectStart, depth++);
-		else if (isArray)
-			exporter.writeTag(tag, nameSpace, JSBaseIdentity::Type::arrayStart, depth);
+			//Determine if this cargo is a wrapper for other cargo, i.e. an object/array
+		bool isWrapperTag = true;
+		if (item != nullptr) {
+			if (inventory.size() != 1)
+				throw std::system_error(makeJSBaseError(badValue));
+				//Items only act as a wrapper when different (non-empty) names are defined by the inventory and the item identity
+			isWrapperTag = !identity.name.empty() && !inventory.begin()->identity().name.empty() && (inventory.begin()->identity() != identity);
+		}
 		auto sequence = inventory.sequence();
+		auto container = destination;
+		if (isWrapperTag) {
+			auto containerType = cargo.entryType().value_or((inventory.size() == 1) && !(inventory.begin()->maximum() == 1) ?
+													   Entry::Type::array : Entry::Type::element);
+			if (containerType == Entry::Type::array)
+				container = new JS::Array();
+			else
+				container = new JS::Object();
+			if (destination)
+				addJSBase(container, identity.name, destination);
+			else
+				destination = container;
+		}
 		for (auto& entry : sequence) {
 			auto item = *entry.second;
-			if (!item.required || (item.available == 0))
+			if (!item.required)
 				continue;
-			if (isFirstItem)
-				isFirstItem = false;
-			else
-				exporter.write(",");
-			auto entryNameSpace{item.identity().group.value_or(String())};
-				//Each package item may have multiple available cargo items to export
+				//Each cargo container may contain multiple export items
 			auto limit = item.available;
-			bool isItemArray = item.isRepeating(),
-				 isFirstValue = true;
-			if (isItemArray)
-				exporter.writeTag(item.identity().name, entryNameSpace, JSBaseIdentity::Type::arrayStart, depth);
 			for (item.available = 0; item.available < limit; ++item.available) {
-				auto content = cargo.getCargo(item);
-				if (!content)
+				if (auto content = cargo.getCargo(item); content) {
+					doJSBaseExport(*content, item.identity(), container);
+				} else
 					break;	//Discontinue an inventory item when the supply runs out
-				if (isFirstValue)
-					isFirstValue = false;
-				else
-					exporter.write(",");
-				doJSBaseExport(*content, isItemArray ? item.identity() : JSBaseIdentity{item.identity()}.atStage(object),
-							 exporter, (dynamic_cast<Package*>(content.get()) == nullptr) ? depth : depth + ((identity.stage == root) ? 0 : 1));
 			}
-			if (isItemArray)
-				exporter.writeTag(String{}, String{}, JSBaseIdentity::Type::arrayEnd, depth);
 		}
-		if (isWrapper)
-			exporter.writeTag(String{}, String{}, JSBaseIdentity::Type::objectEnd, --depth);
-		else if (isArray)
-			exporter.writeTag(String{}, String{}, JSBaseIdentity::Type::arrayEnd, depth);
 	} //doJSBaseExport
 	
 }
 
 /*--------------------------------------------------------------------
-	Send cargo as XML to a specified destination
+	Send cargo as JSBase to a specified destination
  
 	cargo: The cargo to be sent as JS::Base
 	identity: The cargo identity (name, optional namespace)
@@ -387,12 +367,14 @@ void JSBaseTransport::send(Cargo&& cargo, const Identity& identity, GS::Ref<JS::
 
 
 /*--------------------------------------------------------------------
-	Receive cargo from a specified XML source
+	Receive cargo from a specified JSBase source
  
 	cargo: The cargo to receive the JS::Base data
 	identity: The cargo identity (name, optional namespace)
 	source: A reference to a JS::Base object
   --------------------------------------------------------------------*/
 void JSBaseTransport::receive(Cargo&& cargo, const Identity& identity, GS::Ref<JS::Base> source) const {
-	doJSBaseImport(cargo, JSBaseIdentity(identity).atStage(root), source);
+	if (!source)
+		throw std::system_error(makeJSBaseError(badSource));
+	doJSBaseImport(cargo, JSBaseIdentity(identity).atStage(root), *source);
 } //JSBaseTransport::receive

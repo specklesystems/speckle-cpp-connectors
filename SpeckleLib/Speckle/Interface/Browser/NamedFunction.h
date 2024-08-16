@@ -116,8 +116,10 @@ namespace speckle::interface::browser {
 				throw;	//NB: Throw a system exception here in future with a defined error
 			if constexpr(std::is_same<Return, void>::value)
 				m_function(*parameters);	//Parameters and no return value
- 			else
-				result.reset(cloneMove(m_function(*parameters)));	//Parameters with return value
+			else {
+				auto outgoing = m_function(*parameters);	//Parameters with return value
+				result = std::move(outgoing);
+			}
 		}
 		return result;
 	} //NamedFunction<Param, Return, Packaging>::execute

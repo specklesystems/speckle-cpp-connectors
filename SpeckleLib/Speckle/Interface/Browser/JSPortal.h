@@ -46,7 +46,7 @@ namespace speckle::interface::browser {
 		 @param code The JS code
 		 @return True if the code was successfully executed
 		 */
-		bool execute(const speckle::utility::String& code);
+		bool execute(const speckle::utility::String& code) const;
 		/*!
 		 Install a JS function object
 		 @param object The object to install
@@ -70,7 +70,7 @@ namespace speckle::interface::browser {
 		return: True if the code was successfully executed
 	  --------------------------------------------------------------------*/
 	template<typename FunctionBinding>
-	bool JSPortal<FunctionBinding>::execute(const speckle::utility::String& code) {
+	bool JSPortal<FunctionBinding>::execute(const speckle::utility::String& code) const {
 #ifdef ARCHICAD
 		std::shared_ptr<JavascriptEngine> engine{m_engine};
 		return engine ? engine->ExecuteJS(code) : false;

@@ -123,4 +123,13 @@ namespace speckle::utility {
 	
 }
 
+	///Hashing for String class, e.g. to use as a key in unordered_map
+template <>
+struct std::hash<speckle::utility::String> {
+	std::size_t operator()(const speckle::utility::String& k) const {
+		return hash<std::string>()(k);	//Just use the hashing provided by std::string
+	}
+};
+
+
 #endif	//SPECKLE_UTILITY_STRING

@@ -8,6 +8,11 @@ namespace speckle::interface::browser::bridge {
 		
 	/*!
 	 Base class for the argments passed from JavaScript to a named C++ method in a Speckle bridging object
+	 
+	 NB: The JSBridgeArgumentWrap class will:
+	 - Deserialise the essential attributes for determining the target method and arguments;
+	 - Create the correct JSBridgeArgument subclass for the emthod/argument and populate it with the collected attributes
+	 Therefore, there is no need for this class to handle any deserialisation, and subclasses should only handle the core arguments data
 	*/
 	class JSBridgeArgument : public active::serialise::Package {
 	public:
@@ -44,30 +49,25 @@ namespace speckle::interface::browser::bridge {
 		 @return The request ID
 		 */
 		const speckle::utility::String& getRequestID() const { return m_requestID; }
+		/*!
+		 Fill an inventory with the cargo items
+		 @param inventory The inventory to receive the cargo items
+		 @return True if items have been added to the inventory
+		 */
+		bool fillInventory(active::serialise::Inventory& inventory) const override { return false; } //Nothing to serialise at this level
+		/*!
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure
+		 */
+		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override { return nullptr; } //Nothing to serialise at this level
 		
-		// MARK: - Functions (serialisation)
+		// MARK: - Functions (mutating)
 		
 		/*!
-			Fill an inventory with the cargo items
-			@param inventory The inventory to receive the cargo items
-			@return True if items have been added to the inventory
-		*/
-		bool fillInventory(active::serialise::Inventory& inventory) const override;
-		/*!
-			Get the specified cargo
-			@param item The inventory item to retrieve
-			@return The requested cargo (nullptr on failure)
-		*/
-		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
-		/*!
-			Set to the default package content
-		*/
+		 Set to the default package content
+		 */
 		void setDefault() override;
-		/*!
-			Validate the cargo data
-			@return True if the data has been validated
-		*/
-		bool validate() override;
 		
 	private:
 			///The name of the JS object the argument is targeting
