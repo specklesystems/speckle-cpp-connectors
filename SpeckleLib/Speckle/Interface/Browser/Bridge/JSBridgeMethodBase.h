@@ -12,10 +12,10 @@ namespace speckle::interface::browser::bridge {
 	public:
 		/*!
 		 Register the method argument type for a specified bridge
-		 @param bridge The target bridge
+		 @param bridge The target bridge name
 		 @return A reference to this
 		 */
-		virtual JSBridgeMethodBase& registerArgument(const speckle::utility::String& bridge) const = 0;
+		virtual JSBridgeMethodBase& registerArgument(const speckle::utility::String& bridge) = 0;
 	};
 	
 }

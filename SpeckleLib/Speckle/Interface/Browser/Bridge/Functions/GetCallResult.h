@@ -41,10 +41,11 @@ namespace speckle::interface::browser::bridge {
 		
 	private:
 		/*!
-		 Run a specified bridge method
-		 @param argument The method arguments
+		 Get the result for a specified call
+		 @param argument The method arguments specifying the target bridge and requestID
+		 @return The requested result (nullptr on failure)
 		 */
-		std::unique_ptr<active::serialise::Cargo> runMethod(JSBridgeArgumentWrap& argument) const;
+		std::unique_ptr<active::serialise::Cargo> getResult(JSBridgeArgumentWrap& argument) const;
 
 			///The parent browser bridge
 		BrowserBridge& m_bridge;

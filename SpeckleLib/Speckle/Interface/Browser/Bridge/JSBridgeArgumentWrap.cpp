@@ -7,6 +7,13 @@ using namespace active::serialise;
 using namespace speckle::interface::browser::bridge;
 using namespace speckle::utility;
 
+namespace speckle::interface::browser::bridge {
+	
+		///Factory functions to construct arguments from linked bridge/method names
+	std::unordered_map<speckle::utility::String, JSBridgeArgumentWrap::Production> JSBridgeArgumentWrap::m_argumentFactory;
+
+}
+
 namespace {
 
 	using enum active::serialise::Entry::Type;
@@ -28,6 +35,13 @@ namespace {
 	}.withType(&typeid(JSBridgeArgumentWrap));;
 
 }
+
+/*--------------------------------------------------------------------
+	Destructor
+  --------------------------------------------------------------------*/
+JSBridgeArgumentWrap::~JSBridgeArgumentWrap() {
+} //JSBridgeArgumentWrap::~JSBridgeArgumentWrap
+
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the cargo items

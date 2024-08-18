@@ -154,7 +154,7 @@ namespace {
 		item: The item to write
 		destination: The JSBase destination
 	  --------------------------------------------------------------------*/
-	void addJSBase(GS::Ref<JS::Base> item, const String& tag, GS::Ref<JS::Base>& destination) {
+	void addJSBase(GS::Ref<JS::Base>& item, const String& tag, GS::Ref<JS::Base>& destination) {
 			//Attempt to add to object
 		if (auto object = dynamic_cast<JS::Object*>(destination.operator JS::Base*()); object != nullptr)
 			object->AddItem(tag, item);

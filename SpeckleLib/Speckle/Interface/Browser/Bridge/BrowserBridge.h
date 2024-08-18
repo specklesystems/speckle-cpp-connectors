@@ -64,7 +64,8 @@ namespace speckle::interface::browser::bridge {
 		
 	protected:
 		/*!
-		 Add a browser method
+		 Add a browser method name
+		 @tparam T The method type (which also defines the argument type
 		 */
 		template<typename T> requires (std::is_base_of_v<JSBridgeMethodBase, T>)
 		void addMethod() const {

@@ -5,11 +5,6 @@
 #include "Speckle/Database/Content/Index.h"
 
 namespace speckle::database {
-	
-		///The record index type for the local context - Guid is suitable for Archicad, but update as other contexts are introduced
-	using RecordIndex = speckle::utility::Guid;
-		///The database index type for the local context - Guid is suitable for Archicad, but update as other contexts are introduced
-	using DBaseIndex = speckle::utility::Guid;
 
 	/*!
 	 Record link class, binding an index to additional information

@@ -180,6 +180,8 @@
 		21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */; };
 		21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */; };
 		21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0F2C677BC0008B6A06 /* Connector.cpp */; };
+		21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F832C70D2C4008B6A06 /* AccountBridge.cpp */; };
+		21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +408,10 @@
 		21F69F0D2C677BC0008B6A06 /* ConnectorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorPalette.h; sourceTree = "<group>"; };
 		21F69F0F2C677BC0008B6A06 /* Connector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connector.cpp; sourceTree = "<group>"; };
 		21F69F102C677BC0008B6A06 /* ConnectorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorResource.h; sourceTree = "<group>"; };
+		21F69F832C70D2C4008B6A06 /* AccountBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AccountBridge.cpp; sourceTree = "<group>"; };
+		21F69F842C70D2C4008B6A06 /* AccountBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountBridge.h; sourceTree = "<group>"; };
+		21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetAccounts.cpp; sourceTree = "<group>"; };
+		21F69F8C2C70D7EE008B6A06 /* GetAccounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAccounts.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,6 +829,7 @@
 		21F69F0E2C677BC0008B6A06 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				21F69F872C70D2C4008B6A06 /* Browser */,
 				21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */,
 				21F69F0B2C677BC0008B6A06 /* ConnectorMenu.h */,
 				21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */,
@@ -840,6 +847,33 @@
 				21F69F0E2C677BC0008B6A06 /* Interface */,
 			);
 			path = Connector;
+			sourceTree = "<group>";
+		};
+		21F69F852C70D2C4008B6A06 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F832C70D2C4008B6A06 /* AccountBridge.cpp */,
+				21F69F842C70D2C4008B6A06 /* AccountBridge.h */,
+				21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */,
+				21F69F8C2C70D7EE008B6A06 /* GetAccounts.h */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		21F69F862C70D2C4008B6A06 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F852C70D2C4008B6A06 /* Account */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		21F69F872C70D2C4008B6A06 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F862C70D2C4008B6A06 /* Bridge */,
+			);
+			path = Browser;
 			sourceTree = "<group>";
 		};
 		7EA5F91E157FA18400693CEA /* EN-GB */ = {
@@ -1013,7 +1047,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
+				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
 				21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */,
 				21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */,
 			);

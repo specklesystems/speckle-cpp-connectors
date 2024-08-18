@@ -40,6 +40,13 @@ BrowserBridge::BrowserBridge(const String& name) : JSObject{name} {
 
 
 /*--------------------------------------------------------------------
+	Destructor
+  --------------------------------------------------------------------*/
+BrowserBridge::~BrowserBridge() {
+} //BrowserBridge::~BrowserBridge
+
+
+/*--------------------------------------------------------------------
 	Get the names of the methods supported by this bridge
  
 	return: The supported method names

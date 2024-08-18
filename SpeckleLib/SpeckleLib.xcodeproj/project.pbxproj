@@ -22,6 +22,8 @@
 		21F69F682C6DFB01008B6A06 /* RunMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F662C6DFB01008B6A06 /* RunMethod.cpp */; };
 		21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */; };
 		21F69F812C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */; };
+		21F69F962C71087A008B6A06 /* Account.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F922C71087A008B6A06 /* Account.cpp */; };
+		21F69FA42C729400008B6A06 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA32C729400008B6A06 /* Record.cpp */; };
 		21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F93AEA2B2F406D009A2C5B /* Addon.cpp */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +115,10 @@
 		21F69F7D2C6FD9FC008B6A06 /* GetCallResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCallResult.h; sourceTree = "<group>"; };
 		21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSBridgeArgumentWrap.cpp; sourceTree = "<group>"; };
 		21F69F822C701A8E008B6A06 /* JSBridgeMethodBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBridgeMethodBase.h; sourceTree = "<group>"; };
+		21F69F8F2C710012008B6A06 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		21F69F922C71087A008B6A06 /* Account.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Account.cpp; sourceTree = "<group>"; };
+		21F69F932C71087A008B6A06 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		21F69FA32C729400008B6A06 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
 		21F93AE92B2F406D009A2C5B /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addon.h; sourceTree = "<group>"; };
 		21F93AEA2B2F406D009A2C5B /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Addon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +150,7 @@
 				21F93AE82B2F406D009A2C5B /* Environment */,
 				21F93ACC2B2B67FC009A2C5B /* Event */,
 				21F69F1B2C6A0FE2008B6A06 /* Interface */,
+				21F69F952C71087A008B6A06 /* Record */,
 				212A834E2AE47AD9001EAFE7 /* Serialise */,
 				219351B02C62CC1A00E5A69C /* Utility */,
 				218953A32C0C9CB00078F182 /* Version.h */,
@@ -225,6 +232,8 @@
 				219351A72C62CA5300E5A69C /* Index.h */,
 				21F69EBD2C63C954008B6A06 /* Link.cpp */,
 				21F69EBC2C63944D008B6A06 /* Link.h */,
+				21F69FA32C729400008B6A06 /* Record.cpp */,
+				21F69F8F2C710012008B6A06 /* Record.h */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -315,6 +324,23 @@
 				21F69F652C6DFB01008B6A06 /* RunMethod.h */,
 			);
 			path = Functions;
+			sourceTree = "<group>";
+		};
+		21F69F942C71087A008B6A06 /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F922C71087A008B6A06 /* Account.cpp */,
+				21F69F932C71087A008B6A06 /* Account.h */,
+			);
+			path = Credentials;
+			sourceTree = "<group>";
+		};
+		21F69F952C71087A008B6A06 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				21F69F942C71087A008B6A06 /* Credentials */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		21F93ACC2B2B67FC009A2C5B /* Event */ = {
@@ -481,8 +507,10 @@
 				21F69EBE2C63C954008B6A06 /* Link.cpp in Sources */,
 				219351B32C62CC1A00E5A69C /* String.cpp in Sources */,
 				219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */,
+				21F69FA42C729400008B6A06 /* Record.cpp in Sources */,
 				21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
+				21F69F962C71087A008B6A06 /* Account.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@ namespace speckle::interface::browser::bridge {
 	
 	/*!
 	 A class to provide JS bridging for Speckle connectors using a table of defined methods
+	 @tparam Param The function parameter type
+	 @tparam Return The function return type
 	*/
 	template<typename Param, typename Return>
 	class JSBridgeMethod : public NamedFunction<Param, Return>, public JSBridgeMethodBase {
@@ -48,11 +50,12 @@ namespace speckle::interface::browser::bridge {
 		
 		/*!
 		 Register the method argument type for a specified bridge
-		 @param bridge The target bridge
+		 @param bridge The target bridge name
 		 @return A reference to this
 		 */
-		JSBridgeMethod<Param, Return>& registerArgument(const speckle::utility::String& bridge) const override {
-			JSBridgeArgumentWrap::defineArgument<Param>(bridge, base::getName());
+		JSBridgeMethodBase& registerArgument(const speckle::utility::String& bridge) override {
+			if constexpr(!std::same_as<Param, void>)
+				JSBridgeArgumentWrap::defineArgument<Param>(bridge, base::getName());
 			return *this;
 		}
 	};
