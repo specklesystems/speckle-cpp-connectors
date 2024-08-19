@@ -61,7 +61,7 @@ namespace {
 			BrowserId = 1
 		};
 
-		DG::Browser browser;
+		std::shared_ptr<DG::Browser> browser;
 
 		void InitBrowserControl();
 		void SetMenuItemCheckedState(bool);
@@ -80,12 +80,7 @@ namespace {
 		 Get the portal Javascript engine
 		 @return The portal Javascript engine
 		 */
-		std::shared_ptr<JavascriptEngine> getJSEngine() const override { return m_jsEngine; }
-#endif
-		
-	private:
-#ifdef ARCHICAD
-		std::shared_ptr<JavascriptEngine> m_jsEngine = std::make_shared<JavascriptEngine>();
+		std::shared_ptr<JavascriptEngine> getJSEngine() const override { return browser; }
 #endif
 	};
 
@@ -158,14 +153,14 @@ static GSErrCode __ACENV_CALL NotificationHandler(API_NotifyEventID notifID, Int
 
 
 BrowserPalette::BrowserPalette() :
-	DG::Palette(ACAPI_GetOwnResModule(), BrowserPaletteResId, ACAPI_GetOwnResModule(), paletteGuid),
-	browser(GetReference(), BrowserId) {
+	DG::Palette(ACAPI_GetOwnResModule(), BrowserPaletteResId, ACAPI_GetOwnResModule(), paletteGuid) {
+	browser = std::make_shared<DG::Browser>(GetReference(), BrowserId);
 	ACAPI_ProjectOperation_CatchProjectEvent(APINotify_Quit, NotificationHandler);
 	Attach(*this);
 	BeginEventProcessing();
-	InitBrowserControl();
 		//Install required connector bridges
 	install(std::make_shared<AccountBridge>());
+	InitBrowserControl();
 }
 
 BrowserPalette::~BrowserPalette() {
@@ -202,7 +197,7 @@ void BrowserPalette::Hide() {
 }
 
 void BrowserPalette::InitBrowserControl() {
-	browser.LoadURL("https://boisterous-douhua-e3cefb.netlify.app/");
+	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/");
 }
 
 
@@ -223,7 +218,7 @@ void BrowserPalette::SetMenuItemCheckedState(bool isChecked) {
 
 void BrowserPalette::PanelResized(const DG::PanelResizeEvent& ev) {
 	BeginMoveResizeItems();
-	browser.Resize(ev.GetHorizontalChange(), ev.GetVerticalChange());
+	browser->Resize(ev.GetHorizontalChange(), ev.GetVerticalChange());
 	EndMoveResizeItems();
 }
 
