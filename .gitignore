@@ -20,3 +20,4 @@ CMakeFiles/
 **/*.pc
 XCBuildData/
 **/*.xcsettings
+*.log
