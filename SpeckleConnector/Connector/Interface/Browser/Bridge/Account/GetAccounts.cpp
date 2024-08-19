@@ -24,11 +24,19 @@ GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() { return getAcc
 
 
 /*--------------------------------------------------------------------
+	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
+ 
+	return: An argument instance
+  --------------------------------------------------------------------*/
+std::unique_ptr<Cargo> GetAccounts::getArgument() const { return nullptr; }
+
+
+/*--------------------------------------------------------------------
 	Get the accounts
  
 	return: The accounts (empty array when none defined)
   --------------------------------------------------------------------*/
-std::unique_ptr<active::serialise::Cargo> GetAccounts::getAccounts(void) const {
+std::unique_ptr<Cargo> GetAccounts::getAccounts(void) const {
 	Vector<Account> accounts;
 	///TODO: Get the accounts here - returning an empty array for testing only
 	return std::make_unique<WrappedValue>(accounts);

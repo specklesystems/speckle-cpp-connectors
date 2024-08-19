@@ -47,7 +47,7 @@ namespace speckle::interface::browser {
 	 @tparam Packaging The packaging type for transporting input parameters and results (Cargo is used as the default for serialisation)
 	*/
 	template<typename Param, typename Return, typename Packaging = active::serialise::Cargo>
-	class NamedFunction : public active::utility::NameID, virtual public Functional<Packaging> {
+	class NamedFunction : protected active::utility::NameID, virtual public Functional<Packaging> {
 	public:
 
 		// MARK: - Types
@@ -123,7 +123,7 @@ namespace speckle::interface::browser {
 		}
 		return result;
 	} //NamedFunction<Param, Return, Packaging>::execute
-
+	
 }
 
 #endif	//SPECKLE_INTERFACE_NAMED_FUNCTION

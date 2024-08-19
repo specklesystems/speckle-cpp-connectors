@@ -24,6 +24,7 @@
 		21F69F812C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */; };
 		21F69F962C71087A008B6A06 /* Account.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F922C71087A008B6A06 /* Account.cpp */; };
 		21F69FA42C729400008B6A06 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA32C729400008B6A06 /* Record.cpp */; };
+		21F69FA62C733EDA008B6A06 /* JSBridgeArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */; };
 		21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F93AEA2B2F406D009A2C5B /* Addon.cpp */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		21F69F922C71087A008B6A06 /* Account.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Account.cpp; sourceTree = "<group>"; };
 		21F69F932C71087A008B6A06 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		21F69FA32C729400008B6A06 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
+		21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSBridgeArgument.cpp; sourceTree = "<group>"; };
 		21F93AE92B2F406D009A2C5B /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addon.h; sourceTree = "<group>"; };
 		21F93AEA2B2F406D009A2C5B /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Addon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +305,7 @@
 				21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */,
 				21F69F4B2C6CCC25008B6A06 /* BrowserBridge.h */,
 				21F69F582C6CDAEE008B6A06 /* Functions */,
+				21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */,
 				21F69F4D2C6CCC25008B6A06 /* JSBridgeArgument.h */,
 				21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */,
 				21F69F692C6E0D59008B6A06 /* JSBridgeArgumentWrap.h */,
@@ -497,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F69FA62C733EDA008B6A06 /* JSBridgeArgument.cpp in Sources */,
 				21F69F682C6DFB01008B6A06 /* RunMethod.cpp in Sources */,
 				21F69F812C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp in Sources */,
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,

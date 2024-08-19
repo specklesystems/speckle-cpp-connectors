@@ -62,6 +62,16 @@ RunMethod::RunMethod(BrowserBridge& bridge) : m_bridge{bridge},
 
 
 /*--------------------------------------------------------------------
+	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
+ 
+	return: An argument instance
+  --------------------------------------------------------------------*/
+std::unique_ptr<active::serialise::Cargo> RunMethod::getArgument() const {
+	return std::make_unique<JSBridgeArgument>();
+} //RunMethod::getArgument
+
+
+/*--------------------------------------------------------------------
 	Run a specified bridge method
  
 	arguments: The method arguments

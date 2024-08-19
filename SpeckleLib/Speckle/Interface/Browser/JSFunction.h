@@ -2,12 +2,14 @@
 #define SPECKLE_INTERFACE_JS_FUNCTION
 
 #include "Active/Serialise/Inventory/Identity.h"
+#include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Interface/Browser/JSBinding.h"
 #include "Speckle/Interface/Browser/NamedFunction.h"
 #include "Speckle/Utility/String.h"
 
 #include <functional>
 #include <type_traits>
+#include <utility>
 
 namespace speckle::interface::browser {
 	
@@ -44,11 +46,16 @@ namespace speckle::interface::browser {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Get the bound function name
+		 @return The bound function name
+		 */
+		speckle::utility::String getName() const override { return base::getName(); }
+		/*!
 		 Execute the function
 		 @param param The input parameter
 		 @return The function result
 		 */
-		Binding::ValueType execute(const Binding::ValueType param) const;
+		Binding::ValueType execute(const Binding::ValueType& param) const override;
 		
 	private:
 		speckle::utility::String m_name;
@@ -64,13 +71,13 @@ namespace speckle::interface::browser {
 		return: The function result
 	  --------------------------------------------------------------------*/
 	template<typename Param, typename Return, typename Binding>
-	Binding::ValueType JSFunction<Param, Return, Binding>::execute(const typename Binding::ValueType bindingParameters) const {
+	Binding::ValueType JSFunction<Param, Return, Binding>::execute(const typename Binding::ValueType& bindingParameters) const {
 		typename Binding::Transport transport;
 			//Process any returned result into the binding value type
-		auto processResult = [&, transport](const Return* outgoing) -> typename Binding::ValueType {
+		auto processResult = [&, transport](Return* outgoing) -> typename Binding::ValueType {
 			if constexpr(!std::is_same<Return, void>::value) {
 				typename Binding::ValueType result;
-				transport.send(*outgoing, active::serialise::Identity{}, result);
+				transport.send(std::move(*outgoing), active::serialise::Identity{}, result);
 				return result;
 			}
 			return typename Binding::ValueType{};
@@ -81,16 +88,16 @@ namespace speckle::interface::browser {
 				m_function();	//No parameters and no return value
 			else {
 				auto result = m_function();	//No parameters with return value
-				return processResult(&result);
+				return processResult(result.get());
 			}
 		} else {
 			Param parameters;
-			transport.receive(parameters, active::serialise::Identity{}, bindingParameters);
+			transport.receive(active::serialise::PackageWrap{parameters}, active::serialise::Identity{}, bindingParameters);
 			if constexpr(std::is_same<Return, void>::value)
 				m_function(parameters);	//Parameters and no return value
  			else {
 				auto result = m_function(parameters);	//Parameters with return value
-				return processResult(&result);
+				return processResult(result.get());
 			}
 		}
 		return typename Binding::ValueType{};

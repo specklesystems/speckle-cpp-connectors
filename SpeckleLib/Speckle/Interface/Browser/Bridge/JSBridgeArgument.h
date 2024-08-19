@@ -20,6 +20,10 @@ namespace speckle::interface::browser::bridge {
 		// MARK: - Constructors
 		
 		/*!
+		 Default constructor
+		 */
+		JSBridgeArgument() {}
+		/*!
 		 Constructor
 		 @param objectName The name of the JS object the argument is targeting
 		 @param methodName The name of the method to receive the argument
@@ -54,13 +58,13 @@ namespace speckle::interface::browser::bridge {
 		 @param inventory The inventory to receive the cargo items
 		 @return True if items have been added to the inventory
 		 */
-		bool fillInventory(active::serialise::Inventory& inventory) const override { return false; } //Nothing to serialise at this level
+		bool fillInventory(active::serialise::Inventory& inventory) const override;
 		/*!
 		 Get the specified cargo
 		 @param item The inventory item to retrieve
 		 @return The requested cargo (nullptr on failure
 		 */
-		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override { return nullptr; } //Nothing to serialise at this level
+		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		
 		// MARK: - Functions (mutating)
 		

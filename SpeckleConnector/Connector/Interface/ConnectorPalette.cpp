@@ -3,8 +3,10 @@
 #include "Active/Event/Event.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
+#include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
+#include "Speckle/Interface/Browser/JSPortal.h"
 
 #include <ACAPinc.h>
 #include <DGModule.hpp>
@@ -13,7 +15,9 @@
 using namespace active::environment;
 using namespace active::event;
 using namespace connector;
+using namespace connector::interface::browser::bridge;
 using namespace speckle::event;
+using namespace speckle::interface::browser;
 
 
 	//NB: Following is placeholder from GS example code - will be refactored to better suit our purposes
@@ -24,13 +28,12 @@ using namespace speckle::event;
 #define BrowserPaletteMenuItemIndex 1
 
 namespace {
-
+	
 	static const GS::Guid paletteGuid("{FEE27B6B-3873-4834-98B5-F0081AA4CD45}");
 
 	// --- Class declaration: BrowserPalette ------------------------------------------
 
-	class BrowserPalette final : public DG::Palette,
-								 public DG::PanelObserver {
+	class BrowserPalette final : public DG::Palette, public DG::PanelObserver, public JSPortal<> {
 	public:
 		enum SelectionModification { RemoveFromSelection, AddToSelection };
 
@@ -39,6 +42,19 @@ namespace {
 			GS::UniString typeName;
 			GS::UniString elemID;
 		};
+
+		BrowserPalette();
+		virtual ~BrowserPalette();
+
+		static bool HasInstance();
+		static void CreateInstance();
+		static BrowserPalette& GetInstance();
+		static void DestroyInstance();
+
+		void Show();
+		void Hide();
+
+		static GSErrCode RegisterPaletteControlCallBack();
 
 	protected:
 		enum {
@@ -59,21 +75,18 @@ namespace {
 		static GSErrCode __ACENV_CALL	PaletteControlCallBack(Int32 paletteId, API_PaletteMessageID messageID, GS::IntPtr param);
 
 		static GS::Ref<BrowserPalette> instance;
-
-		BrowserPalette();
-
-	public:
-		virtual ~BrowserPalette();
-
-		static bool HasInstance();
-		static void CreateInstance();
-		static BrowserPalette& GetInstance();
-		static void DestroyInstance();
-
-		void Show();
-		void Hide();
-
-		static GSErrCode RegisterPaletteControlCallBack();
+#ifdef ARCHICAD
+		/*!
+		 Get the portal Javascript engine
+		 @return The portal Javascript engine
+		 */
+		std::shared_ptr<JavascriptEngine> getJSEngine() const override { return m_jsEngine; }
+#endif
+		
+	private:
+#ifdef ARCHICAD
+		std::shared_ptr<JavascriptEngine> m_jsEngine = std::make_shared<JavascriptEngine>();
+#endif
 	};
 
 	GS::Ref<BrowserPalette>	BrowserPalette::instance;
@@ -151,6 +164,8 @@ BrowserPalette::BrowserPalette() :
 	Attach(*this);
 	BeginEventProcessing();
 	InitBrowserControl();
+		//Install required connector bridges
+	install(std::make_shared<AccountBridge>());
 }
 
 BrowserPalette::~BrowserPalette() {
