@@ -5,7 +5,7 @@
 #include "Speckle/Interface/Browser/JSFunction.h"
 #include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	class BrowserBridge;
 		

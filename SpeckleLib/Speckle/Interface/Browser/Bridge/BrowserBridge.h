@@ -10,7 +10,7 @@ namespace active::setting {
 	class ValueSetting;
 }
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	/*!
 	 A class to provide JS bridging for Speckle connectors using an internal table of defined methods

@@ -9,7 +9,7 @@
 #include <JavascriptEngine.hpp>
 #endif
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 	/*!
 	 Interface for a portal to a JavaScript environment, e.g. CEF

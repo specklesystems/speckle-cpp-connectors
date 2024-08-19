@@ -9,8 +9,8 @@
 
 using namespace active::serialise;
 using namespace speckle::serialise::jsbase;
-using namespace speckle::interface::browser;
-using namespace speckle::interface::browser::bridge;
+using namespace speckle::interfac::browser;
+using namespace speckle::interfac::browser::bridge;
 
 /*--------------------------------------------------------------------
 	Constructor

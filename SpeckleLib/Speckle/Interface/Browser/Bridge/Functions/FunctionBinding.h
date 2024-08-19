@@ -12,7 +12,7 @@
 #include "Active/Serialise/JSON/JSONTransport.h"
 #endif
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 		///Define the bridge binding protocols according to platform
 #ifdef ARCHICAD

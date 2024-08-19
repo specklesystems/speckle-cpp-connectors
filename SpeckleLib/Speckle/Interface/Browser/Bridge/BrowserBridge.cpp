@@ -13,11 +13,11 @@
 using namespace active::serialise;
 using namespace active::setting;
 using namespace speckle::serialise::jsbase;
-using namespace speckle::interface::browser;
-using namespace speckle::interface::browser::bridge;
+using namespace speckle::interfac::browser;
+using namespace speckle::interfac::browser::bridge;
 using namespace speckle::utility;
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	class BrowserBridge::ResultCache : public std::map<String, std::unique_ptr<Cargo>> {
 	public:

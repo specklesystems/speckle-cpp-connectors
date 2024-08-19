@@ -6,7 +6,7 @@
 
 #include <unordered_map>
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	class JSBridgeArgument;
 

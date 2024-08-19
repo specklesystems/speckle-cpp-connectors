@@ -6,7 +6,7 @@
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Interface/Browser/JSFunction.h"
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	class BrowserBridge;
 	

@@ -2,7 +2,7 @@
 
 #include "Connector/Interface/Browser/Bridge/Account/GetAccounts.h"
 
-using namespace connector::interface::browser::bridge;
+using namespace connector::interfac::browser::bridge;
 
 /*--------------------------------------------------------------------
 	Default constructor

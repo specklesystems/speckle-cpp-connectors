@@ -3,7 +3,7 @@
 
 #include "Speckle/Utility/String.h"
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	/*!
 	 Interface for methods supporting a JS bridge

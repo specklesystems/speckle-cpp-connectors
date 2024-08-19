@@ -4,7 +4,7 @@
 #include "Active/Utility/Cloner.h"
 #include "Speckle/Utility/String.h"
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 	/*!
 	 Interface for the data binding of a function between JS and C++ objects

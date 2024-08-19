@@ -12,7 +12,7 @@
 #include <functional>
 #include <type_traits>
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 		//The following allows a function type to be described that supports void parameters, i.e. std::function<Return(void) is not legal syntax
 	namespace inner {

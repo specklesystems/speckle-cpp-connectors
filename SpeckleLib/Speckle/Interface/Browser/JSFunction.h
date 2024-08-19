@@ -12,7 +12,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 	/*!
 	 Interface for a C++ function binding to a JavaScript function

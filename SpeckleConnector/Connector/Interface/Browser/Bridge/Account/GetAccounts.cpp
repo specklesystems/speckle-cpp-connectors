@@ -4,7 +4,7 @@
 
 using namespace active::container;
 using namespace active::serialise;
-using namespace connector::interface::browser::bridge;
+using namespace connector::interfac::browser::bridge;
 using namespace speckle::record::cred;
 using namespace speckle::utility;
 

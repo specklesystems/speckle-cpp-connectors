@@ -4,10 +4,10 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 
 using namespace active::serialise;
-using namespace speckle::interface::browser::bridge;
+using namespace speckle::interfac::browser::bridge;
 using namespace speckle::utility;
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 		///Factory functions to construct arguments from linked bridge/method names
 	std::unordered_map<speckle::utility::String, JSBridgeArgumentWrap::Production> JSBridgeArgumentWrap::m_argumentFactory;

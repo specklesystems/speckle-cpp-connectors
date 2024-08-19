@@ -5,7 +5,7 @@
 #include "Speckle/Interface/Browser/JSFunction.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 	template<typename FunctionBinding>
 	class JSPortal;

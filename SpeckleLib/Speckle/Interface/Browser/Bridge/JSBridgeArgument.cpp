@@ -1,7 +1,7 @@
 #include "Speckle/Interface/Browser/Bridge/JSBridgeArgument.h"
 
 using namespace active::serialise;
-using namespace speckle::interface::browser::bridge;
+using namespace speckle::interfac::browser::bridge;
 
 
 /*--------------------------------------------------------------------

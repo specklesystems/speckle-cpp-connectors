@@ -3,17 +3,17 @@
 
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 
-namespace connector::interface::browser::bridge {
+namespace connector::interfac::browser::bridge {
 	
 	/*!
 	 A browser bridge to provide account details to the caller
 	*/
-	class AccountBridge : public speckle::interface::browser::bridge::BrowserBridge {
+	class AccountBridge : public speckle::interfac::browser::bridge::BrowserBridge {
 	public:
 		
 		// MARK: - Types
 		
-		using base = speckle::interface::browser::bridge::BrowserBridge;
+		using base = speckle::interfac::browser::bridge::BrowserBridge;
 		
 		// MARK: - Constructors
 		

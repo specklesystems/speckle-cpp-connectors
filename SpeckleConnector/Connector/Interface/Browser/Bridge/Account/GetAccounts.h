@@ -5,12 +5,12 @@
 #include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
 #include "Speckle/Record/Credentials/Account.h"
 
-namespace connector::interface::browser::bridge {
+namespace connector::interfac::browser::bridge {
 	
 	/*!
 	 JS Function class to retrieve the names of the methods supported by the bridge
 	*/
-	class GetAccounts : public speckle::interface::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetAccounts : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
 			//active::serialise::ContainerWrap<active::container::Vector, speckle::record::cred::Account>> {
 	public:
 

@@ -15,7 +15,7 @@
 #include "Active/Serialise/JSON/JSONTransport.h"
 #endif
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 	
 	/*!
 	 A class to provide JS bridging for Speckle connectors using a table of defined methods

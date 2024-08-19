@@ -4,7 +4,7 @@
 #include "Active/Serialise/Package/Package.h"
 #include "Speckle/Utility/String.h"
 
-namespace speckle::interface::browser::bridge {
+namespace speckle::interfac::browser::bridge {
 		
 	/*!
 	 Base class for the argments passed from JavaScript to a named C++ method in a Speckle bridging object

@@ -4,7 +4,7 @@
 #include "Active/Serialise/Cargo.h"
 #include "Speckle/Utility/String.h"
 
-namespace speckle::interface::browser {
+namespace speckle::interfac::browser {
 	
 	/*!
 	 Interface for objects providing an executable function
