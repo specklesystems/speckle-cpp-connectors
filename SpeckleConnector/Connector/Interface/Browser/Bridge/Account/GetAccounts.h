@@ -21,17 +21,15 @@ namespace connector::interfac::browser::bridge {
 		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		GetAccounts();
-		/*!
-		 Cppy constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
-		 */
-		GetAccounts(const GetAccounts& source) = default;
 		
 		/*!
 		 Object cloning
 		 @return A clone of this object
 		 */
 		GetAccounts* clonePtr() const override { return new GetAccounts{*this}; }
+
+		// MARK: - Functions (const)
+		
 		/*!
 		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
 		 @return An argument instance

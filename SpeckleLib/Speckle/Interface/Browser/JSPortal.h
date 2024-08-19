@@ -68,11 +68,14 @@ namespace speckle::interfac::browser {
 	template<typename FunctionBinding>
 	bool JSPortal<FunctionBinding>::execute(const speckle::utility::String& code) const {
 #ifdef ARCHICAD
-		auto engine = getJSEngine();
-		return engine ? engine->ExecuteJS(code) : false;
-#else
-		return false;	//Implement as required
+		try {
+			auto engine = getJSEngine();
+			return engine ? engine->ExecuteJS(code) : false;
+		} catch(...) {
+			///TODO: Need to discuss the best course of action to notify of a failure
+		}
 #endif
+		return false;
 	} //JSPortal<FunctionBinding>::execute
 	
 	
@@ -86,19 +89,28 @@ namespace speckle::interfac::browser {
 	template<typename FunctionBinding>
 	bool JSPortal<FunctionBinding>::install(std::shared_ptr<JSObject<FunctionBinding>> object) {
 #ifdef ARCHICAD
-		auto engine = getJSEngine();
-		if (!engine)
-			return false;
-		JS::Object* acObject = new JS::Object(object->getName());
-		for (auto& function : *object) {
-			acObject->AddItem(new JS::Function(function->getName(), [&] (GS::Ref<JS::Base> args) {
-				return function->execute(args);
-			}));
-		}
-		if (engine->RegisterAsynchJSObject(acObject)) {
-			base::push_back(object);
-			object->setPortal(*this);
-			return true;
+		try {
+			auto engine = getJSEngine();
+			if (!engine)
+				return false;
+			JS::Object* acObject = new JS::Object(object->getName());
+			for (auto& function : *object) {
+				acObject->AddItem(new JS::Function(function->getName(), [&] (GS::Ref<JS::Base> args) {
+					try {
+						return function->execute(args);
+					} catch(...) {
+						///TODO: Need to discuss the best course of action to notify of a failure
+					}
+					return GS::Ref<JS::Base>{};
+				}));
+			}
+			if (engine->RegisterAsynchJSObject(acObject)) {
+				base::push_back(object);
+				object->setPortal(*this);
+				return true;
+			}
+		} catch(...) {
+			///TODO: Need to discuss the best course of action to notify of a failure
 		}
 #endif
 		return false;
