@@ -2,6 +2,7 @@
 #define SPECKLE_INTERFACE_JS_FUNCTION
 
 #include "Active/Serialise/Inventory/Identity.h"
+#include "Active/Serialise/Package/NullPackage.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Interface/Browser/JSBinding.h"
 #include "Speckle/Interface/Browser/NamedFunction.h"
@@ -15,17 +16,17 @@ namespace speckle::interface::browser {
 	
 	/*!
 	 Interface for a C++ function binding to a JavaScript function
-	 @tparam Param The function parameter type
+	 @tparam Argument The function parameter type
 	 @tparam Return The function return type
 	 @tparam Binding The platform JS binding
 	*/
-	template<typename Param, typename Return, typename Binding>
-	class JSFunction : public NamedFunction<Param, Return>, public Binding {
+	template<typename Argument, typename Return, typename Binding>
+	class JSFunction : public NamedFunction<Argument, Return>, public Binding {
 	public:
 
 		// MARK: - Types
 		
-		using base = NamedFunction<Param, Return>;
+		using base = NamedFunction<Argument, Return>;
 			//A bridged C++ function
 		using Function = base::Function;
 
@@ -56,10 +57,6 @@ namespace speckle::interface::browser {
 		 @return The function result
 		 */
 		Binding::ValueType execute(const Binding::ValueType& param) const override;
-		
-	private:
-		speckle::utility::String m_name;
-		Function m_function;
 	};
 	
 	
@@ -70,8 +67,8 @@ namespace speckle::interface::browser {
 	 
 		return: The function result
 	  --------------------------------------------------------------------*/
-	template<typename Param, typename Return, typename Binding>
-	Binding::ValueType JSFunction<Param, Return, Binding>::execute(const typename Binding::ValueType& bindingParameters) const {
+	template<typename Argument, typename Return, typename Binding>
+	Binding::ValueType JSFunction<Argument, Return, Binding>::execute(const typename Binding::ValueType& bindingParameters) const {
 		typename Binding::Transport transport;
 			//Process any returned result into the binding value type
 		auto processResult = [&, transport](Return* outgoing) -> typename Binding::ValueType {
@@ -83,25 +80,26 @@ namespace speckle::interface::browser {
 			return typename Binding::ValueType{};
 		};
 			//Ensure void parameters and/or return values are handled correctly
-		if constexpr(std::is_same<Param, void>::value) {
+		if constexpr(std::is_same<Argument, void>::value) {
+			active::serialise::NullPackage null;
 			if constexpr(std::is_same<Return, void>::value)
-				m_function();	//No parameters and no return value
+				base::execute(null);	//No parameters and no return value
 			else {
-				auto result = m_function();	//No parameters with return value
-				return processResult(result.get());
+				auto result = base::execute(null);	//No parameters with return value
+				return processResult(dynamic_cast<Return*>(result.get()));
 			}
 		} else {
-			Param parameters;
-			transport.receive(active::serialise::PackageWrap{parameters}, active::serialise::Identity{}, bindingParameters);
+			Argument argument;
+			transport.receive(active::serialise::PackageWrap{argument}, active::serialise::Identity{}, bindingParameters);
 			if constexpr(std::is_same<Return, void>::value)
-				m_function(parameters);	//Parameters and no return value
+				base::execute(argument);	//Parameters and no return value
  			else {
-				auto result = m_function(parameters);	//Parameters with return value
-				return processResult(result.get());
+				auto result = base::execute(argument);	//Parameters with return value
+				return processResult(dynamic_cast<Return*>(result.get()));
 			}
 		}
 		return typename Binding::ValueType{};
-	} //JSFunction<Param, Return, Binding>::execute
+	} //JSFunction<Argument, Return, Binding>::execute
 
 }
 
