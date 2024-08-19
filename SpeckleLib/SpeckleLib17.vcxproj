@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Speckle\Database\Content\Index.h" />
     <ClInclude Include="Speckle\Database\Content\Link.h" />
+    <ClInclude Include="Speckle\Database\Content\Record.h" />
     <ClInclude Include="Speckle\Environment\Addon.h" />
     <ClInclude Include="Speckle\Event\Subscriber\MenuSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
@@ -42,11 +43,14 @@
     <ClInclude Include="Speckle\Interface\Browser\JSPortal.h" />
     <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h" />
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
+    <ClInclude Include="Speckle\Record\Credentials\Account.h" />
+    <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp" />
+    <ClCompile Include="Speckle\Database\Content\Record.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />
@@ -56,6 +60,8 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.cpp" />
+    <ClCompile Include="Speckle\Record\Credentials\Account.cpp" />
+    <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
     <ClCompile Include="Speckle\Utility\String.cpp" />
   </ItemGroup>

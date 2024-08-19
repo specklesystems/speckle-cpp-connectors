@@ -44,6 +44,15 @@
     <Filter Include="Speckle\Interface\Browser\Bridge\Functions">
       <UniqueIdentifier>{df3ba1ec-5b6c-44a1-b730-c7ecd616a8e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record">
+      <UniqueIdentifier>{b5309a8d-e3cc-4f4c-8dcb-2ce98885bffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Credentials">
+      <UniqueIdentifier>{3e11de76-8d19-4e97-9da6-f0466bde1d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\JSBase">
+      <UniqueIdentifier>{8b3f75a2-8538-4f58-bc69-07679e9af863}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Database\Content\Index.h">
@@ -121,6 +130,15 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.h">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Credentials\Account.h">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Content\Record.h">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h">
+      <Filter>Speckle\Serialise\JSBase</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp">
@@ -158,6 +176,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Credentials\Account.cpp">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Content\Record.cpp">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp">
+      <Filter>Speckle\Serialise\JSBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
