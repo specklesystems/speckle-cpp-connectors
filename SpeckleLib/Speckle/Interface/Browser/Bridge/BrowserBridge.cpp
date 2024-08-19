@@ -5,6 +5,7 @@
 #include "Speckle/Interface/Browser/JSPortal.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/GetBindingsMethodNames.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/RunMethod.h"
+#include "Speckle/Interface/Browser/Bridge/Functions/GetCallResult.h"
 
 #include <algorithm>
 #include <map>
@@ -36,6 +37,7 @@ BrowserBridge::BrowserBridge(const String& name) : JSObject{name} {
 		//Populate the required browser bridge functions callable from JS
 	emplace_back(std::make_unique<GetBindingsMethodNames>(*this));
 	emplace_back(std::make_unique<RunMethod>(*this));
+	emplace_back(std::make_unique<GetCallResult>(*this));
 } //BrowserBridge::BrowserBridge
 
 

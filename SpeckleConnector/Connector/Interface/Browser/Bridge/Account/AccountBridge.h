@@ -17,6 +17,7 @@ namespace connector::interface::browser::bridge {
 		
 		// MARK: - Constructors
 		
+		using base::base;
 		/*!
 		 Default constructor
 		 */

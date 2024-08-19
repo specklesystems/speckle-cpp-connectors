@@ -23,7 +23,7 @@ namespace speckle::interface::browser::bridge {
 	 @tparam Return The function return type
 	*/
 	template<typename Argument, typename Return>
-	class JSBridgeMethod : public NamedFunction<Argument, Return>, public JSBridgeMethodBase {
+	class JSBridgeMethod : public NamedFunction<Argument, Return>, public virtual JSBridgeMethodBase {
 	public:
 		
 		// MARK: - Types
@@ -45,6 +45,11 @@ namespace speckle::interface::browser::bridge {
 		 @param source The object to copy
 		 */
 		JSBridgeMethod(const JSBridgeMethod& source) = default;
+		/*!
+		 Object cloning
+		 @return A clone of this object
+		 */
+		JSBridgeMethod* clonePtr() const override = 0;
 		
 		// MARK: - Functions (const)
 		
@@ -53,7 +58,7 @@ namespace speckle::interface::browser::bridge {
 		 @param bridge The target bridge name
 		 @return A reference to this
 		 */
-		JSBridgeMethodBase& registerArgument(const speckle::utility::String& bridge) override {
+		JSBridgeMethod& registerArgument(const speckle::utility::String& bridge) override {
 			if constexpr(!std::same_as<Argument, void>)
 				JSBridgeArgumentWrap::defineArgument<Argument>(bridge, base::getName());
 			return *this;

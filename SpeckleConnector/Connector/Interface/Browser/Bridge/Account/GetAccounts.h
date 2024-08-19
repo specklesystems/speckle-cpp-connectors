@@ -21,6 +21,11 @@ namespace connector::interface::browser::bridge {
 		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		GetAccounts();
+		/*!
+		 Cppy constructor
+		 @param bridge The parent bridge object (provides access to bridge methods)
+		 */
+		GetAccounts(const GetAccounts& source) = default;
 		
 		/*!
 		 Object cloning
