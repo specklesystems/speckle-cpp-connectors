@@ -48,7 +48,7 @@ namespace speckle::serialise::jsbase {
 			@param destination A reference to a JS::Base object (will be populated by this function)
 			@throw std::system_error Thrown on write errors, serialisation failure (e.g. missing inventory etc)
 		*/
-		virtual void send(active::serialise::Cargo&& cargo, const active::serialise::Identity& identity, GS::Ref<JS::Base> destination) const;
+		virtual void send(active::serialise::Cargo&& cargo, const active::serialise::Identity& identity, GS::Ref<JS::Base>& destination) const;
 		/*!
 			Receive cargo from a specified XML source
 			@param cargo The cargo to receive the JS::Base data

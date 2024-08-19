@@ -361,7 +361,7 @@ namespace {
 	identity: The cargo identity (name, optional namespace)
 	destination: A reference to a JS::Base object (will be populated by this function)
   --------------------------------------------------------------------*/
-void JSBaseTransport::send(Cargo&& cargo, const Identity& identity, GS::Ref<JS::Base> destination) const {
+void JSBaseTransport::send(Cargo&& cargo, const Identity& identity, GS::Ref<JS::Base>& destination) const {
 	doJSBaseExport(cargo, JSBaseIdentity(identity).atStage(root), destination);
 } //JSBaseTransport::send
 
