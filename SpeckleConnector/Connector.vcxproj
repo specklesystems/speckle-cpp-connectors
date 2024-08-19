@@ -93,12 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector\Connector.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h" />
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
   </ItemGroup>

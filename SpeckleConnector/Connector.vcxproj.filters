@@ -14,6 +14,15 @@
     <Filter Include="Connector\Interface">
       <UniqueIdentifier>{c74d6482-b21c-4a58-a233-d529b7ba2253}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser">
+      <UniqueIdentifier>{41265b1d-cc7a-44e1-a9b0-bf166e3762a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge">
+      <UniqueIdentifier>{7487caf8-b052-4bb7-b88c-b645b92f9428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Account">
+      <UniqueIdentifier>{865d017c-cbf0-4507-a815-41a37bcaa4af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -47,6 +56,12 @@
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp">
       <Filter>Connector\Interface</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -60,6 +75,12 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\ConnectorPalette.h">
       <Filter>Connector\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h">
+      <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

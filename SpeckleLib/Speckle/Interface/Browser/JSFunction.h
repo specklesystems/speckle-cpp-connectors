@@ -56,7 +56,7 @@ namespace speckle::interface::browser {
 		 @param param The input parameter
 		 @return The function result
 		 */
-		Binding::ValueType execute(const Binding::ValueType& param) const override;
+		typename Binding::ValueType execute(const typename Binding::ValueType& param) const override;
 	};
 	
 	

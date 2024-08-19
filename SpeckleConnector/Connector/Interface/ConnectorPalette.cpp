@@ -15,9 +15,9 @@
 using namespace active::environment;
 using namespace active::event;
 using namespace connector;
-using namespace connector::interface::browser::bridge;
+//using namespace connector::interface::browser::bridge;
 using namespace speckle::event;
-using namespace speckle::interface::browser;
+//using namespace speckle::interface::browser;
 
 
 	//NB: Following is placeholder from GS example code - will be refactored to better suit our purposes
@@ -33,7 +33,7 @@ namespace {
 
 	// --- Class declaration: BrowserPalette ------------------------------------------
 
-	class BrowserPalette final : public DG::Palette, public DG::PanelObserver, public JSPortal<> {
+	class BrowserPalette final : public DG::Palette, public DG::PanelObserver, public speckle::interface::browser::JSPortal<> {
 	public:
 		enum SelectionModification { RemoveFromSelection, AddToSelection };
 

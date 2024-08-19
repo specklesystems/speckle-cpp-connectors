@@ -32,6 +32,18 @@
     <Filter Include="Speckle\Event\Type">
       <UniqueIdentifier>{2eb94e5f-1177-4a92-a79a-a3ccc3357966}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Interface">
+      <UniqueIdentifier>{aa3a0c13-86b0-4b96-aacc-b2fcfb9312b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Interface\Browser">
+      <UniqueIdentifier>{63a44b3f-03ea-4e3e-be15-844ddb200c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Interface\Browser\Bridge">
+      <UniqueIdentifier>{04ef2e26-b425-4bd6-bc6b-8872eec33b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Interface\Browser\Bridge\Functions">
+      <UniqueIdentifier>{df3ba1ec-5b6c-44a1-b730-c7ecd616a8e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Database\Content\Index.h">
@@ -61,6 +73,54 @@
     <ClInclude Include="Speckle\Utility\String.h">
       <Filter>Speckle\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Functional.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\JSBinding.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\JSFunction.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\JSObject.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\JSPortal.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h">
+      <Filter>Speckle\Interface\Browser</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BrowserBridge.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeMethod.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeMethodBase.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\FunctionBinding.h">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.h">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.h">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.h">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp">
@@ -80,6 +140,24 @@
     </ClCompile>
     <ClCompile Include="Speckle\Utility\String.cpp">
       <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\BrowserBridge.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
