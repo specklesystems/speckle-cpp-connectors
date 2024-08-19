@@ -159,7 +159,7 @@ namespace {
 		if (auto object = dynamic_cast<JS::Object*>(destination.operator JS::Base*()); object != nullptr)
 			object->AddItem(tag, item);
 			//Attempt to add to array
-		else if (auto array = dynamic_cast<JS::Array*>(destination.operator JS::Base*()); object != nullptr)
+		else if (auto array = dynamic_cast<JS::Array*>(destination.operator JS::Base*()); array != nullptr)
 			array->AddItem(item);
 		else
 			throw std::system_error(makeJSBaseError(badDestination));	//The destination isn't a container
