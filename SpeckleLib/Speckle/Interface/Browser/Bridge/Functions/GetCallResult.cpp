@@ -5,6 +5,8 @@
 #include "Active/Utility/BufferOut.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 
+#include <utility>
+
 #ifdef ARCHICAD
 #include <ACAPinc.h>
 #include <MessageLoopExecutor.hpp>
@@ -46,11 +48,12 @@ std::unique_ptr<active::serialise::Cargo> GetCallResult::getArgument() const {
 	return: The requested result (nullptr on failure)
   --------------------------------------------------------------------*/
 std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
-		//Confirm argument and function validity
+	//Confirm argument type
 	auto result = m_bridge.releaseResult(argument);
-	if (!result)
+	auto item = dynamic_cast<Cargo*>(result.get());
+	if (!item)
 		return nullptr;
 	String jsonOutput;
-	json::JSONTransport().send(ItemWrap{*result}, Identity{}, jsonOutput);
+	json::JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
 	return std::make_unique<WrappedResultArg>(jsonOutput);
 } //GetCallResult::getResult
