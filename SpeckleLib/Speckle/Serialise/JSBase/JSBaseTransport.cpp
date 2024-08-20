@@ -218,7 +218,7 @@ namespace {
 				//Decomose an object
 			for (auto& item : object->GetItemTable())
 				result.push_back({item.value->operator JS::Base*(), String{*item.key}});
-		} else if (auto array = dynamic_cast<JS::Array*>(&source); object != nullptr) {
+		} else if (auto array = dynamic_cast<JS::Array*>(&source); array != nullptr) {
 				//Decomose an array
 			for (auto& item : array->GetItemArray())
 				result.push_back({item, std::nullopt});
