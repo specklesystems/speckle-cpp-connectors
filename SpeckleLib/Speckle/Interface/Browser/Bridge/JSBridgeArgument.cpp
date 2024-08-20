@@ -32,7 +32,4 @@ Cargo::Unique JSBridgeArgument::getCargo(const active::serialise::Inventory::Ite
 	Set to the default package content
   --------------------------------------------------------------------*/
 void JSBridgeArgument::setDefault() {
-	m_requestID.clear();
-	m_methodName.clear();
-	m_objectName.clear();
 } //JSBridgeArgument::setDefault

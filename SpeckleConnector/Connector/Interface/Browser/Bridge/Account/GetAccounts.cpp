@@ -19,7 +19,10 @@ namespace {
  
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() { return getAccounts(); }} {}
+GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
+		return getAccounts();
+	}} {
+} //GetAccounts::GetAccounts
 
 
 /*--------------------------------------------------------------------

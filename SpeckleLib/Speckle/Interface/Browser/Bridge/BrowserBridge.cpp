@@ -34,6 +34,7 @@ namespace speckle::interfac::browser::bridge {
 	toReserve: The number of supported methods to reserve space for
   --------------------------------------------------------------------*/
 BrowserBridge::BrowserBridge(const String& name) : JSObject{name} {
+	m_result = std::make_unique<ResultCache>();
 		//Populate the required browser bridge functions callable from JS
 	emplace_back(std::make_unique<GetBindingsMethodNames>(*this));
 	emplace_back(std::make_unique<RunMethod>(*this));

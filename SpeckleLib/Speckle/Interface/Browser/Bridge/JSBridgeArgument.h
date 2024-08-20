@@ -25,12 +25,11 @@ namespace speckle::interfac::browser::bridge {
 		JSBridgeArgument() {}
 		/*!
 		 Constructor
-		 @param objectName The name of the JS object the argument is targeting
 		 @param methodName The name of the method to receive the argument
 		 @param requestID An ID to be paired with the method return value
 		 */
-		JSBridgeArgument(const speckle::utility::String& objectName, const speckle::utility::String& methodName,
-						 const speckle::utility::String& requestID) : m_objectName{objectName}, m_methodName{methodName}, m_requestID{requestID} {}
+		JSBridgeArgument(const speckle::utility::String& methodName,
+						 const speckle::utility::String& requestID) : m_methodName{methodName}, m_requestID{requestID} {}
 		/*!
 		 Destructor
 		 */
@@ -38,11 +37,6 @@ namespace speckle::interfac::browser::bridge {
 		
 		// MARK: - Functions (const)
 		
-		/*!
-		 Get the JS object name
-		 @return The JS object name
-		 */
-		const speckle::utility::String& getObjectName() const { return m_objectName; }
 		/*!
 		 Get the name of the method to receive the arguments
 		 @return The method name
@@ -74,8 +68,6 @@ namespace speckle::interfac::browser::bridge {
 		void setDefault() override;
 		
 	private:
-			///The name of the JS object the argument is targeting
-		speckle::utility::String m_objectName;
 			///The name of the method to receive the argument
 		speckle::utility::String m_methodName;
 			///An ID to be paired with the method return value

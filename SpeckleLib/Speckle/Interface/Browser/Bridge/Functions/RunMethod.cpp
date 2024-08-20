@@ -78,7 +78,7 @@ std::unique_ptr<active::serialise::Cargo> RunMethod::getArgument() const {
   --------------------------------------------------------------------*/
 void RunMethod::runMethod(JSBridgeArgumentWrap& argument) const {
 		//Confirm argument and function validity
-	if (!argument || (argument.getObjectName() != m_bridge.getName()))
+	if (!argument)
 		return;
 	auto method = m_bridge.getMethod(argument.getMethodName());
 	if (method == nullptr)

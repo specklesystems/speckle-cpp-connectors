@@ -26,16 +26,16 @@ namespace {
 	
 		///The indices of the arguments array rows
 	enum RowIndex {
-		objectName,
 		methodName,
 		requestID,
+		argsJSON,
 	};
 	
 
 		///The package inventory
 	auto myInventory = Inventory {
 		{
-			{ {"arg"}, args, array },	//The JS arguments are expressed as a flat array - use the array indices to map to expected vars
+			{ {"arg"}, args, 0, std::nullopt, true },	//The JS arguments are expressed as a flat array - use the array indices to map to expected vars
 		},
 	}.withType(&typeid(JSBridgeArgumentWrap));;
 
@@ -73,21 +73,15 @@ Cargo::Unique JSBridgeArgumentWrap::getCargo(const Inventory::Item& item) const 
 		return nullptr;
 	switch (item.index) {
 		case FieldIndex::args: {
-			switch (item.available) {	//NB: Args are not labelled - in this instance we use the array row index to couple to an argument var
-				case RowIndex::objectName:
-					return std::make_unique<ValueWrap<String>>(m_objectName);
+			switch (item.available - 1) {	//NB: Args are not labelled - in this instance we use the array row index to couple to an argument var
 				case RowIndex::methodName:
 					return std::make_unique<ValueWrap<String>>(m_methodName);
 				case RowIndex::requestID:
 					return std::make_unique<ValueWrap<String>>(m_requestID);
+				case RowIndex::argsJSON:
+					return std::make_unique<ValueWrap<String>>(m_argsJSON);
 				default:
-						//Once the argument attributes have been obtained (object, method etc) we need to ensure the argument object exists
-					if (!m_argument)
-						finaliseArgument();
-					Inventory::Item childItem{item};
-						//The index of the child item starts at zero, so deduct the indices already received by the wrapper
-					childItem.available -= (RowIndex::requestID + 1);
-					return m_argument->getCargo(childItem);
+					return nullptr;
 			}
 		}
 		default:
@@ -100,9 +94,9 @@ Cargo::Unique JSBridgeArgumentWrap::getCargo(const Inventory::Item& item) const 
 	Set to the default package content
   --------------------------------------------------------------------*/
 void JSBridgeArgumentWrap::setDefault() {
-	m_objectName.clear();
 	m_methodName.clear();
 	m_requestID.clear();
+	m_argsJSON.clear();
 	m_argument.reset();	//This will be populated once the target bridge and method are known (and hence the required argument type)
 } //JSBridgeArgumentWrap::setDefault
 
@@ -113,8 +107,11 @@ void JSBridgeArgumentWrap::setDefault() {
 	return: True if the data has been validated
   --------------------------------------------------------------------*/
 bool JSBridgeArgumentWrap::validate() {
-		//Only successful if we built an argument object and its content is valid
-	return !m_argument && m_argument->validate();
+		//Build an argument with the attributes obtained of none exists
+	if (!m_argument)
+		finaliseArgument();
+		//Then ensure the argument object is valid
+	return m_argument->validate();
 } //JSBridgeArgumentWrap::validate
 
 
@@ -123,8 +120,8 @@ bool JSBridgeArgumentWrap::validate() {
   --------------------------------------------------------------------*/
 void JSBridgeArgumentWrap::finaliseArgument() const {
 		//Use the deserialised target bridge and method to establish the required arguments (if any)
-	m_argument.reset(JSBridgeArgumentWrap::makeArgument(m_objectName, m_methodName, m_requestID));
+	m_argument.reset(JSBridgeArgumentWrap::makeArgument(m_requestID, m_argsJSON));
 		//If the function doesn't take an argument, we still need to pass along the base class with object name, method etc
 	if (!m_argument)
-		m_argument = std::make_unique<JSBridgeArgument>(m_objectName, m_methodName, m_requestID);
+		m_argument = std::make_unique<JSBridgeArgument>(m_methodName, m_requestID);
 } //JSBridgeArgumentWrap::finaliseArgument

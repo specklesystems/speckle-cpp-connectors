@@ -3,6 +3,9 @@
 #include "Active/Serialise/Item/Item.h"
 #include "Active/Setting/Values/BoolValue.h"
 #include "Active/Setting/Values/DoubleValue.h"
+#include "Active/Setting/Values/Int32Value.h"
+#include "Active/Setting/Values/StringValue.h"
+#include "Active/Setting/Values/UInt32Value.h"
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Active/Serialise/XML/Item/XMLDateTime.h"
@@ -215,11 +218,11 @@ namespace {
 	JSElements decomposeJSBase(JS::Base& source) {
 		JSElements result;
 		if (auto object = dynamic_cast<JS::Object*>(&source); object != nullptr) {
-				//Decomose an object
+				//Decompose an object
 			for (auto& item : object->GetItemTable())
 				result.push_back({item.value->operator JS::Base*(), String{*item.key}});
 		} else if (auto array = dynamic_cast<JS::Array*>(&source); array != nullptr) {
-				//Decomose an array
+				//Decompose an array
 			for (auto& item : array->GetItemArray())
 				result.push_back({item, std::nullopt});
 		} else
@@ -238,7 +241,28 @@ namespace {
 		auto* item = dynamic_cast<Item*>(&cargo);
 		if (item == nullptr)
 			throw std::system_error(makeJSBaseError(badValue));
-		
+		auto value = dynamic_cast<JS::Value*>(&source);
+		if (value == nullptr)
+			throw std::system_error(makeJSBaseError(badSource));	//The source isn't a value
+		switch (value->GetType()) {
+			case JS::Value::ValueType::BOOL:
+				item->read(BoolValue{value->GetBool()});
+				break;
+			case JS::Value::ValueType::INTEGER:
+				item->read(Int32Value{value->GetInteger()});
+				break;
+			case JS::Value::ValueType::UINTEGER:
+				item->read(UInt32Value{value->GetUInteger()});
+				break;
+			case JS::Value::ValueType::DOUBLE:
+				item->read(DoubleValue{value->GetDouble()});
+				break;
+			case JS::Value::ValueType::STRING:
+				item->read(StringValue{String{value->GetString()}});
+				break;
+			default:
+				break;
+		}
 	} //doJSBaseItemImport
 	
 	
@@ -291,7 +315,6 @@ namespace {
 						(package != nullptr) && !package->insert(std::move(cargo), *incomingItem))
 					throw std::system_error(makeJSBaseError(invalidObject));
 			}
-			break;
 		}
 		if (!container.validate())
 			throw std::system_error(makeJSBaseError(invalidObject));	//The incoming data was rejected as invalid

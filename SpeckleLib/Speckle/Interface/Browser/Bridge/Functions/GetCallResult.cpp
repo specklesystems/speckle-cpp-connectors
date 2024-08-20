@@ -41,7 +41,7 @@ std::unique_ptr<active::serialise::Cargo> GetCallResult::getArgument() const {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetCallResult::getResult(JSBridgeArgumentWrap& argument) const {
 		//Confirm argument and function validity
-	if (!argument || (argument.getObjectName() != m_bridge.getName()))
+	if (!argument)
 		return nullptr;
 	return m_bridge.releaseResult(argument.getRequestID());
 } //GetCallResult::getResult
