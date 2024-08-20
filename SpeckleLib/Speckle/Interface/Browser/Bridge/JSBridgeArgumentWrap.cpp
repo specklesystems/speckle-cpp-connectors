@@ -20,17 +20,22 @@ namespace {
 
 		///The indices of the package items
 	enum FieldIndex {
+		args,
+	};
+
+	
+		///The indices of the arguments array rows
+	enum RowIndex {
 		objectName,
 		methodName,
 		requestID,
 	};
+	
 
 		///The package inventory
 	auto myInventory = Inventory {
 		{
-			{ {"binding_name"}, objectName, attribute },
-			{ {"name"}, methodName, attribute },
-			{ {"request_id"}, requestID, attribute },
+			{ {"arg"}, args, array },	//The JS arguments are expressed as a flat array - use the array indices to map to expected vars
 		},
 	}.withType(&typeid(JSBridgeArgumentWrap));;
 
@@ -50,11 +55,8 @@ JSBridgeArgumentWrap::~JSBridgeArgumentWrap() {
  
 	return: True if items have been added to the inventory
   --------------------------------------------------------------------*/
-bool JSBridgeArgumentWrap::fillInventory(active::serialise::Inventory& inventory) const {
-	if (!m_isReadingAttributes.has_value() || *m_isReadingAttributes)
-		inventory.merge(myInventory);
-	if (m_argument)
-		m_argument->fillInventory(inventory);
+bool JSBridgeArgumentWrap::fillInventory(Inventory& inventory) const {
+	inventory.merge(myInventory);
 	return true;
 } //JSBridgeArgumentWrap::fillInventory
 
@@ -66,16 +68,28 @@ bool JSBridgeArgumentWrap::fillInventory(active::serialise::Inventory& inventory
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique JSBridgeArgumentWrap::getCargo(const active::serialise::Inventory::Item& item) const {
+Cargo::Unique JSBridgeArgumentWrap::getCargo(const Inventory::Item& item) const {
 	if (item.ownerType != &typeid(JSBridgeArgumentWrap))
 		return nullptr;
 	switch (item.index) {
-		case FieldIndex::objectName:
-			return std::make_unique<ValueWrap<String>>(m_objectName);
-		case FieldIndex::methodName:
-			return std::make_unique<ValueWrap<String>>(m_methodName);
-		case FieldIndex::requestID:
-			return std::make_unique<ValueWrap<String>>(m_requestID);
+		case FieldIndex::args: {
+			switch (item.available) {	//NB: Args are not labelled - in this instance we use the array row index to couple to an argument var
+				case RowIndex::objectName:
+					return std::make_unique<ValueWrap<String>>(m_objectName);
+				case RowIndex::methodName:
+					return std::make_unique<ValueWrap<String>>(m_methodName);
+				case RowIndex::requestID:
+					return std::make_unique<ValueWrap<String>>(m_requestID);
+				default:
+						//Once the argument attributes have been obtained (object, method etc) we need to ensure the argument object exists
+					if (!m_argument)
+						finaliseArgument();
+					Inventory::Item childItem{item};
+						//The index of the child item starts at zero, so deduct the indices already received by the wrapper
+					childItem.available -= (RowIndex::requestID + 1);
+					return m_argument->getCargo(childItem);
+			}
+		}
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -99,23 +113,18 @@ void JSBridgeArgumentWrap::setDefault() {
 	return: True if the data has been validated
   --------------------------------------------------------------------*/
 bool JSBridgeArgumentWrap::validate() {
-	return !m_objectName.empty() && !m_methodName.empty() && !m_requestID.empty() && (!m_argument | m_argument->validate());
+		//Only successful if we built an argument object and its content is valid
+	return !m_argument && m_argument->validate();
 } //JSBridgeArgumentWrap::validate
 
 
 /*--------------------------------------------------------------------
-	Finalise the package attributes (called when isAttributeFirst = true and attributes have been imported)
- 
-	return: True if the attributes have been successfully finalised (returning false will cause an exception to be thrown)
+	Finalise the output argument object based on the current object, method etc
   --------------------------------------------------------------------*/
-bool JSBridgeArgumentWrap::finaliseAttributes() {
-	if (!m_isReadingAttributes.has_value() || !*m_isReadingAttributes ||m_objectName.empty() || m_methodName.empty())
-		return false;
-	m_isReadingAttributes = false;
+void JSBridgeArgumentWrap::finaliseArgument() const {
 		//Use the deserialised target bridge and method to establish the required arguments (if any)
-	m_argument.reset(JSBridgeArgumentWrap::makeArgument(m_objectName, m_methodName));
+	m_argument.reset(JSBridgeArgumentWrap::makeArgument(m_objectName, m_methodName, m_requestID));
 		//If the function doesn't take an argument, we still need to pass along the base class with object name, method etc
 	if (!m_argument)
 		m_argument = std::make_unique<JSBridgeArgument>(m_objectName, m_methodName, m_requestID);
-	return true;
-} //JSBridgeArgumentWrap::finaliseAttributes
+} //JSBridgeArgumentWrap::finaliseArgument

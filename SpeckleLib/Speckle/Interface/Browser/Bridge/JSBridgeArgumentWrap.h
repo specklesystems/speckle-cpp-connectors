@@ -12,12 +12,15 @@ namespace speckle::interfac::browser::bridge {
 
 	/*!
 		Factory function to make an argument object
+		@param bridge The target bridge name
+		@param method The target method to receive the argument
+		@param request The request ID for the result
 		@return A new argument object
 	*/
 	template<typename T>
-	void* constructArgument() {
+	void* constructArgument(const speckle::utility::String& bridge, const speckle::utility::String& method, const speckle::utility::String& request) {
 		try {
-			return new T();
+			return new T(bridge, method, request);
 		} catch(...) {
 			return nullptr;	//Object constructors should throw an exception if incoming data isn't viable (NB: only use for unrecoverable problems)
 		}
@@ -103,11 +106,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return True if the data has been validated
 		 */
 		bool validate() override;
-		/*!
-		 Finalise the package attributes (called when isAttributeFirst = true and attributes have been imported)
-		 @return True if the attributes have been successfully finalised (returning false will cause an exception to be thrown)
-		 */
-		bool finaliseAttributes() override;
 
 		/*!
 		 Make an argument object for a specified bridge method
@@ -115,9 +113,10 @@ namespace speckle::interfac::browser::bridge {
 		 @param method The name of the target method
 		 @return An argument object (nullptr on failure)
 		 */
-		static JSBridgeArgument* makeArgument(const speckle::utility::String& bridge, const speckle::utility::String& method) {
+		static JSBridgeArgument* makeArgument(const speckle::utility::String& bridge, const speckle::utility::String& method,
+											  const speckle::utility::String& request) {
 			if (auto maker = m_argumentFactory.find(JSBridgeArgumentWrap::encode(bridge, method)); (maker != m_argumentFactory.end()))
-				return reinterpret_cast<JSBridgeArgument*>(maker->second());
+				return reinterpret_cast<JSBridgeArgument*>(maker->second(bridge, method, request));
 			return nullptr;
 		}
 		
@@ -141,9 +140,13 @@ namespace speckle::interfac::browser::bridge {
 		static speckle::utility::String encode(const speckle::utility::String& bridge, const speckle::utility::String& method) {
 			return bridge + ":" + method;
 		}
+		/*!
+		 Finalise the output argument object based on the current object, method etc
+		 */
+		void finaliseArgument() const;
 
 			//Factory function for producing instances from a serialised document object
-		using Production = std::function<void*()>;
+		using Production = std::function<void*(const speckle::utility::String&, const speckle::utility::String&, const speckle::utility::String&)>;
 			///Factory functions to construct arguments from linked bridge/method names
 		static std::unordered_map<speckle::utility::String, Production> m_argumentFactory;
 		
@@ -154,7 +157,7 @@ namespace speckle::interfac::browser::bridge {
 			///An ID to be paired with the method return value
 		speckle::utility::String m_requestID;
 			///The function arguments
-		std::shared_ptr<JSBridgeArgument> m_argument;
+		mutable std::shared_ptr<JSBridgeArgument> m_argument;
 			///True while the attribute are being deserialised
 		std::optional<bool> m_isReadingAttributes = true;
 	};
