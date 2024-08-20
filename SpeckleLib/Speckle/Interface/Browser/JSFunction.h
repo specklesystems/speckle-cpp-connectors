@@ -2,6 +2,7 @@
 #define SPECKLE_INTERFACE_JS_FUNCTION
 
 #include "Active/Serialise/Inventory/Identity.h"
+#include "Active/Serialise/Item/Wrapper/ItemWrap.h"
 #include "Active/Serialise/Package/NullPackage.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Interface/Browser/JSBinding.h"
@@ -90,7 +91,10 @@ namespace speckle::interfac::browser {
 			}
 		} else {
 			Argument argument;
-			transport.receive(active::serialise::PackageWrap{argument}, active::serialise::Identity{}, bindingParameters);
+			if constexpr (std::is_base_of<active::serialise::Package, Argument>::value)
+				transport.receive(active::serialise::PackageWrap{argument}, active::serialise::Identity{}, bindingParameters);
+			else
+				transport.receive(active::serialise::ItemWrap{argument}, active::serialise::Identity{}, bindingParameters);
 			if constexpr(std::is_same<Return, void>::value)
 				base::execute(argument);	//Parameters and no return value
  			else {

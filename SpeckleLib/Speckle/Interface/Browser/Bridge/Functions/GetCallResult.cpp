@@ -1,5 +1,8 @@
 #include "Speckle/Interface/Browser/Bridge/Functions/GetCallResult.h"
 
+#include "Active/Serialise/Item/Wrapper/ItemWrap.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferOut.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 
 #ifdef ARCHICAD
@@ -11,6 +14,7 @@ using namespace active::serialise;
 using namespace speckle::serialise::jsbase;
 using namespace speckle::interfac::browser;
 using namespace speckle::interfac::browser::bridge;
+using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
 	Constructor
@@ -41,9 +45,12 @@ std::unique_ptr<active::serialise::Cargo> GetCallResult::getArgument() const {
  
 	return: The requested result (nullptr on failure)
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetCallResult::getResult(JSBridgeArgumentWrap& argument) const {
+std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
 		//Confirm argument and function validity
-	if (!argument)
+	auto result = m_bridge.releaseResult(argument);
+	if (!result)
 		return nullptr;
-	return m_bridge.releaseResult(argument.getRequestID());
+	String jsonOutput;
+	json::JSONTransport().send(ItemWrap{*result}, Identity{}, jsonOutput);
+	return std::make_unique<WrappedResultArg>(jsonOutput);
 } //GetCallResult::getResult
