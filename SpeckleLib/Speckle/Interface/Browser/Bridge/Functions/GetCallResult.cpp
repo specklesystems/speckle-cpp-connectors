@@ -18,7 +18,9 @@ using namespace speckle::interfac::browser::bridge;
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
 GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
-		JSFunction{"GetCallResult", [&](auto args) { return getResult(args); }} {
+		JSFunction{"GetCallResult", [&](auto args) {
+			return getResult(args);
+		}} {
 } //GetCallResult::GetCallResult
 
 

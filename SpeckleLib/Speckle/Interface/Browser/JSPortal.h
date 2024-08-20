@@ -70,7 +70,8 @@ namespace speckle::interfac::browser {
 #ifdef ARCHICAD
 		try {
 			auto engine = getJSEngine();
-			return engine ? engine->ExecuteJS(code) : false;
+			auto result = engine ? engine->ExecuteJS(code) : false;
+			return result;
 		} catch(...) {
 			///TODO: Need to discuss the best course of action to notify of a failure
 		}
