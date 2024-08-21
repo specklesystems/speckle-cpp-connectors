@@ -31,16 +31,6 @@ GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
 
 
 /*--------------------------------------------------------------------
-	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
- 
-	return: An argument instance
-  --------------------------------------------------------------------*/
-std::unique_ptr<active::serialise::Cargo> GetCallResult::getArgument() const {
-	return std::make_unique<JSBridgeArgument>();
-} //GetCallResult::getArgument
-
-
-/*--------------------------------------------------------------------
 	Get the result for a specified call
  
 	argument: The method arguments specifying the target bridge and requestID

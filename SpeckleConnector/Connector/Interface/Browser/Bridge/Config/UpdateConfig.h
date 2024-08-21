@@ -9,7 +9,7 @@ namespace connector::interfac::browser::bridge {
 	
 	class ConnectorConfig;
 	
-		///Arguments for a JS call to update the configuration
+		///Argument for a JS call to update the configuration
 	using UpdateArgs = speckle::interfac::browser::bridge::JSArgType<ConnectorConfig>;
 
 	/*!
@@ -35,13 +35,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
-		 @return An argument instance
-		 */
-		std::unique_ptr<active::serialise::Cargo> getArgument() const override;
-		/*!
-		 Get the configuration settings
-		 @return The new settings
+		 Update the configuration settings
+		 @param config The new settings
 		 */
 		void run(const ConnectorConfig& config) const;
 	};

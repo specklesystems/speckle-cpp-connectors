@@ -19,17 +19,9 @@ UpdateConfig::UpdateConfig() : JSBridgeMethod{"UpdateConfig", [&](UpdateArgs arg
 
 
 /*--------------------------------------------------------------------
-	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
+	Update the configuration settings
  
-	return: An argument instance
-  --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> UpdateConfig::getArgument() const { return std::make_unique<UpdateArgs>(); }
-
-
-/*--------------------------------------------------------------------
-	Get the configuration settings
- 
-	return: The new settings
+	config: The new settings
   --------------------------------------------------------------------*/
 void UpdateConfig::run(const ConnectorConfig& config) const {
 	///TODO: Store the active configuration settings here

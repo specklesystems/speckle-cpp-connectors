@@ -10,6 +10,7 @@ using namespace speckle::utility;
 
 namespace {
 	
+		///Return type for retrieving the current configuration
 	using WrappedValue = CargoHold<PackageWrap, ConnectorConfig>;
 
 }
@@ -22,14 +23,6 @@ namespace {
 GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
 		return run();
 }} {}
-
-
-/*--------------------------------------------------------------------
-	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
- 
-	return: An argument instance
-  --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetConfig::getArgument() const { return nullptr; }
 
 
 /*--------------------------------------------------------------------

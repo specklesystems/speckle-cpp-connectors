@@ -26,14 +26,6 @@ GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
 
 
 /*--------------------------------------------------------------------
-	Get an argument instance for the function (used to deserialise/unpack incoming arguments)
- 
-	return: An argument instance
-  --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::getArgument() const { return nullptr; }
-
-
-/*--------------------------------------------------------------------
 	Get the accounts
  
 	return: The accounts (empty array when none defined)

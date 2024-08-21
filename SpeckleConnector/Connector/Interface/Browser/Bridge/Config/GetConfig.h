@@ -29,11 +29,6 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
-		 @return An argument instance
-		 */
-		std::unique_ptr<active::serialise::Cargo> getArgument() const override;
-		/*!
 		 Get the configuration settings
 		 @return The settings
 		 */

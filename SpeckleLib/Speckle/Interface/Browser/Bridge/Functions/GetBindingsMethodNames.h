@@ -31,11 +31,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return A clone of this object
 		 */
 		GetBindingsMethodNames* clonePtr() const override { return new GetBindingsMethodNames{*this}; }
-		/*!
-		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
-		 @return An argument instance
-		 */
-		std::unique_ptr<active::serialise::Cargo> getArgument() const override { return nullptr; }	//Method doesn't take any arguments
 		
 	private:
 		/*!

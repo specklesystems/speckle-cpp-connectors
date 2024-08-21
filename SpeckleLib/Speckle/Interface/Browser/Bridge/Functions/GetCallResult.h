@@ -38,11 +38,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return A clone of this object
 		 */
 		GetCallResult* clonePtr() const override { return new GetCallResult{*this}; }
-		/*!
-		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
-		 @return An argument instance
-		 */
-		std::unique_ptr<active::serialise::Cargo> getArgument() const override;
 		
 	private:
 		/*!

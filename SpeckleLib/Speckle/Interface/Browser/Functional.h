@@ -26,11 +26,6 @@ namespace speckle::interfac::browser {
 		 */
 		virtual speckle::utility::String getName() const = 0;
 		/*!
-		 Get an argument instance for the function (used to deserialise/unpack incoming arguments)
-		 @return An argument instance
-		 */
-		virtual std::unique_ptr<Packaging> getArgument() const = 0;
-		/*!
 		 Execute the function
 		 @param param The transported input parameter
 		 @return The data to transport back to the caller (nullptr if the result is void)
