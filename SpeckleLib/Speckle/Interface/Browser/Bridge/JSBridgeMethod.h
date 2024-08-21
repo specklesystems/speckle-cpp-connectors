@@ -60,7 +60,7 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		JSBridgeMethod& registerArgument(const speckle::utility::String& bridge) override {
 			if constexpr(!std::same_as<Argument, void>)
-				JSBridgeArgumentWrap::defineArgument<Argument>(bridge, base::getName());
+				JSBridgeArgumentWrap::defineArgument<Argument>(base::getName());
 			return *this;
 		}
 	};

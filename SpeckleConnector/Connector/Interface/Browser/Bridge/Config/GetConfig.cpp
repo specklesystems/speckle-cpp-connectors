@@ -1,17 +1,16 @@
-#include "Connector/Interface/Browser/Bridge/Account/GetAccounts.h"
+#include "Connector/Interface/Browser/Bridge/Config/GetConfig.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Active/Serialise/Package/PackageWrap.h"
+#include "Connector/Interface/Browser/Bridge/Config/ConnectorConfig.h"
 
-using namespace active::container;
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
-using namespace speckle::record::cred;
 using namespace speckle::utility;
 
 namespace {
 	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector, Account>, Vector<Account>>;
+	using WrappedValue = CargoHold<PackageWrap, ConnectorConfig>;
 
 }
 
@@ -20,9 +19,9 @@ namespace {
  
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
+GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
 		return run();
-	}} {}
+}} {}
 
 
 /*--------------------------------------------------------------------
@@ -30,16 +29,16 @@ GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
  
 	return: An argument instance
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::getArgument() const { return nullptr; }
+std::unique_ptr<Cargo> GetConfig::getArgument() const { return nullptr; }
 
 
 /*--------------------------------------------------------------------
-	Get the accounts
+	Get the configuration settings
  
-	return: The accounts (empty array when none defined)
+	return: The settings
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::run(void) const {
-	Vector<Account> accounts;
+std::unique_ptr<Cargo> GetConfig::run(void) const {
+	ConnectorConfig config;
 	///TODO: Get the accounts here - returning an empty array for testing only
-	return std::make_unique<WrappedValue>(accounts);
-} //GetAccounts::run
+	return std::make_unique<WrappedValue>(config);
+} //GetConfig::run

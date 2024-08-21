@@ -1,14 +1,14 @@
-#ifndef CONNECTOR_INTERFACE_BRIDGE_ACCOUNT_BRIDGE
-#define CONNECTOR_INTERFACE_BRIDGE_ACCOUNT_BRIDGE
+#ifndef CONNECTOR_INTERFACE_BRIDGE_CONFIG_BRIDGE
+#define CONNECTOR_INTERFACE_BRIDGE_CONFIG_BRIDGE
 
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 A browser bridge to provide account details to the caller
+	 A browser bridge to provide configuration settings
 	*/
-	class AccountBridge : public speckle::interfac::browser::bridge::BrowserBridge {
+	class ConfigBridge : public speckle::interfac::browser::bridge::BrowserBridge {
 	public:
 		
 		// MARK: - Types
@@ -21,9 +21,9 @@ namespace connector::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 */
-		AccountBridge();
+		ConfigBridge();
 	};
 	
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_ACCOUNT_BRIDGE
+#endif	//CONNECTOR_INTERFACE_BRIDGE_CONFIG_BRIDGE

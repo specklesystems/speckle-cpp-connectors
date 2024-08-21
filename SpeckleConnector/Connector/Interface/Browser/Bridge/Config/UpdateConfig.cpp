@@ -1,28 +1,21 @@
-#include "Connector/Interface/Browser/Bridge/Account/GetAccounts.h"
+#include "Connector/Interface/Browser/Bridge/Config/UpdateConfig.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Active/Serialise/Package/PackageWrap.h"
+#include "Connector/Interface/Browser/Bridge/Config/ConnectorConfig.h"
 
-using namespace active::container;
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
-using namespace speckle::record::cred;
 using namespace speckle::utility;
-
-namespace {
-	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector, Account>, Vector<Account>>;
-
-}
 
 /*--------------------------------------------------------------------
 	Constructor
  
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
-		return run();
-	}} {}
+UpdateConfig::UpdateConfig() : JSBridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
+		run(args.value);
+}} {}
 
 
 /*--------------------------------------------------------------------
@@ -30,16 +23,14 @@ GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
  
 	return: An argument instance
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::getArgument() const { return nullptr; }
+std::unique_ptr<Cargo> UpdateConfig::getArgument() const { return std::make_unique<UpdateArgs>(); }
 
 
 /*--------------------------------------------------------------------
-	Get the accounts
+	Get the configuration settings
  
-	return: The accounts (empty array when none defined)
+	return: The new settings
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::run(void) const {
-	Vector<Account> accounts;
-	///TODO: Get the accounts here - returning an empty array for testing only
-	return std::make_unique<WrappedValue>(accounts);
-} //GetAccounts::run
+void UpdateConfig::run(const ConnectorConfig& config) const {
+	///TODO: Store the active configuration settings here
+} //UpdateConfig::run

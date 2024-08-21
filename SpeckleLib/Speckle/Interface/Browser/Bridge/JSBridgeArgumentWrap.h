@@ -103,7 +103,6 @@ namespace speckle::interfac::browser::bridge {
 
 		/*!
 		 Make an argument object for a specified bridge method
-		 @param bridge The name of the target bridge
 		 @param method The name of the target method
 		 @return An argument object (nullptr on failure)
 		 */
@@ -115,12 +114,11 @@ namespace speckle::interfac::browser::bridge {
 		
 		/*!
 		 Add a factory method for constructing the arguments of a specified bridge method
-		 @param bridge The name of the target bridge
 		 @param method The name of the target method
 		 */
 		template<typename T> requires std::is_base_of_v<JSBridgeArgument, T>
 		static void defineArgument(const speckle::utility::String& method) {
-			m_argumentFactory[method] = std::make_pair( &typeid(T), constructArgument<T>);
+			m_argumentFactory[method] = constructArgument<T>;
 		}
 		
 	private:

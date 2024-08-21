@@ -74,6 +74,14 @@ namespace speckle::interfac::browser::bridge {
 		speckle::utility::String m_requestID;
 	};
 	
+		///Definition of the argument for a JS callable method (enclosing the local function argument)
+	template<typename T>
+	class JSArgType : public JSBridgeArgument {
+	public:
+		using JSBridgeArgument::JSBridgeArgument;
+		T value;
+	};
+	
 }
 
 #endif	//SPECKLE_INTERFACE_JS_BRIDGE_ARGUMENT
