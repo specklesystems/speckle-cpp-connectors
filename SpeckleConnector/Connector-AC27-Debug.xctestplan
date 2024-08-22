@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "1E67F2B8-6019-4C14-ABA7-146D3948BF11",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Connector.xcodeproj",
+        "identifier" : "219F30342C768F0A009834E9",
+        "name" : "Connector-AC27-Test"
+      }
+    }
+  ],
+  "version" : 1
+}

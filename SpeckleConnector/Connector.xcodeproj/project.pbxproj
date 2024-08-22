@@ -24,6 +24,9 @@
 /* Begin PBXBuildFile section */
 		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
+		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
+		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
+		21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -196,6 +199,13 @@
 			remoteGlobalIDString = 213CC3942B1101F500088049;
 			remoteInfo = "Connector-AC27-EN-GB";
 		};
+		219F303E2C768F6A009834E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 213CC3942B1101F500088049;
+			remoteInfo = "Connector-AC27-EN-GB";
+		};
 		21F69ECC2C64C035008B6A06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
@@ -245,6 +255,9 @@
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.vwlibrary"; sourceTree = BUILT_PRODUCTS_DIR; };
+		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
+		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -589,6 +602,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		219F30322C768F0A009834E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */,
+				21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -596,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				213CC3A52B1101F500088049 /* Speckle Connector.bundle */,
+				219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -608,6 +631,7 @@
 				219388682C4E5DE2002A0180 /* CMakeLists.txt */,
 				2161FD902BF2600C006D9527 /* README.md */,
 				21F69F112C677BC0008B6A06 /* Connector */,
+				219F30412C769282009834E9 /* ConnectorTests */,
 				81494D9D09DA5892006864FB /* Resource */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DDFF38A45A11DB9C8B /* Products */,
@@ -800,6 +824,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		219F30412C769282009834E9 /* ConnectorTests */ = {
+			isa = PBXGroup;
+			children = (
+				219F30402C769282009834E9 /* ConfigTests.cpp */,
+				219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */,
+			);
+			path = ConnectorTests;
+			sourceTree = "<group>";
+		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +976,24 @@
 			productReference = 213CC3A52B1101F500088049 /* Speckle Connector.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		219F30342C768F0A009834E9 /* Connector-AC27-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 219F303D2C768F0A009834E9 /* Build configuration list for PBXNativeTarget "Connector-AC27-Test" */;
+			buildPhases = (
+				219F30312C768F0A009834E9 /* Sources */,
+				219F30322C768F0A009834E9 /* Frameworks */,
+				219F30332C768F0A009834E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				219F303F2C768F6A009834E9 /* PBXTargetDependency */,
+			);
+			name = "Connector-AC27-Test";
+			productName = "Connector-AC27-Test";
+			productReference = 219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -951,6 +1002,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					219F30342C768F0A009834E9 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "Connector" */;
 			compatibilityVersion = "Xcode 15.3";
@@ -980,6 +1036,7 @@
 			targets = (
 				2102A0A22B14B10C00AD42A8 /* Connector-AC27-EN-GB-Notarise */,
 				213CC3942B1101F500088049 /* Connector-AC27-EN-GB */,
+				219F30342C768F0A009834E9 /* Connector-AC27-Test */,
 			);
 		};
 /* End PBXProject section */
@@ -1014,6 +1071,16 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		219F30332C768F0A009834E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		2102A0A52B14B10C00AD42A8 /* Notarise */ = {
@@ -1087,6 +1154,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		219F30312C768F0A009834E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219F30422C769283009834E9 /* ConfigTests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1094,6 +1169,11 @@
 			isa = PBXTargetDependency;
 			target = 213CC3942B1101F500088049 /* Connector-AC27-EN-GB */;
 			targetProxy = 2102A0A92B14B13300AD42A8 /* PBXContainerItemProxy */;
+		};
+		219F303F2C768F6A009834E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 213CC3942B1101F500088049 /* Connector-AC27-EN-GB */;
+			targetProxy = 219F303E2C768F6A009834E9 /* PBXContainerItemProxy */;
 		};
 		21F69EE22C64FE21008B6A06 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1456,6 +1536,80 @@
 			};
 			name = Release;
 		};
+		219F30392C768F0A009834E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T4C464595P;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					XCODE_TESTING,
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.speckle.connector.Connector-AC27-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Debug;
+		};
+		219F303A2C768F0A009834E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T4C464595P;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = XCODE_TESTING;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "systems.speckle.connector.Connector-AC27-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Release;
+		};
 		7E2B7BFF18C0E73E00358572 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1693,6 +1847,15 @@
 			buildConfigurations = (
 				213CC3A32B1101F500088049 /* Debug */,
 				213CC3A42B1101F500088049 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		219F303D2C768F0A009834E9 /* Build configuration list for PBXNativeTarget "Connector-AC27-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219F30392C768F0A009834E9 /* Debug */,
+				219F303A2C768F0A009834E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
