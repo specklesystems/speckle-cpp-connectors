@@ -30,6 +30,6 @@ GetDocumentInfo::GetDocumentInfo() : JSBridgeMethod{"GetDocumentInfo", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetDocumentInfo::run(void) const {
 		///TODO: Get the document info here - returning mocked values for now
-	DocumentInfo docInfo{"Somewhere", "Something", String{active::utility::Guid{}}};
+	DocumentInfo docInfo{"Somewhere", "Something", String{active::utility::Guid{true}.operator active::utility::String()}};
 	return std::make_unique<WrappedValue>(docInfo);
 } //GetDocumentInfo::run

@@ -2,6 +2,7 @@
 
 #include "Connector/Interface/Browser/Bridge/Base/GetConnectorVersion.h"
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentInfo.h"
+#include "Connector/Interface/Browser/Bridge/Base/GetDocumentState.h"
 #include "Connector/Interface/Browser/Bridge/Base/GetSourceApplicationName.h"
 #include "Connector/Interface/Browser/Bridge/Base/GetSourceApplicationVersion.h"
 
@@ -14,6 +15,7 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 		//Add bridge methods
 	addMethod<GetConnectorVersion>();
 	addMethod<GetDocumentInfo>();
+	addMethod<GetDocumentState>();
 	addMethod<GetSourceApplicationName>();
 	addMethod<GetSourceApplicationVersion>();
 } //BaseBridge::BaseBridge

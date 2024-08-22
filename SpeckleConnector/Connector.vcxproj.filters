@@ -26,6 +26,18 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Config">
       <UniqueIdentifier>{4e5d7206-9d4b-4edf-88c2-be7260f5e41e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Base">
+      <UniqueIdentifier>{34a1ed7b-2f9f-4407-aba7-bf9830118593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Database">
+      <UniqueIdentifier>{2f459f56-86f0-4794-b4b7-1bd7b8ee5617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Database\Model">
+      <UniqueIdentifier>{2820ad4f-60d9-436e-a7a2-d019d7e0ce0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Database\Model\Card">
+      <UniqueIdentifier>{85935d00-16ac-466a-a614-ad9ea802bffa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -77,6 +89,30 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentInfo.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp">
+      <Filter>Connector\Database\Model\Card</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -108,6 +144,36 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentInfo.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Connector.h">
+      <Filter>Connector</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Version.h">
+      <Filter>Connector</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h">
+      <Filter>Connector\Database\Model\Card</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

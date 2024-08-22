@@ -31,12 +31,7 @@ GetConnectorVersion::GetConnectorVersion() : JSBridgeMethod{"GetConnectorVersion
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetConnectorVersion::run() const {
 		//Implement other platforms as required
-#ifdef ARCHICAD
-	API_ServerApplicationInfo appInfo{};
-	ACAPI_GetReleaseNumber(&appInfo);
-		//NB: Assuming only the main version number is required - can be extended if necessary
-	String result{active::utility::String{versionMajor} + "." + active::utility::String{versionMinor} + "." +
-			active::utility::String{versionPatch}};
+	String result{active::utility::String{connector::versionMajor} + "." + active::utility::String{connector::versionMinor} + "." +
+			active::utility::String{connector::versionPatch}};
 	return std::make_unique<WrappedValue>(result);
-#endif
 } //GetConnectorVersion::run

@@ -93,8 +93,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector\Connector.cpp" />
+    <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentInfo.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
@@ -103,16 +111,26 @@
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Connector\Connector.h" />
     <ClInclude Include="Connector\ConnectorResource.h" />
+    <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h" />
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentInfo.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
+    <ClInclude Include="Connector\Version.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
