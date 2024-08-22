@@ -9,9 +9,7 @@ using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
-	Constructor
- 
-	bridge: The parent bridge object (provides access to bridge methods)
+	Default constructor
   --------------------------------------------------------------------*/
 UpdateConfig::UpdateConfig() : JSBridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
 		run(args.value);

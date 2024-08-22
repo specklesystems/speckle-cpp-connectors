@@ -12,7 +12,7 @@ namespace speckle::interfac::browser {
 	 @tparam Trans The transport between objects and platform JS value types
 	*/
 	template<typename JSType, typename Trans>
-	class JSBinding : virtual public active::utility::Cloner {
+	class JSBinding {
 	public:
 		
 		// MARK: - Types
@@ -23,11 +23,6 @@ namespace speckle::interfac::browser {
 		// MARK: - Constructors
 		
 		virtual ~JSBinding() {}
-		/*!
-			Object cloning
-			@return A clone of this object
-		*/
-		virtual JSBinding* clonePtr() const = 0;
 		
 		// MARK: - Functions (const)
 		

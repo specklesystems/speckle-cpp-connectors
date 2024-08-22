@@ -28,12 +28,6 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		RunMethod(const RunMethod& source) = default;
 		
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		RunMethod* clonePtr() const override { return new RunMethod{*this}; }
-		
 	private:
 		/*!
 		 Run a specified bridge method

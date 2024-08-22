@@ -2,13 +2,14 @@
 #define CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Utility/String.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 Configuration settings class
+	 Information about the active document, e.g. an Archicad project
 	 */
-	class ConnectorConfig : public active::serialise::Package {
+	class DocumentInfo : public active::serialise::Package {
 	public:
 
 		// MARK: - Types
@@ -19,13 +20,21 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Default constructor
+		 @param locate The project location
+		 @param nm The project name
+		 @param guid A unique, persistent ID for the project document
 		 */
-		ConnectorConfig() = default;
+		DocumentInfo(const speckle::utility::String& locat = {}, const speckle::utility::String& nm = {}, const speckle::utility::String& guid = {}) :
+				location{locat}, name{nm}, ID{guid} {}
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///?
-		bool isDarkTheme = true;
+			///The project location
+		speckle::utility::String location;	//TODO: Confirm this is an address
+			///The project name
+		speckle::utility::String name;	//TODO: Assume project name rather than document (file) name - need to confirm
+			///A unique, persistent ID for the project document
+		speckle::utility::String ID;	//TODO: should possibly be a guid - need to check
 		
 		// MARK: - Serialisation
 		
@@ -44,7 +53,7 @@ namespace connector::interfac::browser::bridge {
 		/*!
 			Set to the default package content
 		*/
-		void setDefault() override { isDarkTheme = true; }
+		void setDefault() override;
 	};
 
 }

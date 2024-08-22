@@ -11,7 +11,7 @@ namespace speckle::interfac::browser {
 	 @tparam Packaging The packaging type for transporting input parameters and results (Cargo is used as the default for serialisation)
 	*/
 	template<typename Packaging = active::serialise::Cargo>
-	class Functional : virtual public active::utility::Cloner {
+	class Functional {
 	public:
 		/*!
 		 Destructor

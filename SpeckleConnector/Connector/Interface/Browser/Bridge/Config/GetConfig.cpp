@@ -16,9 +16,7 @@ namespace {
 }
 
 /*--------------------------------------------------------------------
-	Constructor
- 
-	bridge: The parent bridge object (provides access to bridge methods)
+	Default constructor
   --------------------------------------------------------------------*/
 GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
 		return run();

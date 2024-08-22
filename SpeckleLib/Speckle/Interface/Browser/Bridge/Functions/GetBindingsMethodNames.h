@@ -26,12 +26,6 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		GetBindingsMethodNames(BrowserBridge& bridge);
 		
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		GetBindingsMethodNames* clonePtr() const override { return new GetBindingsMethodNames{*this}; }
-		
 	private:
 		/*!
 		 Get the names of the methods supported by the parent browser

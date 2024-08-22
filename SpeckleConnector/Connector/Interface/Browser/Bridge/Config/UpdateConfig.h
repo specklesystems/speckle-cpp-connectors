@@ -25,12 +25,6 @@ namespace connector::interfac::browser::bridge {
 		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		UpdateConfig();
-		
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		UpdateConfig* clonePtr() const override { return new UpdateConfig{*this}; }
 
 		// MARK: - Functions (const)
 		

@@ -2,7 +2,6 @@
 #define CONNECTOR_INTERFACE_BRIDGE_GET_ACCOUNTS
 
 #include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
-#include "Speckle/Record/Credentials/Account.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -15,16 +14,9 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Constructors
 		
 		/*!
-		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
+		 Default constructor
 		 */
 		GetAccounts();
-		
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		GetAccounts* clonePtr() const override { return new GetAccounts{*this}; }
 
 		// MARK: - Functions (const)
 		

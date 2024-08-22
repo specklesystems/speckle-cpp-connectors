@@ -27,6 +27,14 @@
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
 		21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
+		21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA52C77329800FD64FC /* BaseBridge.cpp */; };
+		21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */; };
+		21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */; };
+		21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */; };
+		21B67CBD2C77537C00FD64FC /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */; };
+		21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */; };
+		21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC22C77649F00FD64FC /* GetDocumentState.cpp */; };
+		21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -258,6 +266,24 @@
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.vwlibrary"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
+		21B67CA52C77329800FD64FC /* BaseBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseBridge.cpp; sourceTree = "<group>"; };
+		21B67CA62C77329800FD64FC /* BaseBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBridge.h; sourceTree = "<group>"; };
+		21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSourceApplicationName.cpp; sourceTree = "<group>"; };
+		21B67CA82C77329800FD64FC /* GetSourceApplicationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSourceApplicationName.h; sourceTree = "<group>"; };
+		21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSourceApplicationVersion.cpp; sourceTree = "<group>"; };
+		21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSourceApplicationVersion.h; sourceTree = "<group>"; };
+		21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetConnectorVersion.cpp; sourceTree = "<group>"; };
+		21B67CB82C774BFA00FD64FC /* GetConnectorVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConnectorVersion.h; sourceTree = "<group>"; };
+		21B67CBA2C774C6500FD64FC /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		21B67CBB2C77537C00FD64FC /* DocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentInfo.h; sourceTree = "<group>"; };
+		21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DocumentInfo.cpp; sourceTree = "<group>"; };
+		21B67CBE2C775A0D00FD64FC /* GetDocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDocumentInfo.h; sourceTree = "<group>"; };
+		21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetDocumentInfo.cpp; sourceTree = "<group>"; };
+		21B67CC12C77649E00FD64FC /* GetDocumentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDocumentState.h; sourceTree = "<group>"; };
+		21B67CC22C77649F00FD64FC /* GetDocumentState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetDocumentState.cpp; sourceTree = "<group>"; };
+		21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCardDatabase.cpp; sourceTree = "<group>"; };
+		21B67CC82C77670400FD64FC /* ModelCardDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCardDatabase.h; sourceTree = "<group>"; };
+		21B67CCD2C77694500FD64FC /* Connector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -833,6 +859,52 @@
 			path = ConnectorTests;
 			sourceTree = "<group>";
 		};
+		21B67CAB2C77329800FD64FC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CA52C77329800FD64FC /* BaseBridge.cpp */,
+				21B67CA62C77329800FD64FC /* BaseBridge.h */,
+				21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */,
+				21B67CBB2C77537C00FD64FC /* DocumentInfo.h */,
+				21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */,
+				21B67CB82C774BFA00FD64FC /* GetConnectorVersion.h */,
+				21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */,
+				21B67CBE2C775A0D00FD64FC /* GetDocumentInfo.h */,
+				21B67CC22C77649F00FD64FC /* GetDocumentState.cpp */,
+				21B67CC12C77649E00FD64FC /* GetDocumentState.h */,
+				21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */,
+				21B67CA82C77329800FD64FC /* GetSourceApplicationName.h */,
+				21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */,
+				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		21B67CC92C77670400FD64FC /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */,
+				21B67CC82C77670400FD64FC /* ModelCardDatabase.h */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		21B67CCA2C77670400FD64FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CC92C77670400FD64FC /* Card */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21B67CCB2C77670400FD64FC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CCA2C77670400FD64FC /* Model */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,9 +959,12 @@
 			isa = PBXGroup;
 			children = (
 				21F69F0F2C677BC0008B6A06 /* Connector.cpp */,
+				21B67CCD2C77694500FD64FC /* Connector.h */,
 				21F69F102C677BC0008B6A06 /* ConnectorResource.h */,
+				21B67CCB2C77670400FD64FC /* Database */,
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
+				21B67CBA2C774C6500FD64FC /* Version.h */,
 			);
 			path = Connector;
 			sourceTree = "<group>";
@@ -909,6 +984,7 @@
 			isa = PBXGroup;
 			children = (
 				21F69F852C70D2C4008B6A06 /* Account */,
+				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
 			);
 			path = Bridge;
@@ -1142,12 +1218,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B67CBD2C77537C00FD64FC /* DocumentInfo.cpp in Sources */,
 				21F69FC22C7632B7008B6A06 /* ConnectorConfig.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
+				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
+				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
+				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
+				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,
 				214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */,
+				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
+				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
+				21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */,
 				21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */,
 				21F69FBC2C762EF0008B6A06 /* GetConfig.cpp in Sources */,
 				21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */,
@@ -1553,6 +1637,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T4C464595P;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREFIX_HEADER = "";
@@ -1564,6 +1649,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
@@ -1593,12 +1679,14 @@
 				DEVELOPMENT_TEAM = T4C464595P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = XCODE_TESTING;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;

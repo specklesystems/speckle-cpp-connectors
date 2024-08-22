@@ -1,14 +1,15 @@
-#ifndef CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
-#define CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
+#ifndef CONNECTOR_DATABASE_MODEL_CARD_DATABASE
+#define CONNECTOR_DATABASE_MODEL_CARD_DATABASE
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Utility/String.h"
 
-namespace connector::interfac::browser::bridge {
+namespace connector::database {
 	
 	/*!
-	 Configuration settings class
+	 Database of model cards relating to a specific project
 	 */
-	class ConnectorConfig : public active::serialise::Package {
+	class ModelCardDatabase : public active::serialise::Package {
 	public:
 
 		// MARK: - Types
@@ -20,12 +21,14 @@ namespace connector::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 */
-		ConnectorConfig() = default;
+		ModelCardDatabase() {}
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///?
-		bool isDarkTheme = true;
+		
+		// MARK: Functions (const)
+		
+			//Implement card access when necessary
 		
 		// MARK: - Serialisation
 		
@@ -44,9 +47,11 @@ namespace connector::interfac::browser::bridge {
 		/*!
 			Set to the default package content
 		*/
-		void setDefault() override { isDarkTheme = true; }
+		void setDefault() override;
+	private:
+		//TODO: Model card array here - implement when necessary
 	};
 
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
+#endif	//CONNECTOR_DATABASE_MODEL_CARD_DATABASE

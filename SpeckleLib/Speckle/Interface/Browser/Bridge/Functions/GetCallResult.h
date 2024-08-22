@@ -33,12 +33,6 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		GetCallResult(const GetCallResult& source) = default;
 		
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		GetCallResult* clonePtr() const override { return new GetCallResult{*this}; }
-		
 	private:
 		/*!
 		 Get the result for a specified call

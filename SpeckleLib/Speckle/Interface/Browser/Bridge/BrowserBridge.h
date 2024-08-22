@@ -70,14 +70,14 @@ namespace speckle::interfac::browser::bridge {
 		template<typename T> requires (std::is_base_of_v<JSBridgeMethodBase, T>)
 		void addMethod() const {
 				//The argument type is registered against the bridge to enable an appropriate object to be deserialised from the JS args
-			auto method = new T;
+			auto method = std::make_shared<T>();
 			method->registerArgument(getName());
 			m_methods->insert(m_methods->end(), method);
 		}
 		
 	private:
 			///List of methods supported by the bridge
-		using BridgedMethods = active::container::Vector<Functional<>>;
+		using BridgedMethods = std::vector<std::shared_ptr<Functional<>>>;
 			///Methods supported by the bridge
 		std::unique_ptr<BridgedMethods> m_methods = std::make_unique<BridgedMethods>();
 			//Result cache

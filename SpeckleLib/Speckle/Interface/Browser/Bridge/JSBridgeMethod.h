@@ -45,11 +45,6 @@ namespace speckle::interfac::browser::bridge {
 		 @param source The object to copy
 		 */
 		JSBridgeMethod(const JSBridgeMethod& source) = default;
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		JSBridgeMethod* clonePtr() const override = 0;
 		
 		// MARK: - Functions (const)
 		

@@ -1,4 +1,6 @@
 #include "ConnectorResource.h"
+#include "Connector/Connector.h"
+#include "Connector/Database/Model/Card/ModelCardDatabase.h"
 #include "Interface/ConnectorMenu.h"
 #include "Interface/ConnectorPalette.h"
 #include "Speckle/Environment/Addon.h"
@@ -6,24 +8,45 @@
 
 using namespace active::environment;
 using namespace connector;
+using namespace connector::database;
 using namespace speckle::environment;
 using namespace speckle::utility;
 
 namespace {
 	
 		///The Connector addon class
-	class ConnectorAddon : public Addon {
+	class ConnectorInstance : public ConnectorAddon {
 	public:
-		ConnectorAddon(const String& name) : Addon(name) {
+		ConnectorInstance(const String& name) : ConnectorAddon{name} {
 			add(std::make_shared<ConnectorMenu>());
 			add(std::make_shared<ConnectorPalette>());
 		}
+		
+		// MARK: Functions (const)
+		
+		/*!
+		 Get the model card database
+		 @return The model card database
+		 */
+		const ModelCardDatabase* getModelCards() const override { return &m_modelCards; }
+		
+	private:
+		ModelCardDatabase m_modelCards;
 	};
 	
 		///The active addon instance
 	std::unique_ptr<ConnectorAddon> m_addonInstance;
 	
 }
+
+/*--------------------------------------------------------------------
+	Constructor
+
+ 	name: The add-on name
+ --------------------------------------------------------------------*/
+ConnectorAddon::ConnectorAddon(const speckle::utility::String& name) : Addon{name} {
+} //ConnectorAddon::ConnectorAddon
+
 
 #ifdef ARCHICAD
 /*!
@@ -41,7 +64,7 @@ namespace {
  	return: An add-on type identifier
  --------------------------------------------------------------------*/
 API_AddonType __ACENV_CALL CheckEnvironment(API_EnvirParams* envir) {
-	m_addonInstance = std::make_unique<ConnectorAddon>(String{});
+	m_addonInstance = std::make_unique<ConnectorInstance>(String{});
 		//Populate the addon environent info
 	envir->addOnInfo.name = addon()->getLocalString(titleString, addonNameID);
 	envir->addOnInfo.description = addon()->getLocalString(titleString, addonDescriptionID);

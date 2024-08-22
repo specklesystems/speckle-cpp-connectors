@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Speckle/Record/Credentials/Account.h"
 
 using namespace active::container;
 using namespace active::serialise;
@@ -16,9 +17,7 @@ namespace {
 }
 
 /*--------------------------------------------------------------------
-	Constructor
- 
-	bridge: The parent bridge object (provides access to bridge methods)
+	Default constructor
   --------------------------------------------------------------------*/
 GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
 		return run();

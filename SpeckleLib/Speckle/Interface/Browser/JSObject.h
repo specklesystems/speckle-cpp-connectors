@@ -15,12 +15,12 @@ namespace speckle::interfac::browser {
 	 @tparam FunctionBinding The platform JS binding
 	*/
 	template<typename FunctionBinding = PlatformBinding>
-	class JSObject : public active::container::Vector<FunctionBinding> {
+	class JSObject : public std::vector<std::shared_ptr<FunctionBinding>> {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::container::Vector<FunctionBinding>;
+		using base = std::vector<std::shared_ptr<FunctionBinding>>;
 		using size_type = base::size_type;
 
 		// MARK: - Constructors

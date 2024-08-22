@@ -36,9 +36,9 @@ namespace speckle::interfac::browser::bridge {
 BrowserBridge::BrowserBridge(const String& name) : JSObject{name} {
 	m_result = std::make_unique<ResultCache>();
 		//Populate the required browser bridge functions callable from JS
-	emplace_back(std::make_unique<GetBindingsMethodNames>(*this));
-	emplace_back(std::make_unique<RunMethod>(*this));
-	emplace_back(std::make_unique<GetCallResult>(*this));
+	emplace_back(std::make_shared<GetBindingsMethodNames>(*this));
+	emplace_back(std::make_shared<RunMethod>(*this));
+	emplace_back(std::make_shared<GetCallResult>(*this));
 } //BrowserBridge::BrowserBridge
 
 
