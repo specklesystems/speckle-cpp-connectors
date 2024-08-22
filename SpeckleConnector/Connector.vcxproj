@@ -95,6 +95,10 @@
     <ClCompile Include="Connector\Connector.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
   </ItemGroup>
@@ -103,6 +107,10 @@
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
   </ItemGroup>

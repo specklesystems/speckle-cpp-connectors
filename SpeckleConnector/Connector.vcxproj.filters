@@ -23,6 +23,9 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Account">
       <UniqueIdentifier>{865d017c-cbf0-4507-a815-41a37bcaa4af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Config">
+      <UniqueIdentifier>{4e5d7206-9d4b-4edf-88c2-be7260f5e41e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -62,6 +65,18 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -81,6 +96,18 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h">
       <Filter>Connector\Interface\Browser\Bridge\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
