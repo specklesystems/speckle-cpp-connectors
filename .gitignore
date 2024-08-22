@@ -21,3 +21,4 @@ CMakeFiles/
 XCBuildData/
 **/*.xcsettings
 *.log
+.idea
