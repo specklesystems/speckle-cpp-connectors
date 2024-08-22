@@ -4,6 +4,7 @@
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
+#include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
 #include "Connector/Interface/Browser/Bridge/Config/ConfigBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
@@ -161,6 +162,7 @@ BrowserPalette::BrowserPalette() :
 	BeginEventProcessing();
 		//Install required connector bridges
 	install(std::make_shared<AccountBridge>());
+	install(std::make_shared<BaseBridge>());
 	install(std::make_shared<ConfigBridge>());
 	InitBrowserControl();
 }
