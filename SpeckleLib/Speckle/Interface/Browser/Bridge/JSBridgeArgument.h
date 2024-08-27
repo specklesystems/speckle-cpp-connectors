@@ -95,6 +95,13 @@ namespace speckle::interfac::browser::bridge {
 	class JSArgType : public JSBridgeArgument {
 	public:
 		using JSBridgeArgument::JSBridgeArgument;
+
+		/*!
+		 Copy constructor
+		 @param source The object to copy
+		 */
+		JSArgType(const JSArgType& source) : JSBridgeArgument{ source }, value{ source.value } {}
+
 		T value;
 	};
 	
