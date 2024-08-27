@@ -71,7 +71,7 @@ namespace speckle::record::cred {
 		speckle::utility::String m_token;
 			///Authorisation refresh token
 		speckle::utility::String m_refreshToken;
-			///?
+			///The account to have as the default selection in any UI
 		bool m_isDefault = false;
 			///True if the account is online
 		bool m_isOnline = true;
