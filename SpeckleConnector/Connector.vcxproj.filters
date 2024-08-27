@@ -38,6 +38,18 @@
     <Filter Include="Connector\Database\Model\Card">
       <UniqueIdentifier>{85935d00-16ac-466a-a614-ad9ea802bffa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Config\Arg">
+      <UniqueIdentifier>{6a2f1f18-a554-4546-bba3-314d5f2ec9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Base\Arg">
+      <UniqueIdentifier>{d74446ad-e141-48ac-9fa0-8b82279bbdbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Test">
+      <UniqueIdentifier>{9976ca16-8f99-44a2-b596-b81df82d847a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Test\Arg">
+      <UniqueIdentifier>{1656a0df-aa39-4f41-860f-7b278b31784a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -80,9 +92,6 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.cpp">
-      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
-    </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClCompile>
@@ -90,9 +99,6 @@
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.cpp">
-      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.cpp">
@@ -112,6 +118,30 @@
     </ClCompile>
     <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp">
       <Filter>Connector\Database\Model\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\Arg\DocumentInfo.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\GetComplexType.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\GoAway.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\SayHi.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TestBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,9 +166,6 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConnectorConfig.h">
-      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
-    </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClInclude>
@@ -146,9 +173,6 @@
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.h">
-      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\DocumentInfo.h">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.h">
@@ -174,6 +198,30 @@
     </ClInclude>
     <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h">
       <Filter>Connector\Database\Model\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\Arg\DocumentInfo.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\GetComplexType.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\GoAway.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\SayHi.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TestBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

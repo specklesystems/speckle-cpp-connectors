@@ -41,7 +41,7 @@ struct std::hash<connector::interfac::browser::bridge::ComplexType> {
 ComplexType::ComplexType() {
 		//This is the required test values
 	ID = String{std::hash<ComplexType>()(*this)} + " - I am a string";
-	count = std::hash<ComplexType>()(*this);
+	count = static_cast<int32_t>(std::hash<ComplexType>()(*this));
 } //ComplexType::ComplexType
 
 

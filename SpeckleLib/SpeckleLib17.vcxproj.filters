@@ -139,6 +139,12 @@
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h">
       <Filter>Speckle\Serialise\JSBase</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Utility\Exception.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.h">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp">
@@ -185,6 +191,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp">
       <Filter>Speckle\Serialise\JSBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

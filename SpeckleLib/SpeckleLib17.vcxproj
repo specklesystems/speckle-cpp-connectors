@@ -28,6 +28,7 @@
     <ClInclude Include="Speckle\Event\Type\MenuEvent.h" />
     <ClInclude Include="Speckle\Event\Type\SelectionEvent.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\BrowserBridge.h" />
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\FunctionBinding.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
     <ClInclude Include="Speckle\Record\Credentials\Account.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
+    <ClInclude Include="Speckle\Utility\Exception.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
   </ItemGroup>
@@ -55,6 +57,7 @@
     <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BrowserBridge.cpp" />
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
