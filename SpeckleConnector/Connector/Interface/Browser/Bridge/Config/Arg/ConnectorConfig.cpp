@@ -14,12 +14,14 @@ namespace {
 	enum FieldIndex {
 		arg0,
 		darkTheme,
+		darkThemeAlt,	///>This recent addition might not be permanent - watch for changes
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"0"},
 		Identity{"DarkTheme"},
+		Identity{"darkTheme"},
 	};
 
 }
@@ -35,10 +37,11 @@ bool ConnectorConfig::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 		//When used as an argument template, this wrapper is expected to be first in the list
 	if (isArgumentTemplate())
-		inventory.merge({ fieldID[arg0], arg0, element });
+		inventory.merge({ fieldID[arg0], arg0, element, true, &typeid(ConnectorConfig) });
 	inventory.merge(Inventory{
 		{
 			{ fieldID[darkTheme], darkTheme, element },
+			{ fieldID[darkThemeAlt], darkThemeAlt, element },
 		},
 	}.withType(&typeid(ConnectorConfig)));
 	return true;
@@ -60,7 +63,7 @@ Cargo::Unique ConnectorConfig::getCargo(const Inventory::Item& item) const {
 		case arg0:
 				//This structure is the first argument
 			return std::make_unique<PackageWrap>(*this);
-		case darkTheme:
+		case darkTheme: case darkThemeAlt:
 			return std::make_unique<ValueWrap<bool>>(isDarkTheme);
 		default:
 			return nullptr;	//Requested an unknown index

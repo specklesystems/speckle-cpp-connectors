@@ -145,6 +145,9 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.h">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSArgumentBase.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp">

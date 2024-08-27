@@ -95,9 +95,16 @@ namespace speckle::interfac::browser::bridge {
 	template<typename T>
 	class JSArgType : public JSBridgeArgument {
 	public:
-		using JSBridgeArgument::JSBridgeArgument;
 		
-		JSArgType() {
+		/*!
+		 Constructor
+		 @param methodName The name of the method to receive the argument
+		 @param requestID An ID to be paired with the method return value
+		 @param errorMessage Optional error message - populate on failure (method will not be called in this case)
+		 */
+		JSArgType(const speckle::utility::String& methodName,
+				const speckle::utility::String& requestID,
+				const speckle::utility::String::Option& errorMessage = std::nullopt) : JSBridgeArgument{methodName, requestID, errorMessage} {
 				//Tag the argument object as a template where possible
 			if (auto arg = dynamic_cast<JSArgumentBase*>(&value); arg != nullptr)
 				arg->setArgumentTemplate(true);
@@ -108,6 +115,26 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		JSArgType(const JSArgType& source) : JSBridgeArgument{source}, value{source.value} {}
 		
+		/*!
+		 Fill an inventory with the cargo items
+		 @param inventory The inventory to receive the cargo items
+		 @return True if items have been added to the inventory
+		 */
+		bool fillInventory(active::serialise::Inventory& inventory) const override { return value.fillInventory(inventory); }
+		/*!
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure
+		 */
+		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override { return value.getCargo(item); }
+
+		// MARK: - Functions (mutating)
+
+		/*!
+		 Set to the default package content
+		 */
+		void setDefault() override { return value.setDefault(); }
+
 		T value;
 	};
 	

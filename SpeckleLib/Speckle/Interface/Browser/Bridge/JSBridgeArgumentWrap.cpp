@@ -140,7 +140,7 @@ std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const Strin
 					//Then unify the argument strings into a single JSON argument
 				String unifiedArgument{"{"};
 				int32_t argIndex = 0;
-				bool isFirst = false;
+				bool isFirst = true;
 				for (auto& arg : args.operator std::vector<active::utility::String>()) {
 					if (isFirst)
 						isFirst = false;
@@ -149,7 +149,7 @@ std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const Strin
 					unifiedArgument += "\"" + String{argIndex++} + "\":" + JSONTransport::convertFromJSONString(arg);
 				}
 				unifiedArgument += "}";
-					//And receive the unified argument into the methiod argument
+					//And receive the unified argument into the method argument
 				transport.receive(std::forward<Cargo&&>(*result), Identity{}, unifiedArgument);
 				return std::unique_ptr<JSBridgeArgument>{result};
 			} catch(std::runtime_error e) {

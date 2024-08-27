@@ -33,6 +33,7 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.h" />
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSArgumentBase.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.h" />
     <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeMethod.h" />
