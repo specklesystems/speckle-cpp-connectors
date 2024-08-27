@@ -19,7 +19,11 @@ namespace speckle::interfac::browser::bridge {
 	template<typename T>
 	void* constructArgument(const speckle::utility::String& method, const speckle::utility::String& request) {
 		try {
-			return new T(method, request);
+			auto result = new T(method, request);
+				//Tag the argument object as a template where possible
+			if (auto arg = dynamic_cast<JSArgumentBase*>(result); arg != nullptr)
+				arg->setArgumentTemplate(true);
+			return result;
 		} catch(...) {
 			return nullptr;	//Object constructors should throw an exception if incoming data isn't viable (NB: only use for unrecoverable problems)
 		}

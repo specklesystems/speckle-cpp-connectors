@@ -2,6 +2,7 @@
 #define SPECKLE_INTERFACE_JS_BRIDGE_ARGUMENT
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Interface/Browser/Bridge/JSArgumentBase.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::interfac::browser::bridge {
@@ -95,13 +96,18 @@ namespace speckle::interfac::browser::bridge {
 	class JSArgType : public JSBridgeArgument {
 	public:
 		using JSBridgeArgument::JSBridgeArgument;
-
+		
+		JSArgType() {
+				//Tag the argument object as a template where possible
+			if (auto arg = dynamic_cast<JSArgumentBase*>(&value); arg != nullptr)
+				arg->setArgumentTemplate(true);
+		}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		JSArgType(const JSArgType& source) : JSBridgeArgument{ source }, value{ source.value } {}
-
+		JSArgType(const JSArgType& source) : JSBridgeArgument{source}, value{source.value} {}
+		
 		T value;
 	};
 	

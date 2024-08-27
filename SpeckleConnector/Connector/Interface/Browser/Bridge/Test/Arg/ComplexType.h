@@ -29,11 +29,7 @@ namespace connector::interfac::browser::bridge {
 		speckle::utility::String ID;
 		int32_t count = 0;
 		bool testBool = false;
-		
-/*		Id = GetHashCode() + " - I am a string",
-		count = GetHashCode(),
-		thisIsABoolean = false
-*/
+
 		// MARK: - Serialisation
 		
 		/*!

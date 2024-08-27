@@ -1,6 +1,7 @@
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/PackageWrap.h"
 
 #include <array>
 
@@ -11,11 +12,13 @@ namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
+		arg0,
 		darkTheme,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
+		Identity{"0"},
 		Identity{"DarkTheme"},
 	};
 
@@ -30,6 +33,9 @@ namespace {
   --------------------------------------------------------------------*/
 bool ConnectorConfig::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
+		//When used as an argument template, this wrapper is expected to be first in the list
+	if (isArgumentTemplate())
+		inventory.merge({ fieldID[arg0], arg0, element });
 	inventory.merge(Inventory{
 		{
 			{ fieldID[darkTheme], darkTheme, element },
@@ -51,6 +57,9 @@ Cargo::Unique ConnectorConfig::getCargo(const Inventory::Item& item) const {
 		return nullptr;
 	using namespace active::serialise;
 	switch (item.index) {
+		case arg0:
+				//This structure is the first argument
+			return std::make_unique<PackageWrap>(*this);
 		case darkTheme:
 			return std::make_unique<ValueWrap<bool>>(isDarkTheme);
 		default:

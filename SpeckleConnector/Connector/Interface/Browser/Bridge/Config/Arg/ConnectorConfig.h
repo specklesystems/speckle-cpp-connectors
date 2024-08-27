@@ -2,13 +2,14 @@
 #define CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Interface/Browser/Bridge/JSArgumentBase.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
 	 Configuration settings class
 	 */
-	class ConnectorConfig : public active::serialise::Package {
+	class ConnectorConfig : public active::serialise::Package, virtual public speckle::interfac::browser::bridge::JSArgumentBase {
 	public:
 
 		// MARK: - Types

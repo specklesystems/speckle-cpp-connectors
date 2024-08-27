@@ -2,11 +2,13 @@
 
 #include "Active/Serialise/Inventory/Inventory.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferIn.h"
 
 using namespace active::serialise;
 using namespace active::serialise::json;
+using namespace active::setting;
 using namespace speckle::interfac::browser::bridge;
 using namespace speckle::utility;
 
@@ -41,7 +43,7 @@ namespace {
 			{ {"arg"}, args, 0, std::nullopt, true },	//The JS arguments are expressed as a flat array - use the array indices to map to expected vars
 		},
 	}.withType(&typeid(JSBridgeArgumentWrap));;
-
+	
 }
 
 /*--------------------------------------------------------------------
@@ -131,7 +133,24 @@ std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const Strin
 	if (auto maker = m_argumentFactory.find(methodID); (maker != m_argumentFactory.end())) {
 		if (auto result = reinterpret_cast<JSBridgeArgument*>(maker->second(methodID, requestID)); result != nullptr) {
 			try {
-				JSONTransport().receive(std::forward<Cargo&&>(*result), Identity{}, argument);
+					//The argument is passed as an array of stringified JSON - first unpack the array
+				JSONTransport transport;
+				ValueSetting args;
+				transport.receive(ValueSettingWrap{args}, Identity{}, argument);
+					//Then unify the argument strings into a single JSON argument
+				String unifiedArgument{"{"};
+				int32_t argIndex = 0;
+				bool isFirst = false;
+				for (auto& arg : args.operator std::vector<active::utility::String>()) {
+					if (isFirst)
+						isFirst = false;
+					else
+						unifiedArgument += ",";
+					unifiedArgument += "\"" + String{argIndex++} + "\":" + JSONTransport::convertFromJSONString(arg);
+				}
+				unifiedArgument += "}";
+					//And receive the unified argument into the methiod argument
+				transport.receive(std::forward<Cargo&&>(*result), Identity{}, unifiedArgument);
 				return std::unique_ptr<JSBridgeArgument>{result};
 			} catch(std::runtime_error e) {
 					//Populating the error cancels the method

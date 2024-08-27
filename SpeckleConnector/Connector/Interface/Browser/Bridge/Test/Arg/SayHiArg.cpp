@@ -17,11 +17,11 @@ namespace {
 		isHelloID,
 	};
 
-		///Serialisation field IDs
+		///Serialisation field IDs. NB: This structure is never exported, so we only define the incoming argument indices
 	static std::array fieldID = {
-		Identity{"name"},
-		Identity{"count"},
-		Identity{"sayHelloNotHi"},
+		Identity{"0"},
+		Identity{"1"},
+		Identity{"2"},
 	};
 
 }

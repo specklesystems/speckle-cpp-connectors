@@ -1,7 +1,6 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentInfo.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 
 using namespace active::container;

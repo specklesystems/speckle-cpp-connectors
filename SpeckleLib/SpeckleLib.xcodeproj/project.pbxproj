@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210CC86F2C7E879700610F58 /* JSArgumentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC86D2C7E879700610F58 /* JSArgumentBase.h */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
 		2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
 		2193518C2C62655700E5A69C /* MenuEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 219351892C62655700E5A69C /* MenuEvent.h */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		210CC86D2C7E879700610F58 /* JSArgumentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSArgumentBase.h; sourceTree = "<group>"; };
 		212A87EF2AE4868C001EAFE7 /* SpeckleLib-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpeckleLib-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21329F472BFA611C00B5C7AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21329F632BFD452C00B5C7AF /* Environment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Environment.md; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */,
 				21F69F4B2C6CCC25008B6A06 /* BrowserBridge.h */,
 				21F69F582C6CDAEE008B6A06 /* Functions */,
+				210CC86D2C7E879700610F58 /* JSArgumentBase.h */,
 				21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */,
 				21F69F4D2C6CCC25008B6A06 /* JSBridgeArgument.h */,
 				21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */,
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F69F5A2C6CDB67008B6A06 /* FunctionBinding.h in Headers */,
+				210CC86F2C7E879700610F58 /* JSArgumentBase.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
 				2193518C2C62655700E5A69C /* MenuEvent.h in Headers */,
