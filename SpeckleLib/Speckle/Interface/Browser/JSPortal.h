@@ -96,7 +96,7 @@ namespace speckle::interfac::browser {
 				return false;
 			JS::Object* acObject = new JS::Object(object->getName());
 			for (auto& function : *object) {
-				acObject->AddItem(new JS::Function(function->getName(), [&] (GS::Ref<JS::Base> args) {
+				acObject->AddItem(new JS::Function(function->getName(), [&](GS::Ref<JS::Base> args) {
 					try {
 						return function->execute(args);
 					} catch(...) {

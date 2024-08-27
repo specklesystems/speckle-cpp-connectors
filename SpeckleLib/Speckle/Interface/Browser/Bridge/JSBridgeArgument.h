@@ -27,9 +27,13 @@ namespace speckle::interfac::browser::bridge {
 		 Constructor
 		 @param methodName The name of the method to receive the argument
 		 @param requestID An ID to be paired with the method return value
+		 @param errorMessage Optional error message - populate on failure (method will not be called in this case)
+
 		 */
 		JSBridgeArgument(const speckle::utility::String& methodName,
-						 const speckle::utility::String& requestID) : m_methodName{methodName}, m_requestID{requestID} {}
+						 const speckle::utility::String& requestID,
+						 const speckle::utility::String::Option& errorMessage = std::nullopt) :
+				m_methodName{methodName}, m_requestID{requestID}, m_errorMessage{errorMessage} {}
 		/*!
 		 Destructor
 		 */
@@ -47,6 +51,16 @@ namespace speckle::interfac::browser::bridge {
 		 @return The request ID
 		 */
 		const speckle::utility::String& getRequestID() const { return m_requestID; }
+		/*!
+		 Determine if the argument contains an error
+		 @return True if the argument contains an error
+		 */
+		bool hasError() const { return m_errorMessage.operator bool(); }
+		/*!
+		 Get any error message relating to the arguments
+		 @return The error message (nullopt if no errors occurred)
+		 */
+		speckle::utility::String::Option errorMessage() const { return m_errorMessage; }
 		/*!
 		 Fill an inventory with the cargo items
 		 @param inventory The inventory to receive the cargo items
@@ -72,6 +86,8 @@ namespace speckle::interfac::browser::bridge {
 		speckle::utility::String m_methodName;
 			///An ID to be paired with the method return value
 		speckle::utility::String m_requestID;
+			///Optional error message - only populated on failure to obtain a valid argument (method will not be called in this case)
+		speckle::utility::String::Option m_errorMessage;
 	};
 	
 		///Definition of the argument for a JS callable method (enclosing the local function argument)

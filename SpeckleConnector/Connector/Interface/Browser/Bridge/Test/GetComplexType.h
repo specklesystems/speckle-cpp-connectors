@@ -1,14 +1,15 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
 #define CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
 
+#include "Connector/Interface/Browser/Bridge/Test/Arg/ComplexType.h"
 #include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
-	
+
 	/*!
-	 JS Function class to retrieve the names of the methods supported by the bridge
+	 JS Function class to return a specific object type
 	*/
-	class GetConfig : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetComplexType : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors
@@ -17,13 +18,13 @@ namespace connector::interfac::browser::bridge {
 		 Constructor
 		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
-		GetConfig();
+		GetComplexType();
 
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the configuration settings
-		 @return The settings
+		 Get the required object type
+		 @return The required object
 		 */
 		std::unique_ptr<active::serialise::Cargo> run() const;
 	};

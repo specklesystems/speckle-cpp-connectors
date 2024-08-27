@@ -31,10 +31,17 @@
 		21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */; };
 		21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */; };
 		21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */; };
-		21B67CBD2C77537C00FD64FC /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */; };
 		21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */; };
 		21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC22C77649F00FD64FC /* GetDocumentState.cpp */; };
 		21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */; };
+		21B67CD92C78C83800FD64FC /* TestBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CD62C78C83800FD64FC /* TestBridge.cpp */; };
+		21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CDA2C78C87F00FD64FC /* SayHi.cpp */; };
+		21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE02C78D1FB00FD64FC /* SayHiArg.cpp */; };
+		21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE42C78D23B00FD64FC /* ConnectorConfig.cpp */; };
+		21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */; };
+		21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF02C78D38000FD64FC /* GoAway.cpp */; };
+		21B67CF42C78D4D300FD64FC /* ComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF22C78D4D300FD64FC /* ComplexType.cpp */; };
+		21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -196,7 +203,6 @@
 		21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */; };
 		21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB42C762EF0008B6A06 /* ConfigBridge.cpp */; };
 		21F69FBC2C762EF0008B6A06 /* GetConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB62C762EF0008B6A06 /* GetConfig.cpp */; };
-		21F69FC22C7632B7008B6A06 /* ConnectorConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FC02C7632B7008B6A06 /* ConnectorConfig.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,7 +269,7 @@
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
-		219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.vwlibrary"; sourceTree = BUILT_PRODUCTS_DIR; };
+		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
 		21B67CA52C77329800FD64FC /* BaseBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseBridge.cpp; sourceTree = "<group>"; };
@@ -275,8 +281,6 @@
 		21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetConnectorVersion.cpp; sourceTree = "<group>"; };
 		21B67CB82C774BFA00FD64FC /* GetConnectorVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConnectorVersion.h; sourceTree = "<group>"; };
 		21B67CBA2C774C6500FD64FC /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
-		21B67CBB2C77537C00FD64FC /* DocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentInfo.h; sourceTree = "<group>"; };
-		21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DocumentInfo.cpp; sourceTree = "<group>"; };
 		21B67CBE2C775A0D00FD64FC /* GetDocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDocumentInfo.h; sourceTree = "<group>"; };
 		21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetDocumentInfo.cpp; sourceTree = "<group>"; };
 		21B67CC12C77649E00FD64FC /* GetDocumentState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDocumentState.h; sourceTree = "<group>"; };
@@ -284,6 +288,22 @@
 		21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCardDatabase.cpp; sourceTree = "<group>"; };
 		21B67CC82C77670400FD64FC /* ModelCardDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCardDatabase.h; sourceTree = "<group>"; };
 		21B67CCD2C77694500FD64FC /* Connector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
+		21B67CD62C78C83800FD64FC /* TestBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestBridge.cpp; sourceTree = "<group>"; };
+		21B67CD72C78C83800FD64FC /* TestBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBridge.h; sourceTree = "<group>"; };
+		21B67CDA2C78C87F00FD64FC /* SayHi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SayHi.cpp; sourceTree = "<group>"; };
+		21B67CDB2C78C87F00FD64FC /* SayHi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SayHi.h; sourceTree = "<group>"; };
+		21B67CE02C78D1FB00FD64FC /* SayHiArg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SayHiArg.cpp; sourceTree = "<group>"; };
+		21B67CE12C78D1FB00FD64FC /* SayHiArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SayHiArg.h; sourceTree = "<group>"; };
+		21B67CE42C78D23B00FD64FC /* ConnectorConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorConfig.cpp; sourceTree = "<group>"; };
+		21B67CE52C78D23B00FD64FC /* ConnectorConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorConfig.h; sourceTree = "<group>"; };
+		21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DocumentInfo.cpp; sourceTree = "<group>"; };
+		21B67CE92C78D27200FD64FC /* DocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentInfo.h; sourceTree = "<group>"; };
+		21B67CEF2C78D38000FD64FC /* GoAway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoAway.h; sourceTree = "<group>"; };
+		21B67CF02C78D38000FD64FC /* GoAway.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoAway.cpp; sourceTree = "<group>"; };
+		21B67CF22C78D4D300FD64FC /* ComplexType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComplexType.cpp; sourceTree = "<group>"; };
+		21B67CF32C78D4D300FD64FC /* ComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexType.h; sourceTree = "<group>"; };
+		21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetComplexType.cpp; sourceTree = "<group>"; };
+		21B67CF62C78D4DE00FD64FC /* GetComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComplexType.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -461,8 +481,6 @@
 		21F69FB72C762EF0008B6A06 /* GetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConfig.h; sourceTree = "<group>"; };
 		21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateConfig.cpp; sourceTree = "<group>"; };
 		21F69FBE2C7630B3008B6A06 /* UpdateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateConfig.h; sourceTree = "<group>"; };
-		21F69FC02C7632B7008B6A06 /* ConnectorConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorConfig.cpp; sourceTree = "<group>"; };
-		21F69FC12C7632B7008B6A06 /* ConnectorConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -644,7 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				213CC3A52B1101F500088049 /* Speckle Connector.bundle */,
-				219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */,
+				219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -862,10 +880,9 @@
 		21B67CAB2C77329800FD64FC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				21B67CEA2C78D27200FD64FC /* Arg */,
 				21B67CA52C77329800FD64FC /* BaseBridge.cpp */,
 				21B67CA62C77329800FD64FC /* BaseBridge.h */,
-				21B67CBC2C77537C00FD64FC /* DocumentInfo.cpp */,
-				21B67CBB2C77537C00FD64FC /* DocumentInfo.h */,
 				21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */,
 				21B67CB82C774BFA00FD64FC /* GetConnectorVersion.h */,
 				21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */,
@@ -903,6 +920,51 @@
 				21B67CCA2C77670400FD64FC /* Model */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		21B67CD82C78C83800FD64FC /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CE22C78D1FB00FD64FC /* Arg */,
+				21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */,
+				21B67CF62C78D4DE00FD64FC /* GetComplexType.h */,
+				21B67CF02C78D38000FD64FC /* GoAway.cpp */,
+				21B67CEF2C78D38000FD64FC /* GoAway.h */,
+				21B67CDA2C78C87F00FD64FC /* SayHi.cpp */,
+				21B67CDB2C78C87F00FD64FC /* SayHi.h */,
+				21B67CD62C78C83800FD64FC /* TestBridge.cpp */,
+				21B67CD72C78C83800FD64FC /* TestBridge.h */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		21B67CE22C78D1FB00FD64FC /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CF22C78D4D300FD64FC /* ComplexType.cpp */,
+				21B67CF32C78D4D300FD64FC /* ComplexType.h */,
+				21B67CE02C78D1FB00FD64FC /* SayHiArg.cpp */,
+				21B67CE12C78D1FB00FD64FC /* SayHiArg.h */,
+			);
+			path = Arg;
+			sourceTree = "<group>";
+		};
+		21B67CE62C78D23B00FD64FC /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CE42C78D23B00FD64FC /* ConnectorConfig.cpp */,
+				21B67CE52C78D23B00FD64FC /* ConnectorConfig.h */,
+			);
+			path = Arg;
+			sourceTree = "<group>";
+		};
+		21B67CEA2C78D27200FD64FC /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */,
+				21B67CE92C78D27200FD64FC /* DocumentInfo.h */,
+			);
+			path = Arg;
 			sourceTree = "<group>";
 		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
@@ -986,6 +1048,7 @@
 				21F69F852C70D2C4008B6A06 /* Account */,
 				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
+				21B67CD82C78C83800FD64FC /* Test */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";
@@ -1001,10 +1064,9 @@
 		21F69FB82C762EF0008B6A06 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				21B67CE62C78D23B00FD64FC /* Arg */,
 				21F69FB42C762EF0008B6A06 /* ConfigBridge.cpp */,
 				21F69FB52C762EF0008B6A06 /* ConfigBridge.h */,
-				21F69FC02C7632B7008B6A06 /* ConnectorConfig.cpp */,
-				21F69FC12C7632B7008B6A06 /* ConnectorConfig.h */,
 				21F69FB62C762EF0008B6A06 /* GetConfig.cpp */,
 				21F69FB72C762EF0008B6A06 /* GetConfig.h */,
 				21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */,
@@ -1067,7 +1129,7 @@
 			);
 			name = "Connector-AC27-Test";
 			productName = "Connector-AC27-Test";
-			productReference = 219F30352C768F0A009834E9 /* Connector-AC27-Test.vwlibrary */;
+			productReference = 219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1218,22 +1280,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B67CBD2C77537C00FD64FC /* DocumentInfo.cpp in Sources */,
-				21F69FC22C7632B7008B6A06 /* ConnectorConfig.cpp in Sources */,
+				21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
+				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
+				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,
 				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,
+				21B67CD92C78C83800FD64FC /* TestBridge.cpp in Sources */,
 				214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */,
 				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
+				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
+				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
+				21B67CF42C78D4D300FD64FC /* ComplexType.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
 				21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */,
 				21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */,
 				21F69FBC2C762EF0008B6A06 /* GetConfig.cpp in Sources */,
+				21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */,
 				21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1333,7 +1401,6 @@
 					"\"$(HEADER_PATH_6)\"",
 					"\"$(HEADER_PATH_8)\"",
 				);
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -1398,7 +1465,6 @@
 					"\"$(HEADER_PATH_6)\"",
 					"\"$(HEADER_PATH_8)\"",
 				);
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1508,7 +1574,6 @@
 					"-multiply_defined",
 					suppress,
 				);
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -1616,7 +1681,6 @@
 					"-multiply_defined",
 					suppress,
 				);
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1776,7 +1840,7 @@
 				OBJROOT = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PLUGIN_FOLDER = "";
-				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_BUNDLE_IDENTIFIER = systems.speckle.connector;
 				PRODUCT_NAME = "$(BASE_NAME)";
 				RESOURCE_EXTENSION = "";
 				REZ_SEARCH_PATHS = (
@@ -1803,7 +1867,7 @@
 					suppress,
 				);
 				WORD_SIZE = 64;
-				WRAPPER_EXTENSION = vwlibrary;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -1882,7 +1946,7 @@
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
 				OBJROOT = "";
 				PLUGIN_FOLDER = "";
-				PRODUCT_BUNDLE_IDENTIFIER = net.activethread.connector;
+				PRODUCT_BUNDLE_IDENTIFIER = systems.speckle.connector;
 				PRODUCT_NAME = "$(BASE_NAME)";
 				RESOURCE_EXTENSION = "";
 				REZ_SEARCH_PATHS = (
@@ -1905,7 +1969,7 @@
 				);
 				USE_HEADERMAP = YES;
 				WORD_SIZE = 64;
-				WRAPPER_EXTENSION = vwlibrary;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};

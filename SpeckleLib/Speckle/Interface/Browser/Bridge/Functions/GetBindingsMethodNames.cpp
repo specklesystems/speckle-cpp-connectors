@@ -12,10 +12,9 @@ using namespace speckle::interfac::browser::bridge;
  
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetBindingsMethodNames::GetBindingsMethodNames(BrowserBridge& bridge) : m_bridge{bridge},
-		JSFunction{"GetBindingsMethodNames", [&]() {
-			return getMethodNames();
-		}} {
+GetBindingsMethodNames::GetBindingsMethodNames(BrowserBridge& bridge) : m_bridge{bridge}, JSFunction{"GetBindingsMethodNames", [&]() {
+		return getMethodNames();
+	}} {
 } //GetBindingsMethodNames::GetBindingsMethodNames
 
 

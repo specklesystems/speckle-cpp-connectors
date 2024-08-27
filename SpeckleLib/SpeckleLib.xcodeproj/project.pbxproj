@@ -14,6 +14,9 @@
 		219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351AC2C62CC1A00E5A69C /* Guid.cpp */; };
 		219351B32C62CC1A00E5A69C /* String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351AE2C62CC1A00E5A69C /* String.cpp */; };
 		2199881E2BD833830035E5EA /* libArchicad27.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; };
+		21B67D002C7CE15100FD64FC /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67CFE2C7CE15100FD64FC /* Exception.h */; };
+		21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67D092C7E0E8D00FD64FC /* ErrorReport.h */; };
+		21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */; };
 		21F69EBE2C63C954008B6A06 /* Link.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69EBD2C63C954008B6A06 /* Link.cpp */; };
 		21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F382C6B880B008B6A06 /* JSBaseTransport.cpp */; };
 		21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */; };
@@ -90,6 +93,9 @@
 		219351AE2C62CC1A00E5A69C /* String.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = String.cpp; sourceTree = "<group>"; };
 		219351AF2C62CC1A00E5A69C /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = String.h; sourceTree = "<group>"; };
 		219712682BE7E2D500D9EF7E /* Serialisation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Serialisation.md; sourceTree = "<group>"; };
+		21B67CFE2C7CE15100FD64FC /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		21B67D092C7E0E8D00FD64FC /* ErrorReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorReport.h; sourceTree = "<group>"; };
+		21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReport.cpp; sourceTree = "<group>"; };
 		21F69EBC2C63944D008B6A06 /* Link.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
 		21F69EBD2C63C954008B6A06 /* Link.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Link.cpp; sourceTree = "<group>"; };
 		21F69F012C66C229008B6A06 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Doxyfile; path = Documentation/Doxyfile; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		219351B02C62CC1A00E5A69C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				21B67CFE2C7CE15100FD64FC /* Exception.h */,
 				219351AC2C62CC1A00E5A69C /* Guid.cpp */,
 				219351AD2C62CC1A00E5A69C /* Guid.h */,
 				219351AE2C62CC1A00E5A69C /* String.cpp */,
@@ -318,6 +325,8 @@
 		21F69F582C6CDAEE008B6A06 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */,
+				21B67D092C7E0E8D00FD64FC /* ErrorReport.h */,
 				21F69F592C6CDB67008B6A06 /* FunctionBinding.h */,
 				21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */,
 				21F69F572C6CDAEE008B6A06 /* GetBindingsMethodNames.h */,
@@ -376,6 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F69F5A2C6CDB67008B6A06 /* FunctionBinding.h in Headers */,
+				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
+				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
 				2193518C2C62655700E5A69C /* MenuEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +517,7 @@
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
 				21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */,
+				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
 				21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */,
 				2193519B2C6278D900E5A69C /* SelectionSubscriber.cpp in Sources */,
 				21F69EBE2C63C954008B6A06 /* Link.cpp in Sources */,

@@ -24,7 +24,7 @@ namespace connector::interfac::browser::bridge {
 		 Get the document info
 		 @return The document info
 		 */
-		std::unique_ptr<active::serialise::Cargo> run(void) const;
+		std::unique_ptr<active::serialise::Cargo> run() const;
 	};
 
 }

@@ -24,7 +24,7 @@ namespace connector::interfac::browser::bridge {
 		 Get the accounts
 		 @return The accounts (empty array when none defined)
 		 */
-		std::unique_ptr<active::serialise::Cargo> run(void) const;
+		std::unique_ptr<active::serialise::Cargo> run() const;
 	};
 
 }

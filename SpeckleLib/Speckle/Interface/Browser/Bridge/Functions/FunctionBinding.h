@@ -14,13 +14,13 @@
 
 namespace speckle::interfac::browser::bridge {
 	
-		///Define the bridge binding protocols according to platform
+		///Define the bridge binding protocols according to platform (argument/result serialisation and transport for (de)serialisation)
 #ifdef ARCHICAD
 		//Archicad uses a proprietary JS::Base type for JS values
 	using PlatformBinding = JSBinding<GS::Ref<JS::Base>, speckle::serialise::jsbase::JSBaseTransport>;
 #else
 		//All others will use JSON (in a String)
-	using PlatformBinding = JSBinding<String, JSONTransport>;
+	using PlatformBinding = JSBinding<active::utility::String, active::serialise::json::JSONTransport>;
 #endif
 	
 }

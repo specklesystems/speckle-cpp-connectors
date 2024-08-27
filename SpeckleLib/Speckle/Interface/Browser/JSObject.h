@@ -12,7 +12,7 @@ namespace speckle::interfac::browser {
 	
 	/*!
 	 Interface for a JavaScript object binding to C++ functions
-	 @tparam FunctionBinding The platform JS binding
+	 @tparam FunctionBinding The platform JS binding (defines argument/result serialisation and transport mechanism to (de)serialise)
 	*/
 	template<typename FunctionBinding = PlatformBinding>
 	class JSObject : public std::vector<std::shared_ptr<FunctionBinding>> {
@@ -56,7 +56,7 @@ namespace speckle::interfac::browser {
 		void setPortal(const JSPortal<FunctionBinding>& portal) { m_portal = &portal; }
 		
 	protected:
-			///The
+			///The parent JS portal for this object
 		const JSPortal<FunctionBinding>* m_portal = nullptr;
 		
 	private:

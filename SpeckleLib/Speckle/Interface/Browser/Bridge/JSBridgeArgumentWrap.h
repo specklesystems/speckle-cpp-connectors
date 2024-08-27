@@ -50,15 +50,15 @@ namespace speckle::interfac::browser::bridge {
 
 		/*!
 		 Conversion operator
-		 @return True if the arguments are populated
+		 @return True if the argument is populated
 		 */
 		operator bool() { return m_argument.operator bool(); }
 
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the bridge function arguments
-		 @return The bridge arguments (nullptr on failure)
+		 Get the bridge function argument
+		 @return The bridge argument (nullptr on failure)
 		 */
 		std::shared_ptr<JSBridgeArgument> get() const { return m_argument; }
 		/*!
@@ -71,11 +71,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return The request ID (empty on failure)
 		 */
 		speckle::utility::String getRequestID() const { return m_argument ? m_argument->getRequestID() : speckle::utility::String{}; }
-		/*!
-		 Get the function argument (as a JSON string, expected to contain the argument values in an array)
-		 @return The function argument (expressed as "[]" for functions that take no arguments)
-		 */
-		speckle::utility::String getArgJSON() const { return m_argsJSON; }
 
 		// MARK: - Functions (serialisation)
 		
@@ -103,14 +98,14 @@ namespace speckle::interfac::browser::bridge {
 
 		/*!
 		 Make an argument object for a specified bridge method
-		 @param method The name of the target method
+		 @param methodID The name of the target method
+		 @param requestID The ID of the request
+		 @param argument The method argument data (serialised)
 		 @return An argument object (nullptr on failure)
 		 */
-		static JSBridgeArgument* makeArgument(const speckle::utility::String& method, const speckle::utility::String& request) {
-			if (auto maker = m_argumentFactory.find(method); (maker != m_argumentFactory.end()))
-				return reinterpret_cast<JSBridgeArgument*>(maker->second(method, request));
-			return nullptr;
-		}
+		static std::unique_ptr<JSBridgeArgument> makeArgument(const speckle::utility::String& methodID,
+															  const speckle::utility::String& requestID,
+															  const speckle::utility::String& argument);
 		
 		/*!
 		 Add a factory method for constructing the arguments of a specified bridge method
@@ -136,7 +131,7 @@ namespace speckle::interfac::browser::bridge {
 		speckle::utility::String m_methodName;
 			///An ID to be paired with the method return value
 		speckle::utility::String m_requestID;
-			///the function arguments as JSON
+			///The function arguments as JSON
 		speckle::utility::String m_argsJSON;
 			///The wrapped function arguments
 		mutable std::shared_ptr<JSBridgeArgument> m_argument;

@@ -2,7 +2,7 @@
 #define CONNECTOR_INTERFACE_BRIDGE_UPDATE_CONFIG
 
 #include "Active/Serialise/CargoHold.h"
-#include "Connector/Interface/Browser/Bridge/Config/ConnectorConfig.h"
+#include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
 #include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {

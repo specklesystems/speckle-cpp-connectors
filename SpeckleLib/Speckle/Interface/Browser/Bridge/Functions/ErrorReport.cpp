@@ -1,27 +1,27 @@
-#include "Connector/Interface/Browser/Bridge/Base/DocumentInfo.h"
+#include "Speckle/Interface/Browser/Bridge/Functions/ErrorReport.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 
 #include <array>
 
 using namespace active::serialise;
-using namespace connector::interfac::browser::bridge;
+using namespace speckle::interfac::browser::bridge;
 using namespace speckle::utility;
 
 namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
-		docLocate,
-		docName,
-		docID,
+		errMessage,
+		errInfo,
+		errTrace,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"Location"},
-		Identity{"Name"},
-		Identity{"Id"},
+		Identity{"Message"},
+		Identity{"Error"},
+		Identity{"StackTrace"},
 	};
 
 }
@@ -33,17 +33,17 @@ namespace {
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool DocumentInfo::fillInventory(Inventory& inventory) const {
+bool ErrorReport::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[docLocate], docLocate, element },
-			{ fieldID[docName], docName, element },
-			{ fieldID[docID], docID, element },
+			{ fieldID[errMessage], errMessage, element },
+			{ fieldID[errInfo], errInfo, element },
+			{ fieldID[errTrace], errTrace, element },
 		},
-	}.withType(&typeid(DocumentInfo)));
+	}.withType(&typeid(ErrorReport)));
 	return true;
-} //DocumentInfo::fillInventory
+} //ErrorReport::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -53,28 +53,28 @@ bool DocumentInfo::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique DocumentInfo::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(DocumentInfo))
+Cargo::Unique ErrorReport::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(ErrorReport))
 		return nullptr;
 	using namespace active::serialise;
 	switch (item.index) {
-		case docLocate:
-			return std::make_unique<ValueWrap<String>>(location);
-		case docName:
-			return std::make_unique<ValueWrap<String>>(name);
-		case docID:
-			return std::make_unique<ValueWrap<String>>(ID);
+		case errMessage:
+			return std::make_unique<ValueWrap<String>>(message);
+		case errInfo:
+			return std::make_unique<ValueWrap<String>>(error);
+		case errTrace:
+			return std::make_unique<ValueWrap<String>>(stackTrace);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //DocumentInfo::getCargo
+} //ErrorReport::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void DocumentInfo::setDefault() {
-	location.clear();
-	name.clear();
-	ID.clear();
-} //DocumentInfo::setDefault
+void ErrorReport::setDefault() {
+	message.clear();
+	error.clear();
+	stackTrace.clear();
+} //ErrorReport::setDefault

@@ -29,7 +29,7 @@ GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
  
 	return: The accounts (empty array when none defined)
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetAccounts::run(void) const {
+std::unique_ptr<Cargo> GetAccounts::run() const {
 	Vector<Account> accounts;
 	///TODO: Get the accounts here - returning an empty array for testing only
 	return std::make_unique<WrappedValue>(accounts);

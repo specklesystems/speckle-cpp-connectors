@@ -19,7 +19,7 @@ namespace speckle::interfac::browser {
 	 Interface for a C++ function binding to a JavaScript function
 	 @tparam Argument The function parameter type
 	 @tparam Return The function return type
-	 @tparam Binding The platform JS binding
+	 @tparam Binding The platform JS binding (defines argument/result serialisation and transport mechanism to (de)serialise)
 	*/
 	template<typename Argument, typename Return, typename Binding>
 	class JSFunction : public NamedFunction<Argument, Return>, public Binding {

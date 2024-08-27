@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "219F30342C768F0A009834E9"
-               BuildableName = "Connector-AC27-Test.vwlibrary"
+               BuildableName = "Connector-AC27-Test.bundle"
                BlueprintName = "Connector-AC27-Test"
                ReferencedContainer = "container:Connector.xcodeproj">
             </BuildableReference>

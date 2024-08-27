@@ -18,7 +18,7 @@
 namespace speckle::interfac::browser::bridge {
 	
 	/*!
-	 A class to provide JS bridging for Speckle connectors using a table of defined methods
+	 Base class for any method provided by a Speckle JS bridge object
 	 @tparam Argument The function parameter type
 	 @tparam Return The function return type
 	*/

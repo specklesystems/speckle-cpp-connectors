@@ -1,8 +1,8 @@
-#include "Connector/Interface/Browser/Bridge/Config/GetConfig.h"
+#include "Connector/Interface/Browser/Bridge/Test/GetComplexType.h"
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/PackageWrap.h"
-#include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
+#include "Connector/Interface/Browser/Bridge/Test/Arg/ComplexType.h"
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
@@ -11,25 +11,24 @@ using namespace speckle::utility;
 namespace {
 	
 		///Return type for retrieving the current configuration
-	using WrappedValue = CargoHold<PackageWrap, ConnectorConfig>;
+	using WrappedValue = CargoHold<PackageWrap, ComplexType>;
 
 }
 
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
+GetComplexType::GetComplexType() : JSBridgeMethod{"GetComplexType", [&]() {
 		return run();
 }} {}
 
 
 /*--------------------------------------------------------------------
-	Get the configuration settings
+	Get the required object type
  
-	return: The settings
+	return: The required object
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetConfig::run() const {
-	ConnectorConfig config;
-	///TODO: Get the accounts here - returning an empty array for testing only
-	return std::make_unique<WrappedValue>(config);
-} //GetConfig::run
+std::unique_ptr<Cargo> GetComplexType::run() const {
+	ComplexType object;
+	return std::make_unique<WrappedValue>(object);
+} //GetComplexType::run

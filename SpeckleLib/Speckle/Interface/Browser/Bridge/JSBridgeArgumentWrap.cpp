@@ -2,15 +2,18 @@
 
 #include "Active/Serialise/Inventory/Inventory.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferIn.h"
 
 using namespace active::serialise;
+using namespace active::serialise::json;
 using namespace speckle::interfac::browser::bridge;
 using namespace speckle::utility;
 
 namespace speckle::interfac::browser::bridge {
 	
 		///Factory functions to construct arguments from linked bridge/method names
-	std::unordered_map<speckle::utility::String, JSBridgeArgumentWrap::Production> JSBridgeArgumentWrap::m_argumentFactory;
+	std::unordered_map<String, JSBridgeArgumentWrap::Production> JSBridgeArgumentWrap::m_argumentFactory;
 
 }
 
@@ -116,11 +119,39 @@ bool JSBridgeArgumentWrap::validate() {
 
 
 /*--------------------------------------------------------------------
+	Make an argument object for a specified bridge method
+ 
+	methodID: The name of the target method
+	requestID: The ID of the request
+	argument: The method argument data (serialised)
+ 
+	return: An argument object (nullptr on failure)
+  --------------------------------------------------------------------*/
+std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const String& methodID, const String& requestID, const String& argument) {
+	if (auto maker = m_argumentFactory.find(methodID); (maker != m_argumentFactory.end())) {
+		if (auto result = reinterpret_cast<JSBridgeArgument*>(maker->second(methodID, requestID)); result != nullptr) {
+			try {
+				JSONTransport().receive(std::forward<Cargo&&>(*result), Identity{}, argument);
+				return std::unique_ptr<JSBridgeArgument>{result};
+			} catch(std::runtime_error e) {
+					//Populating the error cancels the method
+				return std::make_unique<JSBridgeArgument>(methodID, requestID, String{e.what()});
+			} catch(...) {
+					//Populating the error cancels the method
+				return std::make_unique<JSBridgeArgument>(methodID, requestID, String{"An unexpected error occurred parsing the method argument"});
+			}
+		}
+	}
+	return nullptr;
+} //JSBridgeArgumentWrap::makeArgument
+
+
+/*--------------------------------------------------------------------
 	Finalise the output argument object based on the current object, method etc
   --------------------------------------------------------------------*/
 void JSBridgeArgumentWrap::finaliseArgument() const {
 		//Use the deserialised target bridge and method to establish the required arguments (if any)
-	m_argument.reset(JSBridgeArgumentWrap::makeArgument(m_requestID, m_argsJSON));
+	m_argument = JSBridgeArgumentWrap::makeArgument(m_methodName, m_requestID, m_argsJSON);
 		//If the function doesn't take an argument, we still need to pass along the base class with object name, method etc
 	if (!m_argument)
 		m_argument = std::make_unique<JSBridgeArgument>(m_methodName, m_requestID);

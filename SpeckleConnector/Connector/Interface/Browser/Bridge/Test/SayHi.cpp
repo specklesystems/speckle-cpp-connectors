@@ -1,4 +1,4 @@
-#include "Connector/Interface/Browser/Bridge/Base/GetSourceApplicationName.h"
+#include "Connector/Interface/Browser/Bridge/Test/SayHi.h"
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
@@ -10,28 +10,29 @@ using namespace speckle::utility;
 
 namespace {
 	
-		///Return type for retrieving the host application name
+		///Return type for the test message
 	using WrappedValue = CargoHold<ValueWrap<String>, String>;
 
 }
 
 /*--------------------------------------------------------------------
 	Default constructor
-  --------------------------------------------------------------------*/
-GetSourceApplicationName::GetSourceApplicationName() : JSBridgeMethod{"GetSourceApplicationName", [&]() {
-		return run();
+ --------------------------------------------------------------------*/
+SayHi::SayHi() : JSBridgeMethod{"SayHi", [&](SayHiWrapper arg) {
+		return run(arg.value);
 }} {}
 
 
 /*--------------------------------------------------------------------
-	Get the host application name
+	Return a message based on sample data
  
-	return: The application name
+	arg: The sample data
+ 
+	return: The message based on sample data
   --------------------------------------------------------------------*/
-std::unique_ptr<Cargo> GetSourceApplicationName::run() const {
-		//Implement other platforms as required
-#ifdef ARCHICAD
-	String result{"Archicad"};
+std::unique_ptr<Cargo> SayHi::run(SayHiArg arg) const {
+	String result, baseGreeting{(arg.isHello ? "Hello" : "Hi") + arg.name + "!\n"};
+	for (auto i = arg.count; i--; )
+		result += baseGreeting;
 	return std::make_unique<WrappedValue>(result);
-#endif
-} //GetSourceApplicationName::run
+} //SayHi::run
