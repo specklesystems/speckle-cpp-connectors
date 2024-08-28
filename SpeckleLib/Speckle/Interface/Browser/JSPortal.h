@@ -9,6 +9,8 @@
 #include <JavascriptEngine.hpp>
 #endif
 
+#include <iostream>
+
 namespace speckle::interfac::browser {
 	
 	/*!
@@ -71,7 +73,12 @@ namespace speckle::interfac::browser {
 		try {
 			auto engine = getJSEngine();
 
-			OutputDebugString((LPCTSTR)speckle::utility::String{ "\nExecuted:\n" + code}.operator std::u16string().data());
+			speckle::utility::String log{"\nExecuted:\n" + code};
+#ifdef macintosh
+			std::cout << log.data();
+#else
+			OutputDebugString((LPCTSTR)log.operator std::u16string().data());
+#endif
 
 			auto result = engine ? engine->ExecuteJS(code) : false;
 			return result;
