@@ -38,7 +38,7 @@ GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
 	return: The requested result (nullptr on failure)
   --------------------------------------------------------------------*/
 std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
-	//Confirm argument type
+		//Retrieve the requested result
 	auto result = m_bridge.releaseResult(argument);
 	auto item = dynamic_cast<Cargo*>(result.get());
 	if (!item)

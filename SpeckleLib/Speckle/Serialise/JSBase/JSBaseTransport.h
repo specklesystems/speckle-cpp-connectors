@@ -23,6 +23,12 @@ namespace speckle::serialise::jsbase {
 	class JSBaseTransport {
 	public:
 		
+		/*!
+		 Convert a JS::Base object to JSON
+		 @param jsBase The object to convert
+		 */
+		static speckle::utility::String convertToJSON(const GS::Ref<JS::Base>& jsBase);
+
 		// MARK: - Types
 		
 			///Status of of the XML transport

@@ -30,6 +30,6 @@ GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetConfig::run() const {
 	ConnectorConfig config;
-	///TODO: Get the accounts here - returning an empty array for testing only
+		///TODO: Get the accounts here - returning an empty array for testing only
 	return std::make_unique<WrappedValue>(config);
 } //GetConfig::run

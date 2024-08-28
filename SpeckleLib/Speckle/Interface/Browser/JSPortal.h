@@ -70,6 +70,9 @@ namespace speckle::interfac::browser {
 #ifdef ARCHICAD
 		try {
 			auto engine = getJSEngine();
+
+			OutputDebugString((LPCTSTR)speckle::utility::String{ "\nExecuted:\n" + code}.operator std::u16string().data());
+
 			auto result = engine ? engine->ExecuteJS(code) : false;
 			return result;
 		} catch(...) {
@@ -94,10 +97,13 @@ namespace speckle::interfac::browser {
 			auto engine = getJSEngine();
 			if (!engine)
 				return false;
+				//Define the JS object
 			JS::Object* acObject = new JS::Object(object->getName());
+				//Add all the functions supported by this object
 			for (auto& function : *object) {
 				acObject->AddItem(new JS::Function(function->getName(), [&](GS::Ref<JS::Base> args) {
 					try {
+							//NB: All JS functions enter at this point
 						return function->execute(args);
 					} catch(...) {
 						///TODO: Need to discuss the best course of action to notify of a failure
@@ -105,6 +111,7 @@ namespace speckle::interfac::browser {
 					return GS::Ref<JS::Base>{};
 				}));
 			}
+				//And finally register the object
 			if (engine->RegisterAsynchJSObject(acObject)) {
 				base::push_back(object);
 				object->setPortal(*this);
