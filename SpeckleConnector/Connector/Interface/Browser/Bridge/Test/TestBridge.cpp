@@ -9,7 +9,7 @@ using namespace connector::interfac::browser::bridge;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-TestBridge::TestBridge() : BrowserBridge{"baseBinding"} {
+TestBridge::TestBridge() : BrowserBridge{"testBinding"} {
 		//Add bridge methods
 	addMethod<GetComplexType>();
 	addMethod<GoAway>();

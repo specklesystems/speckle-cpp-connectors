@@ -1,6 +1,7 @@
 #include "Speckle/Interface/Browser/Bridge/Functions/RunMethod.h"
 
 #include "Active/Serialise/CargoHold.h"
+#include "Active/Serialise/Null.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/ErrorReport.h"
@@ -49,8 +50,11 @@ namespace {
 					//Execute the method with the supplied argument
 				auto result = method.execute(argument);
 					//Cache the result in the bridge as required (when we have a request ID and a non-void result)
-				if (result && !argument.getRequestID().empty())
+				if (!argument.getRequestID().empty()) {
+					if (!result)
+						result = std::make_unique<Null>();	//Callers need a null response even if the function has no return value
 					bridge.cacheResult(std::move(result), argument.getRequestID());
+				}
 				return;
 			} catch(std::runtime_error e) {
 					//NB: This will capture the response from both Speckle and low-level system/runtime error exceptions
