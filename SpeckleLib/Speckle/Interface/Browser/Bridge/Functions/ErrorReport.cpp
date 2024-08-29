@@ -19,9 +19,9 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"Message"},
-		Identity{"Error"},
-		Identity{"StackTrace"},
+		Identity{"message"},
+		Identity{"error"},
+		Identity{"stackTrace"},
 	};
 
 }
