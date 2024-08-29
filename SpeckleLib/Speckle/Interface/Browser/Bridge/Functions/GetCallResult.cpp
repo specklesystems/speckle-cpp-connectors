@@ -39,11 +39,12 @@ GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
   --------------------------------------------------------------------*/
 std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
 		//Retrieve the requested result
+	using namespace json;
 	auto result = m_bridge.releaseResult(argument);
 	auto item = dynamic_cast<Cargo*>(result.get());
 	if (!item)
 		return nullptr;
 	String jsonOutput;
-	json::JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
+	JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
 	return std::make_unique<WrappedResultArg>(jsonOutput);
 } //GetCallResult::getResult

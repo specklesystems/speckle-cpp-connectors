@@ -3,8 +3,7 @@
 
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/Functional.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/JSBridgeMethodBase.h"
 
 namespace active::setting {
 	class ValueSetting;
