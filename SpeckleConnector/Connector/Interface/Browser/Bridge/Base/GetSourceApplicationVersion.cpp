@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetSourceApplicationVersion::GetSourceApplicationVersion() : JSBridgeMethod{"GetSourceApplicationVersion", [&]() {
+GetSourceApplicationVersion::GetSourceApplicationVersion() : BridgeMethod{"GetSourceApplicationVersion", [&]() {
 		return run();
 }} {}
 

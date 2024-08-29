@@ -1,4 +1,4 @@
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgumentWrap.h"
 
 #include "Active/Serialise/Inventory/Inventory.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
@@ -15,7 +15,7 @@ using namespace speckle::utility;
 namespace speckle::interfac::browser::bridge {
 	
 		///Factory functions to construct arguments from linked bridge/method names
-	std::unordered_map<String, JSBridgeArgumentWrap::Production> JSBridgeArgumentWrap::m_argumentFactory;
+	std::unordered_map<String, BridgeArgumentWrap::Production> BridgeArgumentWrap::m_argumentFactory;
 
 }
 
@@ -42,15 +42,15 @@ namespace {
 		{
 			{ {"arg"}, args, 0, std::nullopt, true },	//The JS arguments are expressed as a flat array - use the array indices to map to expected vars
 		},
-	}.withType(&typeid(JSBridgeArgumentWrap));;
+	}.withType(&typeid(BridgeArgumentWrap));;
 	
 }
 
 /*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
-JSBridgeArgumentWrap::~JSBridgeArgumentWrap() {
-} //JSBridgeArgumentWrap::~JSBridgeArgumentWrap
+BridgeArgumentWrap::~BridgeArgumentWrap() {
+} //BridgeArgumentWrap::~BridgeArgumentWrap
 
 
 /*--------------------------------------------------------------------
@@ -60,10 +60,10 @@ JSBridgeArgumentWrap::~JSBridgeArgumentWrap() {
  
 	return: True if items have been added to the inventory
   --------------------------------------------------------------------*/
-bool JSBridgeArgumentWrap::fillInventory(Inventory& inventory) const {
+bool BridgeArgumentWrap::fillInventory(Inventory& inventory) const {
 	inventory.merge(myInventory);
 	return true;
-} //JSBridgeArgumentWrap::fillInventory
+} //BridgeArgumentWrap::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -73,8 +73,8 @@ bool JSBridgeArgumentWrap::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique JSBridgeArgumentWrap::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(JSBridgeArgumentWrap))
+Cargo::Unique BridgeArgumentWrap::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(BridgeArgumentWrap))
 		return nullptr;
 	switch (item.index) {
 		case FieldIndex::args: {
@@ -92,18 +92,18 @@ Cargo::Unique JSBridgeArgumentWrap::getCargo(const Inventory::Item& item) const 
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //JSBridgeArgumentWrap::getCargo
+} //BridgeArgumentWrap::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void JSBridgeArgumentWrap::setDefault() {
+void BridgeArgumentWrap::setDefault() {
 	m_methodName.clear();
 	m_requestID.clear();
 	m_argsJSON.clear();
 	m_argument.reset();	//This will be populated once the target bridge and method are known (and hence the required argument type)
-} //JSBridgeArgumentWrap::setDefault
+} //BridgeArgumentWrap::setDefault
 
 
 /*--------------------------------------------------------------------
@@ -111,13 +111,13 @@ void JSBridgeArgumentWrap::setDefault() {
  
 	return: True if the data has been validated
   --------------------------------------------------------------------*/
-bool JSBridgeArgumentWrap::validate() {
+bool BridgeArgumentWrap::validate() {
 		//Build an argument with the attributes obtained of none exists
 	if (!m_argument)
 		finaliseArgument();
 		//Then ensure the argument object is valid
 	return m_argument->validate();
-} //JSBridgeArgumentWrap::validate
+} //BridgeArgumentWrap::validate
 
 
 /*--------------------------------------------------------------------
@@ -129,12 +129,12 @@ bool JSBridgeArgumentWrap::validate() {
  
 	return: An argument object (nullptr on failure)
   --------------------------------------------------------------------*/
-std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const String& methodID, const String& requestID, const String& argument) {
+std::unique_ptr<BridgeArgument> BridgeArgumentWrap::makeArgument(const String& methodID, const String& requestID, const String& argument) {
 	if (auto maker = m_argumentFactory.find(methodID); (maker != m_argumentFactory.end())) {
-		if (auto result = reinterpret_cast<JSBridgeArgument*>(maker->second(methodID, requestID)); result != nullptr) {
+		if (auto result = reinterpret_cast<BridgeArgument*>(maker->second(methodID, requestID)); result != nullptr) {
 			try {
 					//The argument is passed as an array of stringified JSON - first unpack the array
-				JSONTransport transport;
+				JSONTransport transport{Transport::Policy::verbose};
 				ValueSetting args;
 				transport.receive(ValueSettingWrap{args}, Identity{}, argument);
 					//Then unify the argument strings into a single JSON argument
@@ -151,27 +151,27 @@ std::unique_ptr<JSBridgeArgument> JSBridgeArgumentWrap::makeArgument(const Strin
 				unifiedArgument += "}";
 					//And receive the unified argument into the method argument
 				transport.receive(std::forward<Cargo&&>(*result), Identity{}, unifiedArgument);
-				return std::unique_ptr<JSBridgeArgument>{result};
+				return std::unique_ptr<BridgeArgument>{result};
 			} catch(std::runtime_error e) {
 					//Populating the error cancels the method
-				return std::make_unique<JSBridgeArgument>(methodID, requestID, String{e.what()});
+				return std::make_unique<BridgeArgument>(methodID, requestID, String{e.what()});
 			} catch(...) {
 					//Populating the error cancels the method
-				return std::make_unique<JSBridgeArgument>(methodID, requestID, String{"An unexpected error occurred parsing the method argument"});
+				return std::make_unique<BridgeArgument>(methodID, requestID, String{"An unexpected error occurred parsing the method argument"});
 			}
 		}
 	}
 	return nullptr;
-} //JSBridgeArgumentWrap::makeArgument
+} //BridgeArgumentWrap::makeArgument
 
 
 /*--------------------------------------------------------------------
 	Finalise the output argument object based on the current object, method etc
   --------------------------------------------------------------------*/
-void JSBridgeArgumentWrap::finaliseArgument() const {
+void BridgeArgumentWrap::finaliseArgument() const {
 		//Use the deserialised target bridge and method to establish the required arguments (if any)
-	m_argument = JSBridgeArgumentWrap::makeArgument(m_methodName, m_requestID, m_argsJSON);
+	m_argument = BridgeArgumentWrap::makeArgument(m_methodName, m_requestID, m_argsJSON);
 		//If the function doesn't take an argument, we still need to pass along the base class with object name, method etc
 	if (!m_argument)
-		m_argument = std::make_unique<JSBridgeArgument>(m_methodName, m_requestID);
-} //JSBridgeArgumentWrap::finaliseArgument
+		m_argument = std::make_unique<BridgeArgument>(m_methodName, m_requestID);
+} //BridgeArgumentWrap::finaliseArgument

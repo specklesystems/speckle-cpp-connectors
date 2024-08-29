@@ -11,12 +11,12 @@ namespace speckle::interfac::browser::bridge {
 	 
 	 Enables deserialisation to recognise individual parameters in the serialised JS method aergument, e.g. "0", "1", etc
 	*/
-	class JSArgumentBase {
+	class ArgumentBase {
 	public:
 		/*!
 		 Destructor
 		 */
-		virtual ~JSArgumentBase() {}
+		virtual ~ArgumentBase() {}
 		
 		// MARK: - Functions (const)
 		

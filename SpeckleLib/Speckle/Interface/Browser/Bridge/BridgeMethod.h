@@ -3,8 +3,9 @@
 
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/NamedFunction.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethodBase.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeChild.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethodBase.h"
 
 #ifdef ARCHICAD
 #include "Speckle/Serialise/JSBase/JSBaseTransport.h"
@@ -23,7 +24,7 @@ namespace speckle::interfac::browser::bridge {
 	 @tparam Return The function return type
 	*/
 	template<typename Argument, typename Return>
-	class JSBridgeMethod : public NamedFunction<Argument, Return>, public virtual JSBridgeMethodBase {
+	class BridgeMethod : public NamedFunction<Argument, Return>, public virtual BridgeMethodBase {
 	public:
 		
 		// MARK: - Types
@@ -39,12 +40,12 @@ namespace speckle::interfac::browser::bridge {
 		 @param name The function name
 		 @param function The C++ function bound to the name
 		 */
-		JSBridgeMethod(const speckle::utility::String& name, Function function) : base{name, function} {}
+		BridgeMethod(const speckle::utility::String& name, Function function) : base{name, function} {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		JSBridgeMethod(const JSBridgeMethod& source) = default;
+		BridgeMethod(const BridgeMethod& source) = default;
 		
 		// MARK: - Functions (const)
 		
@@ -53,9 +54,9 @@ namespace speckle::interfac::browser::bridge {
 		 @param bridge The target bridge name
 		 @return A reference to this
 		 */
-		JSBridgeMethod& registerArgument(const speckle::utility::String& bridge) override {
+		BridgeMethod& registerArgument(const speckle::utility::String& bridge) override {
 			if constexpr(!std::same_as<Argument, void>)
-				JSBridgeArgumentWrap::defineArgument<Argument>(base::getName());
+				BridgeArgumentWrap::defineArgument<Argument>(base::getName());
 			return *this;
 		}
 	};

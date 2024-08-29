@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210CC86F2C7E879700610F58 /* JSArgumentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC86D2C7E879700610F58 /* JSArgumentBase.h */; };
+		210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC86D2C7E879700610F58 /* ArgumentBase.h */; };
+		210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC87D2C80CD2A00610F58 /* BridgeChild.h */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
 		2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
 		2193518C2C62655700E5A69C /* MenuEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 219351892C62655700E5A69C /* MenuEvent.h */; };
@@ -25,10 +26,10 @@
 		21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */; };
 		21F69F682C6DFB01008B6A06 /* RunMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F662C6DFB01008B6A06 /* RunMethod.cpp */; };
 		21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */; };
-		21F69F812C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */; };
+		21F69F812C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F802C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp */; };
 		21F69F962C71087A008B6A06 /* Account.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F922C71087A008B6A06 /* Account.cpp */; };
 		21F69FA42C729400008B6A06 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA32C729400008B6A06 /* Record.cpp */; };
-		21F69FA62C733EDA008B6A06 /* JSBridgeArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */; };
+		21F69FA62C733EDA008B6A06 /* BridgeArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA52C733EDA008B6A06 /* BridgeArgument.cpp */; };
 		21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F93AEA2B2F406D009A2C5B /* Addon.cpp */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		210CC86D2C7E879700610F58 /* JSArgumentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSArgumentBase.h; sourceTree = "<group>"; };
+		210CC86D2C7E879700610F58 /* ArgumentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentBase.h; sourceTree = "<group>"; };
+		210CC87D2C80CD2A00610F58 /* BridgeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeChild.h; sourceTree = "<group>"; };
 		212A87EF2AE4868C001EAFE7 /* SpeckleLib-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpeckleLib-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21329F472BFA611C00B5C7AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21329F632BFD452C00B5C7AF /* Environment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Environment.md; sourceTree = "<group>"; };
@@ -110,25 +112,25 @@
 		21F69F492C6CC2B8008B6A06 /* Functional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functional.h; sourceTree = "<group>"; };
 		21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BrowserBridge.cpp; sourceTree = "<group>"; };
 		21F69F4B2C6CCC25008B6A06 /* BrowserBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserBridge.h; sourceTree = "<group>"; };
-		21F69F4D2C6CCC25008B6A06 /* JSBridgeArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBridgeArgument.h; sourceTree = "<group>"; };
-		21F69F4F2C6CCC25008B6A06 /* JSBridgeMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBridgeMethod.h; sourceTree = "<group>"; };
+		21F69F4D2C6CCC25008B6A06 /* BridgeArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeArgument.h; sourceTree = "<group>"; };
+		21F69F4F2C6CCC25008B6A06 /* BridgeMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeMethod.h; sourceTree = "<group>"; };
 		21F69F572C6CDAEE008B6A06 /* GetBindingsMethodNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBindingsMethodNames.h; sourceTree = "<group>"; };
 		21F69F592C6CDB67008B6A06 /* FunctionBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionBinding.h; sourceTree = "<group>"; };
 		21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetBindingsMethodNames.cpp; sourceTree = "<group>"; };
 		21F69F652C6DFB01008B6A06 /* RunMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunMethod.h; sourceTree = "<group>"; };
 		21F69F662C6DFB01008B6A06 /* RunMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunMethod.cpp; sourceTree = "<group>"; };
-		21F69F692C6E0D59008B6A06 /* JSBridgeArgumentWrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBridgeArgumentWrap.h; sourceTree = "<group>"; };
+		21F69F692C6E0D59008B6A06 /* BridgeArgumentWrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeArgumentWrap.h; sourceTree = "<group>"; };
 		21F69F6A2C6E61E1008B6A06 /* JSPortal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSPortal.h; sourceTree = "<group>"; };
 		21F69F6D2C6E7D9F008B6A06 /* PlatformBinding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformBinding.h; sourceTree = "<group>"; };
 		21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetCallResult.cpp; sourceTree = "<group>"; };
 		21F69F7D2C6FD9FC008B6A06 /* GetCallResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetCallResult.h; sourceTree = "<group>"; };
-		21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSBridgeArgumentWrap.cpp; sourceTree = "<group>"; };
-		21F69F822C701A8E008B6A06 /* JSBridgeMethodBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBridgeMethodBase.h; sourceTree = "<group>"; };
+		21F69F802C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BridgeArgumentWrap.cpp; sourceTree = "<group>"; };
+		21F69F822C701A8E008B6A06 /* BridgeMethodBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeMethodBase.h; sourceTree = "<group>"; };
 		21F69F8F2C710012008B6A06 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		21F69F922C71087A008B6A06 /* Account.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Account.cpp; sourceTree = "<group>"; };
 		21F69F932C71087A008B6A06 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		21F69FA32C729400008B6A06 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
-		21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSBridgeArgument.cpp; sourceTree = "<group>"; };
+		21F69FA52C733EDA008B6A06 /* BridgeArgument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BridgeArgument.cpp; sourceTree = "<group>"; };
 		21F93AE92B2F406D009A2C5B /* Addon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Addon.h; sourceTree = "<group>"; };
 		21F93AEA2B2F406D009A2C5B /* Addon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Addon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,13 +316,14 @@
 				21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */,
 				21F69F4B2C6CCC25008B6A06 /* BrowserBridge.h */,
 				21F69F582C6CDAEE008B6A06 /* Functions */,
-				210CC86D2C7E879700610F58 /* JSArgumentBase.h */,
-				21F69FA52C733EDA008B6A06 /* JSBridgeArgument.cpp */,
-				21F69F4D2C6CCC25008B6A06 /* JSBridgeArgument.h */,
-				21F69F802C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp */,
-				21F69F692C6E0D59008B6A06 /* JSBridgeArgumentWrap.h */,
-				21F69F4F2C6CCC25008B6A06 /* JSBridgeMethod.h */,
-				21F69F822C701A8E008B6A06 /* JSBridgeMethodBase.h */,
+				210CC86D2C7E879700610F58 /* ArgumentBase.h */,
+				21F69FA52C733EDA008B6A06 /* BridgeArgument.cpp */,
+				21F69F4D2C6CCC25008B6A06 /* BridgeArgument.h */,
+				21F69F802C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp */,
+				21F69F692C6E0D59008B6A06 /* BridgeArgumentWrap.h */,
+				210CC87D2C80CD2A00610F58 /* BridgeChild.h */,
+				21F69F4F2C6CCC25008B6A06 /* BridgeMethod.h */,
+				21F69F822C701A8E008B6A06 /* BridgeMethodBase.h */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";
@@ -388,9 +391,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21F69F5A2C6CDB67008B6A06 /* FunctionBinding.h in Headers */,
-				210CC86F2C7E879700610F58 /* JSArgumentBase.h in Headers */,
+				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
+				210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */,
 				2193518C2C62655700E5A69C /* MenuEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,9 +519,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F69FA62C733EDA008B6A06 /* JSBridgeArgument.cpp in Sources */,
+				21F69FA62C733EDA008B6A06 /* BridgeArgument.cpp in Sources */,
 				21F69F682C6DFB01008B6A06 /* RunMethod.cpp in Sources */,
-				21F69F812C6FF3B0008B6A06 /* JSBridgeArgumentWrap.cpp in Sources */,
+				21F69F812C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp in Sources */,
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
 				21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */,

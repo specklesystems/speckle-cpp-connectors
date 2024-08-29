@@ -17,7 +17,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetDocumentInfo::GetDocumentInfo() : JSBridgeMethod{"GetDocumentInfo", [&]() {
+GetDocumentInfo::GetDocumentInfo() : BridgeMethod{"GetDocumentInfo", [&]() {
 		return run();
 }} {}
 

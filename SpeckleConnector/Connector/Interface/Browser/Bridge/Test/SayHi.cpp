@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
  --------------------------------------------------------------------*/
-SayHi::SayHi() : JSBridgeMethod{"SayHi", [&](SayHiWrapper arg) {
+SayHi::SayHi() : BridgeMethod{"SayHi", [&](SayHiWrapper arg) {
 		return run(arg.value);
 }} {}
 

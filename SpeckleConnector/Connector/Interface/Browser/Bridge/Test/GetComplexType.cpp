@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetComplexType::GetComplexType() : JSBridgeMethod{"GetComplexType", [&]() {
+GetComplexType::GetComplexType() : BridgeMethod{"GetComplexType", [&]() {
 		return run();
 }} {}
 

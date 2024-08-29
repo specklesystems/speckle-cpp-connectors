@@ -3,7 +3,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -15,7 +15,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 JS Function class to retrieve the names of the methods supported by the bridge
 	*/
-	class UpdateConfig : public speckle::interfac::browser::bridge::JSBridgeMethod<UpdateArgs, void> {
+	class UpdateConfig : public speckle::interfac::browser::bridge::BridgeMethod<UpdateArgs, void> {
 	public:
 
 		// MARK: - Constructors

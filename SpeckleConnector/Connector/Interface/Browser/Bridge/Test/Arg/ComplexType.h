@@ -44,10 +44,6 @@ namespace connector::interfac::browser::bridge {
 			@return The requested cargo (nullptr on failure)
 		*/
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
-		/*!
-			Set to the default package content
-		*/
-		void setDefault() override;
 	};
 		
 }

@@ -20,13 +20,10 @@ using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
 	Constructor
- 
-	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
-		JSFunction{"GetCallResult", [&](auto args) {
-			return getResult(args);
-		}} {
+GetCallResult::GetCallResult() : JSFunction{"GetCallResult", [&](auto args) {
+		return getResult(args);
+	}} {
 } //GetCallResult::GetCallResult
 
 
@@ -38,9 +35,15 @@ GetCallResult::GetCallResult(BrowserBridge& bridge) : m_bridge{bridge},
 	return: The requested result (nullptr on failure)
   --------------------------------------------------------------------*/
 std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
+	if (!hasBridge())
+		return nullptr;
 		//Retrieve the requested result
+<<<<<<< Updated upstream
 	using namespace json;
 	auto result = m_bridge.releaseResult(argument);
+=======
+	auto result = getBridge()->releaseResult(argument);
+>>>>>>> Stashed changes
 	auto item = dynamic_cast<Cargo*>(result.get());
 	if (!item)
 		return nullptr;

@@ -2,7 +2,7 @@
 #define SPECKLE_INTERFACE_JS_BRIDGE_ARGUMENT
 
 #include "Active/Serialise/Package/Package.h"
-#include "Speckle/Interface/Browser/Bridge/JSArgumentBase.h"
+#include "Speckle/Interface/Browser/Bridge/ArgumentBase.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::interfac::browser::bridge {
@@ -10,12 +10,12 @@ namespace speckle::interfac::browser::bridge {
 	/*!
 	 Base class for the argments passed from JavaScript to a named C++ method in a Speckle bridging object
 	 
-	 NB: The JSBridgeArgumentWrap class will:
+	 NB: The BridgeArgumentWrap class will:
 	 - Deserialise the essential attributes for determining the target method and arguments;
-	 - Create the correct JSBridgeArgument subclass for the emthod/argument and populate it with the collected attributes
+	 - Create the correct BridgeArgument subclass for the emthod/argument and populate it with the collected attributes
 	 Therefore, there is no need for this class to handle any deserialisation, and subclasses should only handle the core arguments data
 	*/
-	class JSBridgeArgument : public active::serialise::Package {
+	class BridgeArgument : public active::serialise::Package {
 	public:
 		
 		// MARK: - Constructors
@@ -23,7 +23,7 @@ namespace speckle::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 */
-		JSBridgeArgument() {}
+		BridgeArgument() {}
 		/*!
 		 Constructor
 		 @param methodName The name of the method to receive the argument
@@ -31,14 +31,14 @@ namespace speckle::interfac::browser::bridge {
 		 @param errorMessage Optional error message - populate on failure (method will not be called in this case)
 
 		 */
-		JSBridgeArgument(const speckle::utility::String& methodName,
+		BridgeArgument(const speckle::utility::String& methodName,
 						 const speckle::utility::String& requestID,
 						 const speckle::utility::String::Option& errorMessage = std::nullopt) :
 				m_methodName{methodName}, m_requestID{requestID}, m_errorMessage{errorMessage} {}
 		/*!
 		 Destructor
 		 */
-		virtual ~JSBridgeArgument() {}
+		virtual ~BridgeArgument() {}
 		
 		// MARK: - Functions (const)
 		
@@ -93,7 +93,7 @@ namespace speckle::interfac::browser::bridge {
 	
 		///Definition of the argument for a JS callable method (enclosing the local function argument)
 	template<typename T>
-	class JSArgType : public JSBridgeArgument {
+	class JSArgType : public BridgeArgument {
 	public:
 		
 		/*!
@@ -104,16 +104,16 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		JSArgType(const speckle::utility::String& methodName,
 				const speckle::utility::String& requestID,
-				const speckle::utility::String::Option& errorMessage = std::nullopt) : JSBridgeArgument{methodName, requestID, errorMessage} {
+				const speckle::utility::String::Option& errorMessage = std::nullopt) : BridgeArgument{methodName, requestID, errorMessage} {
 				//Tag the argument object as a template where possible
-			if (auto arg = dynamic_cast<JSArgumentBase*>(&value); arg != nullptr)
+			if (auto arg = dynamic_cast<ArgumentBase*>(&value); arg != nullptr)
 				arg->setArgumentTemplate(true);
 		}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		JSArgType(const JSArgType& source) : JSBridgeArgument{source}, value{source.value} {}
+		JSArgType(const JSArgType& source) : BridgeArgument{source}, value{source.value} {}
 		
 		/*!
 		 Fill an inventory with the cargo items

@@ -2,7 +2,7 @@
 #define CONNECTOR_INTERFACE_BRIDGE_SAYHI
 
 #include "Connector/Interface/Browser/Bridge/Test/Arg/SayHiArg.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -12,7 +12,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 JS Function class to return a test message based on sample data
 	*/
-	class SayHi : public speckle::interfac::browser::bridge::JSBridgeMethod<SayHiWrapper, active::serialise::Cargo> {
+	class SayHi : public speckle::interfac::browser::bridge::BridgeMethod<SayHiWrapper, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors

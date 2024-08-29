@@ -1,4 +1,4 @@
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgument.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgument.h"
 
 using namespace active::serialise;
 using namespace speckle::interfac::browser::bridge;
@@ -11,9 +11,9 @@ using namespace speckle::interfac::browser::bridge;
  
 	return: True if items have been added to the inventory
   --------------------------------------------------------------------*/
-bool JSBridgeArgument::fillInventory(active::serialise::Inventory& inventory) const {
+bool BridgeArgument::fillInventory(active::serialise::Inventory& inventory) const {
 	return true;
-} //JSBridgeArgument::fillInventory
+} //BridgeArgument::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -23,13 +23,13 @@ bool JSBridgeArgument::fillInventory(active::serialise::Inventory& inventory) co
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique JSBridgeArgument::getCargo(const active::serialise::Inventory::Item& item) const {
+Cargo::Unique BridgeArgument::getCargo(const active::serialise::Inventory::Item& item) const {
 	return nullptr;
-} //JSBridgeArgument::getCargo
+} //BridgeArgument::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void JSBridgeArgument::setDefault() {
-} //JSBridgeArgument::setDefault
+void BridgeArgument::setDefault() {
+} //BridgeArgument::setDefault

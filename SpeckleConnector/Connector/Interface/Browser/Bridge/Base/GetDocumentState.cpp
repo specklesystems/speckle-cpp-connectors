@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetDocumentState::GetDocumentState() : JSBridgeMethod{"GetDocumentState", [&]() {
+GetDocumentState::GetDocumentState() : BridgeMethod{"GetDocumentState", [&]() {
 		return run();
 }} {}
 

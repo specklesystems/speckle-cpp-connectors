@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8812C80E6A300610F58 /* TriggerEvent.cpp */; };
 		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
@@ -265,6 +266,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210CC8812C80E6A300610F58 /* TriggerEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriggerEvent.cpp; sourceTree = "<group>"; };
+		210CC8822C80E6A300610F58 /* TriggerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerEvent.h; sourceTree = "<group>"; };
 		213CC3A52B1101F500088049 /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -934,6 +937,8 @@
 				21B67CDB2C78C87F00FD64FC /* SayHi.h */,
 				21B67CD62C78C83800FD64FC /* TestBridge.cpp */,
 				21B67CD72C78C83800FD64FC /* TestBridge.h */,
+				210CC8812C80E6A300610F58 /* TriggerEvent.cpp */,
+				210CC8822C80E6A300610F58 /* TriggerEvent.h */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1287,6 +1292,7 @@
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
+				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,
 				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,
 				21B67CD92C78C83800FD64FC /* TestBridge.cpp in Sources */,
@@ -1504,6 +1510,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					TESTING_MODE,
 					ARCHICAD,
 					AddOn_EXPORTS,
 					"'macintosh=1'",
@@ -1614,6 +1621,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					TESTING_MODE,
 					ARCHICAD,
 					AddOn_EXPORTS,
 					"'macintosh=1'",

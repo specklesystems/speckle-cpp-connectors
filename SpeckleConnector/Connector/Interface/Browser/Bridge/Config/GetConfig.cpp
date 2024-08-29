@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetConfig::GetConfig() : JSBridgeMethod{"GetConfig", [&]() {
+GetConfig::GetConfig() : BridgeMethod{"GetConfig", [&]() {
 		return run();
 }} {}
 

@@ -87,13 +87,3 @@ Cargo::Unique ComplexType::getCargo(const Inventory::Item& item) const {
 			return nullptr;	//Requested an unknown index
 	}
 } //ComplexType::getCargo
-
-
-/*--------------------------------------------------------------------
-	Set to the default package content
-  --------------------------------------------------------------------*/
-void ComplexType::setDefault() {
-	ID.clear();
-	count = 0;
-	testBool = false;
-} //ComplexType::setDefault
