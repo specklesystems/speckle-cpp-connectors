@@ -141,7 +141,7 @@ std::unique_ptr<BridgeArgument> BridgeArgumentWrap::makeArgument(const String& m
 				if (args.size() != result->parameterCount())
 					throw Exception{"Function called with wrong number of parameters"};
 				String unifiedArgument;
-				if (dynamic_cast<Package*>(result) != nullptr) {
+				if ((args.size() > 1) && dynamic_cast<Package*>(result) != nullptr) {
 						//Unify the argument strings into a single JSON argument
 					unifiedArgument = "{";
 					int32_t argIndex = 0;

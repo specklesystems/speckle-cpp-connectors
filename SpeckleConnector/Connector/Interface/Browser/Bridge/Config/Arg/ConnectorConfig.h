@@ -9,7 +9,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 Configuration settings class
 	 */
-	class ConnectorConfig : public active::serialise::Package, virtual public speckle::interfac::browser::bridge::ArgumentBase {
+	class ConnectorConfig : public active::serialise::Package {
 	public:
 
 		// MARK: - Types
