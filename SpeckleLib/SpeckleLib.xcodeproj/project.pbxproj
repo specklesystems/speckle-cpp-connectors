@@ -22,7 +22,6 @@
 		21F69EBE2C63C954008B6A06 /* Link.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69EBD2C63C954008B6A06 /* Link.cpp */; };
 		21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F382C6B880B008B6A06 /* JSBaseTransport.cpp */; };
 		21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */; };
-		21F69F5A2C6CDB67008B6A06 /* FunctionBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F69F592C6CDB67008B6A06 /* FunctionBinding.h */; };
 		21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */; };
 		21F69F682C6DFB01008B6A06 /* RunMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F662C6DFB01008B6A06 /* RunMethod.cpp */; };
 		21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */; };
@@ -115,7 +114,6 @@
 		21F69F4D2C6CCC25008B6A06 /* BridgeArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeArgument.h; sourceTree = "<group>"; };
 		21F69F4F2C6CCC25008B6A06 /* BridgeMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeMethod.h; sourceTree = "<group>"; };
 		21F69F572C6CDAEE008B6A06 /* GetBindingsMethodNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetBindingsMethodNames.h; sourceTree = "<group>"; };
-		21F69F592C6CDB67008B6A06 /* FunctionBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionBinding.h; sourceTree = "<group>"; };
 		21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetBindingsMethodNames.cpp; sourceTree = "<group>"; };
 		21F69F652C6DFB01008B6A06 /* RunMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunMethod.h; sourceTree = "<group>"; };
 		21F69F662C6DFB01008B6A06 /* RunMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunMethod.cpp; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 			children = (
 				21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */,
 				21B67D092C7E0E8D00FD64FC /* ErrorReport.h */,
-				21F69F592C6CDB67008B6A06 /* FunctionBinding.h */,
 				21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */,
 				21F69F572C6CDAEE008B6A06 /* GetBindingsMethodNames.h */,
 				21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */,
@@ -390,7 +387,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F69F5A2C6CDB67008B6A06 /* FunctionBinding.h in Headers */,
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,

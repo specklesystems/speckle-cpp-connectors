@@ -86,7 +86,7 @@ namespace {
 	Default constructor
  --------------------------------------------------------------------*/
 TriggerEvent::TriggerEvent() : BridgeMethod{"TriggerEvent", [&](TriggerEventWrapper arg) {
-		return run(arg.value);
+		return run(arg);
 }} {}
 
 

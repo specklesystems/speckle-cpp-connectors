@@ -19,7 +19,7 @@ namespace {
 	Default constructor
  --------------------------------------------------------------------*/
 SayHi::SayHi() : BridgeMethod{"SayHi", [&](SayHiWrapper arg) {
-		return run(arg.value);
+		return run(arg);
 }} {}
 
 

@@ -11,7 +11,7 @@ using namespace speckle::utility;
 	Default constructor
   --------------------------------------------------------------------*/
 UpdateConfig::UpdateConfig() : BridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
-		run(args.value);
+		run(args);
 }} {}
 
 

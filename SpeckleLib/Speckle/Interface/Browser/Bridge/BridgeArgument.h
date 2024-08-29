@@ -15,7 +15,7 @@ namespace speckle::interfac::browser::bridge {
 	 - Create the correct BridgeArgument subclass for the emthod/argument and populate it with the collected attributes
 	 Therefore, there is no need for this class to handle any deserialisation, and subclasses should only handle the core arguments data
 	*/
-	class BridgeArgument : public active::serialise::Package {
+	class BridgeArgument : public active::serialise::Cargo {
 	public:
 		
 		// MARK: - Constructors
@@ -99,7 +99,7 @@ namespace speckle::interfac::browser::bridge {
 	
 		///Definition of the argument for a JS callable method (enclosing the local function argument)
 	template<typename T, uint32_t Params = 1>
-	class JSArgType : public BridgeArgument {
+	class JSArgType : public BridgeArgument, public T {
 	public:
 		
 		/*!
@@ -112,42 +112,21 @@ namespace speckle::interfac::browser::bridge {
 				const speckle::utility::String& requestID,
 				const speckle::utility::String::Option& errorMessage = std::nullopt) : BridgeArgument{methodName, requestID, errorMessage} {
 				//Tag the argument object as a template where possible
-			if (auto arg = dynamic_cast<ArgumentBase*>(&value); arg != nullptr)
+			if (auto arg = dynamic_cast<ArgumentBase*>(this); arg != nullptr)
 				arg->setArgumentTemplate(true);
 		}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		JSArgType(const JSArgType& source) : BridgeArgument{source}, value{source.value} {}
-		
-		/*!
-		 Get the number of parameters in the argument
-		 @return The number of parameters
-		 */
-		uint32_t parameterCount() const override { return Params; }
-		/*!
-		 Fill an inventory with the cargo items
-		 @param inventory The inventory to receive the cargo items
-		 @return True if items have been added to the inventory
-		 */
-		bool fillInventory(active::serialise::Inventory& inventory) const override { return value.fillInventory(inventory); }
-		/*!
-		 Get the specified cargo
-		 @param item The inventory item to retrieve
-		 @return The requested cargo (nullptr on failure
-		 */
-		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override { return value.getCargo(item); }
+		JSArgType(const JSArgType& source) : BridgeArgument{source}, T{source} {}
 
-		// MARK: - Functions (mutating)
-
-		/*!
-		 Set to the default package content
-		 */
-		void setDefault() override { return value.setDefault(); }
-
-		T value;
-	};
+        /*!
+                    Get the number of parameters in the argument
+                    @return The number of parameters
+                    */
+        uint32_t parameterCount() const override { return Params; }
+    };
 	
 }
 
