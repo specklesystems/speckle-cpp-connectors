@@ -4,6 +4,8 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace active::setting;
 using namespace connector::interfac::browser::bridge;

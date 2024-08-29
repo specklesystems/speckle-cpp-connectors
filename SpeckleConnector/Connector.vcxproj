@@ -113,6 +113,7 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\GoAway.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\SayHi.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TestBridge.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\GoAway.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\SayHi.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TestBridge.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
     <ClInclude Include="Connector\Version.h" />

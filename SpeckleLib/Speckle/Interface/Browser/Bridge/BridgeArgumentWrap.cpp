@@ -5,6 +5,7 @@
 #include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferIn.h"
+#include "Speckle/Utility/Exception.h"
 
 using namespace active::serialise;
 using namespace active::serialise::json;
@@ -133,22 +134,32 @@ std::unique_ptr<BridgeArgument> BridgeArgumentWrap::makeArgument(const String& m
 	if (auto maker = m_argumentFactory.find(methodID); (maker != m_argumentFactory.end())) {
 		if (auto result = reinterpret_cast<BridgeArgument*>(maker->second(methodID, requestID)); result != nullptr) {
 			try {
-					//The argument is passed as an array of stringified JSON - first unpack the array
-				JSONTransport transport{Transport::Policy::verbose};
+				//The argument is passed as an array of stringified JSON - first unpack the array
+				JSONTransport transport;
 				ValueSetting args;
 				transport.receive(ValueSettingWrap{args}, Identity{}, argument);
-					//Then unify the argument strings into a single JSON argument
-				String unifiedArgument{"{"};
-				int32_t argIndex = 0;
-				bool isFirst = true;
-				for (auto& arg : args.operator std::vector<active::utility::String>()) {
-					if (isFirst)
-						isFirst = false;
-					else
-						unifiedArgument += ",";
-					unifiedArgument += "\"" + String{argIndex++} + "\":" + JSONTransport::convertFromJSONString(arg);
+				if (args.size() != result->parameterCount())
+					throw Exception{"Function called with wrong number of parameters"};
+				String unifiedArgument;
+				if (dynamic_cast<Package*>(result) != nullptr) {
+						//Unify the argument strings into a single JSON argument
+					unifiedArgument = "{";
+					int32_t argIndex = 0;
+					bool isFirst = true;
+					for (auto& arg : args.operator std::vector<active::utility::String>()) {
+						if (isFirst)
+							isFirst = false;
+						else
+							unifiedArgument += ",";
+						unifiedArgument += "\"" + String{argIndex++} + "\":" + JSONTransport::convertFromJSONString(arg);
+					}
+					unifiedArgument += "}";
+				} else {
+						//An item can only receive a single parameter
+					if (args.size() > 1)
+						throw Exception{"Function called with wrong number of parameters"};
+					unifiedArgument = args;
 				}
-				unifiedArgument += "}";
 					//And receive the unified argument into the method argument
 				transport.receive(std::forward<Cargo&&>(*result), Identity{}, unifiedArgument);
 				return std::unique_ptr<BridgeArgument>{result};

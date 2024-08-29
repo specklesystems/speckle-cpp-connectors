@@ -58,6 +58,12 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		bool hasError() const { return m_errorMessage.operator bool(); }
 		/*!
+		 Get the number of parameters in the argument
+		 @return The number of parameters
+		 */  
+		virtual uint32_t parameterCount() const { return 1;  }
+
+		/*!
 		 Get any error message relating to the arguments
 		 @return The error message (nullopt if no errors occurred)
 		 */
@@ -92,7 +98,7 @@ namespace speckle::interfac::browser::bridge {
 	};
 	
 		///Definition of the argument for a JS callable method (enclosing the local function argument)
-	template<typename T>
+	template<typename T, uint32_t Params = 1>
 	class JSArgType : public BridgeArgument {
 	public:
 		
@@ -115,6 +121,11 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		JSArgType(const JSArgType& source) : BridgeArgument{source}, value{source.value} {}
 		
+		/*!
+		 Get the number of parameters in the argument
+		 @return The number of parameters
+		 */
+		uint32_t parameterCount() const override { return Params; }
 		/*!
 		 Fill an inventory with the cargo items
 		 @param inventory The inventory to receive the cargo items

@@ -106,19 +106,7 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\BrowserBridge.h">
       <Filter>Speckle\Interface\Browser\Bridge</Filter>
     </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.h">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.h">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeMethod.h">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSBridgeMethodBase.h">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\FunctionBinding.h">
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\PlatformBinding.h">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClInclude>
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.h">
@@ -145,7 +133,19 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.h">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClInclude>
-    <ClInclude Include="Speckle\Interface\Browser\Bridge\JSArgumentBase.h">
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeArgument.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeArgumentWrap.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeChild.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeMethod.h">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeMethodBase.h">
       <Filter>Speckle\Interface\Browser\Bridge</Filter>
     </ClInclude>
   </ItemGroup>
@@ -171,12 +171,6 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BrowserBridge.cpp">
       <Filter>Speckle\Interface\Browser\Bridge</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgument.cpp">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClCompile>
-    <ClCompile Include="Speckle\Interface\Browser\Bridge\JSBridgeArgumentWrap.cpp">
-      <Filter>Speckle\Interface\Browser\Bridge</Filter>
-    </ClCompile>
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.cpp">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
     </ClCompile>
@@ -197,6 +191,12 @@
     </ClCompile>
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\ErrorReport.cpp">
       <Filter>Speckle\Interface\Browser\Bridge\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\BridgeArgument.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Browser\Bridge\BridgeArgumentWrap.cpp">
+      <Filter>Speckle\Interface\Browser\Bridge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

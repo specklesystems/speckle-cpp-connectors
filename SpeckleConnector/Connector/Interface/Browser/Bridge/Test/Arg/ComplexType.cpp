@@ -19,7 +19,7 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"Id"},
+		Identity{"id"},
 		Identity{"count"},
 		Identity{"thisIsABoolean"},
 	};
@@ -40,8 +40,8 @@ struct std::hash<connector::interfac::browser::bridge::ComplexType> {
   --------------------------------------------------------------------*/
 ComplexType::ComplexType() {
 		//This is the required test values
-	ID = String{std::hash<ComplexType>()(*this)} + " - I am a string";
 	count = static_cast<int32_t>(std::hash<ComplexType>()(*this));
+	ID = String{count} + " - I am a string";
 } //ComplexType::ComplexType
 
 
@@ -56,9 +56,9 @@ bool ComplexType::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[unID], unID, element },
-			{ fieldID[countID], countID, element },
-			{ fieldID[isTestID], isTestID, element },
+			{ fieldID[unID], unID, element, !ID.empty() },
+			{ fieldID[countID], countID, element, count != 0 },
+			{ fieldID[isTestID], isTestID, element, testBool },
 		},
 	}.withType(&typeid(ComplexType)));
 	return true;

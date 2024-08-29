@@ -7,7 +7,7 @@
 namespace connector::interfac::browser::bridge {
 	
 		///Argument for the parameters of a test message
-	using SayHiWrapper = speckle::interfac::browser::bridge::JSArgType<SayHiArg>;
+	using SayHiWrapper = speckle::interfac::browser::bridge::JSArgType<SayHiArg, 3>;
 
 	/*!
 	 JS Function class to return a test message based on sample data

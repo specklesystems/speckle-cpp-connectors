@@ -38,12 +38,8 @@ std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& arg
 	if (!hasBridge())
 		return nullptr;
 		//Retrieve the requested result
-<<<<<<< Updated upstream
 	using namespace json;
-	auto result = m_bridge.releaseResult(argument);
-=======
 	auto result = getBridge()->releaseResult(argument);
->>>>>>> Stashed changes
 	auto item = dynamic_cast<Cargo*>(result.get());
 	if (!item)
 		return nullptr;
