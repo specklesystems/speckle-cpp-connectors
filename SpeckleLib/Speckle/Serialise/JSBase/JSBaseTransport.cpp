@@ -11,6 +11,7 @@
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Active/Serialise/XML/Item/XMLDateTime.h"
+#include "Speckle/Environment/Platform.h"
 
 #include <JSON/JDOMWriter.hpp>
 #include <JSON/Value.hpp>
@@ -466,14 +467,9 @@ namespace {
   --------------------------------------------------------------------*/
 void JSBaseTransport::send(Cargo&& cargo, const Identity& identity, GS::Ref<JS::Base>& destination) const {
 	doJSBaseExport(cargo, JSBaseIdentity(identity).atStage(root), destination);
-
-	speckle::utility::String log{"\nSent:\n" + convertToJSON(destination)};
-#ifdef macintosh
-	std::cout << log.data();
-#else
-	OutputDebugString((LPCTSTR)log.operator std::u16string().data());
+#ifdef DEBUG
+	speckle::environment::platform()->writeToConsole("\nSent:\n" + convertToJSON(destination) + "\n");
 #endif
-
 } //JSBaseTransport::send
 
 
@@ -487,14 +483,9 @@ void JSBaseTransport::send(Cargo&& cargo, const Identity& identity, GS::Ref<JS::
 void JSBaseTransport::receive(Cargo&& cargo, const Identity& identity, GS::Ref<JS::Base> source) const {
 	if (!source)
 		throw std::system_error(makeJSBaseError(badSource));
-
-	speckle::utility::String log{"\nReceived:\n" + convertToJSON(source)};
-#ifdef macintosh
-	std::cout << log.data();
-#else
-	OutputDebugString((LPCTSTR)log.operator std::u16string().data());
+#ifdef DEBUG
+	speckle::environment::platform()->writeToConsole("\nReceived:\n" + convertToJSON(source) + "\n");
 #endif
-
 	doJSBaseImport(cargo, JSBaseIdentity(identity).atStage(root), *source);
 } //JSBaseTransport::receive
 

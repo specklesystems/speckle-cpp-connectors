@@ -25,7 +25,7 @@ namespace connector::interfac::browser::bridge {
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///?
+			///True if the UI renders in dark mode
 		bool isDarkTheme = true;
 		
 		// MARK: - Serialisation

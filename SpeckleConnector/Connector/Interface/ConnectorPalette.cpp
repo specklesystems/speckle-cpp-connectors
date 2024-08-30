@@ -165,9 +165,7 @@ BrowserPalette::BrowserPalette() :
 	install(std::make_shared<AccountBridge>());
 	install(std::make_shared<BaseBridge>());
 	install(std::make_shared<ConfigBridge>());
-#ifdef TESTING_MODE
 	install(std::make_shared<TestBridge>());
-#endif
 	InitBrowserControl();
 }
 

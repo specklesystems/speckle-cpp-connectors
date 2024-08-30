@@ -12,6 +12,8 @@
 		210CC88F2C81A98500610F58 /* Guid64.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC88D2C81A98500610F58 /* Guid64.h */; };
 		210CC8902C81A98500610F58 /* Guid64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC88E2C81A98500610F58 /* Guid64.cpp */; };
 		210CC8922C81AEBB00610F58 /* Guid32Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */; };
+		210CC89F2C81E34400610F58 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC89D2C81E34400610F58 /* Platform.cpp */; };
+		210CC8A02C81E34400610F58 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC89E2C81E34400610F58 /* Platform.h */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
 		2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
 		2193518C2C62655700E5A69C /* MenuEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 219351892C62655700E5A69C /* MenuEvent.h */; };
@@ -78,6 +80,8 @@
 		210CC88D2C81A98500610F58 /* Guid64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guid64.h; sourceTree = "<group>"; };
 		210CC88E2C81A98500610F58 /* Guid64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Guid64.cpp; sourceTree = "<group>"; };
 		210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Guid32Tests.cpp; sourceTree = "<group>"; };
+		210CC89D2C81E34400610F58 /* Platform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Platform.cpp; sourceTree = "<group>"; };
+		210CC89E2C81E34400610F58 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
 		212A87EF2AE4868C001EAFE7 /* SpeckleLib-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpeckleLib-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21329F472BFA611C00B5C7AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21329F632BFD452C00B5C7AF /* Environment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Environment.md; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 				2167E2782C4911E2000827D3 /* CMakeLists.txt */,
 				21F93AEA2B2F406D009A2C5B /* Addon.cpp */,
 				21F93AE92B2F406D009A2C5B /* Addon.h */,
+				210CC89D2C81E34400610F58 /* Platform.cpp */,
+				210CC89E2C81E34400610F58 /* Platform.h */,
 				21329F632BFD452C00B5C7AF /* Environment.md */,
 			);
 			path = Environment;
@@ -397,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
+				210CC8A02C81E34400610F58 /* Platform.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				210CC88F2C81A98500610F58 /* Guid64.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
@@ -542,6 +549,7 @@
 				21F69FA42C729400008B6A06 /* Record.cpp in Sources */,
 				21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
+				210CC89F2C81E34400610F58 /* Platform.cpp in Sources */,
 				21F69F962C71087A008B6A06 /* Account.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

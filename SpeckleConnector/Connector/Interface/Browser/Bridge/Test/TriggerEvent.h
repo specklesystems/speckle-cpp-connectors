@@ -7,8 +7,9 @@
 
 namespace connector::interfac::browser::bridge {
 	
+		///Argument parameter for a string
 	using StringHold = active::serialise::CargoHold<active::serialise::ValueWrap<speckle::utility::String>, speckle::utility::String>;
-		///Argument for the parameters of a test message
+		///Argument type for this method
 	using TriggerEventWrapper = speckle::interfac::browser::bridge::JSArgType<StringHold>;
 
 	/*!

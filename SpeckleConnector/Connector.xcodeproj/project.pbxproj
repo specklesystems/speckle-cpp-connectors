@@ -41,7 +41,6 @@
 		21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE42C78D23B00FD64FC /* ConnectorConfig.cpp */; };
 		21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */; };
 		21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF02C78D38000FD64FC /* GoAway.cpp */; };
-		21B67CF42C78D4D300FD64FC /* ComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF22C78D4D300FD64FC /* ComplexType.cpp */; };
 		21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
@@ -303,8 +302,6 @@
 		21B67CE92C78D27200FD64FC /* DocumentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentInfo.h; sourceTree = "<group>"; };
 		21B67CEF2C78D38000FD64FC /* GoAway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoAway.h; sourceTree = "<group>"; };
 		21B67CF02C78D38000FD64FC /* GoAway.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoAway.cpp; sourceTree = "<group>"; };
-		21B67CF22C78D4D300FD64FC /* ComplexType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComplexType.cpp; sourceTree = "<group>"; };
-		21B67CF32C78D4D300FD64FC /* ComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexType.h; sourceTree = "<group>"; };
 		21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetComplexType.cpp; sourceTree = "<group>"; };
 		21B67CF62C78D4DE00FD64FC /* GetComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComplexType.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
@@ -946,8 +943,6 @@
 		21B67CE22C78D1FB00FD64FC /* Arg */ = {
 			isa = PBXGroup;
 			children = (
-				21B67CF22C78D4D300FD64FC /* ComplexType.cpp */,
-				21B67CF32C78D4D300FD64FC /* ComplexType.h */,
 				21B67CE02C78D1FB00FD64FC /* SayHiArg.cpp */,
 				21B67CE12C78D1FB00FD64FC /* SayHiArg.h */,
 			);
@@ -1301,7 +1296,6 @@
 				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
-				21B67CF42C78D4D300FD64FC /* ComplexType.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
 				21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */,

@@ -1,6 +1,7 @@
 #ifndef SPECKLE_INTERFACE_JS_PORTAL
 #define SPECKLE_INTERFACE_JS_PORTAL
 
+#include "Speckle/Environment/Platform.h"
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Utility/String.h"
@@ -72,14 +73,9 @@ namespace speckle::interfac::browser {
 #ifdef ARCHICAD
 		try {
 			auto engine = getJSEngine();
-
-			speckle::utility::String log{"\nExecuted:\n" + code};
-#ifdef macintosh
-			std::cout << log.data();
-#else
-			OutputDebugString((LPCTSTR)log.operator std::u16string().data());
+#ifdef DEBUG
+			speckle::environment::platform()->writeToConsole("\nExecuted:\n" + code + "\n");
 #endif
-
 			auto result = engine ? engine->ExecuteJS(code) : false;
 			return result;
 		} catch(...) {
