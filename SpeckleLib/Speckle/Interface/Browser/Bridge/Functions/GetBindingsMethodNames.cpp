@@ -12,7 +12,7 @@ using namespace speckle::interfac::browser::bridge;
  
 	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-GetBindingsMethodNames::GetBindingsMethodNames(BrowserBridge& bridge) : m_bridge{bridge}, JSFunction{"GetBindingsMethodNames", [&]() {
+GetBindingsMethodNames::GetBindingsMethodNames() : JSFunction{"GetBindingsMethodNames", [&]() {
 		return getMethodNames();
 	}} {
 } //GetBindingsMethodNames::GetBindingsMethodNames
@@ -24,5 +24,5 @@ GetBindingsMethodNames::GetBindingsMethodNames(BrowserBridge& bridge) : m_bridge
 	return: The supported method names
   --------------------------------------------------------------------*/
 std::unique_ptr<WrappedValue> GetBindingsMethodNames::getMethodNames() const {
-	return std::make_unique<WrappedValue>(m_bridge.getMethodNames());
+	return (hasBridge()) ? std::make_unique<WrappedValue>(getBridge()->getMethodNames()) : nullptr;
 } //GetBindingsMethodNames::getMethodNames

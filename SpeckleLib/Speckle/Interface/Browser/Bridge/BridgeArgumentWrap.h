@@ -2,13 +2,13 @@
 #define SPECKLE_INTERFACE_JS_BRIDGE_ARGUMENT_WRAP
 
 #include "Active/Serialise/Package/Package.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgument.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgument.h"
 
 #include <unordered_map>
 
 namespace speckle::interfac::browser::bridge {
 	
-	class JSBridgeArgument;
+	class BridgeArgument;
 
 	/*!
 		Factory function to make an argument object
@@ -19,7 +19,11 @@ namespace speckle::interfac::browser::bridge {
 	template<typename T>
 	void* constructArgument(const speckle::utility::String& method, const speckle::utility::String& request) {
 		try {
-			return new T(method, request);
+			auto result = new T(method, request);
+				//Tag the argument object as a template where possible
+			if (auto arg = dynamic_cast<ArgumentBase*>(result); arg != nullptr)
+				arg->setArgumentTemplate(true);
+			return result;
 		} catch(...) {
 			return nullptr;	//Object constructors should throw an exception if incoming data isn't viable (NB: only use for unrecoverable problems)
 		}
@@ -28,7 +32,7 @@ namespace speckle::interfac::browser::bridge {
 	/*!
 	 Wrapper for bridge function arguments, determing the target requirement on demand
 	*/
-	class JSBridgeArgumentWrap : public active::serialise::Package {
+	class BridgeArgumentWrap : public active::serialise::Package {
 	public:
 		
 		// MARK: - Constructors
@@ -36,15 +40,15 @@ namespace speckle::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 */
-		JSBridgeArgumentWrap() {}
+		BridgeArgumentWrap() {}
 		/*!
 		 Copy constructor
 		 */
-		JSBridgeArgumentWrap(const JSBridgeArgumentWrap&) = default;
+		BridgeArgumentWrap(const BridgeArgumentWrap&) = default;
 		/*!
 		 Destructor
 		 */
-		~JSBridgeArgumentWrap();
+		~BridgeArgumentWrap();
 		
 		// MARK: - Operators
 
@@ -60,7 +64,7 @@ namespace speckle::interfac::browser::bridge {
 		 Get the bridge function argument
 		 @return The bridge argument (nullptr on failure)
 		 */
-		std::shared_ptr<JSBridgeArgument> get() const { return m_argument; }
+		std::shared_ptr<BridgeArgument> get() const { return m_argument; }
 		/*!
 		 Get the associated method name for the argument
 		 @return The method name (empty on failure)
@@ -103,7 +107,7 @@ namespace speckle::interfac::browser::bridge {
 		 @param argument The method argument data (serialised)
 		 @return An argument object (nullptr on failure)
 		 */
-		static std::unique_ptr<JSBridgeArgument> makeArgument(const speckle::utility::String& methodID,
+		static std::unique_ptr<BridgeArgument> makeArgument(const speckle::utility::String& methodID,
 															  const speckle::utility::String& requestID,
 															  const speckle::utility::String& argument);
 		
@@ -111,7 +115,7 @@ namespace speckle::interfac::browser::bridge {
 		 Add a factory method for constructing the arguments of a specified bridge method
 		 @param method The name of the target method
 		 */
-		template<typename T> requires std::is_base_of_v<JSBridgeArgument, T>
+		template<typename T> requires std::is_base_of_v<BridgeArgument, T>
 		static void defineArgument(const speckle::utility::String& method) {
 			m_argumentFactory[method] = constructArgument<T>;
 		}
@@ -134,7 +138,7 @@ namespace speckle::interfac::browser::bridge {
 			///The function arguments as JSON
 		speckle::utility::String m_argsJSON;
 			///The wrapped function arguments
-		mutable std::shared_ptr<JSBridgeArgument> m_argument;
+		mutable std::shared_ptr<BridgeArgument> m_argument;
 	};
 	
 }

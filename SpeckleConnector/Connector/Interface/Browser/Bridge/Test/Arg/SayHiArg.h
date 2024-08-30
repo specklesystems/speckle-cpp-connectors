@@ -9,7 +9,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 Object for testing JS comms (with TestBridge binding)
 	 */
-	class SayHiArg final : public active::serialise::Package {
+	class SayHiArg : public active::serialise::Package {
 	public:
 
 		// MARK: - Types

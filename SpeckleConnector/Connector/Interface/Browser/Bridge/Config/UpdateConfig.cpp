@@ -10,8 +10,8 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-UpdateConfig::UpdateConfig() : JSBridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
-		run(args.value);
+UpdateConfig::UpdateConfig() : BridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
+		run(args);
 }} {}
 
 

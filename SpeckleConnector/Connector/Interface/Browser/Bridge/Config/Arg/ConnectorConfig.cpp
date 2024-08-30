@@ -1,6 +1,7 @@
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/PackageWrap.h"
 
 #include <array>
 
@@ -16,7 +17,7 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"DarkTheme"},
+		Identity{"darkTheme"},
 	};
 
 }

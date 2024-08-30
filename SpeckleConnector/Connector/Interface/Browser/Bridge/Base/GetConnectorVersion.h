@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_VERSION
 #define CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_VERSION
 
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -10,7 +10,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 JS Function class to retrieve the names of the methods supported by the bridge
 	*/
-	class GetConnectorVersion : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetConnectorVersion : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors

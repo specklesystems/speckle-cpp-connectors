@@ -5,6 +5,7 @@
 #include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Interface/Browser/JSFunction.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeChild.h"
 
 namespace speckle::interfac::browser::bridge {
 	
@@ -15,16 +16,15 @@ namespace speckle::interfac::browser::bridge {
 	/*!
 	 JS Function class to retrieve the names of the methods supported by the bridge
 	*/
-	class GetBindingsMethodNames : public JSFunction<void, WrappedValue, PlatformBinding> {
+	class GetBindingsMethodNames : public JSFunction<void, WrappedValue, PlatformBinding>, public BridgeChild {
 	public:
 
 		// MARK: - Constructors
 		
 		/*!
-		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
+		 Default constructor
 		 */
-		GetBindingsMethodNames(BrowserBridge& bridge);
+		GetBindingsMethodNames();
 		
 	private:
 		/*!
@@ -32,9 +32,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return The supported method names
 		 */
 		std::unique_ptr<WrappedValue> getMethodNames() const;
-
-			///Methods supported by the bridge
-		BrowserBridge& m_bridge;
 	};
 
 }

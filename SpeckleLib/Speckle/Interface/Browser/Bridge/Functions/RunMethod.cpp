@@ -1,6 +1,7 @@
 #include "Speckle/Interface/Browser/Bridge/Functions/RunMethod.h"
 
 #include "Active/Serialise/CargoHold.h"
+#include "Active/Serialise/Null.h"
 #include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/ErrorReport.h"
@@ -28,7 +29,7 @@ namespace {
 	 @param argument The method argument (also carries the method name etc)
 	 @return The formatted message
 	 */
-	String formattedErrorMessage(const String& message, const JSBridgeArgument& argument) {
+	String formattedErrorMessage(const String& message, const BridgeArgument& argument) {
 		return "Exception thrown by the Speckle connector executing method '" + argument.getMethodName() + "': \"" + message + "\"";
 	} //formattedErrorMessage
 
@@ -39,7 +40,7 @@ namespace {
 	 @param method The bridge method to execute
 	 @param argument The method argument
 	 */
-	void executeMethod(BrowserBridge& bridge, Functional<>& method, JSBridgeArgument& argument) {
+	void executeMethod(BrowserBridge& bridge, Functional<>& method, BridgeArgument& argument) {
 		std::optional<ErrorReport> errorReport;
 			//If the argument validation failed (during deserialisation) then we simply fill in the exception report without running the method
 		if (argument.hasError())
@@ -49,8 +50,11 @@ namespace {
 					//Execute the method with the supplied argument
 				auto result = method.execute(argument);
 					//Cache the result in the bridge as required (when we have a request ID and a non-void result)
-				if (result && !argument.getRequestID().empty())
+				if (!argument.getRequestID().empty()) {
+					if (!result)
+						result = std::make_unique<Null>();	//Callers need a null response even if the function has no return value
 					bridge.cacheResult(std::move(result), argument.getRequestID());
+				}
 				return;
 			} catch(std::runtime_error e) {
 					//NB: This will capture the response from both Speckle and low-level system/runtime error exceptions
@@ -80,7 +84,7 @@ namespace {
 		 @param method The bridge method to execute
 		 @param argument The method argument
 		 */
-		RunBrowserMethod(BrowserBridge& bridge, Functional<>& method, std::shared_ptr<JSBridgeArgument> argument) :
+		RunBrowserMethod(BrowserBridge& bridge, Functional<>& method, std::shared_ptr<BridgeArgument> argument) :
 				m_bridge{bridge}, m_method{method}, m_argument{argument} {}
 
 		/*!
@@ -97,7 +101,7 @@ namespace {
 			///The bridge method to execute
 		Functional<>& m_method;
 			///The method argument
-		std::shared_ptr<JSBridgeArgument> m_argument;
+		std::shared_ptr<BridgeArgument> m_argument;
 	};
 #endif
 	
@@ -105,12 +109,9 @@ namespace {
 
 /*--------------------------------------------------------------------
 	Constructor
- 
-	bridge: The parent bridge object (provides access to bridge methods)
   --------------------------------------------------------------------*/
-RunMethod::RunMethod(BrowserBridge& bridge) : m_bridge{bridge},
-		JSFunction{"RunMethod", [&](auto args) {
-			runMethod(args);
+RunMethod::RunMethod() : JSFunction{"RunMethod", [&](auto args) {
+		runMethod(args);
 	}} {
 } //RunMethod::RunMethod
 
@@ -120,18 +121,18 @@ RunMethod::RunMethod(BrowserBridge& bridge) : m_bridge{bridge},
  
 	arguments: The method arguments
   --------------------------------------------------------------------*/
-void RunMethod::runMethod(JSBridgeArgumentWrap& argument) const {
+void RunMethod::runMethod(BridgeArgumentWrap& argument) const {
 		//Confirm argument and function validity
-	if (!argument)
+	if (!argument || !hasBridge())
 		return;
-	auto method = m_bridge.getMethod(argument.getMethodName());
+	auto method = getBridge()->getMethod(argument.getMethodName());
 	if (method == nullptr)
 		return;
 		//NB: Implement the equivalent run scheduling for other platforms as required
 #ifdef ARCHICAD
 	GS::MessageLoopExecutor executor;
 	try {
-		executor.Execute(new RunBrowserMethod(m_bridge, *method, argument.get()));
+		executor.Execute(new RunBrowserMethod(*getBridge(), *method, argument.get()));
 	}
 	catch (...) {}
 #endif

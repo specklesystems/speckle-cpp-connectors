@@ -19,9 +19,9 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"Location"},
-		Identity{"Name"},
-		Identity{"Id"},
+		Identity{"location"},
+		Identity{"name"},
+		Identity{"id"},
 	};
 
 }

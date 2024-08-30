@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_GET_APP_VERSION
 #define CONNECTOR_INTERFACE_BRIDGE_GET_APP_VERSION
 
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -10,7 +10,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 JS Function class to get the host application version
 	*/
-	class GetSourceApplicationVersion : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetSourceApplicationVersion : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors

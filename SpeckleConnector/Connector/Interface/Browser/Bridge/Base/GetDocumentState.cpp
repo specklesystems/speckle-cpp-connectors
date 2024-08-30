@@ -1,7 +1,6 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentState.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Database/Model/Card/ModelCardDatabase.h"
 
 using namespace active::container;
@@ -19,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetDocumentState::GetDocumentState() : JSBridgeMethod{"GetDocumentState", [&]() {
+GetDocumentState::GetDocumentState() : BridgeMethod{"GetDocumentState", [&]() {
 		return run();
 }} {}
 

@@ -7,7 +7,7 @@ using namespace connector::interfac::browser::bridge;
 /*--------------------------------------------------------------------
 	Default constructor
  --------------------------------------------------------------------*/
-GoAway::GoAway() : JSBridgeMethod{"GoAway", [&]() {
+GoAway::GoAway() : BridgeMethod{"GoAway", [&]() {
 		return run();
 }} {}
 

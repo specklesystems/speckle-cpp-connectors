@@ -2,6 +2,7 @@
 #define CONNECTOR_INTERFACE_BRIDGE_CONNECTOR_CONFIG
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Interface/Browser/Bridge/ArgumentBase.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -24,7 +25,7 @@ namespace connector::interfac::browser::bridge {
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///?
+			///True if the UI renders in dark mode
 		bool isDarkTheme = true;
 		
 		// MARK: - Serialisation

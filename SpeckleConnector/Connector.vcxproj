@@ -107,12 +107,12 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\GetComplexType.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\GoAway.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\SayHi.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TestBridge.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
   </ItemGroup>
@@ -134,12 +134,12 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\GetComplexType.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\GoAway.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\SayHi.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TestBridge.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
     <ClInclude Include="Connector\Version.h" />
@@ -576,7 +576,7 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TESTING_MODE;ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -605,7 +605,7 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
-      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STATD.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STATD.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
@@ -793,7 +793,7 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
-      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STAT.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;msvcrt.lib;msvcprt.lib;IPHLPAPI.lib;Wininet.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STAT.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;msvcrt.lib;msvcprt.lib;IPHLPAPI.lib;Wininet.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>

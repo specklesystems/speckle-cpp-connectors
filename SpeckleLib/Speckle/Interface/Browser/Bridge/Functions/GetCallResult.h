@@ -5,7 +5,8 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Interface/Browser/JSFunction.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeChild.h"
 
 namespace speckle::interfac::browser::bridge {
 	
@@ -17,21 +18,15 @@ namespace speckle::interfac::browser::bridge {
 	/*!
 	 Function to retrieve the names of the methods supported by the bridge
 	*/
-	class GetCallResult : public JSFunction<WrappedResultArg, WrappedResultArg, PlatformBinding> {
+	class GetCallResult : public JSFunction<WrappedResultArg, WrappedResultArg, PlatformBinding>, public BridgeChild {
 	public:
 
 		// MARK: - Constructors
 		
 		/*!
-		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
+		 Default constructor
 		 */
-		GetCallResult(BrowserBridge& bridge);
-		/*!
-		 Copy constructor
-		 @param source The object to copy
-		 */
-		GetCallResult(const GetCallResult& source) = default;
+		GetCallResult();
 		
 	private:
 		/*!
@@ -40,9 +35,6 @@ namespace speckle::interfac::browser::bridge {
 		 @return The requested result (nullptr on failure)
 		 */
 		std::unique_ptr<WrappedResultArg> getResult(WrappedResultArg& argument) const;
-
-			///The parent browser bridge
-		BrowserBridge& m_bridge;
 	};
 
 }

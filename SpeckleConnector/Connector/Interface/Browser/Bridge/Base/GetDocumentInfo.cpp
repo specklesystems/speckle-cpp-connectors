@@ -1,7 +1,6 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentInfo.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 
 using namespace active::container;
@@ -18,7 +17,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetDocumentInfo::GetDocumentInfo() : JSBridgeMethod{"GetDocumentInfo", [&]() {
+GetDocumentInfo::GetDocumentInfo() : BridgeMethod{"GetDocumentInfo", [&]() {
 		return run();
 }} {}
 

@@ -1,15 +1,14 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
 #define CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
 
-#include "Connector/Interface/Browser/Bridge/Test/Arg/ComplexType.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 
 	/*!
 	 JS Function class to return a specific object type
 	*/
-	class GetComplexType : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetComplexType : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors

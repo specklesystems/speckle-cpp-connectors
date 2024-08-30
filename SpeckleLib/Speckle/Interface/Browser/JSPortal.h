@@ -1,6 +1,7 @@
 #ifndef SPECKLE_INTERFACE_JS_PORTAL
 #define SPECKLE_INTERFACE_JS_PORTAL
 
+#include "Speckle/Environment/Platform.h"
 #include "Speckle/Interface/Browser/JSObject.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Utility/String.h"
@@ -8,6 +9,8 @@
 #ifdef ARCHICAD
 #include <JavascriptEngine.hpp>
 #endif
+
+#include <iostream>
 
 namespace speckle::interfac::browser {
 	
@@ -70,6 +73,9 @@ namespace speckle::interfac::browser {
 #ifdef ARCHICAD
 		try {
 			auto engine = getJSEngine();
+#ifdef DEBUG
+			speckle::environment::platform()->writeToConsole("\nExecuted:\n" + code + "\n");
+#endif
 			auto result = engine ? engine->ExecuteJS(code) : false;
 			return result;
 		} catch(...) {
@@ -94,10 +100,13 @@ namespace speckle::interfac::browser {
 			auto engine = getJSEngine();
 			if (!engine)
 				return false;
+				//Define the JS object
 			JS::Object* acObject = new JS::Object(object->getName());
+				//Add all the functions supported by this object
 			for (auto& function : *object) {
 				acObject->AddItem(new JS::Function(function->getName(), [&](GS::Ref<JS::Base> args) {
 					try {
+							//NB: All JS functions enter at this point
 						return function->execute(args);
 					} catch(...) {
 						///TODO: Need to discuss the best course of action to notify of a failure
@@ -105,6 +114,7 @@ namespace speckle::interfac::browser {
 					return GS::Ref<JS::Base>{};
 				}));
 			}
+				//And finally register the object
 			if (engine->RegisterAsynchJSObject(acObject)) {
 				base::push_back(object);
 				object->setPortal(*this);

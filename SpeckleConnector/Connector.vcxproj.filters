@@ -137,11 +137,11 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TestBridge.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.cpp">
-      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
-    </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,11 +217,11 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TestBridge.h">
       <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\ComplexType.h">
-      <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
-    </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.h">
       <Filter>Connector\Interface\Browser\Bridge\Test\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h">
+      <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

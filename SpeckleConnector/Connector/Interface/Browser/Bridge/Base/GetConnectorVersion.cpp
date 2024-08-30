@@ -19,7 +19,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
  --------------------------------------------------------------------*/
-GetConnectorVersion::GetConnectorVersion() : JSBridgeMethod{"GetConnectorVersion", [&]() {
+GetConnectorVersion::GetConnectorVersion() : BridgeMethod{"GetConnectorVersion", [&]() {
 		return run();
 }} {}
 

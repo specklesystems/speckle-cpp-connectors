@@ -1,14 +1,14 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_GET_DOCUMENT_INFO
 #define CONNECTOR_INTERFACE_BRIDGE_GET_DOCUMENT_INFO
 
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
 	 JS Function class to retrieve the information about the active document
 	*/
-	class GetDocumentInfo : public speckle::interfac::browser::bridge::JSBridgeMethod<void, active::serialise::Cargo> {
+	class GetDocumentInfo : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
 
 		// MARK: - Constructors

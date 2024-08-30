@@ -21,7 +21,7 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"model"},
+		Identity{"models"},
 	};
 
 }

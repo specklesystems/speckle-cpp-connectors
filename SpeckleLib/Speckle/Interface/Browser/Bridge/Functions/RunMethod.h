@@ -3,7 +3,8 @@
 
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Interface/Browser/JSFunction.h"
-#include "Speckle/Interface/Browser/Bridge/JSBridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeArgumentWrap.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeChild.h"
 
 namespace speckle::interfac::browser::bridge {
 	
@@ -12,31 +13,22 @@ namespace speckle::interfac::browser::bridge {
 	/*!
 	 Function to retrieve the names of the methods supported by the bridge
 	*/
-	class RunMethod : public JSFunction<JSBridgeArgumentWrap, void, PlatformBinding> {
+	class RunMethod : public JSFunction<BridgeArgumentWrap, void, PlatformBinding>, public BridgeChild {
 	public:
 
 		// MARK: - Constructors
 		
 		/*!
-		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
+		 Default constructor
 		 */
-		RunMethod(BrowserBridge& bridge);
-		/*!
-		 Copy constructor
-		 @param source The object to copy
-		 */
-		RunMethod(const RunMethod& source) = default;
+		RunMethod();
 		
 	private:
 		/*!
 		 Run a specified bridge method
 		 @param argument The method arguments
 		 */
-		void runMethod(JSBridgeArgumentWrap& argument) const;
-
-			///The parent browser bridge
-		BrowserBridge& m_bridge;
+		void runMethod(BridgeArgumentWrap& argument) const;
 	};
 
 }

@@ -1,14 +1,14 @@
 #ifndef CONNECTOR_INTERFACE_BRIDGE_GO_AWAY
 #define CONNECTOR_INTERFACE_BRIDGE_GO_AWAY
 
-#include "Speckle/Interface/Browser/Bridge/JSBridgeMethod.h"
+#include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
 	 JS Function class to print a fixed message to the console
 	*/
-	class GoAway : public speckle::interfac::browser::bridge::JSBridgeMethod<void, void> {
+	class GoAway : public speckle::interfac::browser::bridge::BridgeMethod<void, void> {
 	public:
 
 		// MARK: - Constructors

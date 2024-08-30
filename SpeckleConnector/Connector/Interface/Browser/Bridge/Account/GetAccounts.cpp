@@ -19,7 +19,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetAccounts::GetAccounts() : JSBridgeMethod{"GetAccounts", [&]() {
+GetAccounts::GetAccounts() : BridgeMethod{"GetAccounts", [&]() {
 		return run();
 	}} {}
 

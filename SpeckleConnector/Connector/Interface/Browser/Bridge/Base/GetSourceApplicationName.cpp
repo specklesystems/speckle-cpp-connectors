@@ -18,7 +18,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GetSourceApplicationName::GetSourceApplicationName() : JSBridgeMethod{"GetSourceApplicationName", [&]() {
+GetSourceApplicationName::GetSourceApplicationName() : BridgeMethod{"GetSourceApplicationName", [&]() {
 		return run();
 }} {}
 
