@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC86D2C7E879700610F58 /* ArgumentBase.h */; };
 		210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC87D2C80CD2A00610F58 /* BridgeChild.h */; };
+		210CC88F2C81A98500610F58 /* Guid64.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC88D2C81A98500610F58 /* Guid64.h */; };
+		210CC8902C81A98500610F58 /* Guid64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC88E2C81A98500610F58 /* Guid64.cpp */; };
+		210CC8922C81AEBB00610F58 /* Guid32Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
 		2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
 		2193518C2C62655700E5A69C /* MenuEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 219351892C62655700E5A69C /* MenuEvent.h */; };
@@ -72,6 +75,9 @@
 /* Begin PBXFileReference section */
 		210CC86D2C7E879700610F58 /* ArgumentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgumentBase.h; sourceTree = "<group>"; };
 		210CC87D2C80CD2A00610F58 /* BridgeChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeChild.h; sourceTree = "<group>"; };
+		210CC88D2C81A98500610F58 /* Guid64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guid64.h; sourceTree = "<group>"; };
+		210CC88E2C81A98500610F58 /* Guid64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Guid64.cpp; sourceTree = "<group>"; };
+		210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Guid32Tests.cpp; sourceTree = "<group>"; };
 		212A87EF2AE4868C001EAFE7 /* SpeckleLib-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpeckleLib-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21329F472BFA611C00B5C7AF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21329F632BFD452C00B5C7AF /* Environment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Environment.md; sourceTree = "<group>"; };
@@ -262,6 +268,8 @@
 				21B67CFE2C7CE15100FD64FC /* Exception.h */,
 				219351AC2C62CC1A00E5A69C /* Guid.cpp */,
 				219351AD2C62CC1A00E5A69C /* Guid.h */,
+				210CC88E2C81A98500610F58 /* Guid64.cpp */,
+				210CC88D2C81A98500610F58 /* Guid64.h */,
 				219351AE2C62CC1A00E5A69C /* String.cpp */,
 				219351AF2C62CC1A00E5A69C /* String.h */,
 			);
@@ -271,6 +279,7 @@
 		219987FA2BD708BC0035E5EA /* SpeckleLibDoctest */ = {
 			isa = PBXGroup;
 			children = (
+				210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */,
 				218953A92C0F29FB0078F182 /* EventTests */,
 			);
 			path = SpeckleLibDoctest;
@@ -389,6 +398,7 @@
 			files = (
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
+				210CC88F2C81A98500610F58 /* Guid64.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
 				210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */,
 				2193518C2C62655700E5A69C /* MenuEvent.h in Headers */,
@@ -508,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210CC8922C81AEBB00610F58 /* Guid32Tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +535,7 @@
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
 				21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */,
 				2193519B2C6278D900E5A69C /* SelectionSubscriber.cpp in Sources */,
+				210CC8902C81A98500610F58 /* Guid64.cpp in Sources */,
 				21F69EBE2C63C954008B6A06 /* Link.cpp in Sources */,
 				219351B32C62CC1A00E5A69C /* String.cpp in Sources */,
 				219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */,

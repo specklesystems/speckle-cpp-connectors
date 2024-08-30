@@ -7,6 +7,7 @@
 #include "Speckle/Interface/Browser/Bridge/Functions/GetBindingsMethodNames.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/RunMethod.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/GetCallResult.h"
+#include "Speckle/Utility/Guid64.h"
 
 #include <algorithm>
 #include <map>
@@ -91,7 +92,7 @@ void BrowserBridge::sendEvent(speckle::utility::String eventName, std::unique_pt
 		return;
 	}
 		//Generate a custom requestID for the data
-	String requestID;
+	String requestID{String{Guid64{}} + "_" + eventName};
 	cacheResult(std::move(data), requestID, false);
 		//Send a notification using the event name and request ID to signal that the data is available
 	m_portal->execute(getName() + ".emitResponseReady('" + eventName + "','" + requestID + "')");
