@@ -49,6 +49,7 @@
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
     <ClInclude Include="Speckle\Utility\Exception.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
+    <ClInclude Include="Speckle\Utility\Guid64.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +68,7 @@
     <ClCompile Include="Speckle\Record\Credentials\Account.cpp" />
     <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
+    <ClCompile Include="Speckle\Utility\Guid64.cpp" />
     <ClCompile Include="Speckle\Utility\String.cpp" />
   </ItemGroup>
   <ItemGroup>

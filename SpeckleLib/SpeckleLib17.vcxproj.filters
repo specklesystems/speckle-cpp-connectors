@@ -148,6 +148,9 @@
     <ClInclude Include="Speckle\Interface\Browser\Bridge\BridgeMethodBase.h">
       <Filter>Speckle\Interface\Browser\Bridge</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Utility\Guid64.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\Content\Link.cpp">
@@ -197,6 +200,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BridgeArgumentWrap.cpp">
       <Filter>Speckle\Interface\Browser\Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\Guid64.cpp">
+      <Filter>Speckle\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
