@@ -24,8 +24,8 @@
 		21B67D002C7CE15100FD64FC /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67CFE2C7CE15100FD64FC /* Exception.h */; };
 		21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67D092C7E0E8D00FD64FC /* ErrorReport.h */; };
 		21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */; };
-		21D0BD202C86F0280077E104 /* AccountDBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD1D2C86F0280077E104 /* AccountDBase.cpp */; };
-		21D0BD212C86F0280077E104 /* AccountDBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD1E2C86F0280077E104 /* AccountDBase.h */; };
+		21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */; };
+		21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD1E2C86F0280077E104 /* AccountDatabase.h */; };
 		21D0BD2B2C86FC350077E104 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD252C86FC350077E104 /* Record.cpp */; };
 		21D0BD2C2C86FC350077E104 /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD262C86FC350077E104 /* Record.h */; };
 		21D0BD312C86FE090077E104 /* Index.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD2D2C86FE090077E104 /* Index.h */; };
@@ -113,8 +113,8 @@
 		21B67CFE2C7CE15100FD64FC /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		21B67D092C7E0E8D00FD64FC /* ErrorReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorReport.h; sourceTree = "<group>"; };
 		21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReport.cpp; sourceTree = "<group>"; };
-		21D0BD1D2C86F0280077E104 /* AccountDBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AccountDBase.cpp; sourceTree = "<group>"; };
-		21D0BD1E2C86F0280077E104 /* AccountDBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDBase.h; sourceTree = "<group>"; };
+		21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AccountDatabase.cpp; sourceTree = "<group>"; };
+		21D0BD1E2C86F0280077E104 /* AccountDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDatabase.h; sourceTree = "<group>"; };
 		21D0BD252C86FC350077E104 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
 		21D0BD262C86FC350077E104 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		21D0BD2D2C86FE090077E104 /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Index.h; sourceTree = "<group>"; };
@@ -279,8 +279,8 @@
 		21D0BD1F2C86F0280077E104 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				21D0BD1D2C86F0280077E104 /* AccountDBase.cpp */,
-				21D0BD1E2C86F0280077E104 /* AccountDBase.h */,
+				21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */,
+				21D0BD1E2C86F0280077E104 /* AccountDatabase.h */,
 				21D0BD302C86FE090077E104 /* Identity */,
 				21D0BD272C86FC350077E104 /* Content */,
 			);
@@ -419,7 +419,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21D0BD212C86F0280077E104 /* AccountDBase.h in Headers */,
+				21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */,
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
 				210CC8A02C81E34400610F58 /* Platform.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
@@ -571,7 +571,7 @@
 				21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
 				210CC89F2C81E34400610F58 /* Platform.cpp in Sources */,
-				21D0BD202C86F0280077E104 /* AccountDBase.cpp in Sources */,
+				21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */,
 				21F69F962C71087A008B6A06 /* Account.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@ namespace speckle::database {
 	/*!
 		A base class for an addon
 	*/
-	class AccountDBase {
+	class AccountDatabase {
 	public:
 
 		// MARK: - Constructors
@@ -18,16 +18,12 @@ namespace speckle::database {
 		 Constructor
 		 @param path Path to the database file
 		 */
-		AccountDBase(const active::file::Path& path);
-		/*!
-		 Copy constructor
-		 @param source The object to copy
-		 */
-		AccountDBase(const AccountDBase& source) {}
+		AccountDatabase(const active::file::Path& path);
+		AccountDatabase(const AccountDatabase&) = delete;
 		/*!
 		 Destructor
 		 */
-		~AccountDBase();
+		~AccountDatabase();
 		
 		// MARK: - Functions (const)
 		

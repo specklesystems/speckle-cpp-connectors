@@ -3,7 +3,7 @@
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Setting/ValueSetting.h"
 #include "Active/Setting/Values/StringValue.h"
-#include "Speckle/Database/AccountDBase.h"
+#include "Speckle/Database/AccountDatabase.h"
 
 using namespace active::container;
 using namespace active::database;
@@ -33,7 +33,7 @@ namespace speckle::database {
 	using AccountsEngine = SQLiteEngine<Account, Account, JSONTransport, active::utility::String, active::utility::String>;
 
 		///Accounts database storage declaration
-	class AccountDBase::Store : public active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
+	class AccountDatabase::Store : public active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
 			active::utility::String, active::utility::String, active::utility::String, active::utility::String> {
 		using base = active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
 				active::utility::String, active::utility::String, active::utility::String, active::utility::String>;
@@ -47,7 +47,7 @@ namespace speckle::database {
  
 	path: Path to the database file
   --------------------------------------------------------------------*/
-AccountDBase::AccountDBase(const active::file::Path& path) {
+AccountDatabase::AccountDatabase(const active::file::Path& path) {
 	m_store = std::make_unique<Store>(
 			//Engine
 		std::make_unique<AccountsEngine>(path,
@@ -65,7 +65,15 @@ AccountDBase::AccountDBase(const active::file::Path& path) {
 			}
 		)
 	);
-} //AccountDBase::AccountDBase
+} //AccountDatabase::AccountDatabase
+
+
+/*--------------------------------------------------------------------
+	Copy constructor
+ 
+	source: The object to copy
+  --------------------------------------------------------------------*/
+AccountDatabase::~AccountDatabase() {}
 
 
 /*--------------------------------------------------------------------
@@ -73,6 +81,6 @@ AccountDBase::AccountDBase(const active::file::Path& path) {
  
 	return: All the accounts
   --------------------------------------------------------------------*/
-Vector<Account> AccountDBase::getAccounts() const {
+Vector<Account> AccountDatabase::getAccounts() const {
 	return m_store->getObjects();
-} //AccountDBase::getAccounts
+} //AccountDatabase::getAccounts
