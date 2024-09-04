@@ -47,6 +47,9 @@
     <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h" />
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
     <ClInclude Include="Speckle\Record\Credentials\Account.h" />
+    <ClInclude Include="Speckle\Record\Credentials\ServerInfo.h" />
+    <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
+    <ClInclude Include="Speckle\Record\Credentials\UserInfo.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
     <ClInclude Include="Speckle\Utility\Exception.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
@@ -68,6 +71,9 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\Account.cpp" />
+    <ClCompile Include="Speckle\Record\Credentials\ServerInfo.cpp" />
+    <ClCompile Include="Speckle\Record\Credentials\ServerMigration.cpp" />
+    <ClCompile Include="Speckle\Record\Credentials\UserInfo.cpp" />
     <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
     <ClCompile Include="Speckle\Utility\Guid64.cpp" />
