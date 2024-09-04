@@ -18,8 +18,11 @@ using namespace speckle::utility;
 
 namespace {
 	
+		//The Speckle application data/support directory name
 	const char* speckleDataDirName = "Speckle";
-	
+		//The account database name
+	const char* accountDBaseName = "Accounts.db";
+
 		///The Connector addon class
 	class ConnectorInstance : public ConnectorAddon {
 	public:
@@ -62,7 +65,6 @@ namespace {
 		return Directory{*appData, speckleDataDirName, true};
 	} //getAppDataDirectory
 	
-	
 }
 
 /*--------------------------------------------------------------------
@@ -84,7 +86,7 @@ const AccountDatabase* ConnectorInstance::getAccountDatabase() const {
 		auto speckleDirectory = getAppDataDirectory();
 		if (!speckleDirectory)
 			return nullptr;
-		m_account = std::make_unique<AccountDatabase>(speckleDirectory->getPath());
+		m_account = std::make_unique<AccountDatabase>(speckleDirectory->getPath() / accountDBaseName);
 	}
 	return m_account.get();
 } //ConnectorInstance::getAccounts
