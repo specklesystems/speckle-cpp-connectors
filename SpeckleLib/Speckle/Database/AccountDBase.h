@@ -1,32 +1,17 @@
 #ifndef SPECKLE_DATABASE_ACCOUNT_DBASE
 #define SPECKLE_DATABASE_ACCOUNT_DBASE
 
-#include "Active/Database/Storage/SQLiteEngine.h"
-#include "Active/Database/Storage/Storage.h"
 #include "Active/File/Path.h"
-#include "Active/Serialise/JSON/JSONTransport.h"
 #include "Speckle/Record/Credentials/Account.h"
-#include "Speckle/Utility/String.h"
-
-#include <type_traits>
 
 namespace speckle::database {
 		
 	/*!
 		A base class for an addon
 	*/
-	class AccountDBase : public active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
-			active::utility::String, active::utility::String, active::utility::String, active::utility::String> {
+	class AccountDBase {
 	public:
 
-		// MARK: - Types
-		
-		using base = active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
-				active::utility::String, active::utility::String, active::utility::String, active::utility::String>;
-
-		using type_identity_t = std::type_identity<active::database::Storage<speckle::record::cred::Account, active::serialise::json::JSONTransport,
-				active::utility::String, active::utility::String, active::utility::String, active::utility::String>>::type;
-				
 		// MARK: - Constructors
 		
 		/*!
@@ -38,7 +23,7 @@ namespace speckle::database {
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		AccountDBase(const AccountDBase& source) : base{source} {}
+		AccountDBase(const AccountDBase& source) {}
 		/*!
 		 Destructor
 		 */
@@ -46,9 +31,18 @@ namespace speckle::database {
 		
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get all accounts
+		 @return All the accounts
+		 */
+		active::container::Vector<record::cred::Account> getAccounts() const;
 		
 		// MARK: - Functions (mutating)
-		
+				
+	private:
+		class Store;
+			///Accounts database storage
+		std::unique_ptr<Store> m_store;
 	};
 	
 }
