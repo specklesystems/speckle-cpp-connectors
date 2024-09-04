@@ -1,6 +1,7 @@
 #include "Speckle/Record/Credentials/Account.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/PackageWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;
@@ -56,6 +57,8 @@ bool Account::fillInventory(Inventory& inventory) const {
 			{ fieldID[refreshTokenID], refreshTokenID, element },
 			{ fieldID[isDefaultID], isDefaultID, element },
 			{ fieldID[isOnlineID], isOnlineID, element },
+			{ fieldID[serverInfoID], serverInfoID, element },
+			{ fieldID[userInfoID], userInfoID, element },
 		},
 	}.withType(&typeid(Account)));
 	return base::fillInventory(inventory);
@@ -82,6 +85,10 @@ Cargo::Unique Account::getCargo(const Inventory::Item& item) const {
 			return std::make_unique<ValueWrap<bool>>(m_isDefault);
 		case isOnlineID:
 			return std::make_unique<ValueWrap<bool>>(m_isOnline);
+		case serverInfoID:
+			return std::make_unique<PackageWrap>(m_serverInfo);
+		case userInfoID:
+			return std::make_unique<PackageWrap>(m_userInfo);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -97,14 +104,3 @@ void Account::setDefault() {
 	m_isDefault = false;
 	m_isOnline = true;
 } //Account::setDefault
-
-
-/*--------------------------------------------------------------------
-	Validate the cargo data
- 
-	return: True if the data has been validated
-  --------------------------------------------------------------------*/
-bool Account::validate() {
-		//TODO: Fail conditions to be determined
-	return true;
-} //Account::validate

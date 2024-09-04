@@ -17,6 +17,10 @@ namespace speckle::record::cred {
 		
 		/*!
 		 Default constructor
+		 */
+		ServerInfo() {}
+		/*!
+		 Constructor
 		 @param name The server name
 		 @param company The company name
 		 @param version The server version

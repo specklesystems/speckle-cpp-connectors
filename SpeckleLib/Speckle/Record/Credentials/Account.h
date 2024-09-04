@@ -3,6 +3,8 @@
 
 #include "Active/Setting/SettingList.h"
 #include "Speckle/Database/Content/Record.h"
+#include "Speckle/Record/Credentials/ServerInfo.h"
+#include "Speckle/Record/Credentials/UserInfo.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::record::cred {
@@ -36,7 +38,7 @@ namespace speckle::record::cred {
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		Account(const Account& source) : base{source} {}
+		Account(const Account&) = default;
 		/*!
 			Object cloning
 			@return A clone of this object
@@ -66,11 +68,6 @@ namespace speckle::record::cred {
 			Set to the default package content
 		*/
 		void setDefault() override;
-		/*!
-			Validate the cargo data
-			@return True if the data has been validated
-		*/
-		bool validate() override;
 		
 	private:
 			///Authorisation token
@@ -82,9 +79,9 @@ namespace speckle::record::cred {
 			///True if the account is online
 		bool m_isOnline = true;
 			///Account server info
-		//std::unique_ptr<ServerInfo> m_serverInfo;
-			///Account server info
-		//std::unique_ptr<UserInfo> m_userInfo;
+		ServerInfo m_serverInfo;
+			///Account user info
+		UserInfo m_userInfo;
 	};
 
 }

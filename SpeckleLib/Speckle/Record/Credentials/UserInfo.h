@@ -16,6 +16,10 @@ namespace speckle::record::cred {
 		
 		/*!
 		 Default constructor
+		 */
+		UserInfo() {}
+		/*!
+		 Constructor
 		 @param ID The user ID
 		 @param name The user name
 		 @param email The user email
