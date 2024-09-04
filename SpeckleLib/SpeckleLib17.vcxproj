@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Speckle\Database\Content\Index.h" />
-    <ClInclude Include="Speckle\Database\Content\Link.h" />
+    <ClInclude Include="Speckle\Database\AccountDatabase.h" />
     <ClInclude Include="Speckle\Database\Content\Record.h" />
+    <ClInclude Include="Speckle\Database\Identity\Index.h" />
+    <ClInclude Include="Speckle\Database\Identity\Link.h" />
     <ClInclude Include="Speckle\Environment\Addon.h" />
     <ClInclude Include="Speckle\Event\Subscriber\MenuSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
@@ -53,8 +54,9 @@
     <ClInclude Include="Speckle\Utility\String.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Speckle\Database\Content\Link.cpp" />
+    <ClCompile Include="Speckle\Database\AccountDatabase.cpp" />
     <ClCompile Include="Speckle\Database\Content\Record.cpp" />
+    <ClCompile Include="Speckle\Database\Identity\Link.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />

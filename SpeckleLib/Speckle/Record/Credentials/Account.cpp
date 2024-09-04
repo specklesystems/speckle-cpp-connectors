@@ -7,6 +7,8 @@ using namespace active::serialise;
 using namespace speckle::record::cred;
 using namespace speckle::utility;
 
+#include <array>
+
 namespace {
 
 		///Serialisation fields

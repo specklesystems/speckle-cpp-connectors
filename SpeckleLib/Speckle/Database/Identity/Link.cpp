@@ -10,9 +10,9 @@ using namespace speckle::utility;
  
 	selected: Information about a selected Archicad element
   --------------------------------------------------------------------*/
-Link::Link(const API_Neig& selected) : base{String{Guid{selected.guid}}} {
+//Link::Link(const API_Neig& selected) : base{Guid{selected.guid}} {
 	//More info should be extracted from API_Neig in future (as required)
-} //Link::Link
+//} //Link::Link
 #endif
 
 

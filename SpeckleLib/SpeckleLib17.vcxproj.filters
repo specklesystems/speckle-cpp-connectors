@@ -53,14 +53,11 @@
     <Filter Include="Speckle\Serialise\JSBase">
       <UniqueIdentifier>{8b3f75a2-8538-4f58-bc69-07679e9af863}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Database\Identity">
+      <UniqueIdentifier>{ef1710f6-d890-4286-8fb2-f5c432a2c5ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Speckle\Database\Content\Index.h">
-      <Filter>Speckle\Database\Content</Filter>
-    </ClInclude>
-    <ClInclude Include="Speckle\Database\Content\Link.h">
-      <Filter>Speckle\Database\Content</Filter>
-    </ClInclude>
     <ClInclude Include="Speckle\Environment\Addon.h">
       <Filter>Speckle\Environment</Filter>
     </ClInclude>
@@ -151,11 +148,17 @@
     <ClInclude Include="Speckle\Utility\Guid64.h">
       <Filter>Speckle\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\Index.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\Link.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\AccountDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Speckle\Database\Content\Link.cpp">
-      <Filter>Speckle\Database\Content</Filter>
-    </ClCompile>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
       <Filter>Speckle\Environment</Filter>
     </ClCompile>
@@ -203,6 +206,12 @@
     </ClCompile>
     <ClCompile Include="Speckle\Utility\Guid64.cpp">
       <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Identity\Link.cpp">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\AccountDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

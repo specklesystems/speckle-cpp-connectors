@@ -28,6 +28,7 @@ namespace speckle::database {
 		
 		using base::base;
 		
+		Link() = default;
 #ifdef ARCHICAD
 		/*!
 		 Constructor

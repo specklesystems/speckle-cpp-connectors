@@ -90,6 +90,15 @@ const AccountDatabase* ConnectorInstance::getAccountDatabase() const {
 } //ConnectorInstance::getAccounts
 
 
+/*--------------------------------------------------------------------
+Get an object representing the connector instance
+@return The active connector instance (nullptr if no connector is running)
+ --------------------------------------------------------------------*/
+ConnectorAddon* connector::connector() {
+	return m_addonInstance.get();
+} //connector::connector
+
+
 
 #ifdef ARCHICAD
 /*!
