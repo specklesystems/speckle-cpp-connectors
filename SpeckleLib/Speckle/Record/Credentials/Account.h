@@ -2,7 +2,7 @@
 #define SPECKLE_RECORD_CRED_ACCOUNT
 
 #include "Active/Setting/SettingList.h"
-#include "Speckle/Database/Content/Record.h"
+#include "Active/Database/Content/Record.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::record::cred {
@@ -10,12 +10,12 @@ namespace speckle::record::cred {
 	/*!
 	 User account record class
 	 */
-	class Account : public speckle::database::Record {
+	class Account : public active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
 	public:
 
 		// MARK: - Types
 		
-		using base = speckle::database::Record;
+		using base = active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
 			///Unique pointer
 		using Unique = std::unique_ptr<Account>;
 			///Shared pointer
@@ -31,12 +31,18 @@ namespace speckle::record::cred {
 		 Default constructor
 		 @param ID The account record ID
 		 */
-		Account(speckle::utility::Guid ID = speckle::utility::Guid{});
+		Account(const speckle::utility::String& ID = speckle::utility::String{});
+		/*!
+		 Copy constructor
+		 @param source The object to copy
+		 */
+		Account(const Account& source) : base{source} {}
 		/*!
 			Object cloning
 			@return A clone of this object
 		*/
 		Account* clonePtr() const override { return new Account{*this}; }
+
 
 		// MARK: - Functions (const)
 		

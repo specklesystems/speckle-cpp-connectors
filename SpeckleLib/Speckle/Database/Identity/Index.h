@@ -1,7 +1,8 @@
 #ifndef SPECKLE_DATABASE_INDEX
 #define SPECKLE_DATABASE_INDEX
 
-#include "Speckle/Utility/Guid.h"
+#include "Active/Database/Identity/Link.h"
+#include "Speckle/Utility/String.h"
 
 namespace speckle::database {
 	
@@ -12,23 +13,16 @@ namespace speckle::database {
 	 this is typically a guid, for Revit a string and for Vectorworks a handle. Note that this index is not necessarily persistent between
 	 sessions.
 	 */
-	class Index : public speckle::utility::Guid {
+	class Index : public active::database::Index<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
 	public:
 
 		// MARK: - Types
 		
-		using base = speckle::utility::Guid;
+		using base = active::database::Index<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
 
 		// MARK: - Constructors
 		
 		using base::base;
-		
-		Index(speckle::utility::Guid ID, speckle::utility::Guid dbaseID) : base{ID}, databaseID{dbaseID} {}
-		
-		// MARK: - Public variables
-		
-			///ID of the source database (not defined in every case, undefined = null guid)
-		speckle::utility::Guid databaseID;
 	};
 	
 }

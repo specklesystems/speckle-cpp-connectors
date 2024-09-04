@@ -5,7 +5,7 @@
 
 #include "Active/Utility/Guid.h"
 #include "Active/Utility/String.h"
-#include "Speckle/Database/Content/Link.h"
+#include "Speckle/Database/Identity/Link.h"
 
 namespace speckle::event {
 	
