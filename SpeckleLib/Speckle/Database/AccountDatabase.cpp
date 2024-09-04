@@ -15,14 +15,19 @@ using namespace speckle::utility;
 
 namespace {
 	
+		//Account field indices
 	enum Fields {
 		hashID = 0,
 		contentID,
 	};
 	
+		///Internal name of the accounts dbase
 	const char* accountsDBaseName = "accounts";
+		///Accounts table name
 	const char* accountsTableName = "objects";
+		///Hash field name
 	const char* hashFieldName = "hash";
+		///Content field name
 	const char* contentFieldName = "content";
 
 }
@@ -48,6 +53,7 @@ namespace speckle::database {
 	path: Path to the database file
   --------------------------------------------------------------------*/
 AccountDatabase::AccountDatabase(const active::file::Path& path) {
+		//Create accounts database storage (with schema)
 	m_store = std::make_unique<Store>(
 			//Engine
 		std::make_unique<AccountsEngine>(path,
@@ -55,6 +61,7 @@ AccountDatabase::AccountDatabase(const active::file::Path& path) {
 			 DBaseSchema{active::utility::String{accountsDBaseName},
 					//Tables
 				{
+						//Account table
 					{
 						accountsTableName, Fields::hashID, Fields::contentID, {
 							ValueSetting{StringValue{}, hashFieldName},
@@ -69,9 +76,7 @@ AccountDatabase::AccountDatabase(const active::file::Path& path) {
 
 
 /*--------------------------------------------------------------------
-	Copy constructor
- 
-	source: The object to copy
+	Destructor
   --------------------------------------------------------------------*/
 AccountDatabase::~AccountDatabase() {}
 

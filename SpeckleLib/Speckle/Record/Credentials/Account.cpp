@@ -43,8 +43,10 @@ Account::Account(const String& ID) : base{ID} {
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items
-	@param inventory The inventory to receive the package items
-	@return True if the package has added items to the inventory
+ 
+	inventory: The inventory to receive the package items
+ 
+	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
 bool Account::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
@@ -62,8 +64,10 @@ bool Account::fillInventory(Inventory& inventory) const {
 
 /*--------------------------------------------------------------------
 	Get the specified cargo
-	@param item The inventory item to retrieve
-	@return The requested cargo (nullptr on failure)
+ 
+	item: The inventory item to retrieve
+ 
+	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
 Cargo::Unique Account::getCargo(const Inventory::Item& item) const {
 	if (item.ownerType != &typeid(Account))

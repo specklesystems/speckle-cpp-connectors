@@ -2,7 +2,7 @@
 #define SPECKLE_RECORD_CRED_ACCOUNT
 
 #include "Active/Setting/SettingList.h"
-#include "Active/Database/Content/Record.h"
+#include "Speckle/Database/Content/Record.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::record::cred {
@@ -10,12 +10,12 @@ namespace speckle::record::cred {
 	/*!
 	 User account record class
 	 */
-	class Account : public active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
+	class Account : public speckle::database::Record {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
+		using base = speckle::database::Record;
 			///Unique pointer
 		using Unique = std::unique_ptr<Account>;
 			///Shared pointer

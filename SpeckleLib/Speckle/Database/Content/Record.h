@@ -42,6 +42,12 @@ namespace speckle::database {
 		
 		// MARK: - Serialisation
 		
+		/*!
+			Fill an inventory with the package items
+			@param inventory The inventory to receive the package items
+			@return True if the package has added items to the inventory
+		*/
+		bool fillInventory(active::serialise::Inventory& inventory) const override;
 	};
 	
 }

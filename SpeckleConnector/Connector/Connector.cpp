@@ -22,7 +22,7 @@ namespace {
 	const char* speckleDataDirName = "Speckle";
 		//The account database name
 	const char* accountDBaseName = "Accounts.db";
-
+	
 		///The Connector addon class
 	class ConnectorInstance : public ConnectorAddon {
 	public:
