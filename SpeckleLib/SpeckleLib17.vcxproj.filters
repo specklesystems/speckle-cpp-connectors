@@ -157,6 +157,15 @@
     <ClInclude Include="Speckle\Database\AccountDatabase.h">
       <Filter>Speckle\Database</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Credentials\ServerInfo.h">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Credentials\UserInfo.h">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -212,6 +221,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp">
       <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Credentials\ServerInfo.cpp">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Credentials\ServerMigration.cpp">
+      <Filter>Speckle\Record\Credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Credentials\UserInfo.cpp">
+      <Filter>Speckle\Record\Credentials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
