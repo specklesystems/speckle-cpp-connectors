@@ -578,7 +578,7 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>TESTING_MODE;ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TESTING_MODE;DEBUG;ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -765,7 +765,7 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;ARCHICAD;WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>

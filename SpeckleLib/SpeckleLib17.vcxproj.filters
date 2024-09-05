@@ -166,6 +166,9 @@
     <ClInclude Include="Speckle\Record\Credentials\UserInfo.h">
       <Filter>Speckle\Record\Credentials</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Environment\Platform.h">
+      <Filter>Speckle\Environment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -230,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Credentials\UserInfo.cpp">
       <Filter>Speckle\Record\Credentials</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Environment\Platform.cpp">
+      <Filter>Speckle\Environment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
