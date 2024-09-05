@@ -106,6 +106,7 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp"/>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.h" />
