@@ -15,7 +15,6 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		GetConfig();
 
