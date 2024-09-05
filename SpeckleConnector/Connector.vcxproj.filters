@@ -50,6 +50,9 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Test\Arg">
       <UniqueIdentifier>{1656a0df-aa39-4f41-860f-7b278b31784a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Send">
+      <UniqueIdentifier>{2b87cf11-87cd-435f-ab24-42170c2e657e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -143,6 +146,9 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -222,6 +228,9 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h">
       <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
