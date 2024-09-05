@@ -42,6 +42,7 @@
 		21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */; };
 		21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF02C78D38000FD64FC /* GoAway.cpp */; };
 		21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */; };
+		21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -304,6 +305,8 @@
 		21B67CF02C78D38000FD64FC /* GoAway.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoAway.cpp; sourceTree = "<group>"; };
 		21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetComplexType.cpp; sourceTree = "<group>"; };
 		21B67CF62C78D4DE00FD64FC /* GetComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComplexType.h; sourceTree = "<group>"; };
+		21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendBridge.cpp; sourceTree = "<group>"; };
+		21D0BD5C2C89BFEA0077E104 /* SendBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBridge.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -967,6 +970,15 @@
 			path = Arg;
 			sourceTree = "<group>";
 		};
+		21D0BD5D2C89BFEA0077E104 /* Send */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */,
+				21D0BD5C2C89BFEA0077E104 /* SendBridge.h */,
+			);
+			path = Send;
+			sourceTree = "<group>";
+		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,6 +1060,7 @@
 				21F69F852C70D2C4008B6A06 /* Account */,
 				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
+				21D0BD5D2C89BFEA0077E104 /* Send */,
 				21B67CD82C78C83800FD64FC /* Test */,
 			);
 			path = Bridge;
@@ -1286,6 +1299,7 @@
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
+				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
 				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,

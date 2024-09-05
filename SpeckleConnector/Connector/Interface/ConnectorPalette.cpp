@@ -6,6 +6,7 @@
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
 #include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
 #include "Connector/Interface/Browser/Bridge/Config/ConfigBridge.h"
+#include "Connector/Interface/Browser/Bridge/Send/SendBridge.h"
 #include "Connector/Interface/Browser/Bridge/Test/TestBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
@@ -18,9 +19,9 @@
 using namespace active::environment;
 using namespace active::event;
 using namespace connector;
+using namespace speckle::interfac::browser;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::event;
-//using namespace speckle::interfac::browser;
 
 
 	//NB: Following is placeholder from GS example code - will be refactored to better suit our purposes
@@ -36,7 +37,7 @@ namespace {
 
 	// --- Class declaration: BrowserPalette ------------------------------------------
 
-	class BrowserPalette final : public DG::Palette, public DG::PanelObserver, public speckle::interfac::browser::JSPortal<> {
+	class BrowserPalette final : public DG::Palette, public DG::PanelObserver, public JSPortal<> {
 	public:
 		enum SelectionModification { RemoveFromSelection, AddToSelection };
 
@@ -128,7 +129,7 @@ bool ConnectorPalette::start() {
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
 	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
-		BrowserPalette::GetInstance ().Hide ();
+		BrowserPalette::GetInstance().Hide ();
 	} else {
 		if (!BrowserPalette::HasInstance())
 			BrowserPalette::CreateInstance();
@@ -165,6 +166,7 @@ BrowserPalette::BrowserPalette() :
 	install(std::make_shared<AccountBridge>());
 	install(std::make_shared<BaseBridge>());
 	install(std::make_shared<ConfigBridge>());
+	install(std::make_shared<SendBridge>());
 	install(std::make_shared<TestBridge>());
 	InitBrowserControl();
 }
