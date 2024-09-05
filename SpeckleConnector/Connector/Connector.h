@@ -1,10 +1,11 @@
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
 
+namespace speckle::database {
+	class AccountDatabase;
+}
 namespace connector::database {
-	
 	class ModelCardDatabase;
-	
 }
 
 namespace connector {
@@ -19,7 +20,12 @@ namespace connector {
 		 Get the model card database
 		 @return The model card database
 		 */
-		const virtual database::ModelCardDatabase* getModelCards() const = 0;
+		const virtual database::ModelCardDatabase* getModelCardDatabase() const = 0;
+		/*!
+		 Get the account database
+		 @return The account database
+		 */
+		const virtual speckle::database::AccountDatabase* getAccountDatabase() const = 0;
 		
 	protected:
 		/*!

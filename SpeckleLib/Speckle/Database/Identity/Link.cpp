@@ -1,6 +1,8 @@
-#include "Speckle/Database/Content/Link.h"
+#include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Utility/Guid.h"
 
 using namespace speckle::database;
+using namespace speckle::utility;
 
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
@@ -8,9 +10,9 @@ using namespace speckle::database;
  
 	selected: Information about a selected Archicad element
   --------------------------------------------------------------------*/
-Link::Link(const API_Neig& selected) : recordID{selected.guid} {
+//Link::Link(const API_Neig& selected) : base{Guid{selected.guid}} {
 	//More info should be extracted from API_Neig in future (as required)
-} //Link::Link
+//} //Link::Link
 #endif
 
 

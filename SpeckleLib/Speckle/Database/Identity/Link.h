@@ -2,7 +2,7 @@
 #define SPECKLE_DATABASE_LINK
 
 #include "Active/Setting/SettingList.h"
-#include "Speckle/Database/Content/Index.h"
+#include "Speckle/Database/Identity/Index.h"
 
 namespace speckle::database {
 
@@ -17,30 +17,18 @@ namespace speckle::database {
 	 A link may optionally carry any number of settings. In the context of a user selection (for example) there might be settings describing where
 	 the user made the selection (e.g. the hole in a floor slab), allowing a tool working on that selection to be more precise.
 	 */
-	class Link : public active::setting::SettingList {
+	class Link : public active::database::Link<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
 	public:
-
+		
 		// MARK: - Types
 		
-		using base = active::setting::SettingList;
-			///Unique pointer
-		using Unique = std::unique_ptr<Link>;
-			///Shared pointer
-		using Shared = std::shared_ptr<Link>;
-			///Optional
-		using Option = std::optional<Link>;
-
+		using base = active::database::Link<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
+		
 		// MARK: - Constructors
 		
 		using base::base;
 		
-		/*!
-		 Constructor
-		 @param index An element index
-		 @param origIndex The index of the original element (when the preceding index is to a proxy element)
-		 */
-		Link(const Index& index, const Index& origIndex = Index{}) : recordID{index}, originalID{origIndex} {}
-		
+		Link() = default;
 #ifdef ARCHICAD
 		/*!
 		 Constructor
@@ -48,13 +36,6 @@ namespace speckle::database {
 		 */
 		Link(const API_Neig& selected);
 #endif
-		
-		// MARK: - Public variables
-		
-			///ID of the linked record (defaults to null guid = undefined)
-		Index recordID;
-			///ID of the original record (in the case where the record is proxy for another - null guid = undefined)
-		Index originalID;
 	};
 	
 }

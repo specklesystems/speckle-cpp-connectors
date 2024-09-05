@@ -1,18 +1,27 @@
+#include "Active/File/Directory.h"
 #include "ConnectorResource.h"
 #include "Connector/Connector.h"
 #include "Connector/Database/Model/Card/ModelCardDatabase.h"
 #include "Interface/ConnectorMenu.h"
 #include "Interface/ConnectorPalette.h"
+#include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
 
+using namespace active::file;
 using namespace active::environment;
 using namespace connector;
 using namespace connector::database;
+using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::utility;
 
 namespace {
+	
+		//The Speckle application data/support directory name
+	const char* speckleDataDirName = "Speckle";
+		//The account database name
+	const char* accountDBaseName = "Accounts.db";
 	
 		///The Connector addon class
 	class ConnectorInstance : public ConnectorAddon {
@@ -28,14 +37,33 @@ namespace {
 		 Get the model card database
 		 @return The model card database
 		 */
-		const ModelCardDatabase* getModelCards() const override { return &m_modelCards; }
+		const ModelCardDatabase* getModelCardDatabase() const override { return &m_modelCards; }
+		/*!
+		 Get the account database
+		 @return The account database
+		 */
+		const AccountDatabase* getAccountDatabase() const override;
 		
 	private:
+		mutable std::unique_ptr<AccountDatabase> m_account;
 		ModelCardDatabase m_modelCards;
 	};
 	
 		///The active addon instance
 	std::unique_ptr<ConnectorAddon> m_addonInstance;
+	
+	
+	/*--------------------------------------------------------------------
+		Get the speckle application data directory (creating if missing)
+	 
+		return: The application data directory (nullopt = missing and unable to create)
+	 --------------------------------------------------------------------*/
+	Directory::Option getAppDataDirectory() {
+		auto appData = Directory::appData();
+		if (!appData)
+			return std::nullopt;
+		return Directory{*appData, speckleDataDirName, true};
+	} //getAppDataDirectory
 	
 }
 
@@ -46,6 +74,32 @@ namespace {
  --------------------------------------------------------------------*/
 ConnectorAddon::ConnectorAddon(const speckle::utility::String& name) : Addon{name} {
 } //ConnectorAddon::ConnectorAddon
+
+
+/*--------------------------------------------------------------------
+	Get the account database
+ 
+	return: The account database
+ --------------------------------------------------------------------*/
+const AccountDatabase* ConnectorInstance::getAccountDatabase() const {
+	if (!m_account) {
+		auto speckleDirectory = getAppDataDirectory();
+		if (!speckleDirectory)
+			return nullptr;
+		m_account = std::make_unique<AccountDatabase>(speckleDirectory->getPath() / accountDBaseName);
+	}
+	return m_account.get();
+} //ConnectorInstance::getAccounts
+
+
+/*--------------------------------------------------------------------
+Get an object representing the connector instance
+@return The active connector instance (nullptr if no connector is running)
+ --------------------------------------------------------------------*/
+ConnectorAddon* connector::connector() {
+	return m_addonInstance.get();
+} //connector::connector
+
 
 
 #ifdef ARCHICAD

@@ -2,6 +2,8 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Connector/Connector.h"
+#include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Record/Credentials/Account.h"
 
 using namespace active::container;
@@ -31,6 +33,7 @@ GetAccounts::GetAccounts() : BridgeMethod{"GetAccounts", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetAccounts::run() const {
 	Vector<Account> accounts;
-	///TODO: Get the accounts here - returning an empty array for testing only
+	if (auto accountDBase = connector()->getAccountDatabase(); accountDBase != nullptr)
+		accounts = accountDBase->getAccounts();
 	return std::make_unique<WrappedValue>(accounts);
 } //GetAccounts::run
