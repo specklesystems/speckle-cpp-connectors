@@ -107,8 +107,8 @@ ConnectorAddon* connector::connector() {
 	The following is the C interface for the plugin to Archicad as specified by the API
 */
 
-#include "ACAPinc.h"
-#include "APIdefs_Registration.h"
+#include <ACAPinc.h>
+#include <APIdefs_Registration.h>
 
 /*--------------------------------------------------------------------
 	Confirm that the plugin is able to run in the current environment
