@@ -1,7 +1,7 @@
 #include "Speckle/Record/Credentials/ServerInfo.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageUnoWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 #include <array>
@@ -76,21 +76,21 @@ Cargo::Unique ServerInfo::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case nameID:
-			return std::make_unique<ValueWrap<String>>(m_name);
+			return std::make_unique<StringWrap>(m_name);
 		case companyID:
-			return std::make_unique<ValueWrap<String>>(m_company);
+			return std::make_unique<StringOptWrap>(m_company);
 		case versionID:
-			return std::make_unique<ValueWrap<String>>(m_version);
+			return std::make_unique<StringOptWrap>(m_version);
 		case contactID:
-			return std::make_unique<ValueWrap<String>>(m_adminContact);
+			return std::make_unique<StringOptWrap>(m_adminContact);
 		case descriptionID:
-			return std::make_unique<ValueWrap<String>>(m_description);
+			return std::make_unique<StringOptWrap>(m_description);
 		case frontEndID:
 			return std::make_unique<ValueWrap<bool>>(m_frontend2);
 		case urlID:
-			return std::make_unique<ValueWrap<String>>(m_url);
+			return std::make_unique<StringOptWrap>(m_url);
 		case migrationID:
-			return std::make_unique<PackageWrap>(m_migration);
+			return std::make_unique<PackageUnoWrap<ServerMigration>>(m_migration);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -102,10 +102,23 @@ Cargo::Unique ServerInfo::getCargo(const Inventory::Item& item) const {
   --------------------------------------------------------------------*/
 void ServerInfo::setDefault() {
 	m_name.clear();
-	m_company.clear();
-	m_version.clear();
-	m_adminContact.clear();
-	m_description.clear();
 	m_frontend2 = false;
-	m_url.clear();
 } //ServerInfo::setDefault
+
+
+/*--------------------------------------------------------------------
+	Copy from another object
+ 
+	source: The object to copy
+  --------------------------------------------------------------------*/
+void ServerInfo::copy(const ServerInfo& source) {
+	if (this == &source)
+		return;
+	m_name = source.m_name;
+	m_version = source.m_version;
+	m_adminContact = source.m_adminContact;
+	m_description = source.m_description;
+	m_frontend2 = source.m_frontend2;
+	m_url = source.m_url;
+	m_migration = (source.m_migration) ? std::make_unique<ServerMigration>(*source.m_migration) : nullptr;
+} //ServerInfo::copy

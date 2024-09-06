@@ -1,7 +1,7 @@
 #include "Connector/Interface/Browser/Bridge/Config/UpdateConfig.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;

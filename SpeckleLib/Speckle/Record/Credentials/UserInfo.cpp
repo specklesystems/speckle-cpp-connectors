@@ -1,7 +1,7 @@
 #include "Speckle/Record/Credentials/UserInfo.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 #include <array>
@@ -73,9 +73,9 @@ Cargo::Unique UserInfo::getCargo(const Inventory::Item& item) const {
 		case emailID:
 			return std::make_unique<ValueWrap<String>>(m_email);
 		case companyID:
-			return std::make_unique<ValueWrap<String>>(m_company);
+			return std::make_unique<StringOptWrap>(m_company);
 		case avatarID:
-			return std::make_unique<ValueWrap<String>>(m_avatar);
+			return std::make_unique<StringOptWrap>(m_avatar);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -88,7 +88,5 @@ Cargo::Unique UserInfo::getCargo(const Inventory::Item& item) const {
 void UserInfo::setDefault() {
 	m_id.clear();
 	m_name.clear();
-	m_company.clear();
 	m_email.clear();
-	m_avatar.clear();
 } //UserInfo::setDefault

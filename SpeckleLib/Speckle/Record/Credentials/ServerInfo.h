@@ -30,11 +30,29 @@ namespace speckle::record::cred {
 		 @param isFrontEnd ?
 		 @param migration Server migration record
 		 */
-		ServerInfo(const utility::String& name, const utility::String& company, const utility::String& version, const utility::String& contact,
-				   const utility::String& description, const utility::String& url, bool isFrontEnd, const ServerMigration& migration) :
+		ServerInfo(const utility::String& name, const utility::String::Option company = std::nullopt,
+				   const utility::String::Option version = std::nullopt, const utility::String::Option contact = std::nullopt,
+				   const utility::String::Option description = std::nullopt, const utility::String::Option url = std::nullopt,
+				   bool isFrontEnd = false, std::unique_ptr<ServerMigration> migration = nullptr) :
 				m_name{name}, m_company{company}, m_version{version}, m_adminContact{contact}, m_description{description},
-				m_url{url}, m_frontend2{isFrontEnd}, m_migration{migration} {}
-		ServerInfo(const ServerInfo&) = default;
+				m_url{url}, m_frontend2{isFrontEnd}, m_migration{std::move(migration)} {}
+		/*!
+		 Copy constructor
+		 @param source The object to copy
+		 */
+		ServerInfo(const ServerInfo& source) { copy(source); }
+		/*!
+		 Destructor
+		 */
+		~ServerInfo() {}
+
+		// MARK: - Operators
+		
+		/*!
+		 Assignment operator
+		 @param source The object to copy
+		 */
+		ServerInfo& operator=(const ServerInfo& source) { copy(source); return *this; }
 
 		// MARK: - Functions (const)
 		
@@ -43,37 +61,78 @@ namespace speckle::record::cred {
 		 @return The server name
 		 */
 		const utility::String& getName() const { return m_name; }
+		/*!
+		 Get the company name
+		 @return The company name
+		 */
+		const utility::String::Option& getCompany() const { return m_company; }
+		/*!
+		 Get the version
+		 @return The version
+		 */
+		const utility::String::Option& getVersion() const { return m_version; }
+		/*!
+		 Get the admin contact email
+		 @return The admin contact email
+		 */
+		const utility::String::Option& getAdminContact() const { return m_adminContact; }
+		/*!
+		 Get the description
+		 @return The description
+		 */
+		const utility::String::Option& getDescription() const { return m_description; }
+		/*!
+		 Determine if ?
+		 @return ?
+		 */
+		bool isFrontEnd() const { return m_frontend2; }
+		/*!
+		 Get the URL
+		 @return The URL
+		 */
+		const utility::String::Option& getURL() const { return m_url; }
+		/*!
+		 Get the migration history
+		 @return The migration history (nullptr = no history)
+		 */
+		const ServerMigration* getMigration() const { return m_migration.get(); }
 		
 		// MARK: - Serialisation
 		
 		/*!
-			Fill an inventory with the package items
-			@param inventory The inventory to receive the package items
-			@return True if the package has added items to the inventory
-		*/
+		 Fill an inventory with the package items
+		 @param inventory The inventory to receive the package items
+		 @return True if the package has added items to the inventory
+		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
 		/*!
-			Get the specified cargo
-			@param item The inventory item to retrieve
-			@return The requested cargo (nullptr on failure)
-		*/
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure)
+		 */
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		/*!
-			Set to the default package content
-		*/
+		 Set to the default package content
+		 */
 		void setDefault() override;
 		
 	private:
+		/*!
+		 Copy from another object
+		 @param source The object to copy
+		 */
+		void copy(const ServerInfo& source);
+		
 			///Server name
 		utility::String m_name;
 			///Company name
-		utility::String m_company;
+		utility::String::Option m_company;
 			///Server version
-		utility::String m_version;
+		utility::String::Option m_version;
 			///Admin contact email
-		utility::String m_adminContact;
+		utility::String::Option m_adminContact;
 			///Server description
-		utility::String m_description;
+		utility::String::Option m_description;
 		/*!
 		 This field is not returned from the GQL API, it should be populated after construction from the response headers.
 		 See "Speckle.Core.Credentials.AccountManager"
@@ -84,9 +143,9 @@ namespace speckle::record::cred {
 		 This field is not returned from the GQL API, it should be populated after construction.
 		 See "Speckle.Core.Credentials.AccountManager"
 		 */
-		utility::String m_url;
+		utility::String::Option m_url;
 			///Server migration record
-		ServerMigration m_migration;
+		std::unique_ptr<ServerMigration> m_migration;
 	};
 
 }
