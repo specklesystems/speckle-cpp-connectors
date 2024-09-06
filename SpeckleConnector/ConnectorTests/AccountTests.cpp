@@ -13,8 +13,7 @@ using namespace speckle::utility;
 
 namespace {
 	
-	const char* accountJSON =  "{\"id\":\"194B6E32061EB588B31D8CBC167DAAD8\",\"token\":\"547e30bcd0f0e377fe422019f388295e37c583a99f\",\"refreshToken\":\"7d23031b44856e768b5951161c9bc8378f663eefce\",\"isDefault\":false,\"isOnline\":false,\"serverInfo\":{\"name\":\"My new Speckle Server\",\"company\":\"Unknown Company\",\"version\":\"2.20.2-branch.testing.138676-e8c8291\",\"adminContact\":\"n/a\",\"description\":\"This a community deployment of a Speckle Server.\",\"frontend2\":true,\"url\":\"https://testing.speckle.dev\",\"migration\":null},\"userInfo\":{\"id\":\"e66694013f\",\"name\":\"oguzhan@speckle.systems\",\"email\":\"oguzhan@speckle.systems\",\"company\":null,\"avatar\":null,\"streams\":{\"totalCount\":2},\"commits\":{\"totalCount\":5}}}";
-	
+	const char* accountJSON =  "{\"id\":\"d4468f8d6f1e4c48a899518795326ea8\",\"token\":\"42986a57b3304baa8773f937aa0b7bcd42986a57b3\",\"refreshToken\":\"00b01c421de4404889f30947de1506d3440c476432\",\"isDefault\":false,\"isOnline\":false,\"serverInfo\":{\"name\":\"My new Speckle Server\",\"company\":\"Unknown Company\",\"version\":\"2.20.2-branch.testing.138676-e8c8291\",\"adminContact\":\"n/a\",\"description\":\"This a community deployment of a Speckle Server.\",\"frontend2\":true,\"url\":\"https://testing.speckle.dev\",\"migration\":null},\"userInfo\":{\"id\":\"00b01c421d\",\"name\":\"someone@speckle.systems\",\"email\":\"someone@speckle.systems\",\"company\":null,\"avatar\":null,\"streams\":{\"totalCount\":2},\"commits\":{\"totalCount\":5}}}";
 }
 
 
