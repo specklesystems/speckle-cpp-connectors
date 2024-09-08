@@ -163,11 +163,11 @@ BrowserPalette::BrowserPalette() :
 	Attach(*this);
 	BeginEventProcessing();
 		//Install required connector bridges
-	install(std::make_shared<AccountBridge>());
-	install(std::make_shared<BaseBridge>());
-	install(std::make_shared<ConfigBridge>());
-	//install(std::make_shared<SendBridge>());
-	install(std::make_shared<TestBridge>());
+	install<AccountBridge>();
+	install<BaseBridge>();
+	install<ConfigBridge>();
+	//install<SendBridge>();
+	install<TestBridge>();
 	InitBrowserControl();
 }
 

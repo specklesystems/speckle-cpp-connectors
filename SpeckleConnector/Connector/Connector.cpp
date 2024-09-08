@@ -27,8 +27,8 @@ namespace {
 	class ConnectorInstance : public ConnectorAddon {
 	public:
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
-			add(std::make_shared<ConnectorMenu>());
-			add(std::make_shared<ConnectorPalette>());
+			add<ConnectorMenu>();
+			add<ConnectorPalette>();
 		}
 		
 		// MARK: Functions (const)
