@@ -166,7 +166,7 @@ BrowserPalette::BrowserPalette() :
 	install<AccountBridge>();
 	install<BaseBridge>();
 	install<ConfigBridge>();
-	//install<SendBridge>();
+	install<SendBridge>();
 	install<TestBridge>();
 	InitBrowserControl();
 }
