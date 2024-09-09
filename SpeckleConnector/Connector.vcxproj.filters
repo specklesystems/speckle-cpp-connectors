@@ -149,6 +149,10 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -230,6 +234,10 @@
       <Filter>Connector\Interface\Browser\Bridge\Test</Filter>
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClInclude>
   </ItemGroup>
