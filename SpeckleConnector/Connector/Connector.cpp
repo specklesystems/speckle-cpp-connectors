@@ -27,8 +27,8 @@ namespace {
 	class ConnectorInstance : public ConnectorAddon {
 	public:
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
-			add(std::make_shared<ConnectorMenu>());
-			add(std::make_shared<ConnectorPalette>());
+			add<ConnectorMenu>();
+			add<ConnectorPalette>();
 		}
 		
 		// MARK: Functions (const)
@@ -107,8 +107,8 @@ ConnectorAddon* connector::connector() {
 	The following is the C interface for the plugin to Archicad as specified by the API
 */
 
-#include "ACAPinc.h"
-#include "APIdefs_Registration.h"
+#include <ACAPinc.h>
+#include <APIdefs_Registration.h>
 
 /*--------------------------------------------------------------------
 	Confirm that the plugin is able to run in the current environment

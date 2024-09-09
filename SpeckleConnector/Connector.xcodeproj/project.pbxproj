@@ -43,6 +43,11 @@
 		21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF02C78D38000FD64FC /* GoAway.cpp */; };
 		21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */; };
 		21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
+		21D0BD672C89D7410077E104 /* AccountTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD642C89D7400077E104 /* AccountTests.cpp */; };
+		21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
+		21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD8D2C8EE4490077E104 /* Send.cpp */; };
+		21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */; };
+		21D0BD9B2C8F154B0077E104 /* SendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD982C8F154B0077E104 /* SendFilter.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -307,6 +312,15 @@
 		21B67CF62C78D4DE00FD64FC /* GetComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComplexType.h; sourceTree = "<group>"; };
 		21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendBridge.cpp; sourceTree = "<group>"; };
 		21D0BD5C2C89BFEA0077E104 /* SendBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBridge.h; sourceTree = "<group>"; };
+		21D0BD642C89D7400077E104 /* AccountTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AccountTests.cpp; sourceTree = "<group>"; };
+		21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetIsDevMode.cpp; sourceTree = "<group>"; };
+		21D0BD692C8A0DB40077E104 /* GetIsDevMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetIsDevMode.h; sourceTree = "<group>"; };
+		21D0BD8A2C8EE4490077E104 /* Send.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Send.h; sourceTree = "<group>"; };
+		21D0BD8D2C8EE4490077E104 /* Send.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Send.cpp; sourceTree = "<group>"; };
+		21D0BD952C8F13F30077E104 /* GetSendFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSendFilters.h; sourceTree = "<group>"; };
+		21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSendFilters.cpp; sourceTree = "<group>"; };
+		21D0BD982C8F154B0077E104 /* SendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendFilter.cpp; sourceTree = "<group>"; };
+		21D0BD992C8F154B0077E104 /* SendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendFilter.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -874,6 +888,7 @@
 		219F30412C769282009834E9 /* ConnectorTests */ = {
 			isa = PBXGroup;
 			children = (
+				21D0BD642C89D7400077E104 /* AccountTests.cpp */,
 				219F30402C769282009834E9 /* ConfigTests.cpp */,
 				219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */,
 			);
@@ -973,10 +988,24 @@
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
+				21D0BD9A2C8F154B0077E104 /* Arg */,
+				21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */,
+				21D0BD952C8F13F30077E104 /* GetSendFilters.h */,
+				21D0BD8D2C8EE4490077E104 /* Send.cpp */,
+				21D0BD8A2C8EE4490077E104 /* Send.h */,
 				21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */,
 				21D0BD5C2C89BFEA0077E104 /* SendBridge.h */,
 			);
 			path = Send;
+			sourceTree = "<group>";
+		};
+		21D0BD9A2C8F154B0077E104 /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BD982C8F154B0077E104 /* SendFilter.cpp */,
+				21D0BD992C8F154B0077E104 /* SendFilter.h */,
+			);
+			path = Arg;
 			sourceTree = "<group>";
 		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
@@ -1082,6 +1111,8 @@
 				21F69FB52C762EF0008B6A06 /* ConfigBridge.h */,
 				21F69FB62C762EF0008B6A06 /* GetConfig.cpp */,
 				21F69FB72C762EF0008B6A06 /* GetConfig.h */,
+				21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */,
+				21D0BD692C8A0DB40077E104 /* GetIsDevMode.h */,
 				21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */,
 				21F69FBE2C7630B3008B6A06 /* UpdateConfig.h */,
 			);
@@ -1296,11 +1327,15 @@
 				21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
+				21D0BD9B2C8F154B0077E104 /* SendFilter.cpp in Sources */,
+				21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */,
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
+				21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
+				21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */,
 				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,
 				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,
@@ -1325,6 +1360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				219F30422C769283009834E9 /* ConfigTests.cpp in Sources */,
+				21D0BD672C89D7410077E104 /* AccountTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

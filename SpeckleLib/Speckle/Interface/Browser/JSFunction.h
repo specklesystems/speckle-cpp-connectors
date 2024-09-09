@@ -4,7 +4,7 @@
 #include "Active/Serialise/Inventory/Identity.h"
 #include "Active/Serialise/Item/Wrapper/ItemWrap.h"
 #include "Active/Serialise/Package/NullPackage.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Speckle/Interface/Browser/JSBinding.h"
 #include "Speckle/Interface/Browser/NamedFunction.h"
 #include "Speckle/Utility/String.h"

@@ -1,6 +1,6 @@
 #include "Speckle/Record/Credentials/ServerMigration.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;
@@ -57,19 +57,10 @@ Cargo::Unique ServerMigration::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case movedToID:
-			return std::make_unique<ValueWrap<String>>(movedTo);
+			return std::make_unique<StringOptWrap>(movedTo);
 		case movedFromID:
-			return std::make_unique<ValueWrap<String>>(movedFrom);
+			return std::make_unique<StringOptWrap>(movedFrom);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
 } //ServerMigration::getCargo
-
-
-/*--------------------------------------------------------------------
-	Set to the default package content
-  --------------------------------------------------------------------*/
-void ServerMigration::setDefault() {
-	movedTo.clear();
-	movedFrom.clear();
-} //ServerMigration::setDefault

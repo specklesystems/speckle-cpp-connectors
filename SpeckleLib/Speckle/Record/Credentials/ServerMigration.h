@@ -12,6 +12,16 @@ namespace speckle::record::cred {
 	class ServerMigration : public active::serialise::Package {
 	public:
 
+		// MARK: - Types
+		
+		using base = active::serialise::Package;
+			///Unique pointer
+		using Unique = std::unique_ptr<ServerMigration>;
+			///Shared pointer
+		using Shared = std::shared_ptr<ServerMigration>;
+			///Optional
+		using Option = std::optional<ServerMigration>;
+
 		// MARK: - Constructors
 		
 		/*!
@@ -25,9 +35,9 @@ namespace speckle::record::cred {
 		// MARK: - Public variables
 		 
 			///New URI where this server is now deployed
-		speckle::utility::String movedTo;
+		speckle::utility::String::Option movedTo;
 			///Previous URI where this server used to be deployed
-		speckle::utility::String movedFrom;
+		speckle::utility::String::Option movedFrom;
 		
 		// MARK: - Serialisation
 		
@@ -43,10 +53,6 @@ namespace speckle::record::cred {
 			@return The requested cargo (nullptr on failure)
 		*/
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
-		/*!
-			Set to the default package content
-		*/
-		void setDefault() override;
 	};
 
 }

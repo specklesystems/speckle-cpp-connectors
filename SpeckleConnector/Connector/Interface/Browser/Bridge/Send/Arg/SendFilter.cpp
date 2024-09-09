@@ -1,33 +1,27 @@
-#include "Speckle/Record/Credentials/UserInfo.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendFilter.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
-#include "Speckle/Utility/Guid.h"
+#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 
 #include <array>
 
 using namespace active::serialise;
-using namespace speckle::record::cred;
+using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 
 namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
-		idID,
 		nameID,
-		emailID,
-		companyID,
-		avatarID,
+		summaryID,
+		defaultID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"id"},
 		Identity{"name"},
-		Identity{"email"},
-		Identity{"company"},
-		Identity{"avatar"},
+		Identity{"summary"},
+		Identity{"isDefault"},
 	};
 
 }
@@ -39,19 +33,17 @@ namespace {
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool UserInfo::fillInventory(Inventory& inventory) const {
+bool SendFilter::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[idID], idID, element },
 			{ fieldID[nameID], nameID, element },
-			{ fieldID[emailID], emailID, element },
-			{ fieldID[companyID], companyID, element },
-			{ fieldID[avatarID], avatarID, element },
+			{ fieldID[summaryID], summaryID, element },
+			{ fieldID[defaultID], defaultID, element },
 		},
-	}.withType(&typeid(UserInfo)));
+	}.withType(&typeid(SendFilter)));
 	return true;
-} //UserInfo::fillInventory
+} //SendFilter::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -61,32 +53,28 @@ bool UserInfo::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique UserInfo::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(UserInfo))
+Cargo::Unique SendFilter::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(SendFilter))
 		return nullptr;
 	using namespace active::serialise;
 	switch (item.index) {
-		case idID:
-			return std::make_unique<ValueWrap<String>>(m_id);
 		case nameID:
-			return std::make_unique<ValueWrap<String>>(m_name);
-		case emailID:
-			return std::make_unique<ValueWrap<String>>(m_email);
-		case companyID:
-			return std::make_unique<StringOptWrap>(m_company);
-		case avatarID:
-			return std::make_unique<StringOptWrap>(m_avatar);
+			return std::make_unique<ValueWrap<String>>(name);
+		case summaryID:
+			return std::make_unique<ValueWrap<String>>(summary);
+		case defaultID:
+			return std::make_unique<ValueWrap<bool>>(isDefault);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //UserInfo::getCargo
+} //SendFilter::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void UserInfo::setDefault() {
-	m_id.clear();
-	m_name.clear();
-	m_email.clear();
-} //UserInfo::setDefault
+void SendFilter::setDefault() {
+	name.clear();
+	summary.clear();
+	isDefault = false;
+} //SendFilter::setDefault

@@ -1,4 +1,4 @@
-#include "Connector/Interface/Browser/Bridge/Config/UpdateConfig.h"
+#include "Connector/Interface/Browser/Bridge/Send/Send.h"
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
@@ -10,16 +10,16 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-UpdateConfig::UpdateConfig() : BridgeMethod{"UpdateConfig", [&](UpdateArgs args) {
+Send::Send() : BridgeMethod{"Send", [&](UpdateArgs args) {
 		run(args);
 }} {}
 
 
 /*--------------------------------------------------------------------
-	Update the configuration settings
+	Send a specified model
  
-	config: The new settings
+	modelCardID: The ID of the madel to send
   --------------------------------------------------------------------*/
-void UpdateConfig::run(const ConnectorConfig& config) const {
-	///TODO: Store the active configuration settings here
-} //UpdateConfig::run
+void Send::run(const String& modelCardID) const {
+	///TODO: Send the requested model
+} //Send::run

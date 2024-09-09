@@ -1,15 +1,16 @@
-#ifndef CONNECTOR_INTERFACE_BRIDGE_DOCUMENT_INFO
-#define CONNECTOR_INTERFACE_BRIDGE_DOCUMENT_INFO
+#ifndef CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER
+#define CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER
 
 #include "Active/Serialise/Package/Package.h"
+#include "Active/Utility/Cloner.h"
 #include "Speckle/Utility/String.h"
 
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 Information about the active document, e.g. an Archicad project
+	 A connector send filter
 	 */
-	class DocumentInfo : public active::serialise::Package {
+	class SendFilter : public active::serialise::Package, public active::utility::Cloner {
 	public:
 
 		// MARK: - Types
@@ -20,22 +21,27 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Default constructor
-		 @param locate The project location
-		 @param nm The project name
-		 @param guid A unique, persistent ID for the project document
+		 @param nm The filter name
+		 @param sum A summary
+		 @param isDef True if this is the default filter
 		 */
-		DocumentInfo(const speckle::utility::String& locat = {}, const speckle::utility::String& nm = {}, const speckle::utility::String& guid = {}) :
-				location{locat}, name{nm}, ID{guid} {}
+		SendFilter(const speckle::utility::String& nm = {}, const speckle::utility::String& sum = {}, bool isDef = false) :
+				name{nm}, summary{sum}, isDefault{isDef} {}
+		/*!
+			Record cloning
+			@return A clone of this record
+		*/
+		virtual SendFilter* clonePtr() const override { return new SendFilter(*this); };
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///The project location
-		speckle::utility::String location;	//TODO: Confirm this is an address
-			///The project name
-		speckle::utility::String name;	//TODO: Assume project name rather than document (file) name - need to confirm
-			///A unique, persistent ID for the project document
-		speckle::utility::String ID;	//TODO: should possibly be a guid - need to check
-		
+			///The filter name
+		speckle::utility::String name;
+			///A summary
+		speckle::utility::String summary;
+			///True if this is the default filter
+		bool isDefault = false;
+
 		// MARK: - Serialisation
 		
 		/*!
@@ -58,4 +64,4 @@ namespace connector::interfac::browser::bridge {
 
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_DOCUMENT_INFO
+#endif	//CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER

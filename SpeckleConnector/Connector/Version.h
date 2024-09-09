@@ -7,7 +7,7 @@ namespace connector {
 
 	static const unsigned int versionMinor = 2;
 
-	static const unsigned int versionPatch = 1;
+	static const unsigned int versionPatch = 2;
 
 }
 

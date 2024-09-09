@@ -1,7 +1,7 @@
 #include "Speckle/Record/Credentials/Account.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;

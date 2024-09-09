@@ -49,6 +49,13 @@ namespace speckle::interfac::browser {
 		 @return True if the object was successfully installed
 		 */
 		bool install(std::shared_ptr<JSObject<FunctionBinding>> object);
+		/*!
+		 Install a JS function object
+		 @return True if the object was successfully installed
+		 @tparam T The type of object to install
+		 */
+		template<typename T> requires std::is_base_of_v<JSObject<FunctionBinding>, T>
+		bool install() { return install(std::make_shared<T>()); }
 		
 	protected:
 #ifdef ARCHICAD

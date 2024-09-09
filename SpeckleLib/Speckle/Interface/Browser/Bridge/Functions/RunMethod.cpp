@@ -2,7 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Null.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Interface/Browser/Bridge/Functions/ErrorReport.h"
 #include "Speckle/Utility/Exception.h"

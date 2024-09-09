@@ -71,9 +71,9 @@ namespace speckle::record::cred {
 			///User email
 		utility::String m_email;
 			///Compsny name
-		utility::String m_company;
+		utility::String::Option m_company;
 			///Avatar?
-		utility::String m_avatar;
+		utility::String::Option m_avatar;
 	};
 
 }

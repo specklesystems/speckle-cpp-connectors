@@ -9,7 +9,7 @@
 #include "Active/Setting/Values/StringValue.h"
 #include "Active/Setting/Values/UInt32Value.h"
 #include "Active/Serialise/Package/Package.h"
-#include "Active/Serialise/Package/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/XML/Item/XMLDateTime.h"
 #include "Speckle/Environment/Platform.h"
 
