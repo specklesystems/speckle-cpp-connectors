@@ -53,6 +53,9 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Send">
       <UniqueIdentifier>{2b87cf11-87cd-435f-ab24-42170c2e657e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Send\Arg">
+      <UniqueIdentifier>{3bc97363-0091-4f84-a5f7-085193bad850}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -153,6 +156,12 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -239,6 +248,12 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
