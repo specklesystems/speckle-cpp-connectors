@@ -2,6 +2,7 @@
 #define CONNECTOR_DATABASE_MODEL_CARD_DATABASE
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Database/Storage/DocumentStore/DocumentStoreEngine.h"
 #include "Speckle/Utility/String.h"
 
 namespace connector::database {

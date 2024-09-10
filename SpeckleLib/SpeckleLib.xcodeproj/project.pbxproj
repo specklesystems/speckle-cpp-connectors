@@ -37,6 +37,9 @@
 		21D0BD562C890B1C0077E104 /* ServerMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD542C890B1C0077E104 /* ServerMigration.h */; };
 		21D0BD592C8910400077E104 /* UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD572C8910400077E104 /* UserInfo.cpp */; };
 		21D0BD5A2C8910400077E104 /* UserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD582C8910400077E104 /* UserInfo.h */; };
+		21D0BDB32C8F8AB60077E104 /* DocumentStoreCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDAC2C8F8AB60077E104 /* DocumentStoreCore.cpp */; };
+		21D0BDB42C8F8AB60077E104 /* DocumentStoreCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDAD2C8F8AB60077E104 /* DocumentStoreCore.h */; };
+		21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDAE2C8F8AB60077E104 /* DocumentStoreEngine.h */; };
 		21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F382C6B880B008B6A06 /* JSBaseTransport.cpp */; };
 		21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */; };
 		21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */; };
@@ -132,6 +135,9 @@
 		21D0BD542C890B1C0077E104 /* ServerMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerMigration.h; sourceTree = "<group>"; };
 		21D0BD572C8910400077E104 /* UserInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserInfo.cpp; sourceTree = "<group>"; };
 		21D0BD582C8910400077E104 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		21D0BDAC2C8F8AB60077E104 /* DocumentStoreCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DocumentStoreCore.cpp; sourceTree = "<group>"; };
+		21D0BDAD2C8F8AB60077E104 /* DocumentStoreCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentStoreCore.h; sourceTree = "<group>"; };
+		21D0BDAE2C8F8AB60077E104 /* DocumentStoreEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentStoreEngine.h; sourceTree = "<group>"; };
 		21F69F012C66C229008B6A06 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Doxyfile; path = Documentation/Doxyfile; sourceTree = "<group>"; };
 		21F69F192C6A0FE2008B6A06 /* JSBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBinding.h; sourceTree = "<group>"; };
 		21F69F352C6AA9B3008B6A06 /* JSFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunction.h; sourceTree = "<group>"; };
@@ -293,8 +299,9 @@
 			children = (
 				21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */,
 				21D0BD1E2C86F0280077E104 /* AccountDatabase.h */,
-				21D0BD302C86FE090077E104 /* Identity */,
 				21D0BD272C86FC350077E104 /* Content */,
+				21D0BD302C86FE090077E104 /* Identity */,
+				21D0BDB02C8F8AB60077E104 /* Storage */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -316,6 +323,24 @@
 				21D0BD2F2C86FE090077E104 /* Link.h */,
 			);
 			path = Identity;
+			sourceTree = "<group>";
+		};
+		21D0BDAF2C8F8AB60077E104 /* DocumentStore */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BDAC2C8F8AB60077E104 /* DocumentStoreCore.cpp */,
+				21D0BDAD2C8F8AB60077E104 /* DocumentStoreCore.h */,
+				21D0BDAE2C8F8AB60077E104 /* DocumentStoreEngine.h */,
+			);
+			path = DocumentStore;
+			sourceTree = "<group>";
+		};
+		21D0BDB02C8F8AB60077E104 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BDAF2C8F8AB60077E104 /* DocumentStore */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		21F69F1A2C6A0FE2008B6A06 /* Browser */ = {
@@ -447,8 +472,10 @@
 				210CC88F2C81A98500610F58 /* Guid64.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
 				21D0BD2C2C86FC350077E104 /* Record.h in Headers */,
+				21D0BDB42C8F8AB60077E104 /* DocumentStoreCore.h in Headers */,
 				210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */,
 				21D0BD4D2C8901A00077E104 /* ServerInfo.h in Headers */,
+				21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */,
 				2193518C2C62655700E5A69C /* MenuEvent.h in Headers */,
 				21D0BD312C86FE090077E104 /* Index.h in Headers */,
 			);
@@ -581,6 +608,7 @@
 				21F69F812C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp in Sources */,
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
+				21D0BDB32C8F8AB60077E104 /* DocumentStoreCore.cpp in Sources */,
 				21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */,
 				21D0BD4E2C8901A00077E104 /* ServerInfo.cpp in Sources */,
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,

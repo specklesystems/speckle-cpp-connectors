@@ -102,8 +102,8 @@ namespace speckle::interfac::browser {
 	  --------------------------------------------------------------------*/
 	template<typename FunctionBinding>
 	bool JSPortal<FunctionBinding>::install(std::shared_ptr<JSObject<FunctionBinding>> object) {
-#ifdef ARCHICAD
 		try {
+#ifdef ARCHICAD
 			auto engine = getJSEngine();
 			if (!engine)
 				return false;
@@ -127,10 +127,10 @@ namespace speckle::interfac::browser {
 				object->setPortal(*this);
 				return true;
 			}
+#endif
 		} catch(...) {
 			///TODO: Need to discuss the best course of action to notify of a failure
 		}
-#endif
 		return false;
 	} //JSPortal<FunctionBinding>::install
 	

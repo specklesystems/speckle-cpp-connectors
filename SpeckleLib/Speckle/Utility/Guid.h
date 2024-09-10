@@ -22,6 +22,12 @@ namespace speckle::utility {
 		// MARK: - Constructors
 
 		using base::base;
+		
+		/*!
+		 Constructor
+		 @param source The guid to copy
+		 */
+		Guid(const active::utility::Guid& source) : base{source} {}
 
 #ifdef ARCHICAD
 		/*!
