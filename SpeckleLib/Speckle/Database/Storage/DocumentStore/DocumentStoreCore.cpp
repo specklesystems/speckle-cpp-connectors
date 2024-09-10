@@ -3,6 +3,7 @@
 #include "Active/Utility/Memory.h"
 #include "Active/Utility/String.h"
 #include "Speckle/Environment/Addon.h"
+#include "Speckle/Event/Type/DocStoreMergeEvent.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -14,6 +15,7 @@
 using namespace active::setting;
 using namespace speckle::database;
 using namespace speckle::environment;
+using namespace speckle::event;
 using namespace speckle::utility;
 
 using enum DocumentStoreCore::Status;
@@ -55,16 +57,27 @@ namespace {
 		if (storeID.id)
 			return true;	//We must have a store if the ID is populated
 		bool isStoreFound = false;
-#ifdef ARCHICAD
 		API_Guid acID;
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectGuidFromName(String{storeID.name}, &acID)); statusCode != nominal)
 			throw std::system_error(DocumentStoreCore::makeError(statusCode));
 		storeID.id = Guid{acID};
 		isStoreFound = true;
-#endif
 		return isStoreFound;
 	} //isExistingStore
+
 	
+	/*--------------------------------------------------------------------
+		Copy a GS handle to a Memory object
+	 
+		handle: The GS handle
+		memory: The Memory object to receive the data
+	 --------------------------------------------------------------------*/
+	void copyHandleToMemory(const GSHandle& handle, active::utility::Memory& memory) {
+		auto storeSize = BMGetHandleSize(handle);
+		memory.resize(storeSize);
+		active::utility::Memory::copy(memory.data(), *handle, storeSize, storeSize);
+	} //copyHandleToMemory
+
 #endif
 
 		///Category for DocumentStore processing errors
@@ -112,6 +125,30 @@ std::error_code DocumentStoreCore::makeError(DocumentStoreCore::Status code) {
 
 
 /*--------------------------------------------------------------------
+	Handle a document merge operation
+ 
+	event: The merge event
+ 
+	return: True if the event should be closed
+ --------------------------------------------------------------------*/
+bool DocumentStoreCore::handle(const DocStoreMergeEvent& event) {
+#ifdef ARCHICAD
+	if (event.objects == nullptr)
+		return false;
+	for (const auto& object : *event.objects) {
+		if (*object.name != String{m_id.name})
+			continue;
+		active::utility::Memory toMerge;
+		copyHandleToMemory(object.data, toMerge);
+		mergeStore(toMerge);
+		writeStore();
+	}
+#endif
+	return false;
+} //DocumentStoreCore::handle
+
+
+/*--------------------------------------------------------------------
 	Read the data stored in the document
  
 	return: The stored data (empty if the data doesn't exist)
@@ -128,9 +165,7 @@ active::utility::Memory DocumentStoreCore::readStore() const {
 	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectContent(Guid{m_id.id}, &storeName, &storedData)); statusCode != nominal)
 		throw std::system_error(makeError(statusCode));
 		//Copy the stored data into the result
-	auto storeSize = BMGetHandleSize(storedData);
-	result.resize(storeSize);
-	active::utility::Memory::copy(result.data(), *storedData, storeSize, storeSize);
+	copyHandleToMemory(storedData, result);
 	BMKillHandle(&storedData);
 #endif
 	return result;

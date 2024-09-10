@@ -120,7 +120,7 @@ namespace speckle::database {
 		 @param toMerge The external stored data to merge
 		 @return The merged data to be stored
 		 */
-		active::utility::Memory mergeStore(const active::utility::Memory& toMerge) override;
+		void mergeStore(const active::utility::Memory& toMerge) override;
 		/*!
 		 Reset the stored data (some external change has invalidated previous data, e.g. the document was closed)
 		 */
@@ -266,7 +266,7 @@ namespace speckle::database {
 	  --------------------------------------------------------------------*/
 	template<typename Obj, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	active::utility::Memory DocumentStoreEngine<Obj, Transport, ObjID>::mergeStore(const active::utility::Memory& toMerge) {
+	void DocumentStoreEngine<Obj, Transport, ObjID>::mergeStore(const active::utility::Memory& toMerge) {
 			//Import the incoming records from the data to merge
 		Cache incoming;
 		Transport().receive(std::forward<active::serialise::Cargo&&>(incoming), active::serialise::Identity{}, toMerge);
@@ -275,7 +275,6 @@ namespace speckle::database {
 		if (!cache)
 			cache = std::make_unique<Cache>();	//We still want to export an empty cache object even if it contains no records
 		cache->merge(incoming);
-		return buildStore();
 	} //DocumentStoreEngine<Obj, Transport, ObjID>::mergeStore
 	
 }

@@ -5,6 +5,7 @@
 #include "Active/Setting/SettingList.h"
 #include "Active/Database/Storage/DBaseSchema.h"
 #include "Active/Utility/NameID.h"
+#include "Speckle/Event/Subscriber/DocStoreSubscriber.h"
 
 namespace speckle::database {
 	
@@ -13,7 +14,7 @@ namespace speckle::database {
 	 
 	 Currently implement for Archicad Add-On Objects
 	 */
-	class DocumentStoreCore  {
+	class DocumentStoreCore : public event::DocStoreSubscriber  {
 	public:
 
 		// MARK: - Types
@@ -54,6 +55,15 @@ namespace speckle::database {
 		 */
 		const active::utility::NameID& getID() const { return m_id; }
 		
+		// MARK: - Functions (mutating)
+		
+		/*!
+		 Handle a document merge operation
+		 @param event The merge event
+		 @return True if the event should be closed
+		 */
+		bool handle(const event::DocStoreMergeEvent& event) override;
+		
 	protected:
 		/*!
 		 Read the data stored in the document (should be lazy-loading, only at the point where data is actually requested)
@@ -73,9 +83,8 @@ namespace speckle::database {
 		/*!
 		 Merge existing stored data with incoming stored data (from an external source)
 		 @param toMerge The external stored data to merge
-		 @return The merged data to be stored
 		 */
-		virtual active::utility::Memory mergeStore(const active::utility::Memory& toMerge) = 0;
+		virtual void mergeStore(const active::utility::Memory& toMerge) = 0;
 		/*!
 		 Reset the stored data (some external change has invalidated previous data, e.g. the document was closed)
 		 */

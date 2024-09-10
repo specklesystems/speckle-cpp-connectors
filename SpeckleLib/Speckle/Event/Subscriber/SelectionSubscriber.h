@@ -3,16 +3,12 @@
 
 #include "Active/Event/Subscriber.h"
 
-#ifdef ARCHICAD
-#include <ACAPinc.h>
-#endif
-
 namespace speckle::event {
 	
 	class SelectionEvent;
 	
 	/*!
-	 Base class for subscribers responding to selectionm changes
+	 Base class for subscribers responding to selection changes
 	*/
 	class SelectionSubscriber : public active::event::Subscriber {
 	public:
@@ -65,7 +61,7 @@ namespace speckle::event {
 		
 	private:
 			///True if a selection change subscriber has already started (only one is required - there are no variants)
-		int32_t m_isStarted = false;
+		static bool m_isStarted;
 	};
 	
 }
