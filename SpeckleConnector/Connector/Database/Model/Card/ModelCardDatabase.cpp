@@ -44,7 +44,7 @@ namespace {
   --------------------------------------------------------------------*/
 ModelCardDatabase::ModelCardDatabase() {
 	
-	auto engine = std::make_shared<ModelCardEngine>(modelCardDBaseName,
+	auto engine = std::make_unique<ModelCardEngine>(modelCardDBaseName,
 			//Schema
 		 DBaseSchema{active::utility::String{modelCardDBaseName},
 				//Tables
@@ -56,7 +56,7 @@ ModelCardDatabase::ModelCardDatabase() {
 			}
 		}
 	);
-	m_store = std::make_unique<Store>(std::move(engine));
+	m_store = std::make_shared<Store>(std::move(engine));
 } //ModelCardDatabase::ModelCardDatabase
 
 
@@ -84,3 +84,13 @@ Vector<ModelCard> ModelCardDatabase::getCards() const {
 std::unique_ptr<Cargo> ModelCardDatabase::wrapper() const {
 	return m_store->wrapper();
 } //ModelCardDatabase::wrapper
+
+
+/*--------------------------------------------------------------------
+	Get the database subscription (the content is document-based, and must react to document operations)
+ 
+	return: The database subscription (add weakly to publisher)
+  --------------------------------------------------------------------*/
+std::shared_ptr<active::event::Subscriber> ModelCardDatabase::getSubscription() const {
+	return dynamic_pointer_cast<active::event::Subscriber>(m_store);
+} //ModelCardDatabase::getSubscription
