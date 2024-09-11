@@ -6,18 +6,19 @@
 #include "Active/Utility/Cloner.h"
 #include "Connector/Database/Model/Card/CardSetting.h"
 #include "Speckle/Utility/String.h"
+#include "Speckle/Database/Content/Record.h"
 
 namespace connector::database {
 	
 	/*!
 	 A connector send filter
 	 */
-	class ModelCard : public active::serialise::Package, public active::utility::Cloner {
+	class ModelCard : public speckle::database::Record {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::serialise::Package;
+		using base = speckle::database::Record;
 			//List of card settings
 		using SettingList = active::container::Vector<connector::database::CardSetting>;
 
@@ -35,11 +36,6 @@ namespace connector::database {
 		
 		// MARK: - Functions (const)
 		
-		/*!
-		 Get the card ID
-		 @return The card ID
-		 */
-		const speckle::utility::String& getID() const { return m_ID; }
 		/*!
 		 Get the model ID
 		 @return The model ID
@@ -86,8 +82,6 @@ namespace connector::database {
 		void setDefault() override;
 		
 	private:
-			///A unique ID for the card (not the ID of the linked model)
-		speckle::utility::String m_ID;
 			///The model ID
 		speckle::utility::String m_modelID;
 			///The project ID

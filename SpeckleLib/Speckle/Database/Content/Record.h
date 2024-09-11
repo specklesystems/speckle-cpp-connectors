@@ -9,12 +9,12 @@ namespace speckle::database {
 	/*!
 	 Base class for a database record
 	 */
-	class Record : public active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
+	class Record : public active::database::Record<active::utility::String, active::utility::String, active::utility::String> {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
+		using base = active::database::Record<active::utility::String, active::utility::String, active::utility::String>;
 			///Unique pointer
 		using Unique = std::unique_ptr<Record>;
 			///Shared pointer
@@ -24,6 +24,10 @@ namespace speckle::database {
 
 		// MARK: - Constructors
 		
+		/*!
+		 Default constructor
+		 */
+		Record() : base{} {}
 		/*!
 		 Constructor
 		 @param ID The record ID

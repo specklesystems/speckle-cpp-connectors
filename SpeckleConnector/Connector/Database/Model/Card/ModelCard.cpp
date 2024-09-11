@@ -14,7 +14,6 @@ namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
-		idID,
 		modelID,
 		projectID,
 		accountID,
@@ -24,7 +23,6 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"id"},
 		Identity{"modelId"},
 		Identity{"projectId"},
 		Identity{"accountId"},
@@ -45,7 +43,6 @@ bool ModelCard::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[idID], idID, element },
 			{ fieldID[modelID], modelID, element },
 			{ fieldID[projectID], projectID, element },
 			{ fieldID[accountID], accountID, element },
@@ -53,7 +50,7 @@ bool ModelCard::fillInventory(Inventory& inventory) const {
 			{ fieldID[settingsID], settingsID, element },
 		},
 	}.withType(&typeid(ModelCard)));
-	return true;
+	return base::fillInventory(inventory);
 } //ModelCard::fillInventory
 
 
@@ -66,11 +63,9 @@ bool ModelCard::fillInventory(Inventory& inventory) const {
   --------------------------------------------------------------------*/
 Cargo::Unique ModelCard::getCargo(const Inventory::Item& item) const {
 	if (item.ownerType != &typeid(ModelCard))
-		return nullptr;
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-		case idID:
-			return std::make_unique<ValueWrap<String>>(m_ID);
 		case modelID:
 			return std::make_unique<ValueWrap<String>>(m_modelID);
 		case projectID:
@@ -91,7 +86,7 @@ Cargo::Unique ModelCard::getCargo(const Inventory::Item& item) const {
 	Set to the default package content
   --------------------------------------------------------------------*/
 void ModelCard::setDefault() {
-	m_ID.clear();
+	base::setDefault();
 	m_modelID.clear();
 	m_projectID.clear();
 	m_accountID.clear();

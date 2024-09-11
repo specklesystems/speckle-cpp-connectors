@@ -1,8 +1,8 @@
-#include "Speckle/Event/Subscriber/DocStoreSubscriber.h"
+#include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Database/Identity/Link.h"
-#include "Speckle/Event/Type/DocStoreMergeEvent.h"
+#include "Speckle/Event/Type/ProjectEvent.h"
 
 #ifdef ARCHICAD
 #include <ACAPinc.h>
@@ -18,12 +18,13 @@ namespace {
 	
 #ifdef ARCHICAD
 	/*!
-	 Callback for an Archicad document merge operation
-	 @param sourceObjects The source document objects to merge
+	 Callback for an Archicad project event
+	 @param notifyEvent The event notification type
+	 @param param Parameter applicable to certain events (see API docs)
 	 */
-	GSErrCode __ACENV_CALL docMergeCallback(const GS::Array<API_AddonObject>& sourceObjects) {
+	GSErrCode __ACENV_CALL projectCallback(API_NotifyEventID notifyEvent, Int32 param) {
 		if (addon() != nullptr)
-			addon()->publishExternal(DocStoreMergeEvent{sourceObjects});
+			addon()->publishExternal(ProjectEvent{notifyEvent, param});
 		return NoError;
 	}
 #endif
@@ -31,16 +32,16 @@ namespace {
 }
 
 	//True if a doc merge subscriber has already started (only one is required - there are no variants)
-bool speckle::event::DocStoreSubscriber::m_isStarted = false;
+bool speckle::event::ProjectSubscriber::m_isStarted = false;
 
 /*--------------------------------------------------------------------
 	Get the event subscription list
  
 	return: The subscription list (an empty list will put the subscriber into a suspended state)
   --------------------------------------------------------------------*/
-Subscriber::Subscription DocStoreSubscriber::subscription() const {
-	return { {DocStoreMergeEvent::ID} };
-} //DocStoreSubscriber::subscription
+Subscriber::Subscription ProjectSubscriber::subscription() const {
+	return { {ProjectEvent::ID} };
+} //ProjectSubscriber::subscription
 
 
 /*--------------------------------------------------------------------
@@ -50,25 +51,12 @@ Subscriber::Subscription DocStoreSubscriber::subscription() const {
  
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
-bool DocStoreSubscriber::receive(const Event& event) {
+bool ProjectSubscriber::receive(const Event& event) {
 		//Pass a menu event to the specified handler function
-	if (auto docEvent = dynamic_cast<const DocStoreMergeEvent*>(&event); docEvent != nullptr)
-		return handle(*docEvent);
+	if (auto projectEvent = dynamic_cast<const ProjectEvent*>(&event); projectEvent != nullptr)
+		return handle(*projectEvent);
 	return false;
-} //DocStoreSubscriber::receive
-
-
-/*--------------------------------------------------------------------
-	Attach participant components to the app (as required)
- 
-	return: True if the participant is able to function
-  --------------------------------------------------------------------*/
-bool DocStoreSubscriber::attach() {
-#ifdef ARCHICAD
-	ACAPI_AddOnObject_RegisterAddOnObjectHandler();
-#endif
-	return true;
-} //DocStoreSubscriber::attach
+} //ProjectSubscriber::receive
 
 
 /*--------------------------------------------------------------------
@@ -76,13 +64,13 @@ bool DocStoreSubscriber::attach() {
  
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
-bool DocStoreSubscriber::start() {
+bool ProjectSubscriber::start() {
 	if (m_isStarted)
 		return true;
 	m_isStarted = true;
 #ifdef ARCHICAD
-	return (ACAPI_AddOnObject_InstallAddOnObjectMergeHandler(docMergeCallback) == NoError);
+	return (ACAPI_ProjectOperation_CatchProjectEvent(API_AllNotificationMask, projectCallback) == NoError);
 #else
 	return false;
 #endif
-} //DocStoreSubscriber::start
+} //ProjectSubscriber::start

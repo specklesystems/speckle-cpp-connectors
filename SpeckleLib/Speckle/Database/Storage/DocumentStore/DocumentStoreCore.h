@@ -6,15 +6,18 @@
 #include "Active/Database/Storage/DBaseSchema.h"
 #include "Active/Utility/NameID.h"
 #include "Speckle/Event/Subscriber/DocStoreSubscriber.h"
+#include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
 namespace speckle::database {
 	
+	using DocumentStoreSchema = active::database::DBaseSchema<>;
+
 	/*!
 	 Core functionality and definitions for a mechanism to store data in a BIM (3rd-party) document/database
 	 
 	 Currently implement for Archicad Add-On Objects
 	 */
-	class DocumentStoreCore : public event::DocStoreSubscriber  {
+	class DocumentStoreCore : public event::DocStoreSubscriber, public event::ProjectSubscriber  {
 	public:
 
 		// MARK: - Types
@@ -40,8 +43,10 @@ namespace speckle::database {
 		/*!
 		 Default constructor
 		 @param id The document storage identifier
+		 @param schema The document storage schema
 		 */
-		DocumentStoreCore(const active::utility::NameID& id) : m_id(id) {}
+		DocumentStoreCore(const active::utility::NameID& id, DocumentStoreSchema&& schema) : m_id(id), m_schema{schema} {}
+		DocumentStoreCore(const DocumentStoreCore&) = default;
 		/*!
 		 Destructor
 		 */
@@ -49,6 +54,11 @@ namespace speckle::database {
 		
 		// MARK: - Function (const)
 		
+		/*!
+		 Get the database schema
+		 @return The database schema
+		 */
+		const DocumentStoreSchema& getSchema() const { return m_schema; }
 		/*!
 		 Get the database id
 		 @return The database id
@@ -63,6 +73,12 @@ namespace speckle::database {
 		 @return True if the event should be closed
 		 */
 		bool handle(const event::DocStoreMergeEvent& event) override;
+		/*!
+		 Handle a project event
+		 @param event The project event
+		 @return True if the event should be closed
+		 */
+		bool handle(const event::ProjectEvent& event) override;
 		
 	protected:
 		/*!
@@ -91,6 +107,8 @@ namespace speckle::database {
 		virtual void resetStore() = 0;
 		
 	private:
+			///The database schema
+		DocumentStoreSchema m_schema;
 			///The database ID (mutable to allow lazy loading when data is accessed)
 		mutable active::utility::NameID m_id;
 	};

@@ -29,6 +29,7 @@ namespace {
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
+			addWeak(m_modelCards.getSubscription());
 		}
 		
 		// MARK: Functions (const)

@@ -5,12 +5,11 @@
 
 #include "Active/Utility/Guid.h"
 #include "Active/Utility/String.h"
-#include "Speckle/Database/Identity/Link.h"
 
 namespace speckle::event {
 	
 	/*!
-	 Class representing a selection change event
+	 Class representing a document merge event, e.g. merging an external document
 	*/
 	class DocStoreMergeEvent : public active::event::Event {
 	public:

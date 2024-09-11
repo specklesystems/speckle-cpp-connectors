@@ -4,6 +4,7 @@
 #include "Active/Utility/String.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/DocStoreMergeEvent.h"
+#include "Speckle/Event/Type/ProjectEvent.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -142,6 +143,30 @@ bool DocumentStoreCore::handle(const DocStoreMergeEvent& event) {
 		copyHandleToMemory(object.data, toMerge);
 		mergeStore(toMerge);
 		writeStore();
+	}
+#endif
+	return false;
+} //DocumentStoreCore::handle
+
+
+/*--------------------------------------------------------------------
+	Handle a project event
+ 
+	event: The project event
+ 
+	return: True if the event should be closed
+ --------------------------------------------------------------------*/
+bool DocumentStoreCore::handle(const event::ProjectEvent& event) {
+#ifdef ARCHICAD
+	switch (event.getType()) {
+		case APINotify_Close:
+			resetStore();	//Wipe the cache, forcing a full reload when the data is requested again (after a project is opened)
+			break;
+		case APINotify_PreSave: case APINotify_SendChanges:
+			writeStore();	//Ensure the data is stored with the save/send
+			break;
+		default:
+			break;
 	}
 #endif
 	return false;

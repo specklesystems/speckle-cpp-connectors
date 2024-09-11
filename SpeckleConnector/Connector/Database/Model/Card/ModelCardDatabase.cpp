@@ -1,71 +1,86 @@
 #include "Connector/Database/Model/Card/ModelCardDatabase.h"
 
-#include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
-#include "Active/Setting/ValueSetting.h"
+#include "Active/Database/Storage/Storage.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Speckle/Database/Storage/DocumentStore/DocumentStoreEngine.h"
 
 #include <array>
 
+using namespace active::container;
+using namespace active::database;
 using namespace active::serialise;
+using namespace active::serialise::json;
 using namespace active::setting;
 using namespace connector::database;
+using namespace speckle::database;
 using namespace speckle::utility;
 
+namespace connector::database {
+
+		///ModelCard database engine declaration
+	using ModelCardEngine = DocumentStoreEngine<ModelCard, JSONTransport, active::utility::String>;
+
+		///ModelCard database storage declaration
+	class ModelCardDatabase::Store : public active::database::Storage<connector::database::ModelCard, active::serialise::json::JSONTransport,
+			active::utility::String, active::utility::String, active::utility::String, active::utility::String> {
+		using base = active::database::Storage<connector::database::ModelCard, active::serialise::json::JSONTransport,
+			active::utility::String, active::utility::String, active::utility::String, active::utility::String>;
+		using base::base;
+	};
+	
+}
+
 namespace {
-
-		///Serialisation fields
-	enum FieldIndex {
-		model,
-	};
-
-		///Serialisation field IDs
-	static std::array fieldID = {
-		Identity{"models"},
-	};
+	
+		///The document storage identifier for model cards
+	const char* modelCardDBaseName = "connector::database::ModelModelCardDatabase";
+		///The document storage identifier for model cards
+	const char* modelCardTableName = "models";
 
 }
 
 /*--------------------------------------------------------------------
-	Fill an inventory with the package items
- 
-	inventory: The inventory to receive the package items
- 
-	return: True if the package has added items to the inventory
+	Constructor
   --------------------------------------------------------------------*/
-bool ModelCardDatabase::fillInventory(Inventory& inventory) const {
-	using enum Entry::Type;
-	inventory.merge(Inventory{
-		{
-			{ fieldID[model], model, element },
-		},
-	}.withType(&typeid(ModelCardDatabase)));
-	return true;
-} //ModelCardDatabase::fillInventory
+ModelCardDatabase::ModelCardDatabase() {
+	
+	auto engine = std::make_shared<ModelCardEngine>(modelCardDBaseName,
+			//Schema
+		 DBaseSchema{active::utility::String{modelCardDBaseName},
+				//Tables
+			{
+					//Model card table
+				{
+					modelCardTableName, 0, 0, {}	//The table specifics aren't relevant in this context
+				}
+			}
+		}
+	);
+	m_store = std::make_unique<Store>(std::move(engine));
+} //ModelCardDatabase::ModelCardDatabase
 
 
 /*--------------------------------------------------------------------
-	Get the specified cargo
- 
-	item: The inventory item to retrieve
- 
-	return: The requested cargo (nullptr on failure)
+	Destructor
   --------------------------------------------------------------------*/
-Cargo::Unique ModelCardDatabase::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(ModelCardDatabase))
-		return nullptr;
-	using namespace active::serialise;
-	switch (item.index) {
-		case model:
-			return std::make_unique<CargoHold<ValueSettingWrap, ValueSetting>>();	//NB: This is a placeholder until we define the content
-		default:
-			return nullptr;	//Requested an unknown index
-	}
-} //ModelCardDatabase::getCargo
+ModelCardDatabase::~ModelCardDatabase() {}
 
 
 /*--------------------------------------------------------------------
-	Set to the default package content
+	Get all model cards
+ 
+	return: All the cards
   --------------------------------------------------------------------*/
-void ModelCardDatabase::setDefault() {
-} //ModelCardDatabase::setDefault
+Vector<ModelCard> ModelCardDatabase::getCards() const {
+	return m_store->getObjects();
+} //ModelCardDatabase::getCards
+
+
+/*--------------------------------------------------------------------
+	Get a serialisation wrapper for the database
+ 
+	return: A database wrapper
+  --------------------------------------------------------------------*/
+std::unique_ptr<Cargo> ModelCardDatabase::wrapper() const {
+	return m_store->wrapper();
+} //ModelCardDatabase::wrapper
