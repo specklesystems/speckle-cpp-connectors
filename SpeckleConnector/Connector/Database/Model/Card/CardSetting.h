@@ -91,7 +91,7 @@ namespace connector::database {
 		
 	private:
 			///A unique ID for the setting
-		speckle::utility::String m_ID = {speckle::utility::Guid{true}};
+		speckle::utility::String m_ID = {active::utility::Guid{true}.operator active::utility::String()};
 			///The model ID
 		speckle::utility::String m_title;
 			///The project ID

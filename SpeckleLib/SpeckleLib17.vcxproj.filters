@@ -56,6 +56,12 @@
     <Filter Include="Speckle\Database\Identity">
       <UniqueIdentifier>{ef1710f6-d890-4286-8fb2-f5c432a2c5ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Database\Storage">
+      <UniqueIdentifier>{afbc554e-df7d-4310-a967-4df8e9febcd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\DocumentStore">
+      <UniqueIdentifier>{c4146af8-d1a1-44cc-9810-cc8da1a705a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -169,6 +175,24 @@
     <ClInclude Include="Speckle\Environment\Platform.h">
       <Filter>Speckle\Environment</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Event\Subscriber\DocStoreSubscriber.h">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Subscriber\ProjectSubscriber.h">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Type\DocStoreMergeEvent.h">
+      <Filter>Speckle\Event\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Type\ProjectEvent.h">
+      <Filter>Speckle\Event\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.h">
+      <Filter>Speckle\Database\Storage\DocumentStore</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h">
+      <Filter>Speckle\Database\Storage\DocumentStore</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -236,6 +260,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Environment\Platform.cpp">
       <Filter>Speckle\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Event\Subscriber\DocStoreSubscriber.cpp">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Event\Subscriber\ProjectSubscriber.cpp">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp">
+      <Filter>Speckle\Database\Storage\DocumentStore</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

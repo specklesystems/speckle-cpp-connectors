@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector\Connector.cpp" />
+    <ClCompile Include="Connector\Database\Model\Card\CardSetting.cpp" />
+    <ClCompile Include="Connector\Database\Model\Card\ModelCard.cpp" />
     <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
@@ -124,6 +126,8 @@
   <ItemGroup>
     <ClInclude Include="Connector\Connector.h" />
     <ClInclude Include="Connector\ConnectorResource.h" />
+    <ClInclude Include="Connector\Database\Model\Card\CardSetting.h" />
+    <ClInclude Include="Connector\Database\Model\Card\ModelCard.h" />
     <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h" />
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />

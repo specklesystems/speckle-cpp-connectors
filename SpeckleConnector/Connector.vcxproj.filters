@@ -162,6 +162,12 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Database\Model\Card\CardSetting.cpp">
+      <Filter>Connector\Database\Model\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Database\Model\Card\ModelCard.cpp">
+      <Filter>Connector\Database\Model\Card</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -254,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.h">
       <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Database\Model\Card\CardSetting.h">
+      <Filter>Connector\Database\Model\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Database\Model\Card\ModelCard.h">
+      <Filter>Connector\Database\Model\Card</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
