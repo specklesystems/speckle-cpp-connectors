@@ -89,6 +89,16 @@ void ModelCardDatabase::write(const ModelCard& card) const {
 
 
 /*--------------------------------------------------------------------
+	Erase a card
+ 
+	cardID: The ID of the card to erase
+  --------------------------------------------------------------------*/
+void ModelCardDatabase::erase(const speckle::utility::String& cardID) const {
+	m_store->erase(cardID);
+} //ModelCardDatabase::erase
+
+
+/*--------------------------------------------------------------------
 	Get a serialisation wrapper for the database
  
 	return: A database wrapper

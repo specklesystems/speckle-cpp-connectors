@@ -51,6 +51,8 @@
 		21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */; };
 		21D0BDAB2C8F363E0077E104 /* CardSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */; };
 		21D0BDCF2C92DAC60077E104 /* AddModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDCB2C92DAC60077E104 /* AddModel.cpp */; };
+		21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */; };
+		21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -330,6 +332,10 @@
 		21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardSetting.cpp; sourceTree = "<group>"; };
 		21D0BDCB2C92DAC60077E104 /* AddModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddModel.cpp; sourceTree = "<group>"; };
 		21D0BDCE2C92DAC60077E104 /* AddModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddModel.h; sourceTree = "<group>"; };
+		21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateModel.cpp; sourceTree = "<group>"; };
+		21D0BDD32C935D1A0077E104 /* UpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateModel.h; sourceTree = "<group>"; };
+		21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoveModel.cpp; sourceTree = "<group>"; };
+		21D0BDD62C935DAE0077E104 /* RemoveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveModel.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -922,6 +928,10 @@
 				21B67CA82C77329800FD64FC /* GetSourceApplicationName.h */,
 				21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */,
 				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
+				21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */,
+				21D0BDD62C935DAE0077E104 /* RemoveModel.h */,
+				21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */,
+				21D0BDD32C935D1A0077E104 /* UpdateModel.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1359,9 +1369,11 @@
 				21B67CD92C78C83800FD64FC /* TestBridge.cpp in Sources */,
 				214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */,
 				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
+				21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */,
 				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */,
+				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,

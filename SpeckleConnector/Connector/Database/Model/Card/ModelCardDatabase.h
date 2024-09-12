@@ -40,6 +40,11 @@ namespace connector::database {
 		 */
 		void write(const ModelCard& card) const;
 		/*!
+		 Erase a card
+		 @param cardID The ID of the card to erase
+		 */
+		void erase(const speckle::utility::String& cardID) const;
+		/*!
 		 Get a serialisation wrapper for the database
 		 @return A database wrapper
 		 */

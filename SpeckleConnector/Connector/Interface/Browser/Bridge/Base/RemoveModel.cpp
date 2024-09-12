@@ -1,4 +1,4 @@
-#include "Connector/Interface/Browser/Bridge/Base/AddModel.h"
+#include "Connector/Interface/Browser/Bridge/Base/RemoveModel.h"
 
 #include "Connector/Connector.h"
 #include "Connector/Database/Model/Card/ModelCardDatabase.h"
@@ -19,7 +19,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-AddModel::AddModel() : BridgeMethod{"AddModel", [&](ModelCardEventWrapper card) {
+RemoveModel::RemoveModel() : BridgeMethod{"RemoveModel", [&](ModelCardEventWrapper card) {
 		return run(card.get());
 }} {}
 
@@ -29,7 +29,7 @@ AddModel::AddModel() : BridgeMethod{"AddModel", [&](ModelCardEventWrapper card) 
  
 	card: The card to add
   --------------------------------------------------------------------*/
-void AddModel::run(ModelCard& card) const {
+void RemoveModel::run(ModelCard& card) const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
-		modelCardDBase->write(card);
-} //AddModel::run
+		modelCardDBase->erase(card.getID());
+} //RemoveModel::run
