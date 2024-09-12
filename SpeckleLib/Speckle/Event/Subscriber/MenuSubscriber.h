@@ -25,7 +25,7 @@ namespace speckle::event {
 	/*!
 	 Base class for subscribers handling a UI menu (from the app menu bar)
 	*/
-	class MenuSubscriber : public active::event::Subscriber {
+	class MenuSubscriber : public virtual active::event::Subscriber {
 	public:
 
 		// MARK: - Constructors

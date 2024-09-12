@@ -10,7 +10,7 @@ namespace speckle::event {
 	/*!
 	 Base class for subscribers responding to selection changes
 	*/
-	class SelectionSubscriber : public active::event::Subscriber {
+	class SelectionSubscriber : public virtual active::event::Subscriber {
 	public:
 
 		// MARK: - Constructors

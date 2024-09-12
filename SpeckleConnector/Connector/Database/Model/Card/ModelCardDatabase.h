@@ -35,21 +35,29 @@ namespace connector::database {
 		 */
 		active::container::Vector<ModelCard> getCards() const;
 		/*!
+		 Write a card to storage
+		 @param card The card to write
+		 */
+		void write(const ModelCard& card) const;
+		/*!
 		 Get a serialisation wrapper for the database
 		 @return A database wrapper
 		 */
 		std::unique_ptr<active::serialise::Cargo> wrapper() const;
+		
+		// MARK: - Functions (mutating)
+
 		/*!
 		 Get the database subscription (the content is document-based, and must react to document operations)
 		 @return The database subscription (add weakly to publisher)
 		 */
-		std::shared_ptr<active::event::Subscriber> getSubscription() const;
+		std::shared_ptr<active::event::Subscriber> getSubscription();
 		
-		// MARK: - Functions (mutating)
-				
 	private:
+		class Engine;
 		class Store;
 			///Model card database storage
+		std::shared_ptr<Engine> m_engine;
 		std::shared_ptr<Store> m_store;
 	};
 

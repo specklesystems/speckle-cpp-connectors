@@ -18,7 +18,10 @@ using namespace speckle::utility;
 namespace connector::database {
 
 		///ModelCard database engine declaration
-	using ModelCardEngine = DocumentStoreEngine<ModelCard, JSONTransport, active::utility::String>;
+	class ModelCardDatabase::Engine : public DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, active::utility::String> {
+		using base = DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, active::utility::String>;
+		using base::base;
+	};
 
 		///ModelCard database storage declaration
 	class ModelCardDatabase::Store : public active::database::Storage<connector::database::ModelCard, active::serialise::json::JSONTransport,
@@ -43,8 +46,7 @@ namespace {
 	Constructor
   --------------------------------------------------------------------*/
 ModelCardDatabase::ModelCardDatabase() {
-	
-	auto engine = std::make_unique<ModelCardEngine>(modelCardDBaseName,
+	auto engine = std::make_shared<Engine>(modelCardDBaseName,
 			//Schema
 		 DBaseSchema{active::utility::String{modelCardDBaseName},
 				//Tables
@@ -56,7 +58,7 @@ ModelCardDatabase::ModelCardDatabase() {
 			}
 		}
 	);
-	m_store = std::make_shared<Store>(std::move(engine));
+	m_store = std::make_shared<Store>(m_engine);
 } //ModelCardDatabase::ModelCardDatabase
 
 
@@ -77,6 +79,16 @@ Vector<ModelCard> ModelCardDatabase::getCards() const {
 
 
 /*--------------------------------------------------------------------
+	Write a card to storage
+ 
+	card: The card to write
+  --------------------------------------------------------------------*/
+void ModelCardDatabase::write(const ModelCard& card) const {
+	m_store->write(card);
+} //ModelCardDatabase::write
+
+
+/*--------------------------------------------------------------------
 	Get a serialisation wrapper for the database
  
 	return: A database wrapper
@@ -91,6 +103,6 @@ std::unique_ptr<Cargo> ModelCardDatabase::wrapper() const {
  
 	return: The database subscription (add weakly to publisher)
   --------------------------------------------------------------------*/
-std::shared_ptr<active::event::Subscriber> ModelCardDatabase::getSubscription() const {
-	return dynamic_pointer_cast<active::event::Subscriber>(m_store);
+std::shared_ptr<active::event::Subscriber> ModelCardDatabase::getSubscription() {
+	return std::dynamic_pointer_cast<active::event::Subscriber>(m_engine);
 } //ModelCardDatabase::getSubscription

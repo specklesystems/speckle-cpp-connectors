@@ -10,7 +10,7 @@ namespace speckle::event {
 	/*!
 	 Base class for subscribers responding to project events (open, close, quit etc)
 	*/
-	class ProjectSubscriber : public active::event::Subscriber {
+	class ProjectSubscriber : public virtual active::event::Subscriber {
 	public:
 
 		// MARK: - Constructors

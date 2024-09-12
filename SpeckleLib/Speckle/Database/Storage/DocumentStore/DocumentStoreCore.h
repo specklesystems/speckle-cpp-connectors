@@ -105,6 +105,30 @@ namespace speckle::database {
 		 Reset the stored data (some external change has invalidated previous data, e.g. the document was closed)
 		 */
 		virtual void resetStore() = 0;
+
+		// MARK: Subscriber functions
+		
+		/*!
+		 Get the event subscription list
+		 @return The subscription list (an empty list will put the subscriber into a suspended state)
+		*/
+		Subscription subscription() const override;
+		/*!
+		 Receive a subscribed event
+		 @param event The incoming event
+		 @return True if the event should be closed
+		 */
+		bool receive(const active::event::Event& event) override;
+		/*!
+		 Attach participant components to the app (as required)
+		 @return True if the participant is able to function
+		*/
+		bool attach() override;
+		/*!
+		 Start the participant operation
+		 @return True if the participant is able to continue
+		 */
+		bool start() override;
 		
 	private:
 			///The database schema

@@ -10,7 +10,7 @@ namespace speckle::event {
 	/*!
 	 Base class for subscribers responding to document merge operations (notably those managing custom data in the document)
 	*/
-	class DocStoreSubscriber : public active::event::Subscriber {
+	class DocStoreSubscriber : public virtual active::event::Subscriber {
 	public:
 
 		// MARK: - Constructors

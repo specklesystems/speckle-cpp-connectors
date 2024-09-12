@@ -13,6 +13,7 @@
 #include <BM.hpp>
 #endif
 
+using namespace active::event;
 using namespace active::setting;
 using namespace speckle::database;
 using namespace speckle::environment;
@@ -233,3 +234,48 @@ void DocumentStoreCore::writeStore() {
 	}
 #endif
 } //DocumentStoreCore::writeStore
+
+
+/*--------------------------------------------------------------------
+	Get the event subscription list
+ 
+	return: The subscription list (an empty list will put the subscriber into a suspended state)
+  --------------------------------------------------------------------*/
+Subscriber::Subscription DocumentStoreCore::subscription() const {
+	auto result = DocStoreSubscriber::subscription();
+	auto other = ProjectSubscriber::subscription();
+	result.insert(other.begin(), other.end());
+	return result;
+} //DocumentStoreCore::subscription
+
+
+/*--------------------------------------------------------------------
+	Receive a subscribed event
+ 
+	event: The incoming event
+ 
+	return: True if the event should be closed
+  --------------------------------------------------------------------*/
+bool DocumentStoreCore::receive(const active::event::Event& event) {
+	return DocStoreSubscriber::receive(event) || ProjectSubscriber::receive(event);
+} //DocumentStoreCore::receive
+
+
+/*--------------------------------------------------------------------
+	Attach participant components to the app (as required)
+ 
+	return: True if the participant is able to function
+  --------------------------------------------------------------------*/
+bool DocumentStoreCore::attach() {
+	return DocStoreSubscriber::attach() && ProjectSubscriber::attach();
+} //DocumentStoreCore::attach
+
+
+/*--------------------------------------------------------------------
+	Start the participant operation
+ 
+	return: True if the participant is able to continue
+  --------------------------------------------------------------------*/
+bool DocumentStoreCore::start() {
+	return DocStoreSubscriber::start() && ProjectSubscriber::start();
+} //DocumentStoreCore::start

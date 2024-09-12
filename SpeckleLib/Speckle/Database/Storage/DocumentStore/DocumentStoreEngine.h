@@ -30,10 +30,11 @@ namespace speckle::database {
 	 Due to the fact that these records are intended to represent a single table and are stored in a document, the concepts of 'table' and
 	 'document' aren't currently applicable (this could be extended in future if there is a use-case)
 	 @tparam Obj Interface for the stored object. NB: This can be a base class for an object hierarchy, not necessarily a concrete class
+	 @tparam ObjWrapper Wrapper type for (de)serialising objects
 	 @tparam Transport The serialisation transport mechanism for objects
 	 @tparam ObjID The object identifier type, e.g. Guid
 	 */
-	template<typename Obj, typename Transport, typename ObjID = active::utility::String>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID = active::utility::String>
 	requires DocumentStorable<Obj, Transport>
 	class DocumentStoreEngine : public DocumentStoreCore, public active::database::DBaseEngine<Obj, ObjID, active::utility::String, active::utility::String>  {
 	public:
@@ -81,13 +82,24 @@ namespace speckle::database {
 		active::container::Vector<Obj> getObjects(const Filter& filter, std::optional<active::utility::String> tableID = std::nullopt,
 												  std::optional<active::utility::String> documentID = std::nullopt) const override;
 		/*!
+		 Write an object to the database
+		 @param object The object to write
+		 @param objID The object ID
+		 @param objDocID The object document-specific ID (unique within a specific document - nullopt if not document-bound)
+		 @param tableID Optional table ID (defaults to the first table)
+		 @param documentID Optional document ID (when the object is bound to a specific document)
+		 */
+		void write(const Obj& object, const ObjID& objID, std::optional<ObjID> objDocID = std::nullopt,
+				   utility::String::Option tableID = std::nullopt, utility::String::Option documentID = std::nullopt) const override;
+		/*!
 		 Erase an object by index
 		 @param ID The object ID
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 @throw Exception thrown on SQL error
 		 */
-		void erase(const ObjID& ID, std::optional<active::utility::String> tableID = std::nullopt, std::optional<active::utility::String> documentID = std::nullopt) const override;
+		void erase(const ObjID& ID, std::optional<active::utility::String> tableID = std::nullopt,
+				   std::optional<active::utility::String> documentID = std::nullopt) const override;
 		/*!
 		 Erase all objects
 		 @param tableID Optional table ID (defaults to the first table)
@@ -133,9 +145,9 @@ namespace speckle::database {
 	 
 		return: The cached records (nullptr on failure)
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	typename DocumentStoreEngine<Obj, Transport, ObjID>::Cache* DocumentStoreEngine<Obj, Transport, ObjID>::getCache() const {
+	typename DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::Cache* DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getCache() const {
 		if (m_cache)
 			return m_cache.get();
 			//Read the data stored in the document
@@ -144,9 +156,12 @@ namespace speckle::database {
 		if (!storedData)
 			return m_cache.get();	//Return an empty container if there's no data
 			//Import the document data into the record cache
-		Transport().receive(std::forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);
+		if constexpr (std::is_same_v<ObjWrapper, Obj>)
+			Transport().receive(std::forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);
+		else
+			Transport().receive(ObjWrapper{*m_cache}, active::serialise::Identity{}, storedData);
 		return m_cache.get();
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::getCache
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getCache
 	
 	
 	/*--------------------------------------------------------------------
@@ -158,12 +173,12 @@ namespace speckle::database {
 	 
 		return: The requested object (nullptr on failure)
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	std::unique_ptr<Obj> DocumentStoreEngine<Obj, Transport, ObjID>::getObject(const ObjID& ID, std::optional<active::utility::String> tableID,
+	std::unique_ptr<Obj> DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObject(const ObjID& ID, std::optional<active::utility::String> tableID,
 																			   std::optional<active::utility::String> documentID)  const {
 		return getCache()->read(ID);
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::getObject
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObject
 	
 	
 	/*--------------------------------------------------------------------
@@ -174,12 +189,12 @@ namespace speckle::database {
 	 
 		return: The requested objects (nullptr on failure)
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	active::container::Vector<Obj> DocumentStoreEngine<Obj, Transport, ObjID>::getObjects(std::optional<active::utility::String> tableID,
+	active::container::Vector<Obj> DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObjects(std::optional<active::utility::String> tableID,
 																						  std::optional<active::utility::String> documentID) const {
 		return getCache()->read();
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::getObjects
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObjects
 	
 	
 	/*--------------------------------------------------------------------
@@ -191,12 +206,29 @@ namespace speckle::database {
 	 
 		return: The requested objects (nullptr on failure)
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	active::container::Vector<Obj> DocumentStoreEngine<Obj, Transport, ObjID>::getObjects(const Filter& filter, std::optional<active::utility::String> tableID,
+	active::container::Vector<Obj> DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObjects(const Filter& filter, std::optional<active::utility::String> tableID,
 																						  std::optional<active::utility::String> documentID) const {
 		return getCache()->read(filter);
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::getObjects
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObjects
+	
+	
+	/*--------------------------------------------------------------------
+		Write an object to the database
+	 
+		object: The object to write
+		objID: The object ID
+		objDocID: The object document-specific ID (unique within a specific document - nullopt if not document-bound)
+		tableID: Optional table ID (defaults to the first table)
+		documentID: Optional document ID (when the object is bound to a specific document)
+	  --------------------------------------------------------------------*/
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
+	requires DocumentStorable<Obj, Transport>
+	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::write(const Obj& object, const ObjID& objID, std::optional<ObjID> objDocID,
+														   utility::String::Option tableID, utility::String::Option documentID) const {
+		getCache()->write(object);	//NB: In future we might support duplicating records if objID != obj.id
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::write
 	
 	
 	/*--------------------------------------------------------------------
@@ -208,12 +240,12 @@ namespace speckle::database {
 	 
 		return: True if the object was successfully erased
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	void DocumentStoreEngine<Obj, Transport, ObjID>::erase(const ObjID& ID, std::optional<active::utility::String> tableID,
+	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::erase(const ObjID& ID, std::optional<active::utility::String> tableID,
 														   std::optional<active::utility::String> documentID) const {
 		getCache()->erase(ID);
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::erase
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::erase
 	
 	
 	/*--------------------------------------------------------------------
@@ -222,11 +254,11 @@ namespace speckle::database {
 		tableID: Optional table ID (defaults to the first table)
 		documentID: Optional document ID (filter for this document only - nullopt = all objects)
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	void DocumentStoreEngine<Obj, Transport, ObjID>::erase(std::optional<active::utility::String> tableID, std::optional<active::utility::String> documentID) const {
+	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::erase(std::optional<active::utility::String> tableID, std::optional<active::utility::String> documentID) const {
 		getCache()->erase();
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::erase
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::erase
 
 	
 	/*--------------------------------------------------------------------
@@ -234,16 +266,16 @@ namespace speckle::database {
 	 
 		return: The database outline
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	DocumentStoreEngine<Obj, Transport, ObjID>::Outline DocumentStoreEngine<Obj, Transport, ObjID>::getOutline() const {
+	DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::Outline DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getOutline() const {
 		Outline result;
 		if (getSchema().empty())
 			return result;
 			//NB: Currently implementing only a single table in a document store
 		result.emplace_back(std::make_pair(getSchema()[0].ID, getCache()->keys()));
 		return result;
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::getOutline
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getOutline
 	
 	
 	/*--------------------------------------------------------------------
@@ -251,13 +283,13 @@ namespace speckle::database {
 	 
 		return: Data to store from the latest records
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	active::utility::Memory DocumentStoreEngine<Obj, Transport, ObjID>::buildStore() {
+	active::utility::Memory DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::buildStore() {
 		active::utility::Memory result;
 		Transport().send(std::forward<active::serialise::Cargo&&>(*getCache()), active::serialise::Identity{}, result);
 		return result;
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::buildStore
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::buildStore
 	
 	
 	/*--------------------------------------------------------------------
@@ -267,15 +299,18 @@ namespace speckle::database {
 	 
 		return: The merged data to be stored
 	  --------------------------------------------------------------------*/
-	template<typename Obj, typename Transport, typename ObjID>
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, Transport>
-	void DocumentStoreEngine<Obj, Transport, ObjID>::mergeStore(const active::utility::Memory& toMerge) {
+	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::mergeStore(const active::utility::Memory& toMerge) {
 			//Import the incoming records from the data to merge
 		Cache incoming;
-		Transport().receive(std::forward<active::serialise::Cargo&&>(incoming), active::serialise::Identity{}, toMerge);
+		if constexpr (std::is_same_v<ObjWrapper, Obj>)
+			Transport().receive(std::forward<active::serialise::Cargo&&>(incoming), active::serialise::Identity{}, toMerge);
+		else
+			Transport().receive(ObjWrapper{incoming}, active::serialise::Identity{}, toMerge);
 			//Get the data currently stored in the document
 		getCache()->merge(std::forward<Cache&&>(incoming));
-	} //DocumentStoreEngine<Obj, Transport, ObjID>::mergeStore
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::mergeStore
 	
 }
 
