@@ -1,33 +1,35 @@
-#include "Connector/Database/Model/Card/ModelCardDatabase.h"
+#include "Connector/Database/ModelCardDatabase.h"
 
 #include "Active/Database/Storage/Storage.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Speckle/Database/Storage/DocumentStore/DocumentStoreEngine.h"
 
 #include <array>
 
 using namespace active::container;
 using namespace active::database;
+using namespace active::event;
 using namespace active::serialise;
 using namespace active::serialise::json;
-using namespace active::setting;
 using namespace connector::database;
+using namespace connector::record;
 using namespace speckle::database;
 using namespace speckle::utility;
 
 namespace connector::database {
 
 		///ModelCard database engine declaration
-	class ModelCardDatabase::Engine : public DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, active::utility::String> {
-		using base = DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, active::utility::String>;
+	class ModelCardDatabase::Engine : public DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, RecordID> {
+		using base = DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, RecordID>;
 		using base::base;
 	};
 
 		///ModelCard database storage declaration
-	class ModelCardDatabase::Store : public active::database::Storage<connector::database::ModelCard, active::serialise::json::JSONTransport,
-			active::utility::String, active::utility::String, active::utility::String, active::utility::String> {
-		using base = active::database::Storage<connector::database::ModelCard, active::serialise::json::JSONTransport,
-			active::utility::String, active::utility::String, active::utility::String, active::utility::String>;
+	class ModelCardDatabase::Store : public Storage<ModelCard, JSONTransport,
+			RecordID, RecordID, RecordID, RecordID> {
+		using base = Storage<ModelCard, JSONTransport,
+			RecordID, RecordID, RecordID, RecordID>;
 		using base::base;
 	};
 	
@@ -93,7 +95,7 @@ void ModelCardDatabase::write(const ModelCard& card) const {
  
 	cardID: The ID of the card to erase
   --------------------------------------------------------------------*/
-void ModelCardDatabase::erase(const speckle::utility::String& cardID) const {
+void ModelCardDatabase::erase(const String& cardID) const {
 	m_store->erase(cardID);
 } //ModelCardDatabase::erase
 
@@ -114,5 +116,5 @@ std::unique_ptr<Cargo> ModelCardDatabase::wrapper() const {
 	return: The database subscription (add weakly to publisher)
   --------------------------------------------------------------------*/
 std::shared_ptr<active::event::Subscriber> ModelCardDatabase::getSubscription() {
-	return std::dynamic_pointer_cast<active::event::Subscriber>(m_engine);
+	return std::dynamic_pointer_cast<Subscriber>(m_engine);
 } //ModelCardDatabase::getSubscription

@@ -1,14 +1,14 @@
-#ifndef CONNECTOR_DATABASE_MODEL_CARD
-#define CONNECTOR_DATABASE_MODEL_CARD
+#ifndef CONNECTOR_RECORD_MODEL_CARD
+#define CONNECTOR_RECORD_MODEL_CARD
 
 #include "Active/Container/Vector.h"
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Utility/Cloner.h"
-#include "Connector/Database/Model/Card/CardSetting.h"
+#include "Connector/Record/Model/CardSetting.h"
 #include "Speckle/Utility/String.h"
 #include "Speckle/Database/Content/Record.h"
 
-namespace connector::database {
+namespace connector::record {
 	
 	/*!
 	 A connector send filter
@@ -20,7 +20,7 @@ namespace connector::database {
 		
 		using base = speckle::database::Record;
 			//List of card settings
-		using SettingList = active::container::Vector<connector::database::CardSetting>;
+		using SettingList = active::container::Vector<connector::record::CardSetting>;
 
 		// MARK: - Constructors
 		
@@ -28,6 +28,10 @@ namespace connector::database {
 		 Default constructor
 		 */
 		ModelCard() {}
+		/*!
+		 Destructor
+		 */
+		virtual ~ModelCard() {}
 		/*!
 			Record cloning
 			@return A clone of this record
@@ -96,4 +100,4 @@ namespace connector::database {
 
 }
 
-#endif	//CONNECTOR_DATABASE_MODEL_CARD
+#endif	//CONNECTOR_RECORD_MODEL_CARD

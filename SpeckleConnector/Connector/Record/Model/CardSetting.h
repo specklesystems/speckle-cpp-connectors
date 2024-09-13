@@ -1,5 +1,5 @@
-#ifndef CONNECTOR_DATABASE_MODEL_CARD_SETTING
-#define CONNECTOR_DATABASE_MODEL_CARD_SETTING
+#ifndef CONNECTOR_RECORD_CARD_SETTING
+#define CONNECTOR_RECORD_CARD_SETTING
 
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Setting/ValueSetting.h"
@@ -8,7 +8,7 @@
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
-namespace connector::database {
+namespace connector::record {
 	
 	/*!
 	 A setting attached to a model card, capturing rendering/view states of the model at the time of sending, e.g. level of detail (LoD)
@@ -104,4 +104,4 @@ namespace connector::database {
 
 }
 
-#endif	//CONNECTOR_DATABASE_MODEL_CARD_SETTING
+#endif	//CONNECTOR_RECORD_CARD_SETTING

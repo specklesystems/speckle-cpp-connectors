@@ -47,12 +47,14 @@
 		21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
 		21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD8D2C8EE4490077E104 /* Send.cpp */; };
 		21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */; };
-		21D0BD9B2C8F154B0077E104 /* SendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD982C8F154B0077E104 /* SendFilter.cpp */; };
 		21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */; };
 		21D0BDAB2C8F363E0077E104 /* CardSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */; };
 		21D0BDCF2C92DAC60077E104 /* AddModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDCB2C92DAC60077E104 /* AddModel.cpp */; };
 		21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */; };
 		21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */; };
+		21D0BDDC2C93897B0077E104 /* SenderModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDDA2C93897B0077E104 /* SenderModelCard.cpp */; };
+		21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDDD2C9393980077E104 /* SendFilter.cpp */; };
+		21D0BDE32C943C630077E104 /* DirectSelectionSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */; };
 		21D1E9AD2BF14AF200957EAA /* BIMData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9152BF14AEC00957EAA /* BIMData.framework */; };
 		21D1E9AE2BF14AF200957EAA /* TeamworkPortalServerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */; };
 		21D1E9AF2BF14AF200957EAA /* GDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D1E9172BF14AEC00957EAA /* GDL.framework */; };
@@ -324,8 +326,6 @@
 		21D0BD8D2C8EE4490077E104 /* Send.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Send.cpp; sourceTree = "<group>"; };
 		21D0BD952C8F13F30077E104 /* GetSendFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSendFilters.h; sourceTree = "<group>"; };
 		21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSendFilters.cpp; sourceTree = "<group>"; };
-		21D0BD982C8F154B0077E104 /* SendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendFilter.cpp; sourceTree = "<group>"; };
-		21D0BD992C8F154B0077E104 /* SendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendFilter.h; sourceTree = "<group>"; };
 		21D0BDA42C8F33AC0077E104 /* ModelCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelCard.h; sourceTree = "<group>"; };
 		21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCard.cpp; sourceTree = "<group>"; };
 		21D0BDA92C8F363E0077E104 /* CardSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSetting.h; sourceTree = "<group>"; };
@@ -336,6 +336,12 @@
 		21D0BDD32C935D1A0077E104 /* UpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateModel.h; sourceTree = "<group>"; };
 		21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RemoveModel.cpp; sourceTree = "<group>"; };
 		21D0BDD62C935DAE0077E104 /* RemoveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveModel.h; sourceTree = "<group>"; };
+		21D0BDDA2C93897B0077E104 /* SenderModelCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SenderModelCard.cpp; sourceTree = "<group>"; };
+		21D0BDDB2C93897B0077E104 /* SenderModelCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderModelCard.h; sourceTree = "<group>"; };
+		21D0BDDD2C9393980077E104 /* SendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendFilter.cpp; sourceTree = "<group>"; };
+		21D0BDDE2C9393980077E104 /* SendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendFilter.h; sourceTree = "<group>"; };
+		21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectSelectionSendFilter.cpp; sourceTree = "<group>"; };
+		21D0BDE22C943C630077E104 /* DirectSelectionSendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectSelectionSendFilter.h; sourceTree = "<group>"; };
 		21D1E9152BF14AEC00957EAA /* BIMData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BIMData.framework; path = "../Archicad 27/Support/Frameworks/BIMData.framework"; sourceTree = "<group>"; };
 		21D1E9162BF14AEC00957EAA /* TeamworkPortalServerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkPortalServerClient.framework; path = "../Archicad 27/Support/Frameworks/TeamworkPortalServerClient.framework"; sourceTree = "<group>"; };
 		21D1E9172BF14AEC00957EAA /* GDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GDL.framework; path = "../Archicad 27/Support/Frameworks/GDL.framework"; sourceTree = "<group>"; };
@@ -936,31 +942,11 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		21B67CC92C77670400FD64FC /* Card */ = {
-			isa = PBXGroup;
-			children = (
-				21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */,
-				21D0BDA92C8F363E0077E104 /* CardSetting.h */,
-				21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */,
-				21D0BDA42C8F33AC0077E104 /* ModelCard.h */,
-				21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */,
-				21B67CC82C77670400FD64FC /* ModelCardDatabase.h */,
-			);
-			path = Card;
-			sourceTree = "<group>";
-		};
-		21B67CCA2C77670400FD64FC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				21B67CC92C77670400FD64FC /* Card */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		21B67CCB2C77670400FD64FC /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				21B67CCA2C77670400FD64FC /* Model */,
+				21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */,
+				21B67CC82C77670400FD64FC /* ModelCardDatabase.h */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -1013,7 +999,6 @@
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
-				21D0BD9A2C8F154B0077E104 /* Arg */,
 				21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */,
 				21D0BD952C8F13F30077E104 /* GetSendFilters.h */,
 				21D0BD8D2C8EE4490077E104 /* Send.cpp */,
@@ -1024,13 +1009,37 @@
 			path = Send;
 			sourceTree = "<group>";
 		};
-		21D0BD9A2C8F154B0077E104 /* Arg */ = {
+		21D0BDD82C9387E60077E104 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				21D0BD982C8F154B0077E104 /* SendFilter.cpp */,
-				21D0BD992C8F154B0077E104 /* SendFilter.h */,
+				21D0BDD92C9387F70077E104 /* Model */,
 			);
-			path = Arg;
+			path = Record;
+			sourceTree = "<group>";
+		};
+		21D0BDD92C9387F70077E104 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */,
+				21D0BDA92C8F363E0077E104 /* CardSetting.h */,
+				21D0BDDF2C9393980077E104 /* Filter */,
+				21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */,
+				21D0BDA42C8F33AC0077E104 /* ModelCard.h */,
+				21D0BDDA2C93897B0077E104 /* SenderModelCard.cpp */,
+				21D0BDDB2C93897B0077E104 /* SenderModelCard.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21D0BDDF2C9393980077E104 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */,
+				21D0BDE22C943C630077E104 /* DirectSelectionSendFilter.h */,
+				21D0BDDD2C9393980077E104 /* SendFilter.cpp */,
+				21D0BDDE2C9393980077E104 /* SendFilter.h */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		21D1EA472BF14B6C00957EAA /* Archicad */ = {
@@ -1092,6 +1101,7 @@
 				21B67CCB2C77670400FD64FC /* Database */,
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
+				21D0BDD82C9387E60077E104 /* Record */,
 				21B67CBA2C774C6500FD64FC /* Version.h */,
 			);
 			path = Connector;
@@ -1353,10 +1363,10 @@
 				21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
-				21D0BD9B2C8F154B0077E104 /* SendFilter.cpp in Sources */,
 				21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */,
 				21D0BDCF2C92DAC60077E104 /* AddModel.cpp in Sources */,
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
+				21D0BDDC2C93897B0077E104 /* SenderModelCard.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
@@ -1372,6 +1382,7 @@
 				21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */,
 				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
+				21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */,
 				21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
@@ -1380,6 +1391,7 @@
 				21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */,
 				21F69F132C677BC0008B6A06 /* ConnectorPalette.cpp in Sources */,
 				21F69FBC2C762EF0008B6A06 /* GetConfig.cpp in Sources */,
+				21D0BDE32C943C630077E104 /* DirectSelectionSendFilter.cpp in Sources */,
 				21B67CF12C78D38000FD64FC /* GoAway.cpp in Sources */,
 				21F69F142C677BC0008B6A06 /* Connector.cpp in Sources */,
 			);

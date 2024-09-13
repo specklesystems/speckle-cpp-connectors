@@ -1,12 +1,12 @@
 #include "Connector/Interface/Browser/Bridge/Base/AddModel.h"
 
 #include "Connector/Connector.h"
-#include "Connector/Database/Model/Card/ModelCardDatabase.h"
+#include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 
 using namespace active::container;
 using namespace active::serialise;
-using namespace connector::database;
+using namespace connector::record;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 

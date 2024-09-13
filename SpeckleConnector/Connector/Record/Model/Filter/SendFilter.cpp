@@ -1,11 +1,11 @@
-#include "Connector/Interface/Browser/Bridge/Send/Arg/SendFilter.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 
 #include <array>
 
 using namespace active::serialise;
-using namespace connector::interfac::browser::bridge;
+using namespace connector::record;
 using namespace speckle::utility;
 
 namespace {
@@ -59,11 +59,11 @@ Cargo::Unique SendFilter::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case nameID:
-			return std::make_unique<ValueWrap<String>>(name);
+			return std::make_unique<ValueWrap<String>>(m_name);
 		case summaryID:
-			return std::make_unique<ValueWrap<String>>(summary);
+			return std::make_unique<ValueWrap<String>>(m_summary);
 		case defaultID:
-			return std::make_unique<ValueWrap<bool>>(isDefault);
+			return std::make_unique<ValueWrap<bool>>(m_isDefault);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -74,7 +74,7 @@ Cargo::Unique SendFilter::getCargo(const Inventory::Item& item) const {
 	Set to the default package content
   --------------------------------------------------------------------*/
 void SendFilter::setDefault() {
-	name.clear();
-	summary.clear();
-	isDefault = false;
+	m_name.clear();
+	m_summary.clear();
+	m_isDefault = false;
 } //SendFilter::setDefault

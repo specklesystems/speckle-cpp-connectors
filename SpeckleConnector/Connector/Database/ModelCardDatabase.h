@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_DATABASE_MODEL_CARD_DATABASE
 #define CONNECTOR_DATABASE_MODEL_CARD_DATABASE
 
-#include "Connector/Database/Model/Card/ModelCard.h"
+#include "Connector/Record/Model/ModelCard.h"
 
 namespace active::event {
 	class Subscriber;
@@ -33,12 +33,12 @@ namespace connector::database {
 		 Get all model cards
 		 @return All the cards
 		 */
-		active::container::Vector<ModelCard> getCards() const;
+		active::container::Vector<record::ModelCard> getCards() const;
 		/*!
 		 Write a card to storage
 		 @param card The card to write
 		 */
-		void write(const ModelCard& card) const;
+		void write(const record::ModelCard& card) const;
 		/*!
 		 Erase a card
 		 @param cardID The ID of the card to erase

@@ -4,10 +4,11 @@
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
-#include "Connector/Interface/Browser/Bridge/Send/Arg/SendFilter.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
 
 using namespace active::container;
 using namespace active::serialise;
+using namespace connector::record;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 

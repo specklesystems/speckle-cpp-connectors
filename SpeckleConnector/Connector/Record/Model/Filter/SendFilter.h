@@ -1,14 +1,14 @@
-#ifndef CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER
-#define CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER
+#ifndef CONNECTOR_RECORD_SEND_FILTER
+#define CONNECTOR_RECORD_SEND_FILTER
 
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Utility/Cloner.h"
 #include "Speckle/Utility/String.h"
 
-namespace connector::interfac::browser::bridge {
+namespace connector::record {
 	
 	/*!
-	 A connector send filter
+	 Base class for element filters applied when a model is sent to a Speckle server
 	 */
 	class SendFilter : public active::serialise::Package, public active::utility::Cloner {
 	public:
@@ -26,22 +26,35 @@ namespace connector::interfac::browser::bridge {
 		 @param isDef True if this is the default filter
 		 */
 		SendFilter(const speckle::utility::String& nm = {}, const speckle::utility::String& sum = {}, bool isDef = false) :
-				name{nm}, summary{sum}, isDefault{isDef} {}
+				m_name{nm}, m_summary{sum}, m_isDefault{isDef} {}
+		/*!
+		 Destructor
+		 */
+		virtual ~SendFilter() {}
 		/*!
 			Record cloning
 			@return A clone of this record
 		*/
 		virtual SendFilter* clonePtr() const override { return new SendFilter(*this); };
-		
-		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
-		
-			///The filter name
-		speckle::utility::String name;
-			///A summary
-		speckle::utility::String summary;
-			///True if this is the default filter
-		bool isDefault = false;
 
+		// MARK: - Functions (const)
+		
+		/*!
+			Get the filter name
+			@return The filter name
+		*/
+		const speckle::utility::String& getName() const { return m_name; };
+		/*!
+			Get a summary description of the filter function, e.g. "All selected elements"
+			@return The filter summary description
+		*/
+		const speckle::utility::String& getSummary() const { return m_name; };
+		/*!
+			Determine if this is the default filter for model sends
+			@return True if this is the default filter
+		*/
+		bool isDefault() const { return m_isDefault; };
+		
 		// MARK: - Serialisation
 		
 		/*!
@@ -60,8 +73,16 @@ namespace connector::interfac::browser::bridge {
 			Set to the default package content
 		*/
 		void setDefault() override;
+		
+	private:
+			///The filter name
+		speckle::utility::String m_name;
+			///A summary
+		speckle::utility::String m_summary;
+			///True if this is the default filter
+		bool m_isDefault = false;
 	};
 
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_SEND_FILTER
+#endif	//CONNECTOR_RECORD_SEND_FILTER

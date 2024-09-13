@@ -3,18 +3,19 @@
 
 #include "Active/Database/Content/Record.h"
 #include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Database/Identity/RecordID.h"
 
 namespace speckle::database {
 
 	/*!
 	 Base class for a database record
 	 */
-	class Record : public active::database::Record<active::utility::String, active::utility::String, active::utility::String> {
+	class Record : public active::database::Record<RecordID> {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Record<active::utility::String, active::utility::String, active::utility::String>;
+		using base = active::database::Record<RecordID>;
 			///Unique pointer
 		using Unique = std::unique_ptr<Record>;
 			///Shared pointer

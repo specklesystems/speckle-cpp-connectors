@@ -3,13 +3,14 @@
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Connector.h"
-#include "Connector/Database/Model/Card/ModelCard.h"
-#include "Connector/Database/Model/Card/ModelCardDatabase.h"
+#include "Connector/Record/Model/ModelCard.h"
+#include "Connector/Database/ModelCardDatabase.h"
 
 using namespace active::container;
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::database;
+using namespace connector::record;
 using namespace speckle::utility;
 
 namespace {

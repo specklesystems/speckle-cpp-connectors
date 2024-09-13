@@ -1,4 +1,4 @@
-#include "Connector/Database/Model/Card/CardSetting.h"
+#include "Connector/Record/Model/CardSetting.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Item/Wrapper/AnyValueWrap.h"
@@ -6,7 +6,7 @@
 #include <array>
 
 using namespace active::serialise;
-using namespace connector::database;
+using namespace connector::record;
 using namespace speckle::utility;
 
 namespace {
