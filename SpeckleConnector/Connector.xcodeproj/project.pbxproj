@@ -25,6 +25,8 @@
 		210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8812C80E6A300610F58 /* TriggerEvent.cpp */; };
 		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
+		215F082A2C947F4400CD343B /* CardMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08262C947F4400CD343B /* CardMover.cpp */; };
+		215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F082C2C94C5C000CD343B /* FilterMover.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
 		21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
@@ -282,6 +284,10 @@
 		210CC8822C80E6A300610F58 /* TriggerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerEvent.h; sourceTree = "<group>"; };
 		213CC3A52B1101F500088049 /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		215F08262C947F4400CD343B /* CardMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardMover.cpp; sourceTree = "<group>"; };
+		215F08292C947F4400CD343B /* CardMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMover.h; sourceTree = "<group>"; };
+		215F082C2C94C5C000CD343B /* FilterMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilterMover.cpp; sourceTree = "<group>"; };
+		215F082D2C94C5C000CD343B /* FilterMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterMover.h; sourceTree = "<group>"; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1020,6 +1026,8 @@
 		21D0BDD92C9387F70077E104 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				215F08262C947F4400CD343B /* CardMover.cpp */,
+				215F08292C947F4400CD343B /* CardMover.h */,
 				21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */,
 				21D0BDA92C8F363E0077E104 /* CardSetting.h */,
 				21D0BDDF2C9393980077E104 /* Filter */,
@@ -1036,6 +1044,8 @@
 			children = (
 				21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */,
 				21D0BDE22C943C630077E104 /* DirectSelectionSendFilter.h */,
+				215F082C2C94C5C000CD343B /* FilterMover.cpp */,
+				215F082D2C94C5C000CD343B /* FilterMover.h */,
 				21D0BDDD2C9393980077E104 /* SendFilter.cpp */,
 				21D0BDDE2C9393980077E104 /* SendFilter.h */,
 			);
@@ -1384,8 +1394,10 @@
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */,
 				21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */,
+				215F082A2C947F4400CD343B /* CardMover.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
+				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
 				21B67CCC2C77670400FD64FC /* ModelCardDatabase.cpp in Sources */,

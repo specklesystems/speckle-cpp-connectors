@@ -2,6 +2,7 @@
 
 #include "Active/Database/Storage/Storage.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
+#include "Connector/Record/Model/CardMover.h"
 #include "Speckle/Database/Identity/RecordID.h"
 #include "Speckle/Database/Storage/DocumentStore/DocumentStoreEngine.h"
 
@@ -20,8 +21,8 @@ using namespace speckle::utility;
 namespace connector::database {
 
 		///ModelCard database engine declaration
-	class ModelCardDatabase::Engine : public DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, RecordID> {
-		using base = DocumentStoreEngine<ModelCard, ModelCard, JSONTransport, RecordID>;
+	class ModelCardDatabase::Engine : public DocumentStoreEngine<ModelCard, CardMover, JSONTransport, RecordID> {
+		using base = DocumentStoreEngine<ModelCard, CardMover, JSONTransport, RecordID>;
 		using base::base;
 	};
 

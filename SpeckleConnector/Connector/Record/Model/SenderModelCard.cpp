@@ -1,5 +1,8 @@
 #include "Connector/Record/Model/SenderModelCard.h"
 
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageUniqueWrap.h"
+#include "Connector/Record/Model/Filter/FilterMover.h"
 #include "Connector/Record/Model/Filter/SendFilter.h"
 
 #include <array>
@@ -67,16 +70,12 @@ SenderModelCard::~SenderModelCard() {
   --------------------------------------------------------------------*/
 bool SenderModelCard::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
-/*	inventory.merge(Inventory{
+	inventory.merge(Inventory{
 		{
-			{ fieldID[modelID], modelID, element },
-			{ fieldID[projectID], projectID, element },
-			{ fieldID[accountID], accountID, element },
-			{ fieldID[serverURLID], serverURLID, element },
-			{ fieldID[settingsID], settingsID, element },
+			{ fieldID[sendFilterID], sendFilterID, element },
 		},
 	}.withType(&typeid(SenderModelCard)));
-	return base::fillInventory(inventory);*/
+	return base::fillInventory(inventory);
 } //SenderModelCard::fillInventory
 
 
@@ -88,23 +87,15 @@ bool SenderModelCard::fillInventory(Inventory& inventory) const {
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
 Cargo::Unique SenderModelCard::getCargo(const Inventory::Item& item) const {
-/*	if (item.ownerType != &typeid(SenderModelCard))
+	if (item.ownerType != &typeid(SenderModelCard))
 		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-		case modelID:
-			return std::make_unique<ValueWrap<String>>(m_modelID);
-		case projectID:
-			return std::make_unique<ValueWrap<String>>(m_projectID);
-		case accountID:
-			return std::make_unique<ValueWrap<String>>(m_accountID);
-		case serverURLID:
-			return std::make_unique<ValueWrap<String>>(m_serverURL);
-		case settingsID:
-			return std::make_unique<ContainerWrap<Vector, CardSetting>>(m_settings);
+		case sendFilterID:
+			return std::make_unique<FilterMover>(PackageUniqueWrap{m_filter});
 		default:
 			return nullptr;	//Requested an unknown index
-	}*/
+	}
 } //SenderModelCard::getCargo
 
 
@@ -112,10 +103,6 @@ Cargo::Unique SenderModelCard::getCargo(const Inventory::Item& item) const {
 	Set to the default package content
   --------------------------------------------------------------------*/
 void SenderModelCard::setDefault() {
-/*	base::setDefault();
-	m_modelID.clear();
-	m_projectID.clear();
-	m_accountID.clear();
-	m_serverURL.clear();
-	m_settings.clear();*/
+	base::setDefault();
+	m_filter->setDefault();
 } //SenderModelCard::setDefault
