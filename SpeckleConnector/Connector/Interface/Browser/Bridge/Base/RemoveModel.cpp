@@ -20,7 +20,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-RemoveModel::RemoveModel() : BridgeMethod{"RemoveModel", [&](ModelCardEventWrapper card) {
+RemoveModel::RemoveModel() : BridgeMethod{"RemoveModel", [&](const ModelCardEventWrapper& card) {
 		return run(card.get());
 }} {}
 
@@ -30,7 +30,7 @@ RemoveModel::RemoveModel() : BridgeMethod{"RemoveModel", [&](ModelCardEventWrapp
  
 	card: The card to add
   --------------------------------------------------------------------*/
-void RemoveModel::run(ModelCard& card) const {
+void RemoveModel::run(const ModelCard& card) const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
 		modelCardDBase->erase(card.getID());
 } //RemoveModel::run

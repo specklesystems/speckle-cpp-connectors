@@ -20,7 +20,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-UpdateModel::UpdateModel() : BridgeMethod{"UpdateModel", [&](ModelCardEventWrapper card) {
+UpdateModel::UpdateModel() : BridgeMethod{"UpdateModel", [&](const ModelCardEventWrapper& card) {
 		return run(card.get());
 }} {}
 
@@ -30,7 +30,7 @@ UpdateModel::UpdateModel() : BridgeMethod{"UpdateModel", [&](ModelCardEventWrapp
  
 	card: The card to add
   --------------------------------------------------------------------*/
-void UpdateModel::run(ModelCard& card) const {
+void UpdateModel::run(const ModelCard& card) const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
 		modelCardDBase->write(card);
 } //UpdateModel::run

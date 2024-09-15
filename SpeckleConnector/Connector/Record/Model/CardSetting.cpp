@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Item/Wrapper/AnyValueWrap.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 
 #include <array>
 
@@ -74,7 +75,7 @@ Cargo::Unique CardSetting::getCargo(const Inventory::Item& item) const {
 		case valueID:
 			return std::make_unique<AnyValueWrap>(*m_value);
 		case enumID:
-			return std::make_unique<ValueWrap<String>>(m_type);
+			return std::make_unique<ContainerWrap<std::vector<speckle::utility::String>>>(m_enum);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

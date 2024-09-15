@@ -19,7 +19,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-AddModel::AddModel() : BridgeMethod{"AddModel", [&](ModelCardEventWrapper card) {
+AddModel::AddModel() : BridgeMethod{"AddModel", [&](const ModelCardEventWrapper& card) {
 		return run(card.get());
 }} {}
 
@@ -29,7 +29,7 @@ AddModel::AddModel() : BridgeMethod{"AddModel", [&](ModelCardEventWrapper card) 
  
 	card: The card to add
   --------------------------------------------------------------------*/
-void AddModel::run(ModelCard& card) const {
+void AddModel::run(const ModelCard& card) const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
 		modelCardDBase->write(card);
 } //AddModel::run

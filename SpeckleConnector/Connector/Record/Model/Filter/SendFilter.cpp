@@ -5,6 +5,7 @@
 #include <array>
 
 using namespace active::serialise;
+using namespace connector::database;
 using namespace connector::record;
 using namespace speckle::utility;
 
@@ -25,6 +26,23 @@ namespace {
 	};
 
 }
+
+/*--------------------------------------------------------------------
+	Determine if the filter has expired because an element in the selection has changed
+ 
+	changed: The list of changed element IDs
+ 
+	return: True if the one of the changed elements is in the selection
+  --------------------------------------------------------------------*/
+bool SendFilter::checkExpiry(const ElementIDList& changed) const {
+	ElementIDList intersect;
+	ElementIDList mine{getElementIDs()}, theirs{changed};
+	std::sort(mine.begin(), mine.end());
+	std::sort(theirs.begin(), theirs.end());
+	std::set_intersection (mine.begin(), mine.end(), theirs.begin(), theirs.end(), std::back_inserter(intersect));
+	return !intersect.empty();
+} //SendFilter::checkExpiry
+
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items

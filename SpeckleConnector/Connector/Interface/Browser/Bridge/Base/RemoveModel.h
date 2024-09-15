@@ -32,7 +32,7 @@ namespace connector::interfac::browser::bridge {
 		 Add a model card to document storage
 		 @param card The card to add
 		 */
-		void run(connector::record::ModelCard& card) const;
+		void run(const connector::record::ModelCard& card) const;
 	};
 
 }

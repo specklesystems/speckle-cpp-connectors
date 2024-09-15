@@ -87,11 +87,11 @@ namespace connector::record {
 		
 	private:
 			///The model ID
-		speckle::utility::String m_modelID;
+		speckle::database::RecordID m_modelID;
 			///The project ID
-		speckle::utility::String m_projectID;
+		speckle::database::RecordID m_projectID;
 			///The user account ID
-		speckle::utility::String m_accountID;
+		speckle::database::RecordID m_accountID;
 			///The server URL
 		speckle::utility::String m_serverURL;
 			///Settings for the model rendering, e.g. level of detail (LoD)

@@ -6,7 +6,6 @@
 #include "Active/Database/Storage/RecordCache.h"
 #include "Active/File/Path.h"
 #include "Active/Serialise/Cargo.h"
-#include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Transport.h"
 #include "Active/Utility/BufferIn.h"

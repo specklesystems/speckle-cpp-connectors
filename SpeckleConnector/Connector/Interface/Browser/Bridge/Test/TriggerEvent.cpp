@@ -85,7 +85,7 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
  --------------------------------------------------------------------*/
-TriggerEvent::TriggerEvent() : BridgeMethod{"TriggerEvent", [&](TriggerEventWrapper arg) {
+TriggerEvent::TriggerEvent() : BridgeMethod{"TriggerEvent", [&](const TriggerEventWrapper& arg) {
 		return run(arg);
 }} {}
 
@@ -95,7 +95,7 @@ TriggerEvent::TriggerEvent() : BridgeMethod{"TriggerEvent", [&](TriggerEventWrap
  
 	eventName: The event name
   --------------------------------------------------------------------*/
-void TriggerEvent::run(speckle::utility::String eventName) const {
+void TriggerEvent::run(const speckle::utility::String& eventName) const {
 	if (!hasBridge())
 		return;
 	if (eventName == "emptyTestEvent")

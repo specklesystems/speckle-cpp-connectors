@@ -5,6 +5,7 @@ Distributed under the MIT License (See accompanying file LICENSE.txt or copy at 
 
 #include "Connector/Record/Model/CardMover.h"
 
+#include "Connector/Record/Model/ReceiverModelCard.h"
 #include "Connector/Record/Model/SenderModelCard.h"
 
 using namespace active::serialise;
@@ -15,10 +16,10 @@ namespace {
 	
 		///The tag used to identify a Speckle type name value
 	const char* attributeTag = "typeDiscriminator";
-		///Identity for a SenderModelCard
-	const char* senderCardTypeName = "SenderModelCard";
 		///Identity for a ReceiverModelCard
 	const char* receiverCardTypeName = "ReceiverModelCard";
+		///Identity for a SenderModelCard
+	const char* senderCardTypeName = "SenderModelCard";
 	
 }
 
@@ -52,5 +53,6 @@ CardMover::CardMover(const active::serialise::Package& outgoing) : Mover{outgoin
 void CardMover::validateHandler() {
 	if (!m_handler->empty())
 		return;
+	m_handler->add<ReceiverModelCard>(receiverCardTypeName);
 	m_handler->add<SenderModelCard>(senderCardTypeName);
 } //CardMover::validateHandler

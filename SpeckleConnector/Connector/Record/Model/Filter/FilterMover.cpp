@@ -5,7 +5,8 @@ Distributed under the MIT License (See accompanying file LICENSE.txt or copy at 
 
 #include "Connector/Record/Model/Filter/FilterMover.h"
 
-#include "Connector/Record/Model/Filter/DirectSelectionSendFilter.h"
+#include "Connector/Record/Model/Filter/ArchicadEverythingFilter.h"
+#include "Connector/Record/Model/Filter/ArchicadSelectionFilter.h"
 
 using namespace active::serialise;
 using namespace active::utility;
@@ -16,8 +17,10 @@ namespace {
 		///The tag used to identify a Speckle type name value
 	const char* attributeTag = "typeDiscriminator";
 		///Identity for a SenderModelCard
-	const char* DirectSelectionTypeName = "DirectSelectionSendFilter";
-	
+	const char* ArchicadSelectionTypeName = "ArchicadSelectionFilter";
+		///Identity for a SenderModelCard
+	const char* ArchicadEverythingTypeName = "ArchicadEverythingFilter";
+
 }
 
 	///The handler for model card packages
@@ -60,5 +63,6 @@ FilterMover::FilterMover(active::serialise::PackageUniqueWrap&& package) : Mover
 void FilterMover::validateHandler() {
 	if (!m_handler->empty())
 		return;
-	m_handler->add<DirectSelectionSendFilter>(DirectSelectionTypeName);
+	m_handler->add<ArchicadEverythingFilter>(ArchicadEverythingTypeName);
+	m_handler->add<DirectSelectionSendFilter>(ArchicadSelectionTypeName);
 } //FilterMover::validateHandler

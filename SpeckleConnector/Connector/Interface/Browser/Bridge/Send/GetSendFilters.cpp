@@ -4,7 +4,8 @@
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
-#include "Connector/Record/Model/Filter/SendFilter.h"
+#include "Connector/Record/Model/Filter/ArchicadEverythingFilter.h"
+#include "Connector/Record/Model/Filter/ArchicadSelectionFilter.h"
 
 using namespace active::container;
 using namespace active::serialise;
@@ -14,7 +15,7 @@ using namespace speckle::utility;
 
 namespace {
 	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector, SendFilter>, Vector<SendFilter>>;
+	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<SendFilter>>, Vector<SendFilter>>;
 
 }
 
@@ -33,6 +34,7 @@ GetSendFilters::GetSendFilters() : BridgeMethod{"GetSendFilters", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetSendFilters::run() const {
 	Vector<SendFilter> filters;
-		///TODO: Get real filters
+	filters.emplace_back(ArchicadEverythingFilter{});
+	filters.emplace_back(ArchicadSelectionFilter{});
 	return std::make_unique<WrappedValue>(filters);
 } //GetSendFilters::run

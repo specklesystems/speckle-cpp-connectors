@@ -21,7 +21,7 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Constructor
   --------------------------------------------------------------------*/
-GetCallResult::GetCallResult() : JSFunction{"GetCallResult", [&](auto args) {
+GetCallResult::GetCallResult() : JSFunction{"GetCallResult", [&](const auto& args) {
 		return getResult(args);
 	}} {
 } //GetCallResult::GetCallResult
@@ -34,7 +34,7 @@ GetCallResult::GetCallResult() : JSFunction{"GetCallResult", [&](auto args) {
  
 	return: The requested result (nullptr on failure)
   --------------------------------------------------------------------*/
-std::unique_ptr<WrappedResultArg> GetCallResult::getResult(WrappedResultArg& argument) const {
+std::unique_ptr<WrappedResultArg> GetCallResult::getResult(const WrappedResultArg& argument) const {
 	if (!hasBridge())
 		return nullptr;
 		//Retrieve the requested result

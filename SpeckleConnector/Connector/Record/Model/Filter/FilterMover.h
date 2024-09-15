@@ -6,7 +6,7 @@
 namespace connector::record {
 	
 	/*!
-	 Wrapper to box/unbox objects during (de)serialisation, reading/writing a specified attribute to determine object type
+	 Wrapper to box/unbox objects during (de)serialisation, including reading/writing a specified attribute to determine object type
 	 
 	 Note that a derived class could also define the package handler, allowing the wrapper to be created via a default constructor that is
 	 automatically bound to a set of internally defined object types

@@ -1,5 +1,5 @@
-#ifndef CONNECTOR_RECORD_DIRECT_SELECT_SEND_FILTER
-#define CONNECTOR_RECORD_DIRECT_SELECT_SEND_FILTER
+#ifndef CONNECTOR_RECORD_EVERYTHING_SEND_FILTER
+#define CONNECTOR_RECORD_EVERYTHING_SEND_FILTER
 
 #include "Connector/Database/Identity/RecordID.h"
 #include "Connector/Record/Model/Filter/SendFilter.h"
@@ -9,7 +9,7 @@ namespace connector::record {
 	/*!
 	 A send filter consisting of a list of selected element IDs
 	 */
-	class DirectSelectionSendFilter : public SendFilter {
+	class EverythingSendFilter : public SendFilter {
 	public:
 
 		// MARK: - Types
@@ -23,12 +23,12 @@ namespace connector::record {
 		 @param sum A summary
 		 @param isDef True if this is the default filter
 		 */
-		DirectSelectionSendFilter(const speckle::utility::String& sum = {}, bool isDef = false) : base{"Selection", sum, isDef} {}
+		EverythingSendFilter(const speckle::utility::String& sum = {}, bool isDef = false) : base{"Everything", sum, isDef} {}
 		/*!
 			Record cloning
 			@return A clone of this record
 		*/
-		DirectSelectionSendFilter* clonePtr() const override { return new DirectSelectionSendFilter(*this); };
+		EverythingSendFilter* clonePtr() const override { return new EverythingSendFilter(*this); };
 
 		// MARK: - Functions (const)
 		
@@ -36,7 +36,13 @@ namespace connector::record {
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		const database::ElementIDList& getElementIDs() const override { return m_selectedElements; }
+		const database::ElementIDList& getElementIDs() const override { return m_emptyList; }
+		/*!
+		 Determine if the filter has expired because an element in the selection has changed
+		 @param changed The list of changed element IDs
+		 @return True if the one of the changed elements is in the selection
+		 */
+		virtual bool checkExpiry(const database::ElementIDList& changed) const override { return true; }
 		
 		// MARK: - Serialisation
 		
@@ -58,10 +64,10 @@ namespace connector::record {
 		void setDefault() override;
 		
 	private:
-			///A list of selected element IDs
-		database::ElementIDList m_selectedElements;
+			///Enables a const empty list to be returned
+		database::ElementIDList m_emptyList;
 	};
 
 }
 
-#endif	//CONNECTOR_RECORD_DIRECT_SELECT_SEND_FILTER
+#endif	//CONNECTOR_RECORD_EVERYTHING_SEND_FILTER

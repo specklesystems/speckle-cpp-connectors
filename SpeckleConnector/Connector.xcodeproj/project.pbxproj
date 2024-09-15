@@ -27,6 +27,8 @@
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
 		215F082A2C947F4400CD343B /* CardMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08262C947F4400CD343B /* CardMover.cpp */; };
 		215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F082C2C94C5C000CD343B /* FilterMover.cpp */; };
+		215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08362C95808B00CD343B /* ReceiverModelCard.cpp */; };
+		215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
 		21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
@@ -288,6 +290,13 @@
 		215F08292C947F4400CD343B /* CardMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMover.h; sourceTree = "<group>"; };
 		215F082C2C94C5C000CD343B /* FilterMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FilterMover.cpp; sourceTree = "<group>"; };
 		215F082D2C94C5C000CD343B /* FilterMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterMover.h; sourceTree = "<group>"; };
+		215F08332C95808B00CD343B /* ReceiverModelCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiverModelCard.h; sourceTree = "<group>"; };
+		215F08362C95808B00CD343B /* ReceiverModelCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReceiverModelCard.cpp; sourceTree = "<group>"; };
+		215F083D2C96270100CD343B /* RecordID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordID.h; sourceTree = "<group>"; };
+		215F08412C962F5E00CD343B /* ArchicadSelectionFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchicadSelectionFilter.h; sourceTree = "<group>"; };
+		215F08442C9633A800CD343B /* EverythingSendFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EverythingSendFilter.h; sourceTree = "<group>"; };
+		215F08452C9633A800CD343B /* EverythingSendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EverythingSendFilter.cpp; sourceTree = "<group>"; };
+		215F084A2C9782F100CD343B /* ArchicadEverythingFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchicadEverythingFilter.h; sourceTree = "<group>"; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -912,6 +921,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		215F083E2C96270100CD343B /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+				215F083D2C96270100CD343B /* RecordID.h */,
+			);
+			path = Identity;
+			sourceTree = "<group>";
+		};
 		219F30412C769282009834E9 /* ConnectorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +968,7 @@
 		21B67CCB2C77670400FD64FC /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				215F083E2C96270100CD343B /* Identity */,
 				21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */,
 				21B67CC82C77670400FD64FC /* ModelCardDatabase.h */,
 			);
@@ -1033,6 +1051,8 @@
 				21D0BDDF2C9393980077E104 /* Filter */,
 				21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */,
 				21D0BDA42C8F33AC0077E104 /* ModelCard.h */,
+				215F08362C95808B00CD343B /* ReceiverModelCard.cpp */,
+				215F08332C95808B00CD343B /* ReceiverModelCard.h */,
 				21D0BDDA2C93897B0077E104 /* SenderModelCard.cpp */,
 				21D0BDDB2C93897B0077E104 /* SenderModelCard.h */,
 			);
@@ -1042,8 +1062,12 @@
 		21D0BDDF2C9393980077E104 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				215F084A2C9782F100CD343B /* ArchicadEverythingFilter.h */,
+				215F08412C962F5E00CD343B /* ArchicadSelectionFilter.h */,
 				21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */,
 				21D0BDE22C943C630077E104 /* DirectSelectionSendFilter.h */,
+				215F08452C9633A800CD343B /* EverythingSendFilter.cpp */,
+				215F08442C9633A800CD343B /* EverythingSendFilter.h */,
 				215F082C2C94C5C000CD343B /* FilterMover.cpp */,
 				215F082D2C94C5C000CD343B /* FilterMover.h */,
 				21D0BDDD2C9393980077E104 /* SendFilter.cpp */,
@@ -1371,6 +1395,7 @@
 			files = (
 				21D0BDAB2C8F363E0077E104 /* CardSetting.cpp in Sources */,
 				21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */,
+				215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
 				21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */,
@@ -1395,6 +1420,7 @@
 				21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */,
 				21D0BDA82C8F33AC0077E104 /* ModelCard.cpp in Sources */,
 				215F082A2C947F4400CD343B /* CardMover.cpp in Sources */,
+				215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,

@@ -1,4 +1,4 @@
-#include "Connector/Record/Model/Filter/DirectSelectionSendFilter.h"
+#include "Connector/Record/Model/Filter/EverythingSendFilter.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
@@ -32,15 +32,15 @@ namespace {
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool DirectSelectionSendFilter::fillInventory(Inventory& inventory) const {
+bool EverythingSendFilter::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
 			{ fieldID[selectedElemID], selectedElemID, element },
 		},
-	}.withType(&typeid(DirectSelectionSendFilter)));
+	}.withType(&typeid(EverythingSendFilter)));
 	return base::fillInventory(inventory);
-} //DirectSelectionSendFilter::fillInventory
+} //EverythingSendFilter::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -50,22 +50,22 @@ bool DirectSelectionSendFilter::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique DirectSelectionSendFilter::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(DirectSelectionSendFilter))
+Cargo::Unique EverythingSendFilter::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(EverythingSendFilter))
 		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
 		case selectedElemID:
-			return std::make_unique<ContainerWrap<ElementIDList>>(m_selectedElements);
+			return std::make_unique<ContainerWrap<ElementIDList>>(m_emptyList);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //DirectSelectionSendFilter::getCargo
+} //EverythingSendFilter::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void DirectSelectionSendFilter::setDefault() {
-	m_selectedElements.clear();
-} //DirectSelectionSendFilter::setDefault
+void EverythingSendFilter::setDefault() {
+	m_emptyList.clear();
+} //EverythingSendFilter::setDefault

@@ -31,7 +31,7 @@ namespace connector::interfac::browser::bridge {
 		 Trigger an event based on a specified name
 		 @param eventName The event name
 		 */
-		void run(speckle::utility::String eventName) const;
+		void run(const speckle::utility::String& eventName) const;
 	};
 
 }

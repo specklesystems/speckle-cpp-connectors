@@ -75,7 +75,7 @@ Cargo::Unique ModelCard::getCargo(const Inventory::Item& item) const {
 		case serverURLID:
 			return std::make_unique<ValueWrap<String>>(m_serverURL);
 		case settingsID:
-			return std::make_unique<ContainerWrap<Vector, CardSetting>>(m_settings);
+			return std::make_unique<ContainerWrap<Vector<CardSetting>>>(m_settings);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
