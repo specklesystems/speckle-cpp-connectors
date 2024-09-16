@@ -104,7 +104,7 @@ namespace speckle::database {
 		/*!
 		 Reset the stored data (some external change has invalidated previous data, e.g. the document was closed)
 		 */
-		virtual void resetStore() = 0;
+		virtual void resetStore() { m_id.id.clear(); }
 
 		// MARK: Subscriber functions
 		

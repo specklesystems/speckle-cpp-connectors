@@ -33,9 +33,12 @@ namespace connector::record {
 		 @param hasDimissedWarning True if the user has already dismissed an alert to update
 		 @param bakedObjects The IDs of objects accepted in the receive
 		 */
-		ReceiverModelCard(const speckle::utility::String& projectName, const speckle::utility::String& modelName,
+		ReceiverModelCard(const speckle::database::RecordID& projectID, const speckle::utility::String& projectName,
+						  const speckle::database::RecordID& modelID, const speckle::utility::String& modelName,
 						  const speckle::database::RecordID& selectedVersion, const speckle::database::RecordID& latestVersion,
-						  bool hasDimissedWarning, database::ElementIDList&& bakedObjects) :
+						  const speckle::database::RecordID& accountID, const speckle::utility::String& serverURL,
+						  bool hasDimissedWarning, database::ElementIDList&& bakedObjects, const SettingList& settings) :
+				ModelCard{modelID, projectID, accountID, serverURL, settings},
 				m_projectName{projectName}, m_modelName{modelName}, m_selectedVersionID{selectedVersion}, m_latestVersionID{latestVersion},
 				m_hasDismissedUpdateWarning{hasDimissedWarning}, m_bakedObjectIDs{bakedObjects} {}
 		/*!

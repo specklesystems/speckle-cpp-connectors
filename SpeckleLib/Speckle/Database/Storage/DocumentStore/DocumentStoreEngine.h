@@ -135,7 +135,10 @@ namespace speckle::database {
 		/*!
 		 Reset the stored data (some external change has invalidated previous data, e.g. the document was closed)
 		 */
-		void resetStore() override { m_cache.reset(); }
+		void resetStore() override {
+			DocumentStoreCore::resetStore();
+			m_cache.reset();
+		}
 		
 	private:
 			//Cached records from the document store

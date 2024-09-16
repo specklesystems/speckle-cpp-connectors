@@ -27,7 +27,8 @@ namespace connector::record {
 		 Constructor
 		 @param filter The filter applied when the model was sent
 		 */
-		SenderModelCard(const SendFilter& filter);
+		SenderModelCard(const SendFilter& filter, const speckle::database::RecordID& modelID, const speckle::database::RecordID& projectID,
+						const speckle::database::RecordID& accountID, const speckle::utility::String& serverURL, const SettingList& settings);
 		/*!
 		 Copy constructor
 		 @param source The object to copy

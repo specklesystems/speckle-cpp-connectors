@@ -37,8 +37,10 @@ SenderModelCard::SenderModelCard() {
  
 	filter: The filter applied when the model was sent
   --------------------------------------------------------------------*/
-SenderModelCard::SenderModelCard(const SendFilter& filter) {
-	
+SenderModelCard::SenderModelCard(const SendFilter& filter, const speckle::database::RecordID& modelID, const speckle::database::RecordID& projectID,
+								 const speckle::database::RecordID& accountID, const speckle::utility::String& serverURL, const SettingList& settings) :
+		ModelCard{modelID, projectID, accountID, serverURL, settings}, m_filter(clone(filter))
+{
 } //SenderModelCard::SenderModelCard
 
 
@@ -47,8 +49,8 @@ SenderModelCard::SenderModelCard(const SendFilter& filter) {
  
 	source: The object to copy
   --------------------------------------------------------------------*/
-SenderModelCard::SenderModelCard(const SenderModelCard& source) {
-	
+SenderModelCard::SenderModelCard(const SenderModelCard& source) : ModelCard{source} {
+	m_filter = (source.m_filter) ? clone(*source.m_filter) : nullptr;
 } //SenderModelCard::SenderModelCard
 
 
@@ -56,7 +58,6 @@ SenderModelCard::SenderModelCard(const SenderModelCard& source) {
 	Destructor
   --------------------------------------------------------------------*/
 SenderModelCard::~SenderModelCard() {
-	
 } //SenderModelCard::~SenderModelCard
 
 

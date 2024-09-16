@@ -27,11 +27,6 @@ namespace connector::record {
 		CardMover(const active::serialise::Package& outgoing);
 		
 	private:
-		/*!
-		 Ensure the handler is populated
-		 */
-		static void validateHandler();
-		
 			///The handler for model card packages
 		static std::shared_ptr<active::serialise::Handler> m_handler;
 	};

@@ -1,5 +1,6 @@
 #include "Speckle/Database/Storage/DocumentStore/DocumentStoreCore.h"
 
+#include "Active/Utility/Defer.h"
 #include "Active/Utility/Memory.h"
 #include "Active/Utility/String.h"
 #include "Speckle/Environment/Addon.h"
@@ -58,10 +59,27 @@ namespace {
 	bool isExistingStore(active::utility::NameID& storeID) {
 		if (storeID.id)
 			return true;	//We must have a store if the ID is populated
+		GS::UniString storeName{String{storeID.name}};
 		API_Guid acID;
-		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectGuidFromName(String{storeID.name}, &acID)); statusCode != nominal)
+		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectGuidFromName(storeName, &acID)); statusCode != nominal)
 			throw std::system_error(DocumentStoreCore::makeError(statusCode));
 		storeID.id = Guid{acID};
+		if (!storeID.id) {
+			GS::Array<API_Guid> storedObjects;
+			ACAPI_AddOnObject_GetObjectList(&storedObjects);
+			for (auto iter = storedObjects.Enumerate(); iter != nullptr; ++iter) {
+				API_Guid objGuid = *iter;
+				GS::UniString objName;
+				GSHandle content = nullptr;
+				auto scope = active::utility::defer([&content](){ BMKillHandle(&content); });
+				if (ACAPI_AddOnObject_GetObjectContent(objGuid, &objName, &content) == NoError) {
+					if (objName == storeName) {
+						storeID.id = Guid{objGuid};
+						break;
+					}
+				}
+			}
+		}
 		return storeID.id.operator bool();	//Returns true if the store ID is non-null, i.e. the object exists
 	} //isExistingStore
 
@@ -186,11 +204,11 @@ active::utility::Memory DocumentStoreCore::readStore() const {
 #ifdef ARCHICAD
 	GS::UniString storeName{String{m_id.name}};
 	GSHandle storedData;
+	auto scoped = active::utility::defer([&storedData](){ BMKillHandle(&storedData); });
 	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectContent(Guid{m_id.id}, &storeName, &storedData)); statusCode != nominal)
 		throw std::system_error(makeError(statusCode));
 		//Copy the stored data into the result
 	copyHandleToMemory(storedData, result);
-	BMKillHandle(&storedData);
 #endif
 	return result;
 } //DocumentStoreCore::readStore
@@ -221,10 +239,10 @@ void DocumentStoreCore::writeStore() {
 	auto toWrite = buildStore();
 		//Write the new data
 	GSHandle output = BMAllocateHandle(static_cast<GSSize>(toWrite.size()), ALLOCATE_CLEAR, 0);
+	auto scoped = active::utility::defer([&output](){ BMKillHandle(&output); });
 	active::utility::Memory::copy(*output, toWrite.data(), toWrite.size(), toWrite.size());
 	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ModifyObject(Guid{m_id.id}, nullptr, &output)); statusCode != nominal)
 		throw std::system_error(makeError(statusCode));
-	BMKillHandle(&output);
 		//Release the storage object in TW
 	if (addon()->isSharedDocument()) {
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ReleaseObjects({Guid{m_id.id}})); statusCode != nominal)
