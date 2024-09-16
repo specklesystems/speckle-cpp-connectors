@@ -209,7 +209,7 @@ void DocumentStoreCore::writeStore() {
 		API_Guid acID;
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_CreateUniqueObject(String{m_id.name}, &acID)); statusCode != nominal)
 			throw std::system_error(makeError(statusCode));
-		m_id = Guid{acID};
+		m_id.id = Guid{acID};
 	}
 		//Reserve the storage object in TW
 	if (addon()->isSharedDocument()) {
@@ -222,7 +222,7 @@ void DocumentStoreCore::writeStore() {
 		//Write the new data
 	GSHandle output = BMAllocateHandle(static_cast<GSSize>(toWrite.size()), ALLOCATE_CLEAR, 0);
 	active::utility::Memory::copy(*output, toWrite.data(), toWrite.size(), toWrite.size());
-	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ModifyObject({Guid{m_id.id}}, nullptr, &output)); statusCode != nominal)
+	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ModifyObject(Guid{m_id.id}, nullptr, &output)); statusCode != nominal)
 		throw std::system_error(makeError(statusCode));
 	BMKillHandle(&output);
 		//Release the storage object in TW

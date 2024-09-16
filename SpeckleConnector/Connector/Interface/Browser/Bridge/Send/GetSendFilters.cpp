@@ -34,7 +34,7 @@ GetSendFilters::GetSendFilters() : BridgeMethod{"GetSendFilters", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetSendFilters::run() const {
 	Vector<SendFilter> filters;
-	filters.emplace_back(ArchicadEverythingFilter{});
+	//filters.emplace_back(ArchicadEverythingFilter{});	//TODO: Implement as required
 	filters.emplace_back(ArchicadSelectionFilter{});
 	return std::make_unique<WrappedValue>(filters);
 } //GetSendFilters::run
