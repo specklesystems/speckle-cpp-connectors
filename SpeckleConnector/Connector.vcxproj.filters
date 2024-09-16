@@ -32,12 +32,6 @@
     <Filter Include="Connector\Database">
       <UniqueIdentifier>{2f459f56-86f0-4794-b4b7-1bd7b8ee5617}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Connector\Database\Model">
-      <UniqueIdentifier>{2820ad4f-60d9-436e-a7a2-d019d7e0ce0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Connector\Database\Model\Card">
-      <UniqueIdentifier>{85935d00-16ac-466a-a614-ad9ea802bffa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Connector\Interface\Browser\Bridge\Config\Arg">
       <UniqueIdentifier>{6a2f1f18-a554-4546-bba3-314d5f2ec9f9}</UniqueIdentifier>
     </Filter>
@@ -53,8 +47,17 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Send">
       <UniqueIdentifier>{2b87cf11-87cd-435f-ab24-42170c2e657e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Connector\Interface\Browser\Bridge\Send\Arg">
-      <UniqueIdentifier>{3bc97363-0091-4f84-a5f7-085193bad850}</UniqueIdentifier>
+    <Filter Include="Connector\Database\Identity">
+      <UniqueIdentifier>{41395ee2-50f3-49c0-8859-23a3ad19a2fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Record">
+      <UniqueIdentifier>{a915e7ee-849f-48a9-aa7b-0ef6e358bee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Record\Model">
+      <UniqueIdentifier>{2b16c188-1d80-4d4d-830e-5c1e56ecf46e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Record\Model\Filter">
+      <UniqueIdentifier>{b6d6326c-77f4-414a-bda6-e3e587c7ded2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +125,6 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp">
-      <Filter>Connector\Database\Model\Card</Filter>
-    </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Config\Arg</Filter>
     </ClCompile>
@@ -159,14 +159,44 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.cpp">
-      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    <ClCompile Include="Connector\Database\ModelCardDatabase.cpp">
+      <Filter>Connector\Database</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Database\Model\Card\CardSetting.cpp">
-      <Filter>Connector\Database\Model\Card</Filter>
+    <ClCompile Include="Connector\Record\Model\CardMover.cpp">
+      <Filter>Connector\Record\Model</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Database\Model\Card\ModelCard.cpp">
-      <Filter>Connector\Database\Model\Card</Filter>
+    <ClCompile Include="Connector\Record\Model\CardSetting.cpp">
+      <Filter>Connector\Record\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\ModelCard.cpp">
+      <Filter>Connector\Record\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\ReceiverModelCard.cpp">
+      <Filter>Connector\Record\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\SenderModelCard.cpp">
+      <Filter>Connector\Record\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\Filter\DirectSelectionSendFilter.cpp">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\Filter\EverythingSendFilter.cpp">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\Filter\FilterMover.cpp">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Model\Filter\SendFilter.cpp">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\AddModel.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,9 +251,6 @@
     <ClInclude Include="Connector\Version.h">
       <Filter>Connector</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h">
-      <Filter>Connector\Database\Model\Card</Filter>
-    </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.h">
       <Filter>Connector\Interface\Browser\Bridge\Config\Arg</Filter>
     </ClInclude>
@@ -258,14 +285,53 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.h">
-      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    <ClInclude Include="Connector\Database\ModelCardDatabase.h">
+      <Filter>Connector\Database</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Database\Model\Card\CardSetting.h">
-      <Filter>Connector\Database\Model\Card</Filter>
+    <ClInclude Include="Connector\Database\Identity\RecordID.h">
+      <Filter>Connector\Database\Identity</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Database\Model\Card\ModelCard.h">
-      <Filter>Connector\Database\Model\Card</Filter>
+    <ClInclude Include="Connector\Record\Model\CardMover.h">
+      <Filter>Connector\Record\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\CardSetting.h">
+      <Filter>Connector\Record\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\ModelCard.h">
+      <Filter>Connector\Record\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\ReceiverModelCard.h">
+      <Filter>Connector\Record\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\SenderModelCard.h">
+      <Filter>Connector\Record\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\ArchicadEverythingFilter.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\ArchicadSelectionFilter.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\DirectSelectionSendFilter.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\EverythingSendFilter.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\FilterMover.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Model\Filter\SendFilter.h">
+      <Filter>Connector\Record\Model\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\AddModel.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

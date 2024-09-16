@@ -3,6 +3,8 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 
+#include "Active/Utility/Concepts.h"
+
 #include <algorithm>
 #include <array>
 
