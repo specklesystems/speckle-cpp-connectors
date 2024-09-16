@@ -58,13 +58,11 @@ namespace {
 	bool isExistingStore(active::utility::NameID& storeID) {
 		if (storeID.id)
 			return true;	//We must have a store if the ID is populated
-		bool isStoreFound = false;
 		API_Guid acID;
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_GetObjectGuidFromName(String{storeID.name}, &acID)); statusCode != nominal)
 			throw std::system_error(DocumentStoreCore::makeError(statusCode));
 		storeID.id = Guid{acID};
-		isStoreFound = true;
-		return isStoreFound;
+		return storeID.id.operator bool();	//Returns true if the store ID is non-null, i.e. the object exists
 	} //isExistingStore
 
 	

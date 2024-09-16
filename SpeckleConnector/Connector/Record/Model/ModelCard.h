@@ -29,6 +29,18 @@ namespace connector::record {
 		 */
 		ModelCard() {}
 		/*!
+		 Constructor
+		 @param modelID The model ID
+		 @param projectID The project ID
+		 @param accountID The account ID
+		 @param serverURL The server URL
+		 @param settings Any BIM host-related settings relevant to the appearance/rendering of the model, e.g. LoD, if properties included etc
+		 */
+		ModelCard(const speckle::database::RecordID& modelID, const speckle::database::RecordID& projectID,
+				  const speckle::database::RecordID& accountID, const speckle::utility::String& serverURL,
+				  const SettingList& settings) :
+				m_modelID(modelID), m_projectID(projectID), m_accountID(accountID), m_serverURL(serverURL), m_settings(settings) {}
+		/*!
 		 Destructor
 		 */
 		virtual ~ModelCard() {}

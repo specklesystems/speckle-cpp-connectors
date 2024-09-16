@@ -49,7 +49,7 @@ namespace {
 	Constructor
   --------------------------------------------------------------------*/
 ModelCardDatabase::ModelCardDatabase() {
-	auto engine = std::make_shared<Engine>(modelCardDBaseName,
+	m_engine = std::make_shared<Engine>(modelCardDBaseName,
 			//Schema
 		 DBaseSchema{active::utility::String{modelCardDBaseName},
 				//Tables
