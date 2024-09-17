@@ -5,6 +5,7 @@
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Connector/Record/Model/Filter/ArchicadEverythingFilter.h"
+#include "Connector/Record/Model/Filter/FilterMover.h"
 #include "Connector/Record/Model/Filter/ArchicadSelectionFilter.h"
 
 using namespace active::container;
@@ -15,7 +16,7 @@ using namespace speckle::utility;
 
 namespace {
 	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<SendFilter>>, Vector<SendFilter>>;
+	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<SendFilter>, FilterMover>, Vector<SendFilter>>;
 
 }
 

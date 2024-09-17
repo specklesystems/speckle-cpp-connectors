@@ -37,12 +37,7 @@ namespace connector::record {
 		FilterMover(active::serialise::PackageUniqueWrap&& package);
 		
 	private:
-		/*!
-		 Ensure the handler is populated
-		 */
-		static void validateHandler();
-		
-			///The handler for model card packages
+			///The handler for model filter packages
 		static std::shared_ptr<active::serialise::Handler> m_handler;
 	};
 
