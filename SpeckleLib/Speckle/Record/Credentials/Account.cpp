@@ -99,6 +99,7 @@ Cargo::Unique Account::getCargo(const Inventory::Item& item) const {
 	Set to the default package content
   --------------------------------------------------------------------*/
 void Account::setDefault() {
+	base::setDefault();
 	m_token.clear();
 	m_refreshToken.clear();
 	m_isDefault = false;

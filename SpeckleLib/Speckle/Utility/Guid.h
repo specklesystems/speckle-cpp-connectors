@@ -2,6 +2,7 @@
 #define SPECKLE_UTILITY_GUID
 
 #include "Active/Utility/Guid.h"
+#include "Speckle/Utility/String.h"
 
 #ifdef ARCHICAD
 #include <ACAPinc.h>
@@ -22,6 +23,12 @@ namespace speckle::utility {
 		// MARK: - Constructors
 
 		using base::base;
+		
+		/*!
+		 Constructor
+		 @param source The guid to copy
+		 */
+		Guid(const active::utility::Guid& source) : base{source} {}
 
 #ifdef ARCHICAD
 		/*!
@@ -40,6 +47,16 @@ namespace speckle::utility {
 		
 		using base::operator=;
 		
+		/*!
+			Conversion operator
+			@return The guid as a string
+		*/
+		operator active::utility::String() const { return base::string(); }
+		/*!
+			Conversion operator
+			@return The guid as a string
+		*/
+		operator speckle::utility::String() const { return base::string(); }
 #ifdef ARCHICAD
 		/*!
 		 Conversion operator

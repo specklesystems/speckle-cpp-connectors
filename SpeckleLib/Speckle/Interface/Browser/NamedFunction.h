@@ -20,7 +20,7 @@ namespace speckle::interfac::browser {
 		struct FuncBase {};
 		template<typename Argument, typename Return>
 		struct FuncTypedef {
-			typedef std::function<std::unique_ptr<Return>(Argument)> type;
+			typedef std::function<std::unique_ptr<Return>(const Argument&)> type;
 		};
 		template<typename Return>
 		struct FuncTypedef<void, Return> {
@@ -28,7 +28,7 @@ namespace speckle::interfac::browser {
 		};
 		template<typename Argument>
 		struct FuncTypedef<Argument, void> {
-			typedef std::function<void(Argument)> type;
+			typedef std::function<void(const Argument&)> type;
 		};
 		template<>
 		struct FuncTypedef<void, void> {

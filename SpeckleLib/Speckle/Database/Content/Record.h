@@ -3,18 +3,19 @@
 
 #include "Active/Database/Content/Record.h"
 #include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Database/Identity/RecordID.h"
 
 namespace speckle::database {
 
 	/*!
 	 Base class for a database record
 	 */
-	class Record : public active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
+	class Record : public active::database::Record<RecordID> {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Record<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
+		using base = active::database::Record<RecordID>;
 			///Unique pointer
 		using Unique = std::unique_ptr<Record>;
 			///Shared pointer
@@ -25,10 +26,16 @@ namespace speckle::database {
 		// MARK: - Constructors
 		
 		/*!
+		 Default constructor
+		 */
+		Record() : base{active::utility::Guid{true}.operator active::utility::String(),
+				active::utility::Guid{true}.operator active::utility::String()} {}	//TODO: Implement a better default for the ID
+		/*!
 		 Constructor
 		 @param ID The record ID
 		 */
-		Record(speckle::utility::String ID) : base{ID} {}
+		Record(speckle::utility::String ID, speckle::utility::String::Option globID = std::nullopt) :
+				base{ID, globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
 		/*!
 		 Destructor
 		 */

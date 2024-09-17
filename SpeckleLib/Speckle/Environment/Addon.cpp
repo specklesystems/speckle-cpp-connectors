@@ -46,9 +46,25 @@ String Addon::getLocalString(short itemIndex, short resourceIndex) const {
 	RSGetIndString(&string, itemIndex, resourceIndex, ACAPI_GetOwnResModule());
 	return string;
 #else
-	return String{}
+	return String{};
 #endif
 } //Addon::getLocalString
+
+
+/*--------------------------------------------------------------------
+	Determine if the active document is shared (in collaborative environments)
+ 
+	return: True if the active document is shared
+  --------------------------------------------------------------------*/
+bool Addon::isSharedDocument() const {
+#ifdef ARCHICAD
+	API_ProjectInfo	pi{};
+	ACAPI_ProjectOperation_Project(&pi);
+	return pi.teamwork;
+#else
+	return false;
+#endif
+} //Addon::isSharedDocument
 
 
 /*--------------------------------------------------------------------

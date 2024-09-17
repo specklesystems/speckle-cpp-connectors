@@ -1,7 +1,8 @@
 #include "Speckle/Record/Credentials/ServerInfo.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageUnoWrap.h"
+#include "Active/Serialise/Package/Wrapper/Mover.h"
+#include "Active/Serialise/Package/Wrapper/PackageUniqueWrap.h"
 #include "Speckle/Utility/Guid.h"
 
 #include <array>
@@ -90,7 +91,7 @@ Cargo::Unique ServerInfo::getCargo(const Inventory::Item& item) const {
 		case urlID:
 			return std::make_unique<StringOptWrap>(m_url);
 		case migrationID:
-			return std::make_unique<PackageUnoWrap<ServerMigration>>(m_migration);
+			return std::make_unique<Mover>(PackageUniqueWrap{m_migration});
 		default:
 			return nullptr;	//Requested an unknown index
 	}

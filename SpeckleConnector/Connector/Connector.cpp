@@ -1,7 +1,7 @@
 #include "Active/File/Directory.h"
 #include "ConnectorResource.h"
 #include "Connector/Connector.h"
-#include "Connector/Database/Model/Card/ModelCardDatabase.h"
+#include "Connector/Database/ModelCardDatabase.h"
 #include "Interface/ConnectorMenu.h"
 #include "Interface/ConnectorPalette.h"
 #include "Speckle/Database/AccountDatabase.h"
@@ -29,6 +29,7 @@ namespace {
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
+			addWeak(m_modelCards.getSubscription());
 		}
 		
 		// MARK: Functions (const)

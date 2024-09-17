@@ -1,27 +1,26 @@
-#include "Connector/Database/Model/Card/ModelCardDatabase.h"
+#include "Connector/Record/Model/Filter/DirectSelectionSendFilter.h"
 
-#include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
-#include "Active/Setting/ValueSetting.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 
+#include <algorithm>
 #include <array>
 
 using namespace active::serialise;
-using namespace active::setting;
 using namespace connector::database;
+using namespace connector::record;
 using namespace speckle::utility;
 
 namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
-		model,
+		selectedElemID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"models"},
+		Identity{"selectedObjectIds"},
 	};
 
 }
@@ -33,15 +32,15 @@ namespace {
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool ModelCardDatabase::fillInventory(Inventory& inventory) const {
+bool DirectSelectionSendFilter::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[model], model, element },
+			{ fieldID[selectedElemID], selectedElemID, element },
 		},
-	}.withType(&typeid(ModelCardDatabase)));
-	return true;
-} //ModelCardDatabase::fillInventory
+	}.withType(&typeid(DirectSelectionSendFilter)));
+	return base::fillInventory(inventory);
+} //DirectSelectionSendFilter::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -51,21 +50,22 @@ bool ModelCardDatabase::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique ModelCardDatabase::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(ModelCardDatabase))
-		return nullptr;
+Cargo::Unique DirectSelectionSendFilter::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(DirectSelectionSendFilter))
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-		case model:
-			return std::make_unique<CargoHold<ValueSettingWrap, ValueSetting>>();	//NB: This is a placeholder until we define the content
+		case selectedElemID:
+			return std::make_unique<ContainerWrap<ElementIDList>>(m_selectedElements);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //ModelCardDatabase::getCargo
+} //DirectSelectionSendFilter::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void ModelCardDatabase::setDefault() {
-} //ModelCardDatabase::setDefault
+void DirectSelectionSendFilter::setDefault() {
+	m_selectedElements.clear();
+} //DirectSelectionSendFilter::setDefault

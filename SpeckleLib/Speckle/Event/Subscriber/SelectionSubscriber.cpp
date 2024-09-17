@@ -4,6 +4,10 @@
 #include "Speckle/Database/Identity/Link.h"
 #include "Speckle/Event/Type/SelectionEvent.h"
 
+#ifdef ARCHICAD
+#include <ACAPinc.h>
+#endif
+
 using namespace active::environment;
 using namespace active::event;
 using namespace speckle::database;
@@ -27,6 +31,9 @@ namespace {
 #endif
 
 }
+
+	//True if a selection change subscriber has already started (only one is required - there are no variants)
+bool speckle::event::SelectionSubscriber::m_isStarted = false;
 
 /*--------------------------------------------------------------------
 	Get the event subscription list
@@ -59,6 +66,9 @@ bool SelectionSubscriber::receive(const Event& event) {
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
 bool SelectionSubscriber::start() {
+	if (m_isStarted)
+		return true;
+	m_isStarted = true;
 #ifdef ARCHICAD
 	return (ACAPI_Notification_CatchSelectionChange(selectionCallback) == NoError);
 #else

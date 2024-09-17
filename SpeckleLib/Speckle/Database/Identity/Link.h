@@ -17,12 +17,12 @@ namespace speckle::database {
 	 A link may optionally carry any number of settings. In the context of a user selection (for example) there might be settings describing where
 	 the user made the selection (e.g. the hole in a floor slab), allowing a tool working on that selection to be more precise.
 	 */
-	class Link : public active::database::Link<speckle::utility::String, speckle::utility::String, speckle::utility::String> {
+	class Link : public active::database::Link<RecordID> {
 	public:
 		
 		// MARK: - Types
 		
-		using base = active::database::Link<speckle::utility::String, speckle::utility::String, speckle::utility::String>;
+		using base = active::database::Link<RecordID>;
 		
 		// MARK: - Constructors
 		

@@ -22,3 +22,5 @@ XCBuildData/
 **/*.xcsettings
 *.log
 .idea
+*.mui
+*.aps

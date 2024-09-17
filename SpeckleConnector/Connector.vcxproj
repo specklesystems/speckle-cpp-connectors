@@ -93,9 +93,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Connector\Connector.cpp" />
-    <ClCompile Include="Connector\Database\Model\Card\ModelCardDatabase.cpp" />
+    <ClCompile Include="Connector\Database\ModelCardDatabase.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\AddModel.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\Arg\DocumentInfo.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.cpp" />
@@ -103,12 +104,13 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp" />
@@ -120,14 +122,25 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
+    <ClCompile Include="Connector\Record\Model\CardMover.cpp" />
+    <ClCompile Include="Connector\Record\Model\CardSetting.cpp" />
+    <ClCompile Include="Connector\Record\Model\Filter\DirectSelectionSendFilter.cpp" />
+    <ClCompile Include="Connector\Record\Model\Filter\EverythingSendFilter.cpp" />
+    <ClCompile Include="Connector\Record\Model\Filter\FilterMover.cpp" />
+    <ClCompile Include="Connector\Record\Model\Filter\SendFilter.cpp" />
+    <ClCompile Include="Connector\Record\Model\ModelCard.cpp" />
+    <ClCompile Include="Connector\Record\Model\ReceiverModelCard.cpp" />
+    <ClCompile Include="Connector\Record\Model\SenderModelCard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\Connector.h" />
     <ClInclude Include="Connector\ConnectorResource.h" />
-    <ClInclude Include="Connector\Database\Model\Card\ModelCardDatabase.h" />
+    <ClInclude Include="Connector\Database\Identity\RecordID.h" />
+    <ClInclude Include="Connector\Database\ModelCardDatabase.h" />
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\AddModel.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\Arg\DocumentInfo.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\BaseBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetConnectorVersion.h" />
@@ -135,12 +148,13 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\ConfigBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendFilter.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h" />
@@ -152,6 +166,17 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
+    <ClInclude Include="Connector\Record\Model\CardMover.h" />
+    <ClInclude Include="Connector\Record\Model\CardSetting.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\ArchicadEverythingFilter.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\ArchicadSelectionFilter.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\DirectSelectionSendFilter.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\EverythingSendFilter.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\FilterMover.h" />
+    <ClInclude Include="Connector\Record\Model\Filter\SendFilter.h" />
+    <ClInclude Include="Connector\Record\Model\ModelCard.h" />
+    <ClInclude Include="Connector\Record\Model\ReceiverModelCard.h" />
+    <ClInclude Include="Connector\Record\Model\SenderModelCard.h" />
     <ClInclude Include="Connector\Version.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -56,7 +56,7 @@ AccountDatabase::AccountDatabase(const active::file::Path& path) {
 		//Create accounts database storage (with schema)
 	m_store = std::make_unique<Store>(
 			//Engine
-		std::make_unique<AccountsEngine>(path,
+		std::make_shared<AccountsEngine>(path,
 				//Schema
 			 DBaseSchema{active::utility::String{accountsDBaseName},
 					//Tables

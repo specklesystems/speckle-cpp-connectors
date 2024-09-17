@@ -38,6 +38,11 @@ namespace speckle::environment {
 		 @return The localised string
 		 */
 		speckle::utility::String getLocalString(short itemIndex, short resourceIndex) const;
+		/*!
+		 Determine if the active document is shared (in collaborative environments)
+		 @return True if the active document is shared
+		 */
+		bool isSharedDocument() const;
 		
 		// MARK: - Functions (mutating)
 		

@@ -1,27 +1,28 @@
-#include "Connector/Interface/Browser/Bridge/Send/Arg/SendFilter.h"
+#include "Connector/Record/Model/Filter/EverythingSendFilter.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 
+#include "Active/Utility/Concepts.h"
+
+#include <algorithm>
 #include <array>
 
 using namespace active::serialise;
-using namespace connector::interfac::browser::bridge;
+using namespace connector::database;
+using namespace connector::record;
 using namespace speckle::utility;
 
 namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
-		nameID,
-		summaryID,
-		defaultID,
+		selectedElemID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"name"},
-		Identity{"summary"},
-		Identity{"isDefault"},
+		Identity{"selectedObjectIds"},
 	};
 
 }
@@ -33,17 +34,15 @@ namespace {
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool SendFilter::fillInventory(Inventory& inventory) const {
+bool EverythingSendFilter::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[nameID], nameID, element },
-			{ fieldID[summaryID], summaryID, element },
-			{ fieldID[defaultID], defaultID, element },
+			{ fieldID[selectedElemID], selectedElemID, element },
 		},
-	}.withType(&typeid(SendFilter)));
-	return true;
-} //SendFilter::fillInventory
+	}.withType(&typeid(EverythingSendFilter)));
+	return base::fillInventory(inventory);
+} //EverythingSendFilter::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -53,28 +52,22 @@ bool SendFilter::fillInventory(Inventory& inventory) const {
  
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique SendFilter::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(SendFilter))
-		return nullptr;
+Cargo::Unique EverythingSendFilter::getCargo(const Inventory::Item& item) const {
+	if (item.ownerType != &typeid(EverythingSendFilter))
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-		case nameID:
-			return std::make_unique<ValueWrap<String>>(name);
-		case summaryID:
-			return std::make_unique<ValueWrap<String>>(summary);
-		case defaultID:
-			return std::make_unique<ValueWrap<bool>>(isDefault);
+		case selectedElemID:
+			return std::make_unique<ContainerWrap<ElementIDList>>(m_emptyList);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //SendFilter::getCargo
+} //EverythingSendFilter::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void SendFilter::setDefault() {
-	name.clear();
-	summary.clear();
-	isDefault = false;
-} //SendFilter::setDefault
+void EverythingSendFilter::setDefault() {
+	m_emptyList.clear();
+} //EverythingSendFilter::setDefault

@@ -34,7 +34,7 @@ namespace speckle::interfac::browser::bridge {
 		 @param argument The method arguments specifying the target bridge and requestID
 		 @return The requested result (nullptr on failure)
 		 */
-		std::unique_ptr<WrappedResultArg> getResult(WrappedResultArg& argument) const;
+		std::unique_ptr<WrappedResultArg> getResult(const WrappedResultArg& argument) const;
 	};
 
 }
