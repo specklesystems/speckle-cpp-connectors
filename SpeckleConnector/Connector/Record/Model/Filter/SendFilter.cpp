@@ -56,8 +56,8 @@ bool SendFilter::fillInventory(Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[nameID], nameID, element },
-			{ fieldID[summaryID], summaryID, element },
-			{ fieldID[defaultID], defaultID, element },
+			{ fieldID[summaryID], summaryID, element, !m_summary.empty() },
+			{ fieldID[defaultID], defaultID, element, m_isDefault },
 		},
 	}.withType(&typeid(SendFilter)));
 	return true;

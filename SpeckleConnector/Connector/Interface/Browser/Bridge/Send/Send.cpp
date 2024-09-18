@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Speckle/Utility/Exception.h"
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
@@ -21,5 +22,6 @@ Send::Send() : BridgeMethod{"Send", [&](UpdateArgs args) {
 	modelCardID: The ID of the madel to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
-	///TODO: Send the requested model
+		///TODO: Find and send selected elements - the following is a placeholder
+	throw Exception{"No objects were found to convert. Please update your publish filter!"};
 } //Send::run

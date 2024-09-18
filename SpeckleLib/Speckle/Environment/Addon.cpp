@@ -1,10 +1,16 @@
 #include "Speckle/Environment/Addon.h"
 
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Event/Type/ProjectEvent.h"
+
+#include <limits>
+
 #ifdef ARCHICAD
 #include <ACAPinc.h>
 #endif
 
 using namespace speckle::environment;
+using namespace speckle::event;
 using namespace speckle::utility;
 
 namespace {
@@ -52,19 +58,15 @@ String Addon::getLocalString(short itemIndex, short resourceIndex) const {
 
 
 /*--------------------------------------------------------------------
-	Determine if the active document is shared (in collaborative environments)
+	Get the active project
  
-	return: True if the active document is shared
+	return: The active project (nullptr = no open project)
   --------------------------------------------------------------------*/
-bool Addon::isSharedDocument() const {
-#ifdef ARCHICAD
-	API_ProjectInfo	pi{};
-	ACAPI_ProjectOperation_Project(&pi);
-	return pi.teamwork;
-#else
-	return false;
-#endif
-} //Addon::isSharedDocument
+std::weak_ptr<Project> Addon::getActiveProject() const {
+	if (m_activeProject)
+		return m_activeProject;
+	return std::weak_ptr<Project>{};
+} //Addon::getActiveProject
 
 
 /*--------------------------------------------------------------------
@@ -76,7 +78,9 @@ void Addon::publishExternal(const active::event::Event& event) {
 	if (!logCallback())
 		return;
 	try {
+		preprocessEvent(event);
 		publish(event);
+		postprocessEvent(event);
 	} catch (...) {
 		//Add error logging in future
 	}
@@ -147,7 +151,7 @@ speckle::environment::Addon* speckle::environment::addon() {
  
  	return: True if the callback can continue (false on error)
   --------------------------------------------------------------------*/
-bool speckle::environment::Addon::logCallback(bool initialise) {
+bool Addon::logCallback(bool initialise) {
 	if (initialise)
 		m_callDepth = 1;
 	else
@@ -162,3 +166,53 @@ bool speckle::environment::Addon::logCallback(bool initialise) {
 	}
 	return true;
 } //Addon::publishExternalEvent
+
+
+/*--------------------------------------------------------------------
+	Preprocess an external event (allowing key add-on operations to act before other subscribers)
+ 
+	event: An incoming event
+ 
+	return: True if the event should be closed, i.e. not passed to other subscribers
+  --------------------------------------------------------------------*/
+bool Addon::preprocessEvent(const active::event::Event& event) {
+	if (auto projectEvent = dynamic_cast<const ProjectEvent*>(&event); projectEvent != nullptr) {
+		using enum ProjectEvent::Type;
+		switch (projectEvent->getType()) {
+			case newDocument: case newAndReset: case open:
+				m_activeProject = makeProject();	//Ensure a project object is available
+			default:
+				break;
+ 		}
+	}
+	return false;
+} //Addon::preprocessEvent
+
+
+/*--------------------------------------------------------------------
+	Postprocess an external event (allowing key add-on operations to act after all other subscribers are complete)
+ 
+	event: An incoming (completed) event
+  --------------------------------------------------------------------*/
+void Addon::postprocessEvent(const active::event::Event& event) {
+	if (auto projectEvent = dynamic_cast<const ProjectEvent*>(&event); projectEvent != nullptr) {
+		using enum ProjectEvent::Type;
+		switch (projectEvent->getType()) {
+			case close: case quit:
+				m_activeProject.reset();	//Release the active project on close/quit
+			default:
+				break;
+		}
+	}
+} //Addon::postprocessEvent
+
+
+/*--------------------------------------------------------------------
+	Make a new new project. Allows Addon subclasses to define a Project subclass with additional functions/databases
+ 
+	return: A new project instance
+  --------------------------------------------------------------------*/
+std::shared_ptr<Project> Addon::makeProject() const {
+	auto project = new Project;	//make_shared can't use protected constructor
+	return std::shared_ptr<Project>{project};
+} //Addon::makeProject

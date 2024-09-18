@@ -1,0 +1,67 @@
+#include "Speckle/Environment/Project.h"
+
+#include "Speckle/Environment/Addon.h"
+#include "Speckle/SpeckleResource.h"
+
+#ifdef ARCHICAD
+#include <ACAPinc.h>
+#endif
+
+using namespace speckle::environment;
+using namespace speckle::utility;
+
+namespace {
+	
+}
+
+/*--------------------------------------------------------------------
+	Constructor (NB: this object is assumed to be the active instance)
+ 
+	identity: Optional name/ID for the subscriber
+  --------------------------------------------------------------------*/
+Project::Project() {
+} //Project::Project
+
+
+/*--------------------------------------------------------------------
+	Destructor
+  --------------------------------------------------------------------*/
+Project::~Project() {
+} //Project::~Project
+
+
+/*--------------------------------------------------------------------
+	Get information about the project
+ 
+	return: Project information
+  --------------------------------------------------------------------*/
+Project::Info Project::getInfo() const {
+		//Start with an untitled project - this will be replaced if a saved project is active
+	Info result{addon()->getLocalString(titleStringLib, untitledProjectID)};
+#ifdef ARCHICAD
+	API_ProjectInfo	projectInfo;
+	if (ACAPI_ProjectOperation_Project(&projectInfo) == NoError) {
+		if (projectInfo.projectName != nullptr)
+			result.name = *projectInfo.projectName;
+		result.isShared = projectInfo.teamwork;
+		if (projectInfo.teamwork) {
+			if (projectInfo.projectPath != nullptr)
+				result.path = String{*projectInfo.projectPath};
+			else if (projectInfo.location_team != nullptr) {
+				GS::UniString path;
+				if (projectInfo.location_team->ToPath(&path) == NoError)
+					result.path = String{path};
+			}
+		} else {
+			if (projectInfo.projectPath != nullptr)
+				result.path = String{*projectInfo.projectPath};
+			else if (projectInfo.location != nullptr) {
+				GS::UniString path;
+				if (projectInfo.location->ToPath(&path) == NoError)
+					result.path = String{path};
+			}
+		}
+	}
+#endif
+	return result;
+} //Project::getInfo

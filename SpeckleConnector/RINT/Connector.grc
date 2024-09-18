@@ -1,4 +1,3 @@
-'STR#' 32600 "Title strings" {
-/* [  1] */		"Speckle Connector"
-/* [  2] */		"Connector to share model content with Speckle"
+'STR#' 32700 "Title strings" {
+/* [  1] */		"Untitled"
 }

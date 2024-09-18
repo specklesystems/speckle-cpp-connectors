@@ -1365,7 +1365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$HEADER_PATH_3/ResourceObjects\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_6\" \"$SRCROOT\" \"$HEADER_PATH_3/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\ncp \"$HEADER_PATH_5/Inc/PkgInfo\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/PkgInfo\"\ntouch \"$HEADER_PATH_3/ResourceObjects/AddOnResources.stamp\"\n";
+			shellScript = "mkdir -p \"$HEADER_PATH_6/ResourceObjects\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_6\" \"$SRCROOT\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_3\" \"$SRCROOT\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\ncp \"$HEADER_PATH_5/Inc/PkgInfo\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/PkgInfo\"\ntouch \"$HEADER_PATH_6/ResourceObjects/AddOnResources.stamp\"\n";
 		};
 		213CC3A12B1101F500088049 /* Install */ = {
 			isa = PBXShellScriptBuildPhase;

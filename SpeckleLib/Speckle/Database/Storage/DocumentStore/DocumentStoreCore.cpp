@@ -4,6 +4,7 @@
 #include "Active/Utility/Memory.h"
 #include "Active/Utility/String.h"
 #include "Speckle/Environment/Addon.h"
+#include "Speckle/Environment/Project.h"
 #include "Speckle/Event/Type/DocStoreMergeEvent.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 #include "Speckle/Utility/Guid.h"
@@ -174,18 +175,17 @@ bool DocumentStoreCore::handle(const DocStoreMergeEvent& event) {
 	return: True if the event should be closed
  --------------------------------------------------------------------*/
 bool DocumentStoreCore::handle(const event::ProjectEvent& event) {
-#ifdef ARCHICAD
+	using enum ProjectEvent::Type;
 	switch (event.getType()) {
-		case APINotify_Close:
+		case close:
 			resetStore();	//Wipe the cache, forcing a full reload when the data is requested again (after a project is opened)
 			break;
-		case APINotify_PreSave: case APINotify_SendChanges:
+		case presave: case send:
 			writeStore();	//Ensure the data is stored with the save/send
 			break;
 		default:
 			break;
 	}
-#endif
 	return false;
 } //DocumentStoreCore::handle
 
@@ -221,6 +221,10 @@ active::utility::Memory DocumentStoreCore::readStore() const {
  --------------------------------------------------------------------*/
 void DocumentStoreCore::writeStore() {
 #ifdef ARCHICAD
+	auto activeProject = addon()->getActiveProject();
+	bool shared = false;
+	if (auto project = activeProject.lock(); project && project->getInfo().isShared)
+		shared = true;
 		//Ensure a suitable data store exists
 	if (!isExistingStore(m_id)) {
 			//Create when missing
@@ -230,7 +234,7 @@ void DocumentStoreCore::writeStore() {
 		m_id.id = Guid{acID};
 	}
 		//Reserve the storage object in TW
-	if (addon()->isSharedDocument()) {
+	if (shared) {
 		GS::HashTable<API_Guid, short> conflicts;
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ReserveObjects({Guid{m_id.id}}, &conflicts)); statusCode != nominal)
 			throw std::system_error(makeError(statusCode));
@@ -244,7 +248,7 @@ void DocumentStoreCore::writeStore() {
 	if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ModifyObject(Guid{m_id.id}, nullptr, &output)); statusCode != nominal)
 		throw std::system_error(makeError(statusCode));
 		//Release the storage object in TW
-	if (addon()->isSharedDocument()) {
+	if (shared) {
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ReleaseObjects({Guid{m_id.id}})); statusCode != nominal)
 			throw std::system_error(makeError(statusCode));
 	}
