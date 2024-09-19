@@ -27,7 +27,7 @@ namespace speckle::interfac::browser::bridge {
 		 Constructor
 		 @param name The JS object name
 		 */
-		BrowserBridge(const speckle::utility::String& name);
+		BrowserBridge(const utility::String& name);
 		/*!
 		 Destructor
 		 */
@@ -39,7 +39,7 @@ namespace speckle::interfac::browser::bridge {
 		 Get the names of the methods supported by this bridge
 		 @return The supported method names
 		 */
-		active::setting::ValueSetting getMethodNames() const;
+		std::vector<utility::String> getMethodNames() const;
 		/*!
 		 Get a browser method by name
 		 @return A pointer to the requested method (owner does not take ownership, nullptr = failure)
