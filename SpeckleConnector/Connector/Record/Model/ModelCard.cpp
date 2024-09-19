@@ -19,6 +19,7 @@ namespace {
 		accountID,
 		serverURLID,
 		settingsID,
+		expiredID,
 	};
 
 		///Serialisation field IDs
@@ -28,6 +29,7 @@ namespace {
 		Identity{"accountId"},
 		Identity{"serverURL"},
 		Identity{"settings"},
+		Identity{"expired"},
 	};
 
 }
@@ -48,9 +50,16 @@ bool ModelCard::fillInventory(Inventory& inventory) const {
 			{ fieldID[accountID], accountID, element },
 			{ fieldID[serverURLID], serverURLID, element },
 			{ fieldID[settingsID], settingsID, element },
+			{ fieldID[expiredID], expiredID, element },
 		},
 	}.withType(&typeid(ModelCard)));
-	return base::fillInventory(inventory);
+		//This class has a unique serialisation tag for the record ID - override the base class ID
+	inventory.merge(Inventory{
+		{
+			{ Identity{"modelCardId"}, active::database::record::FieldIndex::idIndex, element },
+		},
+	}.withType(&typeid(active::database::Record<>)));
+	return true;
 } //ModelCard::fillInventory
 
 
@@ -76,6 +85,8 @@ Cargo::Unique ModelCard::getCargo(const Inventory::Item& item) const {
 			return std::make_unique<ValueWrap<String>>(m_serverURL);
 		case settingsID:
 			return std::make_unique<ContainerWrap<Vector<CardSetting>>>(m_settings);
+		case expiredID:
+			return std::make_unique<ValueWrap<bool>>(m_isExpired);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

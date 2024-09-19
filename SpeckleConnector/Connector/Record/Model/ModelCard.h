@@ -108,6 +108,8 @@ namespace connector::record {
 		speckle::utility::String m_serverURL;
 			///Settings for the model rendering, e.g. level of detail (LoD)
 		SettingList m_settings;
+			///True if the card has expired
+		bool m_isExpired = false;
 	};
 
 }
