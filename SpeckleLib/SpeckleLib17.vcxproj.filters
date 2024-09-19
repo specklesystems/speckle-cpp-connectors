@@ -193,6 +193,15 @@
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h">
       <Filter>Speckle\Database\Storage\DocumentStore</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Environment\Project.h">
+      <Filter>Speckle\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\SpeckleResource.h">
+      <Filter>Speckle</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Version.h">
+      <Filter>Speckle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -270,6 +279,12 @@
     <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp">
       <Filter>Speckle\Database\Storage\DocumentStore</Filter>
     </ClCompile>
+    <ClCompile Include="Speckle\Environment\Project.cpp">
+      <Filter>Speckle\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Event\Type\ProjectEvent.cpp">
+      <Filter>Speckle\Event\Type</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Speckle\CMakeLists.txt">
@@ -294,6 +309,9 @@
     </None>
     <None Include="Speckle\Serialise\Serialisation.md">
       <Filter>Speckle\Serialise</Filter>
+    </None>
+    <None Include="RINT\Speckle.grc">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>
