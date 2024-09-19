@@ -41,25 +41,21 @@ Project::Info Project::getInfo() const {
 #ifdef ARCHICAD
 	API_ProjectInfo	projectInfo;
 	if (ACAPI_ProjectOperation_Project(&projectInfo) == NoError) {
-		if (projectInfo.projectName != nullptr)
+		if ((projectInfo.projectName != nullptr) && !projectInfo.projectName->IsEmpty())
 			result.name = *projectInfo.projectName;
 		result.isShared = projectInfo.teamwork;
-		if (projectInfo.teamwork) {
-			if (projectInfo.projectPath != nullptr)
-				result.path = String{*projectInfo.projectPath};
-			else if (projectInfo.location_team != nullptr) {
+		if ((projectInfo.projectPath != nullptr) && !projectInfo.projectPath->IsEmpty())
+			result.path = String{*projectInfo.projectPath};
+		else if (projectInfo.teamwork) {
+			if (projectInfo.location_team != nullptr) {
 				GS::UniString path;
 				if (projectInfo.location_team->ToPath(&path) == NoError)
 					result.path = String{path};
 			}
-		} else {
-			if (projectInfo.projectPath != nullptr)
-				result.path = String{*projectInfo.projectPath};
-			else if (projectInfo.location != nullptr) {
-				GS::UniString path;
-				if (projectInfo.location->ToPath(&path) == NoError)
-					result.path = String{path};
-			}
+		} else if (projectInfo.location != nullptr) {
+			GS::UniString path;
+			if (projectInfo.location->ToPath(&path) == NoError)
+				result.path = String{path};
 		}
 	}
 #endif

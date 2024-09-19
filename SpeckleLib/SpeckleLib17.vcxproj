@@ -27,6 +27,7 @@
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h" />
     <ClInclude Include="Speckle\Environment\Addon.h" />
     <ClInclude Include="Speckle\Environment\Platform.h" />
+    <ClInclude Include="Speckle\Environment\Project.h" />
     <ClInclude Include="Speckle\Event\Subscriber\DocStoreSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\MenuSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\ProjectSubscriber.h" />
@@ -58,10 +59,12 @@
     <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
     <ClInclude Include="Speckle\Record\Credentials\UserInfo.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
+    <ClInclude Include="Speckle\SpeckleResource.h" />
     <ClInclude Include="Speckle\Utility\Exception.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
     <ClInclude Include="Speckle\Utility\Guid64.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
+    <ClInclude Include="Speckle\Version.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp" />
@@ -70,10 +73,12 @@
     <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
     <ClCompile Include="Speckle\Environment\Platform.cpp" />
+    <ClCompile Include="Speckle\Environment\Project.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\DocStoreSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\ProjectSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />
+    <ClCompile Include="Speckle\Event\Type\ProjectEvent.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BridgeArgument.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BridgeArgumentWrap.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\BrowserBridge.cpp" />
@@ -97,6 +102,7 @@
     <Text Include="Speckle\Serialise\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RINT\Speckle.grc" />
     <None Include="Speckle\Environment\Environment.md" />
     <None Include="Speckle\Event\Event.md" />
     <None Include="Speckle\Serialise\Serialisation.md" />
