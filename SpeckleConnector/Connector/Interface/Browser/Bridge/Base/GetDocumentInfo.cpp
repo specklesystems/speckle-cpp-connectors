@@ -4,6 +4,7 @@
 #include "Connector/Connector.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 #include "Speckle/Environment/Project.h"
+#include "Speckle/Utility/Guid.h"
 
 using namespace active::container;
 using namespace active::serialise;
@@ -38,6 +39,7 @@ std::unique_ptr<Cargo> GetDocumentInfo::run() const {
 		if (info.path)
 			docInfo.location = *info.path;
 			//TODO: No suitable project ID is currently available
+		docInfo.ID = Guid{true}.operator String();
 	}
 	return std::make_unique<WrappedValue>(docInfo);
 } //GetDocumentInfo::run
