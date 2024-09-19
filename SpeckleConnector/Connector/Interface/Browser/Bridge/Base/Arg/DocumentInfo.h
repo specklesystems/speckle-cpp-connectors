@@ -29,12 +29,12 @@ namespace connector::interfac::browser::bridge {
 		
 		// MARK: - Public variables (NB: Assuming to class invariants or overrides for this data, so making public for simplicity)
 		
-			///The project location
-		speckle::utility::String location;	//TODO: Confirm this is an address
+			///The URL of the project file (non-teamwork) or server (teamwork)
+		speckle::utility::String location;
 			///The project name
-		speckle::utility::String name;	//TODO: Assume project name rather than document (file) name - need to confirm
+		speckle::utility::String name;
 			///A unique, persistent ID for the project document
-		speckle::utility::String ID;	//TODO: should possibly be a guid - need to check
+		speckle::utility::String ID;
 		
 		// MARK: - Serialisation
 		
