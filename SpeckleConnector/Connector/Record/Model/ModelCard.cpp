@@ -27,7 +27,7 @@ namespace {
 		Identity{"modelId"},
 		Identity{"projectId"},
 		Identity{"accountId"},
-		Identity{"serverURL"},
+		Identity{"serverUrl"},
 		Identity{"settings"},
 		Identity{"expired"},
 	};

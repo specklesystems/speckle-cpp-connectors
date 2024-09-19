@@ -2,6 +2,7 @@
 #define CONNECTOR_INTERFACE_BRIDGE_SEND
 
 #include "Active/Serialise/CargoHold.h"
+#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
@@ -9,13 +10,15 @@ namespace connector::interfac::browser::bridge {
 	
 	class ConnectorConfig;
 	
-		///Argument for a JS call to update the configuration
-	using UpdateArgs = speckle::interfac::browser::bridge::JSArgType<speckle::utility::String>;
+		///Argument parameter for a string
+	using StringHold = active::serialise::CargoHold<active::serialise::ValueWrap<speckle::utility::String>, speckle::utility::String>;
+		///Argument type for this method
+	using SendArgs = speckle::interfac::browser::bridge::JSArgType<StringHold>;
 
 	/*!
-	 JS Function class to retrieve the names of the methods supported by the bridge
+	 JS Function class to send a specified model
 	*/
-	class Send : public speckle::interfac::browser::bridge::BridgeMethod<UpdateArgs, void> {
+	class Send : public speckle::interfac::browser::bridge::BridgeMethod<SendArgs, void> {
 	public:
 
 		// MARK: - Constructors

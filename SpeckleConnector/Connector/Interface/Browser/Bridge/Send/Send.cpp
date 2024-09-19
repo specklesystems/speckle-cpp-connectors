@@ -11,7 +11,7 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-Send::Send() : BridgeMethod{"Send", [&](UpdateArgs args) {
+Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 		run(args);
 }} {}
 
