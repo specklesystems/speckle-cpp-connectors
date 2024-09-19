@@ -58,7 +58,7 @@ bool ModelCard::fillInventory(Inventory& inventory) const {
 		{
 			{ Identity{"modelCardId"}, active::database::record::FieldIndex::idIndex, element },
 		},
-	}.withType(&typeid(active::database::Record<>)));
+	}.withType(&typeid(base::base)));
 	return true;
 } //ModelCard::fillInventory
 
