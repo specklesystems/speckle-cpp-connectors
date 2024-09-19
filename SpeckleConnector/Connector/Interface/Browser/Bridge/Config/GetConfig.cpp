@@ -30,6 +30,6 @@ GetConfig::GetConfig() : BridgeMethod{"GetConfig", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetConfig::run() const {
 	ConnectorConfig config;
-		///TODO: Get the accounts here - returning an empty array for testing only
+		///TODO: Get the data from a local SQLite database
 	return std::make_unique<WrappedValue>(config);
 } //GetConfig::run
