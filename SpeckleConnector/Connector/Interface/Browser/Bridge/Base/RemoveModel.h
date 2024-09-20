@@ -2,14 +2,14 @@
 #define CONNECTOR_INTERFACE_BRIDGE_REMOVE_MODEL
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Connector/Record/Model/CardMover.h"
 #include "Connector/Record/Model/ModelCard.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
 	
 		///Argument parameter for a string
-	using CardHold = active::serialise::CargoHold<active::serialise::PackageWrap, connector::record::ModelCard>;
+	using CardHold = active::serialise::CargoHold<connector::record::CardMover, connector::record::ModelCard>;
 		///Argument type for this method
 	using ModelCardEventWrapper = speckle::interfac::browser::bridge::JSArgType<CardHold>;
 
