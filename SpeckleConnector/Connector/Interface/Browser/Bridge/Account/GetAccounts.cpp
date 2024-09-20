@@ -32,8 +32,10 @@ GetAccounts::GetAccounts() : BridgeMethod{"GetAccounts", [&]() {
 	return: The accounts (empty array when none defined)
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetAccounts::run() const {
-	Vector<Account> accounts;
+	std::unique_ptr<Vector<Account>> result;
 	if (auto accountDBase = connector()->getAccountDatabase(); accountDBase != nullptr)
-		accounts = accountDBase->getAccounts();
-	return std::make_unique<WrappedValue>(accounts);
+		result = std::make_unique<Vector<Account>>(accountDBase->getAccounts());
+	else
+		result = std::make_unique<Vector<Account>>();
+	return std::make_unique<WrappedValue>(std::move(result));
 } //GetAccounts::run
