@@ -94,7 +94,8 @@ namespace {
 	void copyHandleToMemory(const GSHandle& handle, active::utility::Memory& memory) {
 		auto storeSize = BMGetHandleSize(handle);
 		memory.resize(storeSize);
-		active::utility::Memory::copy(memory.data(), *handle, storeSize, storeSize);
+		if ((storeSize > 0) && (*handle != nullptr))
+			active::utility::Memory::copy(memory.data(), *handle, storeSize, storeSize);
 	} //copyHandleToMemory
 
 #endif
