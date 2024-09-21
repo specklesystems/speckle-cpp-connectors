@@ -8,8 +8,6 @@ Distributed under the MIT License (See accompanying file LICENSE.txt or copy at 
 #include "Connector/Record/Model/ReceiverModelCard.h"
 #include "Connector/Record/Model/SenderModelCard.h"
 
-using namespace active::serialise;
-using namespace active::utility;
 using namespace connector::record;
 
 namespace {

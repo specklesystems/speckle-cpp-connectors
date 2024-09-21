@@ -9,8 +9,10 @@ xcuserdata/
 x64/
 .DS_Store
 .cache/
-Documentation/*
-!Documentation/Doxyfile
+SpeckleConnector/Documentation/*
+!SpeckleConnector/Documentation/Doxyfile
+SpeckleLib/Documentation/*
+!SpeckleLib/Documentation/Doxyfile
 CMakeCache.txt
 _deps/
 CMakeFiles/
