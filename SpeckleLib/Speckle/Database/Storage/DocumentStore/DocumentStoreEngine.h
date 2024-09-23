@@ -162,9 +162,9 @@ namespace speckle::database {
 			return m_cache.get();	//Return an empty container if there's no data
 			//Import the document data into the record cache
 		if constexpr (std::is_same_v<ObjWrapper, Obj>)
-			Transport().receive(std::	forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);
+			Transport().receive(std::forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);
 		else
-			Transport().receive(ObjWrapper{*m_cache}, active::serialise::Identity{}, storedData);
+			Transport().receive(active::serialise::PackageWrap{*m_cache}, active::serialise::Identity{}, storedData);
 		return m_cache.get();
 	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getCache
 	
