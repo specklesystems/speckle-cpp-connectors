@@ -17,8 +17,9 @@ namespace speckle::event {
 		
 		/*!
 		 Default constructor
-		 */
-		ProjectSubscriber() = default;
+		 @param priority The subscriber priority (determines the order in which subscribers receive events)
+		*/
+		ProjectSubscriber(int32_t priority = 0) : active::event::Subscriber{priority} {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy

@@ -13,12 +13,6 @@ using namespace connector::database;
 using namespace connector::record;
 using namespace speckle::utility;
 
-namespace {
-	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<ModelCard>>, Vector<ModelCard>>;
-
-}
-
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/

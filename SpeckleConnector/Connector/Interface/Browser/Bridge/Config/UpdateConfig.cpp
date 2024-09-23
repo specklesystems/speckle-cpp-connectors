@@ -21,5 +21,5 @@ UpdateConfig::UpdateConfig() : BridgeMethod{"UpdateConfig", [&](const UpdateArgs
 	config: The new settings
   --------------------------------------------------------------------*/
 void UpdateConfig::run(const ConnectorConfig& config) const {
-	///TODO: Store the active configuration settings here
+	///TODO: Store the active configuration settings in a local SQLite database
 } //UpdateConfig::run

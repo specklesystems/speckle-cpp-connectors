@@ -128,6 +128,6 @@ GetComplexType::GetComplexType() : BridgeMethod{"GetComplexType", [&]() {
 	return: The required object
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetComplexType::run() const {
-	ComplexType object;
-	return std::make_unique<WrappedValue>(object);
+	auto object = std::make_unique<ComplexType>();
+	return std::make_unique<WrappedValue>(std::move(object));
 } //GetComplexType::run

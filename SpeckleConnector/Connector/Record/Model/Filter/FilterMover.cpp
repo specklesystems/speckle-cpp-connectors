@@ -16,10 +16,25 @@ namespace {
 	
 		///The tag used to identify a Speckle type name value
 	const char* attributeTag = "typeDiscriminator";
-		///Identity for a SenderModelCard
-	const char* ArchicadSelectionTypeName = "ArchicadSelectionFilter";
-		///Identity for a SenderModelCard
+	///Identity for selecting everything
 	const char* ArchicadEverythingTypeName = "ArchicadEverythingFilter";
+	///Identity for a selection filter
+	const char* ArchicadSelectionTypeName = "ArchicadSelectionFilter";
+
+	/*--------------------------------------------------------------------
+		Ensure the handler is populated
+
+		handler: The filter handler to validate
+
+		return: A reference to the handler
+	  --------------------------------------------------------------------*/
+	std::shared_ptr<active::serialise::Handler>& validateHandler(std::shared_ptr<active::serialise::Handler>& handler) {
+		if (!handler->empty())
+			return handler;
+		handler->add<ArchicadEverythingFilter>(ArchicadEverythingTypeName);
+		handler->add<ArchicadSelectionFilter>(ArchicadSelectionTypeName);
+		return handler;
+	} //validateHandler
 
 }
 
@@ -32,8 +47,7 @@ std::shared_ptr<active::serialise::Handler> FilterMover::m_handler = std::make_s
  
 	handler: A package handler to reconstruct incoming packages
   --------------------------------------------------------------------*/
-FilterMover::FilterMover() : Mover{m_handler} {
-	validateHandler();
+FilterMover::FilterMover() : Mover{validateHandler(m_handler)} {
 } //FilterMover::FilterMover
 
 
@@ -42,8 +56,7 @@ FilterMover::FilterMover() : Mover{m_handler} {
  
 	outgoing: An outgoing package
   --------------------------------------------------------------------*/
-FilterMover::FilterMover(const active::serialise::Package& outgoing) : Mover{outgoing, m_handler} {
-	validateHandler();
+FilterMover::FilterMover(const active::serialise::Package& outgoing) : Mover{outgoing, validateHandler(m_handler)} {
 } //FilterMover::FilterMover
 
 
@@ -52,17 +65,5 @@ FilterMover::FilterMover(const active::serialise::Package& outgoing) : Mover{out
  
 	package: A reference to the member variable
   --------------------------------------------------------------------*/
-FilterMover::FilterMover(active::serialise::PackageUniqueWrap&& package) : Mover{std::move(package), m_handler} {
-	
+FilterMover::FilterMover(active::serialise::PackageUniqueWrap&& package) : Mover{std::move(package), validateHandler(m_handler)} {
 } //FilterMover::FilterMover
-
-
-/*--------------------------------------------------------------------
-	Ensure the handler is populated
-  --------------------------------------------------------------------*/
-void FilterMover::validateHandler() {
-	if (!m_handler->empty())
-		return;
-	m_handler->add<ArchicadEverythingFilter>(ArchicadEverythingTypeName);
-	m_handler->add<DirectSelectionSendFilter>(ArchicadSelectionTypeName);
-} //FilterMover::validateHandler

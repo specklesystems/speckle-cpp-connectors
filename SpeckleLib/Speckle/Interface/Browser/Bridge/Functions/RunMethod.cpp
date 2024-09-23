@@ -66,7 +66,7 @@ namespace {
 			errorReport = ErrorReport{defaultError};
 		errorReport->message = formattedErrorMessage(errorReport->message, argument);
 			//Cache the error report to be sent back to the JS caller against the request ID
-		bridge.cacheResult(std::make_unique<CargoHold<PackageWrap, ErrorReport>>(*errorReport), argument.getRequestID());
+		bridge.cacheResult(std::make_unique<CargoHold<PackageWrap, ErrorReport>>(std::make_unique<ErrorReport>(*errorReport)), argument.getRequestID());
 	} //executeMethod
 	
 	

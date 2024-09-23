@@ -2,17 +2,16 @@
 #define SPECKLE_INTERFACE_BRIDGE_GET_METHOD_NAMES
 
 #include "Active/Serialise/CargoHold.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Package/Wrapper/ValueSettingWrap.h"
 #include "Speckle/Interface/Browser/PlatformBinding.h"
 #include "Speckle/Interface/Browser/JSFunction.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeChild.h"
 
 namespace speckle::interfac::browser::bridge {
-	
-	class BrowserBridge;
-	
-	using WrappedValue = active::serialise::CargoHold<active::serialise::ValueSettingWrap, active::setting::ValueSetting>;
-	
+
+	using WrappedValue = active::serialise::CargoHold<active::serialise::ContainerWrap<std::vector<utility::String>>, std::vector<utility::String>>;
+
 	/*!
 	 JS Function class to retrieve the names of the methods supported by the bridge
 	*/
@@ -20,12 +19,12 @@ namespace speckle::interfac::browser::bridge {
 	public:
 
 		// MARK: - Constructors
-		
+
 		/*!
 		 Default constructor
 		 */
 		GetBindingsMethodNames();
-		
+
 	private:
 		/*!
 		 Get the names of the methods supported by the parent browser

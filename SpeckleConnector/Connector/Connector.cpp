@@ -29,6 +29,7 @@ namespace {
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
+				//The connector 'owns' the model card database, so the publisher list should only hold a weak reference
 			addWeak(m_modelCards.getSubscription());
 		}
 		

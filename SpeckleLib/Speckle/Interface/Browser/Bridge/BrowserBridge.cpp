@@ -53,13 +53,13 @@ BrowserBridge::~BrowserBridge() {
 
 /*--------------------------------------------------------------------
 	Get the names of the methods supported by this bridge
- 
+
 	return: The supported method names
   --------------------------------------------------------------------*/
-ValueSetting BrowserBridge::getMethodNames() const {
-	ValueSetting result;
+std::vector<String> BrowserBridge::getMethodNames() const {
+	std::vector<String> result;
 	for (const auto& method : *m_methods)
-		result.emplace_back(StringValue{method->getName()});
+		result.emplace_back(method->getName());
 	return result;
 } //BrowserBridge::getMethodNames
 

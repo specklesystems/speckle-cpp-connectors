@@ -15,6 +15,9 @@
 		210CC89F2C81E34400610F58 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC89D2C81E34400610F58 /* Platform.cpp */; };
 		210CC8A02C81E34400610F58 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC89E2C81E34400610F58 /* Platform.h */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
+		215F08552C99DA8D00CD343B /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
+		215F08562C99DA8D00CD343B /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
+		215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
 		2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
 		2193519B2C6278D900E5A69C /* SelectionSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351992C6278D900E5A69C /* SelectionSubscriber.cpp */; };
 		219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351AC2C62CC1A00E5A69C /* Guid.cpp */; };
@@ -106,6 +109,11 @@
 		21379E082AE47A6400A1584C /* libArchicad27.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad27.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		214EA4C52BA374FD008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		214EA4C62BA3762D008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		215F08512C99DA8D00CD343B /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
+		215F08542C99DA8D00CD343B /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		215F085B2C9AE23200CD343B /* SpeckleResource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeckleResource.h; sourceTree = "<group>"; };
+		215F08622C9AE3D200CD343B /* Speckle.grc */ = {isa = PBXFileReference; lastKnownFileType = text; path = Speckle.grc; sourceTree = "<group>"; };
+		215F08652C9B006700CD343B /* ProjectEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectEvent.cpp; sourceTree = "<group>"; };
 		2167E2782C4911E2000827D3 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		2167E2792C4911EB000827D3 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		2167E27C2C49121F000827D3 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -207,6 +215,7 @@
 				21F69F1B2C6A0FE2008B6A06 /* Interface */,
 				21F69F952C71087A008B6A06 /* Record */,
 				212A834E2AE47AD9001EAFE7 /* Serialise */,
+				215F085B2C9AE23200CD343B /* SpeckleResource.h */,
 				219351B02C62CC1A00E5A69C /* Utility */,
 				218953A32C0C9CB00078F182 /* Version.h */,
 			);
@@ -231,6 +240,7 @@
 				21F69F012C66C229008B6A06 /* Doxyfile */,
 				21379E092AE47A6400A1584C /* Products */,
 				21329F472BFA611C00B5C7AF /* README.md */,
+				215F08612C9AE3D200CD343B /* RINT */,
 				212A83422AE47AD9001EAFE7 /* Speckle */,
 				219987FA2BD708BC0035E5EA /* SpeckleLibDoctest */,
 			);
@@ -244,6 +254,14 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		215F08612C9AE3D200CD343B /* RINT */ = {
+			isa = PBXGroup;
+			children = (
+				215F08622C9AE3D200CD343B /* Speckle.grc */,
+			);
+			path = RINT;
+			sourceTree = SOURCE_ROOT;
 		};
 		218953A92C0F29FB0078F182 /* EventTests */ = {
 			isa = PBXGroup;
@@ -281,6 +299,7 @@
 			children = (
 				21D0BDBE2C90F36B0077E104 /* DocStoreMergeEvent.h */,
 				219351892C62655700E5A69C /* MenuEvent.h */,
+				215F08652C9B006700CD343B /* ProjectEvent.cpp */,
 				21D0BDC62C9245E40077E104 /* ProjectEvent.h */,
 				2193519C2C627E3100E5A69C /* SelectionEvent.h */,
 			);
@@ -467,6 +486,8 @@
 				21F93AE92B2F406D009A2C5B /* Addon.h */,
 				210CC89D2C81E34400610F58 /* Platform.cpp */,
 				210CC89E2C81E34400610F58 /* Platform.h */,
+				215F08512C99DA8D00CD343B /* Project.cpp */,
+				215F08542C99DA8D00CD343B /* Project.h */,
 				21329F632BFD452C00B5C7AF /* Environment.md */,
 			);
 			path = Environment;
@@ -491,6 +512,7 @@
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
 				21D0BD2C2C86FC350077E104 /* Record.h in Headers */,
 				21D0BDB42C8F8AB60077E104 /* DocumentStoreCore.h in Headers */,
+				215F08562C99DA8D00CD343B /* Project.h in Headers */,
 				210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */,
 				21D0BD4D2C8901A00077E104 /* ServerInfo.h in Headers */,
 				21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */,
@@ -626,6 +648,7 @@
 				21F69F812C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp in Sources */,
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
+				215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */,
 				21D0BDBD2C90F2830077E104 /* DocStoreSubscriber.cpp in Sources */,
 				21D0BDB32C8F8AB60077E104 /* DocumentStoreCore.cpp in Sources */,
 				21F93AEC2B2F406E009A2C5B /* Addon.cpp in Sources */,
@@ -641,6 +664,7 @@
 				219351B32C62CC1A00E5A69C /* String.cpp in Sources */,
 				219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */,
 				21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */,
+				215F08552C99DA8D00CD343B /* Project.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
 				210CC89F2C81E34400610F58 /* Platform.cpp in Sources */,
 				21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */,

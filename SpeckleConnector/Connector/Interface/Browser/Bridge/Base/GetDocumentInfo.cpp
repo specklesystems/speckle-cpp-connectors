@@ -1,7 +1,10 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentInfo.h"
 
 #include "Active/Serialise/CargoHold.h"
+#include "Connector/Connector.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Utility/Guid.h"
 
 using namespace active::container;
 using namespace active::serialise;
@@ -28,7 +31,14 @@ GetDocumentInfo::GetDocumentInfo() : BridgeMethod{"GetDocumentInfo", [&]() {
 	return: The document info
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetDocumentInfo::run() const {
-		///TODO: Get the document info here - returning mocked values for now
-	DocumentInfo docInfo{"Somewhere", "Something", String{active::utility::Guid{true}.operator active::utility::String()}};
-	return std::make_unique<WrappedValue>(docInfo);
+	auto docInfo = std::make_unique<DocumentInfo>();
+	if (auto project = connector()->getActiveProject().lock(); project) {
+		auto info = project->getInfo();
+		docInfo->name = info.name;
+		if (info.path)
+			docInfo->location = *info.path;
+			//TODO: No suitable project ID is currently available
+		docInfo->ID = Guid{true}.operator String();
+	}
+	return std::make_unique<WrappedValue>(std::move(docInfo));
 } //GetDocumentInfo::run

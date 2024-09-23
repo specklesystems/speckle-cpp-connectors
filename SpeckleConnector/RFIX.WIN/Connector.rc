@@ -8,6 +8,7 @@
 #include "Connector.grc.rc2"
 #include "ConnectorMenu.grc.rc2"
 #include "SpecklePalette.grc.rc2"
+#include "Speckle.grc.rc2"
 
 #include "ConnectorFix.grc.rc2"
 
