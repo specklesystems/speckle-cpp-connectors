@@ -68,6 +68,14 @@ namespace speckle::database {
 		 */
 		std::unique_ptr<Obj> getObject(const ObjID& objID, std::optional<RecordID> tableID = std::nullopt, std::optional<RecordID> documentID = std::nullopt) const override;
 		/*!
+		 Get an object in a transportable form, e.g. packaged for serialisation
+		 @param ID The object ID
+		 @param tableID Optional table ID (defaults to the first table)
+		 @param documentID Optional document ID (when the object is bound to a specific document)
+		 @return: The requested wrapped cargo (nullptr on failure)
+		 */
+		active::serialise::Cargo::Unique getObjectCargo(const ObjID& objID, std::optional<RecordID> tableID = std::nullopt, std::optional<RecordID> documentID = std::nullopt) const override;
+		/*!
 		 Get all objects
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
@@ -183,6 +191,25 @@ namespace speckle::database {
 	std::unique_ptr<Obj> DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObject(const ObjID& ID, std::optional<RecordID> tableID,
 																			   std::optional<RecordID> documentID)  const {
 		return getCache()->read(ID);
+	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObject
+	
+	
+	/*--------------------------------------------------------------------
+		Get an object in a transportable form, e.g. packaged for serialisation
+	 
+		index: The object index
+		tableID: Optional table ID (defaults to the first table)
+		documentID: Optional document ID (when the object is bound to a specific document)
+	 
+		return: The requested wrapped cargo (nullptr on failure)
+	  --------------------------------------------------------------------*/
+	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
+	requires DocumentStorable<Obj, ObjWrapper, Transport>
+	active::serialise::Cargo::Unique DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObjectCargo(const ObjID& ID, std::optional<RecordID> tableID,
+																			   std::optional<RecordID> documentID)  const {
+		if (auto object = getObject(ID, tableID, documentID); object)
+			return std::make_unique<active::serialise::CargoHold<ObjWrapper, Obj>>(std::move(object));
+		return nullptr;
 	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::getObject
 	
 	
