@@ -102,6 +102,16 @@ void ModelCardDatabase::erase(const String& cardID) const {
 
 
 /*--------------------------------------------------------------------
+	Get the unique ID of the engine storage
+ 
+	return: The databas unique ID
+  --------------------------------------------------------------------*/
+RecordID ModelCardDatabase::getStoreID() const {
+	return m_engine->getUniqueID();
+} //ModelCardDatabase::getStoreID
+
+
+/*--------------------------------------------------------------------
 	Get a serialisation wrapper for the database
  
 	return: A database wrapper

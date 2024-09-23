@@ -122,6 +122,11 @@ namespace speckle::database {
 		 @return The database outline
 		 */
 		Outline getOutline() const override;
+		/*!
+		 Get the engine unique ID
+		 @return The unique ID
+		 */
+		RecordID getUniqueID() const { return getCache()->getID(); }
 		
 	protected:
 		/*!

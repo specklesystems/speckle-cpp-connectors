@@ -49,6 +49,11 @@ namespace connector::database {
 		 @return A database wrapper
 		 */
 		std::unique_ptr<active::serialise::Cargo> wrapper() const;
+		/*!
+		 Get the unique ID of the engine storage
+		 @return The database unique ID
+		 */
+		speckle::database::RecordID getStoreID() const;
 		
 		// MARK: - Functions (mutating)
 
