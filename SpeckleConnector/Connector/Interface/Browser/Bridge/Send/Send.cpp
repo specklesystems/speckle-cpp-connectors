@@ -19,7 +19,7 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 /*--------------------------------------------------------------------
 	Send a specified model
  
-	modelCardID: The ID of the madel to send
+	modelCardID: The ID of the model to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
 		///TODO: Find and send selected elements - the following is a placeholder

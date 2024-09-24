@@ -5,7 +5,7 @@
 
 #include "Active/Utility/Guid.h"
 #include "Active/Utility/String.h"
-#include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Database/Identity/BIMLink.h"
 
 namespace speckle::event {
 	
@@ -24,7 +24,7 @@ namespace speckle::event {
 		 Constructor
 		 @param selected A link to a selected element (nullopt if the selection is empty)
 		 */
-		SelectionEvent(speckle::database::Link::Option selected) : m_selectedLink{selected} {}
+		SelectionEvent(speckle::database::BIMLink::Option selected) : m_selectedLink{selected} {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
@@ -46,10 +46,10 @@ namespace speckle::event {
 		 Get a link to the last selected element
 		 @return A link to the last selected element (nullopt if the event selection is empty)
 		 */
-		speckle::database::Link::Option getLastSelected() const { return m_selectedLink; }
+		speckle::database::BIMLink::Option getLastSelected() const { return m_selectedLink; }
 
 	private:
-		speckle::database::Link::Option m_selectedLink;
+		speckle::database::BIMLink::Option m_selectedLink;
 	};
 	
 }

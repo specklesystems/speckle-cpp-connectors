@@ -1,9 +1,9 @@
-#ifndef SPECKLE_DATABASE_LINK
-#define SPECKLE_DATABASE_LINK
+#ifndef SPECKLE_DATABASE_BIM_LINK
+#define SPECKLE_DATABASE_BIM_LINK
 
 #include "Active/Setting/SettingList.h"
 #include "Active/Database/Identity/Link.h"
-#include "Speckle/Database/Identity/Index.h"
+#include "Speckle/Database/Identity/BIMRecordID.h"
 
 namespace speckle::database {
 
@@ -18,20 +18,27 @@ namespace speckle::database {
 	 A link may optionally carry any number of settings. In the context of a user selection (for example) there might be settings describing where
 	 the user made the selection (e.g. the hole in a floor slab), allowing a tool working on that selection to be more precise.
 	 */
-	class Link : public active::database::Link<RecordID> {
+	class BIMLink : public active::database::Link<BIMRecordID> {
 	public:
 		
 		// MARK: - Types
 		
-		using base = active::database::Link<RecordID>;
+		using base = active::database::Link<BIMRecordID>;
 		
 		// MARK: - Constructors
 		
 		using base::base;
 		
-		Link() = default;
+		BIMLink() = default;
+#ifdef ARCHICAD
+		/*!
+		 Constructor
+		 @param selected Information about a selected Archicad element
+		 */
+		BIMLink(const API_Neig& selected);
+#endif
 	};
 	
 }
 
-#endif	//SPECKLE_DATABASE_LINK
+#endif	//SPECKLE_DATABASE_BIM_LINK

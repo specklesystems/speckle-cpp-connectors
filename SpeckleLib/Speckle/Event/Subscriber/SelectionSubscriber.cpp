@@ -1,7 +1,7 @@
 #include "Speckle/Event/Subscriber/SelectionSubscriber.h"
 
 #include "Speckle/Environment/Addon.h"
-#include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Event/Type/SelectionEvent.h"
 
 #ifdef ARCHICAD
@@ -23,7 +23,7 @@ namespace {
 	 */
 	GSErrCode __ACENV_CALL selectionCallback(const API_Neig* params) {
 		if (addon() != nullptr) {
-			auto selection = (params == nullptr) ? Link{} : Link{*params};
+			auto selection = (params == nullptr) ? BIMLink{} : BIMLink{*params};
 			addon()->publishExternal(SelectionEvent{selection});
 		}
 		return NoError;

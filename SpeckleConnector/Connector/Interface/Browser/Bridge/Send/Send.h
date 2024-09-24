@@ -33,7 +33,7 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Send a specified model
-		 @param modelCardID The ID of the madel to send
+		 @param modelCardID The ID of the model to send
 		 */
 		void run(const speckle::utility::String& modelCardID) const;
 	};

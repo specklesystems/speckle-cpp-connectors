@@ -1,5 +1,5 @@
-#ifndef SPECKLE_DATABASE_INDEX
-#define SPECKLE_DATABASE_INDEX
+#ifndef SPECKLE_DATABASE_BIM_INDEX
+#define SPECKLE_DATABASE_BIM_INDEX
 
 #include "Active/Database/Identity/Index.h"
 #include "Speckle/Database/Identity/RecordID.h"
@@ -13,12 +13,12 @@ namespace speckle::database {
 	 this is typically a guid, for Revit a string and for Vectorworks a handle. Note that this index is not necessarily persistent between
 	 sessions.
 	 */
-	class Index : public active::database::Index<RecordID> {
+	class BIMIndex : public active::database::Index<BIMRecordID> {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Index<RecordID>;
+		using base = active::database::Index<BIMRecordID>;
 
 		// MARK: - Constructors
 		
@@ -27,4 +27,4 @@ namespace speckle::database {
 	
 }
 
-#endif	//SPECKLE_DATABASE_INDEX
+#endif	//SPECKLE_DATABASE_BIM_INDEX

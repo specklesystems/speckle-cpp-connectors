@@ -1,5 +1,4 @@
-#include "Speckle/Database/Identity/Link.h"
-#include "Speckle/Utility/Guid.h"
+#include "Speckle/Database/Identity/BIMLink.h"
 
 using namespace speckle::database;
 using namespace speckle::utility;
@@ -10,9 +9,9 @@ using namespace speckle::utility;
  
 	selected: Information about a selected Archicad element
   --------------------------------------------------------------------*/
-//Link::Link(const API_Neig& selected) : base{Guid{selected.guid}} {
-	//More info should be extracted from API_Neig in future (as required)
-//} //Link::Link
+BIMLink::BIMLink(const API_Neig& selected) : base{Guid{selected.guid}} {
+	//More info should be extracted from API_Neig in future (as required) - extract into link settings, e.g. selection target etc
+} //Link::Link
 #endif
 
 

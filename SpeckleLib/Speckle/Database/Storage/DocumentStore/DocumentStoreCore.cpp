@@ -105,7 +105,7 @@ namespace {
 	public:
 			///Category name
 		const char* name() const noexcept override {
-			return "active::database::sqlite::category";
+			return "speckle::database::docStore::category";
 		}
 		/*!
 			Get a message for a specified error code
