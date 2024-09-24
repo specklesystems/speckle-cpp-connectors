@@ -62,6 +62,21 @@
     <Filter Include="Speckle\Database\Storage\DocumentStore">
       <UniqueIdentifier>{c4146af8-d1a1-44cc-9810-cc8da1a705a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record\Element">
+      <UniqueIdentifier>{728f7e85-53d8-4fe0-9994-394010324eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Primitive">
+      <UniqueIdentifier>{896361f5-4195-4662-be29-9e8241cab17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Primitive\Mesh">
+      <UniqueIdentifier>{87719e02-08cb-466e-a01b-66fdbb278efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase">
+      <UniqueIdentifier>{c99c6ba7-cdb5-4182-9df9-debe5559b460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Element">
+      <UniqueIdentifier>{93db2ed5-fd21-4ed1-86ee-f549682f66a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -202,6 +217,33 @@
     <ClInclude Include="Speckle\Version.h">
       <Filter>Speckle</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Element.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h">
+      <Filter>Speckle\Primitive\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMElementDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Content\BIMRecord.h">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMIndex.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMLink.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMRecordID.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -252,9 +294,6 @@
     <ClCompile Include="Speckle\Utility\Guid64.cpp">
       <Filter>Speckle\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Database\Identity\Link.cpp">
-      <Filter>Speckle\Database\Identity</Filter>
-    </ClCompile>
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp">
       <Filter>Speckle\Database</Filter>
     </ClCompile>
@@ -284,6 +323,27 @@
     </ClCompile>
     <ClCompile Include="Speckle\Event\Type\ProjectEvent.cpp">
       <Filter>Speckle\Event\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Element.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp">
+      <Filter>Speckle\Primitive\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMElementDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Content\BIMRecord.cpp">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Identity\BIMLink.cpp">
+      <Filter>Speckle\Database\Identity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

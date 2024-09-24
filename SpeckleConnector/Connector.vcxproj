@@ -122,6 +122,8 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp" />
     <ClCompile Include="Connector\Interface\ConnectorPalette.cpp" />
+    <ClCompile Include="Connector\Record\Collection\RecordCollection.cpp" />
+    <ClCompile Include="Connector\Record\Collection\RootCollection.cpp" />
     <ClCompile Include="Connector\Record\Model\CardMover.cpp" />
     <ClCompile Include="Connector\Record\Model\CardSetting.cpp" />
     <ClCompile Include="Connector\Record\Model\Filter\DirectSelectionSendFilter.cpp" />
@@ -166,6 +168,8 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\TriggerEvent.h" />
     <ClInclude Include="Connector\Interface\ConnectorMenu.h" />
     <ClInclude Include="Connector\Interface\ConnectorPalette.h" />
+    <ClInclude Include="Connector\Record\Collection\RecordCollection.h" />
+    <ClInclude Include="Connector\Record\Collection\RootCollection.h" />
     <ClInclude Include="Connector\Record\Model\CardMover.h" />
     <ClInclude Include="Connector\Record\Model\CardSetting.h" />
     <ClInclude Include="Connector\Record\Model\Filter\ArchicadEverythingFilter.h" />

@@ -3,6 +3,8 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Inventory/Identity.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace speckle::primitive;
 
