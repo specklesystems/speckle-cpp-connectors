@@ -2,3 +2,7 @@
 /* [  1] */		"Speckle Connector"
 /* [  2] */		"Connector to share model content with Speckle"
 }
+
+'STR#' 32604 "Error strings" {
+/* [  1] */		"No objects were found to convert. Please update your publish filter!"
+}
