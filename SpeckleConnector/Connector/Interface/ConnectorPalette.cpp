@@ -136,16 +136,6 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
-	
-	if (auto project = connector()->getActiveProject().lock(); project) {
-		auto elementDatabase = project->getElementDatabase();
-		auto selected = elementDatabase->getSelection();
-		for (const auto& link : selected) {
-			auto element = elementDatabase->getElement(link);
-			auto x = 1;
-		}
-	}
-	
 	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
 		BrowserPalette::GetInstance().Hide ();
 	} else {
