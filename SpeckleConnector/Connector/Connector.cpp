@@ -2,8 +2,8 @@
 #include "ConnectorResource.h"
 #include "Connector/Connector.h"
 #include "Connector/Database/ModelCardDatabase.h"
-#include "Interface/ConnectorMenu.h"
-#include "Interface/ConnectorPalette.h"
+#include "Connector/Interface/ConnectorMenu.h"
+#include "Connector/Interface/ConnectorPalette.h"
 #include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
@@ -36,15 +36,15 @@ namespace {
 		// MARK: Functions (const)
 		
 		/*!
-		 Get the model card database
-		 @return The model card database
-		 */
-		const ModelCardDatabase* getModelCardDatabase() const override { return &m_modelCards; }
-		/*!
 		 Get the account database
 		 @return The account database
 		 */
 		const AccountDatabase* getAccountDatabase() const override;
+		/*!
+		 Get the model card database
+		 @return The model card database
+		 */
+		const ModelCardDatabase* getModelCardDatabase() const override { return &m_modelCards; }
 		
 	private:
 		mutable std::unique_ptr<AccountDatabase> m_account;

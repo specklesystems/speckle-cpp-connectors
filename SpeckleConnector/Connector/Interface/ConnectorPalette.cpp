@@ -12,6 +12,14 @@
 #include "Speckle/Event/Type/MenuEvent.h"
 #include "Speckle/Interface/Browser/JSPortal.h"
 
+
+#include "Speckle/Environment/Project.h"
+
+
+#include "Connector/Connector.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+
+
 #include <ACAPinc.h>
 #include <DGModule.hpp>
 #include <DGBrowser.hpp>
@@ -128,6 +136,16 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
+	
+	if (auto project = connector()->getActiveProject().lock(); project) {
+		auto elementDatabase = project->getElementDatabase();
+		auto selected = elementDatabase->getSelection();
+		for (const auto& link : selected) {
+			auto element = elementDatabase->getElement(link);
+			auto x = 1;
+		}
+	}
+	
 	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
 		BrowserPalette::GetInstance().Hide ();
 	} else {

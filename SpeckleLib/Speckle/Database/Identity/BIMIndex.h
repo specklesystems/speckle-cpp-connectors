@@ -23,6 +23,13 @@ namespace speckle::database {
 		// MARK: - Constructors
 		
 		using base::base;
+		
+		// MARK: - Public variables
+		
+			//The table identifier
+		BIMTableID table;
+			//The document identifier
+		BIMDocID document;
 	};
 	
 }

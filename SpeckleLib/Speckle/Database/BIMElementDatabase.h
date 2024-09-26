@@ -1,6 +1,7 @@
 #ifndef CONNECTOR_DATABASE_BIM_DATABASE
 #define CONNECTOR_DATABASE_BIM_DATABASE
 
+#include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Utility/Guid.h"
 
@@ -31,11 +32,25 @@ namespace speckle::database {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Get the current user element selection
+		 @return A list of selected element IDs
+		 */
+		BIMLinkList getSelection() const;
+		/*!
 		 Get a specified element
 		 @param elementID The ID of the target element
+		 @param tableID Optional table ID (defaults to the floor plan)
+		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 @return The requested element (nullptr on failure)
 		 */
-		record::element::Element::Unique getElement(const utility::Guid& elementID) const;
+		record::element::Element::Unique getElement(const BIMRecordID& elementID, std::optional<BIMRecordID> tableID = std::nullopt,
+													std::optional<BIMRecordID> documentID = std::nullopt) const;
+		/*!
+		 Get a specified element
+		 @param link A link to the target element
+		 @return The requested element (nullptr on failure)
+		 */
+		record::element::Element::Unique getElement(const BIMLink& link) const { return getElement(link, link.tableID, link.docID); }
 		/*!
 		 Get all model elements
 		 @return All the elements

@@ -4,7 +4,7 @@
 #include "Active/Database/Storage/DBaseEngine.h"
 #include "Active/Serialise/UnboxedTransport.h"
 #include "Speckle/Database/Storage/ArchicadDBase/ArchicadDBaseCore.h"
-#include "Speckle/Database/Identity/BIMRecordID.h"
+#include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
@@ -39,6 +39,11 @@ namespace speckle::database {
 		
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get the current user element selection
+		 @return A list of selected element IDs
+		 */
+		BIMLinkList getSelection() const;
 		/*!
 		 Get an object by index
 		 @param objID The object ID
@@ -102,6 +107,9 @@ namespace speckle::database {
 		 @return The database outline
 		 */
 		Outline getOutline() const override;
+				
+	private:
+		void setTable(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt);
 	};
 	
 }

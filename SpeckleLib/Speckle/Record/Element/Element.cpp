@@ -15,11 +15,13 @@ namespace speckle::record::element {
 	
 	class Element::Data {
 	public:
-		Data(const API_Element& elem) : root{elem} {}
-		Data(const Data& source);
+		friend class Element;
+		
+		Data(const API_Element& elem) : root{std::make_unique<API_Element>(elem)} {}
+		Data(const Data& source) : root{std::make_unique<API_Element>(*source.root)} {}
 		
 	private:
-		API_Element root;
+		std::unique_ptr<API_Element> root;
 		std::unique_ptr<Element::Body> m_cache;
 	};
 	
@@ -70,6 +72,25 @@ Element::Element(const Element& source) {
 	Destructor
   --------------------------------------------------------------------*/
 Element::~Element() {}
+
+
+/*--------------------------------------------------------------------
+	Get the (immutable) API element header data
+ 
+	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
+  --------------------------------------------------------------------*/
+const API_Elem_Head& Element::getHead() const {
+	return m_data->root->header;
+} //Element::getHead
+
+/*--------------------------------------------------------------------
+	Get the (mutable) API element header data
+ 
+	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
+  --------------------------------------------------------------------*/
+API_Elem_Head& Element::getHead() {
+	return m_data->root->header;
+} //Element::getHead
 
 
 /*--------------------------------------------------------------------

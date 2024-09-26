@@ -4,6 +4,10 @@
 #include "Active/File/Path.h"
 #include "Speckle/Utility/String.h"
 
+namespace speckle::database {
+	class BIMElementDatabase;
+}
+
 namespace speckle::environment {
 	
 	class Addon;
@@ -50,6 +54,11 @@ namespace speckle::environment {
 		 @return Project information
 		 */
 		Info getInfo() const;
+		/*!
+		 Get the account database
+		 @return The account database
+		 */
+		const database::BIMElementDatabase* getElementDatabase() const { return m_element.get(); }
 		
 		// MARK: - Functions (mutating)
 		
@@ -62,6 +71,9 @@ namespace speckle::environment {
 		 NB: Only the Addon class can create projects. Clients can get the active project from the running add-on.
 		 */
 		Project();
+		
+	private:
+		std::unique_ptr<database::BIMElementDatabase> m_element;
 	};
 
 }

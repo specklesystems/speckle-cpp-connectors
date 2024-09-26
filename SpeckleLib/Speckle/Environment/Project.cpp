@@ -1,5 +1,6 @@
 #include "Speckle/Environment/Project.h"
 
+#include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/SpeckleResource.h"
 
@@ -7,6 +8,7 @@
 #include <ACAPinc.h>
 #endif
 
+using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::utility;
 
@@ -20,6 +22,7 @@ namespace {
 	identity: Optional name/ID for the subscriber
   --------------------------------------------------------------------*/
 Project::Project() {
+	m_element = std::make_unique<BIMElementDatabase>();
 } //Project::Project
 
 

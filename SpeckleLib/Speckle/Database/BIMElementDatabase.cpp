@@ -75,6 +75,29 @@ BIMElementDatabase::~BIMElementDatabase() {}
 
 
 /*--------------------------------------------------------------------
+	Get the current user element selection
+ 
+	return: A list of selected element IDs
+  --------------------------------------------------------------------*/
+BIMLinkList BIMElementDatabase::getSelection() const {
+	return m_engine->getSelection();
+} //BIMElementDatabase::getSelection
+
+
+/*--------------------------------------------------------------------
+	Get a specified element
+ 
+	elementID: The ID of the target element
+ 
+	return: The requested element (nullptr on failure)
+  --------------------------------------------------------------------*/
+Element::Unique BIMElementDatabase::getElement(const BIMRecordID& elementID, std::optional<BIMRecordID> tableID,
+											   std::optional<BIMRecordID> documentID) const {
+	return m_engine->getObject(elementID, tableID, documentID);
+} //BIMElementDatabase::getElement
+
+
+/*--------------------------------------------------------------------
 	Get all elements
  
 	return: All the elements
