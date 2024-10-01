@@ -62,6 +62,9 @@
     <Filter Include="Connector\Record\Collection">
       <UniqueIdentifier>{0ac4b0a4-6a2a-4a48-9757-1172effc20e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Send\Arg">
+      <UniqueIdentifier>{6693f9a9-5ece-4853-b008-4064d1c551ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -207,6 +210,18 @@
     <ClCompile Include="Connector\Record\Collection\RootCollection.cpp">
       <Filter>Connector\Record\Collection</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -347,6 +362,18 @@
     </ClInclude>
     <ClInclude Include="Connector\Record\Collection\RootCollection.h">
       <Filter>Connector\Record\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.h">
+      <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

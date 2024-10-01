@@ -77,6 +77,12 @@
     <Filter Include="Speckle\Database\Storage\ArchicadDBase\Element">
       <UniqueIdentifier>{93db2ed5-fd21-4ed1-86ee-f549682f66a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Serialise\Detached">
+      <UniqueIdentifier>{e9aec552-0aa8-4193-867d-69febdf93139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Detached\Storage">
+      <UniqueIdentifier>{cb77e795-e8d8-4e31-9773-dd32beb694d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -244,6 +250,21 @@
     <ClInclude Include="Speckle\Database\Identity\BIMRecordID.h">
       <Filter>Speckle\Database\Identity</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedReference.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedWrap.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachmentManager.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedMemoryStore.h">
+      <Filter>Speckle\Serialise\Detached\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h">
+      <Filter>Speckle\Serialise\Detached\Storage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -344,6 +365,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Database\Identity\BIMLink.cpp">
       <Filter>Speckle\Database\Identity</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedReference.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedWrap.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

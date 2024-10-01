@@ -2,6 +2,8 @@
 
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::serialise;

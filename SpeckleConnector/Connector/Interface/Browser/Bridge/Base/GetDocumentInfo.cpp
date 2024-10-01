@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Connector/Connector.h"
+#include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Utility/Guid.h"
@@ -37,8 +38,8 @@ std::unique_ptr<Cargo> GetDocumentInfo::run() const {
 		docInfo->name = info.name;
 		if (info.path)
 			docInfo->location = *info.path;
-			//TODO: No suitable project ID is currently available
-		docInfo->ID = Guid{true}.operator String();
+		if (auto cardDatabase = connector()->getModelCardDatabase(); cardDatabase != nullptr)
+			docInfo->ID = cardDatabase->getStoreID();
 	}
 	return std::make_unique<WrappedValue>(std::move(docInfo));
 } //GetDocumentInfo::run

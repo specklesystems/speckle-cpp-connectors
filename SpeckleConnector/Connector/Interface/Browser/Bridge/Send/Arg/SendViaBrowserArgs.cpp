@@ -3,6 +3,8 @@
 #include "Connector/Record/Model/ModelCard.h"
 #include "Speckle/Record/Credentials/Account.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace connector::record;
 using namespace connector::interfac::browser::bridge;

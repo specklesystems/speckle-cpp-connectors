@@ -111,6 +111,10 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp" />
@@ -157,6 +161,10 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h" />

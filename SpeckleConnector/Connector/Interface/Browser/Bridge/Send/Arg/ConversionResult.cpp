@@ -2,6 +2,8 @@
 
 #include "Active/Serialise/item/Wrapper/ValueWrap.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
