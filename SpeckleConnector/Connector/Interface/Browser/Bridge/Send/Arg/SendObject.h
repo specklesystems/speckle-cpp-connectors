@@ -26,9 +26,9 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Public variables
 		
 			///The root object id which should be used for creating the version
-		speckle::utility::String id;
+		speckle::utility::String id = "1234";
 			///The total number of children
-		int32_t totalChildrenCount;
+		int32_t totalChildrenCount = 0;
 			///JSON batches for the root object and child (detached) objects
 		std::vector<speckle::utility::String> batches;
 

@@ -24,6 +24,7 @@ namespace {
 		serverID,
 		accID,
 		messageID,
+		sendObjectID,
 	};
 
 		///Serialisation field IDs
@@ -35,6 +36,7 @@ namespace {
 		Identity{"serverUrl"},
 		Identity{"accountId"},
 		Identity{"message"},
+		Identity{"sendObject"},
 	};
 	
 }
@@ -102,6 +104,8 @@ Cargo::Unique SendViaBrowserArgs::getCargo(const active::serialise::Inventory::I
 			return std::make_unique<StringWrap>(accountID);
 		case messageID:
 			return std::make_unique<StringWrap>(message);
+		case sendObjectID:
+			return std::make_unique<PackageWrap>(sendObject);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
