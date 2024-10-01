@@ -82,6 +82,27 @@ AccountDatabase::~AccountDatabase() {}
 
 
 /*--------------------------------------------------------------------
+	Get a specified account. NB: The server URL is provided as a fallback for the search if the specified accountID is not found
+ 
+	accountID: The account ID (the primary search field)
+	serverURL: The server URL (a fallback search field if the account ID does not exist)
+ 
+	return: The requested account (nullptr on failure)
+  --------------------------------------------------------------------*/
+std::unique_ptr<Account> AccountDatabase::getAccount(const String& accountID, const String& serverURL) const {
+		//First attempt to find a matching account ID
+	auto matchingAccount = m_store->getObjects([&accountID](const auto& acc) { return acc.getID() == accountID; });
+	if (!matchingAccount.empty())
+		return matchingAccount.release(matchingAccount.begin());
+		//Alternatively seek an account with a matching server URL
+	matchingAccount = m_store->getObjects([&serverURL](const auto& acc) { return acc.getServerURL() == serverURL; });
+	if (!matchingAccount.empty())
+		return matchingAccount.release(matchingAccount.begin());
+	return nullptr;
+} //AccountDatabase::getAccount
+
+
+/*--------------------------------------------------------------------
 	Get all accounts
  
 	return: All the accounts

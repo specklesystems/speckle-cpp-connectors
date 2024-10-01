@@ -5,4 +5,7 @@
 
 'STR#' 32604 "Error strings" {
 /* [  1] */		"No objects were found to convert. Please update your publish filter!"
+/* [  2] */		"The specified model card cannot be found. Try another card or create a new one"
+/* [  3] */		"Please open a project first"
+/* [  4] */		"The specified Speckle account cannot be found. Check that you have logged into your Speckle account with the Speckle Manager"
 }

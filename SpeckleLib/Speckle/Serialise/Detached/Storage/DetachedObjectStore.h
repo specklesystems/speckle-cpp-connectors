@@ -28,7 +28,7 @@ namespace speckle::serialise {
 		 @param reference The required object reference
 		 @return The object data (nullopt if the object cannot be found in storage)
 		 */
-		virtual utility::String::Option retrieve(const database::RecordID& reference) = 0;
+		virtual utility::String::Option retrieve(const database::RecordID& reference) const = 0;
 	
 		// MARK: - Functions (mutating)
 		
@@ -38,7 +38,7 @@ namespace speckle::serialise {
 		 @param data The object data (currently expected to be serialised as JSON)
 		 @return True if the object was filed (typically rejected if it duplicates an object already in the store)
 		 */
-		virtual bool file(const database::RecordID& reference, const utility::String& data) const = 0;
+		virtual bool file(const database::RecordID& reference, const utility::String& data) = 0;
 	};
 	
 }

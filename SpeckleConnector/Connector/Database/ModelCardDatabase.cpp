@@ -72,6 +72,16 @@ ModelCardDatabase::~ModelCardDatabase() {}
 
 
 /*--------------------------------------------------------------------
+	Get a specified card from the database
+ 
+	return: The requested card (nullptr on failure)
+  --------------------------------------------------------------------*/
+ModelCard::Unique ModelCardDatabase::getCard(const speckle::utility::String& cardID) const {
+	return m_store->getObject(cardID);
+} //ModelCardDatabase::getCard
+
+
+/*--------------------------------------------------------------------
 	Get all model cards
  
 	return: All the cards

@@ -170,6 +170,7 @@
 		21AEF9BB2CA6DF84000B8681 /* DetachmentManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetachmentManager.cpp; sourceTree = "<group>"; };
 		21AEF9BD2CA6FDA4000B8681 /* DetachedWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetachedWrap.cpp; sourceTree = "<group>"; };
 		21AEF9DB2CAAA4EA000B8681 /* DetachedObjectStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedObjectStore.h; sourceTree = "<group>"; };
+		21AEF9DF2CAAC2AF000B8681 /* DetachedMemoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedMemoryStore.h; sourceTree = "<group>"; };
 		21B67CFE2C7CE15100FD64FC /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		21B67D092C7E0E8D00FD64FC /* ErrorReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorReport.h; sourceTree = "<group>"; };
 		21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorReport.cpp; sourceTree = "<group>"; };
@@ -433,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				21AEF9DB2CAAA4EA000B8681 /* DetachedObjectStore.h */,
+				21AEF9DF2CAAC2AF000B8681 /* DetachedMemoryStore.h */,
 			);
 			path = Storage;
 			sourceTree = "<group>";

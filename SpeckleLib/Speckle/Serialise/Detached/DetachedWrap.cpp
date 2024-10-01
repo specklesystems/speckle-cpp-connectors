@@ -3,7 +3,6 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Utility/BufferOut.h"
 #include "Active/Utility/SHA256.h"
-#include "Speckle/Serialise/Detached/DetachmentManager.h"
 #include "Speckle/Utility/String.h"
 
 using namespace active::serialise;

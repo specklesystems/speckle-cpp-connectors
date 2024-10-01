@@ -19,6 +19,8 @@ namespace connector::record {
 		// MARK: - Types
 		
 		using base = speckle::database::Record;
+			///Unique pointer
+		using Unique = std::unique_ptr<ModelCard>;
 			//List of card settings
 		using SettingList = active::container::Vector<connector::record::CardSetting>;
 

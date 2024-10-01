@@ -54,6 +54,9 @@ enum WarningString {
 	//Error strings (errors displayed in alerts)
 enum ErrorString {
 	noSelectedModelItemsID = 1,
+	modelCardNotFoundID,
+	noProjectOpenID,
+	accountNotFoundID,
 };
 
 #endif	//CONNECTOR_RESOURCE

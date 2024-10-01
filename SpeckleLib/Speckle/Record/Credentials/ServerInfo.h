@@ -32,7 +32,7 @@ namespace speckle::record::cred {
 		 */
 		ServerInfo(const utility::String& name, const utility::String::Option company = std::nullopt,
 				   const utility::String::Option version = std::nullopt, const utility::String::Option contact = std::nullopt,
-				   const utility::String::Option description = std::nullopt, const utility::String::Option url = std::nullopt,
+				   const utility::String::Option description = std::nullopt, const utility::String url = {},
 				   bool isFrontEnd = false, std::unique_ptr<ServerMigration> migration = nullptr) :
 				m_name{name}, m_company{company}, m_version{version}, m_adminContact{contact}, m_description{description},
 				m_url{url}, m_frontend2{isFrontEnd}, m_migration{std::move(migration)} {}
@@ -90,7 +90,7 @@ namespace speckle::record::cred {
 		 Get the URL
 		 @return The URL
 		 */
-		const utility::String::Option& getURL() const { return m_url; }
+		const utility::String& getURL() const { return m_url; }
 		/*!
 		 Get the migration history
 		 @return The migration history (nullptr = no history)
@@ -143,7 +143,7 @@ namespace speckle::record::cred {
 		 This field is not returned from the GQL API, it should be populated after construction.
 		 See "Speckle.Core.Credentials.AccountManager"
 		 */
-		utility::String::Option m_url;
+		utility::String m_url;
 			///Server migration record
 		std::unique_ptr<ServerMigration> m_migration;
 	};
