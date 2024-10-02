@@ -116,6 +116,7 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendSettings.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendFilters.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendSettings.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Test\Arg\SayHiArg.h" />
