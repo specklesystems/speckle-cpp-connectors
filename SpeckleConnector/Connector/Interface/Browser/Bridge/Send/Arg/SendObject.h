@@ -26,11 +26,11 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Public variables
 		
 			///The root object id which should be used for creating the version
-		speckle::utility::String id = "1234";
+		speckle::utility::String id = "1234asdasdsadsadsa";
 			///The total number of children
 		int32_t totalChildrenCount = 0;
 			///JSON batches for the root object and child (detached) objects
-		std::vector<speckle::utility::String> batches;
+		std::vector<speckle::utility::String> batches = { "[{\"speckle_type\": \"Base\", \"id\" : \"1234asdasdsadsadsa\"}]" }; // NOTE to Ralph: it will be stringified but like array of objects as in example
 
 		// MARK: - Serialisation
 		
