@@ -40,6 +40,7 @@ std::unique_ptr<Cargo> GetDocumentInfo::run() const {
 			docInfo->location = *info.path;
 		if (auto cardDatabase = connector()->getModelCardDatabase(); cardDatabase != nullptr)
 			docInfo->ID = cardDatabase->getStoreID();
+		docInfo->ID = Guid{true}.operator String();
 	}
 	return std::make_unique<WrappedValue>(std::move(docInfo));
 } //GetDocumentInfo::run

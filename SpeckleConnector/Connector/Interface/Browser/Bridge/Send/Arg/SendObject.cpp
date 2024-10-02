@@ -20,7 +20,7 @@ namespace {
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"error"},
+		Identity{"id"},
 		Identity{"totalChildrenCount"},
 		Identity{"batches"},
 	};

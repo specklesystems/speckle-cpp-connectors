@@ -72,6 +72,7 @@ bool SendViaBrowserArgs::fillInventory(active::serialise::Inventory& inventory) 
 			{ fieldID[serverID], serverID, element },
 			{ fieldID[accID], accID, element },
 			{ fieldID[messageID], messageID, element },
+			{ fieldID[sendObjectID], sendObjectID, element },
 		},
 	}.withType(&typeid(SendViaBrowserArgs)));
 	return true;
