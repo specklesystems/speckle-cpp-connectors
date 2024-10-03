@@ -46,10 +46,11 @@ namespace {
  
 	modelCard: The model card to populate into the send info for the browser
 	account: The account linked to the send
+	object: The object to be sent
   --------------------------------------------------------------------*/
-SendViaBrowserArgs::SendViaBrowserArgs(const ModelCard& modelCard, const Account& account) :
+SendViaBrowserArgs::SendViaBrowserArgs(const ModelCard& modelCard, const Account& account, const SendObject& object) :
 		modelCardID(modelCard.getID()), projectID(modelCard.getProjectID()), modelID(modelCard.getModelID()), token{account.getToken()},
-		serverURL{account.getServerURL()}, accountID{account.getID()} {
+serverURL{account.getServerURL()}, accountID{account.getID()}, sendObject{object} {
 	
 } //SendViaBrowserArgs::SendViaBrowserArgs
 

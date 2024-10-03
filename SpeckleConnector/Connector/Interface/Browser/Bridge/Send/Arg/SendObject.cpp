@@ -1,6 +1,7 @@
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendObject.h"
 
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 
 #include <array>
 
@@ -14,15 +15,13 @@ namespace {
 		///Serialisation fields
 	enum FieldIndex {
 		idID,
-		totChildID,
-		batchesID,
+		rootObjID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"id"},
-		Identity{"totalChildrenCount"},
-		Identity{"batches"},
+		Identity{"rootObject"},
 	};
 	
 }
@@ -39,8 +38,7 @@ bool SendObject::fillInventory(active::serialise::Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[idID], idID, element },
-			{ fieldID[totChildID], totChildID, element },
-			{ fieldID[batchesID], batchesID, element },
+			{ fieldID[rootObjID], rootObjID, element },
 		},
 	}.withType(&typeid(SendObject)));
 	return true;
@@ -61,10 +59,8 @@ Cargo::Unique SendObject::getCargo(const active::serialise::Inventory::Item& ite
 	switch (item.index) {
 		case idID:
 			return std::make_unique<StringWrap>(id);
-		case totChildID:
-			return std::make_unique<Int32Wrap>(totalChildrenCount);
-		case batchesID:
-			return std::make_unique<ContainerWrap<std::vector<speckle::utility::String>>>(batches);
+		case rootObjID:
+			return std::make_unique<PackageWrap>(base::get());
 		default:
 			return nullptr;	//Requested an unknown index
 	}

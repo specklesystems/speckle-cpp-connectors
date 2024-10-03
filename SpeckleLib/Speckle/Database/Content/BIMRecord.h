@@ -1,5 +1,5 @@
-#ifndef SPECKLE_DATABASE_RECORD
-#define SPECKLE_DATABASE_RECORD
+#ifndef SPECKLE_DATABASE_BIM_RECORD
+#define SPECKLE_DATABASE_BIM_RECORD
 
 #include "Active/Database/Content/Record.h"
 #include "Speckle/Database/Identity/Link.h"
@@ -10,12 +10,12 @@ namespace speckle::database {
 	/*!
 	 Base class for a database record
 	 */
-	class BIMRecord : public active::database::BIMRecord<BIMRecordID> {
+	class BIMRecord : public active::database::Record<BIMRecordID>{
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::BIMRecord<BIMRecordID>;
+		using base = active::database::Record<BIMRecordID>;
 			///Unique pointer
 		using Unique = std::unique_ptr<BIMRecord>;
 			///Shared pointer
@@ -28,14 +28,13 @@ namespace speckle::database {
 		/*!
 		 Default constructor
 		 */
-		BIMRecord() : base{active::utility::Guid{true}.operator active::utility::String(),
-				active::utility::Guid{true}.operator active::utility::String()} {}	//TODO: Implement a better default for the ID
+		BIMRecord() : base{active::utility::Guid{true}, active::utility::Guid{true}} {}	//TODO: Implement a better default for the ID
 		/*!
 		 Constructor
 		 @param ID The record ID
 		 */
-		BIMRecord(speckle::utility::String ID, speckle::utility::String::Option globID = std::nullopt) :
-				base{ID, globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
+		BIMRecord(speckle::utility::Guid ID, speckle::utility::Guid::Option globID = std::nullopt) :	//TODO: Implement a better default for the ID
+				base{ID, globID.value_or(active::utility::Guid{true})} {}
 		/*!
 		 Destructor
 		 */
@@ -59,4 +58,4 @@ namespace speckle::database {
 	
 }
 
-#endif	//SPECKLE_DATABASE_RECORD
+#endif	//SPECKLE_DATABASE_BIM_RECORD

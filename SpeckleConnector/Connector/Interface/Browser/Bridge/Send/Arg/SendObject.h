@@ -11,26 +11,24 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 Class defining the primary content of a send
 	 */
-	class SendObject final : public active::serialise::Package {
+	class SendObject final : public active::serialise::Package, public std::reference_wrapper<active::serialise::Package> {
 	public:
+		
+		using base = std::reference_wrapper<active::serialise::Package>;
 				
 		// MARK: - Constructors
 		
 		/*!
-			Constructor
-			@param errMess The error message
-			@param card The ID of the model card associated with the wrror
-		*/
-		SendObject() {}
+		 Default constructor
+		 @param objID The ID of the object to send
+		 @param object A reference to the object
+		 */
+		SendObject(const speckle::utility::String& objID, active::serialise::Package& object) : base{object} {}
 				
 		// MARK: - Public variables
 		
 			///The root object id which should be used for creating the version
 		speckle::utility::String id = "1234";
-			///The total number of children
-		int32_t totalChildrenCount = 0;
-			///JSON batches for the root object and child (detached) objects
-		std::vector<speckle::utility::String> batches;
 
 		// MARK: - Serialisation
 		

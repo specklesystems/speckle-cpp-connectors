@@ -8,6 +8,7 @@
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
 #include "Speckle/Database/AccountDatabase.h"
+#include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Credentials/Account.h"
 #include "Speckle/Serialise/Detached/Storage/DetachedMemoryStore.h"
@@ -61,7 +62,9 @@ void Send::run(const String& modelCardID) const {
 	}
 		//We currently collect all detached object serialised data into a memory-based store - in future may be able to batch send and cache locally
 	DetachedMemoryStore detachedObjects;
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account);
-	
+		//Collect targeted elements here
+	Record placeholder;	//Using a placeholder as a test for now
+	SendObject toSend{placeholder.getID(), placeholder};
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, toSend);
 	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run
