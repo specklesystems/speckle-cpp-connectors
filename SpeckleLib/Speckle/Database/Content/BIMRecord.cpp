@@ -1,4 +1,4 @@
-#include "Speckle/Database/Content/Record.h"
+#include "Speckle/Database/Content/BIMRecord.h"
 
 #include "Speckle/Utility/Guid.h"
 
@@ -13,7 +13,7 @@ using namespace speckle::utility;
  
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool Record::fillInventory(active::serialise::Inventory& inventory) const {
+bool BIMRecord::fillInventory(active::serialise::Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
@@ -21,4 +21,4 @@ bool Record::fillInventory(active::serialise::Inventory& inventory) const {
 		},
 	}.withType(&typeid(base)));
 	return true;
-} //Record::fillInventory
+} //BIMRecord::fillInventory

@@ -19,6 +19,8 @@ namespace connector::record {
 		// MARK: - Types
 		
 		using base = speckle::database::Record;
+			///Unique pointer
+		using Unique = std::unique_ptr<ModelCard>;
 			//List of card settings
 		using SettingList = active::container::Vector<connector::record::CardSetting>;
 
@@ -68,6 +70,11 @@ namespace connector::record {
 		 */
 		const speckle::utility::String& getAccountID() const { return m_accountID; }
 		/*!
+		 Get the user commit message
+		 @return The user commit message
+		 */
+		const speckle::utility::String& getMessage() const { return m_message; }
+		/*!
 		 Get the setting type
 		 @return The setting type
 		 */
@@ -106,6 +113,8 @@ namespace connector::record {
 		speckle::database::RecordID m_accountID;
 			///The server URL
 		speckle::utility::String m_serverURL;
+			///The commit message from the user for the card
+		speckle::utility::String m_message;
 			///Settings for the model rendering, e.g. level of detail (LoD)
 		SettingList m_settings;
 			///True if the card has expired

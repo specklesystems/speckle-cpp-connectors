@@ -1,7 +1,6 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentState.h"
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Connector.h"
 #include "Connector/Record/Model/ModelCard.h"
 #include "Connector/Database/ModelCardDatabase.h"

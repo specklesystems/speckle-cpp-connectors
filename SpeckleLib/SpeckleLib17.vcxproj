@@ -67,6 +67,11 @@
     <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
     <ClInclude Include="Speckle\Record\Credentials\UserInfo.h" />
     <ClInclude Include="Speckle\Record\Element\Element.h" />
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedReference.h" />
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedWrap.h" />
+    <ClInclude Include="Speckle\Serialise\Detached\DetachmentManager.h" />
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedMemoryStore.h" />
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
     <ClInclude Include="Speckle\SpeckleResource.h" />
     <ClInclude Include="Speckle\Utility\Exception.h" />
@@ -105,6 +110,9 @@
     <ClCompile Include="Speckle\Record\Credentials\ServerMigration.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\UserInfo.cpp" />
     <ClCompile Include="Speckle\Record\Element\Element.cpp" />
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedReference.cpp" />
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedWrap.cpp" />
+    <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp" />
     <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
     <ClCompile Include="Speckle\Utility\Guid64.cpp" />

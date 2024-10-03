@@ -4,6 +4,10 @@
 #include "Active/File/Path.h"
 #include "Speckle/Record/Credentials/Account.h"
 
+namespace speckle::record::cred {
+	class Account;
+}
+
 namespace speckle::database {
 		
 	/*!
@@ -27,6 +31,13 @@ namespace speckle::database {
 		
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get a specified account. NB: The server URL is provided as a fallback for the search if the specified accountID is not found
+		 @param accountID The account ID (the primary search field)
+		 @param serverURL The server URL (a fallback search field if the account ID does not exist)
+		 @return The requested account (nullptr on failure)
+		 */
+		std::unique_ptr<record::cred::Account> getAccount(const speckle::utility::String& accountID, const speckle::utility::String& serverURL) const;
 		/*!
 		 Get all accounts
 		 @return All the accounts
