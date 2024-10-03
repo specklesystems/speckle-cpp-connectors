@@ -214,7 +214,8 @@ void BrowserPalette::Hide() {
 
 void BrowserPalette::InitBrowserControl() {
 #ifdef TESTING_MODE
-	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/test");
+	browser->LoadURL("https://deploy-preview-3180--boisterous-douhua-e3cefb.netlify.app/");
+	//browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/test");
 #else
 	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/");
 #endif
