@@ -60,7 +60,9 @@ Cargo::Unique SendObject::getCargo(const active::serialise::Inventory::Item& ite
 		case idID:
 			return std::make_unique<StringWrap>(id);
 		case rootObjID:
-			return std::make_unique<PackageWrap>(base::get());
+			if (m_object)
+				return std::make_unique<PackageWrap>(*m_object);
+			return std::make_unique<NullPackage>();
 		default:
 			return nullptr;	//Requested an unknown index
 	}

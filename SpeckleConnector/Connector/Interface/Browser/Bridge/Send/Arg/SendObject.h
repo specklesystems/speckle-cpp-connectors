@@ -11,7 +11,7 @@ namespace connector::interfac::browser::bridge {
 	/*!
 	 Class defining the primary content of a send
 	 */
-	class SendObject final : public active::serialise::Package, public std::reference_wrapper<active::serialise::Package> {
+	class SendObject final : public active::serialise::Package {
 	public:
 		
 		using base = std::reference_wrapper<active::serialise::Package>;
@@ -21,9 +21,9 @@ namespace connector::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 @param objID The ID of the object to send
-		 @param object A reference to the object
+		 @param object The object to send
 		 */
-		SendObject(const speckle::utility::String& objID, active::serialise::Package& object) : base{object} {}
+		SendObject(const speckle::utility::String& objID, std::unique_ptr<active::serialise::Package> object) : m_object{std::move(object)} {}
 				
 		// MARK: - Public variables
 		
@@ -44,6 +44,10 @@ namespace connector::interfac::browser::bridge {
 		 @return The requested cargo (nullptr on failure)
 		 */
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		
+	private:
+			///The object to send
+		std::unique_ptr<active::serialise::Package> m_object;
 	};
 
 }

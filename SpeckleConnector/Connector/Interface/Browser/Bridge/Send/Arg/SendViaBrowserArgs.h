@@ -35,7 +35,7 @@ namespace connector::interfac::browser::bridge {
 		 @param account The account linked to the send
 		 @param object The object to be sent
 		 */
-		SendViaBrowserArgs(const connector::record::ModelCard& modelCard, const speckle::record::cred::Account& account, const SendObject& object);
+		SendViaBrowserArgs(const connector::record::ModelCard& modelCard, const speckle::record::cred::Account& account, SendObject&& object);
 				
 		// MARK: - Public variables
 		

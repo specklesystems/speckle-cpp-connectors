@@ -48,9 +48,9 @@ namespace {
 	account: The account linked to the send
 	object: The object to be sent
   --------------------------------------------------------------------*/
-SendViaBrowserArgs::SendViaBrowserArgs(const ModelCard& modelCard, const Account& account, const SendObject& object) :
+SendViaBrowserArgs::SendViaBrowserArgs(const ModelCard& modelCard, const Account& account, SendObject&& object) :
 		modelCardID(modelCard.getID()), projectID(modelCard.getProjectID()), modelID(modelCard.getModelID()), token{account.getToken()},
-serverURL{account.getServerURL()}, accountID{account.getID()}, sendObject{object} {
+		serverURL{account.getServerURL()}, accountID{account.getID()}, sendObject{std::move(object)} {
 	
 } //SendViaBrowserArgs::SendViaBrowserArgs
 

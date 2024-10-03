@@ -63,8 +63,8 @@ void Send::run(const String& modelCardID) const {
 		//We currently collect all detached object serialised data into a memory-based store - in future may be able to batch send and cache locally
 	DetachedMemoryStore detachedObjects;
 		//Collect targeted elements here
-	Record placeholder;	//Using a placeholder as a test for now
-	SendObject toSend{placeholder.getID(), placeholder};
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, toSend);
+	auto placeholder = std::make_unique<Record>();	//Using a placeholder as a test for now
+	SendObject toSend{placeholder->getID(), std::move(placeholder)};
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::move(toSend));
 	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run
