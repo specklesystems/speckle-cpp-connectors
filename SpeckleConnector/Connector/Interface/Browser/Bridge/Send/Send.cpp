@@ -60,8 +60,6 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
 		return;
 	}
-		//We currently collect all detached object serialised data into a memory-based store - in future may be able to batch send and cache locally
-	DetachedMemoryStore detachedObjects;
 		//Collect targeted elements here
 	SendObject toSend{std::make_unique<Record>()};	//NB: Using a placeholder object for now
 	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::move(toSend));

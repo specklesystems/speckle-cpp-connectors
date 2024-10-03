@@ -6,6 +6,8 @@ using namespace active::serialise;
 using namespace speckle::database;
 using namespace speckle::utility;
 
+#include <array>
+
 namespace {
 
 		///Serialisation fields
