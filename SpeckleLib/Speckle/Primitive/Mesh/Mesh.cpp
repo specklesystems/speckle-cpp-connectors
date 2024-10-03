@@ -39,9 +39,9 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[vertexID], vertexID, vertices.size(), std::nullopt, !vertices.empty() },
-			{ fieldID[faceID], faceID, faces.size(), std::nullopt, !faces.empty() },
-			{ fieldID[colorID], colorID, colors.size(), std::nullopt, !colors.empty() },
+			{ fieldID[vertexID], vertexID, element },
+			{ fieldID[faceID], faceID, element },
+			{ fieldID[colorID], colorID, element },
 		},
 	}.withType(&typeid(Mesh)));
 	return true;

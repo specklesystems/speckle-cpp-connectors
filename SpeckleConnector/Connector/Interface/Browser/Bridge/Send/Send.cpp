@@ -89,6 +89,6 @@ void Send::run(const String& modelCardID) const {
 	
 	
 		//Send the collected information
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::make_unique<Record>());	//NB: Using a placeholder object for now
-	getBridge()->sendEvent("sendByBrowser", std::move(result));	
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(element)});	//NB: Using a placeholder object for now
+	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run
