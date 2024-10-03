@@ -27,15 +27,12 @@ namespace speckle::database {
 		
 		/*!
 		 Default constructor
-		 */
-		Record() : base{active::utility::Guid{true}.operator active::utility::String(),
-				active::utility::Guid{true}.operator active::utility::String()} {}	//TODO: Implement a better default for the ID
-		/*!
-		 Constructor
 		 @param ID The record ID
+		 @param globID The global ID
 		 */
-		Record(speckle::utility::String ID, speckle::utility::String::Option globID = std::nullopt) :
-				base{ID, globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
+		Record(speckle::utility::String::Option ID = std::nullopt, speckle::utility::String::Option globID = std::nullopt) :
+				base{ID.value_or(active::utility::Guid{true}.operator active::utility::String()),
+					globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
 		/*!
 		 Destructor
 		 */

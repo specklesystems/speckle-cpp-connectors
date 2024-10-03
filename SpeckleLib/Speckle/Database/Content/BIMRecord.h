@@ -1,7 +1,7 @@
 #ifndef SPECKLE_DATABASE_BIM_RECORD
 #define SPECKLE_DATABASE_BIM_RECORD
 
-#include "Active/Database/Content/Record.h"
+#include "Speckle/Database/Content/Record.h"
 #include "Speckle/Database/Identity/Link.h"
 #include "Speckle/Database/Identity/BIMRecordID.h"
 
@@ -10,12 +10,12 @@ namespace speckle::database {
 	/*!
 	 Base class for a database record
 	 */
-	class BIMRecord : public active::database::Record<BIMRecordID>{
+	class BIMRecord : public Record {
 	public:
 
 		// MARK: - Types
 		
-		using base = active::database::Record<BIMRecordID>;
+		using base = Record;
 			///Unique pointer
 		using Unique = std::unique_ptr<BIMRecord>;
 			///Shared pointer
@@ -28,13 +28,12 @@ namespace speckle::database {
 		/*!
 		 Default constructor
 		 */
-		BIMRecord() : base{active::utility::Guid{true}, active::utility::Guid{true}} {}	//TODO: Implement a better default for the ID
+		BIMRecord() : base{} {}
 		/*!
 		 Constructor
 		 @param ID The record ID
 		 */
-		BIMRecord(speckle::utility::Guid ID, speckle::utility::Guid::Option globID = std::nullopt) :	//TODO: Implement a better default for the ID
-				base{ID, globID.value_or(active::utility::Guid{true})} {}
+		BIMRecord(speckle::utility::Guid ID) : base{}, m_applicationID{ID} {}
 		/*!
 		 Destructor
 		 */
@@ -42,9 +41,19 @@ namespace speckle::database {
 		
 		// MARK: - Functions (const)
 
+		/*!
+		 Get the BIM application ID
+		 @return The BIM application ID
+		 */
+		BIMRecordID getBIMID() const { return m_applicationID; }
 		
 		// MARK: - Functions (mutating)
 
+		/*!
+		 Set the BIM application ID
+		 @param ID The BIM application ID
+		 */
+		void setBIMID(const BIMRecordID& ID) { m_applicationID = ID; }
 		
 		// MARK: - Serialisation
 		
@@ -54,6 +63,16 @@ namespace speckle::database {
 			@return True if the package has added items to the inventory
 		*/
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
+		/*!
+			Get the specified cargo
+			@param item The inventory item to retrieve
+			@return The requested cargo (nullptr on failure)
+		*/
+		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		
+	private:
+			///The BIM application record ID
+		BIMRecordID m_applicationID;
 	};
 	
 }
