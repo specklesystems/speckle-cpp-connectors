@@ -118,6 +118,7 @@ Element::Body* Element::getBody() const {
 			Int32 fpedg = component.pgon.fpedg;
 			Int32 lpedg = component.pgon.lpedg;
 			Int32 faceSize = lpedg - fpedg + 1;
+			faces.push_back(faceSize);
 			for (Int32 ie = fpedg; ie <= lpedg; ie++)
 			{
 				GetComponent(component, API_PedgID, ie);
@@ -138,7 +139,6 @@ Element::Body* Element::getBody() const {
 
 				GetComponent(component, API_VertID, vertexIndex);
 
-				faces.push_back(faceSize);
 				if (vertexIndexMap.find(vertexIndex) == vertexIndexMap.end()) {
 					faces.push_back(currentVertexIndex);
 					vertexIndexMap[vertexIndex] = currentVertexIndex++;
