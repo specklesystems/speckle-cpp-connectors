@@ -14,6 +14,13 @@
 #include "Speckle/Serialise/Detached/Storage/DetachedMemoryStore.h"
 #include "Speckle/Utility/Exception.h"
 
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Record/Element/Element.h"
+using namespace speckle::record::element;
+
+#include <array>
+
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::database;
@@ -63,7 +70,25 @@ void Send::run(const String& modelCardID) const {
 	}
 		//Collect targeted elements here
 
+	
+		//NB: This is a testing placeholder
+	
+	Element::Unique element;
+	if (auto project = connector::connector()->getActiveProject().lock(); project) {
+		auto elementDatabase = project->getElementDatabase();
+		auto selected = elementDatabase->getSelection();
+		for (const auto& link : selected)
+			if (element = elementDatabase->getElement(link); element)
+				break;
+	}
+	if (!element) {
+		getBridge()->sendEvent("setModelError",
+					std::make_unique<SendError>(connector()->getLocalString(errorString, noSelectedModelItemsID), modelCardID));
+		return;
+	}
+	
+	
 		//Send the collected information
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::make_unique<Record>());	//NB: Using a placeholder object for now
-	getBridge()->sendEvent("sendByBrowser", std::move(result));	
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(element)});	//NB: Using a placeholder object for now
+	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run

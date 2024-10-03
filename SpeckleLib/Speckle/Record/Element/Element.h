@@ -1,7 +1,7 @@
 #ifndef SPECKLE_RECORD_ELEMENT
 #define SPECKLE_RECORD_ELEMENT
 
-#include "Speckle/Database/Content/Record.h"
+#include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::primitive {
@@ -13,7 +13,7 @@ namespace speckle::record::element {
 	/*!
 	 Base BIM element class
 	 */
-	class Element : public speckle::database::Record {
+	class Element : public speckle::database::BIMRecord {
 	public:
 		
 			///An element 3D body primitive
@@ -21,7 +21,7 @@ namespace speckle::record::element {
 
 		// MARK: - Types
 		
-		using base = speckle::database::Record;
+		using base = speckle::database::BIMRecord;
 			///Unique pointer
 		using Unique = std::unique_ptr<Element>;
 			///Shared pointer
@@ -67,7 +67,7 @@ namespace speckle::record::element {
 			Get the element body
 			@return An array of meshes from the element body (nullptr if no body data is available)
 		*/
-		virtual Body* getBody() const { return nullptr; }
+		virtual Body* getBody() const;
 #ifdef ARCHICAD
 		/*!
 			Get the (immutable) API element header data

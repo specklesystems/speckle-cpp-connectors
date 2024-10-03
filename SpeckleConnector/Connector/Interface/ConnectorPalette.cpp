@@ -1,6 +1,9 @@
 #include "Connector/Interface/ConnectorPalette.h"
 
 #include "Active/Event/Event.h"
+#include "Active/Utility/String.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferOut.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
@@ -11,14 +14,6 @@
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
 #include "Speckle/Interface/Browser/JSPortal.h"
-
-
-#include "Speckle/Environment/Project.h"
-
-
-#include "Connector/Connector.h"
-#include "Speckle/Database/BIMElementDatabase.h"
-
 
 #include <ACAPinc.h>
 #include <DGModule.hpp>

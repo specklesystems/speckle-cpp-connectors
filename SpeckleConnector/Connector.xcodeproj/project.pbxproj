@@ -34,7 +34,6 @@
 		21AEF9EB2CAB56E5000B8681 /* SendError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E32CAB56E5000B8681 /* SendError.cpp */; };
 		21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */; };
 		21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9EE2CAB5720000B8681 /* SendObject.cpp */; };
-		21AEF9F32CAC12D1000B8681 /* SendManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9F02CAC12D1000B8681 /* SendManager.cpp */; };
 		21AEF9FA2CAC3897000B8681 /* ConversionResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */; };
 		21AEF9FD2CAD3FD8000B8681 /* GetSendSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */; };
 		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
@@ -318,8 +317,6 @@
 		21AEF9E62CAB56E5000B8681 /* SendViaBrowserArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViaBrowserArgs.h; sourceTree = "<group>"; };
 		21AEF9ED2CAB5720000B8681 /* SendObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendObject.h; sourceTree = "<group>"; };
 		21AEF9EE2CAB5720000B8681 /* SendObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendObject.cpp; sourceTree = "<group>"; };
-		21AEF9F02CAC12D1000B8681 /* SendManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendManager.cpp; sourceTree = "<group>"; };
-		21AEF9F12CAC12D1000B8681 /* SendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendManager.h; sourceTree = "<group>"; };
 		21AEF9F82CAC3897000B8681 /* ConversionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionResult.h; sourceTree = "<group>"; };
 		21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConversionResult.cpp; sourceTree = "<group>"; };
 		21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSendSettings.cpp; sourceTree = "<group>"; };
@@ -978,15 +975,6 @@
 			path = Arg;
 			sourceTree = "<group>";
 		};
-		21AEF9F22CAC12D1000B8681 /* Serialise */ = {
-			isa = PBXGroup;
-			children = (
-				21AEF9F02CAC12D1000B8681 /* SendManager.cpp */,
-				21AEF9F12CAC12D1000B8681 /* SendManager.h */,
-			);
-			path = Serialise;
-			sourceTree = "<group>";
-		};
 		21B67CAB2C77329800FD64FC /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1188,7 +1176,6 @@
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
 				21D0BDD82C9387E60077E104 /* Record */,
-				21AEF9F22CAC12D1000B8681 /* Serialise */,
 				21B67CBA2C774C6500FD64FC /* Version.h */,
 			);
 			path = Connector;
@@ -1475,7 +1462,6 @@
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
 				2192460D2CA3469D00CF5703 /* RootCollection.cpp in Sources */,
 				21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */,
-				21AEF9F32CAC12D1000B8681 /* SendManager.cpp in Sources */,
 				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,
 				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,

@@ -2,6 +2,7 @@
 #define SPECKLE_PRIMITIVE_MESH
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Utility/String.h"
 
 namespace speckle::primitive {
 	
@@ -17,6 +18,9 @@ namespace speckle::primitive {
 		 Default constructor
 		 */
 		Mesh() {}
+
+		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, utility::String units = "m")
+			: vertices{ std::move(vertices) }, faces{ std::move(faces) }, colors{ std::move(colors) }, units{ units } {}
 
 		// MARK: - Functions (const)
 		
@@ -37,7 +41,10 @@ namespace speckle::primitive {
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		
 	private:
-		
+		std::vector<double> vertices;
+		std::vector<int> faces;
+		std::vector<int> colors;
+		utility::String units;
 	};
 	
 }

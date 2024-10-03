@@ -2,11 +2,11 @@
 
 #include "Speckle/Utility/Guid.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace speckle::database;
 using namespace speckle::utility;
-
-#include <array>
 
 namespace {
 

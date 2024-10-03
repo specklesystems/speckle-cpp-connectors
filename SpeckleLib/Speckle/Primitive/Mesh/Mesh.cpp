@@ -1,6 +1,8 @@
 #include "Speckle/Primitive/Mesh/Mesh.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Inventory/Identity.h"
 
 #include <array>
@@ -14,12 +16,14 @@ namespace {
 	enum FieldIndex {
 		vertexID,
 		faceID,
+		colorID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"vertices"},
 		Identity{"faces"},
+		Identity{"colors"},
 	};
 
 }
@@ -35,8 +39,9 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			//{ fieldID[vertexID], vertexID, vertices::size(), std::nullopt, !vertices::empty() },
-			//{ fieldID[elementID], elementID, faces::size(), std::nullopt, !faces::empty() },
+			{ fieldID[vertexID], vertexID, element },
+			{ fieldID[faceID], faceID, element },
+			{ fieldID[colorID], colorID, element },
 		},
 	}.withType(&typeid(Mesh)));
 	return true;
@@ -55,10 +60,12 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 		return nullptr;
 	using namespace active::serialise;
 	switch (item.index) {
-		case vertexID:
-			return nullptr;	//TODO: Implement vertices array
+	case vertexID:
+			return std::make_unique<ContainerWrap<std::vector<double>>>(vertices);
 		case faceID:
-			return nullptr;	//TODO: Implement faces array
+			return std::make_unique<ContainerWrap<std::vector<int>>>(faces);
+		case colorID:
+			return std::make_unique<ContainerWrap<std::vector<int>>>(colors);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
