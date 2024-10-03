@@ -67,7 +67,7 @@ namespace speckle::record::element {
 			Get the element body
 			@return An array of meshes from the element body (nullptr if no body data is available)
 		*/
-		virtual Body* getBody() const { return nullptr; }
+		virtual Body* getBody() const;
 #ifdef ARCHICAD
 		/*!
 			Get the (immutable) API element header data

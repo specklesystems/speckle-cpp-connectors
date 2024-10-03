@@ -1,6 +1,9 @@
 #include "Connector/Interface/ConnectorPalette.h"
 
 #include "Active/Event/Event.h"
+#include "Active/Utility/String.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferOut.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
@@ -15,10 +18,12 @@
 
 #include "Speckle/Environment/Project.h"
 
-
 #include "Connector/Connector.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 
+#include <utility>
+#include <iostream>
+#include <fstream>
 
 #include <ACAPinc.h>
 #include <DGModule.hpp>
@@ -128,6 +133,31 @@ bool ConnectorPalette::start() {
 } //ConnectorPalette::start
 
 
+static void Test() {
+	if (auto project = connector::connector()->getActiveProject().lock(); project) {
+		auto elementDatabase = project->getElementDatabase();
+		auto selected = elementDatabase->getSelection();
+		for (const auto& link : selected) {
+			auto element = elementDatabase->getElement(link);
+			active::utility::String output;
+			active::serialise::json::JSONTransport().send(std::forward<speckle::record::element::Element&&>(*element), active::serialise::Identity{}, output);
+			if (output.length() > 0) {
+				std::ofstream outFile("C:\\temp\\output.txt");  // Create an output file stream (opens file)
+
+				// Check if the file opened successfully
+				if (outFile.is_open()) {
+					outFile << output.string();
+					outFile.close();
+					std::cout << "String written to file successfully." << std::endl;
+				}
+				else {
+					std::cerr << "Unable to open file." << std::endl;
+				}
+			}
+		}
+	}
+}
+
 /*--------------------------------------------------------------------
 	Receive a subscribed event
  
@@ -136,6 +166,9 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
+
+	Test();
+
 	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
 		BrowserPalette::GetInstance().Hide ();
 	} else {

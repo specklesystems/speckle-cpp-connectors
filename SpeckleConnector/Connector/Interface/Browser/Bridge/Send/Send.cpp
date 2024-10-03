@@ -7,6 +7,8 @@
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Utility/Exception.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
