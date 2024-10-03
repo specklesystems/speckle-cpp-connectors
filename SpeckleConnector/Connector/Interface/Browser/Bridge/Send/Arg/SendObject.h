@@ -2,8 +2,8 @@
 #define CONNECTOR_INTERFACE_BRIDGE_SEND_OBJECT
 
 #include "Active/Serialise/CargoHold.h"
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
+#include "Speckle/Database/Content/Record.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
@@ -20,15 +20,14 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Default constructor
-		 @param objID The ID of the object to send
 		 @param object The object to send
 		 */
-		SendObject(const speckle::utility::String& objID, std::unique_ptr<active::serialise::Package> object) : m_object{std::move(object)} {}
+		SendObject(std::unique_ptr<speckle::database::Record> object) : m_object{std::move(object)} { id = m_object->getID(); }
 				
 		// MARK: - Public variables
 		
 			///The root object id which should be used for creating the version
-		speckle::utility::String id = "1234";
+		speckle::utility::String id;
 
 		// MARK: - Serialisation
 		
@@ -47,7 +46,7 @@ namespace connector::interfac::browser::bridge {
 		
 	private:
 			///The object to send
-		std::unique_ptr<active::serialise::Package> m_object;
+		std::unique_ptr<speckle::database::Record> m_object;
 	};
 
 }
