@@ -63,7 +63,7 @@ Element::Element() {
  
 	elemData: Archicad element data
   --------------------------------------------------------------------*/
-Element::Element(const API_Element& elemData) {
+Element::Element(const API_Element& elemData) : base{elemData.header.guid} {
 	m_data = std::make_unique<Data>(elemData);
 } //Element::Element
 
@@ -73,7 +73,7 @@ Element::Element(const API_Element& elemData) {
  
  	source: The object to copy
   --------------------------------------------------------------------*/
-Element::Element(const Element& source) {
+Element::Element(const Element& source) : base{source} {
 	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
 } //Element::Element
 
