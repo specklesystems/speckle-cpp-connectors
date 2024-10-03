@@ -46,6 +46,7 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, modelCardNotFoundID), modelCardID));
 		return;
 	}
+		//Get the user account
 	auto accountDatabase = connector()->getAccountDatabase();
 	auto account = accountDatabase->getAccount(modelCard->getAccountID(), modelCard->getServerURL());
 	if (!account) {
@@ -61,7 +62,8 @@ void Send::run(const String& modelCardID) const {
 		return;
 	}
 		//Collect targeted elements here
-	SendObject toSend{std::make_unique<Record>()};	//NB: Using a placeholder object for now
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::move(toSend));
+
+		//Send the collected information
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, std::make_unique<Record>());	//NB: Using a placeholder object for now
 	getBridge()->sendEvent("sendByBrowser", std::move(result));	
 } //Send::run
