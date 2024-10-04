@@ -73,6 +73,7 @@
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedMemoryStore.h" />
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
+    <ClInclude Include="Speckle\Serialise\Units\LengthUnit.h" />
     <ClInclude Include="Speckle\SpeckleResource.h" />
     <ClInclude Include="Speckle\Utility\Exception.h" />
     <ClInclude Include="Speckle\Utility\Guid.h" />
@@ -114,6 +115,7 @@
     <ClCompile Include="Speckle\Serialise\Detached\DetachedWrap.cpp" />
     <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp" />
     <ClCompile Include="Speckle\Serialise\JSBase\JSBaseTransport.cpp" />
+    <ClCompile Include="Speckle\Serialise\Units\LengthUnit.cpp" />
     <ClCompile Include="Speckle\Utility\Guid.cpp" />
     <ClCompile Include="Speckle\Utility\Guid64.cpp" />
     <ClCompile Include="Speckle\Utility\String.cpp" />

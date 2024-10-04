@@ -1,7 +1,7 @@
 #ifndef SPECKLE_PRIMITIVE_MESH
 #define SPECKLE_PRIMITIVE_MESH
 
-#include "Speckle/Database/Content/Record.h"
+#include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::primitive {
@@ -9,18 +9,30 @@ namespace speckle::primitive {
 	/*!
 	 Class for a 3D mesh
 	 */
-	class Mesh : public speckle::database::Record {
+	class Mesh : public speckle::database::BIMRecord {
 	public:
+
+		// MARK: - Types
+
+		using base = speckle::database::BIMRecord;
 
 		// MARK: - Constructors
 		
 		/*!
 		 Default constructor
+		 @param unit The mesh unit type
 		 */
-		Mesh() {}
-
-		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, utility::String units = "m")
-			: vertices{ std::move(vertices) }, faces{ std::move(faces) }, colors{ std::move(colors) }, units{ units } {}
+		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{unit} {}
+		/*!
+		 Constructor
+		 @param vertices The mesh vertices
+		 @param faces The mesh faces (the number of indices in the face followed by the vertex indices)
+		 @param colors The mesh face colours
+		 @param unit The mesh unit type
+		 */
+		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors,
+				active::measure::LengthType unit = active::measure::LengthType::metre) :
+				base{unit}, vertices {std::move(vertices)}, faces{std::move(faces)}, colors{std::move(colors)} {}
 
 		// MARK: - Functions (const)
 		
@@ -49,7 +61,6 @@ namespace speckle::primitive {
 		std::vector<double> vertices;
 		std::vector<int> faces;
 		std::vector<int> colors;
-		utility::String units;
 	};
 	
 }

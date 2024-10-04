@@ -44,7 +44,7 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 			{ fieldID[colorID], colorID, element },
 		},
 	}.withType(&typeid(Mesh)));
-	return true;
+	return base::fillInventory(inventory);
 } //Mesh::fillInventory
 
 
@@ -57,7 +57,7 @@ bool Mesh::fillInventory(Inventory& inventory) const {
   --------------------------------------------------------------------*/
 Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 	if (item.ownerType != &typeid(Mesh))
-		return nullptr;
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
 	case vertexID:

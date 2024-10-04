@@ -28,13 +28,16 @@ namespace speckle::database {
 		
 		/*!
 		 Default constructor
+		 @param unit The recordc unit type
 		 */
-		BIMRecord() : base{} {}
+		BIMRecord(active::measure::LengthType unit = active::measure::LengthType::metre) : base{}, m_unit{unit} {}
 		/*!
 		 Constructor
 		 @param ID The record ID
+		 @param unit The recordc unit type
 		 */
-		BIMRecord(speckle::utility::Guid ID) : base{}, m_applicationID{ID} {}
+		BIMRecord(speckle::utility::Guid ID, active::measure::LengthType unit = active::measure::LengthType::metre) :
+				base{}, m_applicationID{ID}, m_unit{unit} {}
 		/*!
 		 Destructor
 		 */

@@ -83,6 +83,9 @@
     <Filter Include="Speckle\Serialise\Detached\Storage">
       <UniqueIdentifier>{cb77e795-e8d8-4e31-9773-dd32beb694d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Serialise\Units">
+      <UniqueIdentifier>{7d5ec9ba-bc7e-412c-9b14-16c37b183409}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -265,6 +268,9 @@
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h">
       <Filter>Speckle\Serialise\Detached\Storage</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Units\LengthUnit.h">
+      <Filter>Speckle\Serialise\Units</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -374,6 +380,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp">
       <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Units\LengthUnit.cpp">
+      <Filter>Speckle\Serialise\Units</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

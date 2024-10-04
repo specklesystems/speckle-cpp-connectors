@@ -31,8 +31,7 @@ namespace speckle::database {
 		 @param globID The global ID
 		 */
 		Record(speckle::utility::String::Option ID = std::nullopt, speckle::utility::String::Option globID = std::nullopt) :
-				base{ID.value_or(active::utility::Guid{}.operator active::utility::String()),
-					globID.value_or(active::utility::Guid{}.operator active::utility::String())} {}
+				base{ID.value_or(speckle::utility::String{}), globID.value_or(speckle::utility::String{})} {}
 		/*!
 		 Destructor
 		 */
