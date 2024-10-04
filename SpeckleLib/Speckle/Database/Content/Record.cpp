@@ -35,12 +35,12 @@ bool Record::fillInventory(active::serialise::Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[speckleIDID]}, active::database::record::FieldIndex::idIndex, element },
+			{ Identity{fieldID[speckleIDID]}, active::database::record::FieldIndex::idIndex, element, !getID().empty() },
 		},
 	}.withType(&typeid(base)));
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[speckleTypeID]}, speckleTypeID, element },
+			{ Identity{fieldID[speckleTypeID]}, speckleTypeID, element, !m_type.operator bool() },
 		},
 	}.withType(&typeid(Record)));
 	return true;

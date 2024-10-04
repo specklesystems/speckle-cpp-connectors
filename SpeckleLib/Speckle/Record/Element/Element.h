@@ -55,24 +55,29 @@ namespace speckle::record::element {
 		~Element();
 
 		/*!
-			Object cloning
-			@return A clone of this object
-		*/
+		 Object cloning
+		 @return A clone of this object
+		 */
 		Element* clonePtr() const override { return new Element{*this}; }
 
 
 		// MARK: - Functions (const)
 
 		/*!
-			Get the element body
-			@return An array of meshes from the element body (nullptr if no body data is available)
-		*/
+		 Get the speckle type identifier
+		 @return The speckle type (relevant objects should override as required)
+		 */
+		speckle::utility::String getSpeckleType() const override { return "speckle::record::element::Element"; }
+		/*!
+		 Get the element body
+		 @return An array of meshes from the element body (nullptr if no body data is available)
+		 */
 		virtual Body* getBody() const;
 #ifdef ARCHICAD
 		/*!
-			Get the (immutable) API element header data
-			@return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-		*/
+		 Get the (immutable) API element header data
+		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
+		 */
 		virtual const API_Elem_Head& getHead() const;
 #endif
 		
@@ -80,29 +85,29 @@ namespace speckle::record::element {
 
 #ifdef ARCHICAD
 		/*!
-			Get the (mutable) API element header data
-			@return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-		*/
+		 Get the (mutable) API element header data
+		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
+		 */
 		virtual API_Elem_Head& getHead();
 #endif
 
 		// MARK: - Serialisation
 		
 		/*!
-			Fill an inventory with the package items
-			@param inventory The inventory to receive the package items
-			@return True if the package has added items to the inventory
-		*/
+		 Fill an inventory with the package items
+		 @param inventory The inventory to receive the package items
+		 @return True if the package has added items to the inventory
+		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
 		/*!
-			Get the specified cargo
-			@param item The inventory item to retrieve
-			@return The requested cargo (nullptr on failure)
-		*/
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure)
+		 */
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		/*!
-			Set to the default package content
-		*/
+		 Set to the default package content
+		 */
 		void setDefault() override;
 		
 	private:

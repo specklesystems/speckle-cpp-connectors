@@ -31,8 +31,8 @@ namespace speckle::database {
 		 @param globID The global ID
 		 */
 		Record(speckle::utility::String::Option ID = std::nullopt, speckle::utility::String::Option globID = std::nullopt) :
-				base{ID.value_or(active::utility::Guid{true}.operator active::utility::String()),
-					globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
+				base{ID.value_or(active::utility::Guid{}.operator active::utility::String()),
+					globID.value_or(active::utility::Guid{}.operator active::utility::String())} {}
 		/*!
 		 Destructor
 		 */
@@ -44,7 +44,7 @@ namespace speckle::database {
 		 Get the speckle type identifier
 		 @return The speckle type (relevant objects should override as required, but "Base" is still considered a type on its own)
 		 */
-		virtual speckle::utility::String getSpeckleType() const { return "Base"; }
+		virtual speckle::utility::String getSpeckleType() const { return "speckle::database::Record"; }
 		
 		// MARK: - Functions (mutating)
 
