@@ -44,19 +44,6 @@ namespace {
 
 	
 	/*!
-	 Get the ID of the active Archicad table
-	 @return The active table ID (nullopt on failure)
-	 */
-	std::optional<BIMRecordID> getActiveTable() {
-		API_WindowInfo dbaseInfo;
-		active::utility::Memory::erase(dbaseInfo);
-		if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError)
-			return dbaseInfo.databaseUnId.elemSetId;
-		return std::nullopt;
-	} //getActiveTable
-
-	
-	/*!
 	 Set the active Archicad table
 	 @param tableID The target table ID
 	 @return True on success
@@ -64,7 +51,7 @@ namespace {
 	bool setActiveTable(const BIMRecordID& tableID) {
 		if (!tableID)
 			return false;	//Null guid doens't point to anything
-		if (auto activeTable = getActiveTable(); activeTable && *activeTable == tableID)
+		if (auto activeTable = ArchicadElementDBaseEngine::getActiveTable(); activeTable && *activeTable == tableID)
 			return true;
 		auto dbaseInfo = getTableInfo(tableID);
 		if (!dbaseInfo)
@@ -76,15 +63,30 @@ namespace {
 	/*!
 	 Make a new element object
 	 @param elementData The API element representation
+	 @param tableID The ID of the parent table (defaults to the active drawing)
 	 @return A new element object (nullptr on failure)
 	 */
-	Element::Unique makeElement(const API_Element& elementData) {
+	Element::Unique makeElement(const API_Element& elementData, const BIMRecordID& tableID) {
 			//Implement an object factory in future as classes for specific element types are implemented, e.g. Wall, Roof etc. using hash map
 			//The fallback for undefined element types will always be the base Element class
-		return std::make_unique<Element>(elementData);
+		return std::make_unique<Element>(elementData, tableID);
 	}
 
 }
+
+/*--------------------------------------------------------------------
+	Get the ID of the active Archicad table
+ 
+	return; The active table ID (nullopt on failure)
+  --------------------------------------------------------------------*/
+std::optional<BIMRecordID> ArchicadElementDBaseEngine::getActiveTable() {
+	API_WindowInfo dbaseInfo;
+	active::utility::Memory::erase(dbaseInfo);
+	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError)
+		return dbaseInfo.databaseUnId.elemSetId;
+	return std::nullopt;
+} //ArchicadElementDBaseEngine::getActiveTable
+
 
 /*--------------------------------------------------------------------
 	Get the current user element selection
@@ -92,13 +94,16 @@ namespace {
 	return: A list of selected element IDs
   --------------------------------------------------------------------*/
 BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
+	auto tableID = getActiveTable();
+	if (!tableID)
+		return {};
 	BIMLinkList result;
 	API_SelectionInfo selectionInfo;
 	active::utility::Memory::erase(selectionInfo);
 	GS::Array<API_Neig> selection;
 	if (auto err = ACAPI_Selection_Get(&selectionInfo, &selection, true); err == NoError) {
 		for (const auto& item : selection)
-			result.push_back(BIMLink{item});
+			result.push_back(BIMLink{item, *tableID});
 	}
 	return result;
 } //ArchicadElementDBaseEngine::getSelection
@@ -115,12 +120,17 @@ BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
   --------------------------------------------------------------------*/
 std::unique_ptr<Element> ArchicadElementDBaseEngine::getObject(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
 															   std::optional<BIMRecordID> documentID)  const {
+	if (!tableID) {
+		tableID = getActiveTable();
+		if (!tableID)
+			return nullptr;
+	}
 	API_Element element;
 	active::utility::Memory::erase(element);
 	API_Guid guid{ID.operator API_Guid()};
 	if (ACAPI_Element_GetElementFromAnywhere(&guid, &element) != NoError)
 		return nullptr;
-	return makeElement(element);
+	return makeElement(element, *tableID);
 } //ArchicadElementDBaseEngine::getObject
 
 

@@ -51,16 +51,16 @@ namespace speckle::database {
 		// MARK: - Serialisation
 		
 		/*!
-			Fill an inventory with the package items
-			@param inventory The inventory to receive the package items
-			@return True if the package has added items to the inventory
-		*/
+		 Fill an inventory with the package items
+		 @param inventory The inventory to receive the package items
+		 @return True if the package has added items to the inventory
+		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
 		/*!
-			Get the specified cargo
-			@param item The inventory item to retrieve
-			@return The requested cargo (nullptr on failure)
-		*/
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure)
+		 */
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		/*!
 		 Set to the default package content

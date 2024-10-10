@@ -1,12 +1,17 @@
 #ifndef CONNECTOR_RECORD_RECORD_COLLECTiON
 #define CONNECTOR_RECORD_RECORD_COLLECTiON
 
-#include "Active/Container/Vector.h"
-#include "Active/Serialise/Package/Package.h"
-#include "Speckle/Database/Identity/RecordID.h"
+#include "Speckle/Database/Content/Record.h"
+#include "Speckle/Database/Identity/BIMIndex.h"
+#include "Speckle/Environment/Project.h"
 #include "Speckle/Utility/String.h"
 
+#include <unordered_set>
+#include <unordered_map>
+
 namespace connector::record {
+	
+	class ProjectCollection;
 	
 	/*!
 	 Container for a collection of elements (and potentially tables of associated attributes) for Speckle commits
@@ -26,43 +31,34 @@ namespace connector::record {
 	 
 	 Note that the serialisation is currently implemented for sending only. Receive can be added as required
 	 */
-	class RecordCollection : public std::vector<speckle::database::RecordID>, public active::serialise::Package {
+	class RecordCollection : public speckle::database::Record {
 	public:
-		
-		// MARK: - Types
-		
-		using base = std::vector<speckle::database::RecordID>;
-		using Children = std::vector<RecordCollection>;
 		
 		// MARK: - Constructors
 		
-		using base::base;
+		/*!
+		 Destructor
+		 */
+		~RecordCollection() {}
 				
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get the speckle type identifier
+		 @return The speckle type (relevant objects should override as required, but "Base" is still considered a type on its own)
+		 */
+		speckle::utility::String getSpeckleType() const override { return "Speckle.Core.Models.Collections.Collection"; }
 		/*!
 		 Get the container name
 		 @return The container name
 		 */
 		const speckle::utility::String& getName() const { return m_name; }
 		/*!
-		 Get the child collections
-		 @return The child collections nested under this collection
+		 Find a child by name
+		 @param name The required child name
+		 @return A pointer to the requested child (nullptr if not found)
 		 */
-		const Children& getChildren() const;
-				
-		// MARK: - Functions (mutating)
-		
-		/*!
-		 Set the container name
-		 @param name The container name
-		 */
-		void setName(const speckle::utility::String& name) { m_name = name; }
-		/*!
-		 Add a child collection
-		 @param child The child collection to add
-		 */
-		void addChild(RecordCollection&& child);
+		RecordCollection* findChild(const speckle::utility::String& name) const;
 		
 		// MARK: - Serialisation
 		
@@ -70,20 +66,51 @@ namespace connector::record {
 		 Fill an inventory with the package items
 		 @param inventory The inventory to receive the package items
 		 @return True if the package has added items to the inventory
-		*/
+		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
 		/*!
 		 Get the specified cargo
 		 @param item The inventory item to retrieve
 		 @return The requested cargo (nullptr on failure)
-		*/
+		 */
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		
 	private:
-			///Child nodes of this collection
-		Children m_children;
+		friend ProjectCollection;
+
+		// MARK: - Types
+		
+		using Indices = std::unordered_set<speckle::database::BIMIndex>;
+		using Children = std::unordered_map<speckle::utility::String, RecordCollection>;
+
+		/*!
+		 Constructor
+		 @param name The collection name
+		 @param project The source project
+		 */
+		RecordCollection(const speckle::utility::String& name, speckle::environment::Project::Shared project);
+		
+		/*!
+		 Get a child collection by name (adding if missing)
+		 @param name The child name
+		 @return A pointer to the requested child (nullptr on failure, caller does not take ownership)
+		 */
+		RecordCollection* getChild(const speckle::utility::String& name);
+		/*!
+		 Add an index to the collection
+		 @param index The index to add
+		 @return True if the index was added (false typically means the index already exists)
+		 */
+		bool addIndex(const speckle::database::BIMIndex& index);
+		
+			///The source project for the collection
+		speckle::environment::Project::Shared m_project;
 			///The collection name
 		speckle::utility::String m_name;
+			///Child nodes of this collection
+		Children m_children;
+			///Indices of records in this collection
+		Indices m_indices;
 	};
 	
 }

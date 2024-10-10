@@ -7,6 +7,7 @@
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
+#include "Connector/Record/Collection/ProjectCollection.h"
 #include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
@@ -23,6 +24,7 @@ using namespace speckle::record::element;
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
+using namespace connector::record;
 using namespace speckle::database;
 using namespace speckle::serialise;
 using namespace speckle::utility;
@@ -68,27 +70,20 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
 		return;
 	}
-		//Collect targeted elements here
-
-	
-		//NB: This is a testing placeholder
-	
-	Element::Unique element;
-	if (auto project = connector::connector()->getActiveProject().lock(); project) {
-		auto elementDatabase = project->getElementDatabase();
-		auto selected = elementDatabase->getSelection();
-		for (const auto& link : selected)
-			if (element = elementDatabase->getElement(link); element)
-				break;
-	}
-	if (!element) {
+		//Build a collection from the selected elements
+	auto collection = std::make_unique<ProjectCollection>(project);
+	auto elementDatabase = project->getElementDatabase();
+	auto selected = elementDatabase->getSelection();
+	if (selected.empty()) {
 		getBridge()->sendEvent("setModelError",
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noSelectedModelItemsID), modelCardID));
 		return;
 	}
-	
-	
+	for (const auto& link : selected) {
+		if (auto element = elementDatabase->getElement(link); element)
+			collection->addElement(*element);
+	}
 		//Send the collected information
-	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(element)});	//NB: Using a placeholder object for now
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(collection)});
 	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run

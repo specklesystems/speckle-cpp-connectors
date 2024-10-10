@@ -8,8 +8,9 @@ using namespace speckle::utility;
 	Constructor
  
 	selected: Information about a selected Archicad element
+	tableID: The ID of the parent table
   --------------------------------------------------------------------*/
-BIMLink::BIMLink(const API_Neig& selected) : base{Guid{selected.guid}} {
+BIMLink::BIMLink(const API_Neig& selected, const BIMRecordID& tableID) : base{Guid{selected.guid}, tableID} {
 	//More info should be extracted from API_Neig in future (as required) - extract into link settings, e.g. selection target etc
 } //Link::Link
 #endif

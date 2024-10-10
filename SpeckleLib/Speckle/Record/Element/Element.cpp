@@ -3,10 +3,14 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
+#include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;
+using namespace speckle::environment;
+using namespace speckle::record::attribute;
 using namespace speckle::record::element;
 using namespace speckle::utility;
 
@@ -19,8 +23,10 @@ namespace speckle::record::element {
 	public:
 		friend class Element;
 		
+#ifdef ARCHICAD
 		Data(const API_Element& elem) : root{std::make_unique<API_Element>(elem)} {}
 		Data(const Data& source) : root{std::make_unique<API_Element>(*source.root)} {}
+#endif
 		
 	private:
 		std::unique_ptr<API_Element> root;
@@ -41,6 +47,8 @@ namespace {
 		Identity{"displayValue"},
 	};
 
+	
+#ifdef ARCHICAD
 	void GetComponent(API_Component3D& component, API_3DTypeID typeId, Int32 index) {
 		component.header.typeID = typeId;
 		component.header.index = index;
@@ -48,7 +56,8 @@ namespace {
 			// TODO: throw
 		}
 	}
-
+#endif
+	
 }
 
 /*--------------------------------------------------------------------
@@ -62,8 +71,9 @@ Element::Element() {
 	Constructor
  
 	elemData: Archicad element data
+	tableID: The attribute table ID (attribute type)
   --------------------------------------------------------------------*/
-Element::Element(const API_Element& elemData) : base{elemData.header.guid} {
+Element::Element(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{elemData.header.guid, tableID} {
 	m_data = std::make_unique<Data>(elemData);
 } //Element::Element
 
@@ -83,8 +93,36 @@ Element::Element(const Element& source) : base{source} {
   --------------------------------------------------------------------*/
 Element::~Element() {}
 
-Element::Body* Element::getBody() const {
 
+/*--------------------------------------------------------------------
+	Get the element storey
+ 
+	return: The element storey (nullopt if the element isn't linked to a storey)
+  --------------------------------------------------------------------*/
+Storey::Option Element::getStorey() const {
+#ifdef ARCHICAD
+	return Storey{getHead().floorInd};
+#endif
+} //Element::getStorey
+
+
+/*--------------------------------------------------------------------
+	Get the elmeent type name, e.g. "Wall", "Roof" etc
+ 
+	return: The type name
+  --------------------------------------------------------------------*/
+String Element::getTypeName() const {
+#ifdef ARCHICAD
+	GS::UniString typeName;
+	if (auto err = ACAPI_Element_GetElemTypeName(getHead().type, typeName); err != NoError)
+		return addon()->getLocalString(titleStringLib, unknownElementTypeID);
+	return typeName;
+#endif
+} //Element::getTypeName
+
+
+Element::Body* Element::getBody() const {
+#ifdef ARCHICAD
 	if (m_data->m_cache) {
 		return m_data->m_cache.get();
 	}
@@ -156,9 +194,11 @@ Element::Body* Element::getBody() const {
 	}
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();
+#endif
 }
 
 
+#ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Get the (immutable) API element header data
  
@@ -176,6 +216,7 @@ const API_Elem_Head& Element::getHead() const {
 API_Elem_Head& Element::getHead() {
 	return m_data->root->header;
 } //Element::getHead
+#endif
 
 
 /*--------------------------------------------------------------------

@@ -1,5 +1,6 @@
 #include "Speckle/Environment/Project.h"
 
+#include "Speckle/Database/BIMAttributeDatabase.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/SpeckleResource.h"
@@ -23,6 +24,7 @@ namespace {
   --------------------------------------------------------------------*/
 Project::Project() {
 	m_element = std::make_unique<BIMElementDatabase>();
+	m_attribute = std::make_unique<BIMAttributeDatabase>();
 } //Project::Project
 
 

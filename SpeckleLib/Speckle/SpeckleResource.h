@@ -14,6 +14,7 @@ enum SpeckleStringResource {
 	//Title strings (UI title/label for dialogs, controls, menu items etc)
 enum SpeckleTitleString {
 	untitledProjectID = 1,
+	unknownElementTypeID,
 };
 
 

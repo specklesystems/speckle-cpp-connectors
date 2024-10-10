@@ -2,6 +2,7 @@
 #define SPECKLE_RECORD_ELEMENT
 
 #include "Speckle/Database/Content/BIMRecord.h"
+#include "Speckle/Record/Attribute/Storey.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::primitive {
@@ -41,8 +42,9 @@ namespace speckle::record::element {
 		/*!
 		 Constructor
 		 @param elemData Archicad element data
+		 @param tableID The element table ID (AC database, e.g. floor plan, 3D)
 		 */
-		Element(const API_Element& elemData);
+		Element(const API_Element& elemData, const speckle::utility::Guid& tableID);
 #endif
 		/*!
 		 Copy constructor
@@ -67,7 +69,17 @@ namespace speckle::record::element {
 		 Get the speckle type identifier
 		 @return The speckle type (relevant objects should override as required)
 		 */
-		speckle::utility::String getSpeckleType() const override { return "speckle::record::element::Element"; }
+		virtual speckle::utility::String getSpeckleType() const override { return "Objects.BuiltElements.Element:Objects.BuiltElements.Element"; }
+		/*!
+		 Get the elmeent type name, e.g. "Wall", "Roof" etc
+		 @return The type name
+		 */
+		virtual speckle::utility::String getTypeName() const;
+		/*!
+		 Get the element storey
+		 @return The element storey (nullopt if the element isn't linked to a storey)
+		 */
+		virtual attribute::Storey::Option getStorey() const;
 		/*!
 		 Get the element body
 		 @return An array of meshes from the element body (nullptr if no body data is available)

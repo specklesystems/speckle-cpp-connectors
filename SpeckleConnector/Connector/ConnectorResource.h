@@ -28,6 +28,7 @@ enum StringResource {
 enum TitleString {
 	addonNameID = 1,
 	addonDescriptionID,
+	noStoreyID,
 };
 
 

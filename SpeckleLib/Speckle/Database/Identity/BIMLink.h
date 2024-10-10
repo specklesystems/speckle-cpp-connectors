@@ -34,8 +34,9 @@ namespace speckle::database {
 		/*!
 		 Constructor
 		 @param selected Information about a selected Archicad element
+		 @param tableID The ID of the parent table
 		 */
-		BIMLink(const API_Neig& selected);
+		BIMLink(const API_Neig& selected, const BIMRecordID& tableID);
 #endif
 	};
 	

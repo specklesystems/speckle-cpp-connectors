@@ -5,6 +5,7 @@
 #include "Speckle/Utility/String.h"
 
 namespace speckle::database {
+	class BIMAttributeDatabase;
 	class BIMElementDatabase;
 }
 
@@ -59,6 +60,11 @@ namespace speckle::environment {
 		 @return The account database
 		 */
 		const database::BIMElementDatabase* getElementDatabase() const { return m_element.get(); }
+		/*!
+		 Get the account database
+		 @return The account database
+		 */
+		const database::BIMAttributeDatabase* getAttributeDatabase() const { return m_attribute.get(); }
 		
 		// MARK: - Functions (mutating)
 		
@@ -73,7 +79,10 @@ namespace speckle::environment {
 		Project();
 		
 	private:
+			///The BIM element database
 		std::unique_ptr<database::BIMElementDatabase> m_element;
+			///The BIM attribute database
+		std::unique_ptr<database::BIMAttributeDatabase> m_attribute;
 	};
 
 }

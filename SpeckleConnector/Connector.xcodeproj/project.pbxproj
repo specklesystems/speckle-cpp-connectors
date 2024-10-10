@@ -29,8 +29,9 @@
 		215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F082C2C94C5C000CD343B /* FilterMover.cpp */; };
 		215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08362C95808B00CD343B /* ReceiverModelCard.cpp */; };
 		215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
-		2192460D2CA3469D00CF5703 /* RootCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* RootCollection.cpp */; };
+		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
+		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
 		21AEF9EB2CAB56E5000B8681 /* SendError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E32CAB56E5000B8681 /* SendError.cpp */; };
 		21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */; };
 		21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9EE2CAB5720000B8681 /* SendObject.cpp */; };
@@ -305,12 +306,14 @@
 		215F08452C9633A800CD343B /* EverythingSendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EverythingSendFilter.cpp; sourceTree = "<group>"; };
 		215F084A2C9782F100CD343B /* ArchicadEverythingFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchicadEverythingFilter.h; sourceTree = "<group>"; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		2192460B2CA3469D00CF5703 /* RootCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RootCollection.cpp; sourceTree = "<group>"; };
-		2192460C2CA3469D00CF5703 /* RootCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCollection.h; sourceTree = "<group>"; };
+		2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectCollection.cpp; sourceTree = "<group>"; };
+		2192460C2CA3469D00CF5703 /* ProjectCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCollection.h; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
+		21A0FB942CB723240023F24E /* FinishProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishProxy.cpp; sourceTree = "<group>"; };
+		21A0FB972CB723240023F24E /* FinishProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
 		21AEF9E32CAB56E5000B8681 /* SendError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendError.cpp; sourceTree = "<group>"; };
 		21AEF9E42CAB56E5000B8681 /* SendError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendError.h; sourceTree = "<group>"; };
 		21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendViaBrowserArgs.cpp; sourceTree = "<group>"; };
@@ -1231,10 +1234,12 @@
 		21FF70482CA1A7F400AAD99A /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				21A0FB942CB723240023F24E /* FinishProxy.cpp */,
+				21A0FB972CB723240023F24E /* FinishProxy.h */,
 				21FF70462CA1A7F400AAD99A /* RecordCollection.cpp */,
 				21FF70472CA1A7F400AAD99A /* RecordCollection.h */,
-				2192460B2CA3469D00CF5703 /* RootCollection.cpp */,
-				2192460C2CA3469D00CF5703 /* RootCollection.h */,
+				2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */,
+				2192460C2CA3469D00CF5703 /* ProjectCollection.h */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -1456,11 +1461,12 @@
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
 				21D0BDDC2C93897B0077E104 /* SenderModelCard.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
+				21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
 				21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
-				2192460D2CA3469D00CF5703 /* RootCollection.cpp in Sources */,
+				2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */,
 				21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */,
 				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,

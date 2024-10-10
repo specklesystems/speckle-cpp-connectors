@@ -1,5 +1,5 @@
-#ifndef CONNECTOR_DATABASE_BIM_DATABASE
-#define CONNECTOR_DATABASE_BIM_DATABASE
+#ifndef CONNECTOR_DATABASE_BIM_ELEMENT_DATABASE
+#define CONNECTOR_DATABASE_BIM_ELEMENT_DATABASE
 
 #include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Record/Element/Element.h"
@@ -77,4 +77,4 @@ namespace speckle::database {
 
 }
 
-#endif	//CONNECTOR_DATABASE_BIM_DATABASE
+#endif	//CONNECTOR_DATABASE_BIM_ELEMENT_DATABASE
