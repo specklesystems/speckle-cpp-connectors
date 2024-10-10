@@ -69,6 +69,18 @@ Storey::Storey() {
 } //Storey::Storey
 
 
+#ifdef ARCHICAD
+/*--------------------------------------------------------------------
+	Constructor
+ 
+	index: An index into the Archicad storey array
+  --------------------------------------------------------------------*/
+Storey::Storey(short index) {
+	
+} //Storey::Storey
+#endif
+
+
 /*--------------------------------------------------------------------
 	Constructor
  
@@ -172,21 +184,35 @@ void Storey::setDefault() {
 void Storey::confirmData() const {
 	if (m_data)
 		return;
+#ifdef ARCHICAD
 	m_data = std::make_unique<Data>(getStoreyData());
+#endif
 } //Storey::confirmData
 
 
+#ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Get the storey data from the host BIM application
  
 	return: The storey data (for internal use to populate derived classes)
   --------------------------------------------------------------------*/
 API_StoryType Storey::getStoreyData() const {
-	if (auto project = addon()->getActiveProject().lock(); project) {
-		if (auto storey = project->getAttributeDatabase()->getAPIStorey(getBIMLink()); storey)
-			return *storey;
-	}
+	do {
+		if (auto project = addon()->getActiveProject().lock(); project) {
+			auto attributeDatabase = project->getAttributeDatabase();
+			if (m_storeyIndex) {
+				auto storeyID = attributeDatabase->getStoreyID(*m_storeyIndex);
+				m_storeyIndex.reset();
+				if (!storeyID)
+					break;
+				resetIndex({Attribute::storeyTableID, Attribute::storeyTableID});
+			}
+			if (auto storey = attributeDatabase->getAPIStorey(getBIMLink()); storey)
+				return *storey;
+		}
+	} while (false);
 	API_StoryType storey;
 	active::utility::Memory::erase(storey);
 	return storey;
 } //Storey::getStoreyData
+#endif

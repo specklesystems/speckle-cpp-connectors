@@ -127,6 +127,12 @@ namespace speckle::database {
 		 @return The AC API storey data
 		 */
 		std::optional<API_StoryType> getAPIStorey(const BIMLink& link) const;
+		/*!
+		 Get the ID of a storey from a specified index
+		 @param index The storey index
+		 @return The storey ID (nullopt on failure)
+		 */
+		std::optional<BIMRecordID> getStoreyID(short index) const;
 #endif
 
 	private:

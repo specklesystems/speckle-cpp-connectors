@@ -140,4 +140,16 @@ std::optional<API_Attribute> BIMAttributeDatabase::getAPIData(const BIMLink& lin
 std::optional<API_StoryType> BIMAttributeDatabase::getAPIStorey(const BIMLink& link) const {
 	return m_engine->getAPIStorey(link);
 } //BIMAttributeDatabase::getAPIData
+
+
+/*--------------------------------------------------------------------
+	Get the ID of a storey from a specified index
+ 
+	index: The storey index
+ 
+	return: The storey ID (nullopt on failure)
+  --------------------------------------------------------------------*/
+std::optional<BIMRecordID> BIMAttributeDatabase::getStoreyID(short index) const {
+	return m_engine->getStoreyID(index);
+} //BIMAttributeDatabase::getStoreyID
 #endif

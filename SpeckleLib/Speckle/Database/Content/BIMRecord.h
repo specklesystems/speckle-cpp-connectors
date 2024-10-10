@@ -3,6 +3,7 @@
 
 #include "Active/Setting/Values/Measurement/Units/LengthUnit.h"
 #include "Speckle/Database/Content/Record.h"
+#include "Speckle/Database/Identity/BIMIndex.h"
 #include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Database/Identity/BIMRecordID.h"
 
@@ -94,12 +95,22 @@ namespace speckle::database {
 		 Set to the default package content
 		 */
 		void setDefault() override;
+
+	protected:
+		/*!
+		 Reset the BIM index (used in lazy loading contexts where the index cannot otherwise be established)
+		 @param index The BIM application index
+		 */
+		void resetIndex(const BIMIndex& index) const {
+			m_applicationID = index;
+			m_applicationTableID = index.tableID;
+		}
 		
 	private:
 			///The BIM application record ID
-		BIMRecordID m_applicationID;
+		mutable BIMRecordID m_applicationID;
 			///The BIM application parent table ID
-		BIMRecordID m_applicationTableID;
+		mutable BIMRecordID m_applicationTableID;
 			///The BIM record unit of length measurement
 		std::optional<active::measure::LengthType> m_unit = active::measure::LengthType::metre;
 	};

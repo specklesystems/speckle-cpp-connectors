@@ -39,6 +39,11 @@ namespace speckle::record::attribute {
 #ifdef ARCHICAD
 		/*!
 		 Constructor
+		 @param index An index into the Archicad storey array
+		 */
+		Storey(short index);
+		/*!
+		 Constructor
 		 @param attrData Archicad attribute data
 		 */
 		Storey(const API_StoryType& attrData);
@@ -117,6 +122,9 @@ namespace speckle::record::attribute {
 		 @return The storey data (for internal use to populate derived classes)
 		 */
 		API_StoryType getStoreyData() const;
+		
+			///An index into the Archicad storey array - used temporarily for looking up the storey data on demand
+		mutable std::optional<short> m_storeyIndex;
 #endif
 		
 		class Data;

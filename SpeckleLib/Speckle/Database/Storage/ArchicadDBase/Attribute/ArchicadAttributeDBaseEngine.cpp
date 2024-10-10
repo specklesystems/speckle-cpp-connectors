@@ -279,4 +279,19 @@ std::optional<API_StoryType> ArchicadAttributeDBaseEngine::getAPIStorey(const BI
 	return std::nullopt;
 } //ArchicadAttributeDBaseEngine::getAPIStorey
 
+
+/*--------------------------------------------------------------------
+	Get the ID of a storey from a specified index
+ 
+	index: The storey index
+ 
+	return: The storey ID (nullopt on failure)
+  --------------------------------------------------------------------*/
+std::optional<BIMRecordID> ArchicadAttributeDBaseEngine::getStoreyID(short index) const {
+	if (!m_storeyCache)
+		m_storeyCache = std::make_unique<StoreyCache>();
+	if (auto iter = m_storeyCache->find(index); iter != m_storeyCache->end())
+		return Guid::fromInt(iter->floorId);
+	return std::nullopt;
+} //ArchicadAttributeDBaseEngine::getStoreyID
 #endif
