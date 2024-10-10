@@ -33,7 +33,11 @@ namespace connector::record {
 	 */
 	class RecordCollection : public speckle::database::Record {
 	public:
-		
+
+		// MARK: - Types
+
+		using base = speckle::database::Record;
+
 		// MARK: - Constructors
 		
 		/*!

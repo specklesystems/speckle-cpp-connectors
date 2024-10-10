@@ -18,11 +18,13 @@ namespace {
 
 		///Serialisation fields
 	enum FieldIndex {
+		nameID,
 		elementID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
+		Identity{"name"},
 		Identity{"elements"},
 	};
 
@@ -80,6 +82,7 @@ bool RecordCollection::fillInventory(active::serialise::Inventory& inventory) co
 	base::fillInventory(inventory);
 	inventory.merge(Inventory{
 		{
+			{ Identity{fieldID[nameID]}, nameID, element },
 			{ Identity{fieldID[elementID]}, elementID, m_children.size() + m_indices.size(), std::nullopt },
 		},
 	}.withType(&typeid(RecordCollection)));
@@ -100,6 +103,8 @@ Cargo::Unique RecordCollection::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 		//TODO: This is only currently coded to write collection content - reading can be added as required in future
 	switch (item.index) {
+		case nameID:
+			return std::make_unique<StringWrap>(m_name);
 		case elementID: {
 			if (item.available < m_children.size()) {
 				auto iter = m_children.begin();
