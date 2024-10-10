@@ -109,8 +109,6 @@ namespace speckle::record::attribute {
 		 */
 		void setDefault() override;
 
-	protected:
-		
 	private:
 		/*!
 		 Confirm the internal data, either loading from the BIM application or setting a default

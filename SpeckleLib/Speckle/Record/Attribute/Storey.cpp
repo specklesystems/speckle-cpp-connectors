@@ -76,7 +76,7 @@ Storey::Storey() {
 	index: An index into the Archicad storey array
   --------------------------------------------------------------------*/
 Storey::Storey(short index) {
-	
+	m_storeyIndex = index;
 } //Storey::Storey
 #endif
 
@@ -97,6 +97,9 @@ Storey::Storey(const database::BIMRecordID& ID) : base{ID, storeyTableID} {
   --------------------------------------------------------------------*/
 Storey::Storey(const Storey& source) : base{source} {
 	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
+#ifdef ARCHICAD
+	m_storeyIndex = source.m_storeyIndex;
+#endif
 } //Storey::Storey
 
 
@@ -205,7 +208,7 @@ API_StoryType Storey::getStoreyData() const {
 				m_storeyIndex.reset();
 				if (!storeyID)
 					break;
-				resetIndex({Attribute::storeyTableID, Attribute::storeyTableID});
+				resetIndex({*storeyID, Attribute::storeyTableID});
 			}
 			if (auto storey = attributeDatabase->getAPIStorey(getBIMLink()); storey)
 				return *storey;
