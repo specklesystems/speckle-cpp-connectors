@@ -207,9 +207,6 @@
     <ClCompile Include="Connector\Record\Collection\RecordCollection.cpp">
       <Filter>Connector\Record\Collection</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Record\Collection\RootCollection.cpp">
-      <Filter>Connector\Record\Collection</Filter>
-    </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
     </ClCompile>
@@ -224,6 +221,12 @@
     </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\GetSendSettings.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Collection\FinishProxy.cpp">
+      <Filter>Connector\Record\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Record\Collection\ProjectCollection.cpp">
+      <Filter>Connector\Record\Collection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -363,9 +366,6 @@
     <ClInclude Include="Connector\Record\Collection\RecordCollection.h">
       <Filter>Connector\Record\Collection</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Record\Collection\RootCollection.h">
-      <Filter>Connector\Record\Collection</Filter>
-    </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.h">
       <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
     </ClInclude>
@@ -380,6 +380,12 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\GetSendSettings.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Collection\FinishProxy.h">
+      <Filter>Connector\Record\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Record\Collection\ProjectCollection.h">
+      <Filter>Connector\Record\Collection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

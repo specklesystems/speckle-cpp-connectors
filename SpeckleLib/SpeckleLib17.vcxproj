@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Database\AccountDatabase.h" />
+    <ClInclude Include="Speckle\Database\BIMAttributeDatabase.h" />
     <ClInclude Include="Speckle\Database\BIMElementDatabase.h" />
     <ClInclude Include="Speckle\Database\Content\BIMRecord.h" />
     <ClInclude Include="Speckle\Database\Content\Record.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="Speckle\Database\Identity\Index.h" />
     <ClInclude Include="Speckle\Database\Identity\Link.h" />
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.h" />
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h" />
@@ -62,6 +64,9 @@
     <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h" />
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
     <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h" />
+    <ClInclude Include="Speckle\Record\Attribute\Attribute.h" />
+    <ClInclude Include="Speckle\Record\Attribute\Finish.h" />
+    <ClInclude Include="Speckle\Record\Attribute\Storey.h" />
     <ClInclude Include="Speckle\Record\Credentials\Account.h" />
     <ClInclude Include="Speckle\Record\Credentials\ServerInfo.h" />
     <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
@@ -83,11 +88,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp" />
+    <ClCompile Include="Speckle\Database\BIMAttributeDatabase.cpp" />
     <ClCompile Include="Speckle\Database\BIMElementDatabase.cpp" />
     <ClCompile Include="Speckle\Database\Content\BIMRecord.cpp" />
     <ClCompile Include="Speckle\Database\Content\Record.cpp" />
     <ClCompile Include="Speckle\Database\Identity\BIMLink.cpp" />
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.cpp" />
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
@@ -106,6 +113,9 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
     <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp" />
+    <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp" />
+    <ClCompile Include="Speckle\Record\Attribute\Finish.cpp" />
+    <ClCompile Include="Speckle\Record\Attribute\Storey.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\Account.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\ServerInfo.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\ServerMigration.cpp" />

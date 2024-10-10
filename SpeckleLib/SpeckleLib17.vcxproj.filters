@@ -86,6 +86,12 @@
     <Filter Include="Speckle\Serialise\Units">
       <UniqueIdentifier>{7d5ec9ba-bc7e-412c-9b14-16c37b183409}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Attribute">
+      <UniqueIdentifier>{490a65bd-28e3-4282-bb33-67823e81e825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Attribute">
+      <UniqueIdentifier>{525b6bd6-96e4-48c8-91e9-9710e1e54389}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -271,6 +277,21 @@
     <ClInclude Include="Speckle\Serialise\Units\LengthUnit.h">
       <Filter>Speckle\Serialise\Units</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMAttributeDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Attribute.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Finish.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Storey.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -383,6 +404,21 @@
     </ClCompile>
     <ClCompile Include="Speckle\Serialise\Units\LengthUnit.cpp">
       <Filter>Speckle\Serialise\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMAttributeDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Finish.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Storey.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

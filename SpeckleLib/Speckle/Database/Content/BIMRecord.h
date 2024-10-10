@@ -61,7 +61,7 @@ namespace speckle::database {
 		 Get a link to the BIM record
 		 @return The BIM record link
 		 */
-		BIMLink getBIMLink() const { return BIMLink{ {m_applicationID, m_applicationTableID} }; }
+		BIMLink getBIMLink() const { return BIMLink{ BIMLink::base{m_applicationID, m_applicationTableID} }; }
 		
 		// MARK: - Functions (mutating)
 
