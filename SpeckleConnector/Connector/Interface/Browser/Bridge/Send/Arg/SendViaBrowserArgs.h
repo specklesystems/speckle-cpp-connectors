@@ -77,6 +77,11 @@ namespace connector::interfac::browser::bridge {
 			@param management The management to use
 		*/
 		void useManagement(active::serialise::Management* management) const override { sendObject.useManagement(management); }
+		/*!
+			Get the cargo management
+			@return The active management
+		*/
+		active::serialise::Management* management() const override { return sendObject.management(); }
 	};
 
 }

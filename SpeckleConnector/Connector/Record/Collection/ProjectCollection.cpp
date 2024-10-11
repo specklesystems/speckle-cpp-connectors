@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Management/Management.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
@@ -47,8 +48,11 @@ namespace {
  
 	project: The source project
   --------------------------------------------------------------------*/
-ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project} {
+ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project},
+		m_management{std::make_unique<Management>()} {
+	m_management->push_back(this);
 	m_finishes = std::make_unique<FinishCache>();
+	base::useManagement(m_management.get());
 } //ProjectCollection::ProjectCollection
 
 
