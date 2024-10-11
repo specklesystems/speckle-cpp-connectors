@@ -206,8 +206,8 @@ Element::Body* Element::getBody() const {
 						vertices.push_back(vertex.y);
 						vertices.push_back(vertex.z);
 
-						double alpha = material.GetTransparency();
-						ModelerAPI::Color color = material.GetSurfaceColor();
+						//double alpha = material.GetTransparency();
+						//ModelerAPI::Color color = material.GetSurfaceColor();
 						//colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
 
 						faces.push_back(vertexIndex - 1);
@@ -253,12 +253,11 @@ API_Elem_Head& Element::getHead() {
   --------------------------------------------------------------------*/
 bool Element::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
-	auto body = getBody();
 	inventory.merge(Inventory{
 		{
 			{ fieldID[bodyID], bodyID, element },	//TODO: implement other fields
 		},
-		}.withType(&typeid(Element)));
+	}.withType(&typeid(Element)));
 	return base::fillInventory(inventory);
 } //Element::fillInventory
 
@@ -278,7 +277,7 @@ Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
 	case bodyID:
 		if (auto body = getBody(); body != nullptr)
 		{
-			return Cargo::Unique{ new active::serialise::ContainerWrap{ *body } };
+			return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
 		}
 		else
 			return nullptr;

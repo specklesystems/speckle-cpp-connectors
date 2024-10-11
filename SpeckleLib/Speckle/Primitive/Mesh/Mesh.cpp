@@ -19,7 +19,6 @@ namespace {
 		vertexID,
 		faceID,
 		colorID,
-		proxyID,
 	};
 
 		///Serialisation field IDs
@@ -27,7 +26,6 @@ namespace {
 		Identity{"vertices"},
 		Identity{"faces"},
 		Identity{"colors"},
-		Identity{"proxy"},
 	};
 
 }
@@ -46,7 +44,6 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 			{ fieldID[vertexID], vertexID, element },
 			{ fieldID[faceID], faceID, element },
 			{ fieldID[colorID], colorID, element },
-			{ fieldID[proxyID], proxyID, element },
 		},
 	}.withType(&typeid(Mesh)));
 	return base::fillInventory(inventory);
@@ -71,9 +68,21 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 			return std::make_unique<ContainerWrap<std::vector<int>>>(m_faces);
 		case colorID:
 			return std::make_unique<ContainerWrap<std::vector<int>>>(m_colors);
-		case proxyID:
-			return std::make_unique<FinishProxy>(getBIMID(), m_material);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
 } //Mesh::getCargo
+
+
+/*--------------------------------------------------------------------
+	Use a manager in (de)serialisation processes
+ 
+	management: The management to use
+  --------------------------------------------------------------------*/
+void Mesh::useManagement(Management* management) const {
+		//NB: This object only exists to populate the finish collection - it doesn't carry any serialisable content
+	if (management != nullptr) {
+		if (auto collector = management->get<FinishCollector>(); collector != nullptr)
+			collector->addMaterialProxy(m_material, getBIMID());
+	}
+} //Mesh::useManagement

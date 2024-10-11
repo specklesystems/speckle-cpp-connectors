@@ -60,6 +60,11 @@ namespace speckle::primitive {
 		 @return The requested cargo (nullptr on failure)
 		 */
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		/*!
+			Use a manager in (de)serialisation processes
+			@param management The management to use
+		*/
+		void useManagement(active::serialise::Management* management) const override;
 		
 	private:
 		std::vector<double> m_vertices;
