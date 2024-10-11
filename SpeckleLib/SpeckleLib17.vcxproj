@@ -72,6 +72,8 @@
     <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
     <ClInclude Include="Speckle\Record\Credentials\UserInfo.h" />
     <ClInclude Include="Speckle\Record\Element\Element.h" />
+    <ClInclude Include="Speckle\Serialise\Collection\FinishCollector.h" />
+    <ClInclude Include="Speckle\Serialise\Collection\FinishProxy.h" />
     <ClInclude Include="Speckle\Serialise\Detached\DetachedReference.h" />
     <ClInclude Include="Speckle\Serialise\Detached\DetachedWrap.h" />
     <ClInclude Include="Speckle\Serialise\Detached\DetachmentManager.h" />

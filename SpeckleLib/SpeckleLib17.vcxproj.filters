@@ -92,6 +92,9 @@
     <Filter Include="Speckle\Record\Attribute">
       <UniqueIdentifier>{525b6bd6-96e4-48c8-91e9-9710e1e54389}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Serialise\Collection">
+      <UniqueIdentifier>{b5733e9f-b72a-4162-9fc7-8feeec594e5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -291,6 +294,12 @@
     </ClInclude>
     <ClInclude Include="Speckle\Record\Attribute\Storey.h">
       <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\FinishCollector.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\FinishProxy.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
