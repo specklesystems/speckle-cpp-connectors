@@ -2,6 +2,7 @@
 #define CONNECTOR_RECORD_ROOT_COLLECTiON
 
 #include "Connector/Record/Collection/RecordCollection.h"
+#include "Speckle/Serialise/Collection/FinishCollector.h"
 
 #include <stack>
 
@@ -20,7 +21,7 @@ namespace connector::record {
 	 - Other attributes, e.g. materials
 	 Add all this supplementary data to the root container as required
 	 */
-	class ProjectCollection : public RecordCollection {
+	class ProjectCollection : public RecordCollection, public speckle::serialise::FinishCollector {
 	public:
 		
 		// MARK: - Types
@@ -33,7 +34,12 @@ namespace connector::record {
 		 Constructor
 		 @param project The source project
 		 */
-		ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project} {}
+		ProjectCollection(speckle::environment::Project::Shared project);
+		ProjectCollection(const ProjectCollection&) = delete;
+		/*!
+		 Destructor
+		 */
+		~ProjectCollection();
 		
 		using base::base;
 				
@@ -59,7 +65,16 @@ namespace connector::record {
 		 @param objectID The object the material is applied to
 		 @return True if the material proxy was added (false typically means the record already exists)
 		 */
-		bool addMaterialProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID);
+		bool addMaterialProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) override;
+#ifdef ARCHICAD
+		/*!
+		 Add a ModelerAPI material to the collection (NB: These are not persistent so need to be captured by this method)
+		 @param material A material
+		 @param objectID The object the material is applied to
+		 @return True if the material proxy was added (false typically means the record already exists)
+		 */
+		bool addMaterialProxy(const ModelerAPI::Material& material, const speckle::database::BIMRecordID& objectID) override;
+#endif
 		
 		// MARK: - Serialisation
 		
@@ -81,6 +96,11 @@ namespace connector::record {
 		
 			///Finish proxies accumulated from meshes generated from the collection elements
 		FinishProxies m_finishProxies;
+#ifdef ARCHICAD
+		class FinishCache;
+			///Finishes cached from ModelerAPI materials
+		std::unique_ptr<FinishCache> m_finishes;
+#endif
 	};
 	
 }

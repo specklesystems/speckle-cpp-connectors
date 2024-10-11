@@ -64,7 +64,7 @@ Cargo::Unique DetachedReference::getCargo(const Inventory::Item& item) const {
 				//If we don't have an allocated string for receiving a reference (from 'setDefault') then we need to create one
 			if (!m_reference) {
 					//Ask a manager to send the detached data and provide a reference
-				auto detachmentManager = getManager<DetachmentManager>();
+				auto detachmentManager = (management() == nullptr) ? nullptr : management()->get<DetachmentManager>();
 				if (detachmentManager == nullptr)
 					return nullptr;	//TODO: Discuss if this is a serious error - possibly throwing an exception is warranted
 				m_reference = detachmentManager->send(std::forward<Package&&>(base::get()), item.identity());

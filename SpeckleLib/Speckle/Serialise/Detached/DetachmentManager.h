@@ -1,7 +1,7 @@
 #ifndef SPECKLE_SERIALISE_DETACHMENT_MANAGER
 #define SPECKLE_SERIALISE_DETACHMENT_MANAGER
 
-#include "Active/Serialise/Manager.h"
+#include "Active/Serialise/Management/Manager.h"
 #include "Active/Serialise/Transport.h"
 #include "Speckle/Database/Identity/RecordID.h"
 

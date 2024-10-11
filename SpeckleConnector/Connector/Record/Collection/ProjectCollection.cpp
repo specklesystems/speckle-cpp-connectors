@@ -10,11 +10,21 @@
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Record/Element/Element.h"
 
+#ifdef ARCHICAD
+#include <ModelMaterial.hpp>
+#endif
+
 using namespace active::serialise;
 using namespace connector::record;
 using namespace speckle::database;
 using namespace speckle::record::attribute;
 using namespace speckle::utility;
+
+#ifdef ARCHICAD
+namespace connector::record {
+	class ProjectCollection::FinishCache : public std::unordered_map<active::utility::Guid, Finish::Unique> {};
+}
+#endif
 
 namespace {
 
@@ -31,6 +41,23 @@ namespace {
 	using WrappedProxy = CargoHold<PackageWrap, FinishProxy>;
 
 }
+
+/*--------------------------------------------------------------------
+	Constructor
+ 
+	project: The source project
+  --------------------------------------------------------------------*/
+ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project} {
+	m_finishes = std::make_unique<FinishCache>();
+} //ProjectCollection::ProjectCollection
+
+
+/*--------------------------------------------------------------------
+	Destructor
+  --------------------------------------------------------------------*/
+ProjectCollection::~ProjectCollection() {
+} //ProjectCollection::~ProjectCollection
+
 
 /*--------------------------------------------------------------------
 	Add an element to the collection hierarchy
@@ -90,6 +117,25 @@ bool ProjectCollection::addMaterialProxy(const speckle::database::BIMIndex& mate
 } //ProjectCollection::addMaterialProxy
 
 
+#ifdef ARCHICAD
+/*--------------------------------------------------------------------
+	Add a ModelerAPI material to the collection (NB: These are not persistent so need to be captured by this method)
+ 
+	material: A material
+	objectID: The object the material is applied to
+ 
+	return: True if the material proxy was added (false typically means the record already exists)
+  --------------------------------------------------------------------*/
+bool ProjectCollection::addMaterialProxy(const ModelerAPI::Material& material, const speckle::database::BIMRecordID& objectID) {
+	auto finishID = Guid::fromInt(material.GenerateHashValue());
+	if (m_finishes->find(finishID) != m_finishes->end())
+		return false;
+	auto finish = std::make_unique<Finish>(material);
+	return m_finishes->insert({finishID, std::move(finish)}).second;
+} //ProjectCollection::addMaterialProxy
+#endif
+
+
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items
  
@@ -126,11 +172,14 @@ Cargo::Unique ProjectCollection::getCargo(const Inventory::Item& item) const {
 			if (item.available < m_finishProxies.size()) {
 				auto iter = m_finishProxies.begin();
 				std::advance(iter, item.available);
-				if (auto attribute = m_project->getAttributeDatabase()->getAttribute(iter->first, iter->first.tableID); attribute) {
-					if (auto finish = dynamic_cast<const Finish*>(attribute.get()); finish != nullptr) {
-						auto proxy = std::make_unique<FinishProxy>(*finish, iter->second);
-						return std::make_unique<WrappedProxy>(std::move(proxy));
-					}
+				const Finish* finish = nullptr;
+				if (auto fin = m_finishes->find(iter->first); fin != m_finishes->end())
+					finish = fin->second.get();
+				else if (auto attribute = m_project->getAttributeDatabase()->getAttribute(iter->first, iter->first.tableID); attribute)
+					finish = dynamic_cast<const Finish*>(attribute.get());
+				if (finish != nullptr) {
+					auto proxy = std::make_unique<FinishProxy>(*finish, iter->second);
+					return std::make_unique<WrappedProxy>(std::move(proxy));
 				}
 			}
 			break;

@@ -3,6 +3,12 @@
 
 #include "Speckle/Record/Attribute/Attribute.h"
 
+#ifdef ARCHICAD
+namespace ModelerAPI {
+	class Material;
+}
+#endif
+
 namespace speckle::record::attribute {
 	
 	/*!
@@ -50,6 +56,11 @@ namespace speckle::record::attribute {
 		 @param tableID The ID of the parent table
 		 */
 		Finish(const API_Attribute& attrData, const database::BIMRecordID& tableID);
+		/*!
+		 Constructor
+		 @param material A ModelerAPI material definition
+		 */
+		Finish(const ModelerAPI::Material& material);
 #endif
 		/*!
 		 Copy constructor

@@ -1,7 +1,12 @@
 #include "Speckle/Record/Attribute/Finish.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Utility/BufferOut.h"
 #include "Speckle/Utility/Guid.h"
+
+#ifdef ARCHICAD
+#include <ModelMaterial.hpp>
+#endif
 
 using namespace active::serialise;
 using namespace speckle::database;
@@ -37,6 +42,16 @@ namespace {
 		Identity{"surfaceColour"},
 	};
 
+#ifdef ARCHICAD
+	/*!
+	 Copy a ModelerAPI colour to an AC RGB colour
+	 */
+	void copyModelerColor(const ModelerAPI::Color& modelColour, API_RGBColor& colour) {
+		colour.f_red = modelColour.red;
+		colour.f_green = modelColour.green;
+		colour.f_blue = modelColour.blue;
+	} //copyModelerColor
+#endif
 }
 
 /*--------------------------------------------------------------------
@@ -65,6 +80,31 @@ Finish::Finish(const database::BIMRecordID& ID) : base{ID, Finish::table} {
 Finish::Finish(const API_Attribute& attrData, const BIMRecordID& tableID) : base{attrData.header.guid, Finish::table} {
 	m_data = std::make_unique<Data>(attrData);
 }
+
+
+/*--------------------------------------------------------------------
+	Constructor
+ 
+	material: A ModelerAPI material definition
+  --------------------------------------------------------------------*/
+Finish::Finish(const ModelerAPI::Material& material) {
+	API_Attribute attr;
+	active::utility::Memory::erase(attr);
+	String{material.GetName()}.writeUTF8(active::utility::BufferOut{attr.header.name});
+	attr.header.guid = Guid{Guid::fromInt(material.GenerateHashValue())};
+	attr.material.mtype = static_cast<API_MaterTypeID>(material.GetType());
+	attr.material.ambientPc = material.GetAmbientReflection();
+	attr.material.diffusePc = material.GetDiffuseReflection();
+	attr.material.specularPc = material.GetSpecularReflection();
+	attr.material.transpPc = material.GetTransparency();
+	attr.material.shine = material.GetShining();
+	attr.material.transpAtt = material.GetTransparencyAttenuation();
+	attr.material.emissionAtt = material.GetEmissionAttenuation();
+	copyModelerColor(material.GetSurfaceColor(), attr.material.surfaceRGB);
+	copyModelerColor(material.GetSpecularColor(), attr.material.specularRGB);
+	copyModelerColor(material.GetEmissionColor(), attr.material.emissionRGB);
+	m_data = std::make_unique<Data>(attr);
+} //Finish::Finish
 #endif
 
 
@@ -94,6 +134,7 @@ const API_Attr_Head& Finish::getHead() const {
 	confirmData();
 	return m_data->root.head;
 } //Finish::getHead
+
 
 /*--------------------------------------------------------------------
 	Get the (mutable) API attribute header data
