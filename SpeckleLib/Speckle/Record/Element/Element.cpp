@@ -8,6 +8,7 @@
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
+#ifdef ARCHICAD
 #include "Sight.hpp"
 #include "Model.hpp"
 #include "ModelMaterial.hpp"
@@ -15,6 +16,7 @@
 #include "exp.h"
 #include "ModelMeshBody.hpp"
 #include "ConvexPolygon.hpp"
+#endif
 
 using namespace active::serialise;
 using namespace speckle::environment;
@@ -206,11 +208,11 @@ Element::Body* Element::getBody() const {
 
 						double alpha = material.GetTransparency();
 						ModelerAPI::Color color = material.GetSurfaceColor();
-						colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
+						//colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
 
 						faces.push_back(vertexIndex - 1);
 					}
-					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors)));
+					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors), material));
 				}
 			}
 		}

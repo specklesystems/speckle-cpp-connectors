@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Management/Management.h"
+#include "Active/Serialise/CargoHold.h"
 #include "Active/Utility/BufferOut.h"
 #include "Speckle/Serialise/Collection/FinishCollector.h"
 #include "Speckle/Utility/Guid.h"
@@ -37,12 +38,20 @@ namespace {
 	
 		///Serialisation fields
 	enum FieldIndex {
-		surfaceColourID,
+		diffuseID,
+		opacityID,
+		emissiveID,
+		metalnessID,
+		roughnessID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
-		Identity{"surfaceColour"},
+		Identity{"diffuse"},
+		Identity{"opacity"},
+		Identity{"emissive"},
+		Identity{"metalness"},
+		Identity{"roughness"},
 	};
 
 #ifdef ARCHICAD
@@ -55,6 +64,28 @@ namespace {
 		colour.f_blue = modelColour.blue;
 	} //copyModelerColor
 #endif
+
+	int32_t ARGBToInt(double alpha, double red, double green, double blue) {
+		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
+		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
+		uint8_t r = static_cast<uint8_t>(std::round(red * 255.0));
+		uint8_t g = static_cast<uint8_t>(std::round(green * 255.0));
+		uint8_t b = static_cast<uint8_t>(std::round(blue * 255.0));
+
+		// Pack ARGB into a single 32-bit integer
+		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
+
+	int32_t ARGBToInt(double alpha, const API_RGBColor& color) {
+		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
+		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
+		uint8_t r = static_cast<uint8_t>(std::round(color.f_red * 255.0));
+		uint8_t g = static_cast<uint8_t>(std::round(color.f_green * 255.0));
+		uint8_t b = static_cast<uint8_t>(std::round(color.f_blue * 255.0));
+
+		// Pack ARGB into a single 32-bit integer
+		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
 }
 
 /*--------------------------------------------------------------------
@@ -96,13 +127,13 @@ Finish::Finish(const ModelerAPI::Material& material) {
 	String{material.GetName()}.writeUTF8(active::utility::BufferOut{attr.header.name});
 	attr.header.guid = Guid{Guid::fromInt(material.GenerateHashValue())};
 	attr.material.mtype = static_cast<API_MaterTypeID>(material.GetType());
-	attr.material.ambientPc = material.GetAmbientReflection();
-	attr.material.diffusePc = material.GetDiffuseReflection();
-	attr.material.specularPc = material.GetSpecularReflection();
-	attr.material.transpPc = material.GetTransparency();
-	attr.material.shine = material.GetShining();
-	attr.material.transpAtt = material.GetTransparencyAttenuation();
-	attr.material.emissionAtt = material.GetEmissionAttenuation();
+	attr.material.ambientPc = static_cast<short>(material.GetAmbientReflection() * 100);
+	attr.material.diffusePc = static_cast<short>(material.GetDiffuseReflection() * 100);
+	attr.material.specularPc = static_cast<short>(material.GetSpecularReflection() * 100);
+	attr.material.transpPc = static_cast<short>(material.GetTransparency() * 100);
+	attr.material.shine = static_cast<short>(material.GetShining() * 10000);
+	attr.material.transpAtt = static_cast<short>(material.GetTransparencyAttenuation() * 400);
+	attr.material.emissionAtt = static_cast<short>(material.GetEmissionAttenuation() * 65535);
 	copyModelerColor(material.GetSurfaceColor(), attr.material.surfaceRGB);
 	copyModelerColor(material.GetSpecularColor(), attr.material.specularRGB);
 	copyModelerColor(material.GetEmissionColor(), attr.material.emissionRGB);
@@ -162,7 +193,11 @@ bool Finish::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[surfaceColourID], surfaceColourID, element },	//TODO: implement other fields
+			{ fieldID[diffuseID], diffuseID, element },
+			{ fieldID[opacityID], opacityID, element },
+			{ fieldID[emissiveID], emissiveID, element },
+			{ fieldID[metalnessID], metalnessID, element },
+			{ fieldID[roughnessID], roughnessID, element },
 		},
 	}.withType(&typeid(Finish)));
 	return base::fillInventory(inventory);
@@ -182,8 +217,18 @@ Cargo::Unique Finish::getCargo(const Inventory::Item& item) const {
 	confirmData();
 	using namespace active::serialise;
 	switch (item.index) {
-		case surfaceColourID:
-			return nullptr;	//TODO: lookup surface colour
+		case diffuseID: {
+			auto opacity = 1.0 - m_data->root.transpPc;
+			return std::make_unique<CargoHold<Int32Wrap, int32_t>>(ARGBToInt(opacity, m_data->root.surfaceRGB));
+		}			
+		case opacityID:
+			return std::make_unique<CargoHold<DoubleWrap,double>>(1.0);
+		case emissiveID:
+			return std::make_unique<CargoHold<Int32Wrap, int32_t>>(ARGBToInt(0.0, 0.0, 0.0, 0.0));
+		case metalnessID:
+			return std::make_unique<CargoHold<DoubleWrap, double>>(1.0);
+		case roughnessID:
+			return std::make_unique<CargoHold<DoubleWrap, double>>(1.0);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

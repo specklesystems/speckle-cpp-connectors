@@ -10,6 +10,7 @@
 
 using namespace active::serialise;
 using namespace speckle::primitive;
+using namespace speckle::serialise;
 
 namespace {
 
@@ -65,14 +66,13 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 	case vertexID:
-			return std::make_unique<ContainerWrap<std::vector<double>>>(vertices);
+			return std::make_unique<ContainerWrap<std::vector<double>>>(m_vertices);
 		case faceID:
-			return std::make_unique<ContainerWrap<std::vector<int>>>(faces);
+			return std::make_unique<ContainerWrap<std::vector<int>>>(m_faces);
 		case colorID:
-			return std::make_unique<ContainerWrap<std::vector<int>>>(colors);
+			return std::make_unique<ContainerWrap<std::vector<int>>>(m_colors);
 		case proxyID:
-			return nullptr;	//Activate the following line when the mesh material is available to add to the collector
-			//return std::make_unique<FinishProxy>(getBIMID(), material);
+			return std::make_unique<FinishProxy>(getBIMID(), m_material);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

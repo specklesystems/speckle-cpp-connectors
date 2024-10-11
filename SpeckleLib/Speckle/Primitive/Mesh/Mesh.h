@@ -4,6 +4,10 @@
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
 
+#ifdef ARCHICAD
+#include "ModelMaterial.hpp"
+#endif
+
 namespace speckle::primitive {
 	
 	/*!
@@ -22,7 +26,7 @@ namespace speckle::primitive {
 		 Default constructor
 		 @param unit The mesh unit type
 		 */
-		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{unit} {}
+		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{ utility::Guid{true}, utility::Guid{}, unit } {}
 		/*!
 		 Constructor
 		 @param vertices The mesh vertices
@@ -30,9 +34,9 @@ namespace speckle::primitive {
 		 @param colors The mesh face colours
 		 @param unit The mesh unit type
 		 */
-		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors,
+		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const ModelerAPI::Material& material,
 				active::measure::LengthType unit = active::measure::LengthType::metre) :
-				base{unit}, vertices {std::move(vertices)}, faces{std::move(faces)}, colors{std::move(colors)} {}
+			base{ unit }, m_vertices{ std::move(vertices) }, m_faces{ std::move(faces) }, m_colors{ std::move(colors) }, m_material{ material } {}
 
 		// MARK: - Functions (const)
 		
@@ -58,9 +62,12 @@ namespace speckle::primitive {
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		
 	private:
-		std::vector<double> vertices;
-		std::vector<int> faces;
-		std::vector<int> colors;
+		std::vector<double> m_vertices;
+		std::vector<int> m_faces;
+		std::vector<int> m_colors;
+#ifdef ARCHICAD
+		ModelerAPI::Material m_material;
+#endif
 	};
 	
 }

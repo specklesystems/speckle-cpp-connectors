@@ -128,10 +128,12 @@ bool ProjectCollection::addMaterialProxy(const speckle::database::BIMIndex& mate
   --------------------------------------------------------------------*/
 bool ProjectCollection::addMaterialProxy(const ModelerAPI::Material& material, const speckle::database::BIMRecordID& objectID) {
 	auto finishID = Guid::fromInt(material.GenerateHashValue());
-	if (m_finishes->find(finishID) != m_finishes->end())
-		return false;
-	auto finish = std::make_unique<Finish>(material);
-	return m_finishes->insert({finishID, std::move(finish)}).second;
+	auto iter = m_finishes->find(finishID);
+	if (iter == m_finishes->end()) {
+		auto finish = std::make_unique<Finish>(material);
+		iter = m_finishes->insert({ finishID, std::move(finish) }).first;
+	}
+	return addMaterialProxy(finishID, objectID);
 } //ProjectCollection::addMaterialProxy
 #endif
 
