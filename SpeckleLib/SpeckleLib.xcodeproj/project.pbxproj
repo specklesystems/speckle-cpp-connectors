@@ -188,6 +188,7 @@
 		2196F3032CB57E7F00450DFC /* Storey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Storey.cpp; sourceTree = "<group>"; };
 		219712682BE7E2D500D9EF7E /* Serialisation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Serialisation.md; sourceTree = "<group>"; };
 		21A0FB9F2CB880690023F24E /* FinishCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishCollector.h; sourceTree = "<group>"; };
+		21A0FBA92CB9324A0023F24E /* FinishProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
 		21AEF9B32CA5F7CF000B8681 /* DetachedWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedWrap.h; sourceTree = "<group>"; };
 		21AEF9B52CA5FA02000B8681 /* DetachedReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedReference.h; sourceTree = "<group>"; };
 		21AEF9B72CA5FCB6000B8681 /* DetachmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachmentManager.h; sourceTree = "<group>"; };
@@ -479,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				21A0FB9F2CB880690023F24E /* FinishCollector.h */,
+				21A0FBA92CB9324A0023F24E /* FinishProxy.h */,
 			);
 			path = Collection;
 			sourceTree = "<group>";

@@ -4,6 +4,7 @@
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Inventory/Identity.h"
+#include "Speckle/Serialise/Collection/FinishProxy.h"
 
 #include <array>
 
@@ -17,6 +18,7 @@ namespace {
 		vertexID,
 		faceID,
 		colorID,
+		proxyID,
 	};
 
 		///Serialisation field IDs
@@ -24,6 +26,7 @@ namespace {
 		Identity{"vertices"},
 		Identity{"faces"},
 		Identity{"colors"},
+		Identity{"proxy"},
 	};
 
 }
@@ -42,6 +45,7 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 			{ fieldID[vertexID], vertexID, element },
 			{ fieldID[faceID], faceID, element },
 			{ fieldID[colorID], colorID, element },
+			{ fieldID[proxyID], proxyID, element },
 		},
 	}.withType(&typeid(Mesh)));
 	return base::fillInventory(inventory);
@@ -66,6 +70,9 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 			return std::make_unique<ContainerWrap<std::vector<int>>>(faces);
 		case colorID:
 			return std::make_unique<ContainerWrap<std::vector<int>>>(colors);
+		case proxyID:
+			return nullptr;	//Activate the following line when the mesh material is available to add to the collector
+			//return std::make_unique<FinishProxy>(getBIMID(), material);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

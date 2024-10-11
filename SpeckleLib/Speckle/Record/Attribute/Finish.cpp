@@ -1,7 +1,9 @@
 #include "Speckle/Record/Attribute/Finish.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Management/Management.h"
 #include "Active/Utility/BufferOut.h"
+#include "Speckle/Serialise/Collection/FinishCollector.h"
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
@@ -11,6 +13,7 @@
 using namespace active::serialise;
 using namespace speckle::database;
 using namespace speckle::record::attribute;
+using namespace speckle::serialise;
 using namespace speckle::utility;
 
 #include <array>
