@@ -8,6 +8,14 @@
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
+#include "Sight.hpp"
+#include "Model.hpp"
+#include "ModelMaterial.hpp"
+#include "ModelElement.hpp"
+#include "exp.h"
+#include "ModelMeshBody.hpp"
+#include "ConvexPolygon.hpp"
+
 using namespace active::serialise;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
@@ -18,46 +26,45 @@ using namespace speckle::utility;
 #include <memory>
 
 namespace speckle::record::element {
-	
+
 	class Element::Data {
 	public:
 		friend class Element;
-		
+
 #ifdef ARCHICAD
-		Data(const API_Element& elem) : root{std::make_unique<API_Element>(elem)} {}
-		Data(const Data& source) : root{std::make_unique<API_Element>(*source.root)} {}
+		Data(const API_Element& elem) : root{ std::make_unique<API_Element>(elem) } {}
+		Data(const Data& source) : root{ std::make_unique<API_Element>(*source.root) } {}
 #endif
-		
+
 	private:
 		std::unique_ptr<API_Element> root;
 		std::unique_ptr<Element::Body> m_cache;
 	};
-	
+
 }
 
 namespace {
-	
-		///Serialisation fields
+
+	///Serialisation fields
 	enum FieldIndex {
 		bodyID,
 	};
 
-		///Serialisation field IDs
+	///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"displayValue"},
 	};
 
-	
-#ifdef ARCHICAD
-	void GetComponent(API_Component3D& component, API_3DTypeID typeId, Int32 index) {
-		component.header.typeID = typeId;
-		component.header.index = index;
-		if (ACAPI_ModelAccess_GetComponent(&component) != NoError) {
-			// TODO: throw
-		}
+	int32_t ARGBToInt(double alpha, double red, double green, double blue) {
+		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
+		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
+		uint8_t r = static_cast<uint8_t>(std::round(red * 255.0));
+		uint8_t g = static_cast<uint8_t>(std::round(green * 255.0));
+		uint8_t b = static_cast<uint8_t>(std::round(blue * 255.0));
+
+		// Pack ARGB into a single 32-bit integer
+		return (a << 24) | (r << 16) | (g << 8) | b;
 	}
-#endif
-	
 }
 
 /*--------------------------------------------------------------------
@@ -69,21 +76,21 @@ Element::Element() {
 
 /*--------------------------------------------------------------------
 	Constructor
- 
+
 	elemData: Archicad element data
 	tableID: The attribute table ID (attribute type)
   --------------------------------------------------------------------*/
-Element::Element(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{elemData.header.guid, tableID} {
+Element::Element(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
 	m_data = std::make_unique<Data>(elemData);
 } //Element::Element
 
 
 /*--------------------------------------------------------------------
 	Copy constructor
- 
- 	source: The object to copy
+
+	source: The object to copy
   --------------------------------------------------------------------*/
-Element::Element(const Element& source) : base{source} {
+Element::Element(const Element& source) : base{ source } {
 	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
 } //Element::Element
 
@@ -96,19 +103,19 @@ Element::~Element() {}
 
 /*--------------------------------------------------------------------
 	Get the element storey
- 
+
 	return: The element storey (nullopt if the element isn't linked to a storey)
   --------------------------------------------------------------------*/
 Storey::Option Element::getStorey() const {
 #ifdef ARCHICAD
-	return Storey{getHead().floorInd};
+	return Storey{ getHead().floorInd };
 #endif
 } //Element::getStorey
 
 
 /*--------------------------------------------------------------------
-	Get the elmeent type name, e.g. "Wall", "Roof" etc
- 
+	Get the element type name, e.g. "Wall", "Roof" etc
+
 	return: The type name
   --------------------------------------------------------------------*/
 String Element::getTypeName() const {
@@ -121,76 +128,92 @@ String Element::getTypeName() const {
 } //Element::getTypeName
 
 
+/*--------------------------------------------------------------------
+	Get the element body as a list of faces or Meshes
+
+	return: A pointer to the element body
+  --------------------------------------------------------------------*/
 Element::Body* Element::getBody() const {
 #ifdef ARCHICAD
 	if (m_data->m_cache) {
 		return m_data->m_cache.get();
 	}
 
-	auto elementBody = new Element::Body();
-	std::map<int, int> vertexIndexMap;
-	int currentVertexIndex = 0;
 
-	API_ElemInfo3D info3D = {};
-
-	if (ACAPI_ModelAccess_Get3DInfo(getHead(), &info3D) != NoError) {
-		// TODO: throw
+	void* dummy = nullptr;
+	GSErrCode err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
+	if (err != NoError)
+	{
+		// TODO: should this throw?
 	}
 
-	for (Int32 ib = info3D.fbody; ib <= info3D.lbody; ib++) {
-		API_Component3D component = {};
-		GetComponent(component, API_BodyID, ib);
+	Modeler::SightPtr currentSightPtr((Modeler::Sight*)dummy); // init the shared ptr with the raw pointer
+	ModelerAPI::Model acModel;
+	Modeler::IAttributeReader* attrReader = ACAPI_Attribute_GetCurrentAttributeSetReader();
 
-		std::vector<double> vertices;
-		std::vector<int> faces;
-		std::vector<int> colors;
+	err = EXPGetModel(currentSightPtr, &acModel, attrReader);
+	if (err != NoError)
+	{
+		// TODO: should this throw?
+	}
 
-		vertices.clear();
-		faces.clear();
-		colors.clear();
+	auto elementBody = new Element::Body();
 
-		Int32 nPgon = component.body.nPgon;
-		for (Int32 ip = 1; ip <= nPgon; ip++) {
-			GetComponent(component, API_PgonID, ip);
+	Int32 nElements = acModel.GetElementCount();
+	for (Int32 iElement = 1; iElement <= nElements; iElement++)
+	{
+		ModelerAPI::Element elem{};
+		acModel.GetElement(iElement, &elem);
+		if (elem.GetElemGuid() != getHead().guid)
+			continue;
 
-			Int32 fpedg = component.pgon.fpedg;
-			Int32 lpedg = component.pgon.lpedg;
-			Int32 faceSize = lpedg - fpedg + 1;
-			faces.push_back(faceSize);
-			for (Int32 ie = fpedg; ie <= lpedg; ie++)
+		Int32 nBodies = elem.GetTessellatedBodyCount();
+		for (Int32 bodyIndex = 1; bodyIndex <= nBodies; ++bodyIndex)
+		{
+			ModelerAPI::MeshBody body{};
+			elem.GetTessellatedBody(bodyIndex, &body);
+
+			Int32 polyCount = body.GetPolygonCount();
+			for (Int32 polyIndex = 1; polyIndex <= polyCount; ++polyIndex)
 			{
-				GetComponent(component, API_PedgID, ie);
+				ModelerAPI::Polygon	polygon{};
+				body.GetPolygon(polyIndex, &polygon);
 
-				// TODO is this needed? need review, not sure how ACAPI_ModelAccess works
-				bool wasNegative = component.pedg.pedg < 0;
-				Int32 edgeIndex = std::abs(component.pedg.pedg);
-				GetComponent(component, API_EdgeID, edgeIndex);
+				ModelerAPI::Material material{};
+				polygon.GetMaterial(&material);
+				Int32 convexPolyCount = polygon.GetConvexPolygonCount();
 
-				// TODO is this needed? need review, not sure how ACAPI_ModelAccess works
-				Int32 vertexIndex = wasNegative ? component.edge.vert2 : component.edge.vert1;
-				/*auto materialIndex = component.pgon.iumat;
-				GetComponent(component, API_UmatID, materialIndex);
-				double R = component.umat.mater.surfaceRGB.f_red;
-				double G = component.umat.mater.surfaceRGB.f_green;
-				double B = component.umat.mater.surfaceRGB.f_blue;*/
-				// TODO: other material stuff
+				for (Int32 convPolyIndex = 1; convPolyIndex <= convexPolyCount; ++convPolyIndex)
+				{
+					std::vector<double> vertices;
+					std::vector<int> faces;
+					std::vector<int> colors;
 
-				GetComponent(component, API_VertID, vertexIndex);
+					ModelerAPI::ConvexPolygon convexPolygon{};
+					polygon.GetConvexPolygon(convPolyIndex, &convexPolygon);
+					Int32 vertexCount = convexPolygon.GetVertexCount();
 
-				if (vertexIndexMap.find(vertexIndex) == vertexIndexMap.end()) {
-					faces.push_back(currentVertexIndex);
-					vertexIndexMap[vertexIndex] = currentVertexIndex++;
+					faces.push_back(vertexCount);
+					for (Int32 vertexIndex = 1; vertexIndex <= vertexCount; ++vertexIndex)
+					{
+						ModelerAPI::Vertex vertex{};
+						body.GetVertex(convexPolygon.GetVertexIndex(vertexIndex), &vertex);
 
-					vertices.push_back(component.vert.x);
-					vertices.push_back(component.vert.y);
-					vertices.push_back(component.vert.z);
-				}
-				else {
-					faces.push_back(vertexIndexMap[vertexIndex]);
+						// TODO: change vertices array to hold Vertex instead of double values
+						vertices.push_back(vertex.x);
+						vertices.push_back(vertex.y);
+						vertices.push_back(vertex.z);
+
+						double alpha = material.GetTransparency();
+						ModelerAPI::Color color = material.GetSurfaceColor();
+						colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
+
+						faces.push_back(vertexIndex - 1);
+					}
+					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors)));
 				}
 			}
 		}
-		elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors)));
 	}
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();
@@ -201,7 +224,7 @@ Element::Body* Element::getBody() const {
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Get the (immutable) API element header data
- 
+
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 const API_Elem_Head& Element::getHead() const {
@@ -210,7 +233,7 @@ const API_Elem_Head& Element::getHead() const {
 
 /*--------------------------------------------------------------------
 	Get the (mutable) API element header data
- 
+
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 API_Elem_Head& Element::getHead() {
@@ -221,9 +244,9 @@ API_Elem_Head& Element::getHead() {
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items
- 
+
 	inventory: The inventory to receive the package items
- 
+
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
 bool Element::fillInventory(Inventory& inventory) const {
@@ -231,18 +254,18 @@ bool Element::fillInventory(Inventory& inventory) const {
 	auto body = getBody();
 	inventory.merge(Inventory{
 		{
-			{ fieldID[bodyID], bodyID, body == nullptr ? 0 : static_cast<uint32_t>(body->size()) },	//TODO: implement other fields
+			{ fieldID[bodyID], bodyID, element },	//TODO: implement other fields
 		},
-	}.withType(&typeid(Element)));
+		}.withType(&typeid(Element)));
 	return base::fillInventory(inventory);
 } //Element::fillInventory
 
 
 /*--------------------------------------------------------------------
 	Get the specified cargo
- 
+
 	item: The inventory item to retrieve
- 
+
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
 Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
@@ -250,17 +273,16 @@ Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
 		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-		case bodyID:
-			if (auto body = getBody(); body != nullptr)
-			{
-				//return std::make_unique<active::serialise::ContainerWrap>(*body);
-				return Cargo::Unique{ new active::serialise::ContainerWrap{ *body } };
-			}
-			else
-				return nullptr;
-				
-		default:
-			return nullptr;	//Requested an unknown index
+	case bodyID:
+		if (auto body = getBody(); body != nullptr)
+		{
+			return Cargo::Unique{ new active::serialise::ContainerWrap{ *body } };
+		}
+		else
+			return nullptr;
+
+	default:
+		return nullptr;	//Requested an unknown index
 	}
 } //Element::getCargo
 
