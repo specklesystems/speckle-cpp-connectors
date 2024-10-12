@@ -1,7 +1,7 @@
 #include "Speckle/Database/Content/BIMRecord.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
-#include "Speckle/Serialise/Units/LengthUnit.h"
+#include "Speckle/Serialise/Types/Units/LengthUnit.h"
 #include "Speckle/Utility/Guid.h"
 
 #include <array>
