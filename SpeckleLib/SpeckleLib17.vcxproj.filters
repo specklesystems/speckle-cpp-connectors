@@ -83,9 +83,6 @@
     <Filter Include="Speckle\Serialise\Detached\Storage">
       <UniqueIdentifier>{cb77e795-e8d8-4e31-9773-dd32beb694d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Speckle\Serialise\Units">
-      <UniqueIdentifier>{7d5ec9ba-bc7e-412c-9b14-16c37b183409}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Speckle\Database\Storage\ArchicadDBase\Attribute">
       <UniqueIdentifier>{490a65bd-28e3-4282-bb33-67823e81e825}</UniqueIdentifier>
     </Filter>
@@ -94,6 +91,12 @@
     </Filter>
     <Filter Include="Speckle\Serialise\Collection">
       <UniqueIdentifier>{b5733e9f-b72a-4162-9fc7-8feeec594e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Types">
+      <UniqueIdentifier>{b992941c-66d5-4f16-89b2-82e27a22e229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Types\Units">
+      <UniqueIdentifier>{7f43d4ea-b876-4587-a646-90eab81f7976}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -277,9 +280,6 @@
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h">
       <Filter>Speckle\Serialise\Detached\Storage</Filter>
     </ClInclude>
-    <ClInclude Include="Speckle\Serialise\Units\LengthUnit.h">
-      <Filter>Speckle\Serialise\Units</Filter>
-    </ClInclude>
     <ClInclude Include="Speckle\Database\BIMAttributeDatabase.h">
       <Filter>Speckle\Database</Filter>
     </ClInclude>
@@ -300,6 +300,12 @@
     </ClInclude>
     <ClInclude Include="Speckle\Serialise\Collection\FinishProxy.h">
       <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\Str256.h">
+      <Filter>Speckle\Serialise\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\Units\LengthUnit.h">
+      <Filter>Speckle\Serialise\Types\Units</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -411,9 +417,6 @@
     <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp">
       <Filter>Speckle\Serialise\Detached</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Serialise\Units\LengthUnit.cpp">
-      <Filter>Speckle\Serialise\Units</Filter>
-    </ClCompile>
     <ClCompile Include="Speckle\Database\BIMAttributeDatabase.cpp">
       <Filter>Speckle\Database</Filter>
     </ClCompile>
@@ -428,6 +431,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Attribute\Storey.cpp">
       <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Types\Units\LengthUnit.cpp">
+      <Filter>Speckle\Serialise\Types\Units</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -148,7 +148,7 @@ Finish::Finish(const ModelerAPI::Material& material) {
  	source: The object to copy
   --------------------------------------------------------------------*/
 Finish::Finish(const Finish& source) : base{source} {
-	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
+	m_data = source.m_data ? std::make_unique<Data>(*source.m_data) : nullptr;
 } //Finish::Finish
 
 

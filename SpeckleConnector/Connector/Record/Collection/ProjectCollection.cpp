@@ -154,7 +154,7 @@ bool ProjectCollection::fillInventory(active::serialise::Inventory& inventory) c
 	base::fillInventory(inventory);
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[finishProxyID]}, finishProxyID, m_finishProxies.size(), std::nullopt },
+			{ Identity{fieldID[finishProxyID]}, finishProxyID, 100, std::nullopt },
 		},
 	}.withType(&typeid(ProjectCollection)));
 	return true;

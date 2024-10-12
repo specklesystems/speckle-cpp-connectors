@@ -3,6 +3,7 @@
 #include "Speckle/Database/BIMAttributeDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Environment/Project.h"
+#include "Speckle/Serialise/Types/Str256.h"
 
 using namespace active::serialise;
 using namespace speckle::database;
@@ -77,8 +78,9 @@ Cargo::Unique Attribute::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case nameID:
-			//return std::make_unique<active::serialise::ContainerWrap>(*body);
-			return std::make_unique<StringWrap>(getHead().name);
+#ifdef ARCHICAD
+			return std::make_unique<ValueWrap<Str256>>(reinterpret_cast<const Str256&>(getHead().name));
+#endif
 		default:
 			return nullptr;	//Requested an unknown index
 	}
