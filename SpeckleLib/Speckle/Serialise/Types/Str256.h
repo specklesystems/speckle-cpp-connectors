@@ -49,7 +49,17 @@ namespace active::serialise {
 		dest.assign(reinterpret_cast<const char*>(&get()), str256Size);
 		return true;
 	} //ValueWrap<Str256>::write
-	
+
+
+	/*!
+		Get the serialisation type for the item value
+		@return The item value serialisation type (nullopt = unspecified, i.e. a default is acceptable)
+	*/
+	template<> inline
+		std::optional<Item::Type> ValueWrap<Str256>::type() const {
+		return Item::Type::text;
+	} //ValueWrap<Str256>::type
+
 }
 
 #endif	//SPECKLE_SERIALISE_STR256
