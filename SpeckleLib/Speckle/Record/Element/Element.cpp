@@ -57,16 +57,6 @@ namespace {
 		Identity{"displayValue"},
 	};
 
-	int32_t ARGBToInt(double alpha, double red, double green, double blue) {
-		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
-		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
-		uint8_t r = static_cast<uint8_t>(std::round(red * 255.0));
-		uint8_t g = static_cast<uint8_t>(std::round(green * 255.0));
-		uint8_t b = static_cast<uint8_t>(std::round(blue * 255.0));
-
-		// Pack ARGB into a single 32-bit integer
-		return (a << 24) | (r << 16) | (g << 8) | b;
-	}
 }
 
 /*--------------------------------------------------------------------

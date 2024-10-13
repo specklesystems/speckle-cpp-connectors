@@ -5,6 +5,7 @@
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Utility/BufferOut.h"
 #include "Speckle/Serialise/Collection/FinishCollector.h"
+#include "Speckle/Serialise/Types/ArchicadRGB.h"
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
@@ -22,14 +23,28 @@ using namespace speckle::utility;
 
 namespace speckle::record::attribute {
 	
+		///Internal representation of a rendered finish on a 3D body, i.e. the surface colour/texture etc.
 	class Finish::Data {
 	public:
 #ifdef ARCHICAD
-		Data(const API_Attribute& attr) : root{attr.material} {}
-		Data(const Data& source) : root{source.root} {}
+		/*!
+		 Constructor from Archicad surface material
+		 @param attr An Archicad attribute
+		 */
+		Data(const API_Attribute& attr) : root{attr.material} {
+			opacity = 1.0 - (static_cast<double>(attr.material.transpPc) / 100.0);
+			roughness = 1.0 - (static_cast<double>(attr.material.shine) / 10000.0);
+		}
 		
+			///Archicad representation of a surface material
 		API_MaterialType root;
 #endif
+			//Opacity (0.0 -> 1.0)
+		double opacity = 1.0;
+			//Roughness (0.0 -> 1.0)
+		double roughness = 0.0;
+			//Metalness (0.0 -> 1.0)
+		double metalness = 0.0;
 	};
 	
 }
@@ -57,35 +72,15 @@ namespace {
 #ifdef ARCHICAD
 	/*!
 	 Copy a ModelerAPI colour to an AC RGB colour
+	 @param modelColour The modeler API colour
+	 @param colour The attribute API colour
 	 */
 	void copyModelerColor(const ModelerAPI::Color& modelColour, API_RGBColor& colour) {
 		colour.f_red = modelColour.red;
 		colour.f_green = modelColour.green;
 		colour.f_blue = modelColour.blue;
-	} //copyModelerColor
+	}
 #endif
-
-	int32_t ARGBToInt(double alpha, double red, double green, double blue) {
-		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
-		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
-		uint8_t r = static_cast<uint8_t>(std::round(red * 255.0));
-		uint8_t g = static_cast<uint8_t>(std::round(green * 255.0));
-		uint8_t b = static_cast<uint8_t>(std::round(blue * 255.0));
-
-		// Pack ARGB into a single 32-bit integer
-		return (a << 24) | (r << 16) | (g << 8) | b;
-	}
-
-	int32_t ARGBToInt(double alpha, const API_RGBColor& color) {
-		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
-		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
-		uint8_t r = static_cast<uint8_t>(std::round(color.f_red * 255.0));
-		uint8_t g = static_cast<uint8_t>(std::round(color.f_green * 255.0));
-		uint8_t b = static_cast<uint8_t>(std::round(color.f_blue * 255.0));
-
-		// Pack ARGB into a single 32-bit integer
-		return (a << 24) | (r << 16) | (g << 8) | b;
-	}
 }
 
 /*--------------------------------------------------------------------
@@ -217,18 +212,20 @@ Cargo::Unique Finish::getCargo(const Inventory::Item& item) const {
 	confirmData();
 	using namespace active::serialise;
 	switch (item.index) {
-		case diffuseID: {
-			auto opacity = 1.0 - m_data->root.transpPc;
-			return std::make_unique<CargoHold<Int32Wrap, int32_t>>(ARGBToInt(opacity, m_data->root.surfaceRGB));
-		}			
+		case diffuseID:
+#ifdef ARCHICAD
+			return std::make_unique<ValueWrap<API_RGBColor>>(m_data->root.surfaceRGB);
+#endif
 		case opacityID:
-			return std::make_unique<CargoHold<DoubleWrap,double>>(1.0);
+			return std::make_unique<DoubleWrap>(m_data->opacity);
 		case emissiveID:
-			return std::make_unique<CargoHold<Int32Wrap, int32_t>>(ARGBToInt(0.0, 0.0, 0.0, 0.0));
+#ifdef ARCHICAD
+			return std::make_unique<ValueWrap<API_RGBColor>>(m_data->root.emissionRGB);
+#endif
 		case metalnessID:
-			return std::make_unique<CargoHold<DoubleWrap, double>>(1.0);
+			return std::make_unique<DoubleWrap>(m_data->metalness);
 		case roughnessID:
-			return std::make_unique<CargoHold<DoubleWrap, double>>(1.0);
+			return std::make_unique<DoubleWrap>(m_data->roughness);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
@@ -239,8 +236,24 @@ Cargo::Unique Finish::getCargo(const Inventory::Item& item) const {
 	Set to the default package content
   --------------------------------------------------------------------*/
 void Finish::setDefault() {
-
+	m_data->root = {};
+	m_data->opacity = 0.0;
+	m_data->roughness = 1.0;
+	m_data->metalness = 0.0;
 } //Finish::setDefault
+
+
+/*--------------------------------------------------------------------
+	Validate the cargo data
+ 
+	return: True if the data has been validated
+  --------------------------------------------------------------------*/
+bool Finish::validate() {
+	m_data->root.transpPc = static_cast<short>(100 * (1.0 - m_data->opacity));
+	m_data->root.shine = static_cast<short>(10000 * (1.0 - m_data->roughness));
+		//NB: Archicad has no metalness value - currently discarded
+	return true;
+} //Finish::validate
 
 
 /*--------------------------------------------------------------------

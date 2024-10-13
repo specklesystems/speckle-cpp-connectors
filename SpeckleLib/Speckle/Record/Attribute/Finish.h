@@ -122,6 +122,11 @@ namespace speckle::record::attribute {
 		 Set to the default package content
 		 */
 		void setDefault() override;
+		/*!
+		 Validate the cargo data
+		 @return True if the data has been validated
+		 */
+		bool validate() override;
 		
 	private:
 		/*!
