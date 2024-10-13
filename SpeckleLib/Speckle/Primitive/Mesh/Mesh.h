@@ -26,7 +26,7 @@ namespace speckle::primitive {
 		 Default constructor
 		 @param unit The mesh unit type
 		 */
-		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{ utility::Guid{true}, utility::Guid{}, unit } {}
+		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{utility::Guid{true}, utility::Guid{}, unit} {}
 		/*!
 		 Constructor
 		 @param vertices The mesh vertices
@@ -36,7 +36,7 @@ namespace speckle::primitive {
 		 */
 		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const ModelerAPI::Material& material,
 				active::measure::LengthType unit = active::measure::LengthType::metre) :
-			base{ unit }, m_vertices{ std::move(vertices) }, m_faces{ std::move(faces) }, m_colors{ std::move(colors) }, m_material{ material } {}
+				base{utility::Guid{true}, utility::Guid{}, unit}, m_vertices{std::move(vertices)}, m_faces{std::move(faces)}, m_colors{std::move(colors)}, m_material{material} {}
 
 		// MARK: - Functions (const)
 		
@@ -44,7 +44,7 @@ namespace speckle::primitive {
 		 Get the speckle type identifier
 		 @return The speckle type (relevant objects should override as required)
 		 */
-		speckle::utility::String getSpeckleType() const override { return "speckle::primitive::Mesh"; }
+		speckle::utility::String getSpeckleType() const override { return "Objects.Geometry.Mesh"; }
 		
 		// MARK: - Serialisation
 		
@@ -61,9 +61,9 @@ namespace speckle::primitive {
 		 */
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		/*!
-			Use a manager in (de)serialisation processes
-			@param management The management to use
-		*/
+		 Use a manager in (de)serialisation processes
+		 @param management The management to use
+		 */
 		void useManagement(active::serialise::Management* management) const override;
 		
 	private:
