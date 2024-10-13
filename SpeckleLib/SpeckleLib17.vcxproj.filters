@@ -307,6 +307,9 @@
     <ClInclude Include="Speckle\Serialise\Types\Units\LengthUnit.h">
       <Filter>Speckle\Serialise\Types\Units</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\ArchicadRGB.h">
+      <Filter>Speckle\Serialise\Types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">

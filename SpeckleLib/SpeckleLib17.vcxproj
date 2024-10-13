@@ -80,6 +80,7 @@
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedMemoryStore.h" />
     <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h" />
     <ClInclude Include="Speckle\Serialise\JSBase\JSBaseTransport.h" />
+    <ClInclude Include="Speckle\Serialise\Types\ArchicadRGB.h" />
     <ClInclude Include="Speckle\Serialise\Types\Str256.h" />
     <ClInclude Include="Speckle\Serialise\Types\Units\LengthUnit.h" />
     <ClInclude Include="Speckle\SpeckleResource.h" />
@@ -284,6 +285,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <SubSystem>
