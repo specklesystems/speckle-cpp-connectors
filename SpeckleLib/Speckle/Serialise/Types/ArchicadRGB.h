@@ -7,7 +7,10 @@
 #include "Active/Serialise/Item/Wrapper/ValueOptionWrap.h"
 #include "Active/Utility/BufferOut.h"
 
-#include <APIdefs_base.h>
+#ifdef ARCHICAD
+#include <ACAPinc.h>
+#include <ModelMaterial.hpp>
+#endif
 
 namespace active::serialise {
 	

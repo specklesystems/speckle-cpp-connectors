@@ -9,6 +9,7 @@
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
+#include <ACAPinc.h>
 #include <ModelMaterial.hpp>
 #endif
 

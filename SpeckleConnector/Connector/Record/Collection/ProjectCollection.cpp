@@ -12,6 +12,7 @@
 #include "Speckle/Record/Element/Element.h"
 
 #ifdef ARCHICAD
+#include <ACAPinc.h>
 #include <ModelMaterial.hpp>
 #endif
 
