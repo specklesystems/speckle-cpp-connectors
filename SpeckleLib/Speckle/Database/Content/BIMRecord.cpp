@@ -23,7 +23,7 @@ namespace {
 		///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"applicationId"},
-		Identity{"unit"},
+		Identity{"units"},
 	};
 
 }
