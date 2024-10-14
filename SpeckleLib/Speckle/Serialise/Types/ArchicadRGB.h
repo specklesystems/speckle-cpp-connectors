@@ -70,9 +70,9 @@ namespace active::serialise {
 	 */
 	template<> inline
 	bool ValueWrap<API_RGBColor>::write(utility::String& dest) const {
-		dest = speckle::utility::String{(static_cast<uint32_t>(get().f_red * 255.0) << 24) |
-					 ((static_cast<uint32_t>(get().f_green * 255.0)) << 16) |
-					 ((static_cast<uint32_t>(get().f_blue * 255.0)) << 8)};
+		dest = speckle::utility::String{(static_cast<uint32_t>(get().f_red * 255.0) << 16) |
+					 ((static_cast<uint32_t>(get().f_green * 255.0)) << 8) |
+					 ((static_cast<uint32_t>(get().f_blue * 255.0)))};
 		return true;
 	} //ValueWrap<API_RGBColor>::write
 	
