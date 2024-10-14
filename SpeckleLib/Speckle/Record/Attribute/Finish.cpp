@@ -117,11 +117,11 @@ Finish::Finish(const API_Attribute& attrData, const BIMRecordID& tableID) : base
  
 	material: A ModelerAPI material definition
   --------------------------------------------------------------------*/
-Finish::Finish(const ModelerAPI::Material& material) {
+Finish::Finish(const ModelerAPI::Material& material) : base{Guid{Guid::fromInt(material.GenerateHashValue())}, Finish::table} {
 	API_Attribute attr;
 	active::utility::Memory::erase(attr);
 	String{material.GetName()}.writeUTF8(active::utility::BufferOut{attr.header.name});
-	attr.header.guid = Guid{Guid::fromInt(material.GenerateHashValue())};
+	attr.header.guid = getBIMID();
 	attr.material.mtype = static_cast<API_MaterTypeID>(material.GetType());
 	attr.material.ambientPc = static_cast<short>(material.GetAmbientReflection() * 100);
 	attr.material.diffusePc = static_cast<short>(material.GetDiffuseReflection() * 100);
