@@ -40,7 +40,7 @@ bool FinishProxy::fillInventory(active::serialise::Inventory& inventory) const {
 			{ fieldID[linkedMeshID], linkedMeshID, element },
 		},
 	}.withType(&typeid(FinishProxy)));
-	return true;
+	return base::fillInventory(inventory);
 } //FinishProxy::fillInventory
 
 
@@ -53,7 +53,7 @@ bool FinishProxy::fillInventory(active::serialise::Inventory& inventory) const {
   --------------------------------------------------------------------*/
 Cargo::Unique FinishProxy::getCargo(const active::serialise::Inventory::Item& item) const {
 	if (item.ownerType != &typeid(FinishProxy))
-		return nullptr;
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
 		case materialID:
