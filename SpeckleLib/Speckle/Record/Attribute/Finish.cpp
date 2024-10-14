@@ -109,6 +109,7 @@ Finish::Finish(const database::BIMRecordID& ID) : base{ID, Finish::table} {
   --------------------------------------------------------------------*/
 Finish::Finish(const API_Attribute& attrData, const BIMRecordID& tableID) : base{attrData.header.guid, Finish::table} {
 	m_data = std::make_unique<Data>(attrData);
+	setUnit(std::nullopt);	//Finishes have no unit
 }
 
 
@@ -134,6 +135,7 @@ Finish::Finish(const ModelerAPI::Material& material) : base{Guid{Guid::fromInt(m
 	copyModelerColor(material.GetSpecularColor(), attr.material.specularRGB);
 	copyModelerColor(material.GetEmissionColor(), attr.material.emissionRGB);
 	m_data = std::make_unique<Data>(attr);
+	setUnit(std::nullopt);	//Finishes have no unit
 } //Finish::Finish
 #endif
 
