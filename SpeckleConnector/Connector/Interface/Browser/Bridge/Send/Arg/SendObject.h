@@ -43,6 +43,16 @@ namespace connector::interfac::browser::bridge {
 		 @return The requested cargo (nullptr on failure)
 		 */
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		/*!
+			Use a manager in (de)serialisation processes
+			@param management The management to use
+		*/
+		void useManagement(active::serialise::Management* management) const override { m_object->useManagement(management); }
+		/*!
+			Get the cargo management
+			@return The active management
+		*/
+		active::serialise::Management* management() const override { return m_object->management(); }
 		
 	private:
 			///The object to send

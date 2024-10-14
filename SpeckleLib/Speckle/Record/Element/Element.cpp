@@ -8,6 +8,7 @@
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
+#ifdef ARCHICAD
 #include "Sight.hpp"
 #include "Model.hpp"
 #include "ModelMaterial.hpp"
@@ -15,6 +16,7 @@
 #include "exp.h"
 #include "ModelMeshBody.hpp"
 #include "ConvexPolygon.hpp"
+#endif
 
 using namespace active::serialise;
 using namespace speckle::environment;
@@ -55,16 +57,6 @@ namespace {
 		Identity{"displayValue"},
 	};
 
-	int32_t ARGBToInt(double alpha, double red, double green, double blue) {
-		// Convert double (0.0 - 1.0) to uint8_t (0 - 255)
-		uint8_t a = static_cast<uint8_t>(std::round(alpha * 255.0));
-		uint8_t r = static_cast<uint8_t>(std::round(red * 255.0));
-		uint8_t g = static_cast<uint8_t>(std::round(green * 255.0));
-		uint8_t b = static_cast<uint8_t>(std::round(blue * 255.0));
-
-		// Pack ARGB into a single 32-bit integer
-		return (a << 24) | (r << 16) | (g << 8) | b;
-	}
 }
 
 /*--------------------------------------------------------------------
@@ -204,13 +196,13 @@ Element::Body* Element::getBody() const {
 						vertices.push_back(vertex.y);
 						vertices.push_back(vertex.z);
 
-						double alpha = material.GetTransparency();
-						ModelerAPI::Color color = material.GetSurfaceColor();
-						colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
+						//double alpha = material.GetTransparency();
+						//ModelerAPI::Color color = material.GetSurfaceColor();
+						//colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
 
 						faces.push_back(vertexIndex - 1);
 					}
-					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors)));
+					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors), material));
 				}
 			}
 		}
@@ -251,12 +243,11 @@ API_Elem_Head& Element::getHead() {
   --------------------------------------------------------------------*/
 bool Element::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
-	auto body = getBody();
 	inventory.merge(Inventory{
 		{
 			{ fieldID[bodyID], bodyID, element },	//TODO: implement other fields
 		},
-		}.withType(&typeid(Element)));
+	}.withType(&typeid(Element)));
 	return base::fillInventory(inventory);
 } //Element::fillInventory
 
@@ -276,7 +267,7 @@ Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
 	case bodyID:
 		if (auto body = getBody(); body != nullptr)
 		{
-			return Cargo::Unique{ new active::serialise::ContainerWrap{ *body } };
+			return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
 		}
 		else
 			return nullptr;

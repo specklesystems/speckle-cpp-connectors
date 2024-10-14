@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Management/Management.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
@@ -11,6 +12,7 @@
 #include "Speckle/Record/Element/Element.h"
 
 #ifdef ARCHICAD
+#include <ACAPinc.h>
 #include <ModelMaterial.hpp>
 #endif
 
@@ -47,8 +49,11 @@ namespace {
  
 	project: The source project
   --------------------------------------------------------------------*/
-ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project} {
+ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project},
+		m_management{std::make_unique<Management>()} {
+	m_management->push_back(this);
 	m_finishes = std::make_unique<FinishCache>();
+	base::useManagement(m_management.get());
 } //ProjectCollection::ProjectCollection
 
 
@@ -128,10 +133,12 @@ bool ProjectCollection::addMaterialProxy(const speckle::database::BIMIndex& mate
   --------------------------------------------------------------------*/
 bool ProjectCollection::addMaterialProxy(const ModelerAPI::Material& material, const speckle::database::BIMRecordID& objectID) {
 	auto finishID = Guid::fromInt(material.GenerateHashValue());
-	if (m_finishes->find(finishID) != m_finishes->end())
-		return false;
-	auto finish = std::make_unique<Finish>(material);
-	return m_finishes->insert({finishID, std::move(finish)}).second;
+	auto iter = m_finishes->find(finishID);
+	if (iter == m_finishes->end()) {
+		auto finish = std::make_unique<Finish>(material);
+		iter = m_finishes->insert({ finishID, std::move(finish) }).first;
+	}
+	return addMaterialProxy(finishID, objectID);
 } //ProjectCollection::addMaterialProxy
 #endif
 
@@ -148,7 +155,7 @@ bool ProjectCollection::fillInventory(active::serialise::Inventory& inventory) c
 	base::fillInventory(inventory);
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[finishProxyID]}, finishProxyID, m_finishProxies.size(), std::nullopt },
+			{ Identity{fieldID[finishProxyID]}, finishProxyID, 100, std::nullopt },
 		},
 	}.withType(&typeid(ProjectCollection)));
 	return true;

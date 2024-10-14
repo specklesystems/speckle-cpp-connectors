@@ -37,10 +37,10 @@ bool FinishProxy::fillInventory(active::serialise::Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[materialID], materialID, element },
-			{ fieldID[linkedMeshID], linkedMeshID, m_meshID.size(), std::nullopt },
+			{ fieldID[linkedMeshID], linkedMeshID, element },
 		},
 	}.withType(&typeid(FinishProxy)));
-	return true;
+	return base::fillInventory(inventory);
 } //FinishProxy::fillInventory
 
 
@@ -53,13 +53,15 @@ bool FinishProxy::fillInventory(active::serialise::Inventory& inventory) const {
   --------------------------------------------------------------------*/
 Cargo::Unique FinishProxy::getCargo(const active::serialise::Inventory::Item& item) const {
 	if (item.ownerType != &typeid(FinishProxy))
-		return nullptr;
+		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
 		case materialID:
 			return std::make_unique<PackageWrap>(m_finish);
-		case linkedMeshID:
-			return std::make_unique<ContainerWrap<std::vector<active::utility::Guid>>>(m_meshID);
+		case linkedMeshID: {
+			auto result = new ContainerWrap(m_meshID);
+			return Cargo::Unique{result};
+		}
 		default:
 			return nullptr;	//Requested an unknown index
 	}

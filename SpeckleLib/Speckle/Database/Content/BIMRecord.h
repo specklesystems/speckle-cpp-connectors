@@ -39,7 +39,7 @@ namespace speckle::database {
 		 @param unit The record unit type
 		 */
 		BIMRecord(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
-				  active::measure::LengthType unit = active::measure::LengthType::metre) :
+				  std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre) :
 				base{}, m_applicationID{ID}, m_applicationTableID{tableID}, m_unit{unit} {}
 		/*!
 		 Destructor
@@ -63,6 +63,11 @@ namespace speckle::database {
 		 @return The BIM record link
 		 */
 		BIMLink getBIMLink() const { return BIMLink{ BIMLink::base{m_applicationID, m_applicationTableID} }; }
+		/*!
+		 Get the record unit type
+		 @return The record unit type (nullopt if the record has no applicable unit type)
+		 */
+		std::optional<active::measure::LengthType> getUnit() const { return m_unit; }
 		
 		// MARK: - Functions (mutating)
 
@@ -76,6 +81,11 @@ namespace speckle::database {
 		 @param tableID The BIM table ID
 		 */
 		void setTableID(const BIMRecordID& tableID) { m_applicationTableID = tableID; }
+		/*!
+		 Set the record unit type
+		 @param unit The record unit type (nullopt if the record has no applicable unit type)
+		 */
+		void setUnit(std::optional<active::measure::LengthType> unit) { m_unit = unit; }
 		
 		// MARK: - Serialisation
 		

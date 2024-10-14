@@ -6,6 +6,10 @@
 
 #include <stack>
 
+namespace active::serialise {
+	class Management;
+}
+
 namespace speckle::record::element {
 	class Element;
 }
@@ -94,6 +98,7 @@ namespace connector::record {
 	private:
 		using FinishProxies = std::unordered_map<speckle::database::BIMIndex, std::unordered_set<active::utility::Guid>>;
 		
+		std::unique_ptr<active::serialise::Management> m_management;
 			///Finish proxies accumulated from meshes generated from the collection elements
 		FinishProxies m_finishProxies;
 #ifdef ARCHICAD

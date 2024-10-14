@@ -10,6 +10,7 @@
 
 using namespace active::serialise;
 using namespace speckle::primitive;
+using namespace speckle::serialise;
 
 namespace {
 
@@ -18,7 +19,6 @@ namespace {
 		vertexID,
 		faceID,
 		colorID,
-		proxyID,
 	};
 
 		///Serialisation field IDs
@@ -26,7 +26,6 @@ namespace {
 		Identity{"vertices"},
 		Identity{"faces"},
 		Identity{"colors"},
-		Identity{"proxy"},
 	};
 
 }
@@ -45,7 +44,6 @@ bool Mesh::fillInventory(Inventory& inventory) const {
 			{ fieldID[vertexID], vertexID, element },
 			{ fieldID[faceID], faceID, element },
 			{ fieldID[colorID], colorID, element },
-			{ fieldID[proxyID], proxyID, element },
 		},
 	}.withType(&typeid(Mesh)));
 	return base::fillInventory(inventory);
@@ -65,15 +63,26 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 	case vertexID:
-			return std::make_unique<ContainerWrap<std::vector<double>>>(vertices);
+			return std::make_unique<ContainerWrap<std::vector<double>>>(m_vertices);
 		case faceID:
-			return std::make_unique<ContainerWrap<std::vector<int>>>(faces);
+			return std::make_unique<ContainerWrap<std::vector<int>>>(m_faces);
 		case colorID:
-			return std::make_unique<ContainerWrap<std::vector<int>>>(colors);
-		case proxyID:
-			return nullptr;	//Activate the following line when the mesh material is available to add to the collector
-			//return std::make_unique<FinishProxy>(getBIMID(), material);
+			return std::make_unique<ContainerWrap<std::vector<int>>>(m_colors);
 		default:
 			return nullptr;	//Requested an unknown index
 	}
 } //Mesh::getCargo
+
+
+/*--------------------------------------------------------------------
+	Use a manager in (de)serialisation processes
+ 
+	management: The management to use
+  --------------------------------------------------------------------*/
+void Mesh::useManagement(Management* management) const {
+		//NB: This object only exists to populate the finish collection - it doesn't carry any serialisable content
+	if (management != nullptr) {
+		if (auto collector = management->get<FinishCollector>(); collector != nullptr)
+			collector->addMaterialProxy(m_material, getBIMID());
+	}
+} //Mesh::useManagement
