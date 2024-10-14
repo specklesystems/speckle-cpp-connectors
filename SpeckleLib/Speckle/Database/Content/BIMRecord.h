@@ -39,7 +39,7 @@ namespace speckle::database {
 		 @param unit The record unit type
 		 */
 		BIMRecord(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
-				  active::measure::LengthType unit = active::measure::LengthType::metre) :
+				  std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre) :
 				base{}, m_applicationID{ID}, m_applicationTableID{tableID}, m_unit{unit} {}
 		/*!
 		 Destructor
