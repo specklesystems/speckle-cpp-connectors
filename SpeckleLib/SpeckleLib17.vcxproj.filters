@@ -98,6 +98,12 @@
     <Filter Include="Speckle\Serialise\Types\Units">
       <UniqueIdentifier>{7f43d4ea-b876-4587-a646-90eab81f7976}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record\Element\Interface">
+      <UniqueIdentifier>{b35abbfd-3c47-45dc-8dab-58911f233a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Interface\Assembly">
+      <UniqueIdentifier>{8e7a76da-47ac-4105-9c09-7d7ed62d7136}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -310,6 +316,33 @@
     <ClInclude Include="Speckle\Serialise\Types\ArchicadRGB.h">
       <Filter>Speckle\Serialise\Types</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Column.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\ColumnSegment.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Memo.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Part.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Path.h">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Segment.h">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\BIMMemory.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\GenericElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -437,6 +470,33 @@
     </ClCompile>
     <ClCompile Include="Speckle\Serialise\Types\Units\LengthUnit.cpp">
       <Filter>Speckle\Serialise\Types\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Column.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\ColumnSegment.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Memo.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Part.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Path.cpp">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Segment.cpp">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\BIMMemory.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\GenericElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
