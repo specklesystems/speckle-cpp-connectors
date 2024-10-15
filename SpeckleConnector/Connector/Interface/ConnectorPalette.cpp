@@ -10,6 +10,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
 #include "Connector/Interface/Browser/Bridge/Config/ConfigBridge.h"
 #include "Connector/Interface/Browser/Bridge/Send/SendBridge.h"
+#include "Connector/Interface/Browser/Bridge/Selection/SelectionBridge.h"
 #include "Connector/Interface/Browser/Bridge/Test/TestBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
@@ -170,6 +171,7 @@ BrowserPalette::BrowserPalette() :
 	install<BaseBridge>();
 	install<ConfigBridge>();
 	install<SendBridge>();
+	install<SelectionBridge>();
 	install<TestBridge>();
 	InitBrowserControl();
 }
