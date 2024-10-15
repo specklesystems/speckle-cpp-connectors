@@ -53,6 +53,11 @@ namespace speckle::record::element {
 		 */
 		Element(const Element& source);
 		/*!
+		 Move constructor
+		 @param source The object to move
+		 */
+		Element(Element&& source);
+		/*!
 		 Destructor
 		 */
 		~Element();

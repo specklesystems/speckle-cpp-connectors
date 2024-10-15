@@ -137,8 +137,11 @@ std::unique_ptr<Element> ArchicadElementDBaseEngine::getObject(const BIMRecordID
 		uint64_t filter = documentID ? Guid::toInt(*documentID) : APIMemoMask_All;
 		if (auto err = ACAPI_Element_GetMemo(ID, memo.get(), filter); err != NoError)
 			ACAPI_DisposeElemMemoHdls(memo.get());
-		else
-			return std::make_unique<Memo>(std::move(memo));
+		else {
+			auto result = std::make_unique<Memo>();
+			result->set(std::move(memo));
+			return result;
+		}
 	}
 	if (!tableID) {
 			//Use the active table if none is specified

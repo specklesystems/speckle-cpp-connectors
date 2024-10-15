@@ -131,7 +131,7 @@ bool SegmentedColumn::receive(const Memo& memo) const {
 	auto cutPtr = memo.root()->assemblySegmentCuts;
 	auto schemePtr = memo.root()->assemblySegmentSchemes;
 	auto profilePtr = memo.root()->assemblySegmentProfiles;
-	if ((segmentPtr == nullptr) || (cutPtr == nullptr) || (schemePtr == nullptr) || (profilePtr == nullptr))
+	if ((segmentPtr == nullptr) || (cutPtr == nullptr) || (schemePtr == nullptr))
 		return false;
 		//Determine available item count
 	auto segmentCount = BIMMemory::getPtrSize(segmentPtr) / sizeof(API_ColumnSegmentType);
@@ -149,7 +149,7 @@ bool SegmentedColumn::receive(const Memo& memo) const {
 				break;
 			}
 		}
-		m_data->segments.push_back({segmentPtr[n], getTableID(), cutPtr[n], cutPtr[n + 1], schemePtr[n], thisProfile});
+		m_data->segments.emplace_back(ColumnSegment{segmentPtr[n], getTableID(), cutPtr[n], cutPtr[n + 1], schemePtr[n], thisProfile});
 		m_data->segments.back().setPath(path);
 	}
 	setMemoLoaded(true);

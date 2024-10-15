@@ -87,6 +87,16 @@ ColumnSegment::ColumnSegment(const ColumnSegment& source) : base{ source } {
 
 
 /*--------------------------------------------------------------------
+	Move constructor
+
+	source: The object to move
+  --------------------------------------------------------------------*/
+ColumnSegment::ColumnSegment(ColumnSegment&& source) : base{source} {
+	m_data = std::move(source.m_data);
+} //ColumnSegment::ColumnSegment
+
+
+/*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
 ColumnSegment::~ColumnSegment() {}

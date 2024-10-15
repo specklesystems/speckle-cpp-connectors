@@ -63,7 +63,18 @@ namespace speckle::record::element {
 #endif
 
 		// MARK: - Functions (mutating)
-		
+
+#ifdef ARCHICAD
+		/*!
+		 Get the memo root data
+		 @return The memo root data (nullptr on failure)
+		 */
+		Memo& set(std::unique_ptr<API_ElementMemo> memo) {
+			m_data = std::move(memo);
+			return *this;
+		}
+#endif
+
 	private:
 #ifdef ARCHICAD
 			//NB: The following is functionally redundant for memos - requirement of base class

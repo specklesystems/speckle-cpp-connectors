@@ -46,6 +46,11 @@ namespace speckle::record::element {
 		 */
 		ColumnSegment(const ColumnSegment& source);
 		/*!
+		 Move constructor
+		 @param source The object to move
+		 */
+		ColumnSegment(ColumnSegment&& source);
+		/*!
 		 Destructor
 		 */
 		~ColumnSegment();

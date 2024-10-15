@@ -88,6 +88,16 @@ Element::Element(const Element& source) : base{ source } {
 
 
 /*--------------------------------------------------------------------
+	Move constructor
+
+	source: The object to move
+  --------------------------------------------------------------------*/
+Element::Element(Element&& source) : base{source} {
+	m_data = std::move(source.m_data);
+} //Element::Element
+
+
+/*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
 Element::~Element() {}
@@ -277,8 +287,7 @@ void Element::loadMemo(Part::filter_bits filter, std::unique_ptr<Memo>& memo) co
 		auto project = addon()->getActiveProject().lock();
 		if (!project)
 			return;
-		auto elementDatabase = project->getElementDatabase();
-		if (auto loaded = elementDatabase->getMemo(getBIMID(), filter); loaded)
+		if (auto loaded = project->getElementDatabase()->getMemo(getBIMID(), filter); loaded)
 			memo.reset(loaded.release());
 	}
 } //Element::loadMemo
