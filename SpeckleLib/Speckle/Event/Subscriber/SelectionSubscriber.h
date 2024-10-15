@@ -53,8 +53,8 @@ namespace speckle::event {
 		 */
 		virtual bool start() override;
 		/*!
-		 Handle the menu selection
-		 @param event The menu event
+		 Handle a selection change
+		 @param event The selection event
 		 @return True if the event should be closed
 		 */
 		virtual bool handle(const SelectionEvent& event) = 0;

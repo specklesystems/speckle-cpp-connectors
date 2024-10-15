@@ -128,7 +128,6 @@ Finish::Finish(const ModelerAPI::Material& material) : base{Guid{Guid::fromInt(m
 	attr.material.diffusePc = static_cast<short>(material.GetDiffuseReflection() * 100);
 	attr.material.specularPc = static_cast<short>(material.GetSpecularReflection() * 100);
 	attr.material.transpPc = static_cast<short>(material.GetTransparency() * 100);
-	auto temp = material.GetShining();
 	attr.material.shine = static_cast<short>(material.GetShining() * 100);
 	attr.material.transpAtt = static_cast<short>(material.GetTransparencyAttenuation() * 400);
 	attr.material.emissionAtt = static_cast<short>(material.GetEmissionAttenuation() * 65535);

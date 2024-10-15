@@ -5,6 +5,7 @@
 #include "Speckle/Database/Identity/RecordID.h"
 #include "Speckle/Database/Storage/ArchicadDBase/Element/ArchicadElementDBaseEngine.h"
 #include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/Memo.h"
 
 #include <array>
 
@@ -105,6 +106,25 @@ Element::Unique BIMElementDatabase::getElement(const BIMRecordID& elementID, std
 Vector<Element> BIMElementDatabase::getElements() const {
 	return m_store->getObjects();
 } //BIMElementDatabase::getElements
+
+
+/*--------------------------------------------------------------------
+	Get memo memo (supplementary) data for a specified element
+ 
+	elementID: The of the source element
+	filter: Filter for the required supplementary data
+ 
+	return: The requested element memo data (nullptr on failure)
+  --------------------------------------------------------------------*/
+Memo::Unique BIMElementDatabase::getMemo(const BIMRecordID& elementID, Part::filter_bits filter) const {
+		//NB: The filter bits are passed as the source document ID
+	auto result = m_engine->getObject(elementID, ArchicadElementDBaseEngine::memoTable, Guid::fromInt(filter));
+	if (auto memo = dynamic_cast<Memo*>(result.get()); memo != nullptr) {
+		result.release();
+		return Memo::Unique{memo};
+	}
+	return nullptr;
+} //BIMElementDatabase::getMemo
 
 
 /*--------------------------------------------------------------------

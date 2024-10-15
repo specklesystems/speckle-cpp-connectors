@@ -3,19 +3,22 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
+#include "Speckle/Environment/Project.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
+#include "Speckle/Record/Element/Memo.h"
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
-#include "Sight.hpp"
-#include "Model.hpp"
-#include "ModelMaterial.hpp"
-#include "ModelElement.hpp"
-#include "exp.h"
-#include "ModelMeshBody.hpp"
-#include "ConvexPolygon.hpp"
+#include <Sight.hpp>
+#include <Model.hpp>
+#include <ModelMaterial.hpp>
+#include <ModelElement.hpp>
+#include <exp.h>
+#include <ModelMeshBody.hpp>
+#include <ConvexPolygon.hpp>
 #endif
 
 using namespace active::serialise;
@@ -32,14 +35,10 @@ namespace speckle::record::element {
 	class Element::Data {
 	public:
 		friend class Element;
-
-#ifdef ARCHICAD
-		Data(const API_Element& elem) : root{ std::make_unique<API_Element>(elem) } {}
-		Data(const Data& source) : root{ std::make_unique<API_Element>(*source.root) } {}
-#endif
+		Data() {}
+		Data(const Data& source) {}
 
 	private:
-		std::unique_ptr<API_Element> root;
 		std::unique_ptr<Element::Body> m_cache;
 	};
 
@@ -68,12 +67,13 @@ Element::Element() {
 
 /*--------------------------------------------------------------------
 	Constructor
-
-	elemData: Archicad element data
-	tableID: The attribute table ID (attribute type)
+ 
+	ID: The record ID
+	tableID: The parent table ID
+	unit: The record unit type
   --------------------------------------------------------------------*/
-Element::Element(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
-	m_data = std::make_unique<Data>(elemData);
+Element::Element(const Guid& ID, const Guid& tableID, std::optional<active::measure::LengthType> unit) : base{ID, tableID, unit} {
+	m_data = std::make_unique<Data>();
 } //Element::Element
 
 
@@ -213,27 +213,6 @@ Element::Body* Element::getBody() const {
 }
 
 
-#ifdef ARCHICAD
-/*--------------------------------------------------------------------
-	Get the (immutable) API element header data
-
-	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-  --------------------------------------------------------------------*/
-const API_Elem_Head& Element::getHead() const {
-	return m_data->root->header;
-} //Element::getHead
-
-/*--------------------------------------------------------------------
-	Get the (mutable) API element header data
-
-	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-  --------------------------------------------------------------------*/
-API_Elem_Head& Element::getHead() {
-	return m_data->root->header;
-} //Element::getHead
-#endif
-
-
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items
 
@@ -285,3 +264,21 @@ void Element::setDefault() {
 	base::setDefault();
 	m_data.reset();
 } //Element::setDefault
+
+
+/*--------------------------------------------------------------------
+	Load the element memo structure (elements must override according to requirements)
+ 
+	filter: Filter bits specifying memo requirements
+  --------------------------------------------------------------------*/
+void Element::loadMemo(Part::filter_bits filter, std::unique_ptr<Memo>& memo) const {
+		//If the memo data isn't loaded, fetch it now
+	if (!memo) {
+		auto project = addon()->getActiveProject().lock();
+		if (!project)
+			return;
+		auto elementDatabase = project->getElementDatabase();
+		if (auto loaded = elementDatabase->getMemo(getBIMID(), filter); loaded)
+			memo.reset(loaded.release());
+	}
+} //Element::loadMemo

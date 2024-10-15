@@ -2,6 +2,7 @@
 #define SPECKLE_RECORD_ELEMENT
 
 #include "Speckle/Database/Content/BIMRecord.h"
+#include "Speckle/Record/Element/Interface/Part.h"
 #include "Speckle/Record/Attribute/Storey.h"
 #include "Speckle/Utility/String.h"
 
@@ -10,6 +11,8 @@ namespace speckle::primitive {
 }
 
 namespace speckle::record::element {
+	
+	class Memo;
 	
 	/*!
 	 Base BIM element class
@@ -32,20 +35,18 @@ namespace speckle::record::element {
 
 		// MARK: - Constructors
 		
-		using base::base;
-		
 		/*!
 		 Default constructor
 		 */
 		Element();
-#ifdef ARCHICAD
 		/*!
 		 Constructor
-		 @param elemData Archicad element data
-		 @param tableID The element table ID (AC database, e.g. floor plan, 3D)
+		 @param ID The record ID
+		 @param tableID The parent table ID
+		 @param unit The record unit type
 		 */
-		Element(const API_Element& elemData, const speckle::utility::Guid& tableID);
-#endif
+		Element(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
+				std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre);
 		/*!
 		 Copy constructor
 		 @param source The object to copy
@@ -55,13 +56,6 @@ namespace speckle::record::element {
 		 Destructor
 		 */
 		~Element();
-
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		Element* clonePtr() const override { return new Element{*this}; }
-
 
 		// MARK: - Functions (const)
 
@@ -90,7 +84,7 @@ namespace speckle::record::element {
 		 Get the (immutable) API element header data
 		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
 		 */
-		virtual const API_Elem_Head& getHead() const;
+		virtual const API_Elem_Head& getHead() const = 0;
 #endif
 		
 		// MARK: - Functions (mutating)
@@ -100,7 +94,7 @@ namespace speckle::record::element {
 		 Get the (mutable) API element header data
 		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
 		 */
-		virtual API_Elem_Head& getHead();
+		virtual API_Elem_Head& getHead() = 0;
 #endif
 
 		// MARK: - Serialisation
@@ -121,6 +115,13 @@ namespace speckle::record::element {
 		 Set to the default package content
 		 */
 		void setDefault() override;
+		
+	protected:
+		/*!
+		 Load the element memo structure (elements must override according to requirements)
+		 @param filter Filter bits specifying memo requirements
+		 */
+		virtual void loadMemo(Part::filter_bits filter, std::unique_ptr<Memo>& memo) const;
 		
 	private:
 		class Data;
