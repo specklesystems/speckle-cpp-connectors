@@ -48,14 +48,14 @@ namespace speckle::interfac::browser {
 		 @param object The object to install
 		 @return True if the object was successfully installed
 		 */
-		bool install(std::shared_ptr<JSObject<FunctionBinding>> object);
+		std::shared_ptr<JSObject<FunctionBinding>> install(std::shared_ptr<JSObject<FunctionBinding>> object);
 		/*!
 		 Install a JS function object
 		 @return True if the object was successfully installed
 		 @tparam T The type of object to install
 		 */
 		template<typename T> requires std::is_base_of_v<JSObject<FunctionBinding>, T>
-		bool install() { return install(std::make_shared<T>()); }
+		std::shared_ptr<JSObject<FunctionBinding>> install() { return install(std::make_shared<T>()); }
 		
 	protected:
 #ifdef ARCHICAD
@@ -101,12 +101,12 @@ namespace speckle::interfac::browser {
 		return: True if the object was successfully installed
 	  --------------------------------------------------------------------*/
 	template<typename FunctionBinding>
-	bool JSPortal<FunctionBinding>::install(std::shared_ptr<JSObject<FunctionBinding>> object) {
+	std::shared_ptr<JSObject<FunctionBinding>> JSPortal<FunctionBinding>::install(std::shared_ptr<JSObject<FunctionBinding>> object) {
 		try {
 #ifdef ARCHICAD
 			auto engine = getJSEngine();
 			if (!engine)
-				return false;
+				return nullptr;
 				//Define the JS object
 			JS::Object* acObject = new JS::Object(object->getName());
 				//Add all the functions supported by this object
@@ -125,13 +125,13 @@ namespace speckle::interfac::browser {
 			if (engine->RegisterAsynchJSObject(acObject)) {
 				base::push_back(object);
 				object->setPortal(*this);
-				return true;
+				return object;
 			}
 #endif
 		} catch(...) {
 			///TODO: Need to discuss the best course of action to notify of a failure
 		}
-		return false;
+		return nullptr;
 	} //JSPortal<FunctionBinding>::install
 	
 }

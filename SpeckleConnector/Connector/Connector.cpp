@@ -1,6 +1,7 @@
 #include "Active/File/Directory.h"
 #include "ConnectorResource.h"
 #include "Connector/Connector.h"
+#include "Connector/Interface/Browser/Bridge/Selection/SelectionChangeHandler.h"
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/ConnectorMenu.h"
 #include "Connector/Interface/ConnectorPalette.h"
@@ -12,6 +13,7 @@ using namespace active::file;
 using namespace active::environment;
 using namespace connector;
 using namespace connector::database;
+using namespace connector::interfac::browser::bridge;
 using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::utility;

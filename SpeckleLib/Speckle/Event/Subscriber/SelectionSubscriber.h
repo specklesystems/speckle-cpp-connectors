@@ -35,7 +35,7 @@ namespace speckle::event {
 		 Get the event subscription list
 		 @return The subscription list (an empty list will put the subscriber into a suspended state)
 		*/
-		virtual Subscription subscription() const override;
+		Subscription subscription() const override;
 		
 		// MARK: - Functions (mutating)
 		
@@ -44,14 +44,21 @@ namespace speckle::event {
 		 @param event The incoming event
 		 @return True if the event should be closed
 		 */
-		virtual bool receive(const active::event::Event& event) override;
-		
-	protected:
+		bool receive(const active::event::Event& event) override;
+
 		/*!
 		 Start the participant operation
 		 @return True if the participant is able to continue
 		 */
 		virtual bool start() override;
+
+		/*!
+		 Stop participation (release resources etc)
+		 */
+		void stop() override;
+		
+	protected:
+
 		/*!
 		 Handle the menu selection
 		 @param event The menu event

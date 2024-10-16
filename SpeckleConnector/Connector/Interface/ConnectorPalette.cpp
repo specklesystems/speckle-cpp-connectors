@@ -4,6 +4,7 @@
 #include "Active/Utility/String.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferOut.h"
+#include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
@@ -76,9 +77,6 @@ namespace {
 
 		virtual void PanelResized(const DG::PanelResizeEvent& ev) override;
 		virtual	void PanelCloseRequested(const DG::PanelCloseRequestEvent& ev, bool* accepted) override;
-
-		static GS::Array<BrowserPalette::ElementInfo> GetSelectedElements();
-		static void ModifySelection(const GS::UniString& elemGuidStr, SelectionModification modification);
 
 		static GSErrCode __ACENV_CALL	PaletteControlCallBack(Int32 paletteId, API_PaletteMessageID messageID, GS::IntPtr param);
 
@@ -171,7 +169,12 @@ BrowserPalette::BrowserPalette() :
 	install<BaseBridge>();
 	install<ConfigBridge>();
 	install<SendBridge>();
-	install<SelectionBridge>();
+	if (auto ref = install<SelectionBridge>(); ref) {
+		if (auto selectionBridgeRef = std::dynamic_pointer_cast<SelectionBridge>(ref); selectionBridgeRef) {
+			connector::connector()->addWeak(selectionBridgeRef);
+			selectionBridgeRef->start();
+		}
+	}
 	install<TestBridge>();
 	InitBrowserControl();
 }
@@ -243,31 +246,6 @@ void BrowserPalette::PanelResized(const DG::PanelResizeEvent& ev) {
 void BrowserPalette::PanelCloseRequested(const DG::PanelCloseRequestEvent&, bool* accepted) {
 	Hide();
 	*accepted = true;
-}
-
-GS::Array<BrowserPalette::ElementInfo> BrowserPalette::GetSelectedElements() {
-	API_SelectionInfo	selectionInfo;
-	GS::Array<API_Neig>	selNeigs;
-	ACAPI_Selection_Get(&selectionInfo, &selNeigs, false, false);
-	BMKillHandle((GSHandle*)&selectionInfo.marquee.coords);
-
-	GS::Array<BrowserPalette::ElementInfo> selectedElements;
-	for(const API_Neig& neig : selNeigs) {
-		API_Elem_Head elemHead = {};
-		elemHead.guid = neig.guid;
-		ACAPI_Element_GetHeader(&elemHead);
-
-		ElementInfo elemInfo;
-		elemInfo.guidStr = APIGuidToString(elemHead.guid);
-		ACAPI_Element_GetElemTypeName(elemHead.type, elemInfo.typeName);
-		ACAPI_Element_GetElementInfoString(&elemHead.guid, &elemInfo.elemID);
-		selectedElements.Push(elemInfo);
-	}
-	return selectedElements;
-}
-
-void BrowserPalette::ModifySelection(const GS::UniString& elemGuidStr, BrowserPalette::SelectionModification modification) {
-	ACAPI_Selection_Select({ API_Neig(APIGuidFromString(elemGuidStr.ToCStr().Get())) }, modification == AddToSelection);
 }
 
 GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_PaletteMessageID messageID, GS::IntPtr param) {

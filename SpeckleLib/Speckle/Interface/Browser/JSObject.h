@@ -38,7 +38,7 @@ namespace speckle::interfac::browser {
 		*/
 		template<class Derived>
 		explicit JSObject(const speckle::utility::String& name, const std::initializer_list<Derived>& items) : base{items}, m_name{name} {}
-
+		virtual ~JSObject() {}
 		// MARK: - Functions (const)
 		
 		/*!

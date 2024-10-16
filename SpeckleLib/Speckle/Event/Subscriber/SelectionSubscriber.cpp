@@ -69,12 +69,18 @@ bool SelectionSubscriber::receive(const Event& event) {
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
 bool SelectionSubscriber::start() {
-	if (m_isStarted)
-		return true;
-	m_isStarted = true;
 #ifdef ARCHICAD
 	return (ACAPI_Notification_CatchSelectionChange(selectionCallback) == NoError);
 #else
 	return false;
 #endif
 } //SelectionSubscriber::start
+
+/*--------------------------------------------------------------------
+	Stop participation (release resources etc)
+  --------------------------------------------------------------------*/
+void SelectionSubscriber::stop() {
+#ifdef ARCHICAD
+	ACAPI_Notification_CatchSelectionChange(nullptr);
+#endif
+}

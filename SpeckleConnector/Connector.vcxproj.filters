@@ -243,6 +243,9 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Selection\Arg</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\SelectionChangeHandler.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -410,6 +413,9 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.h">
       <Filter>Connector\Interface\Browser\Bridge\Selection\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionChangeHandler.h">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

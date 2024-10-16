@@ -21,10 +21,12 @@ namespace connector::interfac::browser::bridge {
 		/*!
 		 Default constructor
 		 */
-		SelectionInfo() = default;
+		SelectionInfo();
 		
-		active::utility::String summary = "Nothing is selected";
-		std::vector<active::utility::Guid> selectedElementIds;
+		active::utility::String m_summary = "No objects selected";
+		std::vector<active::utility::Guid> m_selectedElementIds;
+
+		void initialize();
 		
 		// MARK: - Serialisation
 		
