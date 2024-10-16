@@ -91,7 +91,7 @@ ColumnSegment::ColumnSegment(const ColumnSegment& source) : base{ source } {
 
 	source: The object to move
   --------------------------------------------------------------------*/
-ColumnSegment::ColumnSegment(ColumnSegment&& source) : base{source} {
+ColumnSegment::ColumnSegment(ColumnSegment&& source) noexcept : base{source} {
 	m_data = std::move(source.m_data);
 } //ColumnSegment::ColumnSegment
 

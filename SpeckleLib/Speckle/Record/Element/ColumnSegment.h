@@ -49,7 +49,7 @@ namespace speckle::record::element {
 		 Move constructor
 		 @param source The object to move
 		 */
-		ColumnSegment(ColumnSegment&& source);
+		ColumnSegment(ColumnSegment&& source) noexcept;
 		/*!
 		 Destructor
 		 */
