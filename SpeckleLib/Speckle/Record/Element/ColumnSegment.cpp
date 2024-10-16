@@ -82,7 +82,7 @@ ColumnSegment::ColumnSegment(const API_ColumnSegmentType& segment, const speckle
 	source: The object to copy
   --------------------------------------------------------------------*/
 ColumnSegment::ColumnSegment(const ColumnSegment& source) : base{ source } {
-	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
+	m_data = source.m_data ? std::make_unique<Data>(*source.m_data) : nullptr;
 } //ColumnSegment::ColumnSegment
 
 
