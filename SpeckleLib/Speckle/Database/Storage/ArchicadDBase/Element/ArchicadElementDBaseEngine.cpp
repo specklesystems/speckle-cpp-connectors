@@ -10,6 +10,10 @@
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Event/Type/DocStoreMergeEvent.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
+#include "Speckle/Record/Element/Column.h"
+#include "Speckle/Record/Element/ColumnSegment.h"
+#include "Speckle/Record/Element/GenericElement.h"
+#include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -67,9 +71,14 @@ namespace {
 	 @return A new element object (nullptr on failure)
 	 */
 	Element::Unique makeElement(const API_Element& elementData, const BIMRecordID& tableID) {
-			//Implement an object factory in future as classes for specific element types are implemented, e.g. Wall, Roof etc. using hash map
-			//The fallback for undefined element types will always be the base Element class
-		return std::make_unique<Element>(elementData, tableID);
+		switch (elementData.header.type.typeID) {
+			case API_ColumnID:
+				return std::make_unique<Column>(elementData, tableID);
+			case API_ColumnSegmentID:
+				return std::make_unique<ColumnSegment>(elementData, tableID);
+			default:
+				return std::make_unique<GenericElement>(elementData, tableID);
+		}
 	}
 
 }
@@ -120,7 +129,22 @@ BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
   --------------------------------------------------------------------*/
 std::unique_ptr<Element> ArchicadElementDBaseEngine::getObject(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
 															   std::optional<BIMRecordID> documentID)  const {
+		//Check for memo table requests
+	if (tableID == memoTable) {
+		auto memo = std::make_unique<API_ElementMemo>();
+		active::utility::Memory::erase(*memo);
+			//Use memo filtering when requested
+		uint64_t filter = documentID ? Guid::toInt(*documentID) : APIMemoMask_All;
+		if (auto err = ACAPI_Element_GetMemo(ID, memo.get(), filter); err != NoError)
+			ACAPI_DisposeElemMemoHdls(memo.get());
+		else {
+			auto result = std::make_unique<Memo>();
+			result->set(std::move(memo));
+			return result;
+		}
+	}
 	if (!tableID) {
+			//Use the active table if none is specified
 		tableID = getActiveTable();
 		if (!tableID)
 			return nullptr;

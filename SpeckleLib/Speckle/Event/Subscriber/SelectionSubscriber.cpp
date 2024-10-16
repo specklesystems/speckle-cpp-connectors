@@ -35,9 +35,6 @@ namespace {
 
 }
 
-	//True if a selection change subscriber has already started (only one is required - there are no variants)
-bool speckle::event::SelectionSubscriber::m_isStarted = false;
-
 /*--------------------------------------------------------------------
 	Get the event subscription list
  
@@ -75,6 +72,7 @@ bool SelectionSubscriber::start() {
 	return false;
 #endif
 } //SelectionSubscriber::start
+
 
 /*--------------------------------------------------------------------
 	Stop participation (release resources etc)

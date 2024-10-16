@@ -45,13 +45,11 @@ namespace speckle::event {
 		 @return True if the event should be closed
 		 */
 		bool receive(const active::event::Event& event) override;
-
 		/*!
 		 Start the participant operation
 		 @return True if the participant is able to continue
 		 */
 		virtual bool start() override;
-
 		/*!
 		 Stop participation (release resources etc)
 		 */
@@ -60,15 +58,11 @@ namespace speckle::event {
 	protected:
 
 		/*!
-		 Handle the menu selection
+		 Handle a selection change
 		 @param event The selection event
 		 @return True if the event should be closed
 		 */
 		virtual bool handle(const SelectionEvent& event) = 0;
-		
-	private:
-			///True if a selection change subscriber has already started (only one is required - there are no variants)
-		static bool m_isStarted;
 	};
 	
 }

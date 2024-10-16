@@ -40,7 +40,7 @@ bool Record::fillInventory(active::serialise::Inventory& inventory) const {
 	}.withType(&typeid(base)));
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[speckleTypeID]}, speckleTypeID, element },
+			{ Identity{fieldID[speckleTypeID]}, speckleTypeID, attribute },
 		},
 	}.withType(&typeid(Record)));
 	return true;

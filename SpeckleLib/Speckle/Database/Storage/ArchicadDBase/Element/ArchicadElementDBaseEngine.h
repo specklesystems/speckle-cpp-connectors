@@ -18,15 +18,20 @@ namespace speckle::database {
 	 A database engine to read/write elements in an Archicad project database (local file or cloud-based)
 	 */
 	class ArchicadElementDBaseEngine : public ArchicadDBaseCore,
-			public active::database::DBaseEngine<record::element::Element,BIMRecordID, BIMRecordID, BIMRecordID>  {
+			public active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>  {
 	public:
 		
 		// MARK: - Types
 		
-		using base = active::database::DBaseEngine<record::element::Element,BIMRecordID, BIMRecordID, BIMRecordID>;
+		using base = active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>;
 		using Element = record::element::Element;
 		using Filter = base::Filter;
 		using Outline = base::Outline;
+		
+		// MARK: - Constants
+		
+			///The memo table ID (supplementary element data)
+		static const inline utility::Guid memoTable{utility::String{"fdff96d2-8c34-4f8b-8a76-a96a2b242758"}};
 		
 		// MARK: - Static functions
 		
