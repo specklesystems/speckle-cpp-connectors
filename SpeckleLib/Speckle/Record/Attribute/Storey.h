@@ -67,11 +67,6 @@ namespace speckle::record::attribute {
 
 		// MARK: - Functions (const)
 
-		/*!
-		 Get the speckle type identifier
-		 @return The speckle type (relevant objects should override as required)
-		 */
-		speckle::utility::String getSpeckleType() const override { return "speckle::record::attribute::Storey"; }
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API attribute header data

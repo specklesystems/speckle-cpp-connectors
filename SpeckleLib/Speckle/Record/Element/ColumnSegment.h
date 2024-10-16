@@ -64,11 +64,6 @@ namespace speckle::record::element {
 
 		// MARK: - Functions (const)
 
-		/*!
-		 Get the speckle type identifier
-		 @return The speckle type (relevant objects should override as required)
-		 */
-		speckle::utility::String getSpeckleType() const override { return "Objects.BuiltElements.Element:Objects.BuiltElements.ColumnSegment"; }
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API element header data

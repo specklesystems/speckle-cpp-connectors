@@ -65,11 +65,6 @@ namespace speckle::record::element {
 		// MARK: - Functions (const)
 
 		/*!
-		 Get the speckle type identifier
-		 @return The speckle type (relevant objects should override as required)
-		 */
-		virtual speckle::utility::String getSpeckleType() const override { return "Objects.BuiltElements.Element:Objects.BuiltElements.Element"; }
-		/*!
 		 Get the elmeent type name, e.g. "Wall", "Roof" etc
 		 @return The type name
 		 */

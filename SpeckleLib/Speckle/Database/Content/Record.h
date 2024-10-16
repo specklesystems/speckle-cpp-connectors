@@ -43,7 +43,7 @@ namespace speckle::database {
 		 Get the speckle type identifier
 		 @return The speckle type (relevant objects should override as required, but "Base" is still considered a type on its own)
 		 */
-		virtual speckle::utility::String getSpeckleType() const { return "speckle::database::Record"; }
+		virtual speckle::utility::String getSpeckleType() const { return "Base"; }
 		
 		// MARK: - Functions (mutating)
 

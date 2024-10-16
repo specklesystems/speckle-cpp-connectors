@@ -62,11 +62,6 @@ namespace speckle::record::element {
 		// MARK: - Functions (const)
 
 		/*!
-		 Get the speckle type identifier
-		 @return The speckle type (relevant objects should override as required)
-		 */
-		speckle::utility::String getSpeckleType() const override { return "Objects.BuiltElements.Element:Objects.BuiltElements.Column"; }
-		/*!
 		 Get the BIM application parent table ID
 		 @return The BIM table ID
 		 */

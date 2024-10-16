@@ -74,7 +74,9 @@ ColumnSegment* SegmentedColumn::getSegment(size_t index) const {
 	return: The required filter bits
   --------------------------------------------------------------------*/
 Part::filter_bits SegmentedColumn::getPartFilter() const {
+#ifdef ARCHICAD
 	return APIMemoMask_ColumnSegment | APIMemoMask_AssemblySegmentCut | APIMemoMask_AssemblySegmentScheme | APIMemoMask_AssemblySegmentProfile;
+#endif
 } //SegmentedColumn::getPartFilter
 
 
