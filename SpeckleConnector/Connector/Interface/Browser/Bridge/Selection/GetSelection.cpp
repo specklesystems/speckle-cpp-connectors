@@ -1,5 +1,5 @@
-#include "Connector/Interface/Browser/Bridge/Selection/GetSelection.h"
 #include "Active/Serialise/CargoHold.h"
+#include "Connector/Interface/Browser/Bridge/Selection/GetSelection.h"
 #include "Connector/Interface/Browser/Bridge/Selection/Arg/SelectionInfo.h"
 
 using namespace active::serialise;
@@ -14,9 +14,8 @@ GetSelection::GetSelection() : BridgeMethod{"GetSelection", [&]() {
 
 
 /*--------------------------------------------------------------------
-	Send a specified model
- 
-	modelCardID: The ID of the model to send
+	Get the current selection info 
+	based on the ArchiCAD mdoel selection
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetSelection::run() const {
 	auto selectionInfo = std::make_unique<SelectionInfo>();

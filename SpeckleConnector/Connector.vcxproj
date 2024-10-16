@@ -114,7 +114,6 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.cpp" />
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\SelectionChangeHandler.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.cpp" />
@@ -170,7 +169,6 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.h" />
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionChangeHandler.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.h" />

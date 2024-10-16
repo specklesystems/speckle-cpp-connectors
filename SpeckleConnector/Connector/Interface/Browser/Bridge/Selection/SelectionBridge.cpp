@@ -1,6 +1,6 @@
+#include "Active/Serialise/CargoHold.h"
 #include "Connector/Interface/Browser/Bridge/Selection/SelectionBridge.h"
 #include "Connector/Interface/Browser/Bridge/Selection/GetSelection.h"
-#include "Active/Serialise/CargoHold.h"
 #include "Connector/Interface/Browser/Bridge/Selection/Arg/SelectionInfo.h"
 
 using namespace active::serialise;
@@ -14,9 +14,14 @@ SelectionBridge::SelectionBridge() : BrowserBridge{"selectionBinding"} {
 	addMethod<GetSelection>();
 } //SelectionBridge::SelectionBridge
 
+/*!
+Handle the menu selection
+@param event The selection event
+@return True if the event should be closed
+*/
 bool SelectionBridge::handle(const speckle::event::SelectionEvent& event) {
 	auto selectionInfo = std::make_unique<SelectionInfo>();
 	auto wrapped =  std::make_unique<CargoHold<PackageWrap, SelectionInfo>>(std::move(selectionInfo));
 	sendEvent("setSelection", std::move(wrapped));
 	return true;
-}
+} //SelectionBridge::handle

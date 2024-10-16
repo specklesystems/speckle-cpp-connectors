@@ -26,7 +26,11 @@ namespace connector::interfac::browser::bridge {
 		SelectionBridge();
 
 	protected:
-
+		/*!
+		 Handle the menu selection
+		 @param event The selection event
+		 @return True if the event should be closed
+		 */
 		bool handle(const speckle::event::SelectionEvent& event) override;
 	};
 	

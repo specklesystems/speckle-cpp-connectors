@@ -2,7 +2,6 @@
 #define CONNECTOR_INTERFACE_BRIDGE_SELECTION_INFO
 
 #include "Active/Serialise/Package/Package.h"
-#include "Speckle/Interface/Browser/Bridge/ArgumentBase.h"
 
 namespace connector::interfac::browser::bridge {
 	
@@ -43,7 +42,6 @@ namespace connector::interfac::browser::bridge {
 		*/
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 	};
-
 }
 
 #endif	//CONNECTOR_INTERFACE_BRIDGE_SELECTION_INFO

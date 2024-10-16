@@ -1,20 +1,16 @@
-#include "Connector/Interface/Browser/Bridge/Selection/Arg/SelectionInfo.h"
-
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
-
 #include "Connector/Connector.h"
-
+#include "Connector/Interface/Browser/Bridge/Selection/Arg/SelectionInfo.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Record/Element/Element.h"
-using namespace speckle::record::element;
 
 #include <array>
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
+using namespace speckle::record::element;
 
 namespace {
 
@@ -39,7 +35,8 @@ SelectionInfo::SelectionInfo() {
 void SelectionInfo::initialize() {
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
-		// TODO: handle
+		// TODO: is thi OK?
+		return;
 	}
 
 	auto elementDatabase = project->getElementDatabase();
@@ -70,7 +67,7 @@ bool SelectionInfo::fillInventory(Inventory& inventory) const {
 		},
 	}.withType(&typeid(SelectionInfo)));
 	return true;
-} //ConnectorConfig::fillInventory
+} //SelectionInfo::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -92,4 +89,4 @@ Cargo::Unique SelectionInfo::getCargo(const Inventory::Item& item) const {
 		default:
 			return nullptr;	//Requested an unknown index
 	}
-} //ConnectorConfig::getCargo
+} //SelectionInfo::getCargo

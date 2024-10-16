@@ -19,8 +19,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Send a specified model
-		 @param modelCardID The ID of the model to send
+		 Get the current selection info 
+		 based on the ArchiCAD mdoel selection
 		 */
 		std::unique_ptr<active::serialise::Cargo> run() const;
 	};
