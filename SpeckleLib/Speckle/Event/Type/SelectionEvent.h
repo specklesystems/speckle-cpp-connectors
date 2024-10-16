@@ -24,7 +24,7 @@ namespace speckle::event {
 		 Constructor
 		 @param selected A link to a selected element (nullopt if the selection is empty)
 		 */
-		SelectionEvent(speckle::database::BIMLink::Option selected) : m_selectedLink{selected} {}
+		SelectionEvent(speckle::database::BIMLink::Option selected) : Event{ ID }, m_selectedLink{selected} {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy

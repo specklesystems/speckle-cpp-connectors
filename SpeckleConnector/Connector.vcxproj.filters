@@ -65,6 +65,12 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Send\Arg">
       <UniqueIdentifier>{6693f9a9-5ece-4853-b008-4064d1c551ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Selection">
+      <UniqueIdentifier>{806f4af5-fa02-49b8-ac01-297991fe90ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Selection\Arg">
+      <UniqueIdentifier>{8bb3df60-affe-4b66-8d78-f1b98e6ba8df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -228,6 +234,15 @@
     <ClCompile Include="Connector\Record\Collection\ProjectCollection.cpp">
       <Filter>Connector\Record\Collection</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Selection\Arg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -386,6 +401,15 @@
     </ClInclude>
     <ClInclude Include="Connector\Record\Collection\ProjectCollection.h">
       <Filter>Connector\Record\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.h">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Selection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.h">
+      <Filter>Connector\Interface\Browser\Bridge\Selection\Arg</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

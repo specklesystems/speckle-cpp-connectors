@@ -45,17 +45,18 @@ namespace speckle::event {
 		 @return True if the event should be closed
 		 */
 		bool receive(const active::event::Event& event) override;
-		
-	protected:
 		/*!
 		 Start the participant operation
 		 @return True if the participant is able to continue
 		 */
-		bool start() override;
+		virtual bool start() override;
 		/*!
 		 Stop participation (release resources etc)
 		 */
 		void stop() override;
+		
+	protected:
+
 		/*!
 		 Handle a selection change
 		 @param event The selection event
