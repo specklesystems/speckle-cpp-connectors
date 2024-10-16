@@ -24,8 +24,6 @@ namespace connector::interfac::browser::bridge {
 		
 		active::utility::String m_summary = "No objects selected";
 		std::vector<active::utility::Guid> m_selectedElementIds;
-
-		void initialize();
 		
 		// MARK: - Serialisation
 		
@@ -41,6 +39,10 @@ namespace connector::interfac::browser::bridge {
 			@return The requested cargo (nullptr on failure)
 		*/
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+
+	private:
+
+		void initialize();
 	};
 }
 
