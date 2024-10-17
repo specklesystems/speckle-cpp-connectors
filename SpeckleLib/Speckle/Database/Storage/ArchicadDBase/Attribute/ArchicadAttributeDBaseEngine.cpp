@@ -295,3 +295,24 @@ std::optional<BIMRecordID> ArchicadAttributeDBaseEngine::getStoreyID(short index
 	return std::nullopt;
 } //ArchicadAttributeDBaseEngine::getStoreyID
 #endif
+
+
+/*--------------------------------------------------------------------
+	Handle a project event
+ 
+	event: The project event
+ 
+	return: True if the event should be closed
+  --------------------------------------------------------------------*/
+bool ArchicadAttributeDBaseEngine::handle(const event::ProjectEvent& event) {
+	using enum ProjectEvent::Type;
+	switch (event.getType()) {
+		case newDocument: case newAndReset: case open: case close: case quit:
+				//Reset the storey cache on any event that changes the active project
+			m_storeyCache.reset();
+			break;
+		default:
+			break;
+	}
+	return false;
+} //ArchicadAttributeDBaseEngine::handle

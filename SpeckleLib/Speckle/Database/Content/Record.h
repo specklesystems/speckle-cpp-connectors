@@ -37,7 +37,7 @@ namespace speckle::database {
 		 */
 		virtual ~Record() {}
 		
-		// MARK: - Functions (const)
+		// MARK: - Functions (const)	
 		
 		/*!
 		 Get the speckle type identifier

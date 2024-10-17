@@ -29,10 +29,6 @@ namespace {
 }
 
 SelectionInfo::SelectionInfo() {
-	initialize();
-}
-
-void SelectionInfo::initialize() {
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
 		// TODO: is thi OK?
@@ -50,6 +46,7 @@ void SelectionInfo::initialize() {
 		m_selectedElementIds.push_back(link);
 	}
 }
+
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items

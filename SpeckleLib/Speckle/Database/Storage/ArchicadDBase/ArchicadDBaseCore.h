@@ -7,7 +7,6 @@
 #include "Active/Setting/SettingList.h"
 #include "Active/Database/Storage/DBaseSchema.h"
 #include "Active/Utility/NameID.h"
-#include "Speckle/Event/Subscriber/DocStoreSubscriber.h"
 #include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
 namespace speckle::database {
@@ -19,7 +18,7 @@ namespace speckle::database {
 	 
 	 Currently implement for Archicad Add-On Objects
 	 */
-	class ArchicadDBaseCore  {
+	class ArchicadDBaseCore : public event::ProjectSubscriber  {
 	public:
 
 		// MARK: - Types
@@ -69,8 +68,12 @@ namespace speckle::database {
 		
 		// MARK: - Functions (mutating)
 		
-	protected:
-
+		/*!
+		 Handle a project event
+		 @param event The project event
+		 @return True if the event should be closed
+		 */
+		bool handle(const event::ProjectEvent& event) override { return false; }
 		
 	private:
 			///The database schema

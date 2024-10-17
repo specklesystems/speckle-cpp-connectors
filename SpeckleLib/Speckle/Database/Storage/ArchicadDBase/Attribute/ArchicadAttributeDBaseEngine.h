@@ -134,6 +134,15 @@ namespace speckle::database {
 		 */
 		std::optional<BIMRecordID> getStoreyID(short index) const;
 #endif
+		
+		// MARK: - Functions (mutating)
+		
+		/*!
+		 Handle a project event
+		 @param event The project event
+		 @return True if the event should be closed
+		 */
+		bool handle(const event::ProjectEvent& event) override;
 
 	private:
 		void setTable(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt);

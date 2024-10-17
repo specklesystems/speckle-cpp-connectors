@@ -32,6 +32,9 @@
 		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
+		21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B22CC15C540087E732 /* SelectionInfo.cpp */; };
+		21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B52CC15C540087E732 /* GetSelection.cpp */; };
+		21A890BE2CC15C540087E732 /* SelectionBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B72CC15C540087E732 /* SelectionBridge.cpp */; };
 		21AEF9EB2CAB56E5000B8681 /* SendError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E32CAB56E5000B8681 /* SendError.cpp */; };
 		21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */; };
 		21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9EE2CAB5720000B8681 /* SendObject.cpp */; };
@@ -314,6 +317,12 @@
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
 		21A0FB942CB723240023F24E /* FinishProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishProxy.cpp; sourceTree = "<group>"; };
 		21A0FB972CB723240023F24E /* FinishProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
+		21A890B22CC15C540087E732 /* SelectionInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionInfo.cpp; sourceTree = "<group>"; };
+		21A890B32CC15C540087E732 /* SelectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionInfo.h; sourceTree = "<group>"; };
+		21A890B52CC15C540087E732 /* GetSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSelection.cpp; sourceTree = "<group>"; };
+		21A890B62CC15C540087E732 /* GetSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSelection.h; sourceTree = "<group>"; };
+		21A890B72CC15C540087E732 /* SelectionBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionBridge.cpp; sourceTree = "<group>"; };
+		21A890B82CC15C540087E732 /* SelectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionBridge.h; sourceTree = "<group>"; };
 		21AEF9E32CAB56E5000B8681 /* SendError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendError.cpp; sourceTree = "<group>"; };
 		21AEF9E42CAB56E5000B8681 /* SendError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendError.h; sourceTree = "<group>"; };
 		21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendViaBrowserArgs.cpp; sourceTree = "<group>"; };
@@ -963,6 +972,27 @@
 			path = ConnectorTests;
 			sourceTree = "<group>";
 		};
+		21A890B42CC15C540087E732 /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21A890B22CC15C540087E732 /* SelectionInfo.cpp */,
+				21A890B32CC15C540087E732 /* SelectionInfo.h */,
+			);
+			path = Arg;
+			sourceTree = "<group>";
+		};
+		21A890B92CC15C540087E732 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				21A890B42CC15C540087E732 /* Arg */,
+				21A890B52CC15C540087E732 /* GetSelection.cpp */,
+				21A890B62CC15C540087E732 /* GetSelection.h */,
+				21A890B72CC15C540087E732 /* SelectionBridge.cpp */,
+				21A890B82CC15C540087E732 /* SelectionBridge.h */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		21AEF9E72CAB56E5000B8681 /* Arg */ = {
 			isa = PBXGroup;
 			children = (
@@ -1202,6 +1232,7 @@
 				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
 				21D0BD5D2C89BFEA0077E104 /* Send */,
+				21A890B92CC15C540087E732 /* Selection */,
 				21B67CD82C78C83800FD64FC /* Test */,
 			);
 			path = Bridge;
@@ -1456,6 +1487,7 @@
 				215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
+				21A890BE2CC15C540087E732 /* SelectionBridge.cpp in Sources */,
 				21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */,
 				21D0BDCF2C92DAC60077E104 /* AddModel.cpp in Sources */,
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
@@ -1478,6 +1510,7 @@
 				21FF70492CA1A7F400AAD99A /* RecordCollection.cpp in Sources */,
 				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
 				21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */,
+				21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */,
 				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */,
@@ -1485,6 +1518,7 @@
 				215F082A2C947F4400CD343B /* CardMover.cpp in Sources */,
 				215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
+				21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */,
 				21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
