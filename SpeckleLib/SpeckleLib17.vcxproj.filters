@@ -343,6 +343,15 @@
     <ClInclude Include="Speckle\Record\Element\GenericElement.h">
       <Filter>Speckle\Record\Element</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\SegmentedBeam.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Beam.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\BeamSegment.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -496,6 +505,15 @@
       <Filter>Speckle\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Speckle\Record\Element\GenericElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\SegmentedBeam.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Beam.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\BeamSegment.cpp">
       <Filter>Speckle\Record\Element</Filter>
     </ClCompile>
   </ItemGroup>
