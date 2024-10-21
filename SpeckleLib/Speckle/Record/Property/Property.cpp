@@ -70,6 +70,16 @@ Property::Property(const Setting& setting, std::shared_ptr<Template> propTemplat
 
 
 /*--------------------------------------------------------------------
+	Copy constructor
+ 
+	source: The object to copy
+  --------------------------------------------------------------------*/
+Property::Property(const Property& source) :
+		m_setting{source.m_setting ? std::make_unique<Setting>(*source.m_setting) : nullptr}, m_template{source.m_template} {
+} //Property::Property
+
+
+/*--------------------------------------------------------------------
 	Move constructor
  
 	source: the property to move

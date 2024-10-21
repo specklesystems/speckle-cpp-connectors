@@ -94,7 +94,7 @@ ModelElement::ModelElement(const API_Element& elemData, const Guid& tableID) : b
 
 	source: The object to copy
   --------------------------------------------------------------------*/
-ModelElement::ModelElement(const ModelElement& source) : base{ source } {
+ModelElement::ModelElement(const ModelElement& source) : base{source}, Classified{source}, Propertied{source} {
 	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
 } //ModelElement::ModelElement
 

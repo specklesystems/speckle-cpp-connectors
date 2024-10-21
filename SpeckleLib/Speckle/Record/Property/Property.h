@@ -56,6 +56,11 @@ namespace speckle::record::property {
 		 */
 		Property(const Setting& setting, std::shared_ptr<Template> propTemplate);
 		/*!
+		 Copy constructor
+		 @param source The object to copy
+		 */
+		Property(const Property& source);
+		/*!
 		 Move constructor
 		 @param source the property to move
 		 */

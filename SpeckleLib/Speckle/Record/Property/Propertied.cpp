@@ -14,13 +14,6 @@ using namespace speckle::record::property;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
-	Default constructor
-  --------------------------------------------------------------------*/
-Propertied::Propertied() {
-} //Propertied::Propertied
-
-
-/*--------------------------------------------------------------------
 	Get the attached properties
  
 	return: The attached properties

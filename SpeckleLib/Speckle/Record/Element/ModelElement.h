@@ -1,14 +1,17 @@
 #ifndef SPECKLE_RECORD_MODEL_ELEMENT
 #define SPECKLE_RECORD_MODEL_ELEMENT
 
+#include "Speckle/Record/Classification/Classified.h"
 #include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Property/Propertied.h"
 
 namespace speckle::record::element {
 	
 	/*!
 	 Base class for model elements, i.e. with 3D bodies and typically representing the project model
 	 */
-	class ModelElement : public Element {
+	class ModelElement : public Element, public classify::Classified, public property::Propertied {
 	public:
 
 		// MARK: - Types

@@ -25,7 +25,18 @@ namespace speckle::record::property {
 		/*!
 		 Default constructor
 		 */
-		Propertied();
+		Propertied() {}
+		/*!
+		 Copy constructor
+		 @param source The object to copy
+		 */
+		Propertied(const Propertied& source) :
+				m_properties{source.m_properties ? std::make_unique<std::vector<Property>>(*source.m_properties) : nullptr} {}
+		/*!
+		 Move constructor
+		 @param source The object to move
+		 */
+		Propertied(Propertied&& source) noexcept : m_properties{std::move(source.m_properties)} {}
 		/*!
 		 Destructor
 		 */
