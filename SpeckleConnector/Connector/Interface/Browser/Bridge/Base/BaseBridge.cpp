@@ -1,5 +1,4 @@
 #include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
-
 #include "Connector/Interface/Browser/Bridge/Base/AddModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/GetConnectorVersion.h"
 #include "Connector/Interface/Browser/Bridge/Base/GetDocumentInfo.h"
@@ -25,3 +24,22 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<RemoveModel>();
 	addMethod<UpdateModel>();
 } //BaseBridge::BaseBridge
+
+/*--------------------------------------------------------------------
+	Handle a project event
+
+	event: The project event
+
+	return: True if the event should be closed
+ --------------------------------------------------------------------*/
+bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
+	using enum speckle::event::ProjectEvent::Type;
+	switch (event.getType()) {
+	case close:
+		sendEvent("documentChanged");
+		break;
+	default:
+		break;
+	}
+	return false;
+} //BaseBridge::handle
