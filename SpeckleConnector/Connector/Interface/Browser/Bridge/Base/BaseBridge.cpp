@@ -35,7 +35,7 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-	case close:
+	case open:
 		sendEvent("documentChanged");
 		break;
 	default:
