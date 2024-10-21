@@ -1,28 +1,25 @@
-#ifndef SPECKLE_RECORD_GENERIC_ELEMENT
-#define SPECKLE_RECORD_GENERIC_ELEMENT
+#ifndef SPECKLE_RECORD_DISPLAY_ELEMENT
+#define SPECKLE_RECORD_DISPLAY_ELEMENT
 
 #include "Speckle/Record/Element/Element.h"
 
 namespace speckle::record::element {
 	
 	/*!
-	 Catch-all class for elements that are not represented by a specific class
+	 Base class for drawing (illustrative) elements, i.e. appearing in 2D only and typically used in 2D drawings
 	 */
-	class GenericElement : public Element {
+	class DrawingElement : public Element {
 	public:
 		
-			///An element 3D body primitive
-		using Body = std::vector<primitive::Mesh>;
-
 		// MARK: - Types
 		
 		using base = Element;
 			///Unique pointer
-		using Unique = std::unique_ptr<GenericElement>;
+		using Unique = std::unique_ptr<DrawingElement>;
 			///Shared pointer
-		using Shared = std::shared_ptr<GenericElement>;
+		using Shared = std::shared_ptr<DrawingElement>;
 			///Optional
-		using Option = std::optional<GenericElement>;
+		using Option = std::optional<DrawingElement>;
 
 		// MARK: - Constructors
 		
@@ -31,30 +28,30 @@ namespace speckle::record::element {
 		/*!
 		 Default constructor
 		 */
-		GenericElement();
+		DrawingElement();
 #ifdef ARCHICAD
 		/*!
 		 Constructor
 		 @param elemData Archicad element data
 		 @param tableID The element table ID (AC database, e.g. floor plan, 3D)
 		 */
-		GenericElement(const API_Element& elemData, const speckle::utility::Guid& tableID);
+		DrawingElement(const API_Element& elemData, const speckle::utility::Guid& tableID);
 #endif
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		GenericElement(const GenericElement& source);
+		DrawingElement(const DrawingElement& source);
 		/*!
 		 Destructor
 		 */
-		~GenericElement();
+		~DrawingElement();
 
 		/*!
 		 Object cloning
 		 @return A clone of this object
 		 */
-		GenericElement* clonePtr() const override { return new GenericElement{*this}; }
+		DrawingElement* clonePtr() const override { return new DrawingElement{*this}; }
 
 
 		// MARK: - Functions (const)
@@ -104,4 +101,4 @@ namespace speckle::record::element {
 
 }
 
-#endif	//SPECKLE_RECORD_GENERIC_ELEMENT
+#endif	//SPECKLE_RECORD_DISPLAY_ELEMENT

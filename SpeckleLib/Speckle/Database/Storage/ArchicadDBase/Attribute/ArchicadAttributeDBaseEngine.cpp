@@ -125,6 +125,7 @@ namespace {
 	Constructor
  
 	id: The document storage identifier
+	schema: The document storage schema
   --------------------------------------------------------------------*/
 ArchicadAttributeDBaseEngine::ArchicadAttributeDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) :
 		ArchicadDBaseCore{id, std::move(schema)} {

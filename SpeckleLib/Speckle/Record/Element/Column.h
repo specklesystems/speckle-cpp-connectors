@@ -2,7 +2,7 @@
 #define SPECKLE_RECORD_ELEMENT_COLUMN
 
 #include "Speckle/Record/Element/ColumnSegment.h"
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Interface/Assembly/Path.h"
 #include "Speckle/Record/Element/Interface/SegmentedColumn.h"
 
@@ -13,12 +13,12 @@ namespace speckle::record::element {
 	/*!
 	 BIM column class
 	 */
-	class Column : public Element, public SegmentedColumn, public assembly::Path {
+	class Column : public ModelElement, public SegmentedColumn, public assembly::Path {
 	public:
 
 		// MARK: - Types
 		
-		using base = Element;
+		using base = ModelElement;
 			///Unique pointer
 		using Unique = std::unique_ptr<Column>;
 			///Shared pointer
@@ -65,7 +65,7 @@ namespace speckle::record::element {
 		 Get the BIM application parent table ID
 		 @return The BIM table ID
 		 */
-		virtual database::BIMRecordID getTableID() const override { return Element::getTableID(); }
+		virtual database::BIMRecordID getTableID() const override { return ModelElement::getTableID(); }
 		/*!
 		 Get the element body
 		 @return nullptr (Columns don't explicitly have a 3D body - this comes from its child segments)

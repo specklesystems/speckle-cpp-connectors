@@ -1,11 +1,11 @@
-#ifndef SPECKLE_DATABASE_ARCHICAD_ELEMENT_DBASE_ENGINE
-#define SPECKLE_DATABASE_ARCHICAD_ELEMENT_DBASE_ENGINE
+#ifndef SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
+#define SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
 
 #include "Active/Database/Storage/DBaseEngine.h"
 #include "Active/Serialise/UnboxedTransport.h"
 #include "Speckle/Database/Storage/ArchicadDBase/ArchicadDBaseCore.h"
 #include "Speckle/Database/Identity/BIMLink.h"
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Property/Template.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -15,32 +15,22 @@
 namespace speckle::database {
 	
 	/*!
-	 A database engine to read/write elements in an Archicad project database (local file or cloud-based)
+	 A database engine to read/write property templates in an Archicad project database (local file or cloud-based)
+	 
+	 Property templates describe the characteristics and metadate attached to element property values. As such the templates may be shared
+	 amongst any number of Property objects
 	 */
-	class ArchicadElementDBaseEngine : public ArchicadDBaseCore,
-			public active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>  {
+	class ArchicadPropertyDBaseEngine : public ArchicadDBaseCore,
+			public active::database::DBaseEngine<record::property::Template, BIMRecordID, BIMRecordID, BIMRecordID>  {
 	public:
 		
 		// MARK: - Types
 		
-		using base = active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>;
-		using Element = record::element::Element;
+		using base = active::database::DBaseEngine<record::property::Template, BIMRecordID, BIMRecordID, BIMRecordID>;
+		using Template = record::property::Template;
 		using Filter = base::Filter;
 		using Outline = base::Outline;
 		
-		// MARK: - Constants
-		
-			///The memo table ID (supplementary element data)
-		static const inline utility::Guid memoTable{utility::String{"fdff96d2-8c34-4f8b-8a76-a96a2b242758"}};
-		
-		// MARK: - Static functions
-		
-		/*!
-		 Get the ID of the active Archicad table
-		 @return The active table ID (nullopt on failure)
-		 */
-		static std::optional<BIMRecordID> getActiveTable();
-				
 		// MARK: - Constructors
 		
 		/*!
@@ -48,24 +38,29 @@ namespace speckle::database {
 		 @param id The document storage identifier
 		 @param schema The document storage schema
 		 */
-		ArchicadElementDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) : ArchicadDBaseCore{id, std::move(schema)} {}
-		ArchicadElementDBaseEngine(const ArchicadElementDBaseEngine&) = delete;
+		ArchicadPropertyDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema);
+		ArchicadPropertyDBaseEngine(const ArchicadPropertyDBaseEngine&) = delete;
+		/*!
+		 Destructor
+		 */
+		~ArchicadPropertyDBaseEngine();
 		
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the current user element selection
-		 @return A list of selected element IDs
+		 Find all property templates linked to specified classifications
+		 @param classifications The classifications
+		 @return A list of shared pointers to linked property templates
 		 */
-		BIMLinkList getSelection() const;
+		std::vector<std::shared_ptr<Template>> findTemplatesByClassification(const BIMRecordIDList& classifications) const;
 		/*!
-		 Get an object by index
+		 Get an object by ID
 		 @param objID The object ID
 		 @param tableID Optional table ID (defaults to the floor plan)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 @return The requested object (nullptr on failure)
 		 */
-		std::unique_ptr<Element> getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
+		std::unique_ptr<Template> getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Get an object in a transportable form, e.g. packaged for serialisation
 		 @param objID The object ID
@@ -80,7 +75,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return The requested objects (nullptr on failure)
 		 */
-		active::container::Vector<Element> getObjects(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
+		active::container::Vector<Template> getObjects(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Get a filtered list of objects
 		 @param filter The object filter
@@ -88,7 +83,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return The filtered objects (nullptr on failure)
 		 */
-		active::container::Vector<Element> getObjects(const Filter& filter, std::optional<BIMRecordID> tableID = std::nullopt,
+		active::container::Vector<Template> getObjects(const Filter& filter, std::optional<BIMRecordID> tableID = std::nullopt,
 												  std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Write an object to the database
@@ -98,7 +93,7 @@ namespace speckle::database {
 		 @param tableID Optional table ID (defaults to the floor plan)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 */
-		void write(const Element& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
+		void write(const Template& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
 				   std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Erase an object by index
@@ -121,11 +116,28 @@ namespace speckle::database {
 		 @return The database outline
 		 */
 		Outline getOutline() const override;
+		
+		// MARK: - Functions (mutating)
+		
+		/*!
+		 Handle a project event
+		 @param event The project event
+		 @return True if the event should be closed
+		 */
+		bool handle(const event::ProjectEvent& event) override;
 				
 	private:
-		void setTable(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt);
+		/*!
+		 Ensure the cache is current
+		 @return True if the cache contains valid te templates
+		 */
+		bool validateCache() const;
+				
+			//Cached templates
+		class Cache;
+		mutable std::unique_ptr<Cache> m_cache;
 	};
 	
 }
 
-#endif	//SPECKLE_DATABASE_ARCHICAD_ELEMENT_DBASE_ENGINE
+#endif	//SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
