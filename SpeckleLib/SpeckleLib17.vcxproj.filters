@@ -104,6 +104,18 @@
     <Filter Include="Speckle\Record\Element\Interface\Assembly">
       <UniqueIdentifier>{8e7a76da-47ac-4105-9c09-7d7ed62d7136}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record\Property">
+      <UniqueIdentifier>{59676b61-2d58-477f-89f4-e02b8289dec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Property\Wrapper">
+      <UniqueIdentifier>{453d3f53-f2be-462f-8200-552f38a03fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Classification">
+      <UniqueIdentifier>{3b38d86e-823b-4d15-a4c1-95f250a0dfe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Property">
+      <UniqueIdentifier>{f9b0554b-d0a5-40c0-ac20-22032dc8f30c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -340,8 +352,50 @@
     <ClInclude Include="Speckle\Utility\BIMMemory.h">
       <Filter>Speckle\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Speckle\Record\Element\GenericElement.h">
+    <ClInclude Include="Speckle\Record\Property\Propertied.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Property.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Setting.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Template.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Value.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropertyWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Classification\Classified.h">
+      <Filter>Speckle\Record\Classification</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\DrawingElement.h">
       <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\GenericDrawingElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\GenericModelElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\ModelElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMPropertyDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -495,8 +549,50 @@
     <ClCompile Include="Speckle\Utility\BIMMemory.cpp">
       <Filter>Speckle\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Record\Element\GenericElement.cpp">
+    <ClCompile Include="Speckle\Record\Property\Propertied.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Property.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Setting.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Template.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Value.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropertyWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Classification\Classified.cpp">
+      <Filter>Speckle\Record\Classification</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\DrawingElement.cpp">
       <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\GenericDrawingElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\GenericModelElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\ModelElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMPropertyDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

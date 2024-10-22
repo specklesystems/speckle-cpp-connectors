@@ -4,6 +4,7 @@
 #include "Speckle/Record/Property/Wrapper/PropertyWrapper.h"
 #include "Speckle/Utility/String.h"
 
+#include <array>
 using namespace active::serialise;
 using namespace speckle::record::property;
 using namespace speckle::utility;

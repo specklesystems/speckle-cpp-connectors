@@ -12,6 +12,8 @@
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
+#include <array>
+
 using namespace speckle::record::property;
 using namespace speckle::utility;
 

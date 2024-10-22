@@ -3,6 +3,8 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Speckle/Record/Property/Property.h"
 
+#include <array>
+
 using namespace active::serialise;
 using namespace speckle::record::property;
 using namespace speckle::utility;
