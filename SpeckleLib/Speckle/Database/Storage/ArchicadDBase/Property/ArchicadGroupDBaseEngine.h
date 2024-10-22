@@ -1,11 +1,11 @@
-#ifndef SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
-#define SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
+#ifndef SPECKLE_DATABASE_ARCHICAD_GROUP_DBASE_ENGINE
+#define SPECKLE_DATABASE_ARCHICAD_GROUP_DBASE_ENGINE
 
 #include "Active/Database/Storage/DBaseEngine.h"
 #include "Active/Serialise/UnboxedTransport.h"
 #include "Speckle/Database/Storage/ArchicadDBase/ArchicadDBaseCore.h"
 #include "Speckle/Database/Identity/BIMLink.h"
-#include "Speckle/Record/Property/Template.h"
+#include "Speckle/Record/Property/Group.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -15,19 +15,18 @@
 namespace speckle::database {
 	
 	/*!
-	 A database engine to read/write property templates in an Archicad project database (local file or cloud-based)
+	 A database engine to read/write property groups in an Archicad project database (local file or cloud-based)
 	 
-	 Property templates describe the characteristics and metadate attached to element property values. As such the templates may be shared
-	 amongst any number of Property objects
+	 Property groups can be attached to property templates to support collections of types linked to a specific role
 	 */
-	class ArchicadPropertyDBaseEngine : public ArchicadDBaseCore,
-			public active::database::DBaseEngine<record::property::Template, BIMRecordID, BIMRecordID, BIMRecordID>  {
+	class ArchicadGroupDBaseEngine : public ArchicadDBaseCore,
+			public active::database::DBaseEngine<record::property::Group, BIMRecordID, BIMRecordID, BIMRecordID>  {
 	public:
 		
 		// MARK: - Types
 		
-		using base = active::database::DBaseEngine<record::property::Template, BIMRecordID, BIMRecordID, BIMRecordID>;
-		using Template = record::property::Template;
+		using base = active::database::DBaseEngine<record::property::Group, BIMRecordID, BIMRecordID, BIMRecordID>;
+		using Group = record::property::Group;
 		using Filter = base::Filter;
 		using Outline = base::Outline;
 		
@@ -38,21 +37,15 @@ namespace speckle::database {
 		 @param id The document storage identifier
 		 @param schema The document storage schema
 		 */
-		ArchicadPropertyDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema);
-		ArchicadPropertyDBaseEngine(const ArchicadPropertyDBaseEngine&) = delete;
+		ArchicadGroupDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema);
+		ArchicadGroupDBaseEngine(const ArchicadGroupDBaseEngine&) = delete;
 		/*!
 		 Destructor
 		 */
-		~ArchicadPropertyDBaseEngine();
+		~ArchicadGroupDBaseEngine();
 		
 		// MARK: - Functions (const)
 		
-		/*!
-		 Find all property templates linked to specified classifications
-		 @param classifications The classifications
-		 @return A list of shared pointers to linked property templates
-		 */
-		std::vector<std::shared_ptr<Template>> findTemplatesByClassification(const BIMRecordIDList& classifications) const;
 		/*!
 		 Get an object by ID
 		 @param objID The object ID
@@ -60,7 +53,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 @return The requested object (nullptr on failure)
 		 */
-		std::unique_ptr<Template> getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
+		std::unique_ptr<Group> getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Get an object in a transportable form, e.g. packaged for serialisation
 		 @param objID The object ID
@@ -75,7 +68,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return The requested objects (nullptr on failure)
 		 */
-		active::container::Vector<Template> getObjects(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
+		active::container::Vector<Group> getObjects(std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Get a filtered list of objects
 		 @param filter The object filter
@@ -83,7 +76,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return The filtered objects (nullptr on failure)
 		 */
-		active::container::Vector<Template> getObjects(const Filter& filter, std::optional<BIMRecordID> tableID = std::nullopt,
+		active::container::Vector<Group> getObjects(const Filter& filter, std::optional<BIMRecordID> tableID = std::nullopt,
 												  std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Write an object to the database
@@ -93,7 +86,7 @@ namespace speckle::database {
 		 @param tableID Optional table ID (default selected based on record type)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 */
-		void write(const Template& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
+		void write(const Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
 				   std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Erase an object by index
@@ -140,4 +133,4 @@ namespace speckle::database {
 	
 }
 
-#endif	//SPECKLE_DATABASE_ARCHICAD_PROPERTY_DBASE_ENGINE
+#endif	//SPECKLE_DATABASE_ARCHICAD_GROUP_DBASE_ENGINE

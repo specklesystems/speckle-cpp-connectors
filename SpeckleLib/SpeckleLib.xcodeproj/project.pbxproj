@@ -97,6 +97,12 @@
 		21AE19802CC7D265004DBCFC /* PropertiedWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE197E2CC7D265004DBCFC /* PropertiedWrapper.h */; };
 		21AE19832CC7D517004DBCFC /* PropertyWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19812CC7D517004DBCFC /* PropertyWrapper.cpp */; };
 		21AE19842CC7D517004DBCFC /* PropertyWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19822CC7D517004DBCFC /* PropertyWrapper.h */; };
+		21AE19872CC7FF5F004DBCFC /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19852CC7FF5F004DBCFC /* Group.h */; };
+		21AE19882CC7FF5F004DBCFC /* Group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19862CC7FF5F004DBCFC /* Group.cpp */; };
+		21AE198F2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE198D2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h */; };
+		21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */; };
+		21AE19932CC82866004DBCFC /* BIMGroupDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */; };
+		21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */; };
 		21AEF9BA2CA606B5000B8681 /* DetachedReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9B92CA606B4000B8681 /* DetachedReference.cpp */; };
 		21AEF9BC2CA6DF84000B8681 /* DetachmentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BB2CA6DF84000B8681 /* DetachmentManager.cpp */; };
 		21AEF9BE2CA6FDA4000B8681 /* DetachedWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BD2CA6FDA4000B8681 /* DetachedWrap.cpp */; };
@@ -285,6 +291,12 @@
 		21AE197E2CC7D265004DBCFC /* PropertiedWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertiedWrapper.h; sourceTree = "<group>"; };
 		21AE19812CC7D517004DBCFC /* PropertyWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PropertyWrapper.cpp; sourceTree = "<group>"; };
 		21AE19822CC7D517004DBCFC /* PropertyWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyWrapper.h; sourceTree = "<group>"; };
+		21AE19852CC7FF5F004DBCFC /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		21AE19862CC7FF5F004DBCFC /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = "<group>"; };
+		21AE198D2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchicadGroupDBaseEngine.h; sourceTree = "<group>"; };
+		21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArchicadGroupDBaseEngine.cpp; sourceTree = "<group>"; };
+		21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BIMGroupDatabase.cpp; sourceTree = "<group>"; };
+		21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMGroupDatabase.h; sourceTree = "<group>"; };
 		21AEF9B32CA5F7CF000B8681 /* DetachedWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedWrap.h; sourceTree = "<group>"; };
 		21AEF9B52CA5FA02000B8681 /* DetachedReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedReference.h; sourceTree = "<group>"; };
 		21AEF9B72CA5FCB6000B8681 /* DetachmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachmentManager.h; sourceTree = "<group>"; };
@@ -635,6 +647,8 @@
 		21A890C12CC171D80087E732 /* Property */ = {
 			isa = PBXGroup;
 			children = (
+				21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */,
+				21AE198D2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h */,
 				21A890BF2CC171D80087E732 /* ArchicadPropertyDBaseEngine.cpp */,
 				21A890C02CC171D80087E732 /* ArchicadPropertyDBaseEngine.h */,
 			);
@@ -644,6 +658,8 @@
 		21AE194E2CC273F1004DBCFC /* Property */ = {
 			isa = PBXGroup;
 			children = (
+				21AE19862CC7FF5F004DBCFC /* Group.cpp */,
+				21AE19852CC7FF5F004DBCFC /* Group.h */,
 				21AE19672CC57832004DBCFC /* Propertied.cpp */,
 				21AE19682CC57832004DBCFC /* Propertied.h */,
 				21AE194A2CC273F1004DBCFC /* Property.cpp */,
@@ -713,6 +729,8 @@
 				2196F2F72CB51ED400450DFC /* BIMAttributeDatabase.h */,
 				215F08932CA19AF800CD343B /* BIMElementDatabase.cpp */,
 				215F08942CA19AF800CD343B /* BIMElementDatabase.h */,
+				21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */,
+				21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */,
 				21AE19632CC2F702004DBCFC /* BIMPropertyDatabase.cpp */,
 				21AE19642CC2F702004DBCFC /* BIMPropertyDatabase.h */,
 				21D0BD272C86FC350077E104 /* Content */,
@@ -897,6 +915,7 @@
 				21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */,
 				21A0FBB52CBA5E380023F24E /* Str256.h in Headers */,
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
+				21AE19872CC7FF5F004DBCFC /* Group.h in Headers */,
 				210CC8A02C81E34400610F58 /* Platform.h in Headers */,
 				219246132CA34DCE00CF5703 /* Mesh.h in Headers */,
 				21A890CF2CC1B87C0087E732 /* GenericDrawingElement.h in Headers */,
@@ -930,11 +949,13 @@
 				215F08562C99DA8D00CD343B /* Project.h in Headers */,
 				219245FF2CA2CC4300CF5703 /* BIMRecord.h in Headers */,
 				210CC8802C80CD2A00610F58 /* BridgeChild.h in Headers */,
+				21AE198F2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h in Headers */,
 				21D0BD4D2C8901A00077E104 /* ServerInfo.h in Headers */,
 				2196F3042CB57E8000450DFC /* Storey.h in Headers */,
 				21AE196F2CC64D37004DBCFC /* Classified.h in Headers */,
 				21AE19522CC273F1004DBCFC /* Property.h in Headers */,
 				21A0FBF92CBDB9A70023F24E /* BIMMemory.h in Headers */,
+				21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */,
 				21AE19542CC273F1004DBCFC /* Template.h in Headers */,
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
 				21AE19842CC7D517004DBCFC /* PropertyWrapper.h in Headers */,
@@ -1083,6 +1104,7 @@
 				2196F2F02CB4823C00450DFC /* Attribute.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
 				215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */,
+				21AE19932CC82866004DBCFC /* BIMGroupDatabase.cpp in Sources */,
 				21D0BDBD2C90F2830077E104 /* DocStoreSubscriber.cpp in Sources */,
 				21AE197B2CC7CE1A004DBCFC /* PropsAndClassWrapper.cpp in Sources */,
 				21D0BDB32C8F8AB60077E104 /* DocumentStoreCore.cpp in Sources */,
@@ -1094,6 +1116,7 @@
 				21D0BD4E2C8901A00077E104 /* ServerInfo.cpp in Sources */,
 				21AE19512CC273F1004DBCFC /* Property.cpp in Sources */,
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
+				21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21AE19692CC57832004DBCFC /* Propertied.cpp in Sources */,
 				21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */,
 				2196F3052CB57E8000450DFC /* Storey.cpp in Sources */,
@@ -1127,6 +1150,7 @@
 				21A890D12CC1B87C0087E732 /* GenericModelElement.cpp in Sources */,
 				21AEF9BC2CA6DF84000B8681 /* DetachmentManager.cpp in Sources */,
 				215F08552C99DA8D00CD343B /* Project.cpp in Sources */,
+				21AE19882CC7FF5F004DBCFC /* Group.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
 				2196F2EB2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.cpp in Sources */,
 				21AE19532CC273F1004DBCFC /* Template.cpp in Sources */,

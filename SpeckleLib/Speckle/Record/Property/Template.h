@@ -8,10 +8,11 @@
 
 namespace speckle::record::property {
 	
+	class Group;
 	class Setting;
 	
 	/*!
-	 Class defining the characteristics of a property value
+	 Class defining the characteristics of a property template
 	 
 	 Properties carry both a template (the property metadata) and a value. The template defines the value characteristics, e.g. name, type etc
 	 and can be shared amongst any number of properties
@@ -71,8 +72,8 @@ namespace speckle::record::property {
 		
 		// MARK: - Constants
 		
-			///Identifier for a property table
-		inline static utility::Guid propertyTableID{utility::String{"ae66bc4a-9530-45c9-af57-628562a0d783"}};
+			///Identifier for a property template table
+		inline static utility::Guid propertyTemplateTableID{utility::String{"ae66bc4a-9530-45c9-af57-628562a0d783"}};
 
 		// MARK: - Constructors
 		
@@ -125,6 +126,11 @@ namespace speckle::record::property {
 		 @return The template group name
 		 */
 		speckle::utility::String getGroupName() const;
+		/*!
+		 Get the template group. NB: This value is not cached in the object and drequires a database lookup - don't use casually
+		 @return The template group (nullptr on failure)
+		 */
+		std::unique_ptr<Group> getGroup() const;
 		/*!
 		 Get the classifications linked to the template
 		 @return A set containing the IDs of classifications linked to the template

@@ -1,6 +1,6 @@
 #include "Speckle/Record/Property/Template.h"
 
-#include "Speckle/Database/BIMPropertyDatabase.h"
+#include "Speckle/Database/BIMGroupDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Record/Property/Setting.h"
@@ -34,7 +34,7 @@ namespace {
  
 	ID: The template ID
   --------------------------------------------------------------------*/
-Template::Template(const database::BIMRecordID& ID) : base{ID, propertyTableID} {
+Template::Template(const database::BIMRecordID& ID) : base{ID, propertyTemplateTableID} {
 } //Template::Template
 
 
@@ -124,7 +124,7 @@ Template::Template() {
  
 	source: An Archicad property definition to copy
   --------------------------------------------------------------------*/
-Template::Template(const API_PropertyDefinition& source) : base{source.guid, propertyTableID},
+Template::Template(const API_PropertyDefinition& source) : base{source.guid, propertyTemplateTableID},
 		m_group{source.groupGuid}, m_name(source.name), m_description(source.description) {
 	m_origin = static_cast<Origin>(source.definitionType);
 	m_type = static_cast<Type>(source.collectionType);
@@ -154,13 +154,21 @@ Template::Template(const API_PropertyDefinition& source) : base{source.guid, pro
   --------------------------------------------------------------------*/
 String Template::getGroupName() const {
 	String result;
-	auto project = addon()->getActiveProject().lock();
-	if (project) {
-		if (auto group = project->getPropertyDatabase()->getProperty(m_group); group)
-			result = group->getName();
-	}
+	if (auto group = getGroup(); group)
+		result = group->getName();
 	return result;
 } //Template::getGroupName
+
+			
+/*--------------------------------------------------------------------
+	Get the template group. NB: This value is not cached in the object and drequires a database lookup - don't use casually
+ 
+	return: The template group (nullptr on failure)
+  --------------------------------------------------------------------*/
+std::unique_ptr<Group> Template::getGroup() const {
+	auto project = addon()->getActiveProject().lock();
+	return (project) ? project->getGroupDatabase()->getGroup(m_group) : nullptr;
+} //Template::getGroup
 
 
 #ifdef ARCHICAD

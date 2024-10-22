@@ -43,8 +43,8 @@ namespace {
 	
 		///The database storage identifier for properties
 	const char* propertyDBaseName = "speckle::database::BIMPropertyDatabase";
-		///The primary model table, e.g. floor plan in Archicad
-	const char* modelTableName = "Model";
+		///The primary properties table
+	const char* propertyTableName = "Properties";
 
 }
 
@@ -59,7 +59,7 @@ BIMPropertyDatabase::BIMPropertyDatabase() {
 			{
 					//Model property table
 				{
-					modelTableName, 0, 0, {}	//The primary model. Additonal tables could be linked to other drawings/layouts in future
+					propertyTableName, 0, 0, {}
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-#include "Speckle/Database/Storage/ArchicadDBase/Property/ArchicadPropertyDBaseEngine.h"
+#include "Speckle/Database/Storage/ArchicadDBase/Property/ArchicadGroupDBaseEngine.h"
 
 #ifdef ARCHICAD
 
@@ -13,7 +13,6 @@
 
 #include <ACAPinc.h>
 #include <ACAPI_Database.h>
-#include <BM.hpp>
 
 using namespace active::event;
 using namespace active::setting;
@@ -28,21 +27,21 @@ using enum ArchicadDBaseCore::Status;
 namespace {
 	
 	/*!
-	 Make a new template object
-	 @param templateData The API template representation
-	 @return A new template object (nullptr on failure)
+	 Make a new group object
+	 @param groupData The API group representation
+	 @return A new group object (nullptr on failure)
 	 */
-	Template::Shared makeTemplate(const API_PropertyDefinition& templateData) {
-			//NB: This function has been written to allow for the future possibility of different methods for constructing a template and/or
+	Group::Shared makeGroup(const API_PropertyGroup& groupData) {
+			//NB: This function has been written to allow for the future possibility of different methods for constructing a group and/or
 			//failure to make one
-		return std::make_shared<Template>(templateData);
+		return std::make_shared<Group>(groupData);
 	}
 
 }
 
 namespace speckle::database {
 	
-	class ArchicadPropertyDBaseEngine::Cache : public std::unordered_map<Guid, std::shared_ptr<Template>> {
+	class ArchicadGroupDBaseEngine::Cache : public std::unordered_map<Guid, std::shared_ptr<Group>> {
 	public:
 		/*!
 		 Default constructor
@@ -50,17 +49,17 @@ namespace speckle::database {
 		Cache() { rebuild(); }
 		
 		/*!
-		 Rebuild the property template cache
+		 Rebuild the property group cache
 		 */
 		void rebuild() {
-				//Request all Archicad template definitions
-			GS::Array<API_PropertyDefinition> definitions;
-			if (auto err = ACAPI_Property_GetPropertyDefinitions(APINULLGuid, definitions); err != NoError)
+				//Request all Archicad group groups
+			GS::Array<API_PropertyGroup> groups;
+			if (auto err = ACAPI_Property_GetPropertyGroups(groups); err != NoError)
 				return;
-				//Populate the template cache from the collected definitions
-			for (auto iter = definitions.Begin(); iter != definitions.End(); ++iter)
-				if (auto propTemplate = makeTemplate(*iter); propTemplate)
-					insert({propTemplate->getBIMID(), propTemplate});
+				//Populate the group cache from the collected groups
+			for (auto iter = groups.Begin(); iter != groups.End(); ++iter)
+				if (auto propGroup = makeGroup(*iter); propGroup)
+					insert({propGroup->getBIMID(), propGroup});
 		}
 	};
 	
@@ -72,39 +71,16 @@ namespace speckle::database {
 	id: The document storage identifier
 	schema: The document storage schema
   --------------------------------------------------------------------*/
-ArchicadPropertyDBaseEngine::ArchicadPropertyDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) :
+ArchicadGroupDBaseEngine::ArchicadGroupDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) :
 		ArchicadDBaseCore{id, std::move(schema)} {
-} //ArchicadPropertyDBaseEngine::ArchicadPropertyDBaseEngine
+} //ArchicadGroupDBaseEngine::ArchicadGroupDBaseEngine
 
 
 /*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
-ArchicadPropertyDBaseEngine::~ArchicadPropertyDBaseEngine() {
-} //ArchicadPropertyDBaseEngine::~ArchicadPropertyDBaseEngine
-
-
-/*--------------------------------------------------------------------
-	Find all property templates linked to specified classifications
- 
-	classifications: The classifications
- 
-	return: A list of shared pointers to linked property templates
-  --------------------------------------------------------------------*/
-std::vector<std::shared_ptr<Template>> ArchicadPropertyDBaseEngine::findTemplatesByClassification(const BIMRecordIDList& classifications) const {
-	std::vector<std::shared_ptr<Template>> result;
-	if (validateCache()) {
-		for (const auto& templ : *m_cache) {
-			for (const auto& classID : classifications) {
-				if (templ.second->linksToClassification(classID)) {
-					result.push_back(templ.second);
-					break;
-				}
-			}
-		}
-	}
-	return result;
-} //ArchicadPropertyDBaseEngine::findTemplatesByClassification
+ArchicadGroupDBaseEngine::~ArchicadGroupDBaseEngine() {
+} //ArchicadGroupDBaseEngine::~ArchicadGroupDBaseEngine
 
 
 /*--------------------------------------------------------------------
@@ -116,14 +92,14 @@ std::vector<std::shared_ptr<Template>> ArchicadPropertyDBaseEngine::findTemplate
 
 	return: The requested object (nullptr on failure)
   --------------------------------------------------------------------*/
-std::unique_ptr<Template> ArchicadPropertyDBaseEngine::getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID,
+std::unique_ptr<Group> ArchicadGroupDBaseEngine::getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID,
 																 std::optional<BIMRecordID> documentID) const {
-	if (!validateCache() || (tableID && (tableID != Template::propertyTemplateTableID)))
+	if (!validateCache() || (tableID && (tableID != Group::propertyGroupTableID)))
 		return nullptr;
 	if (auto found = m_cache->find(objID); found != m_cache->end())
-		return std::make_unique<Template>(*found->second);
+		return std::make_unique<Group>(*found->second);
 	return nullptr;
-} //ArchicadPropertyDBaseEngine::getObject
+} //ArchicadGroupDBaseEngine::getObject
 
 
 /*--------------------------------------------------------------------
@@ -135,10 +111,10 @@ std::unique_ptr<Template> ArchicadPropertyDBaseEngine::getObject(const BIMRecord
 
 	return: The requested wrapped cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-active::serialise::Cargo::Unique ArchicadPropertyDBaseEngine::getObjectCargo(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
+active::serialise::Cargo::Unique ArchicadGroupDBaseEngine::getObjectCargo(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
 																			 std::optional<BIMRecordID> documentID)  const {
 	return nullptr; //TODO: Implement
-} //ArchicadPropertyDBaseEngine::getObject
+} //ArchicadGroupDBaseEngine::getObject
 
 
 /*--------------------------------------------------------------------
@@ -149,10 +125,10 @@ active::serialise::Cargo::Unique ArchicadPropertyDBaseEngine::getObjectCargo(con
 
 	return: The requested objects (nullptr on failure)
   --------------------------------------------------------------------*/
-active::container::Vector<Template> ArchicadPropertyDBaseEngine::getObjects(std::optional<BIMRecordID> tableID,
+active::container::Vector<Group> ArchicadGroupDBaseEngine::getObjects(std::optional<BIMRecordID> tableID,
 																			std::optional<BIMRecordID> documentID) const {
 	return {}; //TODO: Implement
-} //ArchicadPropertyDBaseEngine::getObjects
+} //ArchicadGroupDBaseEngine::getObjects
 
 
 /*--------------------------------------------------------------------
@@ -164,10 +140,10 @@ active::container::Vector<Template> ArchicadPropertyDBaseEngine::getObjects(std:
 
 	return: The requested objects (nullptr on failure)
   --------------------------------------------------------------------*/
-active::container::Vector<Template> ArchicadPropertyDBaseEngine::getObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
+active::container::Vector<Group> ArchicadGroupDBaseEngine::getObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
 																			std::optional<BIMRecordID> documentID) const {
 	return {}; //TODO: Implement
-} //ArchicadPropertyDBaseEngine::getObjects
+} //ArchicadGroupDBaseEngine::getObjects
 
 
 /*--------------------------------------------------------------------
@@ -179,10 +155,10 @@ active::container::Vector<Template> ArchicadPropertyDBaseEngine::getObjects(cons
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (when the object is bound to a specific document)
   --------------------------------------------------------------------*/
-void ArchicadPropertyDBaseEngine::write(const Template& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
+void ArchicadGroupDBaseEngine::write(const Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
 										std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
 		//TODO: Implement
-} //ArchicadPropertyDBaseEngine::write
+} //ArchicadGroupDBaseEngine::write
 
 
 /*--------------------------------------------------------------------
@@ -194,10 +170,10 @@ void ArchicadPropertyDBaseEngine::write(const Template& object, const BIMRecordI
 
 	return: True if the object was successfully erased
   --------------------------------------------------------------------*/
-void ArchicadPropertyDBaseEngine::erase(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
+void ArchicadGroupDBaseEngine::erase(const BIMRecordID& ID, std::optional<BIMRecordID> tableID,
 										std::optional<BIMRecordID> documentID) const {
 		//TODO: Implement
-} //ArchicadPropertyDBaseEngine::erase
+} //ArchicadGroupDBaseEngine::erase
 
 
 /*--------------------------------------------------------------------
@@ -206,9 +182,9 @@ void ArchicadPropertyDBaseEngine::erase(const BIMRecordID& ID, std::optional<BIM
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (filter for this document only - nullopt = all objects)
   --------------------------------------------------------------------*/
-void ArchicadPropertyDBaseEngine::erase(std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
+void ArchicadGroupDBaseEngine::erase(std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
 		//TODO: Implement
-} //ArchicadPropertyDBaseEngine::erase
+} //ArchicadGroupDBaseEngine::erase
 
 
 /*--------------------------------------------------------------------
@@ -216,9 +192,9 @@ void ArchicadPropertyDBaseEngine::erase(std::optional<BIMRecordID> tableID, std:
 
 	return: The database outline
   --------------------------------------------------------------------*/
-ArchicadPropertyDBaseEngine::Outline ArchicadPropertyDBaseEngine::getOutline() const {
+ArchicadGroupDBaseEngine::Outline ArchicadGroupDBaseEngine::getOutline() const {
 	return {}; //TODO: Implement
-} //ArchicadPropertyDBaseEngine::getOutline
+} //ArchicadGroupDBaseEngine::getOutline
 
 
 /*--------------------------------------------------------------------
@@ -228,29 +204,29 @@ ArchicadPropertyDBaseEngine::Outline ArchicadPropertyDBaseEngine::getOutline() c
 
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
-bool ArchicadPropertyDBaseEngine::handle(const event::ProjectEvent& event) {
+bool ArchicadGroupDBaseEngine::handle(const event::ProjectEvent& event) {
 	using enum ProjectEvent::Type;
 	switch (event.getType()) {
 		case newDocument: case newAndReset: case open: case close: case quit:
-				//Reset the template cache on any event that changes the active project
+				//Reset the group cache on any event that changes the active project
 			m_cache.reset();
 			break;
 		default:
 			break;
 	}
 	return false;
-} //ArchicadPropertyDBaseEngine::handle
+} //ArchicadGroupDBaseEngine::handle
 
 
 /*--------------------------------------------------------------------
 	Ensure the cache is current
 
-	return: True if the cache contains valid te templates
+	return: True if the cache contains valid te groups
   --------------------------------------------------------------------*/
-bool ArchicadPropertyDBaseEngine::validateCache() const {
+bool ArchicadGroupDBaseEngine::validateCache() const {
 	if (!m_cache)
 		m_cache = std::make_unique<Cache>();
 	return !m_cache->empty();
-} //ArchicadPropertyDBaseEngine::validateCache
+} //ArchicadGroupDBaseEngine::validateCache
 
 #endif //ARCHICAD

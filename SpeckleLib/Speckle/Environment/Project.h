@@ -7,6 +7,7 @@
 namespace speckle::database {
 	class BIMAttributeDatabase;
 	class BIMElementDatabase;
+	class BIMGroupDatabase;
 	class BIMPropertyDatabase;
 }
 
@@ -62,13 +63,18 @@ namespace speckle::environment {
 		 */
 		const database::BIMAttributeDatabase* getAttributeDatabase() const { return m_attribute.get(); }
 		/*!
-		 Get the account database
-		 @return The account database
+		 Get the element database
+		 @return The element database
 		 */
 		const database::BIMElementDatabase* getElementDatabase() const { return m_element.get(); }
 		/*!
-		 Get the account database
-		 @return The account database
+		 Get the group database
+		 @return The group database
+		 */
+		const database::BIMGroupDatabase* getGroupDatabase() const { return m_group.get(); }
+		/*!
+		 Get the property database
+		 @return The property database
 		 */
 		const database::BIMPropertyDatabase* getPropertyDatabase() const { return m_property.get(); }
 		
@@ -89,6 +95,8 @@ namespace speckle::environment {
 		std::unique_ptr<database::BIMAttributeDatabase> m_attribute;
 			///The BIM element database
 		std::unique_ptr<database::BIMElementDatabase> m_element;
+			///The BIM group database
+		std::unique_ptr<database::BIMGroupDatabase> m_group;
 			///The BIM property database
 		std::unique_ptr<database::BIMPropertyDatabase> m_property;
 	};
