@@ -149,6 +149,16 @@ Value& Value::operator=(const Value& source) {
 } //Value::operator=
 
 
+/*--------------------------------------------------------------------
+	Get the value as displayed in the UI
+ 
+	return: The value as displayed
+  --------------------------------------------------------------------*/
+String Value::getDisplayValue() const {
+	return m_value ? m_value->operator active::utility::String() : String{};
+} //Value::getDisplayValue
+
+
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Receive a value from an Archicad property

@@ -1,6 +1,6 @@
 #include "Speckle/Record/Property/Template.h"
 
-#include "Speckle/Database/BIMAttributeDatabase.h"
+#include "Speckle/Database/BIMPropertyDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Record/Property/Setting.h"
@@ -145,6 +145,22 @@ Template::Template(const API_PropertyDefinition& source) : base{source.guid, pro
 	m_isValueEditable = source.canValueBeEditable;
 } //Template::Template
 #endif
+
+
+/*--------------------------------------------------------------------
+	Get the property group name. NB: This value is not cached in the object and drequires a database lookup - don't use casually
+ 
+	return: The property gorup name
+  --------------------------------------------------------------------*/
+String Template::getGroupName() const {
+	String result;
+	auto project = addon()->getActiveProject().lock();
+	if (project) {
+		if (auto group = project->getPropertyDatabase()->getProperty(m_group); group)
+			result = group->getName();
+	}
+	return result;
+} //Template::getGroupName
 
 
 #ifdef ARCHICAD

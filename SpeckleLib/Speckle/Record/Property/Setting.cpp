@@ -20,6 +20,40 @@ Setting::Setting(const API_ListVariant& source, API_VariantStatus status, API_Pr
 #endif
 
 
+/*--------------------------------------------------------------------
+	Determine if the setting has a defined value
+ 
+	return: True if a defined value is found
+  --------------------------------------------------------------------*/
+bool Setting::hasDefinedValue() const {
+	for (const auto& value : m_values)
+		if (value.isDefined())
+			return true;
+	return false;
+} //Setting::hasDefinedValue
+
+
+/*--------------------------------------------------------------------
+	Get the setting value as displayed in the UI
+ 
+	return: The setting display value
+  --------------------------------------------------------------------*/
+String Setting::getDisplayValue() const {
+	String result;
+	bool isFirst = true;
+	for (const auto& value : m_values) {
+		if (value.isDefined()) {
+			if (isFirst)
+				isFirst = false;
+			else
+				result += "; ";	//Archicad separates value with a semi-colon - might need to revisit this in different contexts
+			result += value.getDisplayValue();
+		}
+	}
+	return result;
+} //Setting::getDisplayValue
+
+
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Receive a value from an Archicad property

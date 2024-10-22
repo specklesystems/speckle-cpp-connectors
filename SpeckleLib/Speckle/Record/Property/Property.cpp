@@ -16,20 +16,6 @@ using namespace speckle::utility;
 #include <array>
 #include <memory>
 
-namespace {
-	
-		///Serialisation fields
-	enum FieldIndex {
-		nameID,
-	};
-
-		///Serialisation field IDs
-	static std::array fieldID = {
-		Identity{"name"},
-	};
-
-}
-
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
@@ -95,6 +81,16 @@ Property::~Property() {}
 
 
 /*--------------------------------------------------------------------
+	Determine if the property has a defined value
+ 
+	return: True if a defined value is found
+  --------------------------------------------------------------------*/
+bool Property::hasDefinedValue() const {
+	return m_setting && m_setting->hasDefinedValue();
+} //Property::hasDefinedValue
+
+
+/*--------------------------------------------------------------------
 	Get the property name
  
 	return: The property name
@@ -105,38 +101,30 @@ String Property::getName() const {
 
 
 /*--------------------------------------------------------------------
-	Fill an inventory with the package items
+	Get the property group name. NB: This value is not cached in the object and drequires a database lookup - don't use casually
  
-	inventory: The inventory to receive the package items
- 
-	return: True if the package has added items to the inventory
+	return: The property gorup name
   --------------------------------------------------------------------*/
-bool Property::fillInventory(Inventory& inventory) const {
-	using enum Entry::Type;
-	inventory.merge(Inventory{
-		{
-			{ fieldID[nameID], nameID, element },
-		},
-	}.withType(&typeid(Property)));
-	return true;
-} //Property::fillInventory
+String Property::getGroupName() const {
+	return m_template ? m_template->getGroupName() : String{};
+} //Property::getGroupName
 
 
 /*--------------------------------------------------------------------
-	Get the specified cargo
+	Get the property value as displayed in the UI
  
-	item: The inventory item to retrieve
- 
-	return: The requested cargo (nullptr on failure)
+	return: The property display value
   --------------------------------------------------------------------*/
-Cargo::Unique Property::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(Property))
-		return nullptr;
-	using namespace active::serialise;
-	switch (item.index) {
-		case nameID:
-			
-		default:
-			return nullptr;	//Requested an unknown index
-	}
-} //Property::getCargo
+String Property::getDisplayValue() const {
+	return m_setting ? m_setting->getDisplayValue() : String{};
+} //Property::getDisplayValue
+
+
+/*--------------------------------------------------------------------
+	Get the property template ID
+ 
+	return: The property template ID (null if the property isn't linked to a template)
+  --------------------------------------------------------------------*/
+Guid Property::getTemplateID() const {
+	return m_template ? m_template->getBIMID() : Guid{};
+} //Property::getTemplateID

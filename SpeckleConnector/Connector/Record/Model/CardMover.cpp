@@ -1,8 +1,3 @@
-/*!
-Copyright 2024 Ralph Wessel and Hugh Wessel
-Distributed under the MIT License (See accompanying file LICENSE.txt or copy at https://opensource.org/license/mit/)
-*/
-
 #include "Connector/Record/Model/CardMover.h"
 
 #include "Connector/Record/Model/ReceiverModelCard.h"

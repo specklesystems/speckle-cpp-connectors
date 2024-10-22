@@ -116,6 +116,16 @@ namespace speckle::record::property {
 		 */
 		speckle::utility::String getName() const { return m_name; }
 		/*!
+		 Get the template group ID
+		 @return The template group ID
+		 */
+		speckle::utility::String getGroupID() const { return m_group; }
+		/*!
+		 Get the template group name. NB: This value is not cached in the object and drequires a database lookup - don't use casually
+		 @return The template group name
+		 */
+		speckle::utility::String getGroupName() const;
+		/*!
 		 Get the classifications linked to the template
 		 @return A set containing the IDs of classifications linked to the template
 		 */
@@ -167,7 +177,7 @@ namespace speckle::record::property {
 		Type m_type;
 			///The template value type
 		active::setting::Value::Type m_valueType;
-			///The template data messurement type
+			///The template data measurement type
 		Measure m_measure;
 			///Group ID
 		speckle::database::BIMRecordID m_group;

@@ -5,6 +5,7 @@
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
+#include "Speckle/Record/Property/Wrapper/PropertiedWrapper.h"
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
@@ -23,6 +24,7 @@ using namespace active::serialise;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
+using namespace speckle::record::property;
 using namespace speckle::utility;
 
 #include <array>
@@ -60,6 +62,15 @@ namespace {
 		Identity{"properties"},
 	};
 
+	/*!
+	 Determine if a specified property has a defined value (filter)
+	 @param property The property to test
+	 @return True if the property has a defined value (entered by user and status is good)
+	 */
+	bool isDefinedProperty(const Property& property) {
+		return property.hasDefinedValue();
+	}
+	
 }
 
 /*--------------------------------------------------------------------
@@ -232,7 +243,8 @@ bool ModelElement::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 	inventory.merge(Inventory{
 		{
-			{ fieldID[bodyID], bodyID, element },	//TODO: implement other fields
+			{ fieldID[bodyID], bodyID, element },
+			{ fieldID[propertyID], propertyID, element },
 		},
 	}.withType(&typeid(ModelElement)));
 	return base::fillInventory(inventory);
@@ -251,13 +263,15 @@ Cargo::Unique ModelElement::getCargo(const Inventory::Item& item) const {
 		return base::getCargo(item);
 	using namespace active::serialise;
 	switch (item.index) {
-	case bodyID:
-		if (auto body = getBody(); body != nullptr)
-			return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
-		else
-			return nullptr;
-	default:
-		return nullptr;	//Requested an unknown index
+		case bodyID:
+			if (auto body = getBody(); body != nullptr)
+				return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
+			else
+				return nullptr;
+		case propertyID:
+			return std::make_unique<PropertiedWrapper>(*this);
+		default:
+			return nullptr;	//Requested an unknown index
 	}
 } //ModelElement::getCargo
 

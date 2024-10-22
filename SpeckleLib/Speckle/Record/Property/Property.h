@@ -2,6 +2,7 @@
 #define SPECKLE_RECORD_PROPERTY
 
 #include "Active/Serialise/Package/Package.h"
+#include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::record::property {
@@ -20,7 +21,7 @@ namespace speckle::record::property {
 	 value by concatonating values usng the Archicad convention of a separating semi-colon, e.g. "Value1; Value 2". This can be revisited in
 	 future if alernative export/display methods should be supported
 	 */
-	class Property : public active::serialise::Package {
+	class Property {
 	public:
 
 		// MARK: - Types
@@ -73,29 +74,33 @@ namespace speckle::record::property {
 		// MARK: - Functions (const)
 
 		/*!
+		 Determine if the property has a defined value
+		 @return True if a defined value is found
+		 */
+		bool hasDefinedValue() const;
+		/*!
 		 Get the property name
 		 @return The property name
 		 */
 		speckle::utility::String getName() const;
+		/*!
+		 Get the property group name. NB: This value is not cached in the object and drequires a database lookup - don't use casually
+		 @return The property gorup name
+		 */
+		speckle::utility::String getGroupName() const;
+		/*!
+		 Get the property value as displayed in the UI
+		 @return The property display value
+		 */
+		speckle::utility::String getDisplayValue() const;
+		/*!
+		 Get the property template ID
+		 @return The property template ID (null if the property isn't linked to a template)
+		 */
+		speckle::utility::Guid getTemplateID() const;
 		
 		// MARK: - Functions (mutating)
 
-		
-		// MARK: - Serialisation
-		
-		/*!
-		 Fill an inventory with the package items
-		 @param inventory The inventory to receive the package items
-		 @return True if the package has added items to the inventory
-		 */
-		bool fillInventory(active::serialise::Inventory& inventory) const override;
-		/*!
-		 Get the specified cargo
-		 @param item The inventory item to retrieve
-		 @return The requested cargo (nullptr on failure)
-		 */
-		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
-		
 	private:
 			///The property setting
 		std::unique_ptr<Setting> m_setting;

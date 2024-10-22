@@ -2,6 +2,7 @@
 #define SPECKLE_RECORD_PROPERTY_SETTING
 
 #include "Speckle/Record/Property/Value.h"
+#include "Speckle/Utility/String.h"
 
 #ifdef ARCHICAD
 #include <ACAPinc.h>
@@ -75,6 +76,16 @@ namespace speckle::record::property {
 
 		// MARK: - Functions (const)
 
+		/*!
+		 Determine if the setting has a defined value
+		 @return True if a defined value is found
+		 */
+		bool hasDefinedValue() const;
+		/*!
+		 Get the setting value as displayed in the UI
+		 @return The setting display value
+		 */
+		speckle::utility::String getDisplayValue() const;
 		
 		// MARK: - Functions (mutating)
 
