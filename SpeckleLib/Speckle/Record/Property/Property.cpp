@@ -91,6 +91,16 @@ bool Property::hasDefinedValue() const {
 
 
 /*--------------------------------------------------------------------
+	Determine if the property is null, e.g. zero, empty, undefined setting
+ 
+	return: True if the property setting is null
+  --------------------------------------------------------------------*/
+bool Property::isNull() const {
+	return !m_setting || m_setting->isNull();
+} //Setting::isNull
+
+
+/*--------------------------------------------------------------------
 	Get the property name
  
 	return: The property name

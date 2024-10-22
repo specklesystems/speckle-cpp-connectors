@@ -34,6 +34,19 @@ bool Setting::hasDefinedValue() const {
 
 
 /*--------------------------------------------------------------------
+	Determine if the setting is null, e.g. zero, empty, undefined
+ 
+	return: True if the setting is null
+  --------------------------------------------------------------------*/
+bool Setting::isNull() const {
+	for (const auto& value : m_values)
+		if (!value.isNull())
+			return false;
+	return true;
+} //Setting::isNull
+
+
+/*--------------------------------------------------------------------
 	Get the setting value as displayed in the UI
  
 	return: The setting display value

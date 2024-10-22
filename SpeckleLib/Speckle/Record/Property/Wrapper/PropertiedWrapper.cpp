@@ -33,7 +33,7 @@ namespace {
 PropertiedWrapper::PropertiedWrapper(const Propertied& propertied) {
 		//Serialise only properties with a defined value
 	for (const auto& property : propertied.getProperties()) {
-		if (property.hasDefinedValue())
+		if (!property.isNull())
 			m_properties.push_back(std::reference_wrapper{const_cast<Property&>(property)});
 	}
 } //PropertiedWrapper::PropertiedWrapper

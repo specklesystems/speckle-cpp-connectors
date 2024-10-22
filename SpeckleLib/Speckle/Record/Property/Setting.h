@@ -82,6 +82,11 @@ namespace speckle::record::property {
 		 */
 		bool hasDefinedValue() const;
 		/*!
+		 Determine if the setting is null, e.g. zero, empty, undefined
+		 @return True if the setting is null
+		 */
+		bool isNull() const;
+		/*!
 		 Get the setting value as displayed in the UI
 		 @return The setting display value
 		 */

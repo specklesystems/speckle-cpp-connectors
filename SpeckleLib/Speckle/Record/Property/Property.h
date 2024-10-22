@@ -79,6 +79,11 @@ namespace speckle::record::property {
 		 */
 		bool hasDefinedValue() const;
 		/*!
+		 Determine if the property is null, e.g. zero, empty, undefined setting
+		 @return True if the property setting is null
+		 */
+		bool isNull() const;
+		/*!
 		 Get the property name
 		 @return The property name
 		 */

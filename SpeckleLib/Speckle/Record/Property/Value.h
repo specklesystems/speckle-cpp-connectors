@@ -103,6 +103,11 @@ namespace speckle::record::property {
 		 */
 		bool isDefined() const { return m_value && (m_value->status == active::setting::Value::good); }
 		/*!
+		 Determine if the value is null, e.g. zero, empty, undefined
+		 @return True if the value is null
+		 */
+		virtual bool isNull() const { return !m_value || m_value->isNull(); }
+		/*!
 		 Get the value as displayed in the UI
 		 @return The value as displayed
 		 */
