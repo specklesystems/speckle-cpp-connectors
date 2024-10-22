@@ -141,7 +141,6 @@ Element::Body* Element::getBody() const {
 		return m_data->m_cache.get();
 	}
 
-
 	void* dummy = nullptr;
 	GSErrCode err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
 	if (err != NoError)
@@ -161,6 +160,9 @@ Element::Body* Element::getBody() const {
 
 	auto elementBody = new Element::Body();
 
+	// Map to collect meshes per material name
+	std::map<GS::UniString, primitive::Mesh> materialMeshMap;
+
 	Int32 nElements = acModel.GetElementCount();
 	for (Int32 iElement = 1; iElement <= nElements; iElement++)
 	{
@@ -178,49 +180,52 @@ Element::Body* Element::getBody() const {
 			Int32 polyCount = body.GetPolygonCount();
 			for (Int32 polyIndex = 1; polyIndex <= polyCount; ++polyIndex)
 			{
-				ModelerAPI::Polygon	polygon{};
+				ModelerAPI::Polygon polygon{};
 				body.GetPolygon(polyIndex, &polygon);
 
 				ModelerAPI::Material material{};
 				polygon.GetMaterial(&material);
+				auto materialName = material.GetName();
+				if (materialMeshMap.find(materialName) == materialMeshMap.end()) {
+					materialMeshMap[materialName] = primitive::Mesh(material);
+				}
+
 				Int32 convexPolyCount = polygon.GetConvexPolygonCount();
 
 				for (Int32 convPolyIndex = 1; convPolyIndex <= convexPolyCount; ++convPolyIndex)
 				{
 					std::vector<double> vertices;
-					std::vector<int> faces;
-					std::vector<int> colors;
-
 					ModelerAPI::ConvexPolygon convexPolygon{};
 					polygon.GetConvexPolygon(convPolyIndex, &convexPolygon);
 					Int32 vertexCount = convexPolygon.GetVertexCount();
 
-					faces.push_back(vertexCount);
 					for (Int32 vertexIndex = 1; vertexIndex <= vertexCount; ++vertexIndex)
 					{
 						ModelerAPI::Vertex vertex{};
 						body.GetVertex(convexPolygon.GetVertexIndex(vertexIndex), &vertex);
 
-						// TODO: change vertices array to hold Vertex instead of double values
+						// Collect vertices (as doubles for now, but should be changed to Vertex type)
 						vertices.push_back(vertex.x);
 						vertices.push_back(vertex.y);
 						vertices.push_back(vertex.z);
-
-						//double alpha = material.GetTransparency();
-						//ModelerAPI::Color color = material.GetSurfaceColor();
-						//colors.push_back(ARGBToInt(alpha, color.red, color.green, color.blue));
-
-						faces.push_back(vertexIndex - 1);
 					}
-					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors), material));
+
+					materialMeshMap[materialName].appendFace(std::move(vertices));
 				}
 			}
 		}
 	}
+	
+	for (auto& [materialName, mesh] : materialMeshMap)
+	{
+		elementBody->push_back(std::move(mesh));
+	}
+
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();
 #endif
 }
+
 
 
 /*--------------------------------------------------------------------
