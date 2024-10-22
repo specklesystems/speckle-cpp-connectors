@@ -25,6 +25,68 @@ const std::vector<Property>& Propertied::getProperties() const {
 
 
 /*--------------------------------------------------------------------
+	Get the number of attached properties
+ 
+	return: The property count
+  --------------------------------------------------------------------*/
+Propertied::size_type Propertied::getPropertyCount() const {
+	rebuild();
+	return m_properties->size();
+} //Propertied::getPropertyCount
+
+
+/*--------------------------------------------------------------------
+	Get the number of attached properties passing a specified filter
+ 
+	filter: The property filter
+ 
+	return: The number of attached properties passing the filter
+  --------------------------------------------------------------------*/
+Propertied::size_type Propertied::getPropertyCount(const Filter& filter) const {
+	rebuild();
+	size_type result = 0;
+	for (const auto& property : *m_properties)
+		if (filter(property))
+			++result;
+	return result;
+} //Propertied::getPropertyCount
+
+
+/*--------------------------------------------------------------------
+	Get a specified attached property
+ 
+	index: The index of the target property
+ 
+	return: The requested property
+  --------------------------------------------------------------------*/
+const Property& Propertied::getProperty(size_type index) const {
+	rebuild();
+	return m_properties->at(index);
+} //Propertied::getPropertyCount
+
+
+/*--------------------------------------------------------------------
+	Get a specified attached property using a filter
+ 
+	filter: The property filter
+	index: The index of the target property (counting only properties passing the filter)
+ 
+	return: The requested property
+  --------------------------------------------------------------------*/
+const Property& Propertied::getProperty(const Filter& filter, size_type index) const {
+	rebuild();
+	for (auto n = 0; n < m_properties->size(); ++n) {
+		if (filter((*m_properties)[n])) {
+			if (index == 0)
+				return (*m_properties)[n];
+			--index;
+		}
+	}
+	throw std::out_of_range("Out of bounds property access");
+} //Propertied::getPropertyCount
+
+
+/*--------------------------------------------------------------------
 	Rebuild the list of properties
  
 	return: True if any properties were found
@@ -53,6 +115,7 @@ bool Propertied::rebuild() const {
 	auto templates = propertyDbase->findTemplatesByClassification(classificationIDs);
 	if (templates.empty())
 		return false;
+#ifdef ARCHICAD
 	GS::Array<API_Guid> propertyIDs;
 	for (const auto& propTemplate : templates)
 		propertyIDs.Push(propTemplate->getBIMID());
@@ -72,5 +135,6 @@ bool Propertied::rebuild() const {
 				m_properties->emplace_back(Property{setting, *iter});
 		}
 	}
+#endif
 	return true;
 } //Propertied::rebuild

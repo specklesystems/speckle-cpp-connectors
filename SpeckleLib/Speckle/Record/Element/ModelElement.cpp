@@ -51,11 +51,13 @@ namespace {
 	///Serialisation fields
 	enum FieldIndex {
 		bodyID,
+		propertyID,
 	};
 
 	///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"displayValue"},
+		Identity{"properties"},
 	};
 
 }
@@ -251,12 +253,9 @@ Cargo::Unique ModelElement::getCargo(const Inventory::Item& item) const {
 	switch (item.index) {
 	case bodyID:
 		if (auto body = getBody(); body != nullptr)
-		{
 			return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
-		}
 		else
 			return nullptr;
-
 	default:
 		return nullptr;	//Requested an unknown index
 	}
