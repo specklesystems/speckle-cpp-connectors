@@ -29,10 +29,19 @@ namespace speckle::primitive {
 		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{utility::Guid{true}, utility::Guid{}, unit} {}
 		/*!
 		 Constructor
+		 @param unit The mesh unit type
+		 @param material The mesh material
+		 */
+		Mesh(const ModelerAPI::Material& material,
+			active::measure::LengthType unit = active::measure::LengthType::metre) :
+			base{ utility::Guid{true}, utility::Guid{}, unit }, m_material{ material } {}
+		/*!
+		 Constructor
+		 @param unit The mesh unit type
 		 @param vertices The mesh vertices
 		 @param faces The mesh faces (the number of indices in the face followed by the vertex indices)
 		 @param colors The mesh face colours
-		 @param unit The mesh unit type
+		 @param material The mesh material
 		 */
 		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const ModelerAPI::Material& material,
 				active::measure::LengthType unit = active::measure::LengthType::metre) :

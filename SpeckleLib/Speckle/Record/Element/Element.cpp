@@ -135,91 +135,6 @@ String Element::getTypeName() const {
 
 	return: A pointer to the element body
   --------------------------------------------------------------------*/
-/*Element::Body* Element::getBody() const {
-#ifdef ARCHICAD
-	if (m_data->m_cache) {
-		return m_data->m_cache.get();
-	}
-
-
-	void* dummy = nullptr;
-	GSErrCode err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
-	if (err != NoError)
-	{
-		// TODO: should this throw?
-	}
-
-	Modeler::SightPtr currentSightPtr((Modeler::Sight*)dummy); // init the shared ptr with the raw pointer
-	ModelerAPI::Model acModel;
-	Modeler::IAttributeReader* attrReader = ACAPI_Attribute_GetCurrentAttributeSetReader();
-
-	err = EXPGetModel(currentSightPtr, &acModel, attrReader);
-	if (err != NoError)
-	{
-		// TODO: should this throw?
-	}
-
-	auto elementBody = new Element::Body();
-
-	Int32 nElements = acModel.GetElementCount();
-	for (Int32 iElement = 1; iElement <= nElements; iElement++)
-	{
-		ModelerAPI::Element elem{};
-		acModel.GetElement(iElement, &elem);
-		if (elem.GetElemGuid() != getHead().guid)
-			continue;
-
-		Int32 nBodies = elem.GetTessellatedBodyCount();
-		for (Int32 bodyIndex = 1; bodyIndex <= nBodies; ++bodyIndex)
-		{
-			ModelerAPI::MeshBody body{};
-			elem.GetTessellatedBody(bodyIndex, &body);
-
-			Int32 polyCount = body.GetPolygonCount();
-			for (Int32 polyIndex = 1; polyIndex <= polyCount; ++polyIndex)
-			{
-				ModelerAPI::Polygon	polygon{};
-				body.GetPolygon(polyIndex, &polygon);
-
-				ModelerAPI::Material material{};
-				polygon.GetMaterial(&material);
-				auto materialName = material.GetName();
-
-				Int32 convexPolyCount = polygon.GetConvexPolygonCount();
-
-				for (Int32 convPolyIndex = 1; convPolyIndex <= convexPolyCount; ++convPolyIndex)
-				{
-					std::vector<double> vertices;
-					std::vector<int> faces;
-					std::vector<int> colors;
-
-					ModelerAPI::ConvexPolygon convexPolygon{};
-					polygon.GetConvexPolygon(convPolyIndex, &convexPolygon);
-					Int32 vertexCount = convexPolygon.GetVertexCount();
-
-					faces.push_back(vertexCount);
-					for (Int32 vertexIndex = 1; vertexIndex <= vertexCount; ++vertexIndex)
-					{
-						ModelerAPI::Vertex vertex{};
-						body.GetVertex(convexPolygon.GetVertexIndex(vertexIndex), &vertex);
-
-						// TODO: change vertices array to hold Vertex instead of double values
-						vertices.push_back(vertex.x);
-						vertices.push_back(vertex.y);
-						vertices.push_back(vertex.z);
-
-						faces.push_back(vertexIndex - 1);
-					}
-					elementBody->push_back(primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors), material));
-				}
-			}
-		}
-	}
-	m_data->m_cache.reset(elementBody);
-	return m_data->m_cache.get();
-#endif
-}*/
-
 Element::Body* Element::getBody() const {
 #ifdef ARCHICAD
 	if (m_data->m_cache) {
@@ -271,20 +186,19 @@ Element::Body* Element::getBody() const {
 				ModelerAPI::Material material{};
 				polygon.GetMaterial(&material);
 				auto materialName = material.GetName();
+				if (materialMeshMap.find(materialName) == materialMeshMap.end()) {
+					materialMeshMap[materialName] = primitive::Mesh(material);
+				}
 
 				Int32 convexPolyCount = polygon.GetConvexPolygonCount();
 
 				for (Int32 convPolyIndex = 1; convPolyIndex <= convexPolyCount; ++convPolyIndex)
 				{
 					std::vector<double> vertices;
-					std::vector<int> faces;
-					std::vector<int> colors;
-
 					ModelerAPI::ConvexPolygon convexPolygon{};
 					polygon.GetConvexPolygon(convPolyIndex, &convexPolygon);
 					Int32 vertexCount = convexPolygon.GetVertexCount();
 
-					faces.push_back(vertexCount);
 					for (Int32 vertexIndex = 1; vertexIndex <= vertexCount; ++vertexIndex)
 					{
 						ModelerAPI::Vertex vertex{};
@@ -294,16 +208,9 @@ Element::Body* Element::getBody() const {
 						vertices.push_back(vertex.x);
 						vertices.push_back(vertex.y);
 						vertices.push_back(vertex.z);
-
-						faces.push_back(vertexIndex - 1);
 					}
 
-					if (materialMeshMap.find(materialName) != materialMeshMap.end()) {
-						materialMeshMap[materialName].appendFace(std::move(vertices));
-					}
-					else {
-						materialMeshMap[materialName] = primitive::Mesh(std::move(vertices), std::move(faces), std::move(colors), material);
-					}		
+					materialMeshMap[materialName].appendFace(std::move(vertices));
 				}
 			}
 		}
