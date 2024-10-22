@@ -118,7 +118,7 @@ std::vector<std::shared_ptr<Template>> ArchicadPropertyDBaseEngine::findTemplate
   --------------------------------------------------------------------*/
 std::unique_ptr<Template> ArchicadPropertyDBaseEngine::getObject(const BIMRecordID& objID, std::optional<BIMRecordID> tableID,
 																 std::optional<BIMRecordID> documentID) const {
-	if (!validateCache() || (tableID != Template::propertyTableID))
+	if (!validateCache() || (tableID && (tableID != Template::propertyTableID)))
 		return nullptr;
 	if (auto found = m_cache->find(objID); found != m_cache->end())
 		return std::make_unique<Template>(*found->second);
