@@ -37,29 +37,39 @@ namespace {
 		switch (source.type) {
 			case API_PropertyIntegerValueType:
 				result = std::make_unique<active::setting::Int64Value>(source.intValue);
+				break;
 			case API_PropertyRealValueType: {
 					//Ensure measured values are an appropriate type
 				switch (measure) {
 					case API_PropertyLengthMeasureType:
 						result = std::make_unique<active::setting::LengthValue>(source.doubleValue);
+						break;
 					case API_PropertyAreaMeasureType:
 						result = std::make_unique<active::setting::AreaValue>(source.doubleValue);
+						break;
 					case API_PropertyVolumeMeasureType:
 						result = std::make_unique<active::setting::VolumeValue>(source.doubleValue);
+						break;
 					case API_PropertyAngleMeasureType:
 						result = std::make_unique<active::setting::AngleValue>(source.doubleValue);
+						break;
 					default:
 						result = std::make_unique<active::setting::DoubleValue>(source.doubleValue);
+						break;
 				}
 			}
 			case API_PropertyStringValueType:
 				result = std::make_unique<active::setting::StringValue>(String{source.uniStringValue});
+				break;
 			case API_PropertyBooleanValueType:
 				result = std::make_unique<active::setting::BoolValue>(source.boolValue);
+				break;
 			case API_PropertyGuidValueType:
 				result = std::make_unique<active::setting::GuidValue>(Guid{source.guidValue});
+				break;
 			default:
 				result = std::make_unique<active::setting::NullValue>();	//TODO: Is this a possible/valid outcome?
+				break;
 		}
 			//If the value hasn't already been established as bad, apply the source status
 		if (result->status != active::setting::Value::bad) {

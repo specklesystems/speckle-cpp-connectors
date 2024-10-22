@@ -22,6 +22,7 @@
     <ClInclude Include="Speckle\Database\AccountDatabase.h" />
     <ClInclude Include="Speckle\Database\BIMAttributeDatabase.h" />
     <ClInclude Include="Speckle\Database\BIMElementDatabase.h" />
+    <ClInclude Include="Speckle\Database\BIMGroupDatabase.h" />
     <ClInclude Include="Speckle\Database\BIMPropertyDatabase.h" />
     <ClInclude Include="Speckle\Database\Content\BIMRecord.h" />
     <ClInclude Include="Speckle\Database\Content\Record.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.h" />
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.h" />
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h" />
@@ -86,6 +88,7 @@
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h" />
     <ClInclude Include="Speckle\Record\Element\Memo.h" />
     <ClInclude Include="Speckle\Record\Element\ModelElement.h" />
+    <ClInclude Include="Speckle\Record\Property\Group.h" />
     <ClInclude Include="Speckle\Record\Property\Propertied.h" />
     <ClInclude Include="Speckle\Record\Property\Property.h" />
     <ClInclude Include="Speckle\Record\Property\Setting.h" />
@@ -117,6 +120,7 @@
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp" />
     <ClCompile Include="Speckle\Database\BIMAttributeDatabase.cpp" />
     <ClCompile Include="Speckle\Database\BIMElementDatabase.cpp" />
+    <ClCompile Include="Speckle\Database\BIMGroupDatabase.cpp" />
     <ClCompile Include="Speckle\Database\BIMPropertyDatabase.cpp" />
     <ClCompile Include="Speckle\Database\Content\BIMRecord.cpp" />
     <ClCompile Include="Speckle\Database\Content\Record.cpp" />
@@ -124,6 +128,7 @@
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.cpp" />
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.cpp" />
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
@@ -162,6 +167,7 @@
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp" />
     <ClCompile Include="Speckle\Record\Element\Memo.cpp" />
     <ClCompile Include="Speckle\Record\Element\ModelElement.cpp" />
+    <ClCompile Include="Speckle\Record\Property\Group.cpp" />
     <ClCompile Include="Speckle\Record\Property\Propertied.cpp" />
     <ClCompile Include="Speckle\Record\Property\Property.cpp" />
     <ClCompile Include="Speckle\Record\Property\Setting.cpp" />

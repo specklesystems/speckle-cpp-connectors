@@ -397,6 +397,15 @@
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.h">
       <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMGroupDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Group.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -593,6 +602,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.cpp">
       <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMGroupDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Group.cpp">
+      <Filter>Speckle\Record\Property</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
