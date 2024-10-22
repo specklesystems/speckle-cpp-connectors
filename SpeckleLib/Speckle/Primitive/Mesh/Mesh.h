@@ -45,6 +45,12 @@ namespace speckle::primitive {
 		 @return The speckle type (relevant objects should override as required)
 		 */
 		speckle::utility::String getSpeckleType() const override { return "Objects.Geometry.Mesh"; }
+
+		/*!
+		 Append a single face to the Mesh given by the vertices
+		 @param vertices The vertices to append
+		 */
+		void appendFace(const std::vector<double>& vertices);
 		
 		// MARK: - Serialisation
 		
