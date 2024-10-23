@@ -39,9 +39,9 @@ void Mesh::appendFace(const std::vector<double>& vertices) {
 
 	m_vertices.insert(m_vertices.end(), vertices.begin(), vertices.end());
 	int lastVertexIndex = m_faces.empty() ? -1 : m_faces.back();
-	int faceSize = vertices.size() / 3;
+	int faceSize = static_cast<int>(vertices.size() / 3);
 	m_faces.push_back(faceSize);
-	for (int i = 0; i < faceSize; i++)
+	for (size_t i = 0; i < faceSize; i++)
 		m_faces.push_back(++lastVertexIndex);
 }
 

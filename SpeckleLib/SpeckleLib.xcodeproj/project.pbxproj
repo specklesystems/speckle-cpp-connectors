@@ -103,6 +103,12 @@
 		21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */; };
 		21AE19932CC82866004DBCFC /* BIMGroupDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */; };
 		21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */; };
+		21AE19A72CC8F1F8004DBCFC /* Beam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19A12CC8F1F8004DBCFC /* Beam.cpp */; };
+		21AE19A82CC8F1F8004DBCFC /* BeamSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19A42CC8F1F8004DBCFC /* BeamSegment.cpp */; };
+		21AE19A92CC8F1F8004DBCFC /* Beam.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19A52CC8F1F8004DBCFC /* Beam.h */; };
+		21AE19AA2CC8F1F8004DBCFC /* BeamSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19A62CC8F1F8004DBCFC /* BeamSegment.h */; };
+		21AE19AD2CC8F214004DBCFC /* SegmentedBeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19AB2CC8F214004DBCFC /* SegmentedBeam.h */; };
+		21AE19AE2CC8F214004DBCFC /* SegmentedBeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19AC2CC8F214004DBCFC /* SegmentedBeam.cpp */; };
 		21AEF9BA2CA606B5000B8681 /* DetachedReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9B92CA606B4000B8681 /* DetachedReference.cpp */; };
 		21AEF9BC2CA6DF84000B8681 /* DetachmentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BB2CA6DF84000B8681 /* DetachmentManager.cpp */; };
 		21AEF9BE2CA6FDA4000B8681 /* DetachedWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BD2CA6FDA4000B8681 /* DetachedWrap.cpp */; };
@@ -297,6 +303,12 @@
 		21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArchicadGroupDBaseEngine.cpp; sourceTree = "<group>"; };
 		21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BIMGroupDatabase.cpp; sourceTree = "<group>"; };
 		21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIMGroupDatabase.h; sourceTree = "<group>"; };
+		21AE19A12CC8F1F8004DBCFC /* Beam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Beam.cpp; sourceTree = "<group>"; };
+		21AE19A42CC8F1F8004DBCFC /* BeamSegment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeamSegment.cpp; sourceTree = "<group>"; };
+		21AE19A52CC8F1F8004DBCFC /* Beam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beam.h; sourceTree = "<group>"; };
+		21AE19A62CC8F1F8004DBCFC /* BeamSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeamSegment.h; sourceTree = "<group>"; };
+		21AE19AB2CC8F214004DBCFC /* SegmentedBeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedBeam.h; sourceTree = "<group>"; };
+		21AE19AC2CC8F214004DBCFC /* SegmentedBeam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedBeam.cpp; sourceTree = "<group>"; };
 		21AEF9B32CA5F7CF000B8681 /* DetachedWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedWrap.h; sourceTree = "<group>"; };
 		21AEF9B52CA5FA02000B8681 /* DetachedReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachedReference.h; sourceTree = "<group>"; };
 		21AEF9B72CA5FCB6000B8681 /* DetachmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetachmentManager.h; sourceTree = "<group>"; };
@@ -444,6 +456,10 @@
 		215F087A2CA18E1400CD343B /* Element */ = {
 			isa = PBXGroup;
 			children = (
+				21AE19A12CC8F1F8004DBCFC /* Beam.cpp */,
+				21AE19A52CC8F1F8004DBCFC /* Beam.h */,
+				21AE19A42CC8F1F8004DBCFC /* BeamSegment.cpp */,
+				21AE19A62CC8F1F8004DBCFC /* BeamSegment.h */,
 				21A0FBE82CBD6B1A0023F24E /* Column.cpp */,
 				21A0FBE92CBD6B1A0023F24E /* Column.h */,
 				21A0FBDF2CBD6B1A0023F24E /* ColumnSegment.cpp */,
@@ -627,6 +643,8 @@
 				21A0FC032CBE59A80023F24E /* Assembly */,
 				21A0FC102CBEE5C30023F24E /* Part.cpp */,
 				21A0FBE42CBD6B1A0023F24E /* Part.h */,
+				21AE19AC2CC8F214004DBCFC /* SegmentedBeam.cpp */,
+				21AE19AB2CC8F214004DBCFC /* SegmentedBeam.h */,
 				21A0FBFF2CBE59A80023F24E /* SegmentedColumn.cpp */,
 				21A0FC002CBE59A80023F24E /* SegmentedColumn.h */,
 			);
@@ -911,6 +929,7 @@
 			files = (
 				21A0FBF42CBD6B700023F24E /* Memo.h in Headers */,
 				215F088C2CA195EC00CD343B /* ArchicadDBaseCore.h in Headers */,
+				21AE19AD2CC8F214004DBCFC /* SegmentedBeam.h in Headers */,
 				21D0BDE72C943D3F0077E104 /* RecordID.h in Headers */,
 				21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */,
 				21A0FBB52CBA5E380023F24E /* Str256.h in Headers */,
@@ -921,6 +940,7 @@
 				21A890CF2CC1B87C0087E732 /* GenericDrawingElement.h in Headers */,
 				219246032CA2CE2700CF5703 /* BIMLink.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
+				21AE19A92CC8F1F8004DBCFC /* Beam.h in Headers */,
 				215F08962CA19AF800CD343B /* BIMElementDatabase.h in Headers */,
 				2196F2F12CB4823C00450DFC /* Attribute.h in Headers */,
 				21D0BD332C86FE090077E104 /* Link.h in Headers */,
@@ -955,6 +975,7 @@
 				21AE196F2CC64D37004DBCFC /* Classified.h in Headers */,
 				21AE19522CC273F1004DBCFC /* Property.h in Headers */,
 				21A0FBF92CBDB9A70023F24E /* BIMMemory.h in Headers */,
+				21AE19AA2CC8F1F8004DBCFC /* BeamSegment.h in Headers */,
 				21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */,
 				21AE19542CC273F1004DBCFC /* Template.h in Headers */,
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
@@ -1105,6 +1126,7 @@
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
 				215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */,
 				21AE19932CC82866004DBCFC /* BIMGroupDatabase.cpp in Sources */,
+				21AE19A72CC8F1F8004DBCFC /* Beam.cpp in Sources */,
 				21D0BDBD2C90F2830077E104 /* DocStoreSubscriber.cpp in Sources */,
 				21AE197B2CC7CE1A004DBCFC /* PropsAndClassWrapper.cpp in Sources */,
 				21D0BDB32C8F8AB60077E104 /* DocumentStoreCore.cpp in Sources */,
@@ -1122,6 +1144,7 @@
 				2196F3052CB57E8000450DFC /* Storey.cpp in Sources */,
 				219245FE2CA2CC4300CF5703 /* BIMRecord.cpp in Sources */,
 				21AE19572CC27DB3004DBCFC /* Value.cpp in Sources */,
+				21AE19A82CC8F1F8004DBCFC /* BeamSegment.cpp in Sources */,
 				21AEF9BE2CA6FDA4000B8681 /* DetachedWrap.cpp in Sources */,
 				21A0FC062CBE59A80023F24E /* Path.cpp in Sources */,
 				2196F2F52CB483D600450DFC /* Finish.cpp in Sources */,
@@ -1157,6 +1180,7 @@
 				21A0FC042CBE59A80023F24E /* SegmentedColumn.cpp in Sources */,
 				210CC89F2C81E34400610F58 /* Platform.cpp in Sources */,
 				21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */,
+				21AE19AE2CC8F214004DBCFC /* SegmentedBeam.cpp in Sources */,
 				21F69F962C71087A008B6A06 /* Account.cpp in Sources */,
 				21A0FBF82CBDB9A70023F24E /* BIMMemory.cpp in Sources */,
 				21A0FBF52CBD6B700023F24E /* Memo.cpp in Sources */,

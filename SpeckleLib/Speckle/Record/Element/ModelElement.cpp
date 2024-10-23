@@ -61,15 +61,6 @@ namespace {
 		Identity{"displayValue"},
 		Identity{"properties"},
 	};
-
-	/*!
-	 Determine if a specified property has a defined value (filter)
-	 @param property The property to test
-	 @return True if the property has a defined value (entered by user and status is good)
-	 */
-	bool isDefinedProperty(const Property& property) {
-		return property.hasDefinedValue();
-	}
 	
 }
 
