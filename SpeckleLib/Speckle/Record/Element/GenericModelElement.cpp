@@ -1,4 +1,4 @@
-#include "Speckle/Record/Element/GenericElement.h"
+#include "Speckle/Record/Element/GenericModelElement.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
@@ -19,9 +19,9 @@ using namespace speckle::utility;
 
 namespace speckle::record::element {
 
-	class GenericElement::Data {
+	class GenericModelElement::Data {
 	public:
-		friend class GenericElement;
+		friend class GenericModelElement;
 
 #ifdef ARCHICAD
 		Data(const API_Element& elem) : root{ std::make_unique<API_Element>(elem) } {}
@@ -30,21 +30,6 @@ namespace speckle::record::element {
 
 	private:
 		std::unique_ptr<API_Element> root;
-		std::unique_ptr<GenericElement::Body> m_cache;
-	};
-
-}
-
-namespace {
-
-	///Serialisation fields
-	enum FieldIndex {
-		bodyID,
-	};
-
-	///Serialisation field IDs
-	static std::array fieldID = {
-		Identity{"displayValue"},
 	};
 
 }
@@ -52,8 +37,8 @@ namespace {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-GenericElement::GenericElement() {
-} //GenericElement::GenericElement
+GenericModelElement::GenericModelElement() {
+} //GenericModelElement::GenericModelElement
 
 
 /*--------------------------------------------------------------------
@@ -62,9 +47,9 @@ GenericElement::GenericElement() {
 	elemData: Archicad element data
 	tableID: The attribute table ID (attribute type)
   --------------------------------------------------------------------*/
-GenericElement::GenericElement(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
+GenericModelElement::GenericModelElement(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
 	m_data = std::make_unique<Data>(elemData);
-} //GenericElement::GenericElement
+} //GenericModelElement::GenericModelElement
 
 
 /*--------------------------------------------------------------------
@@ -72,15 +57,15 @@ GenericElement::GenericElement(const API_Element& elemData, const speckle::utili
 
 	source: The object to copy
   --------------------------------------------------------------------*/
-GenericElement::GenericElement(const GenericElement& source) : base{ source } {
+GenericModelElement::GenericModelElement(const GenericModelElement& source) : base{ source } {
 	m_data = source.m_data ? std::make_unique<Data>(*m_data) : nullptr;
-} //GenericElement::GenericElement
+} //GenericModelElement::GenericModelElement
 
 
 /*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
-GenericElement::~GenericElement() {}
+GenericModelElement::~GenericModelElement() {}
 
 
 #ifdef ARCHICAD
@@ -89,18 +74,18 @@ GenericElement::~GenericElement() {}
 
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
-const API_Elem_Head& GenericElement::getHead() const {
+const API_Elem_Head& GenericModelElement::getHead() const {
 	return m_data->root->header;
-} //GenericElement::getHead
+} //GenericModelElement::getHead
 
 /*--------------------------------------------------------------------
 	Get the (mutable) API element header data
 
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
-API_Elem_Head& GenericElement::getHead() {
+API_Elem_Head& GenericModelElement::getHead() {
 	return m_data->root->header;
-} //GenericElement::getHead
+} //GenericModelElement::getHead
 #endif
 
 
@@ -111,15 +96,9 @@ API_Elem_Head& GenericElement::getHead() {
 
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool GenericElement::fillInventory(Inventory& inventory) const {
-	using enum Entry::Type;
-	inventory.merge(Inventory{
-		{
-			{ fieldID[bodyID], bodyID, element },	//TODO: implement other fields
-		},
-	}.withType(&typeid(GenericElement)));
+bool GenericModelElement::fillInventory(Inventory& inventory) const {
 	return base::fillInventory(inventory);
-} //GenericElement::fillInventory
+} //GenericModelElement::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -129,29 +108,15 @@ bool GenericElement::fillInventory(Inventory& inventory) const {
 
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique GenericElement::getCargo(const Inventory::Item& item) const {
-	if (item.ownerType != &typeid(GenericElement))
-		return base::getCargo(item);
-	using namespace active::serialise;
-	switch (item.index) {
-	case bodyID:
-		if (auto body = getBody(); body != nullptr)
-		{
-			return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
-		}
-		else
-			return nullptr;
-
-	default:
-		return nullptr;	//Requested an unknown index
-	}
-} //GenericElement::getCargo
+Cargo::Unique GenericModelElement::getCargo(const Inventory::Item& item) const {
+	return base::getCargo(item);
+} //GenericModelElement::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void GenericElement::setDefault() {
+void GenericModelElement::setDefault() {
 	base::setDefault();
 	m_data.reset();
-} //GenericElement::setDefault
+} //GenericModelElement::setDefault

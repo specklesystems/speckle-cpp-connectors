@@ -71,7 +71,7 @@ Cargo::Unique DetachedReference::getCargo(const Inventory::Item& item) const {
 				if (!m_reference)
 					throw; //TODO: Throw a more descriptive exception
 			}
-			std::make_unique<StringWrap>(*m_reference);
+			return std::make_unique<StringWrap>(*m_reference);
 		}
 		case speckTypeID:
 			return std::make_unique<StringWrap>(m_type);

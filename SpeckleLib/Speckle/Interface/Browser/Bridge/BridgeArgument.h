@@ -126,7 +126,12 @@ namespace speckle::interfac::browser::bridge {
                     @return The number of parameters
                     */
         uint32_t parameterCount() const override { return Params; }
-    };
+
+		/*!
+		 Set to the default package content
+		 */
+		void setDefault() override { T::setDefault(); }
+	};
 	
 }
 

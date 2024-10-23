@@ -2,7 +2,7 @@
 #define SPECKLE_RECORD_ELEMENT_BEAM
 
 #include "Speckle/Record/Element/BeamSegment.h"
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Interface/Assembly/Path.h"
 #include "Speckle/Record/Element/Interface/SegmentedBeam.h"
 
@@ -13,12 +13,12 @@ namespace speckle::record::element {
 	/*!
 	 BIM beam class
 	 */
-	class Beam : public Element, public SegmentedBeam, public assembly::Path {
+	class Beam : public ModelElement, public SegmentedBeam, public assembly::Path {
 	public:
 
 		// MARK: - Types
 		
-		using base = Element;
+		using base = ModelElement;
 			///Unique pointer
 		using Unique = std::unique_ptr<Beam>;
 			///Shared pointer

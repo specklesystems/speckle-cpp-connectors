@@ -32,11 +32,6 @@ namespace speckle::database {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the current user attribute selection
-		 @return A list of selected attribute IDs
-		 */
-		BIMLinkList getSelection() const;
-		/*!
 		 Get a specified attribute
 		 @param attributeID The ID of the target attribute
 		 @param tableID Optional table ID (defaults to the floor plan)

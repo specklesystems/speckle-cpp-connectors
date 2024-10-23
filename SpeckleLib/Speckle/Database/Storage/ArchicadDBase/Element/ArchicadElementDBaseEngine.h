@@ -46,6 +46,7 @@ namespace speckle::database {
 		/*!
 		 Constructor
 		 @param id The document storage identifier
+		 @param schema The document storage schema
 		 */
 		ArchicadElementDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) : ArchicadDBaseCore{id, std::move(schema)} {}
 		ArchicadElementDBaseEngine(const ArchicadElementDBaseEngine&) = delete;

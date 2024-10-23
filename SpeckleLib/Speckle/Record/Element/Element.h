@@ -19,9 +19,6 @@ namespace speckle::record::element {
 	 */
 	class Element : public speckle::database::BIMRecord {
 	public:
-		
-			///An element 3D body primitive
-		using Body = std::vector<primitive::Mesh>;
 
 		// MARK: - Types
 		
@@ -74,11 +71,6 @@ namespace speckle::record::element {
 		 @return The element storey (nullopt if the element isn't linked to a storey)
 		 */
 		virtual attribute::Storey::Option getStorey() const;
-		/*!
-		 Get the element body
-		 @return An array of meshes from the element body (nullptr if no body data is available)
-		 */
-		virtual Body* getBody() const;
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API element header data
@@ -122,11 +114,6 @@ namespace speckle::record::element {
 		 @param filter Filter bits specifying memo requirements
 		 */
 		virtual void loadMemo(Part::filter_bits filter, std::unique_ptr<Memo>& memo) const;
-		
-	private:
-		class Data;
-			///The element data
-		std::unique_ptr<Data> m_data;
 	};
 
 }

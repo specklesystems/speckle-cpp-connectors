@@ -14,11 +14,14 @@ SelectionBridge::SelectionBridge() : BrowserBridge{"selectionBinding"} {
 	addMethod<GetSelection>();
 } //SelectionBridge::SelectionBridge
 
-/*!
-Handle the menu selection
-@param event The selection event
-@return True if the event should be closed
-*/
+
+/*--------------------------------------------------------------------
+	Handle a selection change
+ 
+	event: The selection event
+ 
+	return: True if the event should be closed
+  --------------------------------------------------------------------*/
 bool SelectionBridge::handle(const speckle::event::SelectionEvent& event) {
 	auto selectionInfo = std::make_unique<SelectionInfo>();
 	auto wrapped =  std::make_unique<CargoHold<PackageWrap, SelectionInfo>>(std::move(selectionInfo));
