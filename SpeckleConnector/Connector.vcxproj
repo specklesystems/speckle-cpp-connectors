@@ -104,6 +104,7 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\HighlightModel.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetDocumentState.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationName.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\GetSourceApplicationVersion.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\HighlightModel.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\RemoveModel.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\UpdateModel.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\Arg\ConnectorConfig.h" />
