@@ -13,6 +13,8 @@
 #include "Speckle/Record/Element/Column.h"
 #include "Speckle/Record/Element/ColumnSegment.h"
 #include "Speckle/Record/Element/ModelElement.h"
+#include "Speckle/Record/Element/Beam.h"
+#include "Speckle/Record/Element/BeamSegment.h"
 #include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
@@ -76,11 +78,14 @@ namespace {
 				return std::make_unique<Column>(elementData, tableID);
 			case API_ColumnSegmentID:
 				return std::make_unique<ColumnSegment>(elementData, tableID);
+			case API_BeamID:
+				return std::make_unique<Beam>(elementData, tableID);
+			case API_BeamSegmentID:
+				return std::make_unique<BeamSegment>(elementData, tableID);
 			default:
 				return std::make_unique<ModelElement>(elementData, tableID);
 		}
 	}
-
 }
 
 /*--------------------------------------------------------------------

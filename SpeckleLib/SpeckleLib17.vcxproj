@@ -76,6 +76,8 @@
     <ClInclude Include="Speckle\Record\Credentials\ServerInfo.h" />
     <ClInclude Include="Speckle\Record\Credentials\ServerMigration.h" />
     <ClInclude Include="Speckle\Record\Credentials\UserInfo.h" />
+    <ClInclude Include="Speckle\Record\Element\Beam.h" />
+    <ClInclude Include="Speckle\Record\Element\BeamSegment.h" />
     <ClInclude Include="Speckle\Record\Element\Column.h" />
     <ClInclude Include="Speckle\Record\Element\ColumnSegment.h" />
     <ClInclude Include="Speckle\Record\Element\DrawingElement.h" />
@@ -85,6 +87,7 @@
     <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Path.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Segment.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\Part.h" />
+    <ClInclude Include="Speckle\Record\Element\Interface\SegmentedBeam.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h" />
     <ClInclude Include="Speckle\Record\Element\Memo.h" />
     <ClInclude Include="Speckle\Record\Element\ModelElement.h" />
@@ -155,6 +158,8 @@
     <ClCompile Include="Speckle\Record\Credentials\ServerInfo.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\ServerMigration.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\UserInfo.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Beam.cpp" />
+    <ClCompile Include="Speckle\Record\Element\BeamSegment.cpp" />
     <ClCompile Include="Speckle\Record\Element\Column.cpp" />
     <ClCompile Include="Speckle\Record\Element\ColumnSegment.cpp" />
     <ClCompile Include="Speckle\Record\Element\DrawingElement.cpp" />
@@ -164,6 +169,7 @@
     <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Path.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Segment.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\Part.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Interface\SegmentedBeam.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp" />
     <ClCompile Include="Speckle\Record\Element\Memo.cpp" />
     <ClCompile Include="Speckle\Record\Element\ModelElement.cpp" />

@@ -109,7 +109,7 @@ bool Element::fillInventory(Inventory& inventory) const {
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
 Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
-	return base::getCargo(item);
+		return base::getCargo(item);
 } //Element::getCargo
 
 
