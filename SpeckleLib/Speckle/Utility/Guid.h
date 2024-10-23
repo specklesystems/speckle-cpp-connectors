@@ -73,4 +73,20 @@ namespace speckle::utility {
 	
 }
 
+	///Hashing for Guid class, e.g. to use as a key in unordered_map
+template<>
+struct std::hash<speckle::utility::Guid> {
+	std::size_t operator() (const active::utility::Guid& guid) const {
+		return static_cast<std::size_t>(guid.raw().first | std::rotr(guid.raw().second, 8 * sizeof(uint64_t)));
+	}
+};
+
+	///Hashing for a Guid pair, e.g. to use as a key in unordered_map
+template<>
+struct std::hash<std::pair<speckle::utility::Guid, speckle::utility::Guid>> {
+	std::size_t operator() (const std::pair<speckle::utility::Guid, speckle::utility::Guid>& pair) const {
+		return std::hash<speckle::utility::Guid>()(pair.first) | std::rotr(std::hash<speckle::utility::Guid>()(pair.second), 8 * sizeof(std::size_t));
+	}
+};
+
 #endif	//SPECKLE_UTILITY_GUID

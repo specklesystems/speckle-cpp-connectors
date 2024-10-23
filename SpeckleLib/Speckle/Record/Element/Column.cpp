@@ -113,7 +113,7 @@ void Column::loadMemo(filter_bits filter, std::unique_ptr<Memo>& memo) const {
 		//Establish the memo filter for this element
 	if (!SegmentedColumn::isMemoLoaded())
 		filter |= SegmentedColumn::getPartFilter();
-	Element::loadMemo(filter, memo);
+	ModelElement::loadMemo(filter, memo);
 		//Receive the memo data into the element (when available)
 	if (memo) {
 		if (filter & SegmentedColumn::getPartFilter())

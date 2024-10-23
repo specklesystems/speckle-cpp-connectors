@@ -62,7 +62,7 @@ namespace speckle::database {
 		 Get a link to the BIM record
 		 @return The BIM record link
 		 */
-		BIMLink getBIMLink() const { return BIMLink{ BIMLink::base{m_applicationID, m_applicationTableID} }; }
+		BIMLink getBIMLink() const { return BIMLink{ BIMLink::base	{m_applicationID, m_applicationTableID} }; }
 		/*!
 		 Get the record unit type
 		 @return The record unit type (nullopt if the record has no applicable unit type)

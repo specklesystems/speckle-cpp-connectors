@@ -12,7 +12,7 @@
 #include "Speckle/Event/Type/ProjectEvent.h"
 #include "Speckle/Record/Element/Column.h"
 #include "Speckle/Record/Element/ColumnSegment.h"
-#include "Speckle/Record/Element/GenericElement.h"
+#include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Beam.h"
 #include "Speckle/Record/Element/BeamSegment.h"
 #include "Speckle/Record/Element/Memo.h"
@@ -83,7 +83,7 @@ namespace {
 			case API_BeamSegmentID:
 				return std::make_unique<BeamSegment>(elementData, tableID);
 			default:
-				return std::make_unique<GenericElement>(elementData, tableID);
+				return std::make_unique<ModelElement>(elementData, tableID);
 		}
 	}
 }

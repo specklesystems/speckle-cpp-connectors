@@ -1,28 +1,30 @@
-#ifndef SPECKLE_RECORD_GENERIC_ELEMENT
-#define SPECKLE_RECORD_GENERIC_ELEMENT
+#ifndef SPECKLE_RECORD_MODEL_ELEMENT
+#define SPECKLE_RECORD_MODEL_ELEMENT
 
+#include "Speckle/Record/Classification/Classified.h"
 #include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Property/Propertied.h"
 
 namespace speckle::record::element {
 	
 	/*!
-	 Catch-all class for elements that are not represented by a specific class
+	 Base class for model elements, i.e. with 3D bodies and typically representing the project model
 	 */
-	class GenericElement : public Element {
+	class ModelElement : public Element, public classify::Classified, public property::Propertied {
 	public:
-		
-			///An element 3D body primitive
-		using Body = std::vector<primitive::Mesh>;
 
 		// MARK: - Types
 		
 		using base = Element;
 			///Unique pointer
-		using Unique = std::unique_ptr<GenericElement>;
+		using Unique = std::unique_ptr<ModelElement>;
 			///Shared pointer
-		using Shared = std::shared_ptr<GenericElement>;
+		using Shared = std::shared_ptr<ModelElement>;
 			///Optional
-		using Option = std::optional<GenericElement>;
+		using Option = std::optional<ModelElement>;
+			///A model element 3D body primitive
+		using Body = std::vector<primitive::Mesh>;
 
 		// MARK: - Constructors
 		
@@ -31,34 +33,47 @@ namespace speckle::record::element {
 		/*!
 		 Default constructor
 		 */
-		GenericElement();
+		ModelElement();
+		/*!
+		 Constructor
+		 @param ID The record ID
+		 @param tableID The parent table ID
+		 @param unit The record unit type
+		 */
+		ModelElement(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
+					 std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre);
 #ifdef ARCHICAD
 		/*!
 		 Constructor
 		 @param elemData Archicad element data
 		 @param tableID The element table ID (AC database, e.g. floor plan, 3D)
 		 */
-		GenericElement(const API_Element& elemData, const speckle::utility::Guid& tableID);
+		ModelElement(const API_Element& elemData, const speckle::utility::Guid& tableID);
 #endif
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		GenericElement(const GenericElement& source);
+		ModelElement(const ModelElement& source);
 		/*!
 		 Destructor
 		 */
-		~GenericElement();
+		~ModelElement();
 
 		/*!
 		 Object cloning
 		 @return A clone of this object
 		 */
-		GenericElement* clonePtr() const override { return new GenericElement{*this}; }
+		ModelElement* clonePtr() const override { return new ModelElement{*this}; }
 
 
 		// MARK: - Functions (const)
 
+		/*!
+		 Get the element body
+		 @return An array of meshes from the element body (nullptr if no body data is available)
+		 */
+		virtual Body* getBody() const;
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API element header data
@@ -104,4 +119,4 @@ namespace speckle::record::element {
 
 }
 
-#endif	//SPECKLE_RECORD_GENERIC_ELEMENT
+#endif	//SPECKLE_RECORD_MODEL_ELEMENT

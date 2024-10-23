@@ -8,7 +8,7 @@
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 A browser bridge to support sending model data to a Speckle server
+	 A browser bridge to manage element selection information passed between the JS UI and the BIM application
 	*/
 	class SelectionBridge : public speckle::interfac::browser::bridge::BrowserBridge, public speckle::event::SelectionSubscriber {
 	public:
@@ -27,7 +27,7 @@ namespace connector::interfac::browser::bridge {
 
 	protected:
 		/*!
-		 Handle the menu selection
+		 Handle a selection change
 		 @param event The selection event
 		 @return True if the event should be closed
 		 */
