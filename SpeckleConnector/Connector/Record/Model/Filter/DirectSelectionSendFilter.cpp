@@ -56,7 +56,7 @@ Cargo::Unique DirectSelectionSendFilter::getCargo(const Inventory::Item& item) c
 	using namespace active::serialise;
 	switch (item.index) {
 		case selectedElemID:
-			return std::make_unique<ContainerWrap<ElementIDList>>(m_selectedElements);
+			return std::make_unique<ContainerWrap<ElementIDList>>(m_selectedElements, false, fieldID[selectedElemID].name);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

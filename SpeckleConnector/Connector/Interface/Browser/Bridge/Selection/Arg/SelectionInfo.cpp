@@ -80,7 +80,7 @@ Cargo::Unique SelectionInfo::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case selectedObjectIdsID:
-			return std::make_unique<ContainerWrap<std::vector<active::utility::Guid>>>(m_selectedElementIds);
+			return std::make_unique<ContainerWrap<std::vector<active::utility::Guid>>>(m_selectedElementIds, false, fieldID[selectedObjectIdsID].name);
 		case summaryID:
 			return std::make_unique<ValueWrap<active::utility::String>>(m_summary);
 		default:
