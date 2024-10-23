@@ -77,6 +77,11 @@ namespace speckle::record::property {
 		// MARK: - Functions (const)
 
 		/*!
+		 Determine if the setting is empty, i.e. has no values
+		 @return True if the setting is empty
+		 */
+		bool empty() const { return m_values.empty(); }
+		/*!
 		 Determine if the setting has a defined value
 		 @return True if a defined value is found
 		 */
@@ -94,6 +99,12 @@ namespace speckle::record::property {
 		
 		// MARK: - Functions (mutating)
 
+		/*!
+		 Append a value to the setting
+		 @param value The value to append
+		 */
+		void append(Value&& value);
+		
 #ifdef ARCHICAD
 		/*!
 		 Receive a value from an Archicad property

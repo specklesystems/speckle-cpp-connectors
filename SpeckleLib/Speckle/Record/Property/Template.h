@@ -156,6 +156,12 @@ namespace speckle::record::property {
 		 @return True if the conversion was successful
 		 */
 		bool convert(const Setting& setting, API_PropertyValue& value) const;
+		/*!
+		 Find an enumerated value by key
+		 @param key The value key
+		 @return The enum value paired with the specified key (nullopt on failure)
+		 */
+		Value::Option findEnumValue(const Value& key) const;
 		
 		// MARK: - Functions (mutating)
 

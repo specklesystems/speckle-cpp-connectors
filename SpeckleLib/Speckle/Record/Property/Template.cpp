@@ -183,10 +183,22 @@ std::unique_ptr<Group> Template::getGroup() const {
 bool Template::convert(const API_PropertyValue& value, Setting& setting) const {
 	auto measure = Template::convert(m_measure);
 	switch (m_type) {
-		case Type::single: case Type::singleEnum:
+		case Type::single:
 			return setting.receive(value.singleVariant, API_VariantStatusNormal, measure);
-		case Type::array: case Type::arrayEnum:
+		case Type::singleEnum:
+			if (auto enumValue = findEnumValue(Value{value.singleVariant.variant, API_VariantStatusNormal, measure}); enumValue) {
+				setting.append(std::move(*enumValue));
+				return true;
+			}
+			return false;
+		case Type::array:
 			return setting.receive(value.listVariant, API_VariantStatusNormal, measure);
+		case Type::arrayEnum:
+			for (const auto& val : value.listVariant.variants) {
+				if (auto enumValue = findEnumValue(Value{val, API_VariantStatusNormal, measure}); enumValue)
+					setting.append(std::move(*enumValue));
+			}
+			return !setting.empty();
 		default:
 			break;
 	}
@@ -206,6 +218,26 @@ bool Template::convert(const Setting& setting, API_PropertyValue& value) const {
 	return false;	//TODO: Implement when required
 } //Template::convert
 #endif
+
+			
+/*--------------------------------------------------------------------
+	Find an enumerated value by key
+ 
+	key: The value key
+ 
+	return: The enum value paired with the specified key (nullopt on failure)
+  --------------------------------------------------------------------*/
+Value::Option Template::findEnumValue(const Value& key) const {
+	if (key.getValue() != nullptr) {
+		if (auto iter = std::find_if(m_enumValues.begin(), m_enumValues.end(), [&key](const auto& value){
+					if (value.getKey() == nullptr)
+						return false;
+					return *key.getValue() == *value.getKey();
+				}); iter != m_enumValues.end())
+			return *iter;
+	}
+	return std::nullopt;
+} //Template::findEnumValue
 
 
 /*--------------------------------------------------------------------

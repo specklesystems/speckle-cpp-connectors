@@ -67,6 +67,16 @@ String Setting::getDisplayValue() const {
 } //Setting::getDisplayValue
 
 
+/*--------------------------------------------------------------------
+	Append a value to the setting
+ 
+	value: The value to append
+  --------------------------------------------------------------------*/
+void Setting::append(Value&& value) {
+	m_values.emplace_back(value);
+} //Setting::append
+
+
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Receive a value from an Archicad property
