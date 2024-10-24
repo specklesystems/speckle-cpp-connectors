@@ -25,14 +25,13 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		HighlightModel();
 
 		// MARK: - Functions (const)
 		
 		/*!
-		 Send a specified model
+		 Higlight the model card selection
 		 @param modelCardID The ID of the model to send
 		 */
 		void run(const speckle::utility::String& modelCardID) const;
@@ -40,4 +39,4 @@ namespace connector::interfac::browser::bridge {
 
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_SEND
+#endif	//CONNECTOR_INTERFACE_HIGHLIGHT_MODEL

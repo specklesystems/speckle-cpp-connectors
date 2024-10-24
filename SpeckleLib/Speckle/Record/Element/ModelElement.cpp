@@ -116,7 +116,7 @@ ModelElement::~ModelElement() {}
   --------------------------------------------------------------------*/
 ModelElement::Body* ModelElement::getBody() const {
 #ifdef ARCHICAD
-	if (m_data->m_cache) {
+	if (m_data && m_data->m_cache) {
 		return m_data->m_cache.get();
 	}
 
@@ -195,7 +195,7 @@ ModelElement::Body* ModelElement::getBody() const {
 		}
 	}
 	
-	for (auto& [materialName, mesh] : materialMeshMap)
+	for (auto& [materialName, mesh] : materialMeshMap) 
 	{
 		elementBody->push_back(std::move(mesh));
 	}
