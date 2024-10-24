@@ -7,6 +7,8 @@
 #include "Connector/Record/Model/Filter/SendFilter.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Element/Element.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Project.h"
 
 #include <array>
 
@@ -44,15 +46,16 @@ void HighlightModel::run(const String& modelCardID) const {
 	
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
 		auto modelCardSelection = senderCard->getFilter().getElementIDs();
-#ifdef ARCHICAD	
-		ACAPI_Selection_DeselectAll();
-		GS::Array<API_Neig> selNeigs;
-		for (const auto elemID : modelCardSelection) {
-			API_Neig neig(elemID);
-			selNeigs.Push(neig);
+
+		auto project = connector()->getActiveProject().lock();
+		if (!project) {
+			// TODO: is this OK? should this throw?
+			return;
 		}
-		ACAPI_Selection_Select(selNeigs, true);
-#endif
+
+		auto elementDatabase = project->getElementDatabase();
+		elementDatabase->clearSelection();
+		elementDatabase->setSelection(modelCardSelection);
 	}
 
 } //HighlightModel::run
