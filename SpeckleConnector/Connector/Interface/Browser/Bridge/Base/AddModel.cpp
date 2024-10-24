@@ -10,12 +10,6 @@ using namespace connector::record;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 
-namespace {
-	
-	using WrappedValue = active::serialise::CargoHold<PackageWrap, DocumentInfo>;
-
-}
-
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
