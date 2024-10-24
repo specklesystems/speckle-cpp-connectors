@@ -170,7 +170,6 @@ BrowserPalette::BrowserPalette() :
 	if (auto ref = install<BaseBridge>(); ref) {
 		if (auto baseBridgeRef = std::dynamic_pointer_cast<BaseBridge>(ref); baseBridgeRef) {
 			connector::connector()->addWeak(baseBridgeRef);
-			baseBridgeRef->start();
 		}
 	}
 
