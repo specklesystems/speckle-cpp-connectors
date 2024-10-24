@@ -31,6 +31,21 @@ namespace {
 }
 
 /*--------------------------------------------------------------------
+	Append a single face to the Mesh given by the vertices
+  --------------------------------------------------------------------*/
+void Mesh::appendFace(const std::vector<double>& vertices) {
+	if (vertices.empty())
+		return;
+
+	m_vertices.insert(m_vertices.end(), vertices.begin(), vertices.end());
+	int lastVertexIndex = m_faces.empty() ? -1 : m_faces.back();
+	int faceSize = static_cast<int>(vertices.size() / 3);
+	m_faces.push_back(faceSize);
+	for (size_t i = 0; i < faceSize; i++)
+		m_faces.push_back(++lastVertexIndex);
+}
+
+/*--------------------------------------------------------------------
 	Fill an inventory with the package items
  
 	inventory: The inventory to receive the package items

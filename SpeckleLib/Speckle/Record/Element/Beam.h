@@ -2,7 +2,7 @@
 #define SPECKLE_RECORD_ELEMENT_BEAM
 
 #include "Speckle/Record/Element/BeamSegment.h"
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Interface/Assembly/Path.h"
 #include "Speckle/Record/Element/Interface/SegmentedBeam.h"
 
@@ -13,12 +13,12 @@ namespace speckle::record::element {
 	/*!
 	 BIM beam class
 	 */
-	class Beam : public Element, public SegmentedBeam, public assembly::Path {
+	class Beam : public ModelElement, public SegmentedBeam, public assembly::Path {
 	public:
 
 		// MARK: - Types
 		
-		using base = Element;
+		using base = ModelElement;
 			///Unique pointer
 		using Unique = std::unique_ptr<Beam>;
 			///Shared pointer
@@ -65,7 +65,7 @@ namespace speckle::record::element {
 		 Get the BIM application parent table ID
 		 @return The BIM table ID
 		 */
-		virtual database::BIMRecordID getTableID() const override { return Element::getTableID(); }
+		virtual database::BIMRecordID getTableID() const override { return ModelElement::getTableID(); }
 		/*!
 		 Get the element body
 		 @return nullptr (Beams don't explicitly have a 3D body - this comes from its child segments)

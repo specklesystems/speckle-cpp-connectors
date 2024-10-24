@@ -29,13 +29,9 @@ namespace {
 }
 
 SelectionInfo::SelectionInfo() {
-	initialize();
-}
-
-void SelectionInfo::initialize() {
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
-		// TODO: is thi OK?
+		// TODO: is this OK?
 		return;
 	}
 
@@ -50,6 +46,7 @@ void SelectionInfo::initialize() {
 		m_selectedElementIds.push_back(link);
 	}
 }
+
 
 /*--------------------------------------------------------------------
 	Fill an inventory with the package items
@@ -83,7 +80,7 @@ Cargo::Unique SelectionInfo::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 		case selectedObjectIdsID:
-			return std::make_unique<ContainerWrap<std::vector<active::utility::Guid>>>(m_selectedElementIds);
+			return std::make_unique<ContainerWrap<std::vector<active::utility::Guid>>>(m_selectedElementIds, false, fieldID[selectedObjectIdsID].name);
 		case summaryID:
 			return std::make_unique<ValueWrap<active::utility::String>>(m_summary);
 		default:

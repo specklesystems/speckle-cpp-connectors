@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_RECORD_EVERYTHING_SEND_FILTER
 #define CONNECTOR_RECORD_EVERYTHING_SEND_FILTER
 
-#include "Connector/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Connector/Record/Model/Filter/SendFilter.h"
 
 namespace connector::record {
@@ -36,13 +36,13 @@ namespace connector::record {
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		const database::ElementIDList& getElementIDs() const override { return m_emptyList; }
+		const speckle::database::ElementIDList& getElementIDs() const override { return m_emptyList; }
 		/*!
 		 Determine if the filter has expired because an element in the selection has changed
 		 @param changed The list of changed element IDs
 		 @return True if the one of the changed elements is in the selection
 		 */
-		virtual bool checkExpiry(const database::ElementIDList& changed) const override { return true; }
+		virtual bool checkExpiry(const speckle::database::ElementIDList& changed) const override { return true; }
 		
 		// MARK: - Serialisation
 		
@@ -65,7 +65,7 @@ namespace connector::record {
 		
 	private:
 			///Enables a const empty list to be returned
-		database::ElementIDList m_emptyList;
+		speckle::database::ElementIDList m_emptyList;
 	};
 
 }

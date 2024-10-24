@@ -7,6 +7,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/GetSourceApplicationVersion.h"
 #include "Connector/Interface/Browser/Bridge/Base/RemoveModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/UpdateModel.h"
+#include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
 
 using namespace connector::interfac::browser::bridge;
 
@@ -23,6 +24,7 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<GetSourceApplicationVersion>();
 	addMethod<RemoveModel>();
 	addMethod<UpdateModel>();
+	addMethod<HighlightModel>();
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------

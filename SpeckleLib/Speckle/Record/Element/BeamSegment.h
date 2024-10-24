@@ -1,7 +1,7 @@
 #ifndef SPECKLE_RECORD_ELEMENT_BEAM_SEGMENT
 #define SPECKLE_RECORD_ELEMENT_BEAM_SEGMENT
 
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Interface/Assembly/Segment.h"
 
 namespace speckle::record::element {
@@ -11,12 +11,12 @@ namespace speckle::record::element {
 	/*!
 	 BIM beam class
 	 */
-	class BeamSegment : public Element, public assembly::Segment {
+	class BeamSegment : public ModelElement, public assembly::Segment {
 	public:
 
 		// MARK: - Types
 		
-		using base = Element;
+		using base = ModelElement;
 			///Unique pointer
 		using Unique = std::unique_ptr<BeamSegment>;
 			///Shared pointer

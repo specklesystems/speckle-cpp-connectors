@@ -46,6 +46,7 @@ namespace speckle::database {
 		/*!
 		 Constructor
 		 @param id The document storage identifier
+		 @param schema The document storage schema
 		 */
 		ArchicadElementDBaseEngine(const active::utility::NameID& id, ArchicadDBaseSchema&& schema) : ArchicadDBaseCore{id, std::move(schema)} {}
 		ArchicadElementDBaseEngine(const ArchicadElementDBaseEngine&) = delete;
@@ -57,6 +58,14 @@ namespace speckle::database {
 		 @return A list of selected element IDs
 		 */
 		BIMLinkList getSelection() const;
+		/*!
+		 Set the element selection
+		 */
+		void setSelection(const BIMLinkList& elementIDs) const;
+		/*!
+		 Clear the element selection
+		 */
+		void clearSelection() const;
 		/*!
 		 Get an object by index
 		 @param objID The object ID
