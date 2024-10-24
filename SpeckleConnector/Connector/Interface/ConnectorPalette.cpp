@@ -166,15 +166,24 @@ BrowserPalette::BrowserPalette() :
 	BeginEventProcessing();
 		//Install required connector bridges
 	install<AccountBridge>();
-	install<BaseBridge>();
+
+	if (auto ref = install<BaseBridge>(); ref) {
+		if (auto baseBridgeRef = std::dynamic_pointer_cast<BaseBridge>(ref); baseBridgeRef) {
+			connector::connector()->addWeak(baseBridgeRef);
+			baseBridgeRef->start();
+		}
+	}
+
 	install<ConfigBridge>();
 	install<SendBridge>();
+
 	if (auto ref = install<SelectionBridge>(); ref) {
 		if (auto selectionBridgeRef = std::dynamic_pointer_cast<SelectionBridge>(ref); selectionBridgeRef) {
 			connector::connector()->addWeak(selectionBridgeRef);
 			selectionBridgeRef->start();
 		}
 	}
+
 	install<TestBridge>();
 	InitBrowserControl();
 }
