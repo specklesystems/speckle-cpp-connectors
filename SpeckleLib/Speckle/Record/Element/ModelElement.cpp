@@ -183,7 +183,7 @@ ModelElement::Body* ModelElement::getBody() const {
 		}
 	}
 	
-	for (auto& [materialName, mesh] : materialMeshMap)
+	for (auto& [materialName, mesh] : materialMeshMap) 
 	{
 		elementBody->push_back(std::move(mesh));
 	}

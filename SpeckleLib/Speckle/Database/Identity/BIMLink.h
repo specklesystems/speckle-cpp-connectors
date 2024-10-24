@@ -4,6 +4,7 @@
 #include "Active/Setting/SettingList.h"
 #include "Active/Database/Identity/Link.h"
 #include "Speckle/Database/Identity/BIMRecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 
 namespace speckle::database {
 
@@ -41,7 +42,18 @@ namespace speckle::database {
 	};
 	
 		//A list of links to BIM records
-	using BIMLinkList = std::vector<BIMLink>;
+	//using BIMLinkList = std::vector<BIMLink>;
+	class BIMLinkList : public std::vector<BIMLink> {
+	public:
+
+		using base = std::vector<BIMLink>;
+
+		using base::base;
+
+		BIMLinkList() = default;
+
+		BIMLinkList(const ElementIDList& elementIDList);
+	};
 
 }
 

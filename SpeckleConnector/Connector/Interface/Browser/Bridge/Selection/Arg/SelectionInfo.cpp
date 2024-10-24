@@ -31,7 +31,7 @@ namespace {
 SelectionInfo::SelectionInfo() {
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
-		// TODO: is thi OK?
+		// TODO: is this OK?
 		return;
 	}
 

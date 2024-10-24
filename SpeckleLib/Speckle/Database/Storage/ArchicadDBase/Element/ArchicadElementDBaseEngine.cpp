@@ -124,6 +124,27 @@ BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Set the element selection
+  --------------------------------------------------------------------*/
+void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) const {
+	GS::Array<API_Neig> selNeigs;
+	for (const auto elemID : elementIDs) {
+		API_Neig neig(elemID);
+		selNeigs.Push(neig);
+	}
+	ACAPI_Selection_Select(selNeigs, true);
+} //ArchicadElementDBaseEngine::setSelection
+
+
+/*--------------------------------------------------------------------
+	Clear the element selection
+  --------------------------------------------------------------------*/
+void ArchicadElementDBaseEngine::clearSelection() const {
+	ACAPI_Selection_DeselectAll();
+} //ArchicadElementDBaseEngine::clearSelection
+
+
+/*--------------------------------------------------------------------
 	Get an object by index
  
 	index: The object index

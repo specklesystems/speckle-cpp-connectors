@@ -86,6 +86,22 @@ BIMLinkList BIMElementDatabase::getSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Set the element selection
+  --------------------------------------------------------------------*/
+void BIMElementDatabase::setSelection(const BIMLinkList& elementIDs) const {
+	m_engine->setSelection(elementIDs);
+} //BIMElementDatabase::setSelection
+
+
+/*--------------------------------------------------------------------
+	Clear the element selection
+  --------------------------------------------------------------------*/
+void BIMElementDatabase::clearSelection() const {
+	m_engine->clearSelection();
+} //BIMElementDatabase::clearSelection
+
+
+/*--------------------------------------------------------------------
 	Get a specified element
  
 	elementID: The ID of the target element
