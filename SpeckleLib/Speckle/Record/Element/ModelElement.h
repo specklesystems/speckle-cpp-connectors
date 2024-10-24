@@ -42,14 +42,6 @@ namespace speckle::record::element {
 		 */
 		ModelElement(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
 					 std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre);
-#ifdef ARCHICAD
-		/*!
-		 Constructor
-		 @param elemData Archicad element data
-		 @param tableID The element table ID (AC database, e.g. floor plan, 3D)
-		 */
-		ModelElement(const API_Element& elemData, const speckle::utility::Guid& tableID);
-#endif
 		/*!
 		 Copy constructor
 		 @param source The object to copy
@@ -60,12 +52,6 @@ namespace speckle::record::element {
 		 */
 		~ModelElement();
 
-		/*!
-		 Object cloning
-		 @return A clone of this object
-		 */
-		ModelElement* clonePtr() const override { return new ModelElement{*this}; }
-
 
 		// MARK: - Functions (const)
 
@@ -74,23 +60,9 @@ namespace speckle::record::element {
 		 @return An array of meshes from the element body (nullptr if no body data is available)
 		 */
 		virtual Body* getBody() const;
-#ifdef ARCHICAD
-		/*!
-		 Get the (immutable) API element header data
-		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-		 */
-		virtual const API_Elem_Head& getHead() const override;
-#endif
 		
 		// MARK: - Functions (mutating)
 
-#ifdef ARCHICAD
-		/*!
-		 Get the (mutable) API element header data
-		 @return The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-		 */
-		virtual API_Elem_Head& getHead() override;
-#endif
 
 		// MARK: - Serialisation
 		
@@ -114,7 +86,7 @@ namespace speckle::record::element {
 	private:
 		class Data;
 			///The element data
-		std::unique_ptr<Data> m_data;
+		mutable std::unique_ptr<Data> m_data;
 	};
 
 }
