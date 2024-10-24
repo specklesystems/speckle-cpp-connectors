@@ -7,7 +7,7 @@
 #include <array>
 
 using namespace active::serialise;
-using namespace connector::database;
+using namespace speckle::database;
 using namespace connector::record;
 using namespace speckle::utility;
 

@@ -41,7 +41,7 @@ void HighlightModel::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, modelCardNotFoundID), modelCardID));
 		return;
 	}
-	String className = typeid(*modelCard).name();
+	
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
 		auto modelCardSelection = senderCard->getFilter().getElementIDs();
 #ifdef ARCHICAD	

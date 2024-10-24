@@ -42,6 +42,11 @@ namespace speckle::database {
 	
 		//A list of links to BIM records
 	using BIMLinkList = std::vector<BIMLink>;
+	/*class  BIMLinkList {
+	public:
+		BIMLinkList() = default;
+		BIMLinkList(database::ElementIDList&)
+	};*/
 
 }
 

@@ -124,6 +124,22 @@ BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Set the element selection
+
+	return: A list of selected element IDs
+  --------------------------------------------------------------------*/
+void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) const {
+	ACAPI_Selection_DeselectAll();
+	GS::Array<API_Neig> selNeigs;
+	for (const auto elemID : elementIDs) {
+		API_Neig neig(elemID);
+		selNeigs.Push(neig);
+	}
+	ACAPI_Selection_Select(selNeigs, true);
+} //ArchicadElementDBaseEngine::setSelection
+
+
+/*--------------------------------------------------------------------
 	Get an object by index
  
 	index: The object index

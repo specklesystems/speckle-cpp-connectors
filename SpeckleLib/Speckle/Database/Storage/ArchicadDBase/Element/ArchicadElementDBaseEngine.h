@@ -59,6 +59,11 @@ namespace speckle::database {
 		 */
 		BIMLinkList getSelection() const;
 		/*!
+		 Set the element selection
+		 @return A list of selected element IDs
+		 */
+		void setSelection(const BIMLinkList& elementIDs) const;
+		/*!
 		 Get an object by index
 		 @param objID The object ID
 		 @param tableID Optional table ID (defaults to the floor plan)
