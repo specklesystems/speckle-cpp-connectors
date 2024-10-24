@@ -8,13 +8,13 @@
 
 namespace connector::interfac::browser::bridge {
 	
-		///Argument parameter for a string
+		///Argument parameter for a model card
 	using CardHold = active::serialise::CargoHold<connector::record::CardMover, connector::record::ModelCard>;
 		///Argument type for this method
 	using ModelCardEventWrapper = speckle::interfac::browser::bridge::JSArgType<CardHold>;
 
 	/*!
-	 JS Function class to add a model card to the document storage
+	 JS Function class to update a model card in document storage
 	*/
 	class UpdateModel : public speckle::interfac::browser::bridge::BridgeMethod<ModelCardEventWrapper, void> {
 	public:
@@ -29,8 +29,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Add a model card to document storage
-		 @param card The card to add
+		 Update a model card in document storage
+		 @param card The card to update
 		 */
 		void run(const connector::record::ModelCard& card) const;
 	};

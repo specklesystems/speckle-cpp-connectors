@@ -21,9 +21,9 @@ GetDocumentState::GetDocumentState() : BridgeMethod{"GetDocumentState", [&]() {
 
 
 /*--------------------------------------------------------------------
-	Get the document info
+	Get the document model cards
  
-	return: The document info
+	return: The document model cards
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetDocumentState::run() const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr) {

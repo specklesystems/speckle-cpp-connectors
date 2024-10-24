@@ -11,7 +11,10 @@
 namespace connector::record {
 	
 	/*!
-	 A connector send filter
+	 Base class for a Speckle model card
+
+	 A model card captures key information about a model submitted to a Speckle server, e.g. the model ID, the target server
+	 and account, and any settings or filters applicable to the host BIM application and open document
 	 */
 	class ModelCard : public speckle::database::Record {
 	public:
@@ -60,13 +63,13 @@ namespace connector::record {
 		 */
 		const speckle::utility::String& getModelID() const { return m_modelID; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the ID of the active BIM project
+		 @return The ID of the active BIM project
 		 */
 		const speckle::utility::String& getProjectID() const { return m_projectID; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the user account ID
+		 @return The user account ID
 		 */
 		const speckle::utility::String& getAccountID() const { return m_accountID; }
 		/*!
@@ -75,8 +78,8 @@ namespace connector::record {
 		 */
 		const speckle::utility::String& getMessage() const { return m_message; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the server URL
+		 @return The server URL
 		 */
 		const speckle::utility::String& getServerURL() const { return m_serverURL; }
 		/*!

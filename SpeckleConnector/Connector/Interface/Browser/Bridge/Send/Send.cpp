@@ -20,18 +20,12 @@
 #include "Speckle/Record/Element/Element.h"
 using namespace speckle::record::element;
 
-#include <array>
-
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
 using namespace speckle::database;
 using namespace speckle::serialise;
 using namespace speckle::utility;
-
-namespace {
-		
-}
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -44,7 +38,7 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 /*--------------------------------------------------------------------
 	Send a specified model
  
-	modelCardID: The ID of the model to send
+	modelCardID: The ID of the model card identifying the objects to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
 		//Find the specified model card

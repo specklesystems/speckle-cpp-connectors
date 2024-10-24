@@ -25,13 +25,13 @@ GetConnectorVersion::GetConnectorVersion() : BridgeMethod{"GetConnectorVersion",
 
 
 /*--------------------------------------------------------------------
-	Get the host application version
+	Get the connector software version
  
-	return: The application version
+	return: The connector software version
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetConnectorVersion::run() const {
 		//Implement other platforms as required
-	String result{active::utility::String{connector::versionMajor} + "." + active::utility::String{connector::versionMinor} + "." +
-			active::utility::String{connector::versionPatch}};
+	String result{String{connector::versionMajor} + "." + String{connector::versionMinor} + "." +
+			String{connector::versionPatch}};
 	return std::make_unique<WrappedValue>(result);
 } //GetConnectorVersion::run

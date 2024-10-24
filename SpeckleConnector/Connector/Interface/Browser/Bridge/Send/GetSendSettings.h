@@ -9,7 +9,7 @@ namespace connector::interfac::browser::bridge {
 	class ConnectorConfig;
 	
 	/*!
-	 JS Function class to retrieve the send filters
+	 JS Function class to retrieve the send settings relevant to the host BIM application
 	*/
 	class GetSendSettings : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
@@ -18,15 +18,14 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		GetSendSettings();
 
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the send filters
-		 @return The send filters
+		 Get send settings relevant to the host BIM application
+		 @return The send settings
 		 */
 		std::unique_ptr<active::serialise::Cargo> run() const;
 	};

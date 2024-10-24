@@ -6,7 +6,7 @@
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 JS Function class to retrieve the information about the active document
+	 JS Function class to retrieve model cards stored in the current document
 	*/
 	class GetDocumentState : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
@@ -21,8 +21,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the document info
-		 @return The document info
+		 Get the document model cards
+		 @return The document model cards
 		 */
 		std::unique_ptr<active::serialise::Cargo> run() const;
 	};

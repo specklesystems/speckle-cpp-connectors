@@ -2,7 +2,6 @@
 
 #include "Connector/Connector.h"
 #include "Connector/Database/ModelCardDatabase.h"
-#include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 
 using namespace active::container;
 using namespace active::serialise;

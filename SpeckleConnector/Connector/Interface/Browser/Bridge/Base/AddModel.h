@@ -8,7 +8,7 @@
 
 namespace connector::interfac::browser::bridge {
 	
-		///Argument parameter for a string
+		///Argument parameter for a model card
 	using CardHold = active::serialise::CargoHold<connector::record::CardMover, connector::record::ModelCard>;
 		///Argument type for this method
 	using ModelCardEventWrapper = speckle::interfac::browser::bridge::JSArgType<CardHold>;

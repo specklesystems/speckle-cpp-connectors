@@ -26,9 +26,9 @@ UpdateModel::UpdateModel() : BridgeMethod{"UpdateModel", [&](const ModelCardEven
 
 
 /*--------------------------------------------------------------------
-	Add a model card to document storage
+	Update a model card in document storage
  
-	card: The card to add
+	card: The card to update
   --------------------------------------------------------------------*/
 void UpdateModel::run(const ModelCard& card) const {
 	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)

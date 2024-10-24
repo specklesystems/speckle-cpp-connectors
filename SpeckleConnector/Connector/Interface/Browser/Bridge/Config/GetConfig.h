@@ -6,7 +6,7 @@
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 JS Function class to retrieve the names of the methods supported by the bridge
+	 JS Function class to retrieve the current display configuration settings
 	*/
 	class GetConfig : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:

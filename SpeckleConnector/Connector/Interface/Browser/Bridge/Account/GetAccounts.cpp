@@ -14,7 +14,7 @@ using namespace speckle::utility;
 
 namespace {
 	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<Account>>, Vector<Account>>;
+	using WrappedValue = CargoHold<ContainerWrap<Vector<Account>>, Vector<Account>>;
 
 }
 

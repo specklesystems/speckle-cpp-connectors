@@ -25,7 +25,6 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		Send();
 
@@ -33,7 +32,7 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Send a specified model
-		 @param modelCardID The ID of the model to send
+		 @param modelCardID The ID of the model card identifying the objects to send
 		 */
 		void run(const speckle::utility::String& modelCardID) const;
 	};

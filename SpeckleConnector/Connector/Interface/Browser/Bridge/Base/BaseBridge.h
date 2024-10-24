@@ -7,7 +7,7 @@
 namespace connector::interfac::browser::bridge {
 	
 	/*!
-	 A browser bridge to provide configuration settings
+	 A browser bridge to manage document settings
 	*/
 	class BaseBridge : public speckle::interfac::browser::bridge::BrowserBridge, public speckle::event::ProjectSubscriber {
 	public:

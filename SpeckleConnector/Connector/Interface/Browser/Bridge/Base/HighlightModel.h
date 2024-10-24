@@ -16,7 +16,7 @@ namespace connector::interfac::browser::bridge {
 	using SendArgs = speckle::interfac::browser::bridge::JSArgType<StringHold>;
 
 	/*!
-	 JS Function class to send a specified model
+	 JS Function class to highlight elements from the selected model card in the open document
 	*/
 	class HighlightModel : public speckle::interfac::browser::bridge::BridgeMethod<SendArgs, void> {
 	public:
@@ -31,8 +31,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Higlight the model card selection
-		 @param modelCardID The ID of the model to send
+		 Highlight elements linked to the model card selection
+		 @param modelCardID The ID of the target model card
 		 */
 		void run(const speckle::utility::String& modelCardID) const;
 	};

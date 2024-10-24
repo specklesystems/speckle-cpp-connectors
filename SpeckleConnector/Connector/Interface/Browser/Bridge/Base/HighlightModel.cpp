@@ -10,16 +10,10 @@
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Project.h"
 
-#include <array>
-
 using namespace speckle::record::element;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
 using namespace speckle::utility;
-
-namespace {
-		
-}
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -30,9 +24,9 @@ HighlightModel::HighlightModel() : BridgeMethod{"HighlightModel", [&](const Send
 
 
 /*--------------------------------------------------------------------
-	Higlight the model card selection
+	Highlight elements linked to the model card selection
  
-	modelCardID: The ID of the model to send
+	modelCardID: The ID of the target model card
   --------------------------------------------------------------------*/
 void HighlightModel::run(const String& modelCardID) const {
 	// Find the specified model card

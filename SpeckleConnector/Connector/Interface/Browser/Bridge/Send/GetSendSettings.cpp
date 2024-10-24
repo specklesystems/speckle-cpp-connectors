@@ -13,7 +13,7 @@ using namespace speckle::utility;
 
 namespace {
 	
-	using WrappedValue = active::serialise::CargoHold<ContainerWrap<Vector<CardSetting>, PackageWrap>, Vector<CardSetting>>;
+	using WrappedValue = CargoHold<ContainerWrap<Vector<CardSetting>, PackageWrap>, Vector<CardSetting>>;
 
 }
 
@@ -26,9 +26,9 @@ GetSendSettings::GetSendSettings() : BridgeMethod{"GetSendSettings", [&]() {
 
 
 /*--------------------------------------------------------------------
-	Get the send filters
+	Get send settings relevant to the host BIM application
  
-	return: The send filters
+	return: The send settings
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetSendSettings::run() const {
 	auto filters = std::make_unique<Vector<CardSetting>>();
