@@ -239,7 +239,7 @@ void DocumentStoreCore::writeStore() {
 		GS::HashTable<API_Guid, short> conflicts;
 		if (auto statusCode = convertArchicadError(ACAPI_AddOnObject_ReserveObjects({Guid{m_id.id}}, &conflicts)); statusCode != nominal)
 			throw std::system_error(makeError(statusCode));
-			//TODO: Implamenent handling for conflicts
+			//TODO: Implement handling for conflicts
 	}
 	auto toWrite = buildStore();
 		//Write the new data

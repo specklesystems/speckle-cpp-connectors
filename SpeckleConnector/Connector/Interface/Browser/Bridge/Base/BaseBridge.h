@@ -3,7 +3,6 @@
 
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Event/Subscriber/ProjectSubscriber.h"
-#include "Speckle/Event/Type/ProjectEvent.h"
 
 namespace connector::interfac::browser::bridge {
 	

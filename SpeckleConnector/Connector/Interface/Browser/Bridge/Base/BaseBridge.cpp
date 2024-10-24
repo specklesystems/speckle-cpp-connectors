@@ -8,6 +8,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/RemoveModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/UpdateModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
+#include "Speckle/Event/Type/ProjectEvent.h"
 
 using namespace connector::interfac::browser::bridge;
 
@@ -37,11 +38,11 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-	case open:
-		sendEvent("documentChanged");
-		break;
-	default:
-		break;
+		case open:
+			sendEvent("documentChanged");
+			break;
+		default:
+			break;
 	}
 	return false;
 } //BaseBridge::handle
