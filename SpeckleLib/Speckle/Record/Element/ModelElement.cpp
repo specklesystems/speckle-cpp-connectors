@@ -37,12 +37,11 @@ namespace speckle::record::element {
 		friend class ModelElement;
 
 #ifdef ARCHICAD
-		Data(const API_Element& elem) : root{ std::make_unique<API_Element>(elem) } {}
-		Data(const Data& source) : root{ std::make_unique<API_Element>(*source.root) } {}
+		Data() {}
+		Data(const Data& source) : m_cache{std::make_unique<ModelElement::Body>(*source.m_cache)} {}
 #endif
 
 	private:
-		std::unique_ptr<API_Element> root;
 		std::unique_ptr<ModelElement::Body> m_cache;
 	};
 
@@ -79,17 +78,6 @@ ModelElement::ModelElement() {
 	unit: The record unit type
   --------------------------------------------------------------------*/
 ModelElement::ModelElement(const Guid& ID, const Guid& tableID, std::optional<LengthType> unit) : Element{ID, tableID, unit} {
-} //ModelElement::ModelElement
-
-
-/*--------------------------------------------------------------------
-	Constructor
-
-	elemData: Archicad element data
-	tableID: The attribute table ID (attribute type)
-  --------------------------------------------------------------------*/
-ModelElement::ModelElement(const API_Element& elemData, const Guid& tableID) : base{ elemData.header.guid, tableID } {
-	m_data = std::make_unique<Data>(elemData);
 } //ModelElement::ModelElement
 
 
@@ -199,32 +187,11 @@ ModelElement::Body* ModelElement::getBody() const {
 	{
 		elementBody->push_back(std::move(mesh));
 	}
-
+	m_data = std::make_unique<Data>();
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();
 #endif
 } //ModelElement::getBody
-
-
-#ifdef ARCHICAD
-/*--------------------------------------------------------------------
-	Get the (immutable) API element header data
-
-	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-  --------------------------------------------------------------------*/
-const API_Elem_Head& ModelElement::getHead() const {
-	return m_data->root->header;
-} //ModelElement::getHead
-
-/*--------------------------------------------------------------------
-	Get the (mutable) API element header data
-
-	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
-  --------------------------------------------------------------------*/
-API_Elem_Head& ModelElement::getHead() {
-	return m_data->root->header;
-} //ModelElement::getHead
-#endif
 
 
 /*--------------------------------------------------------------------
