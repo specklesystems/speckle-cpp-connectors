@@ -65,7 +65,7 @@ namespace speckle::record::element {
 		 Get the BIM application parent table ID
 		 @return The BIM table ID
 		 */
-		virtual database::BIMRecordID getTableID() const override { return Element::getTableID(); }
+		virtual database::BIMRecordID getTableID() const override { return ModelElement::getTableID(); }
 		/*!
 		 Get the element body
 		 @return nullptr (Beams don't explicitly have a 3D body - this comes from its child segments)
