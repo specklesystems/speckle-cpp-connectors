@@ -5,7 +5,6 @@
 
 #include "Active/Utility/Guid.h"
 #include "Active/Utility/String.h"
-#include "Speckle/Database/Identity/BIMLink.h"
 
 namespace speckle::event {
 	
@@ -14,6 +13,8 @@ namespace speckle::event {
 	*/
 	class ElementChangedEvent : public active::event::Event {
 	public:
+
+		enum EventType { New, Begin, End, Change, Edit };
 		
 		static const inline active::utility::NameID ID{active::utility::String{"element change"},
 				active::utility::Guid{active::utility::String{"ac9366d5-90fd-497e-b7f7-a7b4c8d97c91"}}};
@@ -24,7 +25,7 @@ namespace speckle::event {
 		 Constructor
 		 @param selected A link to a selected element (nullopt if the selection is empty)
 		 */
-		ElementChangedEvent(speckle::database::RecordIDList changed) : Event{ ID }, m_changedElementIDs{ changed } {}
+		ElementChangedEvent(speckle::database::ElementID changed, EventType eventType) : Event{ ID }, m_changedElement{ changed }, m_eventType{ eventType } {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
@@ -41,17 +42,17 @@ namespace speckle::event {
 		 Determine if the event selection is empty
 		 @return True if the event selection is empty
 		 */
-		bool empty() const { return m_changedElementIDs.empty(); }
+		bool empty() const { return m_changedElement.empty(); }
 		/*!
 		 Get a link to the last selected element
 		 @return A link to the last selected element (nullopt if the event selection is empty)
 		 */
-		speckle::database::RecordIDList getChangedElementIDs() const { return m_changedElementIDs; }
+		speckle::database::ElementID getChangedElement() const { return m_changedElement; }
+		EventType getEventType() const { return m_eventType; }
 
 	private:
-		//speckle::database::BIMLink::Option m_changedLink;
-		speckle::database::RecordIDList m_changedElementIDs;
-		//RecordIDList
+		speckle::database::ElementID m_changedElement;
+		EventType m_eventType;
 	};
 	
 }

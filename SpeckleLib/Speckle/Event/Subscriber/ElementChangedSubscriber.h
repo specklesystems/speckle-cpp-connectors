@@ -2,6 +2,7 @@
 #define SPECKLE_EVENT_ELEMENT_CHANGED_SUBSCRIBER
 
 #include "Active/Event/Subscriber.h"
+#include "Speckle/Database/Identity/RecordID.h"
 
 namespace speckle::event {
 	
@@ -63,6 +64,8 @@ namespace speckle::event {
 		 @return True if the event should be closed
 		 */
 		virtual bool handle(const ElementChangedEvent& event) = 0;
+
+		speckle::database::ElementIDList m_changedElements;
 	};
 	
 }

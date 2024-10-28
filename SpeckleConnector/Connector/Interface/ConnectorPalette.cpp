@@ -174,7 +174,6 @@ BrowserPalette::BrowserPalette() :
 	}
 
 	install<ConfigBridge>();
-	//install<SendBridge>();
 
 	if (auto ref = install<SendBridge>(); ref) {
 		if (auto sendBridgeRef = std::dynamic_pointer_cast<SendBridge>(ref); sendBridgeRef) {

@@ -30,16 +30,19 @@ namespace {
 		{
 			case APINotifyElement_New: {
 				ACAPI_Element_AttachObserver(elemType->elemHead.guid);
+				addon()->publishExternal(ElementChangedEvent{ ElementID{ elemType->elemHead.guid }, ElementChangedEvent::EventType::New });
 			} break;
-			case APINotifyElement_Change:
+			case APINotifyElement_Change: {
+				addon()->publishExternal(ElementChangedEvent{ ElementID{ elemType->elemHead.guid }, ElementChangedEvent::EventType::Change });
+			} break;
 			case APINotifyElement_Edit: {
-				// TODO add IDs to temp List
+				addon()->publishExternal(ElementChangedEvent{ ElementID{ elemType->elemHead.guid }, ElementChangedEvent::EventType::Edit });
 			} break;
 			case APINotifyElement_BeginEvents:
-				// TODO clear the temp List
+				addon()->publishExternal(ElementChangedEvent{ ElementID{}, ElementChangedEvent::EventType::Begin });
 				break;
 			case APINotifyElement_EndEvents: {
-				// TODO send the event
+				addon()->publishExternal(ElementChangedEvent{ ElementID{}, ElementChangedEvent::EventType::End });
 			} break;
 			default:
 				break;
