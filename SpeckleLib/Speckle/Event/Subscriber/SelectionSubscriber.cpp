@@ -81,4 +81,4 @@ void SelectionSubscriber::stop() {
 #ifdef ARCHICAD
 	ACAPI_Notification_CatchSelectionChange(nullptr);
 #endif
-}
+} //SelectionSubscriber::stop
