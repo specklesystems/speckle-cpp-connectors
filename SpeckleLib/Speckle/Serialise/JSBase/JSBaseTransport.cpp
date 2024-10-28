@@ -189,14 +189,14 @@ namespace {
 		switch (item.type().value_or(Item::text)) {
 			case Item::boolean: {
 				BoolValue value;
-				if (!item.write(value))
+				if (!item.writeSetting(value))
 					throw std::system_error(makeJSBaseError(badValue));
 				newValue = new JS::Value(value.operator bool());
 				break;
 			}
 			case Item::number: {
 				DoubleValue value;
-				if (!item.write(value))
+				if (!item.writeSetting(value))
 					throw std::system_error(makeJSBaseError(badValue));
 				newValue = new JS::Value(value.operator double());
 				break;
@@ -207,6 +207,9 @@ namespace {
 					throw std::system_error(makeJSBaseError(badValue));
 				newValue = new JS::Value(value);
 				break;
+			}
+			case Item::package: {
+				break;	//Not currently considered relevant
 			}
 		}
 		if (destination)

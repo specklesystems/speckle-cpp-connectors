@@ -64,8 +64,7 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
 		return;
 	}
-		//Build a collection from the selected elements
-	auto collection = std::make_unique<ProjectCollection>(project);
+		//Get the selected elements
 	auto elementDatabase = project->getElementDatabase();
 	auto selected = elementDatabase->getSelection();
 	if (selected.empty()) {
@@ -73,6 +72,8 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noSelectedModelItemsID), modelCardID));
 		return;
 	}
+		//Build a collection from the selected elements
+	auto collection = std::make_unique<ProjectCollection>(project);
 	for (const auto& link : selected) {
 		if (auto element = elementDatabase->getElement(link); element)
 			collection->addElement(*element);
