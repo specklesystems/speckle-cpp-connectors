@@ -26,10 +26,10 @@ jobs:
          path: ActiveLib
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild
       
-    - name: Build
-      run: msbuild /m /p:Configuration=ReleaseAC27 SpeckleLib/SpeckleLib17.sln
+    # - name: Build
+    #   run: msbuild /m /p:Configuration=ReleaseAC27 SpeckleLib/SpeckleLib17.sln
       
     - name: Build
       run: msbuild /m /p:Configuration=ReleaseAC27 SpeckleConnector/Connector.sln
