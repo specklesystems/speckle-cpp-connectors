@@ -43,3 +43,8 @@ jobs:
     - name: Build
       run: msbuild /m /p:Configuration=ReleaseAC27 speckle-cpp-connectors/SpeckleConnector/Connector.sln
       
+    - uses: actions/upload-artifact@v4
+      with:
+        name: archicad
+        path: speckle-cpp-connectors\SpeckleConnector\x64\ReleaseAC27\Speckle Connector.apx
+        retention-days: 1
