@@ -415,7 +415,7 @@
     <ClInclude Include="Speckle\Record\Element\BeamSegment.h">
       <Filter>Speckle\Record\Element</Filter>
     </ClInclude>
-    <ClInclude Include="Speckle\Event\Subscriber\ElementChangedSubscriber.h">
+    <ClInclude Include="Speckle\Event\Subscriber\ElementSubscriber.h">
       <Filter>Speckle\Event\Subscriber</Filter>
     </ClInclude>
     <ClInclude Include="Speckle\Event\Type\ElementEvent.h" />
@@ -634,7 +634,7 @@
     <ClCompile Include="Speckle\Record\Element\BeamSegment.cpp">
       <Filter>Speckle\Record\Element</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Event\Subscriber\ElementChangedSubscriber.cpp">
+    <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp">
       <Filter>Speckle\Event\Subscriber</Filter>
     </ClCompile>
   </ItemGroup>

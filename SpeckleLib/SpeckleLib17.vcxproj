@@ -42,7 +42,7 @@
     <ClInclude Include="Speckle\Environment\Platform.h" />
     <ClInclude Include="Speckle\Environment\Project.h" />
     <ClInclude Include="Speckle\Event\Subscriber\DocStoreSubscriber.h" />
-    <ClInclude Include="Speckle\Event\Subscriber\ElementChangedSubscriber.h" />
+    <ClInclude Include="Speckle\Event\Subscriber\ElementSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\MenuSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\ProjectSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
@@ -140,7 +140,7 @@
     <ClCompile Include="Speckle\Environment\Platform.cpp" />
     <ClCompile Include="Speckle\Environment\Project.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\DocStoreSubscriber.cpp" />
-    <ClCompile Include="Speckle\Event\Subscriber\ElementChangedSubscriber.cpp" />
+    <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\MenuSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\ProjectSubscriber.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\SelectionSubscriber.cpp" />

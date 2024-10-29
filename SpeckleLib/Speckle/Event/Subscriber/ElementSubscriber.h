@@ -11,7 +11,7 @@ namespace speckle::event {
 	/*!
 	 Base class for subscribers responding to element changes
 	*/
-	class ElementChangedSubscriber : public virtual active::event::Subscriber {
+	class ElementSubscriber : public virtual active::event::Subscriber {
 	public:
 
 		// MARK: - Constructors
@@ -19,16 +19,16 @@ namespace speckle::event {
 		/*!
 		 Default constructor
 		 */
-		ElementChangedSubscriber() = default;
+		ElementSubscriber() = default;
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		ElementChangedSubscriber(const ElementChangedSubscriber& source) = default;
+		ElementSubscriber(const ElementSubscriber& source) = default;
 		/*!
 		 Destructor
 		 */
-		~ElementChangedSubscriber() = default;
+		~ElementSubscriber() = default;
 
 		// MARK: - Functions (const)
 		

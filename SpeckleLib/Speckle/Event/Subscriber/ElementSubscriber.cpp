@@ -1,4 +1,4 @@
-#include "Speckle/Event/Subscriber/ElementChangedSubscriber.h"
+#include "Speckle/Event/Subscriber/ElementSubscriber.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Database/Storage/ArchicadDBase/Element/ArchicadElementDBaseEngine.h"
@@ -62,9 +62,9 @@ namespace {
  
 	return: The subscription list (an empty list will put the subscriber into a suspended state)
   --------------------------------------------------------------------*/
-Subscriber::Subscription ElementChangedSubscriber::subscription() const {
+Subscriber::Subscription ElementSubscriber::subscription() const {
 	return { {ElementEvent::ID} };
-} //ElementChangedSubscriber::subscription
+} //ElementSubscriber::subscription
 
 
 /*--------------------------------------------------------------------
@@ -74,12 +74,12 @@ Subscriber::Subscription ElementChangedSubscriber::subscription() const {
  
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
-bool ElementChangedSubscriber::receive(const Event& event) {
+bool ElementSubscriber::receive(const Event& event) {
 		//Pass a menu event to the specified handler function
 	if (auto changeEvent = dynamic_cast<const ElementEvent*>(&event); changeEvent != nullptr)
 		return handle(*changeEvent);
 	return false;
-} //ElementChangedSubscriber::receive
+} //ElementSubscriber::receive
 
 
 /*--------------------------------------------------------------------
@@ -87,7 +87,7 @@ bool ElementChangedSubscriber::receive(const Event& event) {
  
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
-bool ElementChangedSubscriber::start() {
+bool ElementSubscriber::start() {
 #ifdef ARCHICAD
 	GSErrCode err = ACAPI_Element_InstallElementObserver(elementChangedCallback);
 	if (err != NoError)
@@ -97,14 +97,14 @@ bool ElementChangedSubscriber::start() {
 #else
 	return false;
 #endif
-} //ElementChangedSubscriber::start
+} //ElementSubscriber::start
 
 
 /*--------------------------------------------------------------------
 	Stop participation (release resources etc)
   --------------------------------------------------------------------*/
-void ElementChangedSubscriber::stop() {
+void ElementSubscriber::stop() {
 #ifdef ARCHICAD
 	ACAPI_Notification_CatchSelectionChange(nullptr);
 #endif
-} //ElementChangedSubscriber::stop
+} //ElementSubscriber::stop
