@@ -30,6 +30,22 @@ SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 	addMethod<GetSendFilters>();
 	addMethod<GetSendSettings>();
 	addMethod<Send>();
+
+	// POC: do we have a better place to attach observer to elements?
+#ifdef ARCHICAD
+	auto project = connector()->getActiveProject().lock();
+	if (!project) {
+		// TODO: is this OK? should this throw?
+		return;
+	}
+
+	auto elementDatabase = project->getElementDatabase();
+	auto elements = elementDatabase->getElements();
+	ElementIDList elementIds;
+	for (const auto& id : elementIds) {
+		ACAPI_Element_AttachObserver(id);
+	}
+#endif
 } //SendBridge::SendBridge
 
 /*--------------------------------------------------------------------
@@ -66,12 +82,10 @@ bool SendBridge::handle(const ElementChangedEvent& event) {
 				}
 			}
 
-			if (expiredModelCardIds.empty())
-				return true;
-
-			auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(expiredModelCardIds));
-			sendEvent("setModelsExpired", std::move(wrapped));
-
+			if (!expiredModelCardIds.empty()) {
+				auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(expiredModelCardIds));
+				sendEvent("setModelsExpired", std::move(wrapped));
+			}
 		} break;
 		case ElementChangedEvent::EventType::Change:
 		case ElementChangedEvent::EventType::Edit: {
@@ -79,7 +93,7 @@ bool SendBridge::handle(const ElementChangedEvent& event) {
 			m_changedElements.push_back(changedElement);
 		} break;
 		default:
-			break;
+		  break;
 	}
 	return true;
 } //SendBridge::handle

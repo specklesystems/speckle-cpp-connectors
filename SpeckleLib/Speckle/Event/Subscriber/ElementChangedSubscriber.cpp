@@ -1,5 +1,4 @@
 #include "Speckle/Event/Subscriber/ElementChangedSubscriber.h"
-
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Database/Storage/ArchicadDBase/Element/ArchicadElementDBaseEngine.h"
@@ -89,7 +88,7 @@ bool ElementChangedSubscriber::start() {
 	GSErrCode err = ACAPI_Element_InstallElementObserver(elementChangedCallback);
 	if (err != NoError)
 		return false;
-
+	
 	return (ACAPI_Element_CatchNewElement(nullptr, elementChangedCallback) == NoError);
 #else
 	return false;
