@@ -25,6 +25,16 @@ jobs:
          repository: r-wessel/ActiveLib
          path: ActiveLib
 
+    - name: Download zip file
+      run: |
+        New-Item -ItemType Directory -Path "Archicad 27" -Force
+        Invoke-WebRequest -Uri "https://github.com/GRAPHISOFT/archicad-api-devkit/releases/download/27.3001/API.Development.Kit.WIN.27.3001.zip" -OutFile "file.zip"
+
+    - name: Extract zip file to Archicad 27 folder
+      run: |
+        Add-Type -AssemblyName System.IO.Compression.FileSystem
+        [System.IO.Compression.ZipFile]::ExtractToDirectory("file.zip", "Archicad 27")
+
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
       
