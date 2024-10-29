@@ -23,9 +23,10 @@ jobs:
     - uses: actions/checkout@v4
       with:
          repository: r-wessel/ActiveLib
-         path: ActiveLib
+         path: ..\ActiveLib
 
     - name: Download zip file
+      working-directory: ..\
       run: |
         New-Item -ItemType Directory -Path "Archicad 27" -Force
         Invoke-WebRequest -Uri "https://github.com/GRAPHISOFT/archicad-api-devkit/releases/download/27.3001/API.Development.Kit.WIN.27.3001.zip" -OutFile "file.zip"
@@ -39,6 +40,5 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
     - name: Build
-      working-directory: ./speckle-cpp-connectors
       run: msbuild /m /p:Configuration=ReleaseAC27 SpeckleConnector/Connector.sln
       
