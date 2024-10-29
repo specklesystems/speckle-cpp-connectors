@@ -39,6 +39,7 @@
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h" />
     <ClInclude Include="Speckle\Environment\Addon.h" />
+    <ClInclude Include="Speckle\Environment\Host.h" />
     <ClInclude Include="Speckle\Environment\Platform.h" />
     <ClInclude Include="Speckle\Environment\Project.h" />
     <ClInclude Include="Speckle\Event\Subscriber\DocStoreSubscriber.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.cpp" />
     <ClCompile Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.cpp" />
     <ClCompile Include="Speckle\Environment\Addon.cpp" />
+    <ClCompile Include="Speckle\Environment\Host.cpp" />
     <ClCompile Include="Speckle\Environment\Platform.cpp" />
     <ClCompile Include="Speckle\Environment\Project.cpp" />
     <ClCompile Include="Speckle\Event\Subscriber\DocStoreSubscriber.cpp" />

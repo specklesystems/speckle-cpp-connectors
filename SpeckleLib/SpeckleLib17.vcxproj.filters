@@ -415,6 +415,9 @@
     <ClInclude Include="Speckle\Record\Element\BeamSegment.h">
       <Filter>Speckle\Record\Element</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Environment\Host.h">
+      <Filter>Speckle\Environment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -629,6 +632,9 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Element\BeamSegment.cpp">
       <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Environment\Host.cpp">
+      <Filter>Speckle\Environment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

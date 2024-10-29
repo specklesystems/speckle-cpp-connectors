@@ -13,6 +13,12 @@
 #include "Active/Serialise/XML/Item/XMLDateTime.h"
 #include "Speckle/Environment/Platform.h"
 
+#ifdef ARCHICAD
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferOut.h"
+#endif
+
+
 #include <JSON/JDOMWriter.hpp>
 #include <JSON/Value.hpp>
 
@@ -274,19 +280,19 @@ namespace {
 			throw std::system_error(makeJSBaseError(badSource));	//The source isn't a value
 		switch (value->GetType()) {
 			case JS::Value::ValueType::BOOL:
-				item->read(BoolValue{value->GetBool()});
+				item->readSetting(BoolValue{value->GetBool()});
 				break;
 			case JS::Value::ValueType::INTEGER:
-				item->read(Int32Value{value->GetInteger()});
+				item->readSetting(Int32Value{value->GetInteger()});
 				break;
 			case JS::Value::ValueType::UINTEGER:
-				item->read(UInt32Value{value->GetUInteger()});
+				item->readSetting(UInt32Value{value->GetUInteger()});
 				break;
 			case JS::Value::ValueType::DOUBLE:
-				item->read(DoubleValue{value->GetDouble()});
+				item->readSetting(DoubleValue{value->GetDouble()});
 				break;
 			case JS::Value::ValueType::STRING:
-				item->read(StringValue{String{value->GetString()}});
+				item->readSetting(StringValue{String{value->GetString()}});
 				break;
 			default:
 				break;
