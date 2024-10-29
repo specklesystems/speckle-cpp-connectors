@@ -12,12 +12,15 @@
 #include "Speckle/Database/Identity/RecordID.h"
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
 
 using namespace speckle::database;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 using namespace speckle::event;
 using namespace active::serialise;
+using namespace connector::record;
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -48,16 +51,25 @@ bool SendBridge::handle(const ElementChangedEvent& event) {
 			auto modelCardDatabase = connector()->getModelCardDatabase();
 			auto modelCards = modelCardDatabase->getCards();
 
-			RecordIDList idList;
-			for (const auto& card : modelCards)
-				idList.push_back(card->getID());
+			// POC: this is probably not efficient, test and review it
+			RecordIDList expiredModelCardIds;
+			for (const auto& modelCard : modelCards) {
+				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
+					auto modelCardSelection = senderCard->getFilter().getElementIDs();
 
-			// TODO: search for expired modelcards
+					for (const auto& elemId : modelCardSelection) {
+						if (std::find(m_changedElements.begin(), m_changedElements.end(), elemId) != m_changedElements.end()) {
+							expiredModelCardIds.push_back(modelCard->getID());
+							break;
+						}
+					}
+				}
+			}
 
-			if (idList.empty())
+			if (expiredModelCardIds.empty())
 				return true;
 
-			auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(idList));
+			auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(expiredModelCardIds));
 			sendEvent("setModelsExpired", std::move(wrapped));
 
 		} break;
