@@ -67,7 +67,7 @@ bool SendBridge::handle(const ElementEvent& event) {
 			auto modelCardDatabase = connector()->getModelCardDatabase();
 			auto modelCards = modelCardDatabase->getCards();
 
-			// POC: this is probably not efficient, test and review it
+			// POC: this is probably not efficient, should test, review and refactor it
 			RecordIDList expiredModelCardIds;
 			for (const auto& modelCard : modelCards) {
 				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
