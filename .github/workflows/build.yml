@@ -20,13 +20,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        path: speckle-cpp-connectors
     - uses: actions/checkout@v4
       with:
          repository: r-wessel/ActiveLib
-         path: ..\ActiveLib
+         path: ActiveLib
 
     - name: Download zip file
-      working-directory: ..\
       run: |
         New-Item -ItemType Directory -Path "Archicad 27" -Force
         Invoke-WebRequest -Uri "https://github.com/GRAPHISOFT/archicad-api-devkit/releases/download/27.3001/API.Development.Kit.WIN.27.3001.zip" -OutFile "file.zip"
