@@ -5,7 +5,7 @@
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Database/ModelCardDatabase.h"
-#include "Speckle/Event/Type/ElementChangedEvent.h"
+#include "Speckle/Event/Type/ElementEvent.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Project.h"
@@ -55,15 +55,15 @@ SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
-bool SendBridge::handle(const ElementChangedEvent& event) {
+bool SendBridge::handle(const ElementEvent& event) {
 	
 	auto eventType = event.getEventType();
 	switch (eventType)
 	{
-		case ElementChangedEvent::EventType::Begin: {
+		case ElementEvent::EventType::Begin: {
 			m_changedElements.clear();
 		} break;
-		case ElementChangedEvent::EventType::End: {
+		case ElementEvent::EventType::End: {
 			auto modelCardDatabase = connector()->getModelCardDatabase();
 			auto modelCards = modelCardDatabase->getCards();
 
@@ -87,8 +87,9 @@ bool SendBridge::handle(const ElementChangedEvent& event) {
 				sendEvent("setModelsExpired", std::move(wrapped));
 			}
 		} break;
-		case ElementChangedEvent::EventType::Change:
-		case ElementChangedEvent::EventType::Edit: {
+		case ElementEvent::EventType::Change:
+		case ElementEvent::EventType::Edit:
+		case ElementEvent::EventType::Delete: {
 			auto changedElement = event.getChangedElement();
 			m_changedElements.push_back(changedElement);
 		} break;

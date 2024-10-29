@@ -47,7 +47,7 @@
     <ClInclude Include="Speckle\Event\Subscriber\ProjectSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
     <ClInclude Include="Speckle\Event\Type\DocStoreMergeEvent.h" />
-    <ClInclude Include="Speckle\Event\Type\ElementChangedEvent.h" />
+    <ClInclude Include="Speckle\Event\Type\ElementEvent.h" />
     <ClInclude Include="Speckle\Event\Type\MenuEvent.h" />
     <ClInclude Include="Speckle\Event\Type\ProjectEvent.h" />
     <ClInclude Include="Speckle\Event\Type\SelectionEvent.h" />

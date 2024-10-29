@@ -30,7 +30,7 @@ namespace connector::interfac::browser::bridge {
 		 @param event The selection event
 		 @return True if the event should be closed
 		 */
-		bool handle(const speckle::event::ElementChangedEvent& event) override;
+		bool handle(const speckle::event::ElementEvent& event) override;
 	};
 	
 }

@@ -6,7 +6,7 @@
 
 namespace speckle::event {
 	
-	class ElementChangedEvent;
+	class ElementEvent;
 	
 	/*!
 	 Base class for subscribers responding to element changes
@@ -63,7 +63,7 @@ namespace speckle::event {
 		 @param event The element change event
 		 @return True if the event should be closed
 		 */
-		virtual bool handle(const ElementChangedEvent& event) = 0;
+		virtual bool handle(const ElementEvent& event) = 0;
 
 		speckle::database::ElementIDList m_changedElements;
 	};

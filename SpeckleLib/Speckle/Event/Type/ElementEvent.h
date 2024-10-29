@@ -1,5 +1,5 @@
-#ifndef SPECKLE_EVENT_SELECTION_EVENT
-#define SPECKLE_EVENT_SELECTION_EVENT
+#ifndef SPECKLE_EVENT_ELEMENT_EVENT
+#define SPECKLE_EVENT_ELEMENT_EVENT
 
 #include "Active/Event/Event.h"
 
@@ -11,10 +11,10 @@ namespace speckle::event {
 	/*!
 	 Class representing a selection change event
 	*/
-	class ElementChangedEvent : public active::event::Event {
+	class ElementEvent : public active::event::Event {
 	public:
 
-		enum EventType { New, Begin, End, Change, Edit };
+		enum EventType { New, Begin, End, Change, Edit, Delete };
 		
 		static const inline active::utility::NameID ID{active::utility::String{"element change"},
 				active::utility::Guid{active::utility::String{"ac9366d5-90fd-497e-b7f7-a7b4c8d97c91"}}};
@@ -25,16 +25,16 @@ namespace speckle::event {
 		 Constructor
 		 @param selected A link to a selected element (nullopt if the selection is empty)
 		 */
-		ElementChangedEvent(speckle::database::ElementID changed, EventType eventType) : Event{ ID }, m_changedElement{ changed }, m_eventType{ eventType } {}
+		ElementEvent(speckle::database::ElementID changed, EventType eventType) : Event{ ID }, m_changedElement{ changed }, m_eventType{ eventType } {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
 		 */
-		ElementChangedEvent(const ElementChangedEvent& source) = default;
+		ElementEvent(const ElementEvent& source) = default;
 		/*!
 		 Destructor
 		 */
-		~ElementChangedEvent() = default;
+		~ElementEvent() = default;
 
 		// MARK: - Functions (const)
 		
@@ -57,4 +57,4 @@ namespace speckle::event {
 	
 }
 
-#endif	//SPECKLE_EVENT_SELECTION_EVENT
+#endif	//SPECKLE_EVENT_ELEMENT_EVENT
