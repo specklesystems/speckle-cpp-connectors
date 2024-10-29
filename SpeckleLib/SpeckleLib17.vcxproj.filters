@@ -419,6 +419,9 @@
       <Filter>Speckle\Event\Subscriber</Filter>
     </ClInclude>
     <ClInclude Include="Speckle\Event\Type\ElementEvent.h" />
+    <ClInclude Include="Speckle\Environment\Host.h">
+      <Filter>Speckle\Environment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -636,6 +639,8 @@
     </ClCompile>
     <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp">
       <Filter>Speckle\Event\Subscriber</Filter>
+    <ClCompile Include="Speckle\Environment\Host.cpp">
+      <Filter>Speckle\Environment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,8 @@
 		210CC89F2C81E34400610F58 /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC89D2C81E34400610F58 /* Platform.cpp */; };
 		210CC8A02C81E34400610F58 /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC89E2C81E34400610F58 /* Platform.h */; };
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
+		21384BAB2CCDA9B400D4602B /* Host.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BA92CCDA9B400D4602B /* Host.h */; };
+		21384BAC2CCDA9B400D4602B /* Host.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BAA2CCDA9B400D4602B /* Host.cpp */; };
 		215F08552C99DA8D00CD343B /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
 		215F08562C99DA8D00CD343B /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
 		215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
@@ -196,6 +198,8 @@
 		21329F632BFD452C00B5C7AF /* Environment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Environment.md; sourceTree = "<group>"; };
 		21329F642BFD457000B5C7AF /* Event.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Event.md; sourceTree = "<group>"; };
 		21379E082AE47A6400A1584C /* libArchicad27.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad27.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		21384BA92CCDA9B400D4602B /* Host.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Host.h; sourceTree = "<group>"; };
+		21384BAA2CCDA9B400D4602B /* Host.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Host.cpp; sourceTree = "<group>"; };
 		214EA4C52BA374FD008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		214EA4C62BA3762D008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		215F08512C99DA8D00CD343B /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
@@ -493,13 +497,6 @@
 			path = ArchicadDBase;
 			sourceTree = "<group>";
 		};
-		218953A92C0F29FB0078F182 /* EventTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = EventTests;
-			sourceTree = "<group>";
-		};
 		219246062CA2D22D00CF5703 /* Element */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +610,6 @@
 			isa = PBXGroup;
 			children = (
 				210CC8912C81AEBB00610F58 /* Guid32Tests.cpp */,
-				218953A92C0F29FB0078F182 /* EventTests */,
 			);
 			path = SpeckleLibDoctest;
 			sourceTree = "<group>";
@@ -911,6 +907,8 @@
 				2167E2782C4911E2000827D3 /* CMakeLists.txt */,
 				21F93AEA2B2F406D009A2C5B /* Addon.cpp */,
 				21F93AE92B2F406D009A2C5B /* Addon.h */,
+				21384BAA2CCDA9B400D4602B /* Host.cpp */,
+				21384BA92CCDA9B400D4602B /* Host.h */,
 				210CC89D2C81E34400610F58 /* Platform.cpp */,
 				210CC89E2C81E34400610F58 /* Platform.h */,
 				215F08512C99DA8D00CD343B /* Project.cpp */,
@@ -985,6 +983,7 @@
 				21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */,
 				21A890D02CC1B87C0087E732 /* GenericModelElement.h in Headers */,
 				21A890C52CC171D80087E732 /* ArchicadPropertyDBaseEngine.h in Headers */,
+				21384BAB2CCDA9B400D4602B /* Host.h in Headers */,
 				21D0BDC52C9241940077E104 /* ProjectSubscriber.h in Headers */,
 				21AE196A2CC57832004DBCFC /* Propertied.h in Headers */,
 				2196F2EC2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.h in Headers */,
@@ -1177,6 +1176,7 @@
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
 				2196F2EB2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.cpp in Sources */,
 				21AE19532CC273F1004DBCFC /* Template.cpp in Sources */,
+				21384BAC2CCDA9B400D4602B /* Host.cpp in Sources */,
 				21A0FC042CBE59A80023F24E /* SegmentedColumn.cpp in Sources */,
 				210CC89F2C81E34400610F58 /* Platform.cpp in Sources */,
 				21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */,
@@ -1317,7 +1317,7 @@
 				LOCALISATION_SUFFIX = "EN-GB";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
@@ -1414,7 +1414,7 @@
 				LOCALISATION_SUFFIX = "EN-GB";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";

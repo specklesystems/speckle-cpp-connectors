@@ -1,0 +1,41 @@
+#ifndef SPECKLE_ENVIRONMENT_HOST
+#define SPECKLE_ENVIRONMENT_HOST
+
+#include "Speckle/Utility/String.h"
+
+namespace speckle::environment {
+	
+	/*!
+		Class to represent a host application (for plugin contexts)
+	*/
+	class Host {
+	public:
+
+		// MARK: Constructors
+
+		/*!
+		 Default constructor
+		 */
+		Host();
+
+		// MARK: Functions (const)
+		
+		/*!
+		 Display an alert dialog
+		 @param message The alert message
+		*/
+		void displayAlert(const speckle::utility::String& message) const;
+		
+		// MARK: Functions (mutating)
+		
+	};
+
+	/*!
+	 Get an object representing the host instance
+	 @return The active host instance (nullptr if the host is not running)
+	 */
+	speckle::environment::Host* host();
+
+}
+
+#endif //SPECKLE_ENVIRONMENT_HOST

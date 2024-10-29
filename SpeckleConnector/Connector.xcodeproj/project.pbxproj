@@ -32,6 +32,7 @@
 		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
+		21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */; };
 		21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B22CC15C540087E732 /* SelectionInfo.cpp */; };
 		21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B52CC15C540087E732 /* GetSelection.cpp */; };
 		21A890BE2CC15C540087E732 /* SelectionBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B72CC15C540087E732 /* SelectionBridge.cpp */; };
@@ -317,6 +318,8 @@
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
 		21A0FB942CB723240023F24E /* FinishProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishProxy.cpp; sourceTree = "<group>"; };
 		21A0FB972CB723240023F24E /* FinishProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
+		21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighlightModel.cpp; sourceTree = "<group>"; };
+		21A79EC82CCDA45C001754E4 /* HighlightModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightModel.h; sourceTree = "<group>"; };
 		21A890B22CC15C540087E732 /* SelectionInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionInfo.cpp; sourceTree = "<group>"; };
 		21A890B32CC15C540087E732 /* SelectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionInfo.h; sourceTree = "<group>"; };
 		21A890B52CC15C540087E732 /* GetSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSelection.cpp; sourceTree = "<group>"; };
@@ -1026,6 +1029,8 @@
 				21B67CA82C77329800FD64FC /* GetSourceApplicationName.h */,
 				21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */,
 				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
+				21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */,
+				21A79EC82CCDA45C001754E4 /* HighlightModel.h */,
 				21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */,
 				21D0BDD62C935DAE0077E104 /* RemoveModel.h */,
 				21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */,
@@ -1508,6 +1513,7 @@
 				214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */,
 				21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */,
 				21FF70492CA1A7F400AAD99A /* RecordCollection.cpp in Sources */,
+				21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */,
 				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
 				21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */,
 				21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */,
@@ -2065,7 +2071,7 @@
 				);
 				LOCALISATION_SUFFIX = "EN-GB";
 				MACH_O_TYPE = mh_bundle;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
 				OBJROOT = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -2172,7 +2178,7 @@
 				);
 				LOCALISATION_SUFFIX = "EN-GB";
 				MACH_O_TYPE = mh_bundle;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
 				OBJROOT = "";
 				PLUGIN_FOLDER = "";

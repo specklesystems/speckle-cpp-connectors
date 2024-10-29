@@ -62,12 +62,17 @@ namespace speckle::interfac::browser::bridge {
 		 @return The number of parameters
 		 */  
 		virtual uint32_t parameterCount() const { return 1;  }
-
 		/*!
 		 Get any error message relating to the arguments
 		 @return The error message (nullopt if no errors occurred)
 		 */
 		speckle::utility::String::Option errorMessage() const { return m_errorMessage; }
+		/*!
+			Write the item data to a string
+			@param dest The string to write the data to
+			@return True if the data was successfully written
+		*/
+		bool write(active::utility::String& dest) const override { return true; }
 		/*!
 		 Fill an inventory with the cargo items
 		 @param inventory The inventory to receive the cargo items
@@ -83,6 +88,12 @@ namespace speckle::interfac::browser::bridge {
 		
 		// MARK: - Functions (mutating)
 		
+		/*!
+			Read the cargo data from the specified string
+			@param source The string to read
+			@return True if the data was successfully read
+		*/
+		bool read(const active::utility::String& source) override { return true; }
 		/*!
 		 Set to the default package content
 		 */
@@ -121,12 +132,24 @@ namespace speckle::interfac::browser::bridge {
 		 */
 		JSArgType(const JSArgType& source) : BridgeArgument{source}, T{source} {}
 
-        /*!
+		/*!
+			Write the item data to a string
+			@param dest The string to write the data to
+			@return True if the data was successfully written
+		*/
+		bool write(active::utility::String& dest) const override { return true; }
+       /*!
                     Get the number of parameters in the argument
                     @return The number of parameters
                     */
         uint32_t parameterCount() const override { return Params; }
 
+ 		/*!
+			Read the cargo data from the specified string
+			@param source The string to read
+			@return True if the data was successfully read
+		*/
+		bool read(const active::utility::String& source) override { return true; }
 		/*!
 		 Set to the default package content
 		 */
