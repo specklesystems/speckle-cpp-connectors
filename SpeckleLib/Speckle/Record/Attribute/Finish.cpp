@@ -165,6 +165,7 @@ Finish::~Finish() {}
   --------------------------------------------------------------------*/
 Finish& Finish::operator=(const Finish& source) {
 	if (this != &source) {
+		base::operator=(source);
 		m_data = source.m_data ? std::make_unique<Data>(*source.m_data) : nullptr;
 	}
 	return *this;
