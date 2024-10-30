@@ -18,6 +18,11 @@ namespace speckle::environment {
 		 @param message The message to write
 		 */
 		void writeToConsole(const active::utility::String& message);
+		/*!
+		 Open a URL
+		 @param URL The URL to open
+		 */
+		void openURL(const active::utility::String& URL);
 	};
 	
 	

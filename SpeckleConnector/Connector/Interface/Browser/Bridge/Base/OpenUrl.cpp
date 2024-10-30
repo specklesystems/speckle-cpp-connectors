@@ -1,6 +1,9 @@
 #include "Connector/Interface/Browser/Bridge/Base/OpenUrl.h"
 
+#include "Speckle/Environment/Platform.h"
+
 using namespace connector::interfac::browser::bridge;
+using namespace speckle::environment;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
@@ -17,6 +20,5 @@ OpenUrl::OpenUrl() : BridgeMethod{"OpenUrl", [&](const SendArgs& args) {
 	url: The URL to open
   --------------------------------------------------------------------*/
 void OpenUrl::run(const String& url) const {
-	std::string command = "start " + url;
-	system(command.c_str());
+	platform()->openURL(url);
 } //OpenUrl::run
