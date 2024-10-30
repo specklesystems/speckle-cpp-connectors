@@ -14,6 +14,9 @@ on:
 permissions:
   contents: read
 
+env:
+  GitVersion_FullSemVer: 3.0.0-fakeRelease
+
 jobs:
   build:
     runs-on: windows-latest
@@ -42,9 +45,39 @@ jobs:
       
     - name: Build
       run: msbuild /m /p:Configuration=ReleaseAC27 speckle-cpp-connectors/SpeckleConnector/Connector.sln
-      
+
     - uses: actions/upload-artifact@v4
       with:
-        name: archicad
+        name: output-$
         path: speckle-cpp-connectors\SpeckleConnector\x64\ReleaseAC27\Speckle Connector.apx
         retention-days: 1
+        
+    - id: set-version
+      name: Set version to output
+      run: echo "version=${{ env.GitVersion_FullSemVer }}" >> "$Env:GITHUB_OUTPUT"
+
+  deploy-installers:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      IS_TAG_BUILD: ${{ github.ref_type == 'tag' }}
+      IS_RELEASE_BRANCH: ${{ startsWith(github.ref_name, 'release/') || github.ref_name == 'main' || startsWith(github.ref_name, 'alan/')}}
+    steps:
+      - name: 🔫 Trigger Build Installers
+        uses: ALEEF02/workflow-dispatch@v3.0.0
+        continue-on-error: true
+        with:
+          workflow: Build C++ Installers
+          repo: specklesystems/connector-installers
+          token: ${{ secrets.CONNECTORS_GH_TOKEN }}
+          inputs: '{ "run_id": "${{ github.run_id }}", "version": "${{ env.GitVersion_FullSemVer }}", "public_release": ${{ env.IS_TAG_BUILD }}, "store_artifacts": ${{ env.IS_RELEASE_BRANCH }} }'
+          ref: alan/archicad-installer
+          wait-for-completion: true
+          wait-for-completion-interval: 10s
+          wait-for-completion-timeout: 10m
+          display-workflow-run-url: true
+          display-workflow-run-url-interval: 10s
+
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: output-*
