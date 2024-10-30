@@ -8,6 +8,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/RemoveModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/UpdateModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
+#include "Connector/Interface/Browser/Bridge/Base/OpenUrl.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 
 using namespace connector::interfac::browser::bridge;
@@ -26,6 +27,7 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<RemoveModel>();
 	addMethod<UpdateModel>();
 	addMethod<HighlightModel>();
+	addMethod<OpenUrl>();
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------
