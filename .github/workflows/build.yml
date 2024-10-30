@@ -71,7 +71,7 @@ jobs:
           repo: specklesystems/connector-installers
           token: ${{ secrets.CONNECTORS_GH_TOKEN }}
           inputs: '{ "run_id": "${{ github.run_id }}", "version": "${{ env.GitVersion_FullSemVer }}", "public_release": ${{ env.IS_TAG_BUILD }}, "store_artifacts": ${{ env.IS_RELEASE_BRANCH }} }'
-          ref: 8f580eeb3d38eaa513bb604f7964840218b5758e
+          ref: main
           wait-for-completion: true
           wait-for-completion-interval: 10s
           wait-for-completion-timeout: 10m
