@@ -23,6 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8812C80E6A300610F58 /* TriggerEvent.cpp */; };
+		21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC92CD2EE7400D4602B /* OpenUrl.cpp */; };
 		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
 		215F082A2C947F4400CD343B /* CardMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08262C947F4400CD343B /* CardMover.cpp */; };
@@ -296,6 +297,8 @@
 /* Begin PBXFileReference section */
 		210CC8812C80E6A300610F58 /* TriggerEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriggerEvent.cpp; sourceTree = "<group>"; };
 		210CC8822C80E6A300610F58 /* TriggerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerEvent.h; sourceTree = "<group>"; };
+		21384BC92CD2EE7400D4602B /* OpenUrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenUrl.cpp; sourceTree = "<group>"; };
+		21384BCC2CD2EE7400D4602B /* OpenUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrl.h; sourceTree = "<group>"; };
 		213CC3A52B1101F500088049 /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		215F08262C947F4400CD343B /* CardMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardMover.cpp; sourceTree = "<group>"; };
@@ -1031,6 +1034,8 @@
 				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
 				21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */,
 				21A79EC82CCDA45C001754E4 /* HighlightModel.h */,
+				21384BC92CD2EE7400D4602B /* OpenUrl.cpp */,
+				21384BCC2CD2EE7400D4602B /* OpenUrl.h */,
 				21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */,
 				21D0BDD62C935DAE0077E104 /* RemoveModel.h */,
 				21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */,
@@ -1526,6 +1531,7 @@
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */,
 				21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */,
+				21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,

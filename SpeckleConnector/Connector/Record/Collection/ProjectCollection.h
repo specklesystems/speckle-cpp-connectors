@@ -100,7 +100,7 @@ namespace connector::record {
 			///Finish proxies accumulated from meshes generated from the collection elements
 		FinishProxies m_finishProxies;
 		class FinishCache;
-			///Finishes cached from ModelerAPI materials
+			///Finishes cache
 		std::unique_ptr<FinishCache> m_finishes;
 	};
 	
