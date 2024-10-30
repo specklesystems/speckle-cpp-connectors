@@ -3,10 +3,7 @@
 
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
-
-#ifdef ARCHICAD
-#include "ModelMaterial.hpp"
-#endif
+#include "Speckle/Record/Attribute/Finish.h"
 
 namespace speckle::primitive {
 	
@@ -30,23 +27,23 @@ namespace speckle::primitive {
 		/*!
 		 Constructor
 		 @param unit The mesh unit type
-		 @param material The mesh material
+		 @param finish The mesh finish
 		 */
-		Mesh(const ModelerAPI::Material& material,
+		Mesh(const record::attribute::Finish& finish,
 			active::measure::LengthType unit = active::measure::LengthType::metre) :
-			base{ utility::Guid{true}, utility::Guid{}, unit }, m_material{ material } {}
+			base{ utility::Guid{true}, utility::Guid{}, unit }, m_finish{ finish } {}
 		/*!
 		 Constructor
-		 @param unit The mesh unit type
 		 @param vertices The mesh vertices
 		 @param faces The mesh faces (the number of indices in the face followed by the vertex indices)
 		 @param colors The mesh face colours
-		 @param material The mesh material
+		 @param finish The mesh material
+		 @param unit The mesh unit type
 		 */
-		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const ModelerAPI::Material& material,
+		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const record::attribute::Finish& finish,
 				active::measure::LengthType unit = active::measure::LengthType::metre) :
-				base{utility::Guid{true}, utility::Guid{}, unit}, m_vertices{std::move(vertices)}, m_faces{std::move(faces)}, m_colors{std::move(colors)}, m_material{material} {}
-
+				base{utility::Guid{true}, utility::Guid{}, unit}, m_vertices{std::move(vertices)}, m_faces{std::move(faces)}, m_colors{std::move(colors)}, m_finish{finish} {}
+		
 		// MARK: - Functions (const)
 		
 		/*!
@@ -85,9 +82,7 @@ namespace speckle::primitive {
 		std::vector<double> m_vertices;
 		std::vector<int> m_faces;
 		std::vector<int> m_colors;
-#ifdef ARCHICAD
-		ModelerAPI::Material m_material;
-#endif
+		record::attribute::Finish m_finish;
 	};
 	
 }

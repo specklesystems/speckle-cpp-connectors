@@ -41,6 +41,11 @@ namespace speckle::environment {
 		 @return The active project (nullptr = no open project)
 		 */
 		std::weak_ptr<Project> getActiveProject() const;
+		/*!
+		 Get the session index
+		 @return The session index (non-recursive entries into the add-on)
+		 */
+		uint32_t getSession() const { return m_sessionCount; }
 		
 		// MARK: - Functions (mutating)
 		
@@ -103,6 +108,8 @@ namespace speckle::environment {
 		std::shared_ptr<Project> m_activeProject;
 			///The depth of nested callbacks - the root call starts at depth 0 (important for some entry-point initialisation)
 		uint32_t m_callDepth = 0;
+			///The index of the active session (non-recursive entries into the add-on)
+		uint32_t m_sessionCount = 0;
 	};
 	
 	

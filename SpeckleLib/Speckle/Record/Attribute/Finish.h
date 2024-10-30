@@ -77,7 +77,15 @@ namespace speckle::record::attribute {
 		 @return A clone of this object
 		 */
 		Finish* clonePtr() const override { return new Finish{*this}; }
-
+		
+		// MARK: - Operators
+		
+		/*!
+		 Assignment operator
+		 @param source The object to assign
+		 @return A reference to this
+		 */
+		Finish& operator=(const Finish& source);
 
 		// MARK: - Functions (const)
 

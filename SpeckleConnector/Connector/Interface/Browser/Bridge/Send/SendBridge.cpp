@@ -48,6 +48,7 @@ SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 #endif
 } //SendBridge::SendBridge
 
+
 /*--------------------------------------------------------------------
 	Handle an element change
 
@@ -56,23 +57,20 @@ SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool SendBridge::handle(const ElementEvent& event) {
-	
+	using enum ElementEvent::Type;
 	auto eventType = event.getEventType();
-	switch (eventType)
-	{
-		case ElementEvent::EventType::Begin: {
+	switch (eventType) {
+		case begin:
 			m_changedElements.clear();
-		} break;
-		case ElementEvent::EventType::End: {
+			break;
+		case end: {
 			auto modelCardDatabase = connector()->getModelCardDatabase();
 			auto modelCards = modelCardDatabase->getCards();
-
 			// POC: this is probably not efficient, should test, review and refactor it
 			RecordIDList expiredModelCardIds;
 			for (const auto& modelCard : modelCards) {
 				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
 					auto modelCardSelection = senderCard->getFilter().getElementIDs();
-
 					for (const auto& elemId : modelCardSelection) {
 						if (std::find(m_changedElements.begin(), m_changedElements.end(), elemId) != m_changedElements.end()) {
 							expiredModelCardIds.push_back(modelCard->getID());
@@ -81,18 +79,17 @@ bool SendBridge::handle(const ElementEvent& event) {
 					}
 				}
 			}
-
 			if (!expiredModelCardIds.empty()) {
 				auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(expiredModelCardIds));
 				sendEvent("setModelsExpired", std::move(wrapped));
 			}
-		} break;
-		case ElementEvent::EventType::Change:
-		case ElementEvent::EventType::Edit:
-		case ElementEvent::EventType::Delete: {
-			auto changedElement = event.getChangedElement();
-			m_changedElements.push_back(changedElement);
-		} break;
+			break;
+		}
+		case changeElem: case editElem: case deleteElem: {
+			if (event.getElmentID())
+				m_changedElements.push_back(*event.getElmentID());
+			break;
+		}
 		default:
 		  break;
 	}

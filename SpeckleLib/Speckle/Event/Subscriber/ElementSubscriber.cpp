@@ -16,6 +16,8 @@ using namespace speckle::event;
 
 namespace {
 	
+	using enum ElementEvent::Type;
+	
 #ifdef ARCHICAD
 	/*!
 	 Callback for an Archicad element change
@@ -30,22 +32,22 @@ namespace {
 		{
 			case APINotifyElement_New: {
 				ACAPI_Element_AttachObserver(elemType->elemHead.guid);
-				addon()->publishExternal(ElementEvent{ ElementID{ elemType->elemHead.guid }, ElementEvent::EventType::New });
+				addon()->publishExternal(ElementEvent{newElem, ElementID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Change: {
-				addon()->publishExternal(ElementEvent{ ElementID{ elemType->elemHead.guid }, ElementEvent::EventType::Change });
+				addon()->publishExternal(ElementEvent{changeElem, ElementID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Edit: {
-				addon()->publishExternal(ElementEvent{ ElementID{ elemType->elemHead.guid }, ElementEvent::EventType::Edit });
+				addon()->publishExternal(ElementEvent{editElem, ElementID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Delete: {
-				addon()->publishExternal(ElementEvent{ ElementID{ elemType->elemHead.guid }, ElementEvent::EventType::Delete });
+				addon()->publishExternal(ElementEvent{deleteElem, ElementID{ elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_BeginEvents:
-				addon()->publishExternal(ElementEvent{ ElementID{}, ElementEvent::EventType::Begin });
+				addon()->publishExternal(ElementEvent{begin});
 				break;
 			case APINotifyElement_EndEvents: {
-				addon()->publishExternal(ElementEvent{ ElementID{}, ElementEvent::EventType::End });
+				addon()->publishExternal(ElementEvent{end});
 			} break;
 			default:
 				break;

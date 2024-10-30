@@ -128,7 +128,7 @@ BIMLinkList ArchicadElementDBaseEngine::getSelection() const {
   --------------------------------------------------------------------*/
 void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) const {
 	GS::Array<API_Neig> selNeigs;
-	for (const auto elemID : elementIDs) {
+	for (const auto& elemID : elementIDs) {
 		API_Neig neig(elemID);
 		selNeigs.Push(neig);
 	}

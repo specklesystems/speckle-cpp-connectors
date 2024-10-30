@@ -156,6 +156,21 @@ Finish::Finish(const Finish& source) : base{source} {
 Finish::~Finish() {}
 
 
+/*--------------------------------------------------------------------
+	Assignment operator
+ 
+	source: The object to assign
+ 
+	return: A reference to this
+  --------------------------------------------------------------------*/
+Finish& Finish::operator=(const Finish& source) {
+	if (this != &source) {
+		m_data = source.m_data ? std::make_unique<Data>(*source.m_data) : nullptr;
+	}
+	return *this;
+} //Finish::operator=
+
+
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Get the (immutable) API attribute header data

@@ -6,6 +6,10 @@
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Record/Property/Propertied.h"
 
+namespace speckle::record::attribute {
+	class Finish;
+}
+
 namespace speckle::record::element {
 	
 	/*!
@@ -25,7 +29,27 @@ namespace speckle::record::element {
 		using Option = std::optional<ModelElement>;
 			///A model element 3D body primitive
 		using Body = std::vector<primitive::Mesh>;
-
+		
+		// MARK: - Constructors
+		
+		/*!
+		 Get a mesh finish from the cache
+		 @param finishID A finish ID
+		 @return A pointer to the requested finish (nullptr on failure)
+		 */
+		static record::attribute::Finish* getFinish(const utility::Guid& finishID);
+		/*!
+		 Add a mesh finish to the cache
+		 @param finishID A finish ID
+		 @param finish The mesh finish
+		 @return A pointer to the cached finish
+		 */
+		static record::attribute::Finish* cacheFinish(const utility::Guid& finishID, const record::attribute::Finish& finish);
+		/*!
+		 Reset the Archicad material cache
+		 */
+		static void resetCache();
+		
 		// MARK: - Constructors
 		
 		using base::base;
@@ -87,6 +111,9 @@ namespace speckle::record::element {
 		class Data;
 			///The element data
 		mutable std::unique_ptr<Data> m_data;
+		class FinishCache;
+			///Cached finishes (API lookup is very slow)
+		static std::unique_ptr<FinishCache> m_finishCache;
 	};
 
 }

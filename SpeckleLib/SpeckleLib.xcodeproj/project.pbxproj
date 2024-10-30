@@ -17,6 +17,9 @@
 		212A88132AE48821001EAFE7 /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21379E082AE47A6400A1584C /* libArchicad27.a */; platformFilters = (macos, ); };
 		21384BAB2CCDA9B400D4602B /* Host.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BA92CCDA9B400D4602B /* Host.h */; };
 		21384BAC2CCDA9B400D4602B /* Host.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BAA2CCDA9B400D4602B /* Host.cpp */; };
+		21384BC52CD24AB200D4602B /* ElementSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */; };
+		21384BC62CD24AB200D4602B /* ElementSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC42CD24AB200D4602B /* ElementSubscriber.h */; };
+		21384BC82CD24ADC00D4602B /* ElementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC72CD24ADC00D4602B /* ElementEvent.h */; };
 		215F08552C99DA8D00CD343B /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
 		215F08562C99DA8D00CD343B /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
 		215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
@@ -200,6 +203,9 @@
 		21379E082AE47A6400A1584C /* libArchicad27.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad27.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		21384BA92CCDA9B400D4602B /* Host.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Host.h; sourceTree = "<group>"; };
 		21384BAA2CCDA9B400D4602B /* Host.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Host.cpp; sourceTree = "<group>"; };
+		21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ElementSubscriber.cpp; sourceTree = "<group>"; };
+		21384BC42CD24AB200D4602B /* ElementSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementSubscriber.h; sourceTree = "<group>"; };
+		21384BC72CD24ADC00D4602B /* ElementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementEvent.h; sourceTree = "<group>"; };
 		214EA4C52BA374FD008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		214EA4C62BA3762D008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		215F08512C99DA8D00CD343B /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
@@ -537,6 +543,8 @@
 			children = (
 				21D0BDBB2C90F2830077E104 /* DocStoreSubscriber.cpp */,
 				21D0BDBA2C90F2830077E104 /* DocStoreSubscriber.h */,
+				21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */,
+				21384BC42CD24AB200D4602B /* ElementSubscriber.h */,
 				219351782C624FC100E5A69C /* MenuSubscriber.cpp */,
 				219351792C624FC100E5A69C /* MenuSubscriber.h */,
 				21D0BDC22C9241940077E104 /* ProjectSubscriber.cpp */,
@@ -551,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				21D0BDBE2C90F36B0077E104 /* DocStoreMergeEvent.h */,
+				21384BC72CD24ADC00D4602B /* ElementEvent.h */,
 				219351892C62655700E5A69C /* MenuEvent.h */,
 				215F08652C9B006700CD343B /* ProjectEvent.cpp */,
 				21D0BDC62C9245E40077E104 /* ProjectEvent.h */,
@@ -955,6 +964,7 @@
 				21AE19802CC7D265004DBCFC /* PropertiedWrapper.h in Headers */,
 				21A0FC0B2CBE5E220023F24E /* Segment.h in Headers */,
 				215F088D2CA195EC00CD343B /* ArchicadElementDBaseEngine.h in Headers */,
+				21384BC82CD24ADC00D4602B /* ElementEvent.h in Headers */,
 				2196F2F42CB483D600450DFC /* Finish.h in Headers */,
 				21A0FBED2CBD6B1A0023F24E /* Part.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
@@ -988,6 +998,7 @@
 				21AE196A2CC57832004DBCFC /* Propertied.h in Headers */,
 				2196F2EC2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.h in Headers */,
 				21AE19582CC27DB3004DBCFC /* Value.h in Headers */,
+				21384BC62CD24AB200D4602B /* ElementSubscriber.h in Headers */,
 				21D0BD312C86FE090077E104 /* Index.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1174,6 +1185,7 @@
 				215F08552C99DA8D00CD343B /* Project.cpp in Sources */,
 				21AE19882CC7FF5F004DBCFC /* Group.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
+				21384BC52CD24AB200D4602B /* ElementSubscriber.cpp in Sources */,
 				2196F2EB2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.cpp in Sources */,
 				21AE19532CC273F1004DBCFC /* Template.cpp in Sources */,
 				21384BAC2CCDA9B400D4602B /* Host.cpp in Sources */,

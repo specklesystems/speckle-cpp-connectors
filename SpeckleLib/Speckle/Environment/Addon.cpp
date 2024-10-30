@@ -77,6 +77,7 @@ std::weak_ptr<Project> Addon::getActiveProject() const {
 void Addon::publishExternal(const active::event::Event& event) {
 	if (!logCallback())
 		return;
+	++m_sessionCount;
 	try {
 		preprocessEvent(event);
 		publish(event);
@@ -165,7 +166,7 @@ bool Addon::logCallback(bool initialise) {
 		return false;
 	}
 	return true;
-} //Addon::publishExternalEvent
+} //Addon::logCallback
 
 
 /*--------------------------------------------------------------------

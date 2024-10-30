@@ -4,6 +4,7 @@
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferOut.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
+#include "Speckle/Record/Element/ModelElement.h"
 
 #include <utility>
 
@@ -45,5 +46,6 @@ std::unique_ptr<WrappedResultArg> GetCallResult::getResult(const WrappedResultAr
 		return nullptr;
 	String jsonOutput;
 	JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
+	record::element::ModelElement::resetCache();
 	return std::make_unique<WrappedResultArg>(jsonOutput);
 } //GetCallResult::getResult
