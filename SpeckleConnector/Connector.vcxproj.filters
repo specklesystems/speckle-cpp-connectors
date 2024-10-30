@@ -246,6 +246,9 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\HighlightModel.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\OpenUrl.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -415,6 +418,9 @@
       <Filter>Connector\Interface\Browser\Bridge\Selection\Arg</Filter>
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\HighlightModel.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\OpenUrl.h">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClInclude>
   </ItemGroup>
