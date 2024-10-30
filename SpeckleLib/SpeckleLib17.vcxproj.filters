@@ -116,6 +116,9 @@
     <Filter Include="Speckle\Database\Storage\ArchicadDBase\Property">
       <UniqueIdentifier>{f9b0554b-d0a5-40c0-ac20-22032dc8f30c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Primitive\Polyline">
+      <UniqueIdentifier>{25953cb1-f6c3-4db2-80f7-ea3cbc5ad16a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -421,6 +424,16 @@
     <ClInclude Include="Speckle\Event\Subscriber\ElementSubscriber.h">
       <Filter>Speckle\Event\Subscriber</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Event\Type\ElementEvent.h" />
+    <ClInclude Include="Speckle\Primitive\Primitive3D.h">
+      <Filter>Speckle\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Primitive\Polyline\Polyline.h">
+      <Filter>Speckle\Primitive\Polyline</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Primitive\Primitive3DMover.h">
+      <Filter>Speckle\Primitive</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -641,6 +654,15 @@
     </ClCompile>
     <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp">
       <Filter>Speckle\Event\Subscriber</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Primitive\Primitive3D.cpp">
+      <Filter>Speckle\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Primitive\Polyline\Polyline.cpp">
+      <Filter>Speckle\Primitive\Polyline</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Primitive\Primitive3DMover.cpp">
+      <Filter>Speckle\Primitive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

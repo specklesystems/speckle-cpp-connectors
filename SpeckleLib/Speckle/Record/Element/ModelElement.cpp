@@ -3,6 +3,7 @@
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Active/Container/HashMap.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
 #include "Speckle/Record/Property/Wrapper/PropertiedWrapper.h"
@@ -256,7 +257,7 @@ ModelElement::Body* ModelElement::getBody() const {
 	}
 	auto elementBody = new ModelElement::Body();
 	// Map to collect meshes per material name
-	std::unordered_map<String, primitive::Mesh> materialMeshMap;
+	active::container::HashMap<String, primitive::Mesh> materialMeshMap;
     auto subIds = collectSubIds(getHead().guid);
 	Int32 nElements = acModel.GetElementCount();
 	for (Int32 iElement = 1; iElement <= nElements; iElement++) {
@@ -286,7 +287,7 @@ ModelElement::Body* ModelElement::getBody() const {
 				}
 				auto materialName = faceFinish->getName();
 				if (materialMeshMap.find(materialName) == materialMeshMap.end())
-					materialMeshMap[materialName] = primitive::Mesh(*faceFinish);
+					materialMeshMap[materialName] = std::make_unique<primitive::Mesh>(*faceFinish);
 				Int32 convexPolyCount = polygon.GetConvexPolygonCount();
 				for (Int32 convPolyIndex = 1; convPolyIndex <= convexPolyCount; ++convPolyIndex) {
 					std::vector<double> vertices;
@@ -301,13 +302,13 @@ ModelElement::Body* ModelElement::getBody() const {
 						vertices.push_back(vertex.y);
 						vertices.push_back(vertex.z);
 					}
-					materialMeshMap[materialName].appendFace(std::move(vertices));
+					materialMeshMap[materialName]->appendFace(std::move(vertices));
 				}
 			}
 		}
 	}
-	for (auto& [materialName, mesh] : materialMeshMap)
-		elementBody->push_back(std::move(mesh));
+	for (auto& mesh : materialMeshMap)
+		elementBody->emplace_back(std::move(mesh.second));
 	m_data = std::make_unique<Data>();
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();

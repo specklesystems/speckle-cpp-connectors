@@ -1,6 +1,7 @@
 #ifndef SPECKLE_PRIMITIVE_MESH
 #define SPECKLE_PRIMITIVE_MESH
 
+#include "Speckle/Primitive/Primitive3D.h"
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
 #include "Speckle/Record/Attribute/Finish.h"
@@ -10,7 +11,7 @@ namespace speckle::primitive {
 	/*!
 	 Class for a 3D mesh
 	 */
-	class Mesh : public speckle::database::BIMRecord {
+	class Mesh : public speckle::database::BIMRecord, public Primitive3D {
 	public:
 
 		// MARK: - Types
@@ -23,7 +24,7 @@ namespace speckle::primitive {
 		 Default constructor
 		 @param unit The mesh unit type
 		 */
-		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{utility::Guid{true}, utility::Guid{}, unit} {}
+		Mesh(active::measure::LengthType unit = active::measure::LengthType::metre) : base{ utility::Guid{true}, utility::Guid{}, unit } {}
 		/*!
 		 Constructor
 		 @param unit The mesh unit type
@@ -41,8 +42,14 @@ namespace speckle::primitive {
 		 @param unit The mesh unit type
 		 */
 		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const record::attribute::Finish& finish,
-				active::measure::LengthType unit = active::measure::LengthType::metre) :
-				base{utility::Guid{true}, utility::Guid{}, unit}, m_vertices{std::move(vertices)}, m_faces{std::move(faces)}, m_colors{std::move(colors)}, m_finish{finish} {}
+			active::measure::LengthType unit = active::measure::LengthType::metre) :
+			base{ utility::Guid{true}, utility::Guid{}, unit }, m_vertices{ std::move(vertices) }, m_faces{ std::move(faces) }, m_colors{ std::move(colors) }, m_finish{ finish } {}
+		
+		/*!
+			Object cloning
+			@return A clone of this object
+		*/
+		virtual Mesh* clonePtr() const override { return new Mesh{*this}; }
 		
 		// MARK: - Functions (const)
 		

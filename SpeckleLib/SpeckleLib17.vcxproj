@@ -48,6 +48,7 @@
     <ClInclude Include="Speckle\Event\Subscriber\ProjectSubscriber.h" />
     <ClInclude Include="Speckle\Event\Subscriber\SelectionSubscriber.h" />
     <ClInclude Include="Speckle\Event\Type\DocStoreMergeEvent.h" />
+    <ClInclude Include="Speckle\Event\Type\ElementEvent.h" />
     <ClInclude Include="Speckle\Event\Type\MenuEvent.h" />
     <ClInclude Include="Speckle\Event\Type\ProjectEvent.h" />
     <ClInclude Include="Speckle\Event\Type\SelectionEvent.h" />
@@ -70,6 +71,9 @@
     <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h" />
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
     <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h" />
+    <ClInclude Include="Speckle\Primitive\Polyline\Polyline.h" />
+    <ClInclude Include="Speckle\Primitive\Primitive3D.h" />
+    <ClInclude Include="Speckle\Primitive\Primitive3DMover.h" />
     <ClInclude Include="Speckle\Record\Attribute\Attribute.h" />
     <ClInclude Include="Speckle\Record\Attribute\Finish.h" />
     <ClInclude Include="Speckle\Record\Attribute\Storey.h" />
@@ -154,6 +158,9 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
     <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp" />
+    <ClCompile Include="Speckle\Primitive\Polyline\Polyline.cpp" />
+    <ClCompile Include="Speckle\Primitive\Primitive3D.cpp" />
+    <ClCompile Include="Speckle\Primitive\Primitive3DMover.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Finish.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Storey.cpp" />

@@ -1,6 +1,7 @@
 #ifndef SPECKLE_RECORD_MODEL_ELEMENT
 #define SPECKLE_RECORD_MODEL_ELEMENT
 
+#include "Speckle/Primitive/Primitive3D.h"
 #include "Speckle/Record/Classification/Classified.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Record/Element/Element.h"
@@ -28,7 +29,7 @@ namespace speckle::record::element {
 			///Optional
 		using Option = std::optional<ModelElement>;
 			///A model element 3D body primitive
-		using Body = std::vector<primitive::Mesh>;
+		using Body = active::container::Vector<speckle::primitive::Primitive3D>;
 		
 		// MARK: - Constructors
 		
