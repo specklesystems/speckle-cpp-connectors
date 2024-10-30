@@ -60,6 +60,70 @@ namespace {
 		Identity{"displayValue"},
 		Identity{"properties"},
 	};
+
+#ifdef ARCHICAD
+	template<typename T>
+	void getSubElementIds(T* ptr, std::set<API_Guid>& subIds)
+	{
+		GSSize nSubElements = BMGetPtrSize(reinterpret_cast<GSPtr>(ptr)) / sizeof(T);
+		for (Int32 idx = 0; idx < nSubElements; ++idx)
+			subIds.insert(ptr[idx].head.guid);
+	}
+
+	std::set<API_Guid> collectSubIds(API_Guid elemId)
+	{
+		API_Element	elem{};
+		elem.header.guid = elemId;
+		ACAPI_Element_Get(&elem);
+		API_ElementMemo memo{};
+		GSErrCode err = ACAPI_Element_GetMemo(elemId, &memo);
+
+		std::set<API_Guid> subIds{};
+		subIds.insert(elemId);
+
+		if (elem.header.type.typeID == API_StairID)
+		{
+			getSubElementIds(memo.stairRisers, subIds);
+			getSubElementIds(memo.stairTreads, subIds);
+			getSubElementIds(memo.stairStructures, subIds);
+		}
+
+		if (elem.header.type.typeID == API_RailingID)
+		{
+			// segments
+			getSubElementIds(memo.railingSegments, subIds);
+			getSubElementIds(memo.railingPatterns, subIds);
+			getSubElementIds(memo.railingRails, subIds);
+			getSubElementIds(memo.railingHandrails, subIds);
+			getSubElementIds(memo.railingToprails, subIds);
+			getSubElementIds(memo.railingBalusterSets, subIds);
+			getSubElementIds(memo.railingBalusters, subIds);
+			getSubElementIds(memo.railingPanels, subIds);
+			getSubElementIds(memo.railingInnerPosts, subIds);
+
+			// nodes
+			getSubElementIds(memo.railingNodes, subIds);
+			getSubElementIds(memo.railingRailConnections, subIds);
+			getSubElementIds(memo.railingHandrailConnections, subIds);
+			getSubElementIds(memo.railingToprailConnections, subIds);
+			getSubElementIds(memo.railingPosts, subIds);
+			getSubElementIds(memo.railingRailEnds, subIds);
+			getSubElementIds(memo.railingHandrailEnds, subIds);
+			getSubElementIds(memo.railingToprailEnds, subIds);
+		}
+
+		if (elem.header.type.typeID == API_CurtainWallID)
+		{
+			getSubElementIds(memo.cWallSegments, subIds);
+			getSubElementIds(memo.cWallFrames, subIds);
+			getSubElementIds(memo.cWallPanels, subIds);
+			getSubElementIds(memo.cWallJunctions, subIds);
+			getSubElementIds(memo.cWallAccessories, subIds);
+		}
+
+		return subIds;
+	}
+#endif
 	
 }
 
@@ -130,12 +194,16 @@ ModelElement::Body* ModelElement::getBody() const {
 	// Map to collect meshes per material name
 	std::map<GS::UniString, primitive::Mesh> materialMeshMap;
 
+	auto subIds = collectSubIds(getHead().guid);
+
 	Int32 nElements = acModel.GetElementCount();
 	for (Int32 iElement = 1; iElement <= nElements; iElement++)
 	{
 		ModelerAPI::Element elem{};
 		acModel.GetElement(iElement, &elem);
-		if (elem.GetElemGuid() != getHead().guid)
+
+		auto apiGuid = reinterpret_cast<const API_Guid&> (elem.GetElemGuid());
+		if (subIds.find(apiGuid) == subIds.end())
 			continue;
 
 		Int32 nBodies = elem.GetTessellatedBodyCount();
