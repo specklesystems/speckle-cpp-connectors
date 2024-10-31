@@ -33,6 +33,8 @@ using namespace speckle::utility;
 #include <array>
 #include <memory>
 
+#include <stack>
+
 namespace speckle::record::element {
 
 	class ModelElement::Data {
@@ -278,29 +280,45 @@ ModelElement::Body* ModelElement::getBody() const {
 			if (polyCount == 0)
 			{
 				std::vector<int> vertexIndices;
-				std::vector<double> points;
+				
 				Int32 edgeCount = body.GetEdgeCount();
 				ModelerAPI::Edge edge{};
 				for (Int32 edgeIndex = 1; edgeIndex <= edgeCount; ++edgeIndex)
 				{
 					body.GetEdge(edgeIndex, &edge);
 					vertexIndices.push_back(edge.GetVertexIndex1());
+					vertexIndices.push_back(edge.GetVertexIndex2());
 				}
 				vertexIndices.push_back(edge.GetVertexIndex2());
+				vertexIndices.push_back(edge.GetVertexIndex2());
 
-				for (int i : vertexIndices) {
-					ModelerAPI::Vertex vertex{};
-					body.GetVertex(i, &vertex);
-					// Collect vertices (as doubles for now, but should be changed to Vertex type)
-					points.push_back(vertex.x);
-					points.push_back(vertex.y);
-					points.push_back(vertex.z);
+				for (int i = 0; i < vertexIndices.size(); i += 2) {
+					ModelerAPI::Vertex v1{};
+					ModelerAPI::Vertex v2{};
+					body.GetVertex(vertexIndices[i], &v1);
+					body.GetVertex(vertexIndices[i + 1], &v2);
+
+					std::vector<double> points{};
+
+					points.push_back(v1.x);
+					points.push_back(v1.y);
+					points.push_back(v1.z);
+
+					points.push_back(v2.x);
+					points.push_back(v2.y);
+					points.push_back(v2.z);
+
+					points.push_back(v2.x);
+					points.push_back(v2.y);
+					points.push_back(v2.z);
+
+					record::attribute::Finish f(tmpmat);
+					primitive::Mesh mesh(std::move(points), f);
+					mesh.setToPolyline();
+					elementBody->push_back(mesh);
+
+					points.clear();
 				}
-
-				record::attribute::Finish f(tmpmat);
-				primitive::Mesh mesh(std::move(points), f);
-				mesh.setToPolyline();
-				elementBody->push_back(mesh);
 			}
 
 
@@ -344,13 +362,11 @@ ModelElement::Body* ModelElement::getBody() const {
 	for (auto& [materialName, mesh] : materialMeshMap)
 		elementBody->push_back(std::move(mesh));
 
-	//std::vector<double> points = { 0, 0, 0, 1, 0, 0, 1, 1, 0 };
-	//Guid finishID{ Guid::fromInt(5) };
-	//auto faceFinish = ModelElement::getFinish(finishID);
-	//record::attribute::Finish f(tmpmat);
-	//primitive::Mesh mesh(std::move(points), f);
-	//mesh.setToPolyline();
-	//elementBody->push_back(mesh);
+	/*std::vector<double> points = {0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0};
+	record::attribute::Finish f(tmpmat);
+	primitive::Mesh mesh(std::move(points), f);
+	mesh.setToPolyline();
+	elementBody->push_back(mesh);*/
 
 	m_data = std::make_unique<Data>();
 	m_data->m_cache.reset(elementBody);
