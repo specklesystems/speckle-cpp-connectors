@@ -96,7 +96,7 @@ Target(
       }
 
       var assetName = asset.ConnectorVersion;
-      var connectorDir = Path.Combine(slugDir, assetName);
+      var connectorDir = Path.Combine(slugDir, assetName, "/");
 
       Directory.CreateDirectory(connectorDir);
       foreach (var directory in Directory.EnumerateDirectories(fullPath, asset.GlobPattern, SearchOption.AllDirectories))
@@ -107,7 +107,9 @@ Target(
       foreach (var file in Directory.EnumerateFiles(fullPath, asset.GlobPattern, SearchOption.AllDirectories))
       {
         Console.WriteLine(file);
-        File.Copy(file, file.Replace(fullPath, connectorDir), true);
+        var destFileName = file.Replace(fullPath, connectorDir);
+        Console.WriteLine("---" + destFileName);
+        File.Copy(file, destFileName, true);
       }
     }
 
