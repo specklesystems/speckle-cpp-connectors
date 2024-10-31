@@ -6,7 +6,7 @@ public static class Consts
 
   public static readonly InstallerProject[] InstallerManifests =
   {
-    new("archicad", [new("SpeckleConnector", "x64/ReleaseAC27/")])
+    new("archicad", [new("archicad27", "SpeckleConnector/x64/ReleaseAC27/", "*.apx")])
   };
 }
 
@@ -15,4 +15,4 @@ public readonly record struct InstallerProject(string HostAppSlug, IReadOnlyList
   public override string ToString() => $"{HostAppSlug}";
 }
 
-public readonly record struct InstallerAsset(string ProjectPath, string TargetName);
+public readonly record struct InstallerAsset(string ConnectorVersion, string OutputPath, string GlobPattern = "*");

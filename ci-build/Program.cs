@@ -89,22 +89,22 @@ Target(
 
     foreach (var asset in x.Projects)
     {
-      var fullPath = Path.Combine(".", asset.ProjectPath, asset.TargetName);
+      var fullPath = Path.Combine(".", asset.OutputPath);
       if (!Directory.Exists(fullPath))
       {
         throw new InvalidOperationException("Could not find: " + fullPath);
       }
 
-      var assetName = Path.GetFileName(asset.ProjectPath);
+      var assetName = asset.ConnectorVersion;
       var connectorDir = Path.Combine(slugDir, assetName);
 
       Directory.CreateDirectory(connectorDir);
-      foreach (var directory in Directory.EnumerateDirectories(fullPath, "*", SearchOption.AllDirectories))
+      foreach (var directory in Directory.EnumerateDirectories(fullPath, asset.GlobPattern, SearchOption.AllDirectories))
       {
         Directory.CreateDirectory(directory.Replace(fullPath, connectorDir));
       }
 
-      foreach (var file in Directory.EnumerateFiles(fullPath, "*", SearchOption.AllDirectories))
+      foreach (var file in Directory.EnumerateFiles(fullPath, asset.GlobPattern, SearchOption.AllDirectories))
       {
         Console.WriteLine(file);
         File.Copy(file, file.Replace(fullPath, connectorDir), true);
