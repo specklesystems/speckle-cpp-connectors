@@ -6,7 +6,7 @@ public static class Consts
 
   public static readonly InstallerProject[] InstallerManifests =
   {
-    new("archicad", [new("archicad27", "SpeckleConnector/x64/ReleaseAC27/", "*.apx")])
+    new("archicad", [new("archicad27", "SpeckleConnector/x64/ReleaseAC27", "*.apx")])
   };
 }
 

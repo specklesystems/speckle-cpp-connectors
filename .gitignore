@@ -28,3 +28,4 @@ XCBuildData/
 *.aps
 **/obj
 **/bin
+output/
