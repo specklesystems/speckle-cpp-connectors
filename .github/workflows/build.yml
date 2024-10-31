@@ -50,7 +50,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: output-${{ env.GitVersion_FullSemVer }}
-          path: output/*
+          path: speckle-cpp-connectors/output/*
           retention-days: 1
 
       - id: set-version
