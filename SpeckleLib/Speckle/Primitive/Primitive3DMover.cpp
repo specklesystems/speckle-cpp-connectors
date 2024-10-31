@@ -2,8 +2,6 @@
 #include "Speckle/Primitive/Primitive3D.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
 #include "Speckle/Primitive/Polyline/Polyline.h"
-#include "Connector/Record/Model/ReceiverModelCard.h"
-#include "Connector/Record/Model/SenderModelCard.h"
 
 using namespace active::serialise;
 using namespace speckle::primitive;
@@ -12,9 +10,9 @@ namespace {
 	
 		///The tag used to identify a Speckle type name value
 	const char* attributeTag = "speckle_type";
-		///Identity for a ReceiverModelCard
+		///Identity for a Mesh
 	const char* meshTypeName = "Objects.Geometry.Mesh";
-		///Identity for a SenderModelCard
+		///Identity for a Polyline
 	const char* polylineTypeName = "Objects.Geometry.Polyline";
 	
 	/*--------------------------------------------------------------------
@@ -30,11 +28,11 @@ namespace {
 		handler->add<speckle::primitive::Polyline>(polylineTypeName);
 		handler->add<Mesh>(meshTypeName);
 		return handler;
-	} //CardMover::validateHandler
+	}
 	
 }
 
-	///The handler for model card packages
+	///The handler for 3D primitive packages
 std::shared_ptr<Handler> Primitive3DMover::m_handler = std::make_shared<Handler>(attributeTag);
 
 

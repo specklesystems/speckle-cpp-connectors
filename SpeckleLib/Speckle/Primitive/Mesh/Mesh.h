@@ -11,12 +11,12 @@ namespace speckle::primitive {
 	/*!
 	 Class for a 3D mesh
 	 */
-	class Mesh : public speckle::database::BIMRecord, public Primitive3D {
+	class Mesh : public Primitive3D {
 	public:
 
 		// MARK: - Types
 
-		using base = speckle::database::BIMRecord;
+		using base = Primitive3D;
 
 		// MARK: - Constructors
 		

@@ -2,33 +2,40 @@
 #define SPECKLE_PRIMITIVE_POLYLINE
 
 #include "Speckle/Primitive/Primitive3D.h"
-#include "Speckle/Database/Content/BIMRecord.h"
-#include "Speckle/Utility/String.h"
 #include "Speckle/Record/Attribute/Finish.h"
 
 namespace speckle::primitive {
 	
 	/*!
-	 Class for a 3D mesh
+	 Class for a 3D polyline
 	 */
-	class Polyline : public speckle::database::BIMRecord, public Primitive3D {
+	class Polyline : public Primitive3D {
 	public:
 
 		// MARK: - Types
 
-		using base = speckle::database::BIMRecord;
+		using base = Primitive3D;
 
 		// MARK: - Constructors
 		
 		/*!
 		 Default constructor
-		 @param unit The mesh unit type
+		 @param unit The polyline unit type
 		 */
-		Polyline(std::vector<double>&& points,
-			active::measure::LengthType unit = active::measure::LengthType::metre) :
-			base{ utility::Guid{true}, utility::Guid{}, unit }, m_points{ std::move(points) } {}
+		Polyline(active::measure::LengthType unit = active::measure::LengthType::metre) : base{ utility::Guid{true}, utility::Guid{}, unit } {}
+		/*!
+		 Constructor
+		 @param points The polyline vertices
+		 @param unit The polyline unit type
+		 */
+		Polyline(std::vector<double>&& points, active::measure::LengthType unit = active::measure::LengthType::metre) :
+				base{ utility::Guid{true}, utility::Guid{}, unit }, m_points{ std::move(points) } {}
 		
-		virtual Polyline* clonePtr() const override { return new Polyline{ *this }; }
+		/*!
+			Object cloning
+			@return A clone of this object
+		*/
+		virtual Polyline* clonePtr() const override { return new Polyline{*this}; }
 
 		// MARK: - Functions (const)
 		

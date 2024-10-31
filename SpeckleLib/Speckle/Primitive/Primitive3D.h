@@ -2,16 +2,36 @@
 #define SPECKLE_PRIMITIVE_3D
 
 #include "Speckle/Database/Content/BIMRecord.h"
-#include "Speckle/Utility/String.h"
-#include "Speckle/Record/Attribute/Finish.h"
 
 namespace speckle::primitive {
 	
 	/*!
-	 Class for a 3D mesh
+	 Interface for all 3D primitives
 	 */
-	class Primitive3D {
+	class Primitive3D : public speckle::database::BIMRecord {
 	public:
+		
+		using base = speckle::database::BIMRecord;
+		
+		/*!
+		 Default constructor
+		 @param unit The recordc unit type
+		 */
+		Primitive3D(active::measure::LengthType unit = active::measure::LengthType::metre) : base{unit} {}
+		/*!
+		 Constructor
+		 @param ID The record ID
+		 @param tableID The parent table ID
+		 @param unit The record unit type
+		 */
+		Primitive3D(const speckle::utility::Guid& ID, const speckle::utility::Guid& tableID,
+					std::optional<active::measure::LengthType> unit = active::measure::LengthType::metre) : base{ID, tableID, unit} {}
+
+		/*!
+			Object cloning
+			@return A clone of this object
+		*/
+		Primitive3D* clonePtr() const override = 0;
 	};
 	
 }

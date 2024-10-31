@@ -6,9 +6,9 @@
 namespace speckle::primitive {
 	
 	/*!
-	 Wrapper to box/unbox model cards during (de)serialisation
+	 Wrapper to box/unbox 3D primitives during (de)serialisation
 	 
-	 Model cards are polymorphic - this class ensures the type information is included when a card is serialised
+	 Primitives are polymorphic - this class ensures the type information is included when a primitive is serialised
 	 and the correct object type is constructed on deserialisation
 	 */
 	class Primitive3DMover : public active::serialise::Mover {
