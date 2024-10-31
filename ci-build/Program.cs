@@ -102,7 +102,7 @@ Target(
 
     foreach (var asset in x.Projects)
     {
-      var fullPath = Path.Combine(".", asset.ProjectPath, "bin", "Release", asset.TargetName);
+      var fullPath = Path.Combine(".", asset.ProjectPath, asset.TargetName);
       if (!Directory.Exists(fullPath))
       {
         throw new InvalidOperationException("Could not find: " + fullPath);
