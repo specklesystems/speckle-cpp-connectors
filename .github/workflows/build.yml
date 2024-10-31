@@ -7,9 +7,9 @@ name: MSBuild
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -22,39 +22,40 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        path: speckle-cpp-connectors
-    - uses: actions/checkout@v4
-      with:
-         repository: r-wessel/ActiveLib
-         path: ActiveLib
+      - uses: actions/checkout@v4
+        with:
+          path: speckle-cpp-connectors
+      - uses: actions/checkout@v4
+        with:
+          repository: r-wessel/ActiveLib
+          path: ActiveLib
 
-    - name: Download zip file
-      run: |
-        New-Item -ItemType Directory -Path "Archicad 27" -Force
-        Invoke-WebRequest -Uri "https://github.com/GRAPHISOFT/archicad-api-devkit/releases/download/27.3001/API.Development.Kit.WIN.27.3001.zip" -OutFile "file.zip"
+      - name: Download zip file
+        run: |
+          New-Item -ItemType Directory -Path "Archicad 27" -Force
+          Invoke-WebRequest -Uri "https://github.com/GRAPHISOFT/archicad-api-devkit/releases/download/27.3001/API.Development.Kit.WIN.27.3001.zip" -OutFile "file.zip"
 
-    - name: Extract zip file to Archicad 27 folder
-      run: |
-        Add-Type -AssemblyName System.IO.Compression.FileSystem
-        [System.IO.Compression.ZipFile]::ExtractToDirectory("file.zip", "Archicad 27")
+      - name: Extract zip file to Archicad 27 folder
+        run: |
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::ExtractToDirectory("file.zip", "Archicad 27")
 
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v2
-      
-    - name: Build
-      run: msbuild /m /p:Configuration=ReleaseAC27 speckle-cpp-connectors/SpeckleConnector/Connector.sln
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: output-${{ env.GitVersion_FullSemVer }}
-        path: speckle-cpp-connectors\SpeckleConnector\x64\ReleaseAC27\Speckle Connector.apx
-        retention-days: 1
-        
-    - id: set-version
-      name: Set version to output
-      run: echo "version=${{ env.GitVersion_FullSemVer }}" >> "$Env:GITHUB_OUTPUT"
+      - name: Build
+        working-directory: speckle-cpp-connectors
+        run: ./build.ps1
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: output-${{ env.GitVersion_FullSemVer }}
+          path: output/*
+          retention-days: 1
+
+      - id: set-version
+        name: Set version to output
+        run: echo "version=${{ env.GitVersion_FullSemVer }}" >> "$Env:GITHUB_OUTPUT"
 
   deploy-installers:
     runs-on: ubuntu-latest

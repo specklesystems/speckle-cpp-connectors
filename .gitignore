@@ -26,3 +26,5 @@ XCBuildData/
 .idea
 *.mui
 *.aps
+**/obj
+**/bin
