@@ -17,6 +17,7 @@
 #include <ModelElement.hpp>
 #include <ModelMaterial.hpp>
 #include <ModelMeshBody.hpp>
+#include <ModelEdge.hpp>
 #include <Sight.hpp>
 #endif
 
@@ -240,6 +241,8 @@ void ModelElement::resetCache() {
   --------------------------------------------------------------------*/
 ModelElement::Body* ModelElement::getBody() const {
 #ifdef ARCHICAD
+	ModelerAPI::Material tmpmat{};
+
 	if (m_data && m_data->m_cache)
 		return m_data->m_cache.get();
 	void* dummy = nullptr;
@@ -271,6 +274,36 @@ ModelElement::Body* ModelElement::getBody() const {
 			ModelerAPI::MeshBody body{};
 			elem.GetTessellatedBody(bodyIndex, &body);
 			Int32 polyCount = body.GetPolygonCount();
+
+			if (polyCount == 0)
+			{
+				std::vector<int> vertexIndices;
+				std::vector<double> points;
+				Int32 edgeCount = body.GetEdgeCount();
+				ModelerAPI::Edge edge{};
+				for (Int32 edgeIndex = 1; edgeIndex <= edgeCount; ++edgeIndex)
+				{
+					body.GetEdge(edgeIndex, &edge);
+					vertexIndices.push_back(edge.GetVertexIndex1());
+				}
+				vertexIndices.push_back(edge.GetVertexIndex2());
+
+				for (int i : vertexIndices) {
+					ModelerAPI::Vertex vertex{};
+					body.GetVertex(i, &vertex);
+					// Collect vertices (as doubles for now, but should be changed to Vertex type)
+					points.push_back(vertex.x);
+					points.push_back(vertex.y);
+					points.push_back(vertex.z);
+				}
+
+				record::attribute::Finish f(tmpmat);
+				primitive::Mesh mesh(std::move(points), f);
+				mesh.setToPolyline();
+				elementBody->push_back(mesh);
+			}
+
+
 			for (Int32 polyIndex = 1; polyIndex <= polyCount; ++polyIndex) {
 				ModelerAPI::Polygon polygon{};
 				body.GetPolygon(polyIndex, &polygon);
@@ -281,6 +314,8 @@ ModelElement::Body* ModelElement::getBody() const {
 				if (faceFinish == nullptr) {
 					ModelerAPI::Material material{};
 					polygon.GetMaterial(&material);
+					///
+					tmpmat = material;
 					Finish finish{material};
 					faceFinish = ModelElement::cacheFinish(finishID, finish);
 				}
@@ -308,6 +343,15 @@ ModelElement::Body* ModelElement::getBody() const {
 	}
 	for (auto& [materialName, mesh] : materialMeshMap)
 		elementBody->push_back(std::move(mesh));
+
+	//std::vector<double> points = { 0, 0, 0, 1, 0, 0, 1, 1, 0 };
+	//Guid finishID{ Guid::fromInt(5) };
+	//auto faceFinish = ModelElement::getFinish(finishID);
+	//record::attribute::Finish f(tmpmat);
+	//primitive::Mesh mesh(std::move(points), f);
+	//mesh.setToPolyline();
+	//elementBody->push_back(mesh);
+
 	m_data = std::make_unique<Data>();
 	m_data->m_cache.reset(elementBody);
 	return m_data->m_cache.get();

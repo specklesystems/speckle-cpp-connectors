@@ -43,6 +43,10 @@ namespace speckle::primitive {
 		Mesh(std::vector<double>&& vertices, std::vector<int>&& faces, std::vector<int>&& colors, const record::attribute::Finish& finish,
 				active::measure::LengthType unit = active::measure::LengthType::metre) :
 				base{utility::Guid{true}, utility::Guid{}, unit}, m_vertices{std::move(vertices)}, m_faces{std::move(faces)}, m_colors{std::move(colors)}, m_finish{finish} {}
+
+		Mesh(std::vector<double>&& points, const record::attribute::Finish& finish,
+			active::measure::LengthType unit = active::measure::LengthType::metre) :
+			base{ utility::Guid{true}, utility::Guid{}, unit }, m_points{ std::move(points) }, m_finish{ finish } {}
 		
 		// MARK: - Functions (const)
 		
@@ -50,7 +54,13 @@ namespace speckle::primitive {
 		 Get the speckle type identifier
 		 @return The speckle type (relevant objects should override as required)
 		 */
-		speckle::utility::String getSpeckleType() const override { return "Objects.Geometry.Mesh"; }
+		speckle::utility::String getSpeckleType() const override 
+		{ 
+			if (isPolyline)
+				return "Objects.Geometry.Polyline";
+			else
+				return "Objects.Geometry.Mesh";
+		}
 
 		/*!
 		 Append a single face to the Mesh given by the vertices
@@ -66,23 +76,35 @@ namespace speckle::primitive {
 		 @return True if the package has added items to the inventory
 		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
+		bool fillInventoryMesh(active::serialise::Inventory& inventory) const;
+		bool fillInventoryPolyline(active::serialise::Inventory& inventory) const;
 		/*!
 		 Get the specified cargo
 		 @param item The inventory item to retrieve
 		 @return The requested cargo (nullptr on failure)
 		 */
 		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		active::serialise::Cargo::Unique getCargoMesh(const active::serialise::Inventory::Item& item) const;
+		active::serialise::Cargo::Unique getCargoPolyline(const active::serialise::Inventory::Item& item) const;
 		/*!
 		 Use a manager in (de)serialisation processes
 		 @param management The management to use
 		 */
 		void useManagement(active::serialise::Management* management) const override;
+
+		void setToPolyline() { isPolyline = true; }
 		
 	private:
 		std::vector<double> m_vertices;
+		std::vector<double> m_points;
 		std::vector<int> m_faces;
 		std::vector<int> m_colors;
 		record::attribute::Finish m_finish;
+
+		bool isPolyline = false;
+		bool isClosed = false;
+		double length = 2.0;
+		double area = 0.0;
 	};
 	
 }
