@@ -5,7 +5,6 @@ using static Bullseye.Targets;
 using static SimpleExec.Command;
 
 const string CLEAN = "clean";
-const string RESTORE = "restore";
 const string BUILD = "build";
 const string ZIP = "zip";
 const string RESTORE_TOOLS = "restore-tools";
@@ -54,17 +53,6 @@ Target(
   }
 );
 
-
-
-Target(
-  RESTORE,
-  Consts.Solutions,
-  s =>
-  {
-    Run("dotnet", $"restore {s}");
-  }
-);
-
 Target(
   BUILD_SERVER_VERSION,
   DependsOn(RESTORE_TOOLS),
@@ -76,7 +64,6 @@ Target(
 
 Target(
   BUILD,
-  DependsOn(RESTORE),
   Consts.Solutions,
   s =>
   {
