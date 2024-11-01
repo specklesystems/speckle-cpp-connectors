@@ -1,15 +1,6 @@
 #include "Speckle/Record/Element/DrawingElement.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
-#include "Speckle/Environment/Addon.h"
-#include "Speckle/Primitive/Mesh/Mesh.h"
-#include "Speckle/SpeckleResource.h"
-#include "Speckle/Utility/Guid.h"
-
 using namespace active::serialise;
-using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
 using namespace speckle::utility;

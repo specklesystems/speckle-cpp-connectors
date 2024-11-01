@@ -16,6 +16,12 @@
 #include "Speckle/Record/Element/Beam.h"
 #include "Speckle/Record/Element/BeamSegment.h"
 #include "Speckle/Record/Element/Memo.h"
+#include "Speckle/Record/Element/Mesh.h"
+#include "Speckle/Record/Element/Morph.h"
+#include "Speckle/Record/Element/Roof.h"
+#include "Speckle/Record/Element/Shell.h"
+#include "Speckle/Record/Element/Slab.h"
+#include "Speckle/Record/Element/Wall.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
 
@@ -82,6 +88,18 @@ namespace {
 				return std::make_unique<Beam>(elementData, tableID);
 			case API_BeamSegmentID:
 				return std::make_unique<BeamSegment>(elementData, tableID);
+			case API_MeshID:
+				return std::make_unique<Mesh>(elementData, tableID);
+			case API_MorphID:
+				return std::make_unique<Morph>(elementData, tableID);
+			case API_RoofID:
+				return std::make_unique<Roof>(elementData, tableID);
+			case API_ShellID:
+				return std::make_unique<Shell>(elementData, tableID);
+			case API_SlabID:
+				return std::make_unique<Slab>(elementData, tableID);
+			case API_WallID:
+				return std::make_unique<Wall>(elementData, tableID);
 			default:
 				return std::make_unique<GenericModelElement>(elementData, tableID);
 		}

@@ -1,4 +1,4 @@
-#include "Speckle/Record/Element/BeamSegment.h"
+#include "Speckle/Record/Element/Wall.h"
 
 #include "Speckle/Record/Element/Quants/Surveyor.h"
 #include "Speckle/Record/Element/Setting/Conversion.h"
@@ -19,15 +19,15 @@ using namespace speckle::utility;
 
 namespace speckle::record::element {
 
-	class BeamSegment::Data {
+	class Wall::Data {
 	public:
-		friend class BeamSegment;
+		friend class Wall;
 
 #ifdef ARCHICAD
-		Data(const API_BeamSegmentType& seg) : root{seg} {}
+		Data(const API_WallType& seg) : root{seg} {}
 
 	private:
-		API_BeamSegmentType root;
+		API_WallType root;
 #endif
 	};
 
@@ -36,8 +36,8 @@ namespace speckle::record::element {
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-BeamSegment::BeamSegment() {
-} //BeamSegment::BeamSegment
+Wall::Wall() {
+} //Wall::Wall
 
 
 #ifdef ARCHICAD
@@ -47,27 +47,9 @@ BeamSegment::BeamSegment() {
 	elemData: Archicad element data
 	tableID: The element table ID (AC database, e.g. floor plan, 3D)
   --------------------------------------------------------------------*/
-BeamSegment::BeamSegment(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
-	m_data = std::make_unique<Data>(elemData.beamSegment);
-} //BeamSegment::BeamSegment
-
-
-/*--------------------------------------------------------------------
-	Constructor
- 
-	segment: The segment element data
-	tableID: The parent table ID
-	cutOrigin: Cut at the segment origin
-	cutEnd: Cut at the segment end
-	scheme: The segment scheme
-	profile: The segment profile (nullptr = none)
-  --------------------------------------------------------------------*/
-BeamSegment::BeamSegment(const API_BeamSegmentType& segment, const speckle::utility::Guid& tableID, const API_AssemblySegmentCutData& cutOrigin,
-							 const API_AssemblySegmentCutData& cutEnd, const API_AssemblySegmentSchemeData& scheme,
-							 const API_AssemblySegmentProfileData* profile) :
-		base{segment.head.guid, tableID}, assembly::Segment{cutOrigin, cutEnd, scheme, profile} {
-	m_data = std::make_unique<Data>(segment);
-} //BeamSegment::BeamSegment
+Wall::Wall(const API_Element& elemData, const speckle::utility::Guid& tableID) : base{ elemData.header.guid, tableID } {
+	m_data = std::make_unique<Data>(elemData.wall);
+} //Wall::Wall
 #endif
 
 
@@ -76,9 +58,9 @@ BeamSegment::BeamSegment(const API_BeamSegmentType& segment, const speckle::util
 
 	source: The object to copy
   --------------------------------------------------------------------*/
-BeamSegment::BeamSegment(const BeamSegment& source) : base{ source } {
+Wall::Wall(const Wall& source) : base{ source } {
 	m_data = source.m_data ? std::make_unique<Data>(*source.m_data) : nullptr;
-} //BeamSegment::BeamSegment
+} //Wall::Wall
 
 
 /*--------------------------------------------------------------------
@@ -86,15 +68,15 @@ BeamSegment::BeamSegment(const BeamSegment& source) : base{ source } {
 
 	source: The object to move
   --------------------------------------------------------------------*/
-BeamSegment::BeamSegment(BeamSegment&& source) noexcept : base{source} {
+Wall::Wall(Wall&& source) noexcept : base{source} {
 	m_data = std::move(source.m_data);
-} //BeamSegment::BeamSegment
+} //Wall::Wall
 
 
 /*--------------------------------------------------------------------
 	Destructor
   --------------------------------------------------------------------*/
-BeamSegment::~BeamSegment() {}
+Wall::~Wall() {}
 
 
 /*--------------------------------------------------------------------
@@ -102,11 +84,11 @@ BeamSegment::~BeamSegment() {}
  
 	return: The material composition (element with ordered material composition should override)
   --------------------------------------------------------------------*/
-ModelElement::Composition BeamSegment::getComposition() const {
+ModelElement::Composition Wall::getComposition() const {
 #ifdef ARCHICAD
-	return convert(m_data->root.assemblySegmentData.modelElemStructureType);
+	return convert(m_data->root.modelElemStructureType);
 #endif
-} //BeamSegment::getComposition
+} //Wall::getComposition
 
 
 /*--------------------------------------------------------------------
@@ -114,11 +96,11 @@ ModelElement::Composition BeamSegment::getComposition() const {
  
 	return: The element material (nullopt if not applicable to the element)
   --------------------------------------------------------------------*/
-std::optional<Material> BeamSegment::getMaterial() const {
+std::optional<Material> Wall::getMaterial() const {
 #ifdef ARCHICAD
-	return Material{Guid{Guid::fromInt(m_data->root.assemblySegmentData.buildingMaterial.GenerateHashValue())}};
+	return Material{Guid{Guid::fromInt(m_data->root.buildingMaterial.GenerateHashValue())}};
 #endif
-} //BeamSegment::getMaterial
+} //Wall::getMaterial
 
 
 /*--------------------------------------------------------------------
@@ -126,15 +108,15 @@ std::optional<Material> BeamSegment::getMaterial() const {
  
 	return: The element measurement (empty if unavailable)
   --------------------------------------------------------------------*/
-ModelElement::SpatialMeasure BeamSegment::getSpatialMeasure() const {
+ModelElement::SpatialMeasure Wall::getSpatialMeasure() const {
 #ifdef ARCHICAD
 	Surveyor surveyor;
-	BIMMemory::setMask(&surveyor.elementMask().beamSegment.rightSurface);
-	BIMMemory::setMask(&surveyor.elementMask().beamSegment.volume);
+	BIMMemory::setMask(&surveyor.elementMask().wall.surface1);
+	BIMMemory::setMask(&surveyor.elementMask().wall.volume);
 	surveyor.measure(getBIMLink());
-	return SpatialMeasure{surveyor.quantity().beamSegment.rightSurface, surveyor.quantity().beamSegment.volume};
+	return SpatialMeasure{surveyor.quantity().wall.surface1, surveyor.quantity().wall.volume};
 #endif
-} //BeamSegment::getSpatialMeasure
+} //Wall::getSpatialMeasure
 
 
 #ifdef ARCHICAD
@@ -143,9 +125,9 @@ ModelElement::SpatialMeasure BeamSegment::getSpatialMeasure() const {
 
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
-const API_Elem_Head& BeamSegment::getHead() const {
+const API_Elem_Head& Wall::getHead() const {
 	return m_data->root.head;
-} //BeamSegment::getHead
+} //Wall::getHead
 
 
 /*--------------------------------------------------------------------
@@ -153,9 +135,9 @@ const API_Elem_Head& BeamSegment::getHead() const {
 
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
-API_Elem_Head& BeamSegment::getHead() {
+API_Elem_Head& Wall::getHead() {
 	return m_data->root.head;
-} //BeamSegment::getHead
+} //Wall::getHead
 #endif
 
 
@@ -166,11 +148,11 @@ API_Elem_Head& BeamSegment::getHead() {
 
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
-bool BeamSegment::fillInventory(Inventory& inventory) const {
+bool Wall::fillInventory(Inventory& inventory) const {
 	using enum Entry::Type;
 		//TODO: Implement other fields as required
 	return base::fillInventory(inventory);
-} //BeamSegment::fillInventory
+} //Wall::fillInventory
 
 
 /*--------------------------------------------------------------------
@@ -180,15 +162,15 @@ bool BeamSegment::fillInventory(Inventory& inventory) const {
 
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
-Cargo::Unique BeamSegment::getCargo(const Inventory::Item& item) const {
+Cargo::Unique Wall::getCargo(const Inventory::Item& item) const {
 		//TODO: Implement other fields as required
 	return base::getCargo(item);
-} //BeamSegment::getCargo
+} //Wall::getCargo
 
 
 /*--------------------------------------------------------------------
 	Set to the default package content
   --------------------------------------------------------------------*/
-void BeamSegment::setDefault() {
+void Wall::setDefault() {
 	m_data.reset();
-} //BeamSegment::setDefault
+} //Wall::setDefault

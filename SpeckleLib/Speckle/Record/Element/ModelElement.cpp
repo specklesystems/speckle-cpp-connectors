@@ -1,7 +1,5 @@
 #include "Speckle/Record/Element/ModelElement.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
@@ -9,7 +7,6 @@
 #include "Speckle/Record/Property/Wrapper/PropertiedWrapper.h"
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/BIMMemory.h"
-#include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
 #include <exp.h>
@@ -292,7 +289,7 @@ MaterialQuantityList ModelElement::getMaterialQuantities() const {
 			measureQuantities(getHead().guid, elementQuantity, extendedQuantity, quantityMask);
 				//Create material quantities from the quantity takeoff (one oer skin in the composite structure)
 			for (auto& skinQuant : compositeQuantity)
-				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices.GenerateHashValue())}, skinQuant.volumes, skinQuant.projectedArea});
+				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices.GenerateHashValue())}, skinQuant.projectedArea, skinQuant.volumes});
 #endif
 			break;
 		}

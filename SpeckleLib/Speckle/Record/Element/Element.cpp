@@ -1,16 +1,11 @@
 #include "Speckle/Record/Element/Element.h"
 
-#include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Active/Serialise/Package/Wrapper/PackageWrap.h"
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Environment/Project.h"
-#include "Speckle/Primitive/Mesh/Mesh.h"
 #include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Record/Element/Setting/TypeSetting.h"
 #include "Speckle/SpeckleResource.h"
-#include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;
 using namespace speckle::database;
