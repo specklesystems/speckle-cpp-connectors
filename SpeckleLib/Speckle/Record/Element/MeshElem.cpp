@@ -1,4 +1,4 @@
-#include "Speckle/Record/Element/Mesh.h"
+#include "Speckle/Record/Element/MeshElem.h"
 
 #include "Speckle/Record/Element/Quants/Surveyor.h"
 #include "Speckle/Record/Element/Setting/Conversion.h"

@@ -21,7 +21,7 @@ namespace active::serialise {
 	 @param source The source string to convert
 	 @return The equivalent colour (nullopt on failure)
 	 */
-	std::optional<API_RGBColor> convertToAPI_RGBColor(const utility::String& source) {
+	inline std::optional<API_RGBColor> convertToAPI_RGBColor(const utility::String& source) {
 		auto intValue = source.toUInt32();
 		if (!intValue)
 			return std::nullopt;

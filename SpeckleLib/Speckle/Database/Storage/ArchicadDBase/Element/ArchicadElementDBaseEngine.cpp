@@ -16,7 +16,7 @@
 #include "Speckle/Record/Element/Beam.h"
 #include "Speckle/Record/Element/BeamSegment.h"
 #include "Speckle/Record/Element/Memo.h"
-#include "Speckle/Record/Element/Mesh.h"
+#include "Speckle/Record/Element/MeshElem.h"
 #include "Speckle/Record/Element/Morph.h"
 #include "Speckle/Record/Element/Roof.h"
 #include "Speckle/Record/Element/Shell.h"

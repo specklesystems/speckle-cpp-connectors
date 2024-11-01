@@ -93,12 +93,18 @@
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedBeam.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h" />
     <ClInclude Include="Speckle\Record\Element\Memo.h" />
+    <ClInclude Include="Speckle\Record\Element\MeshElem.h" />
     <ClInclude Include="Speckle\Record\Element\ModelElement.h" />
+    <ClInclude Include="Speckle\Record\Element\Morph.h" />
     <ClInclude Include="Speckle\Record\Element\Quants\MaterialQuantity.h" />
     <ClInclude Include="Speckle\Record\Element\Quants\MaterialWrap.h" />
     <ClInclude Include="Speckle\Record\Element\Quants\Surveyor.h" />
+    <ClInclude Include="Speckle\Record\Element\Roof.h" />
     <ClInclude Include="Speckle\Record\Element\Setting\Conversion.h" />
     <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h" />
+    <ClInclude Include="Speckle\Record\Element\Shell.h" />
+    <ClInclude Include="Speckle\Record\Element\Slab.h" />
+    <ClInclude Include="Speckle\Record\Element\Wall.h" />
     <ClInclude Include="Speckle\Record\Property\Group.h" />
     <ClInclude Include="Speckle\Record\Property\Propertied.h" />
     <ClInclude Include="Speckle\Record\Property\Property.h" />
@@ -183,11 +189,17 @@
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedBeam.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp" />
     <ClCompile Include="Speckle\Record\Element\Memo.cpp" />
+    <ClCompile Include="Speckle\Record\Element\MeshElem.cpp" />
     <ClCompile Include="Speckle\Record\Element\ModelElement.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Morph.cpp" />
     <ClCompile Include="Speckle\Record\Element\Quants\MaterialQuantity.cpp" />
     <ClCompile Include="Speckle\Record\Element\Quants\MaterialWrap.cpp" />
     <ClCompile Include="Speckle\Record\Element\Quants\Surveyor.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Roof.cpp" />
     <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Shell.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Slab.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Wall.cpp" />
     <ClCompile Include="Speckle\Record\Property\Group.cpp" />
     <ClCompile Include="Speckle\Record\Property\Propertied.cpp" />
     <ClCompile Include="Speckle\Record\Property\Property.cpp" />
@@ -336,7 +348,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>DEBUG;WINDOWS;ARCHICAD;ACExtension;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;WINDOWS;ARCHICAD;ACExtension;_SILENCE_CXX20_IS_POD_DEPRECATION_WARNING;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -376,7 +388,7 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WINDOWS;ARCHICAD;ACExtension;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINDOWS;ARCHICAD;ACExtension;_SILENCE_CXX20_IS_POD_DEPRECATION_WARNING;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>

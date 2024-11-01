@@ -13,7 +13,7 @@ namespace speckle::record::element {
 	/*!
 	 Convert an Archicad structure type to an element composition
 	 */
-	ModelElement::Composition convert(API_ModelElemStructureType structType) {
+	inline ModelElement::Composition convert(API_ModelElemStructureType structType) {
 		switch (structType) {
 			case API_CompositeStructure:
 				return ModelElement::Composition::skinned;

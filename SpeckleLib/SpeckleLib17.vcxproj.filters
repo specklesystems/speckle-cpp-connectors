@@ -445,6 +445,24 @@
     <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h">
       <Filter>Speckle\Record\Element\Setting</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\MeshElem.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Morph.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Roof.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Shell.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Slab.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Wall.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -680,6 +698,24 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp">
       <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\MeshElem.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Morph.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Roof.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Shell.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Slab.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Wall.cpp">
+      <Filter>Speckle\Record\Element</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
