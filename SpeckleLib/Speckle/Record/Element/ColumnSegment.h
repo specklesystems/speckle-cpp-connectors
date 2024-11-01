@@ -64,6 +64,21 @@ namespace speckle::record::element {
 
 		// MARK: - Functions (const)
 
+		/*!
+		 Get the composition of materials in the element
+		 @return The material composition (element with ordered material composition should override)
+		 */
+		Composition getComposition() const override;
+		/*!
+		 Get the element material (applicable to elements with a single, homogenous material)
+		 @return The element material (nullopt if not applicable to the element)
+		 */
+		std::optional<record::attribute::Material> getMaterial() const override;
+		/*!
+		 Get a spatial measurement from this element (area/volume, as used for material quantities)
+		 @return The element measurement (empty if unavailable)
+		 */
+		SpatialMeasure getSpatialMeasure() const override;
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API element header data

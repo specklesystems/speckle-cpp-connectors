@@ -24,12 +24,11 @@ namespace speckle::record::element {
 		friend class Column;
 
 #ifdef ARCHICAD
-		Data(const API_Element& elem) : root{ std::make_unique<API_ColumnType>(elem.column) } {}
-		Data(const Data& source) : root{ std::make_unique<API_ColumnType>(*source.root) } {}
+		Data(const API_Element& elem) : root{elem.column} {}
 #endif
 
 	private:
-		std::unique_ptr<API_ColumnType> root;
+		API_ColumnType root;
 	};
 
 }
@@ -91,7 +90,7 @@ Column::~Column() {}
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 const API_Elem_Head& Column::getHead() const {
-	return m_data->root->head;
+	return m_data->root.head;
 } //Column::getHead
 
 /*--------------------------------------------------------------------
@@ -100,7 +99,7 @@ const API_Elem_Head& Column::getHead() const {
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 API_Elem_Head& Column::getHead() {
-	return m_data->root->head;
+	return m_data->root.head;
 } //Column::getHead
 
 

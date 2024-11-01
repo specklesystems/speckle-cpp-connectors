@@ -29,14 +29,14 @@ namespace speckle::serialise {
 		 @param objectID The object the material is applied to
 		 @return True if the material proxy was added (false typically means the record already exists)
 		 */
-		virtual bool addMaterialProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) = 0;
+		virtual bool addFinishProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) = 0;
 		/*!
 		 Add a ModelerAPI material to the collection (NB: These are not persistent so need to be captured by this method)
 		 @param finish A finish
 		 @param objectID The object the material is applied to
 		 @return True if the material proxy was added (false typically means the record already exists)
 		 */
-		virtual bool addMaterialProxy(const record::attribute::Finish& finish, const speckle::database::BIMRecordID& objectID) = 0;
+		virtual bool addFinishProxy(const record::attribute::Finish& finish, const speckle::database::BIMRecordID& objectID) = 0;
 	};
 	
 }

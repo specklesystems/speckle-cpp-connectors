@@ -8,10 +8,12 @@
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
 #include "Speckle/Record/Element/Memo.h"
+#include "Speckle/Record/Element/Setting/TypeSetting.h"
 #include "Speckle/SpeckleResource.h"
 #include "Speckle/Utility/Guid.h"
 
 using namespace active::serialise;
+using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
@@ -72,6 +74,20 @@ Storey::Option Element::getStorey() const {
 	return Storey{ getHead().floorInd };
 #endif
 } //Element::getStorey
+
+
+/*--------------------------------------------------------------------
+	Get a link to the BIM record
+ 
+	return: The BIM record link
+  --------------------------------------------------------------------*/
+BIMLink Element::getBIMLink() const {
+	auto result = base::getBIMLink();
+#ifdef ARCHICAD
+	result.emplace_back(std::make_unique<TypeSetting>(getHead()));
+#endif
+	return result;
+} //Element::getLink
 
 
 /*--------------------------------------------------------------------

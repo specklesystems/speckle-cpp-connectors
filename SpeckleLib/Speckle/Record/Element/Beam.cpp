@@ -24,12 +24,11 @@ namespace speckle::record::element {
 		friend class Beam;
 
 #ifdef ARCHICAD
-		Data(const API_Element& elem) : root{ std::make_unique<API_BeamType>(elem.beam) } {}
-		Data(const Data& source) : root{ std::make_unique<API_BeamType>(*source.root) } {}
+		Data(const API_Element& elem) : root{elem.beam} {}
 #endif
 
 	private:
-		std::unique_ptr<API_BeamType> root;
+		API_BeamType root;
 	};
 
 }
@@ -91,7 +90,7 @@ Beam::~Beam() {}
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 const API_Elem_Head& Beam::getHead() const {
-	return m_data->root->head;
+	return m_data->root.head;
 } //Beam::getHead
 
 /*--------------------------------------------------------------------
@@ -100,7 +99,7 @@ const API_Elem_Head& Beam::getHead() const {
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 API_Elem_Head& Beam::getHead() {
-	return m_data->root->head;
+	return m_data->root.head;
 } //Beam::getHead
 
 

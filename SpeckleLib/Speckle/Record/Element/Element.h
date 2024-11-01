@@ -71,6 +71,11 @@ namespace speckle::record::element {
 		 @return The element storey (nullopt if the element isn't linked to a storey)
 		 */
 		virtual attribute::Storey::Option getStorey() const;
+		/*!
+		 Get a link to the BIM record
+		 @return The BIM record link
+		 */
+		database::BIMLink getBIMLink() const override;
 #ifdef ARCHICAD
 		/*!
 		 Get the (immutable) API element header data

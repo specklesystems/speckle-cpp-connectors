@@ -115,12 +115,12 @@ bool ProjectCollection::addElement(const speckle::record::element::Element& elem
  
 	return: True if the material proxy was added (false typically means the record already exists)
   --------------------------------------------------------------------*/
-bool ProjectCollection::addMaterialProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) {
+bool ProjectCollection::addFinishProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) {
 	auto iter = m_finishProxies.find(materialIndex);
 	if (iter == m_finishProxies.end())
 		iter = m_finishProxies.insert({materialIndex, {}}).first;
 	return iter->second.insert(objectID).second;
-} //ProjectCollection::addMaterialProxy
+} //ProjectCollection::addFinishProxy
 
 
 #ifdef ARCHICAD
@@ -132,12 +132,12 @@ bool ProjectCollection::addMaterialProxy(const speckle::database::BIMIndex& mate
  
 	return: True if the material proxy was added (false typically means the record already exists)
   --------------------------------------------------------------------*/
-bool ProjectCollection::addMaterialProxy(const Finish& finish, const speckle::database::BIMRecordID& objectID) {
+bool ProjectCollection::addFinishProxy(const Finish& finish, const speckle::database::BIMRecordID& objectID) {
 	auto iter = m_finishes->find(finish.getBIMID());
 	if (iter == m_finishes->end())
 		iter = m_finishes->insert({finish.getBIMID(), finish}).first;
-	return addMaterialProxy(speckle::database::BIMIndex{finish.getBIMID()}, objectID);
-} //ProjectCollection::addMaterialProxy
+	return addFinishProxy(speckle::database::BIMIndex{finish.getBIMID()}, objectID);
+} //ProjectCollection::addFinishProxy
 #endif
 
 

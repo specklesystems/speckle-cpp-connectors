@@ -5,7 +5,10 @@
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
+#include "Speckle/Record/Element/Quants/Surveyor.h"
+#include "Speckle/Record/Element/Setting/Conversion.h"
 #include "Speckle/SpeckleResource.h"
+#include "Speckle/Utility/BIMMemory.h"
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
@@ -16,6 +19,7 @@ using namespace active::serialise;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
+using namespace speckle::record::element::quants;
 using namespace speckle::utility;
 
 #include <array>
@@ -28,11 +32,10 @@ namespace speckle::record::element {
 		friend class BeamSegment;
 
 #ifdef ARCHICAD
-		Data(const API_BeamSegmentType& seg) : root{ std::make_unique<API_BeamSegmentType>(seg) } {}
-		Data(const Data& source) : root{ std::make_unique<API_BeamSegmentType>(*source.root) } {}
+		Data(const API_BeamSegmentType& seg) : root{seg} {}
 
 	private:
-		std::unique_ptr<API_BeamSegmentType> root;
+		API_BeamSegmentType root;
 #endif
 	};
 
@@ -102,6 +105,46 @@ BeamSegment::BeamSegment(BeamSegment&& source) noexcept : base{source} {
 BeamSegment::~BeamSegment() {}
 
 
+/*--------------------------------------------------------------------
+	Get the composition of materials in the element
+ 
+	return: The material composition (element with ordered material composition should override)
+  --------------------------------------------------------------------*/
+ModelElement::Composition BeamSegment::getComposition() const {
+#ifdef ARCHICAD
+	return convert(m_data->root.assemblySegmentData.modelElemStructureType);
+#endif
+} //BeamSegment::getComposition
+
+
+/*--------------------------------------------------------------------
+	Get the element material (applicable to elements with a single, homogenous material)
+ 
+	return: The element material (nullopt if not applicable to the element)
+  --------------------------------------------------------------------*/
+std::optional<Material> BeamSegment::getMaterial() const {
+#ifdef ARCHICAD
+	return Material{Guid{Guid::fromInt(m_data->root.assemblySegmentData.buildingMaterial.GenerateHashValue())}};
+#endif
+} //BeamSegment::getMaterial
+
+
+/*--------------------------------------------------------------------
+	Get a spatial measurement from this element (area/volume, as used for material quantities)
+ 
+	return: The element measurement (empty if unavailable)
+  --------------------------------------------------------------------*/
+ModelElement::SpatialMeasure BeamSegment::getSpatialMeasure() const {
+#ifdef ARCHICAD
+	Surveyor surveyor;
+	BIMMemory::setMask(&surveyor.elementMask().beamSegment.rightSurface);
+	BIMMemory::setMask(&surveyor.elementMask().beamSegment.volume);
+	surveyor.measure(getBIMLink());
+	return SpatialMeasure{surveyor.quantity().beamSegment.rightSurface, surveyor.quantity().beamSegment.volume};
+#endif
+} //BeamSegment::getSpatialMeasure
+
+
 #ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Get the (immutable) API element header data
@@ -109,7 +152,7 @@ BeamSegment::~BeamSegment() {}
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 const API_Elem_Head& BeamSegment::getHead() const {
-	return m_data->root->head;
+	return m_data->root.head;
 } //BeamSegment::getHead
 
 
@@ -119,7 +162,7 @@ const API_Elem_Head& BeamSegment::getHead() const {
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 API_Elem_Head& BeamSegment::getHead() {
-	return m_data->root->head;
+	return m_data->root.head;
 } //BeamSegment::getHead
 #endif
 

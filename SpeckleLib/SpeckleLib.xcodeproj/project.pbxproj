@@ -20,6 +20,17 @@
 		21384BC52CD24AB200D4602B /* ElementSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */; };
 		21384BC62CD24AB200D4602B /* ElementSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC42CD24AB200D4602B /* ElementSubscriber.h */; };
 		21384BC82CD24ADC00D4602B /* ElementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC72CD24ADC00D4602B /* ElementEvent.h */; };
+		21384BE82CD3DD6200D4602B /* MaterialQuantity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BE32CD3DD6200D4602B /* MaterialQuantity.cpp */; };
+		21384BE92CD3DD6200D4602B /* MaterialQuantity.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BE42CD3DD6200D4602B /* MaterialQuantity.h */; };
+		21384BEC2CD3EBE200D4602B /* Material.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BEA2CD3EBE200D4602B /* Material.h */; };
+		21384BED2CD3EBE200D4602B /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BEB2CD3EBE200D4602B /* Material.cpp */; };
+		21384BF02CD3F3A500D4602B /* MaterialWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BEE2CD3F3A500D4602B /* MaterialWrap.cpp */; };
+		21384BF12CD3F3A500D4602B /* MaterialWrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BEF2CD3F3A500D4602B /* MaterialWrap.h */; };
+		21384BF42CD4D65700D4602B /* Surveyor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BF22CD4D65700D4602B /* Surveyor.cpp */; };
+		21384BF52CD4D65700D4602B /* Surveyor.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BF32CD4D65700D4602B /* Surveyor.h */; };
+		21384BF82CD50CD400D4602B /* TypeSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BF62CD50CD400D4602B /* TypeSetting.h */; };
+		21384BFA2CD51B6F00D4602B /* TypeSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BF92CD51B6F00D4602B /* TypeSetting.cpp */; };
+		21384BFC2CD52C7500D4602B /* Conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BFB2CD52C7500D4602B /* Conversion.h */; };
 		215F08552C99DA8D00CD343B /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
 		215F08562C99DA8D00CD343B /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
 		215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
@@ -206,6 +217,17 @@
 		21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ElementSubscriber.cpp; sourceTree = "<group>"; };
 		21384BC42CD24AB200D4602B /* ElementSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementSubscriber.h; sourceTree = "<group>"; };
 		21384BC72CD24ADC00D4602B /* ElementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementEvent.h; sourceTree = "<group>"; };
+		21384BE32CD3DD6200D4602B /* MaterialQuantity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaterialQuantity.cpp; sourceTree = "<group>"; };
+		21384BE42CD3DD6200D4602B /* MaterialQuantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialQuantity.h; sourceTree = "<group>"; };
+		21384BEA2CD3EBE200D4602B /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		21384BEB2CD3EBE200D4602B /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Material.cpp; sourceTree = "<group>"; };
+		21384BEE2CD3F3A500D4602B /* MaterialWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaterialWrap.cpp; sourceTree = "<group>"; };
+		21384BEF2CD3F3A500D4602B /* MaterialWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialWrap.h; sourceTree = "<group>"; };
+		21384BF22CD4D65700D4602B /* Surveyor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Surveyor.cpp; sourceTree = "<group>"; };
+		21384BF32CD4D65700D4602B /* Surveyor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Surveyor.h; sourceTree = "<group>"; };
+		21384BF62CD50CD400D4602B /* TypeSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSetting.h; sourceTree = "<group>"; };
+		21384BF92CD51B6F00D4602B /* TypeSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TypeSetting.cpp; sourceTree = "<group>"; };
+		21384BFB2CD52C7500D4602B /* Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversion.h; sourceTree = "<group>"; };
 		214EA4C52BA374FD008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		214EA4C62BA3762D008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		215F08512C99DA8D00CD343B /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
@@ -455,6 +477,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		21384BE52CD3DD6200D4602B /* Quants */ = {
+			isa = PBXGroup;
+			children = (
+				21384BE32CD3DD6200D4602B /* MaterialQuantity.cpp */,
+				21384BE42CD3DD6200D4602B /* MaterialQuantity.h */,
+				21384BEE2CD3F3A500D4602B /* MaterialWrap.cpp */,
+				21384BEF2CD3F3A500D4602B /* MaterialWrap.h */,
+				21384BF22CD4D65700D4602B /* Surveyor.cpp */,
+				21384BF32CD4D65700D4602B /* Surveyor.h */,
+			);
+			path = Quants;
+			sourceTree = "<group>";
+		};
+		21384BF72CD50CD400D4602B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				21384BFB2CD52C7500D4602B /* Conversion.h */,
+				21384BF92CD51B6F00D4602B /* TypeSetting.cpp */,
+				21384BF62CD50CD400D4602B /* TypeSetting.h */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		215F08612C9AE3D200CD343B /* RINT */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,11 +527,13 @@
 				21A890CB2CC1B87B0087E732 /* GenericDrawingElement.h */,
 				21A890CD2CC1B87C0087E732 /* GenericModelElement.cpp */,
 				21A890CC2CC1B87B0087E732 /* GenericModelElement.h */,
-				21A0FC0C2CBE92F10023F24E /* ModelElement.cpp */,
-				21A0FC0D2CBE92F10023F24E /* ModelElement.h */,
 				21A0FBE72CBD6B1A0023F24E /* Interface */,
 				21A0FBF32CBD6B700023F24E /* Memo.cpp */,
 				21A0FBF22CBD6B700023F24E /* Memo.h */,
+				21A0FC0C2CBE92F10023F24E /* ModelElement.cpp */,
+				21A0FC0D2CBE92F10023F24E /* ModelElement.h */,
+				21384BE52CD3DD6200D4602B /* Quants */,
+				21384BF72CD50CD400D4602B /* Setting */,
 			);
 			path = Element;
 			sourceTree = "<group>";
@@ -609,6 +656,8 @@
 				2196F2EE2CB4823C00450DFC /* Attribute.h */,
 				2196F2F32CB483D600450DFC /* Finish.cpp */,
 				2196F2F22CB483D600450DFC /* Finish.h */,
+				21384BEB2CD3EBE200D4602B /* Material.cpp */,
+				21384BEA2CD3EBE200D4602B /* Material.h */,
 				2196F3032CB57E7F00450DFC /* Storey.cpp */,
 				2196F3022CB57E7F00450DFC /* Storey.h */,
 			);
@@ -949,6 +998,7 @@
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				21AE19A92CC8F1F8004DBCFC /* Beam.h in Headers */,
 				215F08962CA19AF800CD343B /* BIMElementDatabase.h in Headers */,
+				21384BEC2CD3EBE200D4602B /* Material.h in Headers */,
 				2196F2F12CB4823C00450DFC /* Attribute.h in Headers */,
 				21D0BD332C86FE090077E104 /* Link.h in Headers */,
 				21AE19612CC2D358004DBCFC /* Setting.h in Headers */,
@@ -968,6 +1018,7 @@
 				2196F2F42CB483D600450DFC /* Finish.h in Headers */,
 				21A0FBED2CBD6B1A0023F24E /* Part.h in Headers */,
 				21B67D002C7CE15100FD64FC /* Exception.h in Headers */,
+				21384BF52CD4D65700D4602B /* Surveyor.h in Headers */,
 				21A0FBEB2CBD6B1A0023F24E /* ColumnSegment.h in Headers */,
 				21D0BD2C2C86FC350077E104 /* Record.h in Headers */,
 				21D0BDB42C8F8AB60077E104 /* DocumentStoreCore.h in Headers */,
@@ -984,16 +1035,20 @@
 				21AE19522CC273F1004DBCFC /* Property.h in Headers */,
 				21A0FBF92CBDB9A70023F24E /* BIMMemory.h in Headers */,
 				21AE19AA2CC8F1F8004DBCFC /* BeamSegment.h in Headers */,
+				21384BF12CD3F3A500D4602B /* MaterialWrap.h in Headers */,
 				21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */,
 				21AE19542CC273F1004DBCFC /* Template.h in Headers */,
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
+				21384BFC2CD52C7500D4602B /* Conversion.h in Headers */,
 				21AE19842CC7D517004DBCFC /* PropertyWrapper.h in Headers */,
 				21A0FC052CBE59A80023F24E /* SegmentedColumn.h in Headers */,
 				21A0FC0F2CBE92F10023F24E /* ModelElement.h in Headers */,
 				21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */,
+				21384BE92CD3DD6200D4602B /* MaterialQuantity.h in Headers */,
 				21A890D02CC1B87C0087E732 /* GenericModelElement.h in Headers */,
 				21A890C52CC171D80087E732 /* ArchicadPropertyDBaseEngine.h in Headers */,
 				21384BAB2CCDA9B400D4602B /* Host.h in Headers */,
+				21384BF82CD50CD400D4602B /* TypeSetting.h in Headers */,
 				21D0BDC52C9241940077E104 /* ProjectSubscriber.h in Headers */,
 				21AE196A2CC57832004DBCFC /* Propertied.h in Headers */,
 				2196F2EC2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.h in Headers */,
@@ -1147,6 +1202,7 @@
 				2196F2F82CB51ED400450DFC /* BIMAttributeDatabase.cpp in Sources */,
 				21D0BD4E2C8901A00077E104 /* ServerInfo.cpp in Sources */,
 				21AE19512CC273F1004DBCFC /* Property.cpp in Sources */,
+				21384BED2CD3EBE200D4602B /* Material.cpp in Sources */,
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
 				21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21AE19692CC57832004DBCFC /* Propertied.cpp in Sources */,
@@ -1159,8 +1215,10 @@
 				21A0FC062CBE59A80023F24E /* Path.cpp in Sources */,
 				2196F2F52CB483D600450DFC /* Finish.cpp in Sources */,
 				21A0FBEA2CBD6B1A0023F24E /* ColumnSegment.cpp in Sources */,
+				21384BFA2CD51B6F00D4602B /* TypeSetting.cpp in Sources */,
 				2193519B2C6278D900E5A69C /* SelectionSubscriber.cpp in Sources */,
 				21D0BD2B2C86FC350077E104 /* Record.cpp in Sources */,
+				21384BF02CD3F3A500D4602B /* MaterialWrap.cpp in Sources */,
 				219246042CA2CE2700CF5703 /* BIMLink.cpp in Sources */,
 				21A890CE2CC1B87C0087E732 /* GenericDrawingElement.cpp in Sources */,
 				215F08952CA19AF800CD343B /* BIMElementDatabase.cpp in Sources */,
@@ -1175,6 +1233,7 @@
 				21D0BD592C8910400077E104 /* UserInfo.cpp in Sources */,
 				210CC8902C81A98500610F58 /* Guid64.cpp in Sources */,
 				21D0BDC42C9241940077E104 /* ProjectSubscriber.cpp in Sources */,
+				21384BE82CD3DD6200D4602B /* MaterialQuantity.cpp in Sources */,
 				21AE19622CC2D358004DBCFC /* Setting.cpp in Sources */,
 				219351B32C62CC1A00E5A69C /* String.cpp in Sources */,
 				219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */,
@@ -1186,6 +1245,7 @@
 				21AE19882CC7FF5F004DBCFC /* Group.cpp in Sources */,
 				21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */,
 				21384BC52CD24AB200D4602B /* ElementSubscriber.cpp in Sources */,
+				21384BF42CD4D65700D4602B /* Surveyor.cpp in Sources */,
 				2196F2EB2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.cpp in Sources */,
 				21AE19532CC273F1004DBCFC /* Template.cpp in Sources */,
 				21384BAC2CCDA9B400D4602B /* Host.cpp in Sources */,

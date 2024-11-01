@@ -24,12 +24,11 @@ namespace speckle::record::element {
 		friend class GenericModelElement;
 
 #ifdef ARCHICAD
-		Data(const API_Element& elem) : root{ std::make_unique<API_Element>(elem) } {}
-		Data(const Data& source) : root{ std::make_unique<API_Element>(*source.root) } {}
+		Data(const API_Element& elem) : root{elem} {}
 #endif
 
 	private:
-		std::unique_ptr<API_Element> root;
+		API_Element root;
 	};
 
 }
@@ -75,7 +74,7 @@ GenericModelElement::~GenericModelElement() {}
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 const API_Elem_Head& GenericModelElement::getHead() const {
-	return m_data->root->header;
+	return m_data->root.header;
 } //GenericModelElement::getHead
 
 /*--------------------------------------------------------------------
@@ -84,7 +83,7 @@ const API_Elem_Head& GenericModelElement::getHead() const {
 	return: The element header data (only use this data for low-level operations - for normal code, call getters/setters)
   --------------------------------------------------------------------*/
 API_Elem_Head& GenericModelElement::getHead() {
-	return m_data->root->header;
+	return m_data->root.header;
 } //GenericModelElement::getHead
 #endif
 

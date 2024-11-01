@@ -5,8 +5,10 @@
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Primitive/Mesh/Mesh.h"
+#include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Record/Property/Wrapper/PropertiedWrapper.h"
 #include "Speckle/SpeckleResource.h"
+#include "Speckle/Utility/BIMMemory.h"
 #include "Speckle/Utility/Guid.h"
 
 #ifdef ARCHICAD
@@ -26,6 +28,7 @@ using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
+using namespace speckle::record::element::quants;
 using namespace speckle::record::property;
 using namespace speckle::utility;
 
@@ -78,6 +81,7 @@ namespace speckle::record::element {
 
 	};
 	
+		///Allocation for the ModelElement finishes cache (used because repeated API access is very slow)
 	std::unique_ptr<ModelElement::FinishCache> ModelElement::m_finishCache;
 	
 }
@@ -87,76 +91,96 @@ namespace {
 	///Serialisation fields
 	enum FieldIndex {
 		bodyID,
+		materialQuantsID,
 		propertyID,
 	};
 
 	///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"displayValue"},
+		Identity{"materialQuantities"},
 		Identity{"properties"},
 	};
 	
 #ifdef ARCHICAD
+	/*!
+	 Collect the IDs of individual parts from an assembly (e.g. stair, curtain wall)
+	 @param parts A pointer to the assembly parts
+	 @param partIDs The assembly part IDs
+	 */
 	template<typename T>
-	void getSubElementIds(T* ptr, std::set<API_Guid>& subIds)
-	{
-		GSSize nSubElements = BMGetPtrSize(reinterpret_cast<GSPtr>(ptr)) / sizeof(T);
+	void getPartIDs(T* parts, std::set<API_Guid>& partIDs) {
+		GSSize nSubElements = BMGetPtrSize(reinterpret_cast<GSPtr>(parts)) / sizeof(T);
 		for (Int32 idx = 0; idx < nSubElements; ++idx)
-			subIds.insert(ptr[idx].head.guid);
+			partIDs.insert(parts[idx].head.guid);
 	}
+	
+	
+	/*!
+	 Measure material quantities from the composite materials of a specified element
+	 @param guid The ID of the element to measure
+	 @param elementQuantity Quantities extracted from the target element (out)
+	 @param extendedQuantity Optional extended quantities calculated for some element types
+	 @param quantityMask Mask to determine which quantities are required (minimise calculation time)
+	 */
+	void measureQuantities(const API_Guid& guid, API_ElementQuantity& elementQuantity,
+								  API_Quantities& extendedQuantity, const API_QuantitiesMask& quantityMask) {
+		extendedQuantity.elements = &elementQuantity;
+		GS::Array<API_ElemPartQuantity> elementPartQuantities;
+		API_QuantityPar quantityParameters{};
+		quantityParameters.minOpeningSize = Eps;
+		ACAPI_Element_GetQuantities(guid, &quantityParameters, &extendedQuantity, &quantityMask);
+	} //measureQuantities
+	
+	
+	/*!
+	 Collect the IDs of individual parts from an element (e.g. stair, curtain wall)
+	 @param elemId The element to collect part IDs from
+	 @param typeID The element type identifier
+	 @param memo The element memo data
+	 */
+	std::set<API_Guid> collectPartIDs(const API_Guid& elemId, API_ElemTypeID typeID, const Memo& memo) {
+		std::set<API_Guid> partIDs{};
+		partIDs.insert(elemId);
+		if (!memo)
+			return partIDs;
+		switch (typeID) {
+			case API_StairID:
+				getPartIDs(memo.root()->stairRisers, partIDs);
+				getPartIDs(memo.root()->stairTreads, partIDs);
+				getPartIDs(memo.root()->stairStructures, partIDs);
+				break;
+			case API_RailingID:
+				getPartIDs(memo.root()->railingSegments, partIDs);
+				getPartIDs(memo.root()->railingPatterns, partIDs);
+				getPartIDs(memo.root()->railingRails, partIDs);
+				getPartIDs(memo.root()->railingHandrails, partIDs);
+				getPartIDs(memo.root()->railingToprails, partIDs);
+				getPartIDs(memo.root()->railingBalusterSets, partIDs);
+				getPartIDs(memo.root()->railingBalusters, partIDs);
+				getPartIDs(memo.root()->railingPanels, partIDs);
+				getPartIDs(memo.root()->railingInnerPosts, partIDs);
 
-	std::set<API_Guid> collectSubIds(API_Guid elemId)
-	{
-		API_Element	elem{};
-		elem.header.guid = elemId;
-		ACAPI_Element_Get(&elem);
-		API_ElementMemo memo{};
-		ACAPI_Element_GetMemo(elemId, &memo);
-
-		std::set<API_Guid> subIds{};
-		subIds.insert(elemId);
-
-		if (elem.header.type.typeID == API_StairID)
-		{
-			getSubElementIds(memo.stairRisers, subIds);
-			getSubElementIds(memo.stairTreads, subIds);
-			getSubElementIds(memo.stairStructures, subIds);
+				getPartIDs(memo.root()->railingNodes, partIDs);
+				getPartIDs(memo.root()->railingRailConnections, partIDs);
+				getPartIDs(memo.root()->railingHandrailConnections, partIDs);
+				getPartIDs(memo.root()->railingToprailConnections, partIDs);
+				getPartIDs(memo.root()->railingPosts, partIDs);
+				getPartIDs(memo.root()->railingRailEnds, partIDs);
+				getPartIDs(memo.root()->railingHandrailEnds, partIDs);
+				getPartIDs(memo.root()->railingToprailEnds, partIDs);
+				break;
+			case API_CurtainWallID:
+				getPartIDs(memo.root()->cWallSegments, partIDs);
+				getPartIDs(memo.root()->cWallFrames, partIDs);
+				getPartIDs(memo.root()->cWallPanels, partIDs);
+				getPartIDs(memo.root()->cWallJunctions, partIDs);
+				getPartIDs(memo.root()->cWallAccessories, partIDs);
+				break;
+			default:
+				break;
 		}
-
-		if (elem.header.type.typeID == API_RailingID)
-		{
-			// segments
-			getSubElementIds(memo.railingSegments, subIds);
-			getSubElementIds(memo.railingPatterns, subIds);
-			getSubElementIds(memo.railingRails, subIds);
-			getSubElementIds(memo.railingHandrails, subIds);
-			getSubElementIds(memo.railingToprails, subIds);
-			getSubElementIds(memo.railingBalusterSets, subIds);
-			getSubElementIds(memo.railingBalusters, subIds);
-			getSubElementIds(memo.railingPanels, subIds);
-			getSubElementIds(memo.railingInnerPosts, subIds);
-
-			// nodes
-			getSubElementIds(memo.railingNodes, subIds);
-			getSubElementIds(memo.railingRailConnections, subIds);
-			getSubElementIds(memo.railingHandrailConnections, subIds);
-			getSubElementIds(memo.railingToprailConnections, subIds);
-			getSubElementIds(memo.railingPosts, subIds);
-			getSubElementIds(memo.railingRailEnds, subIds);
-			getSubElementIds(memo.railingHandrailEnds, subIds);
-			getSubElementIds(memo.railingToprailEnds, subIds);
-		}
-
-		if (elem.header.type.typeID == API_CurtainWallID)
-		{
-			getSubElementIds(memo.cWallSegments, subIds);
-			getSubElementIds(memo.cWallFrames, subIds);
-			getSubElementIds(memo.cWallPanels, subIds);
-			getSubElementIds(memo.cWallJunctions, subIds);
-			getSubElementIds(memo.cWallAccessories, subIds);
-		}
-
-		return subIds;
+		return partIDs;
 	}
 #endif
 	
@@ -234,6 +258,52 @@ void ModelElement::resetCache() {
 
 
 /*--------------------------------------------------------------------
+	Get material quantities measured from this element
+ 
+	return: An list of material quantities
+  --------------------------------------------------------------------*/
+MaterialQuantityList ModelElement::getMaterialQuantities() const {
+	using enum Composition;
+	MaterialQuantityList result;
+	switch (getComposition()) {
+		case unordered: {
+				//Get the material and spatial measurements
+			auto material = getMaterial();
+			if (!material)
+				return result;
+			auto spatialMeasure = getSpatialMeasure();
+			if (!spatialMeasure)
+				return result;
+				//Create a material quantity from the quantity takeoff
+			result.push_back({material->getBIMID(), spatialMeasure.area, spatialMeasure.volume});
+			break;
+		}
+		case skinned: {
+#ifdef ARCHICAD
+			API_ElementQuantity elementQuantity{};
+			API_Quantities extendedQuantity{};
+			GS::Array<API_CompositeQuantity> compositeQuantity{};
+			extendedQuantity.composites = &compositeQuantity;
+			API_QuantitiesMask quantityMask{};
+				//Set the appropriate masks for composite material volume/area quantity takeoffs
+			BIMMemory::setMask(&quantityMask.composites.buildMatIndices);
+			BIMMemory::setMask(&quantityMask.composites.volumes);
+			BIMMemory::setMask(&quantityMask.composites.projectedArea);
+			measureQuantities(getHead().guid, elementQuantity, extendedQuantity, quantityMask);
+				//Create material quantities from the quantity takeoff (one oer skin in the composite structure)
+			for (auto& skinQuant : compositeQuantity)
+				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices.GenerateHashValue())}, skinQuant.volumes, skinQuant.projectedArea});
+#endif
+			break;
+		}
+		case profiled:
+			break;
+	}
+	return result;
+} //ModelElement::getMaterialQuantities
+
+
+/*--------------------------------------------------------------------
 	Get the element body as a list of faces or Meshes
 
 	return: A pointer to the element body
@@ -257,13 +327,18 @@ ModelElement::Body* ModelElement::getBody() const {
 	auto elementBody = new ModelElement::Body();
 	// Map to collect meshes per material name
 	std::unordered_map<String, primitive::Mesh> materialMeshMap;
-    auto subIds = collectSubIds(getHead().guid);
+
+	std::unique_ptr<Memo> memo;
+	loadMemo(APIMemoMask_All, memo);
+
+    auto partIDs = collectPartIDs(getHead().guid, getHead().type.typeID, *memo);
+	memo.reset();
 	Int32 nElements = acModel.GetElementCount();
 	for (Int32 iElement = 1; iElement <= nElements; iElement++) {
 		ModelerAPI::Element elem{};
 		acModel.GetElement(iElement, &elem);
 		API_Guid apiGuid{GSGuid2APIGuid(elem.GetElemGuid())};
-		if (subIds.find(apiGuid) == subIds.end())
+		if (partIDs.find(apiGuid) == partIDs.end())
 			continue;
 		Int32 nBodies = elem.GetTessellatedBodyCount();
 		ModelerAPI::Material material{};
@@ -327,6 +402,7 @@ bool ModelElement::fillInventory(Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[bodyID], bodyID, element },
+			{ fieldID[materialQuantsID], materialQuantsID, element },
 			{ fieldID[propertyID], propertyID, element },
 		},
 	}.withType(&typeid(ModelElement)));
@@ -348,9 +424,12 @@ Cargo::Unique ModelElement::getCargo(const Inventory::Item& item) const {
 	switch (item.index) {
 		case bodyID:
 			if (auto body = getBody(); body != nullptr)
-				return Cargo::Unique{ new active::serialise::ContainerWrap{*body} };
-			else
-				return nullptr;
+				return Cargo::Unique{new active::serialise::ContainerWrap{*body}};
+			return nullptr;
+		case materialQuantsID:
+			if (auto quants = getMaterialQuantities(); !quants.empty())
+				return Cargo::Unique{new CargoHold<ContainerWrap<MaterialQuantityList>, MaterialQuantityList>{quants}};
+			return nullptr;
 		case propertyID:
 			return std::make_unique<PropertiedWrapper>(*this);
 		default:

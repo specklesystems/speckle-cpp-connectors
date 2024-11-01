@@ -33,7 +33,7 @@ namespace speckle::serialise {
 				//NB: This object only exists to populate the finish collection - it doesn't carry any serialisable content
 			if (management() != nullptr) {
 				if (auto collector = management()->get<FinishCollector>(); collector != nullptr)
-					collector->addMaterialProxy(m_material, m_objectID);
+					collector->addFinishProxy(m_material, m_objectID);
 			}
 			return true;
 		} //DocumentInfo::fillInventory

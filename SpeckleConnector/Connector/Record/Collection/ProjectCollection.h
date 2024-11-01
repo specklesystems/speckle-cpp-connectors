@@ -69,14 +69,14 @@ namespace connector::record {
 		 @param objectID The object the material is applied to
 		 @return True if the material proxy was added (false typically means the record already exists)
 		 */
-		bool addMaterialProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) override;
+		bool addFinishProxy(const speckle::database::BIMIndex& materialIndex, const speckle::database::BIMRecordID& objectID) override;
 		/*!
 		 Add a ModelerAPI material to the collection (NB: These are not persistent so need to be captured by this method)
 		 @param finish A finish
 		 @param objectID The object the material is applied to
 		 @return True if the material proxy was added (false typically means the record already exists)
 		 */
-		bool addMaterialProxy(const speckle::record::attribute::Finish& finish, const speckle::database::BIMRecordID& objectID) override;
+		bool addFinishProxy(const speckle::record::attribute::Finish& finish, const speckle::database::BIMRecordID& objectID) override;
 		
 		// MARK: - Serialisation
 		

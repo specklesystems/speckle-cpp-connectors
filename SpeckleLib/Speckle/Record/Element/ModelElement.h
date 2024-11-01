@@ -1,13 +1,15 @@
 #ifndef SPECKLE_RECORD_MODEL_ELEMENT
 #define SPECKLE_RECORD_MODEL_ELEMENT
 
+#include "Speckle/Record/Attribute/Material.h"
 #include "Speckle/Record/Classification/Classified.h"
 #include "Speckle/Record/Element/Element.h"
-#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Record/Element/Quants/MaterialQuantity.h"
 #include "Speckle/Record/Property/Propertied.h"
 
 namespace speckle::record::attribute {
 	class Finish;
+	class Material;
 }
 
 namespace speckle::record::element {
@@ -29,8 +31,23 @@ namespace speckle::record::element {
 		using Option = std::optional<ModelElement>;
 			///A model element 3D body primitive
 		using Body = std::vector<primitive::Mesh>;
+			//Material composition
+		enum class Composition {
+			unordered,	///<Element is composed of materials with no fixed relationship
+			skinned,	///<Element is composed of layered materials 'skins', e.g. brick/air/insulation/block in a wall
+			profiled,	///<Element is composed of materials extruded through a profile along a space-curve, e.g. window frames
+		};
+			///Model element spatial measurements
+		struct SpatialMeasure {
+				///Element area
+			double area = 0.0;
+				///Element volume
+			double volume = 0.0;
+				///True if either a volume or area has been measured
+			operator bool() const { return active::math::isGreaterZero(area) || active::math::isGreaterZero(volume); }
+		};
 		
-		// MARK: - Constructors
+		// MARK: - Static functions
 		
 		/*!
 		 Get a mesh finish from the cache
@@ -79,6 +96,26 @@ namespace speckle::record::element {
 
 		// MARK: - Functions (const)
 
+		/*!
+		 Get the composition of materials in the element
+		 @return The material composition (element with ordered material composition should override)
+		 */
+		virtual Composition getComposition() const { return Composition::unordered; }
+		/*!
+		 Get the element material (applicable to elements with a single, homogenous material)
+		 @return The element material (nullopt if not applicable to the element)
+		 */
+		virtual std::optional<record::attribute::Material> getMaterial() const { return std::nullopt; }
+		/*!
+		 Get a spatial measurement from this element (area/volume, as used for material quantities)
+		 @return The element measurement (empty if unavailable)
+		 */
+		virtual SpatialMeasure getSpatialMeasure() const { return SpatialMeasure{}; }
+		/*!
+		 Get material quantities measured from this element
+		 @return An list of material quantities
+		 */
+		quants::MaterialQuantityList getMaterialQuantities() const;
 		/*!
 		 Get the element body
 		 @return An array of meshes from the element body (nullptr if no body data is available)
