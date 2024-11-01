@@ -116,6 +116,12 @@
     <Filter Include="Speckle\Database\Storage\ArchicadDBase\Property">
       <UniqueIdentifier>{f9b0554b-d0a5-40c0-ac20-22032dc8f30c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record\Element\Setting">
+      <UniqueIdentifier>{453f429b-4ca8-400b-b60c-df80c6d0ec5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Quants">
+      <UniqueIdentifier>{c05efdee-e236-4db7-9338-a982c9cc673f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -421,6 +427,24 @@
     <ClInclude Include="Speckle\Event\Subscriber\ElementSubscriber.h">
       <Filter>Speckle\Event\Subscriber</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Material.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialQuantity.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialWrap.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\Surveyor.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Setting\Conversion.h">
+      <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h">
+      <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -641,6 +665,21 @@
     </ClCompile>
     <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp">
       <Filter>Speckle\Event\Subscriber</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Material.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialQuantity.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialWrap.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\Surveyor.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp">
+      <Filter>Speckle\Record\Element\Setting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -72,6 +72,7 @@
     <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h" />
     <ClInclude Include="Speckle\Record\Attribute\Attribute.h" />
     <ClInclude Include="Speckle\Record\Attribute\Finish.h" />
+    <ClInclude Include="Speckle\Record\Attribute\Material.h" />
     <ClInclude Include="Speckle\Record\Attribute\Storey.h" />
     <ClInclude Include="Speckle\Record\Classification\Classified.h" />
     <ClInclude Include="Speckle\Record\Credentials\Account.h" />
@@ -93,6 +94,11 @@
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h" />
     <ClInclude Include="Speckle\Record\Element\Memo.h" />
     <ClInclude Include="Speckle\Record\Element\ModelElement.h" />
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialQuantity.h" />
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialWrap.h" />
+    <ClInclude Include="Speckle\Record\Element\Quants\Surveyor.h" />
+    <ClInclude Include="Speckle\Record\Element\Setting\Conversion.h" />
+    <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h" />
     <ClInclude Include="Speckle\Record\Property\Group.h" />
     <ClInclude Include="Speckle\Record\Property\Propertied.h" />
     <ClInclude Include="Speckle\Record\Property\Property.h" />
@@ -156,6 +162,7 @@
     <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Finish.cpp" />
+    <ClCompile Include="Speckle\Record\Attribute\Material.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Storey.cpp" />
     <ClCompile Include="Speckle\Record\Classification\Classified.cpp" />
     <ClCompile Include="Speckle\Record\Credentials\Account.cpp" />
@@ -177,6 +184,10 @@
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp" />
     <ClCompile Include="Speckle\Record\Element\Memo.cpp" />
     <ClCompile Include="Speckle\Record\Element\ModelElement.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialQuantity.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialWrap.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Quants\Surveyor.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp" />
     <ClCompile Include="Speckle\Record\Property\Group.cpp" />
     <ClCompile Include="Speckle\Record\Property\Propertied.cpp" />
     <ClCompile Include="Speckle\Record\Property\Property.cpp" />
