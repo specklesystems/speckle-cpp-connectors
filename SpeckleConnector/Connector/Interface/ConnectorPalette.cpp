@@ -17,6 +17,17 @@
 #include "Speckle/Event/Type/MenuEvent.h"
 #include "Speckle/Interface/Browser/JSPortal.h"
 
+#include "Active/File/File.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
+#include "Connector/Record/Collection/ProjectCollection.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Host.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Record/Credentials/Account.h"
+
 #include <ACAPinc.h>
 #include <DGModule.hpp>
 #include <DGBrowser.hpp>
@@ -130,6 +141,45 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
+	
+	do {
+		record::ModelCard modelCard;
+		speckle::record::cred::Account account;
+			//Get the active project
+		auto project = connector()->getActiveProject().lock();
+		if (!project) {
+			break;
+		}
+			//Get the selected elements
+		auto elementDatabase = project->getElementDatabase();
+		auto selected = elementDatabase->getSelection();
+		if (selected.empty()) {
+			break;
+		}
+			//Build a collection from the selected elements
+		auto collection = std::make_unique<record::ProjectCollection>(project);
+		for (const auto& link : selected) {
+			if (auto element = elementDatabase->getElement(link); element)
+				collection->addElement(*element);
+		}
+			//Send the collected information
+		auto result = std::make_unique<SendViaBrowserArgs>(modelCard, account, SendObject{std::move(collection)});
+		speckle::utility::String json;
+		active::utility::Time time;
+		speckle::environment::host()->displayAlert("Starting");
+		active::serialise::json::JSONTransport().send(std::forward<active::serialise::Cargo&&>(*result), active::serialise::Identity{},
+													  active::utility::BufferOut(json, 0xA00000));
+		auto jsonSize = json.size();
+		speckle::environment::host()->displayAlert("Wrote " + speckle::utility::String{jsonSize} + " bytes in " +
+												   speckle::utility::String{time.differenceInSeconds(active::utility::Time{})});
+		active::file::File jsonFile{active::file::Path{"/Users/rwessel/Documents/Speckle/Test/Performance.json", false},
+			active::file::File::Permission::readWrite, true};
+		jsonFile.open();
+		jsonFile.resize(0);
+		jsonFile.write(json);
+		jsonFile.close();
+	} while (false);
+	
 	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
 		BrowserPalette::GetInstance().Hide ();
 	} else {

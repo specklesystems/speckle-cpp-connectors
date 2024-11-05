@@ -1,10 +1,12 @@
 #include "Connector/Interface/Browser/Bridge/Base/AddModel.h"
 
 #include "Connector/Connector.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Database/ModelCardDatabase.h"
 
 using namespace active::container;
 using namespace active::serialise;
+using namespace connector::environment;
 using namespace connector::record;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
@@ -23,6 +25,10 @@ AddModel::AddModel() : BridgeMethod{"AddModel", [&](const ModelCardEventWrapper&
 	card: The card to add
   --------------------------------------------------------------------*/
 void AddModel::run(const ModelCard& card) const {
-	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
+	auto project = connector()->getActiveProject().lock();
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (!connectorProject)
+		return;
+	if (auto modelCardDBase = connectorProject->getModelCardDatabase(); modelCardDBase != nullptr)
 		modelCardDBase->write(card);
 } //AddModel::run

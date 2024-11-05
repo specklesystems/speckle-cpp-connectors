@@ -48,7 +48,7 @@ namespace speckle::environment {
 		/*!
 		 Destructor
 		 */
-		~Project();
+		virtual ~Project();
 		
 		// MARK: - Functions (const)
 		

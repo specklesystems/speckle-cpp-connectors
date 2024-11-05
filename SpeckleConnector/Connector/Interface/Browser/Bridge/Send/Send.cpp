@@ -5,6 +5,7 @@
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
 #include "Connector/Record/Collection/ProjectCollection.h"
@@ -22,6 +23,7 @@
 
 using namespace speckle::record::element;
 using namespace active::serialise;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
 using namespace speckle::database;
@@ -42,8 +44,18 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 	modelCardID: The ID of the model card identifying the objects to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
+		//Get the active project
+	auto project = connector()->getActiveProject().lock();
+	if (!project) {
+		getBridge()->sendEvent("setModelError",
+					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
+		return;
+	}
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (!connectorProject)
+		return;
 		//Find the specified model card
-	auto modelCardDatabase = connector()->getModelCardDatabase();
+	auto modelCardDatabase = connectorProject->getModelCardDatabase();
 	auto modelCard = modelCardDatabase->getCard(modelCardID);
 	if (!modelCard) {
 		getBridge()->sendEvent("setModelError",
@@ -58,15 +70,7 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, accountNotFoundID), modelCardID));
 		return;
 	}
-		//Get the active project
-	auto project = connector()->getActiveProject().lock();
-	if (!project) {
-		getBridge()->sendEvent("setModelError",
-					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
-		return;
-	}
-
-		// Get  the selected elements from the modelcard
+		//Get the selected elements from the modelcard
 	auto elementDatabase = project->getElementDatabase();
 	ElementIDList selected{};
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {

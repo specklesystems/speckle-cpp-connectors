@@ -40,7 +40,7 @@ namespace speckle::environment {
 		 Get the active project
 		 @return The active project (nullptr = no open project)
 		 */
-		std::weak_ptr<Project> getActiveProject() const;
+		virtual std::weak_ptr<Project> getActiveProject() const;
 		/*!
 		 Get the session index
 		 @return The session index (non-recursive entries into the add-on)

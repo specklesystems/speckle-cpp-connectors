@@ -2,6 +2,7 @@
 
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
+#include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
 #include <limits>
 
@@ -18,6 +19,14 @@ namespace {
 		//An object representing the active addon
 	Addon* m_addonInstance = nullptr;
 
+		///An instance of this class is used to force project notifications to be issued from the moment the add-on is launched
+	class DummyProjectSubscriber : public ProjectSubscriber {
+	public:
+		bool start() override { return ProjectSubscriber::start(); }
+		bool handle(const ProjectEvent& event) override { return false; }
+	};
+
+	
 }
 
 /*--------------------------------------------------------------------
@@ -121,6 +130,8 @@ bool Addon::attach() {
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
 bool Addon::start() {
+		//Force project notifications to be published
+	DummyProjectSubscriber().start();
 		//Add add-on functionality as required
 	return App::start();
 } //Addon::start

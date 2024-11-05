@@ -31,6 +31,7 @@
 		215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08362C95808B00CD343B /* ReceiverModelCard.cpp */; };
 		215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
 		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
+		2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
 		21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */; };
@@ -316,6 +317,9 @@
 		2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectCollection.cpp; sourceTree = "<group>"; };
 		2192460C2CA3469D00CF5703 /* ProjectCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCollection.h; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		2199BB512CDA481A00A4BEEC /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
+		2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorProject.cpp; sourceTree = "<group>"; };
+		2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorProject.h; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
@@ -548,7 +552,6 @@
 		21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkProductVersion.framework; path = "../Archicad 27/Support/Frameworks/TeamworkProductVersion.framework"; sourceTree = "<group>"; };
 		21D1EA452BF14B0700957EAA /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = "../Vectorworks 2024/SDKLib/LibMac/Release/VWMM.framework"; sourceTree = "<group>"; };
 		21D1EA4A2BF14BBC00957EAA /* Connector.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = Connector.grc; path = RINT/Connector.grc; sourceTree = "<group>"; };
-		21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
 		21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Module-Info27.plist"; path = "RINT.Archicad/EN-GB/Module-Info27.plist"; sourceTree = "<group>"; };
 		21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeckleLib.xcodeproj; path = ../SpeckleLib/SpeckleLib.xcodeproj; sourceTree = "<group>"; };
 		21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorMenu.grc; path = RINT/ConnectorMenu.grc; sourceTree = "<group>"; };
@@ -968,6 +971,23 @@
 			path = Identity;
 			sourceTree = "<group>";
 		};
+		2199BB4E2CDA47F900A4BEEC /* Fixed */ = {
+			isa = PBXGroup;
+			children = (
+				2199BB512CDA481A00A4BEEC /* ConnectorFix.grc */,
+			);
+			name = Fixed;
+			sourceTree = "<group>";
+		};
+		2199BB542CDA4B1700A4BEEC /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */,
+				2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		219F30412C769282009834E9 /* ConnectorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,7 +1183,6 @@
 			isa = PBXGroup;
 			children = (
 				21D1EA4A2BF14BBC00957EAA /* Connector.grc */,
-				21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */,
 				21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */,
 				21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */,
 				21F69EFE2C66AD55008B6A06 /* SpecklePalette.grc */,
@@ -1216,6 +1235,7 @@
 				21B67CCD2C77694500FD64FC /* Connector.h */,
 				21F69F102C677BC0008B6A06 /* ConnectorResource.h */,
 				21B67CCB2C77670400FD64FC /* Database */,
+				2199BB542CDA4B1700A4BEEC /* Environment */,
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
 				21D0BDD82C9387E60077E104 /* Record */,
@@ -1296,6 +1316,7 @@
 		81494D9D09DA5892006864FB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2199BB4E2CDA47F900A4BEEC /* Fixed */,
 				7EA5F91E157FA18400693CEA /* EN-GB */,
 			);
 			name = Resource;
@@ -1530,6 +1551,7 @@
 				215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
 				21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */,
+				2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */,
 				21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */,
 				21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,

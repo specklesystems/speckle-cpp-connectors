@@ -3,10 +3,6 @@
 
 namespace speckle::database {
 	class AccountDatabase;
-	class BIMElementDatabase;
-}
-namespace connector::database {
-	class ModelCardDatabase;
 }
 
 namespace connector {
@@ -22,11 +18,6 @@ namespace connector {
 		 @return The account database
 		 */
 		const virtual speckle::database::AccountDatabase* getAccountDatabase() const = 0;
-		/*!
-		 Get the model card database
-		 @return The model card database
-		 */
-		const virtual database::ModelCardDatabase* getModelCardDatabase() const = 0;
 		
 	protected:
 		/*!

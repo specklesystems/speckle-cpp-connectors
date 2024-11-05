@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Connector/Connector.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 #include "Speckle/Environment/Project.h"
@@ -9,6 +10,7 @@
 
 using namespace active::container;
 using namespace active::serialise;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 
@@ -33,12 +35,14 @@ GetDocumentInfo::GetDocumentInfo() : BridgeMethod{"GetDocumentInfo", [&]() {
   --------------------------------------------------------------------*/
 std::unique_ptr<Cargo> GetDocumentInfo::run() const {
 	auto docInfo = std::make_unique<DocumentInfo>();
-	if (auto project = connector()->getActiveProject().lock(); project) {
-		auto info = project->getInfo();
+	auto project = connector()->getActiveProject().lock();
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (connectorProject) {
+		auto info = connectorProject->getInfo();
 		docInfo->name = info.name;
 		if (info.path)
 			docInfo->location = *info.path;
-		if (auto cardDatabase = connector()->getModelCardDatabase(); cardDatabase != nullptr)
+		if (auto cardDatabase = connectorProject->getModelCardDatabase(); cardDatabase != nullptr)
 			docInfo->ID = cardDatabase->getStoreID();
 		docInfo->ID = Guid{true}.operator String();
 	}

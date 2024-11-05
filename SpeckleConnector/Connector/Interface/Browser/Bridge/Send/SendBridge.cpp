@@ -5,6 +5,7 @@
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Speckle/Event/Type/ElementEvent.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Database/BIMElementDatabase.h"
@@ -16,6 +17,7 @@
 #include "Connector/Record/Model/Filter/SendFilter.h"
 
 using namespace speckle::database;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
 using namespace speckle::event;
@@ -64,9 +66,13 @@ bool SendBridge::handle(const ElementEvent& event) {
 			m_changedElements.clear();
 			break;
 		case end: {
-			auto modelCardDatabase = connector()->getModelCardDatabase();
+			auto project = connector()->getActiveProject().lock();
+			auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+			if (!connectorProject)
+				return false;
+			auto modelCardDatabase = connectorProject->getModelCardDatabase();
 			auto modelCards = modelCardDatabase->getCards();
-			// POC: this is probably not efficient, should test, review and refactor it
+				// POC: this is probably not efficient, should test, review and refactor it
 			RecordIDList expiredModelCardIds;
 			for (const auto& modelCard : modelCards) {
 				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
@@ -93,5 +99,5 @@ bool SendBridge::handle(const ElementEvent& event) {
 		default:
 		  break;
 	}
-	return true;
+	return false;
 } //SendBridge::handle

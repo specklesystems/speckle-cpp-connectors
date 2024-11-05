@@ -1,6 +1,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Record/Model/SenderModelCard.h"
@@ -11,6 +12,7 @@
 #include "Speckle/Environment/Project.h"
 
 using namespace speckle::record::element;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
 using namespace speckle::utility;
@@ -29,8 +31,12 @@ HighlightModel::HighlightModel() : BridgeMethod{"HighlightModel", [&](const Send
 	modelCardID: The ID of the target model card
   --------------------------------------------------------------------*/
 void HighlightModel::run(const String& modelCardID) const {
-	// Find the specified model card
-	auto modelCardDatabase = connector()->getModelCardDatabase();
+	auto project = connector()->getActiveProject().lock();
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (!connectorProject)
+		return;
+		//Find the specified model card
+	auto modelCardDatabase = connectorProject->getModelCardDatabase();
 	auto modelCard = modelCardDatabase->getCard(modelCardID);
 	if (!modelCard) {
 		getBridge()->sendEvent("setModelError",
