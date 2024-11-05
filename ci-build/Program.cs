@@ -64,14 +64,14 @@ Target(
 
 Target(
   BUILD,
+  DependsOn(BUILD_SERVER_VERSION),
   Consts.Solutions,
   s =>
   {
-    //var version = Environment.GetEnvironmentVariable("GitVersion_FullSemVer") ?? "3.0.0-localBuild";
-    //var fileVersion = Environment.GetEnvironmentVariable("GitVersion_AssemblySemFileVer") ?? "3.0.0.0";
-    //Console.WriteLine($"Version: {version} & {fileVersion}");
-    //Run("dotnet", $"build {s} -c Release --no-restore -p:Version={version} -p:FileVersion={fileVersion} -v:m");
-    Run("msbuild", $"{s} /p:Configuration=ReleaseAC27");
+    var version = Environment.GetEnvironmentVariable("GitVersion_FullSemVer") ?? "3.0.0-fakeVersion2";
+    var fileVersion = Environment.GetEnvironmentVariable("GitVersion_AssemblySemFileVer") ?? "3.0.0.1234";
+    Console.WriteLine($"Version: {version} & {fileVersion}");
+    Run("msbuild", $"{s} /p:Configuration=ReleaseAC27 /p:Version={version} /p:FileVersion={fileVersion}");
   }
 );
 
