@@ -1,6 +1,7 @@
 #include "Speckle/Primitive/Mesh/Mesh.h"
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Item/Wrapper/FastDoubleWrap.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Inventory/Identity.h"
@@ -78,7 +79,7 @@ Cargo::Unique Mesh::getCargo(const Inventory::Item& item) const {
 	using namespace active::serialise;
 	switch (item.index) {
 	case vertexID:
-			return std::make_unique<ContainerWrap<std::vector<double>>>(m_vertices);
+			return std::make_unique<ContainerWrap<std::vector<double>, FastDoubleWrap>>(m_vertices);
 		case faceID:
 			return std::make_unique<ContainerWrap<std::vector<int>>>(m_faces);
 		case colorID:
