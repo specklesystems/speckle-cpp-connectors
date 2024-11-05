@@ -94,6 +94,7 @@
   <ItemGroup>
     <ClCompile Include="Connector\Connector.cpp" />
     <ClCompile Include="Connector\Database\ModelCardDatabase.cpp" />
+    <ClCompile Include="Connector\Environment\ConnectorProject.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\AddModel.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Connector\ConnectorResource.h" />
     <ClInclude Include="Connector\Database\Identity\RecordID.h" />
     <ClInclude Include="Connector\Database\ModelCardDatabase.h" />
+    <ClInclude Include="Connector\Environment\ConnectorProject.h" />
     <ClInclude Include="Connector\Event\ConnectorEventID.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\AccountBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Account\GetAccounts.h" />

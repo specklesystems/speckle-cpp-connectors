@@ -37,14 +37,14 @@ std::unique_ptr<Cargo> GetDocumentInfo::run() const {
 	auto docInfo = std::make_unique<DocumentInfo>();
 	auto project = connector()->getActiveProject().lock();
 	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
-	if (connectorProject) {
-		auto info = connectorProject->getInfo();
-		docInfo->name = info.name;
-		if (info.path)
-			docInfo->location = *info.path;
-		if (auto cardDatabase = connectorProject->getModelCardDatabase(); cardDatabase != nullptr)
-			docInfo->ID = cardDatabase->getStoreID();
-		docInfo->ID = Guid{true}.operator String();
-	}
+	if (!connectorProject)
+		return nullptr;
+	auto info = connectorProject->getInfo();
+	docInfo->name = info.name;
+	if (info.path)
+		docInfo->location = *info.path;
+	if (auto cardDatabase = connectorProject->getModelCardDatabase(); cardDatabase != nullptr)
+		docInfo->ID = cardDatabase->getStoreID();
+	docInfo->ID = Guid{true}.operator String();
 	return std::make_unique<WrappedValue>(std::move(docInfo));
 } //GetDocumentInfo::run

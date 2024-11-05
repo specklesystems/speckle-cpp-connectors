@@ -71,6 +71,9 @@
     <Filter Include="Connector\Interface\Browser\Bridge\Selection\Arg">
       <UniqueIdentifier>{8bb3df60-affe-4b66-8d78-f1b98e6ba8df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Environment">
+      <UniqueIdentifier>{1d9a10c3-cac6-4b15-afb9-f117b99b3a24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -249,6 +252,9 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\OpenUrl.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Environment\ConnectorProject.cpp">
+      <Filter>Connector\Environment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -422,6 +428,9 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\OpenUrl.h">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Environment\ConnectorProject.h">
+      <Filter>Connector\Environment</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
