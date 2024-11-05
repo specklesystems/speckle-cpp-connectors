@@ -8,18 +8,19 @@
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
 #include "Connector/Record/Collection/ProjectCollection.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
 #include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Credentials/Account.h"
 #include "Speckle/Serialise/Detached/Storage/DetachedMemoryStore.h"
 #include "Speckle/Utility/Exception.h"
-
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Record/Element/Element.h"
-using namespace speckle::record::element;
 
+using namespace speckle::record::element;
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
@@ -64,14 +65,14 @@ void Send::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
 		return;
 	}
-		//Get the selected elements
+
+		// Get  the selected elements from the modelcard
 	auto elementDatabase = project->getElementDatabase();
-	auto selected = elementDatabase->getSelection();
-	if (selected.empty()) {
-		getBridge()->sendEvent("setModelError",
-					std::make_unique<SendError>(connector()->getLocalString(errorString, noSelectedModelItemsID), modelCardID));
-		return;
+	ElementIDList selected{};
+	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
+		selected = senderCard->getFilter().getElementIDs();
 	}
+
 		//Build a collection from the selected elements
 	auto collection = std::make_unique<ProjectCollection>(project);
 	for (const auto& link : selected) {
