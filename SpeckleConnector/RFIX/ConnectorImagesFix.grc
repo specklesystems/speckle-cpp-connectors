@@ -1,3 +1,10 @@
 
+#ifdef macintosh
 'GICN' 32500  "Speckle menu icon" {
+	"32500Mac"
 }
+#else
+'GICN' 32500  "Speckle menu icon" {
+	"32500Win"
+}
+#endif
