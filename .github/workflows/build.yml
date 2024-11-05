@@ -7,9 +7,10 @@ name: MSBuild
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "dev", "release/*"] # Continuous delivery on every long-lived branch
+    tags: ["v3.*"] # Manual delivery on every 3.x tag
   pull_request:
-    branches: ["main"]
+    branches: ["main", "dev"]
 
 permissions:
   contents: read
