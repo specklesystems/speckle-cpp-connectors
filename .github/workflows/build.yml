@@ -45,6 +45,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: ⚒️ Run GitVersion
+        working-directory: speckle-cpp-connectors
         run: ./build.ps1 build-server-version
 
       - name: Build
