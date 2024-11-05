@@ -47,6 +47,15 @@ namespace speckle::database {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Find a filtered list of objects
+		 @param filter The object filter (nullptr = find all objects)
+		 @param tableID Optional table ID (defaults to the first table)
+		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
+		 @return A list containing IDs of found elements (empty if none found)
+		 */
+		virtual std::vector<BIMRecordID> findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
+													 std::optional<BIMRecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
+		/*!
 		 Get an object by ID
 		 @param objID The object ID
 		 @param tableID Optional table ID (default selected based on record type)
@@ -59,7 +68,7 @@ namespace speckle::database {
 		 @param objID The object ID
 		 @param tableID Optional table ID (default selected based on record type)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
-		 @return: The requested wrapped cargo (nullptr on failure)
+		 @return The requested wrapped cargo (nullptr on failure)
 		 */
 		active::serialise::Cargo::Unique getObjectCargo(const BIMRecordID& objID, std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!

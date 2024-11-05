@@ -35,14 +35,14 @@
 		21384C002CD558D100D4602B /* Slab.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BFE2CD558D000D4602B /* Slab.h */; };
 		21384C032CD57CA500D4602B /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C012CD57CA500D4602B /* Wall.cpp */; };
 		21384C042CD57CA500D4602B /* Wall.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C022CD57CA500D4602B /* Wall.h */; };
-		21384C072CD57EE600D4602B /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C052CD57EE600D4602B /* Mesh.cpp */; };
-		21384C082CD57EE600D4602B /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C062CD57EE600D4602B /* Mesh.h */; };
 		21384C182CD585A600D4602B /* Roof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C162CD585A600D4602B /* Roof.cpp */; };
 		21384C192CD585A600D4602B /* Roof.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C172CD585A600D4602B /* Roof.h */; };
 		21384C1C2CD586D800D4602B /* Morph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1A2CD586D800D4602B /* Morph.cpp */; };
 		21384C1D2CD586D800D4602B /* Morph.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C1B2CD586D800D4602B /* Morph.h */; };
 		21384C202CD5880400D4602B /* Shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C1E2CD5880400D4602B /* Shell.h */; };
 		21384C212CD5880400D4602B /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1F2CD5880400D4602B /* Shell.cpp */; };
+		21384C242CD59B4100D4602B /* MeshElem.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C222CD59B4100D4602B /* MeshElem.h */; };
+		21384C252CD59B4100D4602B /* MeshElem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C232CD59B4100D4602B /* MeshElem.cpp */; };
 		215F08552C99DA8D00CD343B /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
 		215F08562C99DA8D00CD343B /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
 		215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
@@ -244,14 +244,14 @@
 		21384BFE2CD558D000D4602B /* Slab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slab.h; sourceTree = "<group>"; };
 		21384C012CD57CA500D4602B /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
 		21384C022CD57CA500D4602B /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
-		21384C052CD57EE600D4602B /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = Speckle/Record/Element/Mesh.cpp; sourceTree = SOURCE_ROOT; };
-		21384C062CD57EE600D4602B /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mesh.h; path = Speckle/Record/Element/Mesh.h; sourceTree = SOURCE_ROOT; };
 		21384C162CD585A600D4602B /* Roof.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Roof.cpp; sourceTree = "<group>"; };
 		21384C172CD585A600D4602B /* Roof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roof.h; sourceTree = "<group>"; };
 		21384C1A2CD586D800D4602B /* Morph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Morph.cpp; sourceTree = "<group>"; };
 		21384C1B2CD586D800D4602B /* Morph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Morph.h; sourceTree = "<group>"; };
 		21384C1E2CD5880400D4602B /* Shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shell.h; sourceTree = "<group>"; };
 		21384C1F2CD5880400D4602B /* Shell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shell.cpp; sourceTree = "<group>"; };
+		21384C222CD59B4100D4602B /* MeshElem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshElem.h; sourceTree = "<group>"; };
+		21384C232CD59B4100D4602B /* MeshElem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshElem.cpp; sourceTree = "<group>"; };
 		214EA4C52BA374FD008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		214EA4C62BA3762D008E5358 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		215F08512C99DA8D00CD343B /* Project.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Project.cpp; sourceTree = "<group>"; };
@@ -554,8 +554,8 @@
 				21A0FBE72CBD6B1A0023F24E /* Interface */,
 				21A0FBF32CBD6B700023F24E /* Memo.cpp */,
 				21A0FBF22CBD6B700023F24E /* Memo.h */,
-				21384C052CD57EE600D4602B /* Mesh.cpp */,
-				21384C062CD57EE600D4602B /* Mesh.h */,
+				21384C232CD59B4100D4602B /* MeshElem.cpp */,
+				21384C222CD59B4100D4602B /* MeshElem.h */,
 				21A0FC0C2CBE92F10023F24E /* ModelElement.cpp */,
 				21A0FC0D2CBE92F10023F24E /* ModelElement.h */,
 				21384C1A2CD586D800D4602B /* Morph.cpp */,
@@ -1043,6 +1043,7 @@
 				21A890C92CC1B5FF0087E732 /* DrawingElement.h in Headers */,
 				21D0BD562C890B1C0077E104 /* ServerMigration.h in Headers */,
 				210CC88F2C81A98500610F58 /* Guid64.h in Headers */,
+				21384C242CD59B4100D4602B /* MeshElem.h in Headers */,
 				21AEF9DD2CAAA4EA000B8681 /* DetachedObjectStore.h in Headers */,
 				21A0FBF12CBD6B1A0023F24E /* Column.h in Headers */,
 				21AE19662CC2F702004DBCFC /* BIMPropertyDatabase.h in Headers */,
@@ -1077,7 +1078,6 @@
 				21AE19AA2CC8F1F8004DBCFC /* BeamSegment.h in Headers */,
 				21384BF12CD3F3A500D4602B /* MaterialWrap.h in Headers */,
 				21AE19942CC82866004DBCFC /* BIMGroupDatabase.h in Headers */,
-				21384C082CD57EE600D4602B /* Mesh.h in Headers */,
 				21AE19542CC273F1004DBCFC /* Template.h in Headers */,
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
 				21384BFC2CD52C7500D4602B /* Conversion.h in Headers */,
@@ -1246,9 +1246,9 @@
 				21D0BD4E2C8901A00077E104 /* ServerInfo.cpp in Sources */,
 				21AE19512CC273F1004DBCFC /* Property.cpp in Sources */,
 				21384BED2CD3EBE200D4602B /* Material.cpp in Sources */,
+				21384C252CD59B4100D4602B /* MeshElem.cpp in Sources */,
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
 				21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */,
-				21384C072CD57EE600D4602B /* Mesh.cpp in Sources */,
 				21AE19692CC57832004DBCFC /* Propertied.cpp in Sources */,
 				21F69F7E2C6FD9FC008B6A06 /* GetCallResult.cpp in Sources */,
 				2196F3052CB57E8000450DFC /* Storey.cpp in Sources */,

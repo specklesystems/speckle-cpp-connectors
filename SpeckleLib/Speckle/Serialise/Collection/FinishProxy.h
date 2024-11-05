@@ -27,7 +27,7 @@ namespace speckle::serialise {
 		/*!
 		 Fill an inventory with the package items
 		 @param inventory The inventory to receive the package items
-		 @return: True if the package has added items to the inventory
+		 @return True if the package has added items to the inventory
 		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const {
 				//NB: This object only exists to populate the finish collection - it doesn't carry any serialisable content

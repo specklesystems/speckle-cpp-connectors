@@ -163,6 +163,32 @@ void ArchicadElementDBaseEngine::clearSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Find a filtered list of objects
+ 
+	filter: The object filter (nullptr = find all objects)
+	tableID: Optional table ID (defaults to the first table)
+	documentID: Optional document ID (filter for this document only - nullopt = all objects)
+ 
+	return: A list containing IDs of found elements (empty if none found)
+  --------------------------------------------------------------------*/
+std::vector<BIMRecordID> ArchicadElementDBaseEngine::findObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
+																		 std::optional<BIMRecordID> documentID) const {
+		//First check for no filter (in which case we return all objects)
+	if (filter == nullptr) {
+		GS::Array<API_Guid> found;
+		if ((ACAPI_Element_GetElemList({}, &found) != NoError) || found.IsEmpty())
+			return {};
+		std::vector<BIMRecordID> result;
+		for (const auto& item : found)
+			result.emplace_back(item);
+		return result;
+	}
+		//Implement other filtering as required - ideally identify characteristics supported by API, e.g. filter by type/renovation etc
+	return {};
+} //ArchicadElementDBaseEngine::findObjects
+
+
+/*--------------------------------------------------------------------
 	Get an object by index
  
 	index: The object index
@@ -229,7 +255,19 @@ active::container::Vector<Element> ArchicadElementDBaseEngine::getObjects(std::o
 																					  std::optional<BIMRecordID> documentID) const {
 	if (tableID)
 		setActiveTable(*tableID);
-	return {}; //TODO: Implement
+	else {			
+			//Use the active table if none is specified
+		tableID = getActiveTable();
+		if (!tableID)
+			return {};
+	}
+		//Retrieve the element objects to build the result
+	active::container::Vector<Element> result;
+	auto objectIDs = findObjects();
+	for (const auto& ID : objectIDs)
+		if (auto element = getObject(ID, tableID); element)
+			result.emplace_back(std::move(element));
+	return result;
 } //ArchicadElementDBaseEngine::getObjects
 
 
