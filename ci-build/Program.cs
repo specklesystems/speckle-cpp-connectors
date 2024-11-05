@@ -64,7 +64,6 @@ Target(
 
 Target(
   BUILD,
-  DependsOn(BUILD_SERVER_VERSION),
   Consts.Solutions,
   s =>
   {
