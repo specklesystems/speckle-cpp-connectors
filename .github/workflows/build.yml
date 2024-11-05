@@ -25,6 +25,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: speckle-cpp-connectors
+          fetch-depth: 0
       - uses: actions/checkout@v4
         with:
           repository: r-wessel/ActiveLib
