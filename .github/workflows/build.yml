@@ -7,10 +7,8 @@ name: MSBuild
 
 on:
   push:
-    branches: ["main", "dev", "release/*"] # Continuous delivery on every long-lived branch
+    branches: ["main", "dev", "release/*", "alan/*"] # Continuous delivery on every long-lived branch
     tags: ["v3.*"] # Manual delivery on every 3.x tag
-  pull_request:
-    branches: ["main", "dev"]
 
 permissions:
   contents: read
@@ -87,6 +85,6 @@ jobs:
           display-workflow-run-url: true
           display-workflow-run-url-interval: 10s
 
-      # - uses: geekyeggo/delete-artifact@v5
-      #   with:
-      #     name: output-*
+      - uses: geekyeggo/delete-artifact@v5
+        with:
+          name: output-*
