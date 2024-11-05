@@ -102,6 +102,21 @@ void BIMElementDatabase::clearSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Find a filtered list of objects
+ 
+	filter: The object filter (nullptr = find all objects)
+	tableID: Optional table ID (defaults to the first table)
+	documentID: Optional document ID (filter for this document only - nullopt = all objects)
+ 
+	return: A list containing IDs of found elements (empty if none found)
+  --------------------------------------------------------------------*/
+std::vector<BIMRecordID> BIMElementDatabase::findElements(const Filter& filter, std::optional<BIMRecordID> tableID,
+														  std::optional<BIMRecordID> documentID) const {
+	return m_engine->findObjects(filter, tableID, documentID);
+} //BIMElementDatabase::findElements
+
+
+/*--------------------------------------------------------------------
 	Get a specified element
  
 	elementID: The ID of the target element
