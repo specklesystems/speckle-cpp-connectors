@@ -62,8 +62,8 @@ jobs:
         run: echo "version=${{ env.GitVersion_FullSemVer }}" >> "$Env:GITHUB_OUTPUT"
 
       - id: set-info-version
-        name: Set version to output
-        run: echo "file-version=${{ env.GitVersion_AssemblySemVer}}" >> "$GITHUB_OUTPUT" # version will be retrieved from tag?
+        name: Set file version to output
+        run: echo "file_version=${{ env.GitVersion_AssemblySemVer}}" >> "$GITHUB_OUTPUT" # version will be retrieved from tag?
   deploy-installers:
     runs-on: ubuntu-latest
     needs: build
