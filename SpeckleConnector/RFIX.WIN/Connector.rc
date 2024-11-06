@@ -11,5 +11,6 @@
 #include "Speckle.grc.rc2"
 
 #include "ConnectorFix.grc.rc2"
+#include "ConnectorImagesFix.grc.rc2"
 
 1	ICON	LOADONCALL MOVEABLE IMPURE  ACAP.ico
