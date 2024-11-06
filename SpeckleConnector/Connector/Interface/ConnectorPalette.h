@@ -2,10 +2,11 @@
 #define CONNECTOR_CONNECTOR_PALETTE
 
 #include "Active/Event/Subscriber.h"
+#include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
 namespace connector {
 	
-	class ConnectorPalette : public active::event::Subscriber {
+	class ConnectorPalette : public speckle::event::ProjectSubscriber {
 	public:
 		/*!
 		 Default constructor
@@ -32,6 +33,13 @@ namespace connector {
 			@return True if the event should be closed
 		*/
 		bool receive(const active::event::Event& event) override;
+	protected:
+		/*!
+		 Handle the project events
+		 @param event The project event
+		 @return True if the event should be closed
+		 */
+		bool handle(const speckle::event::ProjectEvent& event) override;
 	};
 	
 }

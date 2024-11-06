@@ -36,6 +36,8 @@ namespace {
 
 		for (const auto& id : allElements)
 			ACAPI_Element_AttachObserver(id);
+
+		int  i = 0;
 	}
 #endif
 }
@@ -69,13 +71,10 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-	case open: {
+		case open: {
 			sendEvent("documentChanged");
 			subscribeAllElementsToElementChangeEvents();
 		} break;
-		case close:
-			sendEvent("documentChanged");
-			break;
 		default:
 			break;
 	}
