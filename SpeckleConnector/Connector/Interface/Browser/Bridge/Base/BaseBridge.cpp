@@ -11,7 +11,36 @@
 #include "Connector/Interface/Browser/Bridge/Base/OpenUrl.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Connector/Connector.h"
+#include "Connector/ConnectorResource.h"
+#include "Speckle/Database/Identity/RecordID.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
+#include "Connector/Database/ModelCardDatabase.h"
+
 using namespace connector::interfac::browser::bridge;
+
+namespace {
+#ifdef ARCHICAD
+	void subscribeAllElementsToElementChangeEvents()
+	{
+		auto project = connector::connector()->getActiveProject().lock();
+		if (!project)
+			return;
+
+		auto elementDatabase = project->getElementDatabase();
+		//auto table = elementDatabase->getTables(speckle::database::ElementStorage::TableType::primary2D);
+		//auto allElements = elementDatabase->findElements(nullptr, *table.begin());
+		auto allElements = elementDatabase->findElements();
+
+		for (const auto& id : allElements)
+			ACAPI_Element_AttachObserver(id);
+	}
+#endif
+}
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -28,6 +57,10 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<UpdateModel>();
 	addMethod<HighlightModel>();
 	addMethod<OpenUrl>();
+
+	// POC: Attaching Observer to all elements is too slow, registration is commented out for now
+	// subscribeAllElementsToElementChangeEvents();
+
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------
@@ -40,9 +73,11 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-		case open: case close:
+		case open: {
 			sendEvent("documentChanged");
-			break;
+			// POC: Attaching Observer to all elements is too slow, registration is commented out for now
+			// subscribeAllElementsToElementChangeEvents();
+		} break;
 		default:
 			break;
 	}

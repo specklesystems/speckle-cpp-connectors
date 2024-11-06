@@ -32,22 +32,6 @@ SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 	addMethod<GetSendFilters>();
 	addMethod<GetSendSettings>();
 	addMethod<Send>();
-
-	// POC: do we have a better place to attach observer to elements?
-#ifdef ARCHICAD
-	auto project = connector()->getActiveProject().lock();
-	if (!project) {
-		// TODO: is this OK? should this throw?
-		return;
-	}
-
-	auto elementDatabase = project->getElementDatabase();
-	auto elements = elementDatabase->getElements();
-	ElementIDList elementIds;
-	for (const auto& id : elementIds) {
-		ACAPI_Element_AttachObserver(id);
-	}
-#endif
 } //SendBridge::SendBridge
 
 

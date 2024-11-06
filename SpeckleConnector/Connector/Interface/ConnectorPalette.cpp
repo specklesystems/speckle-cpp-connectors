@@ -17,6 +17,8 @@
 #include "Speckle/Event/Type/MenuEvent.h"
 #include "Speckle/Interface/Browser/JSPortal.h"
 
+#include "Speckle/Event/Type/ProjectEvent.h"
+
 #include <ACAPinc.h>
 #include <DGModule.hpp>
 #include <DGBrowser.hpp>
@@ -108,7 +110,9 @@ ConnectorPalette::ConnectorPalette() {
 	return: The subscription list (an empty list will put the subscriber into a suspended state)
   --------------------------------------------------------------------*/
 ConnectorPalette::Subscription ConnectorPalette::subscription() const {
-	return { {toggleConnectorPaletteID} };
+	auto result = ProjectSubscriber::subscription();
+	result.insert(toggleConnectorPaletteID);
+	return result;
 } //ConnectorPalette::subscription
 
 
@@ -130,15 +134,48 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
-	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
-		BrowserPalette::GetInstance().Hide ();
-	} else {
-		if (!BrowserPalette::HasInstance())
-			BrowserPalette::CreateInstance();
-		BrowserPalette::GetInstance().Show();
+	if (event == toggleConnectorPaletteID) {
+		if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Hide();
+		}
+		else {
+			if (!BrowserPalette::HasInstance())
+				BrowserPalette::CreateInstance();
+			BrowserPalette::GetInstance().Show();
+		}
+		return true;
 	}
-	return true;
+
+	return ProjectSubscriber::receive(event);
+	
 } //ConnectorPalette::receive
+
+/*--------------------------------------------------------------------
+	Handle a project event
+
+	event: The project event
+
+	return: True if the event should be closed
+ --------------------------------------------------------------------*/
+bool ConnectorPalette::handle(const speckle::event::ProjectEvent& event) {
+	using enum speckle::event::ProjectEvent::Type;
+	switch (event.getType()) {
+	case open: {
+		if (BrowserPalette::HasInstance() && !BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Show();
+			BrowserPalette::GetInstance().EnableItems();
+		}
+	} break;
+	case close: {
+		if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Hide();
+		}
+	} break;
+	default:
+		break;
+	}
+	return false;
+} //ConnectorPalette::handle
 
 
 	//NB: Following is placeholder from GS example code - will be refactored to better suit our purposes
@@ -282,18 +319,10 @@ GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_Palette
 			break;
 
 		case APIPalMsg_HidePalette_End:
-			if(HasInstance() && !GetInstance().IsVisible())
+			if (HasInstance() && !GetInstance().IsVisible())
+			{
 				GetInstance().Show();
-			break;
-
-		case APIPalMsg_DisableItems_Begin:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().DisableItems();
-			break;
-
-		case APIPalMsg_DisableItems_End:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().EnableItems();
+			}
 			break;
 
 		case APIPalMsg_IsPaletteVisible:
