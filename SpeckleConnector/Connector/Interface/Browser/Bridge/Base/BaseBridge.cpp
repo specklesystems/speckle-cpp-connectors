@@ -11,7 +11,34 @@
 #include "Connector/Interface/Browser/Bridge/Base/OpenUrl.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Connector/Connector.h"
+#include "Connector/ConnectorResource.h"
+#include "Speckle/Database/Identity/RecordID.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
+#include "Connector/Database/ModelCardDatabase.h"
+
 using namespace connector::interfac::browser::bridge;
+
+namespace {
+#ifdef ARCHICAD
+	void subscribeAllElementsToElementChangeEvents()
+	{
+		auto project = connector::connector()->getActiveProject().lock();
+		if (!project)
+			return;
+
+		auto elementDatabase = project->getElementDatabase();
+		auto allElements = elementDatabase->findElements();
+
+		for (const auto& id : allElements)
+			ACAPI_Element_AttachObserver(id);
+	}
+#endif
+}
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -28,6 +55,8 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<UpdateModel>();
 	addMethod<HighlightModel>();
 	addMethod<OpenUrl>();
+
+	subscribeAllElementsToElementChangeEvents();
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------
@@ -40,7 +69,11 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-		case open: case close:
+	case open: {
+			sendEvent("documentChanged");
+			subscribeAllElementsToElementChangeEvents();
+		} break;
+		case close:
 			sendEvent("documentChanged");
 			break;
 		default:
