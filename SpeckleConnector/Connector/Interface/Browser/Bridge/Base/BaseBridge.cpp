@@ -38,8 +38,6 @@ namespace {
 
 		for (const auto& id : allElements)
 			ACAPI_Element_AttachObserver(id);
-
-		int  i = 0;
 	}
 #endif
 }

@@ -325,16 +325,6 @@ GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_Palette
 			}
 			break;
 
-		/*case APIPalMsg_DisableItems_Begin:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().DisableItems();
-			break;
-
-		case APIPalMsg_DisableItems_End:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().EnableItems();
-			break;*/
-
 		case APIPalMsg_IsPaletteVisible:
 			*(reinterpret_cast<bool*>(param)) = HasInstance() && GetInstance().IsVisible();
 			break;

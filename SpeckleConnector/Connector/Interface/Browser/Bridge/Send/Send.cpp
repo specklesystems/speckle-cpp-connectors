@@ -45,9 +45,11 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
 
+#ifdef ARCHICAD
 	// we currently rely on the ModelerAPI instead of the ModelAccessAPI
 	// we have to open a 3D window to get the Mesh data of the model elements
 	ACAPI_View_ShowAllIn3D();
+#endif
 
 		//Get the active project
 	auto project = connector()->getActiveProject().lock();
