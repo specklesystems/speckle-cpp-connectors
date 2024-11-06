@@ -44,6 +44,11 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 	modelCardID: The ID of the model card identifying the objects to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
+
+	// we currently rely on the ModelerAPI instead of the ModelAccessAPI
+	// we have to open a 3D window to get the Mesh data of the model elements
+	ACAPI_View_ShowAllIn3D();
+
 		//Get the active project
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
