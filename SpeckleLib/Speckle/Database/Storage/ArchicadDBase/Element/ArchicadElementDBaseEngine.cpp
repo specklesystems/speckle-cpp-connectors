@@ -213,6 +213,26 @@ ArchicadElementDBaseEngine::TableIDList ArchicadElementDBaseEngine::getTables(st
 
 
 /*--------------------------------------------------------------------
+	Get the default dbase table
+ 
+	return: The default dbase table (nullopt if no table is available)
+  --------------------------------------------------------------------*/
+std::optional<BIMRecordID> ArchicadElementDBaseEngine::getDefaultTable() const {
+	return ArchicadElementDBaseEngine::getActiveTable();
+} //ArchicadElementDBaseEngine::getDefaultTable
+
+
+/*--------------------------------------------------------------------
+	Set the default dbase table
+ 
+	tableID: The new default dbase table
+  --------------------------------------------------------------------*/
+void ArchicadElementDBaseEngine::setDefaultTable(const BIMRecordID& tableID) const {
+	setActiveTable(tableID);
+} //ArchicadElementDBaseEngine::setDefaultTable
+
+
+/*--------------------------------------------------------------------
 	Find a filtered list of objects
  
 	filter: The object filter (nullptr = find all objects)

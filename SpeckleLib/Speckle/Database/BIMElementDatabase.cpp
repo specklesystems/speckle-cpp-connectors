@@ -89,6 +89,26 @@ BIMRecordIDList BIMElementDatabase::getTables(std::optional<TableType> targetTyp
 
 
 /*--------------------------------------------------------------------
+	Get the default dbase table
+ 
+	return: The default dbase table (nullopt if no table is available)
+  --------------------------------------------------------------------*/
+std::optional<BIMRecordID> BIMElementDatabase::getDefaultTable() const {
+	return m_engine->getDefaultTable();
+} //BIMElementDatabase::getDefaultTable
+
+
+/*--------------------------------------------------------------------
+	Set the default dbase table
+ 
+	tableID: The new default dbase table
+  --------------------------------------------------------------------*/
+void BIMElementDatabase::setDefaultTable(const BIMRecordID& tableID) const {
+	m_engine->setDefaultTable(tableID);
+} //BIMElementDatabase::setDefaultTable
+
+
+/*--------------------------------------------------------------------
 	Bring the view of this database to the front (i.e. so the user sees it)
  
 	tableID: The ID of the table to bring to the front

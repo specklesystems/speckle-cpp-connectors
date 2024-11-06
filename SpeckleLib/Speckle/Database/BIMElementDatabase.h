@@ -44,6 +44,16 @@ namespace speckle::database {
 		 */
 		BIMRecordIDList getTables(std::optional<TableType> targetType) const;
 		/*!
+		 Get the default dbase table
+		 @return The default dbase table (nullopt if no table is available)
+		 */
+		std::optional<BIMRecordID> getDefaultTable() const;
+		/*!
+		 Set the default dbase table
+		 @param tableID The new default dbase table
+		 */
+		void setDefaultTable(const BIMRecordID& tableID) const;
+		/*!
 		 Bring the view of this database to the front (i.e. so the user sees it)
 		 @param tableID The ID of the table to bring to the front
 		 */

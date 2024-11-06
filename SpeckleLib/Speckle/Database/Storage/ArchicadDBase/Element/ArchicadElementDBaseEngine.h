@@ -80,6 +80,16 @@ namespace speckle::database {
 		 */
 		TableIDList getTables(std::optional<TableType> targetType) const override;
 		/*!
+		 Get the default dbase table
+		 @return The default dbase table (nullopt if no table is available)
+		 */
+		std::optional<BIMRecordID> getDefaultTable() const;
+		/*!
+		 Set the default dbase table
+		 @param tableID The new default dbase table
+		 */
+		void setDefaultTable(const BIMRecordID& tableID) const;
+		/*!
 		 Find a filtered list of objects
 		 @param filter The object filter (nullptr = find all objects)
 		 @param tableID Optional table ID (defaults to the first table)
