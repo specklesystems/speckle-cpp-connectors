@@ -3,6 +3,7 @@
 #include "Connector/Connector.h"
 #include "Connector/Database/ModelCardDatabase.h"
 
+using namespace active::event;
 using namespace connector::database;
 using namespace connector::environment;
 using namespace speckle::utility;
@@ -11,7 +12,8 @@ using namespace speckle::utility;
 	Default constructor
   --------------------------------------------------------------------*/
 ConnectorProject::ConnectorProject() {
-	m_modelCards = std::make_unique<ModelCardDatabase>();
+	m_modelCards = std::make_shared<ModelCardDatabase>();
+	connector()->addWeak(m_modelCards->getSubscription());
 }
 
 
