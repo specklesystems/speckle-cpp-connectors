@@ -32,6 +32,8 @@ namespace {
 			return;
 
 		auto elementDatabase = project->getElementDatabase();
+		//auto table = elementDatabase->getTables(speckle::database::ElementStorage::TableType::primary2D);
+		//auto allElements = elementDatabase->findElements(nullptr, *table.begin());
 		auto allElements = elementDatabase->findElements();
 
 		for (const auto& id : allElements)
@@ -58,7 +60,9 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<HighlightModel>();
 	addMethod<OpenUrl>();
 
-	subscribeAllElementsToElementChangeEvents();
+	// POC: Attaching Observer to all elements is too slow, registration is commented out for now
+	// subscribeAllElementsToElementChangeEvents();
+
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------
@@ -73,7 +77,8 @@ bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	switch (event.getType()) {
 		case open: {
 			sendEvent("documentChanged");
-			subscribeAllElementsToElementChangeEvents();
+			// POC: Attaching Observer to all elements is too slow, registration is commented out for now
+			// subscribeAllElementsToElementChangeEvents();
 		} break;
 		default:
 			break;
