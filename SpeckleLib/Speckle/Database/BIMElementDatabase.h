@@ -2,6 +2,7 @@
 #define CONNECTOR_DATABASE_BIM_ELEMENT_DATABASE
 
 #include "Speckle/Database/Identity/BIMLink.h"
+#include "Speckle/Database/Storage/Element/ElementStorage.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Record/Element/Interface/Part.h"
 #include "Speckle/Utility/Guid.h"
@@ -19,13 +20,8 @@ namespace speckle::database {
 	/*!
 	 Database of model elements relating to a specific project
 	 */
-	class BIMElementDatabase {
+	class BIMElementDatabase : public ElementStorage {
 	public:
-		
-		// MARK: - Types
-
-			///Element filter (NB: expand in future to support optimised filtering)
-		using Filter = std::function<bool(const record::element::Element&)>;
 
 		// MARK: - Constructors
 		
@@ -41,6 +37,17 @@ namespace speckle::database {
 		
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get the available element tables
+		 @param targetType An optional filtr for table type to retrieve, e.g. get all sections (nullopt = all table types)
+		 @return A set of available tables
+		 */
+		BIMRecordIDList getTables(std::optional<TableType> targetType) const;
+		/*!
+		 Bring the view of this database to the front (i.e. so the user sees it)
+		 @param tableID The ID of the table to bring to the front
+		 */
+		void bringViewToFront(BIMRecordID tableID) const;
 		/*!
 		 Get the current user element selection
 		 @return A list of selected element IDs
@@ -61,7 +68,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		std::vector<BIMRecordID> findElements(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
+		BIMRecordIDList findElements(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
 											  std::optional<BIMRecordID> documentID = std::nullopt) const;
 		/*!
 		 Get a specified element
@@ -80,9 +87,12 @@ namespace speckle::database {
 		std::unique_ptr<record::element::Element> getElement(const BIMLink& link) const { return getElement(link, link.tableID, link.docID); }
 		/*!
 		 Get all model elements
+		 @param tableID Optional table ID (defaults to the first table)
+		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return All the elements
 		 */
-		active::container::Vector<record::element::Element> getElements() const;
+		active::container::Vector<record::element::Element> getElements(std::optional<BIMRecordID> tableID = std::nullopt,
+																		std::optional<BIMRecordID> documentID = std::nullopt) const;
 		/*!
 		 Get memo memo (supplementary) data for a specified element
 		 @param elementID The of the source element

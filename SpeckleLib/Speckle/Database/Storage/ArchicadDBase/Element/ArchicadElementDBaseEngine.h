@@ -4,6 +4,7 @@
 #include "Active/Database/Storage/DBaseEngine.h"
 #include "Active/Serialise/UnboxedTransport.h"
 #include "Speckle/Database/Storage/ArchicadDBase/ArchicadDBaseCore.h"
+#include "Speckle/Database/Storage/Element/ElementStorage.h"
 #include "Speckle/Database/Identity/BIMLink.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Utility/Guid.h"
@@ -17,16 +18,17 @@ namespace speckle::database {
 	/*!
 	 A database engine to read/write elements in an Archicad project database (local file or cloud-based)
 	 */
-	class ArchicadElementDBaseEngine : public ArchicadDBaseCore,
-			public active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>  {
+	class ArchicadElementDBaseEngine : public ArchicadDBaseCore, public ElementStorage,
+			public active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID, ElementStorage::TableType>  {
 	public:
 		
 		// MARK: - Types
 		
 		using base = active::database::DBaseEngine<record::element::Element, BIMRecordID, BIMRecordID, BIMRecordID>;
 		using Element = record::element::Element;
-		using Filter = base::Filter;
+		using Filter = ElementStorage::Filter;
 		using Outline = base::Outline;
+		using ObjIDList = base::ObjIDList;
 		
 		// MARK: - Constants
 		
@@ -54,6 +56,11 @@ namespace speckle::database {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Bring the view of this database to the front (i.e. so the user sees it)
+		 @param tableID The ID of the table to bring to the front
+		 */
+		void bringViewToFront(BIMRecordID tableID) const;
+		/*!
 		 Get the current user element selection
 		 @return A list of selected element IDs
 		 */
@@ -67,14 +74,20 @@ namespace speckle::database {
 		 */
 		void clearSelection() const;
 		/*!
+		 Get the available dbase tables
+		 @param targetType An optional filtr for table type/group to retrieve
+		 @return A list of available tables
+		 */
+		TableIDList getTables(std::optional<TableType> targetType) const override;
+		/*!
 		 Find a filtered list of objects
 		 @param filter The object filter (nullptr = find all objects)
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		virtual std::vector<BIMRecordID> findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
-													 std::optional<BIMRecordID> documentID = std::nullopt) const override;
+		virtual BIMRecordIDList findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
+									  std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Get an object by index
 		 @param objID The object ID

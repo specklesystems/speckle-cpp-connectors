@@ -30,6 +30,7 @@ namespace speckle::database {
 		using Template = record::property::Template;
 		using Filter = base::Filter;
 		using Outline = base::Outline;
+		using ObjIDList = base::ObjIDList;
 		
 		// MARK: - Constructors
 		
@@ -54,8 +55,8 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		virtual std::vector<BIMRecordID> findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
-													 std::optional<BIMRecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
+		virtual ObjIDList findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
+									  std::optional<BIMRecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
 		/*!
 		 Find all property templates linked to specified classifications
 		 @param classifications The classifications

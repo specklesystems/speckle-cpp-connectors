@@ -45,7 +45,7 @@ namespace connector::environment {
 		
 	private:
 			///The model card database
-		std::unique_ptr<connector::database::ModelCardDatabase> m_modelCards;
+		std::shared_ptr<connector::database::ModelCardDatabase> m_modelCards;
 	};
 
 }
