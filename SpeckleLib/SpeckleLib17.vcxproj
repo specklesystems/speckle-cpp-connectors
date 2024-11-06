@@ -38,6 +38,7 @@
     <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreCore.h" />
     <ClInclude Include="Speckle\Database\Storage\DocumentStore\DocumentStoreEngine.h" />
+    <ClInclude Include="Speckle\Database\Storage\Element\ElementStorage.h" />
     <ClInclude Include="Speckle\Environment\Addon.h" />
     <ClInclude Include="Speckle\Environment\Host.h" />
     <ClInclude Include="Speckle\Environment\Platform.h" />
