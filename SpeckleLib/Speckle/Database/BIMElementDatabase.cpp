@@ -33,8 +33,9 @@ namespace speckle::database {
 	};
 
 		///Element database storage declaration
-	class BIMElementDatabase::Store : public Storage<Element, UnboxedTransport, BIMRecordID, BIMRecordID, BIMRecordID, BIMRecordID> {
-		using base = Storage<Element, UnboxedTransport, BIMRecordID, BIMRecordID, BIMRecordID, BIMRecordID>;
+	class BIMElementDatabase::Store : public Storage<Element, UnboxedTransport, BIMRecordID, BIMRecordID,
+			BIMRecordID, BIMRecordID, ElementStorage::TableType> {
+		using base = Storage<Element, UnboxedTransport, BIMRecordID, BIMRecordID, BIMRecordID, BIMRecordID, ElementStorage::TableType>;
 		using base::base;
 	};
 	
@@ -76,6 +77,28 @@ BIMElementDatabase::~BIMElementDatabase() {}
 
 
 /*--------------------------------------------------------------------
+	Get the available element tables
+ 
+	targetType: An optional filtr for table type to retrieve, e.g. get all sections (nullopt = all table types)
+ 
+	return: A list of available tables
+  --------------------------------------------------------------------*/
+BIMRecordIDList BIMElementDatabase::getTables(std::optional<TableType> targetType) const {
+	return m_engine->getTables(targetType);
+} //BIMElementDatabase::getTables
+
+
+/*--------------------------------------------------------------------
+	Bring the view of this database to the front (i.e. so the user sees it)
+ 
+	tableID: The ID of the table to bring to the front
+  --------------------------------------------------------------------*/
+void BIMElementDatabase::bringViewToFront(BIMRecordID tableID) const {
+	m_engine->bringViewToFront(tableID);
+} //BIMElementDatabase::bringViewToFront
+
+
+/*--------------------------------------------------------------------
 	Get the current user element selection
  
 	return: A list of selected element IDs
@@ -110,7 +133,7 @@ void BIMElementDatabase::clearSelection() const {
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-std::vector<BIMRecordID> BIMElementDatabase::findElements(const Filter& filter, std::optional<BIMRecordID> tableID,
+BIMRecordIDList BIMElementDatabase::findElements(const Filter& filter, std::optional<BIMRecordID> tableID,
 														  std::optional<BIMRecordID> documentID) const {
 	return m_engine->findObjects(filter, tableID, documentID);
 } //BIMElementDatabase::findElements
@@ -120,6 +143,8 @@ std::vector<BIMRecordID> BIMElementDatabase::findElements(const Filter& filter, 
 	Get a specified element
  
 	elementID: The ID of the target element
+	tableID: Optional table ID (defaults to the first table)
+	documentID: Optional document ID (filter for this document only - nullopt = all objects)
  
 	return: The requested element (nullptr on failure)
   --------------------------------------------------------------------*/
@@ -132,10 +157,14 @@ Element::Unique BIMElementDatabase::getElement(const BIMRecordID& elementID, std
 /*--------------------------------------------------------------------
 	Get all elements
  
+	tableID: Optional table ID (defaults to the first table)
+	documentID: Optional document ID (filter for this document only - nullopt = all objects)
+ 
 	return: All the elements
   --------------------------------------------------------------------*/
-Vector<Element> BIMElementDatabase::getElements() const {
-	return m_store->getObjects();
+Vector<Element> BIMElementDatabase::getElements(std::optional<BIMRecordID> tableID,
+												std::optional<BIMRecordID> documentID) const {
+	return m_store->getObjects(tableID, documentID);
 } //BIMElementDatabase::getElements
 
 

@@ -41,14 +41,24 @@ using enum ArchicadDBaseCore::Status;
 
 namespace {
 	
+		//ID for the floor plan view
+	static const Guid primary2DViewID{String{"ddad27c0-c17b-4ad3-b76b-53d1e176d5ef"}};
+		//ID for the 3D view
+	static const Guid primary3DViewID{String{"ec368939-fb7d-4d8c-bc88-6d29806d9212"}};
+
 	/*!
 	 Get information about a specified Archicad table
 	 @param tableID The ID of the target table
 	 @return The requested table info (nullopt on failure)
 	 */
 	std::optional<API_DatabaseInfo> getTableInfo(const BIMRecordID& tableID) {
-		API_DatabaseInfo dbaseInfo;
-		dbaseInfo.databaseUnId.elemSetId = tableID;
+		API_DatabaseInfo dbaseInfo{};
+		if (tableID == primary2DViewID)
+			dbaseInfo.typeID = APIWind_FloorPlanID;
+		else if (tableID == primary3DViewID)
+			dbaseInfo.typeID = APIWind_3DModelID;
+		else
+			dbaseInfo.databaseUnId.elemSetId = tableID;
 		if (auto err = ACAPI_Window_GetDatabaseInfo(&dbaseInfo); err == NoError)
 			return dbaseInfo;
 		return std::nullopt;
@@ -62,7 +72,7 @@ namespace {
 	 */
 	bool setActiveTable(const BIMRecordID& tableID) {
 		if (!tableID)
-			return false;	//Null guid doens't point to anything
+			return false;	//Null guid doesn't point to anything
 		if (auto activeTable = ArchicadElementDBaseEngine::getActiveTable(); activeTable && *activeTable == tableID)
 			return true;
 		auto dbaseInfo = getTableInfo(tableID);
@@ -114,10 +124,32 @@ namespace {
 std::optional<BIMRecordID> ArchicadElementDBaseEngine::getActiveTable() {
 	API_WindowInfo dbaseInfo;
 	active::utility::Memory::erase(dbaseInfo);
-	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError)
+	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError) {
+		if (dbaseInfo.typeID == APIWind_FloorPlanID)
+			return primary2DViewID;
+		else if (dbaseInfo.typeID == APIWind_3DModelID)
+			return primary3DViewID;
 		return dbaseInfo.databaseUnId.elemSetId;
+	}
 	return std::nullopt;
 } //ArchicadElementDBaseEngine::getActiveTable
+
+
+/*--------------------------------------------------------------------
+	Bring the view of this database to the front (i.e. so the user sees it)
+ 
+	tableID: The ID of the table to bring to the front
+  --------------------------------------------------------------------*/
+void ArchicadElementDBaseEngine::bringViewToFront(BIMRecordID tableID) const {
+	auto dbaseInfo = getTableInfo(tableID);
+	if (!dbaseInfo)
+		return;
+	API_WindowInfo windowInfo{};
+	windowInfo.typeID = dbaseInfo->typeID;
+	if ((windowInfo.typeID != APIWind_FloorPlanID) && (windowInfo.typeID != APIWind_3DModelID))
+		windowInfo.databaseUnId = dbaseInfo->databaseUnId;
+	ACAPI_Window_ChangeWindow(&windowInfo);
+} //ArchicadElementDBaseEngine::bringViewToFront
 
 
 /*--------------------------------------------------------------------
@@ -163,6 +195,24 @@ void ArchicadElementDBaseEngine::clearSelection() const {
 
 
 /*--------------------------------------------------------------------
+	Get the available dbase tables
+ 
+	targetType: An optional filtr for table type/group to retrieve
+ 
+	return: A list of available tables
+  --------------------------------------------------------------------*/
+ArchicadElementDBaseEngine::TableIDList ArchicadElementDBaseEngine::getTables(std::optional<TableType> targetType) const {
+	using enum ElementStorage::TableType;
+	TableIDList result;
+	if (!targetType || (targetType == primary2D))
+		result.insert(primary2DViewID);
+	if (!targetType || (targetType == primary3D))
+		result.insert(primary3DViewID);
+	return result;
+} //ArchicadElementDBaseEngine::getTables
+
+
+/*--------------------------------------------------------------------
 	Find a filtered list of objects
  
 	filter: The object filter (nullptr = find all objects)
@@ -171,16 +221,19 @@ void ArchicadElementDBaseEngine::clearSelection() const {
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-std::vector<BIMRecordID> ArchicadElementDBaseEngine::findObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
+BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
 																		 std::optional<BIMRecordID> documentID) const {
+		//Switch to the target table (when specified). Otherwise the currently active table will be used
+	if (tableID)
+		setActiveTable(*tableID);
 		//First check for no filter (in which case we return all objects)
 	if (filter == nullptr) {
 		GS::Array<API_Guid> found;
 		if ((ACAPI_Element_GetElemList({}, &found) != NoError) || found.IsEmpty())
 			return {};
-		std::vector<BIMRecordID> result;
+		BIMRecordIDList result;
 		for (const auto& item : found)
-			result.emplace_back(item);
+			result.insert(item);
 		return result;
 	}
 		//Implement other filtering as required - ideally identify characteristics supported by API, e.g. filter by type/renovation etc

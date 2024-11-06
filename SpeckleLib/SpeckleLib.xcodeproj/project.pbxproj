@@ -303,6 +303,7 @@
 		2196F3022CB57E7F00450DFC /* Storey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storey.h; sourceTree = "<group>"; };
 		2196F3032CB57E7F00450DFC /* Storey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Storey.cpp; sourceTree = "<group>"; };
 		219712682BE7E2D500D9EF7E /* Serialisation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Serialisation.md; sourceTree = "<group>"; };
+		2199BB5F2CDB761B00A4BEEC /* ElementStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementStorage.h; sourceTree = "<group>"; };
 		21A0FB9F2CB880690023F24E /* FinishCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishCollector.h; sourceTree = "<group>"; };
 		21A0FBA92CB9324A0023F24E /* FinishProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
 		21A0FBB42CBA5E380023F24E /* Str256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Str256.h; sourceTree = "<group>"; };
@@ -708,6 +709,14 @@
 			path = SpeckleLibDoctest;
 			sourceTree = "<group>";
 		};
+		2199BB602CDB761B00A4BEEC /* Element */ = {
+			isa = PBXGroup;
+			children = (
+				2199BB5F2CDB761B00A4BEEC /* ElementStorage.h */,
+			);
+			path = Element;
+			sourceTree = "<group>";
+		};
 		21A0FBA02CB880690023F24E /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +895,7 @@
 		21D0BDB02C8F8AB60077E104 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				2199BB602CDB761B00A4BEEC /* Element */,
 				215F088A2CA195EC00CD343B /* ArchicadDBase */,
 				21D0BDAF2C8F8AB60077E104 /* DocumentStore */,
 			);
