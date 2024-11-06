@@ -180,8 +180,10 @@ namespace speckle::database {
 			//Read the data stored in the document
 		auto storedData = readStore();
 		m_cache = std::make_unique<Cache>();
-		if (!storedData)
+		if (!storedData) {
+			m_cache->setID(speckle::utility::Guid{true}.operator String());	//Needs an ID - used as substitute for the Speckle 'document ID'
 			return m_cache.get();	//Return an empty container if there's no data
+		}
 			//Import the document data into the record cache
 		if constexpr (std::is_same_v<ObjWrapper, Obj>)
 			Transport().receive(std::forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);
