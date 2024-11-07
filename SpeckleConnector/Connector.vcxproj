@@ -176,6 +176,7 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\ConversionResult.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendConversionResult.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendError.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendObject.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendViaBrowserArgs.h" />
