@@ -1,5 +1,7 @@
 #include "Speckle/Interface/Component/Progress.h"
 
+#include <mutex>
+
 #ifdef ARCHICAD
 #include "ACAPI_Interface.h"
 #endif

@@ -70,6 +70,7 @@
     <ClInclude Include="Speckle\Interface\Browser\JSPortal.h" />
     <ClInclude Include="Speckle\Interface\Browser\NamedFunction.h" />
     <ClInclude Include="Speckle\Interface\Browser\PlatformBinding.h" />
+    <ClInclude Include="Speckle\Interface\Component\Progress.h" />
     <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h" />
     <ClInclude Include="Speckle\Record\Attribute\Attribute.h" />
     <ClInclude Include="Speckle\Record\Attribute\Finish.h" />
@@ -115,6 +116,7 @@
     <ClInclude Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.h" />
     <ClInclude Include="Speckle\Record\Property\Wrapper\PropertyWrapper.h" />
     <ClInclude Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.h" />
+    <ClInclude Include="Speckle\Serialise\Collection\ConversionReporter.h" />
     <ClInclude Include="Speckle\Serialise\Collection\FinishCollector.h" />
     <ClInclude Include="Speckle\Serialise\Collection\FinishProxy.h" />
     <ClInclude Include="Speckle\Serialise\Detached\DetachedReference.h" />
@@ -166,6 +168,7 @@
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetBindingsMethodNames.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\GetCallResult.cpp" />
     <ClCompile Include="Speckle\Interface\Browser\Bridge\Functions\RunMethod.cpp" />
+    <ClCompile Include="Speckle\Interface\Component\Progress.cpp" />
     <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Finish.cpp" />
@@ -210,6 +213,7 @@
     <ClCompile Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.cpp" />
     <ClCompile Include="Speckle\Record\Property\Wrapper\PropertyWrapper.cpp" />
     <ClCompile Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.cpp" />
+    <ClCompile Include="Speckle\Serialise\Collection\ConversionReporter.cpp" />
     <ClCompile Include="Speckle\Serialise\Detached\DetachedReference.cpp" />
     <ClCompile Include="Speckle\Serialise\Detached\DetachedWrap.cpp" />
     <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp" />

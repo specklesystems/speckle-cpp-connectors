@@ -125,6 +125,9 @@
     <Filter Include="Speckle\Database\Storage\Element">
       <UniqueIdentifier>{f4cd84a1-f6c1-449f-98cd-d902cc3d9e8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Interface\Component">
+      <UniqueIdentifier>{ccb4ca39-1960-4590-ad5a-8f9092924778}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -469,6 +472,12 @@
     <ClInclude Include="Speckle\Database\Storage\Element\ElementStorage.h">
       <Filter>Speckle\Database\Storage\Element</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Interface\Component\Progress.h">
+      <Filter>Speckle\Interface\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\ConversionReporter.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -722,6 +731,12 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Element\Wall.cpp">
       <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Component\Progress.cpp">
+      <Filter>Speckle\Interface\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Collection\ConversionReporter.cpp">
+      <Filter>Speckle\Serialise\Collection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
