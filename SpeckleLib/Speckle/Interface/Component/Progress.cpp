@@ -11,8 +11,8 @@ using namespace speckle::utility;
 
 namespace {
 	
-		///The progress class instance
-	Progress::Shared m_instance;
+		///The progress class instance - a weak reference is held so the object is released when active users complete
+	std::weak_ptr<Progress> m_instance;
 		///Mutex controlling management of the progress instance
 	std::mutex m_mutex;
 	
@@ -38,16 +38,17 @@ Progress::~Progress() {
   --------------------------------------------------------------------*/
 Progress::Shared Progress::getInstance(const String& title, size_t stages) {
 	const std::lock_guard<std::mutex> lock(m_mutex);
-	if (m_instance)
-		return m_instance;
+	if (auto instance = m_instance.lock(); instance)
+		return instance;
 #ifdef ARCHICAD
 	GS::UniString gsTitle{title};
 	auto phases = static_cast<Int32>(stages);
 	if (ACAPI_ProcessWindow_InitProcessWindow(&gsTitle, &phases) != NoError)
 		return nullptr;
 #endif
-	m_instance = Progress::Shared{new Progress};
-	return m_instance;
+	auto result = Progress::Shared{new Progress};
+	m_instance = result;
+	return result;
 } //Progress::getInstance
 
 
