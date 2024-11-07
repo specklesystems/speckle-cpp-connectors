@@ -3,7 +3,7 @@
 
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Utility/String.h"
-#include "Connector/Interface/Browser/Bridge/Send/Arg/ConversionResult.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendConversionResult.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendObject.h"
 #include "Speckle/Database/Identity/RecordID.h"
 
@@ -54,7 +54,7 @@ namespace connector::interfac::browser::bridge {
 			///The send message
 		speckle::utility::String message;	//TODO: Clarify what this is used for
 			///The conversion report (summarising the conversion results on an element-by-element basis)
-		std::vector<ConversionResult> sendConversionResults;
+		mutable std::vector<SendConversionResult> sendConversionResults;
 			///The commit content
 		SendObject sendObject;
 

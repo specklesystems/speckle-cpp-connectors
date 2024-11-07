@@ -1,5 +1,6 @@
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
 
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Connector/Record/Model/ModelCard.h"
 #include "Speckle/Record/Credentials/Account.h"
 
@@ -25,6 +26,7 @@ namespace {
 		accID,
 		messageID,
 		sendObjectID,
+		convResultID,
 	};
 
 		///Serialisation field IDs
@@ -37,6 +39,7 @@ namespace {
 		Identity{"accountId"},
 		Identity{"message"},
 		Identity{"sendObject"},
+		Identity{"sendConversionResults"},
 	};
 	
 }
@@ -47,11 +50,11 @@ namespace {
 	modelCard: The model card to populate into the send info for the browser
 	account: The account linked to the send
 	object: The object to be sent
+	results: The conversion results (reporting any conversion errors etc)
   --------------------------------------------------------------------*/
 SendViaBrowserArgs::SendViaBrowserArgs(const ModelCard& modelCard, const Account& account, SendObject&& object) :
 		modelCardID(modelCard.getID()), projectID(modelCard.getProjectID()), modelID(modelCard.getModelID()), token{account.getToken()},
 		serverURL{account.getServerURL()}, accountID{account.getID()}, sendObject{std::move(object)} {
-	
 } //SendViaBrowserArgs::SendViaBrowserArgs
 
 
@@ -74,6 +77,7 @@ bool SendViaBrowserArgs::fillInventory(active::serialise::Inventory& inventory) 
 			{ fieldID[accID], accID, element },
 			{ fieldID[messageID], messageID, element },
 			{ fieldID[sendObjectID], sendObjectID, element },
+			{ fieldID[convResultID], convResultID, element },
 		},
 	}.withType(&typeid(SendViaBrowserArgs)));
 	return true;
@@ -108,6 +112,9 @@ Cargo::Unique SendViaBrowserArgs::getCargo(const active::serialise::Inventory::I
 			return std::make_unique<StringWrap>(message);
 		case sendObjectID:
 			return std::make_unique<PackageWrap>(sendObject);
+		case convResultID:
+			sendConversionResults = sendObject.getConversionResults();
+			return Cargo::Unique{new ContainerWrap{sendConversionResults}};
 		default:
 			return nullptr;	//Requested an unknown index
 	}

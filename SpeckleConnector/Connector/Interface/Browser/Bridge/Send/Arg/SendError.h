@@ -24,7 +24,7 @@ namespace connector::interfac::browser::bridge {
 			@param errMess The error message
 			@param card The ID of the model card associated with the wrror
 		*/
-		SendError(const speckle::utility::String& errMess, const speckle::utility::String& card) : message{errMess}, modelCardID{card} {}
+		SendError(const speckle::utility::String& errMess, const speckle::utility::String& card = {}) : message{errMess}, modelCardID{card} {}
 				
 		// MARK: - Public variables
 		
@@ -32,6 +32,8 @@ namespace connector::interfac::browser::bridge {
 		speckle::utility::String message;
 			///The ID of the model card associated with the data
 		speckle::utility::String modelCardID;
+			///The error stack trace
+		speckle::utility::String stackTrace;
 
 		// MARK: - Serialisation
 		

@@ -6,27 +6,29 @@
 #include "Connector/ConnectorResource.h"
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Environment/ConnectorProject.h"
-#include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendConversionResult.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
 #include "Connector/Record/Collection/ProjectCollection.h"
 #include "Connector/Record/Model/SenderModelCard.h"
 #include "Connector/Record/Model/Filter/SendFilter.h"
 #include "Speckle/Database/AccountDatabase.h"
+#include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Database/Content/BIMRecord.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Environment/Host.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Credentials/Account.h"
+#include "Speckle/Record/Element/Element.h"
 #include "Speckle/Serialise/Detached/Storage/DetachedMemoryStore.h"
 #include "Speckle/Utility/Exception.h"
-#include "Speckle/Database/BIMElementDatabase.h"
-#include "Speckle/Environment/Project.h"
-#include "Speckle/Record/Element/Element.h"
 
-using namespace speckle::record::element;
 using namespace active::serialise;
 using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
 using namespace speckle::database;
+using namespace speckle::environment;
+using namespace speckle::record::element;
 using namespace speckle::serialise;
 using namespace speckle::utility;
 
@@ -44,13 +46,8 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 	modelCardID: The ID of the model card identifying the objects to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
-
-#ifdef ARCHICAD
-	// we currently rely on the ModelerAPI instead of the ModelAccessAPI
-	// we have to open a 3D window to get the Mesh data of the model elements
-	ACAPI_View_ShowAllIn3D();
-#endif
-
+		//We can currently only send from the 3D model view
+	host()->makeModelViewActive(true);
 		//Get the active project
 	auto project = connector()->getActiveProject().lock();
 	if (!project) {
@@ -89,8 +86,9 @@ void Send::run(const String& modelCardID) const {
 		if (auto element = elementDatabase->getElement(link); element)
 			collection->addElement(*element);
 		else {
-				//Report these elements as failures for the report
-			collection->logRecord(link, ConversionReporter::Outcome::failure, false);
+				//Report failure to convert element
+			collection->logRecord(link, {ConversionReporter::Data::Status::failure, element->getTypeName(), element->getSpeckleType(),
+					connector()->getLocalString(errorString, elementTypeNotConvertedID)}, false);
 			collection->incrementSkippedRecords();
 		}
 	}

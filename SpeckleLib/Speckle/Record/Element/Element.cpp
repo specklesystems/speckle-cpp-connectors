@@ -264,7 +264,7 @@ void Element::useManagement(Management* management) const {
 	if (management != nullptr) {
 			//If a conversion report is collected, add this record to the report (also updates progress display in the UI)
 		if (auto reporter = management->get<ConversionReporter>(); reporter != nullptr)
-			reporter->logRecord(getBIMID());
+			reporter->logRecord(getBIMID(), {ConversionReporter::Data::Status::success, getTypeName(), getSpeckleType()});
 	}
 } //Element::useManagement
 

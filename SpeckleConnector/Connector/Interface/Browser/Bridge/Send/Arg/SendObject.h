@@ -3,6 +3,7 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendConversionResult.h"
 #include "Speckle/Database/Content/Record.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
@@ -44,15 +45,20 @@ namespace connector::interfac::browser::bridge {
 		 */
 		Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
 		/*!
-			Use a manager in (de)serialisation processes
-			@param management The management to use
-		*/
+		 Use a manager in (de)serialisation processes
+		 @param management The management to use
+		 */
 		void useManagement(active::serialise::Management* management) const override { m_object->useManagement(management); }
 		/*!
-			Get the cargo management
-			@return The active management
-		*/
+		 Get the cargo management
+		 @return The active management
+		 */
 		active::serialise::Management* management() const override { return m_object->management(); }
+		/*!
+		 Get the conversion results from the send object serialisation
+		 @return The serialisation conversion results
+		 */
+		std::vector<SendConversionResult> getConversionResults() const;
 		
 	private:
 			///The object to send

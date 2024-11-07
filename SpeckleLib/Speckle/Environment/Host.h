@@ -21,6 +21,12 @@ namespace speckle::environment {
 		// MARK: Functions (const)
 		
 		/*!
+		 Switch to the model view
+		 @param isSelectionOnly True to display just the selected elements
+ 		 @return True if the model view is active
+		*/
+		bool makeModelViewActive(bool isSelectionOnly = false) const;
+		/*!
 		 Display an alert dialog
 		 @param message The alert message
 		*/

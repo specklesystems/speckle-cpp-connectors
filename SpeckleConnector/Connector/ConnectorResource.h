@@ -58,6 +58,7 @@ enum ErrorString {
 	modelCardNotFoundID,
 	noProjectOpenID,
 	accountNotFoundID,
+	elementTypeNotConvertedID,
 };
 
 #endif	//CONNECTOR_RESOURCE

@@ -1,12 +1,14 @@
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendObject.h"
 
-#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Connector/Record/Collection/ProjectCollection.h"
 
 #include <array>
 
 using namespace active::serialise;
 using namespace connector::interfac::browser::bridge;
+using namespace connector::record;
 using namespace speckle::serialise;
 using namespace speckle::utility;
 
@@ -67,3 +69,19 @@ Cargo::Unique SendObject::getCargo(const active::serialise::Inventory::Item& ite
 			return nullptr;	//Requested an unknown index
 	}
 } //SendObject::getCargo
+
+
+/*--------------------------------------------------------------------
+	Get the conversion results from the send object serialisation
+ 
+	return: The serialisation conversion results
+  --------------------------------------------------------------------*/
+std::vector<SendConversionResult> SendObject::getConversionResults() const {
+	std::vector<SendConversionResult> convertResults;
+	auto collection = dynamic_cast<const ProjectCollection*>(m_object.get());
+	if (collection == nullptr)
+		return convertResults;
+	for (const auto& item : collection->getLog())
+		convertResults.emplace_back(SendConversionResult{item.first, item.second});
+	return convertResults;
+} //SendObject::getConversionResults

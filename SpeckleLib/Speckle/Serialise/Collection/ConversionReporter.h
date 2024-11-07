@@ -16,13 +16,26 @@ namespace speckle::serialise {
 	class ConversionReporter : public virtual active::serialise::Manager {
 	public:
 		
-			///Record conversion status
-		enum class Outcome {
-			success,
-			failure,
+			///Data collected from the conversion of a record
+		struct Data {
+				///Record conversion status
+			enum class Status {
+				success,
+				failure,
+			};
+			
+				///The conversion status
+			Status status;
+				///The name of the record type
+			utility::String typeName;
+				///The name of the record type
+			utility::String speckleType;
+				///Optional message from the conversion (particularly relevant when an error occurs)
+			utility::String message;
 		};
+		
 			///Reporter log pairing a record ID with the outcome of its conversion
-		using Log = std::unordered_map<database::BIMRecordID, Outcome>;
+		using Log = std::unordered_map<database::BIMRecordID, Data>;
 		
 		// MARK: Constructors
 		
@@ -55,11 +68,11 @@ namespace speckle::serialise {
 		/*!
 		 Log the conversion/serialisation of a record
 		 @param recordID The ID of the serialised record
-		 @param outcome The record serialisation outcome
-		 @param withUIFeedback True if the UI progress feedback should be updated 
+		 @param data The record serialisation report data
+		 @param withUIFeedback True if the UI progress feedback should be updated
 		 @return True if the serialisation should continue
 		 */
-		bool logRecord(const speckle::database::BIMRecordID& recordID, Outcome outcome = Outcome::success, bool withUIFeedback = true);
+		bool logRecord(const speckle::database::BIMRecordID& recordID, const Data& data = {Data::Status::success}, bool withUIFeedback = true);
 		
 	private:
 			///The reporter log

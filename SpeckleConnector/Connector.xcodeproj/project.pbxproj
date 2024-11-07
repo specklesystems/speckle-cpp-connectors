@@ -321,6 +321,7 @@
 		2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorProject.cpp; sourceTree = "<group>"; };
 		2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorProject.h; sourceTree = "<group>"; };
 		2199BB5C2CDA93CE00A4BEEC /* ConnectorImagesFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorImagesFix.grc; path = RFIX/ConnectorImagesFix.grc; sourceTree = "<group>"; };
+		2199BB792CDCEA3900A4BEEC /* SendConversionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendConversionResult.h; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
@@ -1026,6 +1027,7 @@
 			children = (
 				21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */,
 				21AEF9F82CAC3897000B8681 /* ConversionResult.h */,
+				2199BB792CDCEA3900A4BEEC /* SendConversionResult.h */,
 				21AEF9E32CAB56E5000B8681 /* SendError.cpp */,
 				21AEF9E42CAB56E5000B8681 /* SendError.h */,
 				21AEF9EE2CAB5720000B8681 /* SendObject.cpp */,

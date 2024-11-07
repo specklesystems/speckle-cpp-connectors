@@ -14,12 +14,14 @@ namespace {
 	enum FieldIndex {
 		errorID,
 		cardID,
+		stackID,
 	};
 
 		///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"error"},
 		Identity{"modelCardId"},
+		Identity{"stackTrace"},
 	};
 
 }
@@ -36,7 +38,8 @@ bool SendError::fillInventory(active::serialise::Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[errorID], errorID, element },
-			{ fieldID[cardID], cardID, element },
+			{ fieldID[cardID], cardID, element, !modelCardID.empty() },
+			{ fieldID[stackID], stackID, element, !stackTrace.empty() },
 		},
 	}.withType(&typeid(SendError)));
 	return true;
@@ -59,6 +62,8 @@ Cargo::Unique SendError::getCargo(const active::serialise::Inventory::Item& item
 			return std::make_unique<ValueWrap<String>>(message);
 		case cardID:
 			return std::make_unique<ValueWrap<String>>(modelCardID);
+		case stackID:
+			return std::make_unique<ValueWrap<String>>(stackTrace);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

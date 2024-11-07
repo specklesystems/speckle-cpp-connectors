@@ -19,12 +19,12 @@ ConversionReporter::~ConversionReporter() {}
 	Log the conversion/serialisation of a record
  
 	recordID: The ID of the serialised record
-	outcome: The record serialisation outcome
+		 @param data The record serialisation report data
 	withUIFeedback: True if the UI progress feedback should be updated
  
 	return: True if the serialisation should continue
  --------------------------------------------------------------------*/
-bool ConversionReporter::logRecord(const BIMRecordID& recordID, Outcome outcome, bool withUIFeedback) {
+bool ConversionReporter::logRecord(const BIMRecordID& recordID, const Data& data, bool withUIFeedback) {
 		//Initialise the progress UI component as required
 	if (withUIFeedback && !m_progress) {
 		if (m_progress = Progress::getInstance(addon()->getLocalString(titleStringLib, conversionProgressID)); m_progress) {
@@ -35,7 +35,7 @@ bool ConversionReporter::logRecord(const BIMRecordID& recordID, Outcome outcome,
 		}
 	}
 		//Log the conversion outcome for the record
-	m_log[recordID] = outcome;
+	m_log[recordID] = data;
 		//Update the progress UI component
 	if (withUIFeedback && m_progress) {
 		++(*m_progress);
