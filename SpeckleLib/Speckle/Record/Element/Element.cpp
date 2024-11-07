@@ -6,6 +6,7 @@
 #include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Record/Element/Setting/TypeSetting.h"
 #include "Speckle/SpeckleResource.h"
+#include "Active/Serialise/CargoHold.h"
 
 using namespace active::serialise;
 using namespace speckle::database;
@@ -16,6 +17,100 @@ using namespace speckle::utility;
 
 #include <array>
 #include <memory>
+#include <string>
+
+namespace {
+    ///Serialisation fields
+    enum FieldIndex {
+        applicationTypeD,
+    };
+
+    ///Serialisation field IDs
+    static std::array fieldID = {
+        Identity{"applicationType"},
+    };
+
+#ifdef ARCHICAD
+    String GetElemTypeName(API_ElemTypeID elemTypeID) {
+        switch (elemTypeID) {
+        case API_WallID: return "Wall";
+        case API_ColumnID: return "Column";
+        case API_BeamID: return "Beam";
+        case API_WindowID: return "Window";
+        case API_DoorID: return "Door";
+        case API_ObjectID: return "Object";
+        case API_LampID: return "Lamp";
+        case API_SlabID: return "Slab";
+        case API_RoofID: return "Roof";
+        case API_MeshID: return "Mesh";
+        case API_DimensionID: return "Dimension";
+        case API_RadialDimensionID: return "RadialDimension";
+        case API_LevelDimensionID: return "LevelDimension";
+        case API_AngleDimensionID: return "AngleDimension";
+        case API_TextID: return "Text";
+        case API_LabelID: return "Label";
+        case API_ZoneID: return "Zone";
+        case API_HatchID: return "Hatch";
+        case API_LineID: return "Line";
+        case API_PolyLineID: return "PolyLine";
+        case API_ArcID: return "Arc";
+        case API_CircleID: return "Circle";
+        case API_SplineID: return "Spline";
+        case API_HotspotID: return "Hotspot";
+        case API_CutPlaneID: return "CutPlane";
+        case API_CameraID: return "Camera";
+        case API_CamSetID: return "CamSet";
+        case API_GroupID: return "Group";
+        case API_SectElemID: return "SectElem";
+        case API_DrawingID: return "Drawing";
+        case API_PictureID: return "Picture";
+        case API_DetailID: return "Detail";
+        case API_ElevationID: return "Elevation";
+        case API_InteriorElevationID: return "InteriorElevation";
+        case API_WorksheetID: return "Worksheet";
+        case API_HotlinkID: return "Hotlink";
+        case API_CurtainWallID: return "CurtainWall";
+        case API_CurtainWallSegmentID: return "CurtainWallSegment";
+        case API_CurtainWallFrameID: return "CurtainWallFrame";
+        case API_CurtainWallPanelID: return "CurtainWallPanel";
+        case API_CurtainWallJunctionID: return "CurtainWallJunction";
+        case API_CurtainWallAccessoryID: return "CurtainWallAccessory";
+        case API_ShellID: return "Shell";
+        case API_SkylightID: return "Skylight";
+        case API_MorphID: return "Morph";
+        case API_ChangeMarkerID: return "ChangeMarker";
+        case API_StairID: return "Stair";
+        case API_RiserID: return "Riser";
+        case API_TreadID: return "Tread";
+        case API_StairStructureID: return "StairStructure";
+        case API_RailingID: return "Railing";
+        case API_RailingToprailID: return "RailingToprail";
+        case API_RailingHandrailID: return "RailingHandrail";
+        case API_RailingRailID: return "RailingRail";
+        case API_RailingPostID: return "RailingPost";
+        case API_RailingInnerPostID: return "RailingInnerPost";
+        case API_RailingBalusterID: return "RailingBaluster";
+        case API_RailingPanelID: return "RailingPanel";
+        case API_RailingSegmentID: return "RailingSegment";
+        case API_RailingNodeID: return "RailingNode";
+        case API_RailingBalusterSetID: return "RailingBalusterSet";
+        case API_RailingPatternID: return "RailingPattern";
+        case API_RailingToprailEndID: return "RailingToprailEnd";
+        case API_RailingHandrailEndID: return "RailingHandrailEnd";
+        case API_RailingRailEndID: return "RailingRailEnd";
+        case API_RailingToprailConnectionID: return "RailingToprailConnection";
+        case API_RailingHandrailConnectionID: return "RailingHandrailConnection";
+        case API_RailingRailConnectionID: return "RailingRailConnection";
+        case API_RailingEndFinishID: return "RailingEndFinish";
+        case API_BeamSegmentID: return "BeamSegment";
+        case API_ColumnSegmentID: return "ColumnSegment";
+        case API_OpeningID: return "Opening";
+        case API_ExternalElemID: return "ExternalElem";
+        default: return "UnknownElemType";
+        }
+    }
+#endif
+}
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -86,17 +181,28 @@ BIMLink Element::getBIMLink() const {
 
 
 /*--------------------------------------------------------------------
-	Get the element type name, e.g. "Wall", "Roof" etc
+	Get the localised element type name, e.g. "Wall", "Roof" etc
 
 	return: The type name
   --------------------------------------------------------------------*/
-String Element::getTypeName() const {
+String Element::getLocalisedTypeName() const {
 #ifdef ARCHICAD
 	GS::UniString typeName;
 	if (auto err = ACAPI_Element_GetElemTypeName(getHead().type, typeName); err != NoError)
 		return addon()->getLocalString(titleStringLib, unknownElementTypeID);
 	return typeName;
 #endif
+} //Element::getLocalisedTypeName
+
+
+/*--------------------------------------------------------------------
+	Get the element type name, e.g. "Wall", "Roof" etc
+
+	return: The type name
+  --------------------------------------------------------------------*/
+#include "Speckle/Environment/Platform.h"
+String Element::getTypeName() const {
+    return GetElemTypeName(getHead().type.typeID);
 } //Element::getTypeName
 
 
@@ -108,6 +214,12 @@ String Element::getTypeName() const {
 	return: True if the package has added items to the inventory
   --------------------------------------------------------------------*/
 bool Element::fillInventory(Inventory& inventory) const {
+    using enum Entry::Type;
+    inventory.merge(Inventory{
+        {
+            { fieldID[applicationTypeD], applicationTypeD, element },
+        },
+        }.withType(&typeid(Element)));
 	return base::fillInventory(inventory);
 } //Element::fillInventory
 
@@ -120,7 +232,15 @@ bool Element::fillInventory(Inventory& inventory) const {
 	return: The requested cargo (nullptr on failure)
   --------------------------------------------------------------------*/
 Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
-		return base::getCargo(item);
+    if (item.ownerType != &typeid(Element))
+        return base::getCargo(item);
+    using namespace active::serialise;
+    switch (item.index) {
+        case applicationTypeD:
+            return Cargo::Unique{ new CargoHold<ValueWrap<String>, String>{ getTypeName() } };
+        default:
+            return nullptr;	//Requested an unknown index
+    }
 } //Element::getCargo
 
 
