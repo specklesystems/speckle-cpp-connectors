@@ -87,7 +87,7 @@ void Send::run(const String& modelCardID) const {
 			collection->addElement(*element);
 		else {
 				//Report failure to convert element
-			collection->logRecord(link, {ConversionReporter::Data::Status::failure, element->getTypeName(), element->getSpeckleType(),
+			collection->logRecord(link, {ConversionReporter::Data::Status::failure, String{}, String{},
 					connector()->getLocalString(errorString, elementTypeNotConvertedID)}, false);
 			collection->incrementSkippedRecords();
 		}
