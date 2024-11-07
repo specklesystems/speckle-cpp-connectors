@@ -15,6 +15,7 @@ enum SpeckleStringResource {
 enum SpeckleTitleString {
 	untitledProjectID = 1,
 	unknownElementTypeID,
+	conversionProgressID,
 };
 
 

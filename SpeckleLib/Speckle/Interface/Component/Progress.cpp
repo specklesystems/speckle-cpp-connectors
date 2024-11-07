@@ -1,0 +1,98 @@
+#include "Speckle/Interface/Component/Progress.h"
+
+#ifdef ARCHICAD
+#include "ACAPI_Interface.h"
+#endif
+
+using namespace speckle::interfac;
+using namespace speckle::utility;
+
+namespace {
+	
+		///The progress class instance
+	Progress::Shared m_instance;
+		///Mutex controlling management of the progress instance
+	std::mutex m_mutex;
+	
+}
+
+/*--------------------------------------------------------------------
+	Destructor
+  --------------------------------------------------------------------*/
+Progress::~Progress() {
+#ifdef ARCHICAD
+	ACAPI_ProcessWindow_CloseProcessWindow();
+#endif
+} //Progress::~Progress
+
+
+/*--------------------------------------------------------------------
+	Get a progress component instance
+ 
+	title: The process title, i.e. for the overall operation. Ignored if an instance is already in operation
+	stages: The number of stages for completing the overall operation. Ignored if an instance is already in operation
+ 
+	return: The progress instance - can be an active progress component if it has already been started (nullptr on failure)
+  --------------------------------------------------------------------*/
+Progress::Shared Progress::getInstance(const String& title, size_t stages) {
+	const std::lock_guard<std::mutex> lock(m_mutex);
+	if (m_instance)
+		return m_instance;
+#ifdef ARCHICAD
+	GS::UniString gsTitle{title};
+	auto phases = static_cast<Int32>(stages);
+	if (ACAPI_ProcessWindow_InitProcessWindow(&gsTitle, &phases) != NoError)
+		return nullptr;
+#endif
+	m_instance = Progress::Shared{new Progress};
+	return m_instance;
+} //Progress::getInstance
+
+
+/*--------------------------------------------------------------------
+	Addition with assignment
+ 
+	toAdd: The number of steps to add to the progress of the current stage
+  --------------------------------------------------------------------*/
+void Progress::operator+= (size_t toAdd) {
+#ifdef ARCHICAD
+	auto incVal = static_cast<Int32>(toAdd);
+	ACAPI_ProcessWindow_IncProcessValue(&incVal);
+#endif
+} //Progress::operator+=
+
+
+/*--------------------------------------------------------------------
+	Increment operator (increment the the progress of the current stage)
+  --------------------------------------------------------------------*/
+void Progress::operator++ () {
+	operator+=(1);
+} //Progress::operator++
+
+
+/*--------------------------------------------------------------------
+	Start the next stage
+ 
+	title: The stage title
+	stepCount: The number of steps in this stage
+	showPercentage: True to estimate/display the process completion percentage
+  --------------------------------------------------------------------*/
+void Progress::startStage(const String& title, size_t stepCount, bool showPercentage) {
+#ifdef ARCHICAD
+	GS::UniString gsTitle{title};
+	auto maxVal = static_cast<Int32>(stepCount);
+	ACAPI_ProcessWindow_SetNextProcessPhase(&gsTitle, &maxVal, &showPercentage);
+#endif
+} //Progress::startStage
+
+
+/*--------------------------------------------------------------------
+	Determine if the process has been cancelled, e.g. the user cancelling
+ 
+	return: True if the process has been cancelled
+  --------------------------------------------------------------------*/
+bool Progress::isCancelled() {
+#ifdef ARCHICAD
+	return (ACAPI_ProcessWindow_IsProcessCanceled() != NoError);
+#endif
+} //Progress::isCancelled

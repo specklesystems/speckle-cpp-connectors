@@ -14,7 +14,7 @@ namespace speckle::serialise {
 	 
 	 Used as a serialisation manager to collect finishes from serialised objects
 	 */
-	class FinishCollector : public active::serialise::Manager {
+	class FinishCollector : public virtual active::serialise::Manager {
 	public:
 		/*!
 		 Destructor

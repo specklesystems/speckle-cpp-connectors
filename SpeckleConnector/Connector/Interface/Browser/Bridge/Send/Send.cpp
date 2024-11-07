@@ -83,12 +83,16 @@ void Send::run(const String& modelCardID) const {
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
 		selected = senderCard->getFilter().getElementIDs();
 	}
-
 		//Build a collection from the selected elements
 	auto collection = std::make_unique<ProjectCollection>(project);
 	for (const auto& link : selected) {
 		if (auto element = elementDatabase->getElement(link); element)
 			collection->addElement(*element);
+		else {
+				//Report these elements as failures for the report
+			collection->logRecord(link, ConversionReporter::Outcome::failure, false);
+			collection->incrementSkippedRecords();
+		}
 	}
 		//Send the collected information
 	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(collection)});

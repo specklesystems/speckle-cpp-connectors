@@ -428,7 +428,8 @@ Cargo::Unique ModelElement::getCargo(const Inventory::Item& item) const {
 				return Cargo::Unique{new CargoHold<ContainerWrap<MaterialQuantityList>, MaterialQuantityList>{quants}};
 			return nullptr;
 		case propertyID:
-			return std::make_unique<PropertiedWrapper>(*this);
+			return nullptr;
+			//return std::make_unique<PropertiedWrapper>(*this);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

@@ -117,6 +117,11 @@ namespace speckle::record::element {
 		 Set to the default package content
 		 */
 		void setDefault() override;
+		/*!
+		 Use a manager in (de)serialisation processes
+		 @param management The management to use
+		 */
+		void useManagement(active::serialise::Management* management) const override;
 		
 	protected:
 		/*!

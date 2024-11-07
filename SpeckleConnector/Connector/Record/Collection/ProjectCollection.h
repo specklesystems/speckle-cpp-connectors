@@ -3,6 +3,7 @@
 
 #include "Connector/Record/Collection/RecordCollection.h"
 #include "Speckle/Serialise/Collection/FinishCollector.h"
+#include "Speckle/Serialise/Collection/ConversionReporter.h"
 
 #include <stack>
 
@@ -25,7 +26,7 @@ namespace connector::record {
 	 - Other attributes, e.g. materials
 	 Add all this supplementary data to the root container as required
 	 */
-	class ProjectCollection : public RecordCollection, public speckle::serialise::FinishCollector {
+	class ProjectCollection : public RecordCollection, public speckle::serialise::FinishCollector, public speckle::serialise::ConversionReporter {
 	public:
 		
 		// MARK: - Types

@@ -12,6 +12,8 @@
 #include "Speckle/Record/Attribute/Finish.h"
 #include "Speckle/Record/Element/Element.h"
 
+#include <limits>
+
 #ifdef ARCHICAD
 #include <ACAPinc.h>
 #include <ModelMaterial.hpp>
@@ -103,7 +105,10 @@ bool ProjectCollection::addElement(const speckle::record::element::Element& elem
 	RecordCollection* collection = this;
 	for (const auto& childName : collectionNames)
 		collection = collection->getChild(childName);
-	return collection->addIndex(BIMIndex{element.getBIMID(), element.getTableID()});
+	if (!collection->addIndex(BIMIndex{element.getBIMID(), element.getTableID()}))
+		return false;
+	incrementProjectedRecords();
+	return true;
 } //ProjectCollection::addElement
 
 
@@ -123,7 +128,6 @@ bool ProjectCollection::addFinishProxy(const speckle::database::BIMIndex& materi
 } //ProjectCollection::addFinishProxy
 
 
-#ifdef ARCHICAD
 /*--------------------------------------------------------------------
 	Add a ModelerAPI material to the collection (NB: These are not persistent so need to be captured by this method)
  
@@ -138,7 +142,6 @@ bool ProjectCollection::addFinishProxy(const Finish& finish, const speckle::data
 		iter = m_finishes->insert({finish.getBIMID(), finish}).first;
 	return addFinishProxy(speckle::database::BIMIndex{finish.getBIMID()}, objectID);
 } //ProjectCollection::addFinishProxy
-#endif
 
 
 /*--------------------------------------------------------------------
@@ -153,7 +156,7 @@ bool ProjectCollection::fillInventory(active::serialise::Inventory& inventory) c
 	base::fillInventory(inventory);
 	inventory.merge(Inventory{
 		{
-			{ Identity{fieldID[finishProxyID]}, finishProxyID, 100, std::nullopt },
+			{ Identity{fieldID[finishProxyID]}, finishProxyID, std::numeric_limits<size_t>::max(), std::nullopt },
 		},
 	}.withType(&typeid(ProjectCollection)));
 	return true;

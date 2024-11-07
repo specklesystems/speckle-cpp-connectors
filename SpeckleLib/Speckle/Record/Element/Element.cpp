@@ -1,10 +1,12 @@
 #include "Speckle/Record/Element/Element.h"
 
+#include "Active/Serialise/Management/Management.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Record/Element/Memo.h"
 #include "Speckle/Record/Element/Setting/TypeSetting.h"
+#include "Speckle/Serialise/Collection/ConversionReporter.h"
 #include "Speckle/SpeckleResource.h"
 #include "Active/Serialise/CargoHold.h"
 
@@ -13,6 +15,7 @@ using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::record::attribute;
 using namespace speckle::record::element;
+using namespace speckle::serialise;
 using namespace speckle::utility;
 
 #include <array>
@@ -250,6 +253,20 @@ Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
 void Element::setDefault() {
 	base::setDefault();
 } //Element::setDefault
+
+
+/*--------------------------------------------------------------------
+	Use a manager in (de)serialisation processes
+ 
+	management: The management to use
+  --------------------------------------------------------------------*/
+void Element::useManagement(Management* management) const {
+	if (management != nullptr) {
+			//If a conversion report is collected, add this record to the report (also updates progress display in the UI)
+		if (auto reporter = management->get<ConversionReporter>(); reporter != nullptr)
+			reporter->logRecord(getBIMID());
+	}
+} //Element::useManagement
 
 
 /*--------------------------------------------------------------------
