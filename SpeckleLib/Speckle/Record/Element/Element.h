@@ -62,7 +62,12 @@ namespace speckle::record::element {
 		// MARK: - Functions (const)
 
 		/*!
-		 Get the elmeent type name, e.g. "Wall", "Roof" etc
+		 Get the localised element type name, e.g. "Wall", "Roof" etc
+		 @return The type name
+		 */
+		virtual speckle::utility::String getLocalisedTypeName() const;
+		/*!
+		 Get the element type name, e.g. "Wall", "Roof" etc
 		 @return The type name
 		 */
 		virtual speckle::utility::String getTypeName() const;
