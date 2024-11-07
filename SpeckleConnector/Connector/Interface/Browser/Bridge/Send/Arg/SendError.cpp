@@ -39,7 +39,7 @@ bool SendError::fillInventory(active::serialise::Inventory& inventory) const {
 		{
 			{ fieldID[messageID], messageID, element },
 			{ fieldID[cardID], cardID, element, !modelCardID.empty() },
-			{ fieldID[stackID], stackID, element },
+			{ fieldID[stackID], stackID, element, modelCardID.empty() },	//Field not included when a model card is sent
 		},
 	}.withType(&typeid(SendError)));
 	return true;
