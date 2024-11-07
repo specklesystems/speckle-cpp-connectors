@@ -31,7 +31,8 @@ namespace {
 		switch (elemType->notifID)
 		{
 			case APINotifyElement_New: {
-				ACAPI_Element_AttachObserver(elemType->elemHead.guid);
+				// POC: Put this back once we decide to use Object Tracking
+				// ACAPI_Element_AttachObserver(elemType->elemHead.guid);
 				addon()->publishExternal(ElementEvent{newElem, ElementID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Change: {

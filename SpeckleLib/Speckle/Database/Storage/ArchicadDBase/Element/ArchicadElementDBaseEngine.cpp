@@ -110,6 +110,11 @@ namespace {
 				return std::make_unique<Slab>(elementData, tableID);
 			case API_WallID:
 				return std::make_unique<Wall>(elementData, tableID);
+			case API_ObjectID: {
+				// POC: change this case once we are ready to convert Grid Elements
+				if (elementData.header.type.variationID == APIVarId_GridElement)
+					return nullptr;
+			}
 			default:
 				return std::make_unique<GenericModelElement>(elementData, tableID);
 		}
