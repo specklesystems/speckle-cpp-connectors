@@ -237,7 +237,6 @@ Cargo::Unique Element::getCargo(const Inventory::Item& item) const {
     using namespace active::serialise;
     switch (item.index) {
         case applicationTypeD:
-            //return std::make_unique<ValueWrap<String>>(getTypeName());
             return Cargo::Unique{ new CargoHold<ValueWrap<String>, String>{ getTypeName() } };
         default:
             return nullptr;	//Requested an unknown index
