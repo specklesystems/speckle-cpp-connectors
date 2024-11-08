@@ -80,6 +80,7 @@
 		2199BB6F2CDC2B2500A4BEEC /* ConversionReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB6E2CDC2B2500A4BEEC /* ConversionReporter.cpp */; };
 		2199BB732CDCB0D500A4BEEC /* Progress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB702CDCB0D500A4BEEC /* Progress.cpp */; };
 		2199BB742CDCB0D500A4BEEC /* Progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199BB712CDCB0D500A4BEEC /* Progress.h */; };
+		2199BB842CDE508800A4BEEC /* UserCancel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199BB812CDE508800A4BEEC /* UserCancel.h */; };
 		21A0FBA42CB880690023F24E /* FinishCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FB9F2CB880690023F24E /* FinishCollector.h */; };
 		21A0FBB52CBA5E380023F24E /* Str256.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBB42CBA5E380023F24E /* Str256.h */; };
 		21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBB92CBBC04C0023F24E /* ArchicadRGB.h */; };
@@ -312,6 +313,7 @@
 		2199BB6E2CDC2B2500A4BEEC /* ConversionReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConversionReporter.cpp; sourceTree = "<group>"; };
 		2199BB702CDCB0D500A4BEEC /* Progress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Progress.cpp; sourceTree = "<group>"; };
 		2199BB712CDCB0D500A4BEEC /* Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Progress.h; sourceTree = "<group>"; };
+		2199BB812CDE508800A4BEEC /* UserCancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCancel.h; sourceTree = "<group>"; };
 		21A0FB9F2CB880690023F24E /* FinishCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishCollector.h; sourceTree = "<group>"; };
 		21A0FBA92CB9324A0023F24E /* FinishProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
 		21A0FBB42CBA5E380023F24E /* Str256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Str256.h; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				210CC88D2C81A98500610F58 /* Guid64.h */,
 				219351AE2C62CC1A00E5A69C /* String.cpp */,
 				219351AF2C62CC1A00E5A69C /* String.h */,
+				2199BB812CDE508800A4BEEC /* UserCancel.h */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1082,6 +1085,7 @@
 				21A0FBA42CB880690023F24E /* FinishCollector.h in Headers */,
 				21384C192CD585A600D4602B /* Roof.h in Headers */,
 				21AE19802CC7D265004DBCFC /* PropertiedWrapper.h in Headers */,
+				2199BB842CDE508800A4BEEC /* UserCancel.h in Headers */,
 				21A0FC0B2CBE5E220023F24E /* Segment.h in Headers */,
 				215F088D2CA195EC00CD343B /* ArchicadElementDBaseEngine.h in Headers */,
 				21384BC82CD24ADC00D4602B /* ElementEvent.h in Headers */,

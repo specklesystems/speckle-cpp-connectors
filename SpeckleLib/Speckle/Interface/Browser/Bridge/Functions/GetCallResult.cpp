@@ -5,6 +5,7 @@
 #include "Active/Utility/BufferOut.h"
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Element/ModelElement.h"
+#include "Speckle/Utility/UserCancel.h"
 
 #include <utility>
 
@@ -45,7 +46,15 @@ std::unique_ptr<WrappedResultArg> GetCallResult::getResult(const WrappedResultAr
 	if (!item)
 		return nullptr;
 	String jsonOutput;
-	JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
+	try {
+		JSONTransport().send(std::forward<Cargo&&>(*item), Identity{}, jsonOutput);
+	} catch(const UserCancel& userCancel) {
+			//If the user cancels and we have a model card ID, notify the JS UI that the operation is cancelled
+		if (userCancel.getModelCardID())
+			getBridge()->sendEvent("triggerCancelSend",
+								   std::make_unique<CargoHold<ValueWrap<String>, String>>(String{*userCancel.getModelCardID()}));
+		return nullptr;
+	}
 	record::element::ModelElement::resetCache();
 	return std::make_unique<WrappedResultArg>(jsonOutput);
 } //GetCallResult::getResult

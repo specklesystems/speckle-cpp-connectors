@@ -1,5 +1,6 @@
 #include "Speckle/Record/Element/Element.h"
 
+#include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Management/Management.h"
 #include "Speckle/Database/BIMElementDatabase.h"
 #include "Speckle/Environment/Addon.h"
@@ -8,7 +9,7 @@
 #include "Speckle/Record/Element/Setting/TypeSetting.h"
 #include "Speckle/Serialise/Collection/ConversionReporter.h"
 #include "Speckle/SpeckleResource.h"
-#include "Active/Serialise/CargoHold.h"
+#include "Speckle/Utility/UserCancel.h"
 
 using namespace active::serialise;
 using namespace speckle::database;
@@ -263,8 +264,10 @@ void Element::setDefault() {
 void Element::useManagement(Management* management) const {
 	if (management != nullptr) {
 			//If a conversion report is collected, add this record to the report (also updates progress display in the UI)
-		if (auto reporter = management->get<ConversionReporter>(); reporter != nullptr)
-			reporter->logRecord(getBIMID(), {ConversionReporter::Data::Status::success, getTypeName(), getSpeckleType()});
+		if (auto reporter = management->get<ConversionReporter>(); reporter != nullptr) {
+			if (!reporter->logRecord(getBIMID(), {ConversionReporter::Data::Status::success, getTypeName(), getSpeckleType()}))
+				throw UserCancel{reporter->getModelCardID()};
+		}
 	}
 } //Element::useManagement
 

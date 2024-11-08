@@ -2,6 +2,7 @@
 #define SPECKLE_SERIALISE_CONVERSION_REPORTER
 
 #include "Active/Serialise/Management/Manager.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Speckle/Database/Identity/BIMRecordID.h"
 
 namespace speckle::interfac {
@@ -47,6 +48,11 @@ namespace speckle::serialise {
 		// MARK: - Functions (const)
 
 		/*!
+		 Get the conversion report model card ID
+		 @return The model card ID
+		 */
+		const database::RecordID& getModelCardID() const { return m_modelCardID; }
+		/*!
 		 Get the conversion log
 		 @return The conversion log
 		 */
@@ -54,6 +60,11 @@ namespace speckle::serialise {
 
 		// MARK: - Functions (mutating)
 
+		/*!
+		 Set the conversion report model card ID
+		 @param cardID The model card ID
+		 */
+		void setModelCardID(const database::RecordID& cardID) { m_modelCardID = cardID; }
 		/*!
 		 Increment the number of projected records to be logged
 		 */
@@ -77,6 +88,8 @@ namespace speckle::serialise {
 	private:
 			///The reporter log
 		Log m_log;
+			///The ID of the conversion model card
+		database::RecordID m_modelCardID;
 			///The conversion progress UI display
 		std::shared_ptr<interfac::Progress> m_progress;
 			///Projected number of records to be logged (used to calculate UI progress components)
