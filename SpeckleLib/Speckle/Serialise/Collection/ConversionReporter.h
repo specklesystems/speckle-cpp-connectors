@@ -78,7 +78,7 @@ namespace speckle::serialise {
 		 Increment the number of skipped records (and add to the projected record count)
 		 */
 		void incrementSkippedRecords() {
-			++m_projectedRecordCount;
+			++m_skippedRecordCount;
 			incrementProjectedRecords();
 		}
 		/*!
