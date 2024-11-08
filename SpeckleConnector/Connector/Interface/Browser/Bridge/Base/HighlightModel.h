@@ -10,12 +10,12 @@ namespace connector::interfac::browser::bridge {
 		///Argument parameter for a string
 	using StringHold = active::serialise::CargoHold<active::serialise::ValueWrap<speckle::utility::String>, speckle::utility::String>;
 		///Argument type for this method
-	using SendArgs = speckle::interfac::browser::bridge::JSArgType<StringHold>;
+	using HighlightModelArgs = speckle::interfac::browser::bridge::JSArgType<StringHold>;
 
 	/*!
 	 JS Function class to highlight elements from the selected model card in the open document
 	*/
-	class HighlightModel : public speckle::interfac::browser::bridge::BridgeMethod<SendArgs, void> {
+	class HighlightModel : public speckle::interfac::browser::bridge::BridgeMethod<HighlightModelArgs, void> {
 	public:
 
 		// MARK: - Constructors

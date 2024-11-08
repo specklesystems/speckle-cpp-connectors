@@ -13,12 +13,12 @@ namespace connector::interfac::browser::bridge {
 		///Argument parameter for a string
 	using StringListHold = active::serialise::CargoHold<active::serialise::ContainerWrap<StringList>, StringList>;
 		///Argument type for this method
-	using SendArgs = speckle::interfac::browser::bridge::JSArgType<StringListHold>;
+	using HighlightObjectArgs = speckle::interfac::browser::bridge::JSArgType<StringListHold>;
 
 	/*!
 	 JS Function class to highlight objects using passed application IDs
 	*/
-	class HighlightObjects : public speckle::interfac::browser::bridge::BridgeMethod<SendArgs, void> {
+	class HighlightObjects : public speckle::interfac::browser::bridge::BridgeMethod<HighlightObjectArgs, void> {
 	public:
 
 		// MARK: - Constructors

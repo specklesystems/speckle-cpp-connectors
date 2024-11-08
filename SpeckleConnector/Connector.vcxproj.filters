@@ -255,6 +255,9 @@
     <ClCompile Include="Connector\Environment\ConnectorProject.cpp">
       <Filter>Connector\Environment</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Base\HighlightObjects.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -434,6 +437,9 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Arg\SendConversionResult.h">
       <Filter>Connector\Interface\Browser\Bridge\Send\Arg</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Base\HighlightObjects.h">
+      <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

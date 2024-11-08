@@ -8,6 +8,7 @@
 #include "Connector/Interface/Browser/Bridge/Base/RemoveModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/UpdateModel.h"
 #include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
+#include "Connector/Interface/Browser/Bridge/Base/HighlightObjects.h"
 #include "Connector/Interface/Browser/Bridge/Base/OpenUrl.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 
@@ -23,25 +24,6 @@
 
 using namespace connector::interfac::browser::bridge;
 
-namespace {
-#ifdef ARCHICAD
-	void subscribeAllElementsToElementChangeEvents()
-	{
-		auto project = connector::connector()->getActiveProject().lock();
-		if (!project)
-			return;
-
-		auto elementDatabase = project->getElementDatabase();
-		//auto table = elementDatabase->getTables(speckle::database::ElementStorage::TableType::primary2D);
-		//auto allElements = elementDatabase->findElements(nullptr, *table.begin());
-		auto allElements = elementDatabase->findElements();
-
-		for (const auto& id : allElements)
-			ACAPI_Element_AttachObserver(id);
-	}
-#endif
-}
-
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
@@ -53,14 +35,11 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 	addMethod<GetDocumentState>();
 	addMethod<GetSourceApplicationName>();
 	addMethod<GetSourceApplicationVersion>();
+	addMethod<HighlightModel>();
+	addMethod<HighlightObjects>();
+	addMethod<OpenUrl>();
 	addMethod<RemoveModel>();
 	addMethod<UpdateModel>();
-	addMethod<HighlightModel>();
-	addMethod<OpenUrl>();
-
-	// POC: Attaching Observer to all elements is too slow, registration is commented out for now
-	// subscribeAllElementsToElementChangeEvents();
-
 } //BaseBridge::BaseBridge
 
 /*--------------------------------------------------------------------
@@ -73,11 +52,9 @@ BaseBridge::BaseBridge() : BrowserBridge{"baseBinding"} {
 bool BaseBridge::handle(const speckle::event::ProjectEvent& event) {
 	using enum speckle::event::ProjectEvent::Type;
 	switch (event.getType()) {
-		case open: {
+		case open:
 			sendEvent("documentChanged");
-			// POC: Attaching Observer to all elements is too slow, registration is commented out for now
-			// subscribeAllElementsToElementChangeEvents();
-		} break;
+			break;
 		default:
 			break;
 	}

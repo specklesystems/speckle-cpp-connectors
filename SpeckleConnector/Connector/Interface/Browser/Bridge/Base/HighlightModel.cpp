@@ -20,7 +20,7 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-HighlightModel::HighlightModel() : BridgeMethod{"HighlightModel", [&](const SendArgs& args) {
+HighlightModel::HighlightModel() : BridgeMethod{"HighlightModel", [&](const HighlightModelArgs& args) {
 		run(args);
 }} {}
 

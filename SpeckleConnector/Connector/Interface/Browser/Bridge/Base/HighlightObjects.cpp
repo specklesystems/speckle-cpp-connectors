@@ -13,7 +13,7 @@ using namespace speckle::utility;
 /*--------------------------------------------------------------------
 	Default constructor
   --------------------------------------------------------------------*/
-HighlightObjects::HighlightObjects() : BridgeMethod{"HighlightObjects", [&](const SendArgs& args) {
+HighlightObjects::HighlightObjects() : BridgeMethod{"HighlightObjects", [&](const HighlightObjectArgs& args) {
 		run(args);
 }} {}
 
