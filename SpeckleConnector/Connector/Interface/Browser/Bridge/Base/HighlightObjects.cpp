@@ -20,7 +20,8 @@ HighlightObjects::HighlightObjects() : BridgeMethod{"HighlightObjects", [&](cons
 
 /*--------------------------------------------------------------------
 	Highlight specified objects
-	@param objectIDs List of object IDs to be highlighted
+
+	objectIDs: List of object IDs to be highlighted
   --------------------------------------------------------------------*/
 void HighlightObjects::run(const StringList& objectIDs) const {
 	BIMLinkList objectSelection;
