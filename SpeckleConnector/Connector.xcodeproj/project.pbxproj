@@ -32,6 +32,7 @@
 		215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
 		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
 		2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */; };
+		2199BB7E2CDD3FA800A4BEEC /* HighlightObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
 		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
 		21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */; };
@@ -322,6 +323,8 @@
 		2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorProject.h; sourceTree = "<group>"; };
 		2199BB5C2CDA93CE00A4BEEC /* ConnectorImagesFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorImagesFix.grc; path = RFIX/ConnectorImagesFix.grc; sourceTree = "<group>"; };
 		2199BB792CDCEA3900A4BEEC /* SendConversionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendConversionResult.h; sourceTree = "<group>"; };
+		2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighlightObjects.cpp; sourceTree = "<group>"; };
+		2199BB7D2CDD3FA800A4BEEC /* HighlightObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightObjects.h; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
@@ -1058,6 +1061,8 @@
 				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
 				21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */,
 				21A79EC82CCDA45C001754E4 /* HighlightModel.h */,
+				2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */,
+				2199BB7D2CDD3FA800A4BEEC /* HighlightObjects.h */,
 				21384BC92CD2EE7400D4602B /* OpenUrl.cpp */,
 				21384BCC2CD2EE7400D4602B /* OpenUrl.h */,
 				21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */,
@@ -1530,6 +1535,7 @@
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
 				21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
+				2199BB7E2CDD3FA800A4BEEC /* HighlightObjects.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
 				21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,

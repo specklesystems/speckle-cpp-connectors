@@ -43,19 +43,13 @@ void HighlightModel::run(const String& modelCardID) const {
 					std::make_unique<SendError>(connector()->getLocalString(errorString, modelCardNotFoundID), modelCardID));
 		return;
 	}
-	
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
 		auto modelCardSelection = senderCard->getFilter().getElementIDs();
-
 		auto project = connector()->getActiveProject().lock();
-		if (!project) {
-			// TODO: is this OK? should this throw?
-			return;
-		}
-
+		if (!project)
+			return; // TODO: is this OK? should this throw?
 		auto elementDatabase = project->getElementDatabase();
 		elementDatabase->clearSelection();
 		elementDatabase->setSelection(modelCardSelection);
 	}
-
 } //HighlightModel::run

@@ -3,12 +3,9 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
-#include "Connector/Interface/Browser/Bridge/Config/Arg/ConnectorConfig.h"
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
 namespace connector::interfac::browser::bridge {
-	
-	class ConnectorConfig;
 	
 		///Argument parameter for a string
 	using StringHold = active::serialise::CargoHold<active::serialise::ValueWrap<speckle::utility::String>, speckle::utility::String>;
