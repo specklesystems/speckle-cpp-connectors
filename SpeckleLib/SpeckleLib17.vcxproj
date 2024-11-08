@@ -134,6 +134,7 @@
     <ClInclude Include="Speckle\Utility\Guid.h" />
     <ClInclude Include="Speckle\Utility\Guid64.h" />
     <ClInclude Include="Speckle\Utility\String.h" />
+    <ClInclude Include="Speckle\Utility\UserCancel.h" />
     <ClInclude Include="Speckle\Version.h" />
   </ItemGroup>
   <ItemGroup>

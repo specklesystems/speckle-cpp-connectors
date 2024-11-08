@@ -53,7 +53,7 @@ std::unique_ptr<WrappedResultArg> GetCallResult::getResult(const WrappedResultAr
 		if (userCancel.getModelCardID())
 			getBridge()->sendEvent("triggerCancelSend",
 								   std::make_unique<CargoHold<ValueWrap<String>, String>>(String{*userCancel.getModelCardID()}));
-		return nullptr;
+		jsonOutput = "null";
 	}
 	record::element::ModelElement::resetCache();
 	return std::make_unique<WrappedResultArg>(jsonOutput);

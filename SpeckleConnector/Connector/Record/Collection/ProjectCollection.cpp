@@ -51,9 +51,12 @@ namespace {
 	Constructor
  
 	project: The source project
+	modelCardID: The model card ID for the send operation
   --------------------------------------------------------------------*/
-ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project) : base{project->getInfo().name, project},
-		m_management{std::make_unique<Management>()} {
+ProjectCollection::ProjectCollection(speckle::environment::Project::Shared project, const RecordID& modelCardID) :
+	base{project->getInfo().name, project}, ConversionReporter{modelCardID}, m_management {
+	std::make_unique<Management>()
+} {
 	m_management->push_back(this);
 	m_finishes = std::make_unique<FinishCache>();
 	base::useManagement(m_management.get());

@@ -81,7 +81,7 @@ void Send::run(const String& modelCardID) const {
 		selected = senderCard->getFilter().getElementIDs();
 	}
 		//Build a collection from the selected elements
-	auto collection = std::make_unique<ProjectCollection>(project);
+	auto collection = std::make_unique<ProjectCollection>(project, modelCard->getID());
 	for (const auto& link : selected) {
 		if (auto element = elementDatabase->getElement(link); element)
 			collection->addElement(*element);

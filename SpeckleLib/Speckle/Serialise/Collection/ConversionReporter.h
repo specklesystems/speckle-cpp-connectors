@@ -41,6 +41,11 @@ namespace speckle::serialise {
 		// MARK: Constructors
 		
 		/*!
+		 constructor
+		 @param cardID The conversion model card ID
+		 */
+		ConversionReporter(const database::RecordID& cardID) : m_modelCardID{cardID} {}
+		/*!
 		 Destructor
 		 */
 		virtual ~ConversionReporter();

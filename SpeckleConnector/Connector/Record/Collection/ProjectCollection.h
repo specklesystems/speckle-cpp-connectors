@@ -38,8 +38,9 @@ namespace connector::record {
 		/*!
 		 Constructor
 		 @param project The source project
+		 @param modelCardID The model card ID for the send operation
 		 */
-		ProjectCollection(speckle::environment::Project::Shared project);
+		ProjectCollection(speckle::environment::Project::Shared project, const speckle::database::RecordID& modelCardID);
 		ProjectCollection(const ProjectCollection&) = delete;
 		/*!
 		 Destructor

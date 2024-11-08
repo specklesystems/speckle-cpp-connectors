@@ -478,6 +478,9 @@
     <ClInclude Include="Speckle\Serialise\Collection\ConversionReporter.h">
       <Filter>Speckle\Serialise\Collection</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Utility\UserCancel.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
