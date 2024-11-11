@@ -1,13 +1,9 @@
-/*!
-Copyright 2024 Ralph Wessel and Hugh Wessel
-Distributed under the MIT License (See accompanying file LICENSE.txt or copy at https://opensource.org/license/mit/)
-*/
-
 #include "Connector/Record/Model/CardMover.h"
 
 #include "Connector/Record/Model/ReceiverModelCard.h"
 #include "Connector/Record/Model/SenderModelCard.h"
 
+using namespace active::serialise;
 using namespace connector::record;
 
 namespace {
@@ -37,7 +33,7 @@ namespace {
 }
 
 	///The handler for model card packages
-std::shared_ptr<active::serialise::Handler> CardMover::m_handler = std::make_shared<active::serialise::Handler>(attributeTag);
+std::shared_ptr<Handler> CardMover::m_handler = std::make_shared<Handler>(attributeTag);
 
 
 /*--------------------------------------------------------------------

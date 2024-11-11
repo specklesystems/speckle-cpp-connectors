@@ -6,10 +6,10 @@
 namespace connector::record {
 	
 	/*!
-	 Wrapper to box/unbox objects during (de)serialisation, including reading/writing a specified attribute to determine object type
+	 Wrapper to box/unbox model cards during (de)serialisation
 	 
-	 Note that a derived class could also define the package handler, allowing the wrapper to be created via a default constructor that is
-	 automatically bound to a set of internally defined object types
+	 Model cards are polymorphic - this class ensures the type information is included when a card is serialised
+	 and the correct object type is constructed on deserialisation
 	 */
 	class CardMover : public active::serialise::Mover {
 	public:

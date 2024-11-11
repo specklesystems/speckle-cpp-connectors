@@ -1,7 +1,8 @@
 #include "Speckle/Event/Subscriber/SelectionSubscriber.h"
 
 #include "Speckle/Environment/Addon.h"
-#include "Speckle/Database/Identity/Link.h"
+#include "Speckle/Database/Identity/BIMLink.h"
+#include "Speckle/Database/Storage/ArchicadDBase/Element/ArchicadElementDBaseEngine.h"
 #include "Speckle/Event/Type/SelectionEvent.h"
 
 #ifdef ARCHICAD
@@ -23,17 +24,16 @@ namespace {
 	 */
 	GSErrCode __ACENV_CALL selectionCallback(const API_Neig* params) {
 		if (addon() != nullptr) {
-			auto selection = (params == nullptr) ? Link{} : Link{*params};
-			addon()->publishExternal(SelectionEvent{selection});
+			if (auto tableID = ArchicadElementDBaseEngine::getActiveTable(); tableID) {
+				auto selection = (params == nullptr) ? BIMLink{} : BIMLink{*params, *tableID};
+				addon()->publishExternal(SelectionEvent{selection});
+			}
 		}
 		return NoError;
 	}
 #endif
 
 }
-
-	//True if a selection change subscriber has already started (only one is required - there are no variants)
-bool speckle::event::SelectionSubscriber::m_isStarted = false;
 
 /*--------------------------------------------------------------------
 	Get the event subscription list
@@ -66,12 +66,19 @@ bool SelectionSubscriber::receive(const Event& event) {
 	return: True if the participant is able to continue
   --------------------------------------------------------------------*/
 bool SelectionSubscriber::start() {
-	if (m_isStarted)
-		return true;
-	m_isStarted = true;
 #ifdef ARCHICAD
 	return (ACAPI_Notification_CatchSelectionChange(selectionCallback) == NoError);
 #else
 	return false;
 #endif
 } //SelectionSubscriber::start
+
+
+/*--------------------------------------------------------------------
+	Stop participation (release resources etc)
+  --------------------------------------------------------------------*/
+void SelectionSubscriber::stop() {
+#ifdef ARCHICAD
+	ACAPI_Notification_CatchSelectionChange(nullptr);
+#endif
+} //SelectionSubscriber::stop

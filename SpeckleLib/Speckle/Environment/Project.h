@@ -4,6 +4,13 @@
 #include "Active/File/Path.h"
 #include "Speckle/Utility/String.h"
 
+namespace speckle::database {
+	class BIMAttributeDatabase;
+	class BIMElementDatabase;
+	class BIMGroupDatabase;
+	class BIMPropertyDatabase;
+}
+
 namespace speckle::environment {
 	
 	class Addon;
@@ -41,7 +48,7 @@ namespace speckle::environment {
 		/*!
 		 Destructor
 		 */
-		~Project();
+		virtual ~Project();
 		
 		// MARK: - Functions (const)
 		
@@ -50,6 +57,26 @@ namespace speckle::environment {
 		 @return Project information
 		 */
 		Info getInfo() const;
+		/*!
+		 Get the account database
+		 @return The account database
+		 */
+		const database::BIMAttributeDatabase* getAttributeDatabase() const { return m_attribute.get(); }
+		/*!
+		 Get the element database
+		 @return The element database
+		 */
+		const database::BIMElementDatabase* getElementDatabase() const { return m_element.get(); }
+		/*!
+		 Get the group database
+		 @return The group database
+		 */
+		const database::BIMGroupDatabase* getGroupDatabase() const { return m_group.get(); }
+		/*!
+		 Get the property database
+		 @return The property database
+		 */
+		const database::BIMPropertyDatabase* getPropertyDatabase() const { return m_property.get(); }
 		
 		// MARK: - Functions (mutating)
 		
@@ -62,6 +89,16 @@ namespace speckle::environment {
 		 NB: Only the Addon class can create projects. Clients can get the active project from the running add-on.
 		 */
 		Project();
+		
+	private:
+			///The BIM attribute database
+		std::unique_ptr<database::BIMAttributeDatabase> m_attribute;
+			///The BIM element database
+		std::unique_ptr<database::BIMElementDatabase> m_element;
+			///The BIM group database
+		std::unique_ptr<database::BIMGroupDatabase> m_group;
+			///The BIM property database
+		std::unique_ptr<database::BIMPropertyDatabase> m_property;
 	};
 
 }

@@ -8,7 +8,7 @@
 namespace speckle::utility {
 	
 	/*!
-	 Record index class
+	 Speckle exception base
 	*/
 	class Exception : public std::runtime_error {
 	public:

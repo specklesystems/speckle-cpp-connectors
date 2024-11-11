@@ -1,16 +1,23 @@
 #include "Connector/Interface/ConnectorPalette.h"
 
 #include "Active/Event/Event.h"
+#include "Active/Utility/String.h"
+#include "Active/Serialise/JSON/JSONTransport.h"
+#include "Active/Utility/BufferOut.h"
+#include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
 #include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
 #include "Connector/Interface/Browser/Bridge/Config/ConfigBridge.h"
 #include "Connector/Interface/Browser/Bridge/Send/SendBridge.h"
+#include "Connector/Interface/Browser/Bridge/Selection/SelectionBridge.h"
 #include "Connector/Interface/Browser/Bridge/Test/TestBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
 #include "Speckle/Interface/Browser/JSPortal.h"
+
+#include "Speckle/Event/Type/ProjectEvent.h"
 
 #include <ACAPinc.h>
 #include <DGModule.hpp>
@@ -73,9 +80,6 @@ namespace {
 		virtual void PanelResized(const DG::PanelResizeEvent& ev) override;
 		virtual	void PanelCloseRequested(const DG::PanelCloseRequestEvent& ev, bool* accepted) override;
 
-		static GS::Array<BrowserPalette::ElementInfo> GetSelectedElements();
-		static void ModifySelection(const GS::UniString& elemGuidStr, SelectionModification modification);
-
 		static GSErrCode __ACENV_CALL	PaletteControlCallBack(Int32 paletteId, API_PaletteMessageID messageID, GS::IntPtr param);
 
 		static GS::Ref<BrowserPalette> instance;
@@ -106,7 +110,9 @@ ConnectorPalette::ConnectorPalette() {
 	return: The subscription list (an empty list will put the subscriber into a suspended state)
   --------------------------------------------------------------------*/
 ConnectorPalette::Subscription ConnectorPalette::subscription() const {
-	return { {toggleConnectorPaletteID} };
+	auto result = ProjectSubscriber::subscription();
+	result.insert(toggleConnectorPaletteID);
+	return result;
 } //ConnectorPalette::subscription
 
 
@@ -128,15 +134,48 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
-	if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
-		BrowserPalette::GetInstance().Hide ();
-	} else {
-		if (!BrowserPalette::HasInstance())
-			BrowserPalette::CreateInstance();
-		BrowserPalette::GetInstance().Show();
+	if (event == toggleConnectorPaletteID) {
+		if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Hide();
+		}
+		else {
+			if (!BrowserPalette::HasInstance())
+				BrowserPalette::CreateInstance();
+			BrowserPalette::GetInstance().Show();
+		}
+		return true;
 	}
-	return true;
+
+	return ProjectSubscriber::receive(event);
+	
 } //ConnectorPalette::receive
+
+/*--------------------------------------------------------------------
+	Handle a project event
+
+	event: The project event
+
+	return: True if the event should be closed
+ --------------------------------------------------------------------*/
+bool ConnectorPalette::handle(const speckle::event::ProjectEvent& event) {
+	using enum speckle::event::ProjectEvent::Type;
+	switch (event.getType()) {
+	case open: {
+		if (BrowserPalette::HasInstance() && !BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Show();
+			BrowserPalette::GetInstance().EnableItems();
+		}
+	} break;
+	case close: {
+		if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
+			BrowserPalette::GetInstance().Hide();
+		}
+	} break;
+	default:
+		break;
+	}
+	return false;
+} //ConnectorPalette::handle
 
 
 	//NB: Following is placeholder from GS example code - will be refactored to better suit our purposes
@@ -164,9 +203,29 @@ BrowserPalette::BrowserPalette() :
 	BeginEventProcessing();
 		//Install required connector bridges
 	install<AccountBridge>();
-	install<BaseBridge>();
+
+	if (auto ref = install<BaseBridge>(); ref) {
+		if (auto baseBridgeRef = std::dynamic_pointer_cast<BaseBridge>(ref); baseBridgeRef) {
+			connector::connector()->addWeak(baseBridgeRef);
+		}
+	}
+
 	install<ConfigBridge>();
-	install<SendBridge>();
+
+	if (auto ref = install<SendBridge>(); ref) {
+		if (auto sendBridgeRef = std::dynamic_pointer_cast<SendBridge>(ref); sendBridgeRef) {
+			connector::connector()->addWeak(sendBridgeRef);
+			sendBridgeRef->start();
+		}
+	}
+
+	if (auto ref = install<SelectionBridge>(); ref) {
+		if (auto selectionBridgeRef = std::dynamic_pointer_cast<SelectionBridge>(ref); selectionBridgeRef) {
+			connector::connector()->addWeak(selectionBridgeRef);
+			selectionBridgeRef->start();
+		}
+	}
+
 	install<TestBridge>();
 	InitBrowserControl();
 }
@@ -206,7 +265,8 @@ void BrowserPalette::Hide() {
 
 void BrowserPalette::InitBrowserControl() {
 #ifdef TESTING_MODE
-	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/test");
+	//browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/test");
+	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app");
 #else
 	browser->LoadURL("https://boisterous-douhua-e3cefb.netlify.app/");
 #endif
@@ -239,31 +299,6 @@ void BrowserPalette::PanelCloseRequested(const DG::PanelCloseRequestEvent&, bool
 	*accepted = true;
 }
 
-GS::Array<BrowserPalette::ElementInfo> BrowserPalette::GetSelectedElements() {
-	API_SelectionInfo	selectionInfo;
-	GS::Array<API_Neig>	selNeigs;
-	ACAPI_Selection_Get(&selectionInfo, &selNeigs, false, false);
-	BMKillHandle((GSHandle*)&selectionInfo.marquee.coords);
-
-	GS::Array<BrowserPalette::ElementInfo> selectedElements;
-	for(const API_Neig& neig : selNeigs) {
-		API_Elem_Head elemHead = {};
-		elemHead.guid = neig.guid;
-		ACAPI_Element_GetHeader(&elemHead);
-
-		ElementInfo elemInfo;
-		elemInfo.guidStr = APIGuidToString(elemHead.guid);
-		ACAPI_Element_GetElemTypeName(elemHead.type, elemInfo.typeName);
-		ACAPI_Element_GetElementInfoString(&elemHead.guid, &elemInfo.elemID);
-		selectedElements.Push(elemInfo);
-	}
-	return selectedElements;
-}
-
-void BrowserPalette::ModifySelection(const GS::UniString& elemGuidStr, BrowserPalette::SelectionModification modification) {
-	ACAPI_Selection_Select({ API_Neig(APIGuidFromString(elemGuidStr.ToCStr().Get())) }, modification == AddToSelection);
-}
-
 GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_PaletteMessageID messageID, GS::IntPtr param) {
 	switch(messageID) {
 		case APIPalMsg_OpenPalette:
@@ -284,18 +319,10 @@ GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_Palette
 			break;
 
 		case APIPalMsg_HidePalette_End:
-			if(HasInstance() && !GetInstance().IsVisible())
+			if (HasInstance() && !GetInstance().IsVisible())
+			{
 				GetInstance().Show();
-			break;
-
-		case APIPalMsg_DisableItems_Begin:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().DisableItems();
-			break;
-
-		case APIPalMsg_DisableItems_End:
-			if(HasInstance() && GetInstance().IsVisible())
-				GetInstance().EnableItems();
+			}
 			break;
 
 		case APIPalMsg_IsPaletteVisible:

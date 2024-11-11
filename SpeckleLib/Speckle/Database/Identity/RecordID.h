@@ -2,6 +2,7 @@
 #define SPECKLE_DATABASE_ID
 
 #include "Speckle/Utility/String.h"
+#include "Speckle/Utility/Guid.h"
 
 namespace speckle::database {
 	
@@ -14,6 +15,12 @@ namespace speckle::database {
 
 		//A list of record IDs
 	using RecordIDList = std::vector<RecordID>;
+
+	//BIM element record identifier
+	using ElementID = speckle::utility::Guid;
+
+	//A list of element IDs
+	using ElementIDList = std::vector<ElementID>;
 	
 }
 

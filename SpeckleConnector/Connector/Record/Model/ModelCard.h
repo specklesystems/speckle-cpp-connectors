@@ -11,7 +11,10 @@
 namespace connector::record {
 	
 	/*!
-	 A connector send filter
+	 Base class for a Speckle model card
+
+	 A model card captures key information about a model submitted to a Speckle server, e.g. the model ID, the target server
+	 and account, and any settings or filters applicable to the host BIM application and open document
 	 */
 	class ModelCard : public speckle::database::Record {
 	public:
@@ -19,6 +22,8 @@ namespace connector::record {
 		// MARK: - Types
 		
 		using base = speckle::database::Record;
+			///Unique pointer
+		using Unique = std::unique_ptr<ModelCard>;
 			//List of card settings
 		using SettingList = active::container::Vector<connector::record::CardSetting>;
 
@@ -58,18 +63,23 @@ namespace connector::record {
 		 */
 		const speckle::utility::String& getModelID() const { return m_modelID; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the ID of the active BIM project
+		 @return The ID of the active BIM project
 		 */
 		const speckle::utility::String& getProjectID() const { return m_projectID; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the user account ID
+		 @return The user account ID
 		 */
 		const speckle::utility::String& getAccountID() const { return m_accountID; }
 		/*!
-		 Get the setting type
-		 @return The setting type
+		 Get the user commit message
+		 @return The user commit message
+		 */
+		const speckle::utility::String& getMessage() const { return m_message; }
+		/*!
+		 Get the server URL
+		 @return The server URL
 		 */
 		const speckle::utility::String& getServerURL() const { return m_serverURL; }
 		/*!
@@ -106,6 +116,8 @@ namespace connector::record {
 		speckle::database::RecordID m_accountID;
 			///The server URL
 		speckle::utility::String m_serverURL;
+			///The commit message from the user for the card
+		speckle::utility::String m_message;
 			///Settings for the model rendering, e.g. level of detail (LoD)
 		SettingList m_settings;
 			///True if the card has expired

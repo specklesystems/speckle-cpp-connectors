@@ -3,7 +3,7 @@
 
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Utility/Cloner.h"
-#include "Connector/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Speckle/Utility/String.h"
 
 namespace connector::record {
@@ -59,13 +59,13 @@ namespace connector::record {
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		virtual const database::ElementIDList& getElementIDs() const = 0;
+		virtual const speckle::database::ElementIDList& getElementIDs() const = 0;
 		/*!
 		 Determine if the filter has expired because an element in the selection has changed
 		 @param changed The list of changed element IDs
 		 @return True if the one of the changed elements is in the selection
 		 */
-		virtual bool checkExpiry(const database::ElementIDList& changed) const;
+		virtual bool checkExpiry(const speckle::database::ElementIDList& changed) const;
 		
 		// MARK: - Serialisation
 		

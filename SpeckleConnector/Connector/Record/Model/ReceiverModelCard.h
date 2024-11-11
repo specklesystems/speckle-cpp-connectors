@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_RECORD_RECEIVER_MODEL_CARD
 #define CONNECTOR_RECORD_RECEIVER_MODEL_CARD
 
-#include "Connector/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Connector/Record/Model/ModelCard.h"
 
 namespace connector::record {
@@ -37,7 +37,7 @@ namespace connector::record {
 						  const speckle::database::RecordID& modelID, const speckle::utility::String& modelName,
 						  const speckle::database::RecordID& selectedVersion, const speckle::database::RecordID& latestVersion,
 						  const speckle::database::RecordID& accountID, const speckle::utility::String& serverURL,
-						  bool hasDimissedWarning, database::ElementIDList&& bakedObjects, const SettingList& settings) :
+						  bool hasDimissedWarning, speckle::database::ElementIDList&& bakedObjects, const SettingList& settings) :
 				ModelCard{modelID, projectID, accountID, serverURL, settings},
 				m_projectName{projectName}, m_modelName{modelName}, m_selectedVersionID{selectedVersion}, m_latestVersionID{latestVersion},
 				m_hasDismissedUpdateWarning{hasDimissedWarning}, m_bakedObjectIDs{bakedObjects} {}
@@ -78,7 +78,7 @@ namespace connector::record {
 		 Get the IDs of objects accepted in the receive
 		 @return The accepted object IDs
 		 */
-		const database::ElementIDList& getBakedObjectIDs() const { return m_bakedObjectIDs; }
+		const speckle::database::ElementIDList& getBakedObjectIDs() const { return m_bakedObjectIDs; }
 
 		// MARK: - Serialisation
 		
@@ -111,7 +111,7 @@ namespace connector::record {
 			///True if the user has already dismissed an alert to update
 		bool m_hasDismissedUpdateWarning = false;
 			///IDs of objects accepted in the receive
-		database::ElementIDList m_bakedObjectIDs;
+		speckle::database::ElementIDList m_bakedObjectIDs;
 	};
 
 }

@@ -8,7 +8,7 @@ namespace connector::interfac::browser::bridge {
 	class ConnectorConfig;
 	
 	/*!
-	 JS Function class to retrieve the names of the methods supported by the bridge
+	 JS Function class to get the connector software version
 	*/
 	class GetConnectorVersion : public speckle::interfac::browser::bridge::BridgeMethod<void, active::serialise::Cargo> {
 	public:
@@ -23,8 +23,8 @@ namespace connector::interfac::browser::bridge {
 		// MARK: - Functions (const)
 		
 		/*!
-		 Get the host application version
-		 @return The application version
+		 Get the connector software version
+		 @return The connector software version
 		 */
 		std::unique_ptr<active::serialise::Cargo> run() const;
 	};

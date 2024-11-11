@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_RECORD_ARCHICAD_EVERYTHING_FILTER
 #define CONNECTOR_RECORD_ARCHICAD_EVERYTHING_FILTER
 
-#include "Connector/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Connector/Record/Model/Filter/EverythingSendFilter.h"
 
 namespace connector::record {

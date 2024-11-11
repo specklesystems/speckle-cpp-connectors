@@ -1,11 +1,8 @@
 #ifndef SPECKLE_DATABASE_INDEX
 #define SPECKLE_DATABASE_INDEX
 
-#include "Active/Database/Identity/Link.h"
+#include "Active/Database/Identity/Index.h"
 #include "Speckle/Database/Identity/RecordID.h"
-#include "Speckle/Utility/String.h"
-
-#include <any>
 
 namespace speckle::database {
 	

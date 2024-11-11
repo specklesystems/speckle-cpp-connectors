@@ -1,9 +1,9 @@
 #include "Active/File/Directory.h"
 #include "ConnectorResource.h"
 #include "Connector/Connector.h"
-#include "Connector/Database/ModelCardDatabase.h"
-#include "Interface/ConnectorMenu.h"
-#include "Interface/ConnectorPalette.h"
+#include "Connector/Environment/ConnectorProject.h"
+#include "Connector/Interface/ConnectorMenu.h"
+#include "Connector/Interface/ConnectorPalette.h"
 #include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
@@ -11,7 +11,7 @@
 using namespace active::file;
 using namespace active::environment;
 using namespace connector;
-using namespace connector::database;
+using namespace connector::environment;
 using namespace speckle::database;
 using namespace speckle::environment;
 using namespace speckle::utility;
@@ -29,26 +29,27 @@ namespace {
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
-				//The connector 'owns' the model card database, so the publisher list should only hold a weak reference
-			addWeak(m_modelCards.getSubscription());
 		}
 		
 		// MARK: Functions (const)
 		
-		/*!
-		 Get the model card database
-		 @return The model card database
-		 */
-		const ModelCardDatabase* getModelCardDatabase() const override { return &m_modelCards; }
 		/*!
 		 Get the account database
 		 @return The account database
 		 */
 		const AccountDatabase* getAccountDatabase() const override;
 		
+	protected:
+		/*!
+		 Make a new new project. Allows Addon subclasses to define a Project subclass with additional functions/databases
+		 @return A new project instance
+		 */
+		virtual std::shared_ptr<Project> makeProject() const override {
+			return std::dynamic_pointer_cast<Project>(std::make_shared<ConnectorProject>());
+		}
+		
 	private:
 		mutable std::unique_ptr<AccountDatabase> m_account;
-		ModelCardDatabase m_modelCards;
 	};
 	
 		///The active addon instance

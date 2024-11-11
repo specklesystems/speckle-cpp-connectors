@@ -27,22 +27,23 @@ namespace speckle::database {
 		
 		/*!
 		 Default constructor
-		 */
-		Record() : base{active::utility::Guid{true}.operator active::utility::String(),
-				active::utility::Guid{true}.operator active::utility::String()} {}	//TODO: Implement a better default for the ID
-		/*!
-		 Constructor
 		 @param ID The record ID
+		 @param globID The global ID
 		 */
-		Record(speckle::utility::String ID, speckle::utility::String::Option globID = std::nullopt) :
-				base{ID, globID.value_or(active::utility::Guid{true}.operator active::utility::String())} {}
+		Record(speckle::utility::String::Option ID = std::nullopt, speckle::utility::String::Option globID = std::nullopt) :
+				base{ID.value_or(speckle::utility::String{}), globID.value_or(speckle::utility::String{})} {}
 		/*!
 		 Destructor
 		 */
 		virtual ~Record() {}
 		
-		// MARK: - Functions (const)
-
+		// MARK: - Functions (const)	
+		
+		/*!
+		 Get the speckle type identifier
+		 @return The speckle type (relevant objects should override as required, but "Base" is still considered a type on its own)
+		 */
+		virtual speckle::utility::String getSpeckleType() const { return "Base"; }
 		
 		// MARK: - Functions (mutating)
 
@@ -50,11 +51,25 @@ namespace speckle::database {
 		// MARK: - Serialisation
 		
 		/*!
-			Fill an inventory with the package items
-			@param inventory The inventory to receive the package items
-			@return True if the package has added items to the inventory
-		*/
+		 Fill an inventory with the package items
+		 @param inventory The inventory to receive the package items
+		 @return True if the package has added items to the inventory
+		 */
 		bool fillInventory(active::serialise::Inventory& inventory) const override;
+		/*!
+		 Get the specified cargo
+		 @param item The inventory item to retrieve
+		 @return The requested cargo (nullptr on failure)
+		 */
+		active::serialise::Cargo::Unique getCargo(const active::serialise::Inventory::Item& item) const override;
+		/*!
+		 Set to the default package content
+		 */
+		void setDefault() override;
+		
+	private:
+			///Cache for the speckle type during serialisation operations
+		mutable speckle::utility::String::Option m_type;
 	};
 	
 }

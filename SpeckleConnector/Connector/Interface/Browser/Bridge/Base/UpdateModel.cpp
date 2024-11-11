@@ -2,11 +2,12 @@
 
 #include "Connector/Connector.h"
 #include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Interface/Browser/Bridge/Base/Arg/DocumentInfo.h"
 
 using namespace active::container;
 using namespace active::serialise;
-using namespace connector::database;
+using namespace connector::environment;
 using namespace connector::record;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::utility;
@@ -26,11 +27,15 @@ UpdateModel::UpdateModel() : BridgeMethod{"UpdateModel", [&](const ModelCardEven
 
 
 /*--------------------------------------------------------------------
-	Add a model card to document storage
+	Update a model card in document storage
  
-	card: The card to add
+	card: The card to update
   --------------------------------------------------------------------*/
 void UpdateModel::run(const ModelCard& card) const {
-	if (auto modelCardDBase = connector()->getModelCardDatabase(); modelCardDBase != nullptr)
+	auto project = connector()->getActiveProject().lock();
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (!connectorProject)
+		return;
+	if (auto modelCardDBase = connectorProject->getModelCardDatabase(); modelCardDBase != nullptr)
 		modelCardDBase->write(card);
 } //UpdateModel::run

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -61,6 +61,72 @@
     </Filter>
     <Filter Include="Speckle\Database\Storage\DocumentStore">
       <UniqueIdentifier>{c4146af8-d1a1-44cc-9810-cc8da1a705a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element">
+      <UniqueIdentifier>{728f7e85-53d8-4fe0-9994-394010324eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Primitive">
+      <UniqueIdentifier>{896361f5-4195-4662-be29-9e8241cab17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Primitive\Mesh">
+      <UniqueIdentifier>{87719e02-08cb-466e-a01b-66fdbb278efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase">
+      <UniqueIdentifier>{c99c6ba7-cdb5-4182-9df9-debe5559b460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Element">
+      <UniqueIdentifier>{93db2ed5-fd21-4ed1-86ee-f549682f66a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Detached">
+      <UniqueIdentifier>{e9aec552-0aa8-4193-867d-69febdf93139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Detached\Storage">
+      <UniqueIdentifier>{cb77e795-e8d8-4e31-9773-dd32beb694d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Attribute">
+      <UniqueIdentifier>{490a65bd-28e3-4282-bb33-67823e81e825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Attribute">
+      <UniqueIdentifier>{525b6bd6-96e4-48c8-91e9-9710e1e54389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Collection">
+      <UniqueIdentifier>{b5733e9f-b72a-4162-9fc7-8feeec594e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Types">
+      <UniqueIdentifier>{b992941c-66d5-4f16-89b2-82e27a22e229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Serialise\Types\Units">
+      <UniqueIdentifier>{7f43d4ea-b876-4587-a646-90eab81f7976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Interface">
+      <UniqueIdentifier>{b35abbfd-3c47-45dc-8dab-58911f233a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Interface\Assembly">
+      <UniqueIdentifier>{8e7a76da-47ac-4105-9c09-7d7ed62d7136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Property">
+      <UniqueIdentifier>{59676b61-2d58-477f-89f4-e02b8289dec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Property\Wrapper">
+      <UniqueIdentifier>{453d3f53-f2be-462f-8200-552f38a03fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Classification">
+      <UniqueIdentifier>{3b38d86e-823b-4d15-a4c1-95f250a0dfe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\ArchicadDBase\Property">
+      <UniqueIdentifier>{f9b0554b-d0a5-40c0-ac20-22032dc8f30c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Setting">
+      <UniqueIdentifier>{453f429b-4ca8-400b-b60c-df80c6d0ec5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Record\Element\Quants">
+      <UniqueIdentifier>{c05efdee-e236-4db7-9338-a982c9cc673f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Database\Storage\Element">
+      <UniqueIdentifier>{f4cd84a1-f6c1-449f-98cd-d902cc3d9e8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Speckle\Interface\Component">
+      <UniqueIdentifier>{ccb4ca39-1960-4590-ad5a-8f9092924778}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +268,219 @@
     <ClInclude Include="Speckle\Version.h">
       <Filter>Speckle</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Element.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h">
+      <Filter>Speckle\Primitive\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMElementDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Content\BIMRecord.h">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMIndex.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMLink.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Identity\BIMRecordID.h">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedReference.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachedWrap.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\DetachmentManager.h">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedMemoryStore.h">
+      <Filter>Speckle\Serialise\Detached\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Detached\Storage\DetachedObjectStore.h">
+      <Filter>Speckle\Serialise\Detached\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMAttributeDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Attribute.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Finish.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Storey.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\FinishCollector.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\FinishProxy.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\Str256.h">
+      <Filter>Speckle\Serialise\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\Units\LengthUnit.h">
+      <Filter>Speckle\Serialise\Types\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Types\ArchicadRGB.h">
+      <Filter>Speckle\Serialise\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Column.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\ColumnSegment.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Memo.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Part.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Path.h">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Segment.h">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\BIMMemory.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Propertied.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Property.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Setting.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Template.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Value.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropertyWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.h">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Classification\Classified.h">
+      <Filter>Speckle\Record\Classification</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\DrawingElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\GenericDrawingElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\GenericModelElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\ModelElement.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMPropertyDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\BIMGroupDatabase.h">
+      <Filter>Speckle\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.h">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Property\Group.h">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\SegmentedBeam.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Beam.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\BeamSegment.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Environment\Host.h">
+      <Filter>Speckle\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Event\Subscriber\ElementSubscriber.h">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Material.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialQuantity.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\MaterialWrap.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Quants\Surveyor.h">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Setting\Conversion.h">
+      <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h">
+      <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\MeshElem.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Morph.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Roof.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Shell.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Slab.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Wall.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Database\Storage\Element\ElementStorage.h">
+      <Filter>Speckle\Database\Storage\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Interface\Component\Progress.h">
+      <Filter>Speckle\Interface\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Serialise\Collection\ConversionReporter.h">
+      <Filter>Speckle\Serialise\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Utility\UserCancel.h">
+      <Filter>Speckle\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -252,9 +531,6 @@
     <ClCompile Include="Speckle\Utility\Guid64.cpp">
       <Filter>Speckle\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="Speckle\Database\Identity\Link.cpp">
-      <Filter>Speckle\Database\Identity</Filter>
-    </ClCompile>
     <ClCompile Include="Speckle\Database\AccountDatabase.cpp">
       <Filter>Speckle\Database</Filter>
     </ClCompile>
@@ -284,6 +560,186 @@
     </ClCompile>
     <ClCompile Include="Speckle\Event\Type\ProjectEvent.cpp">
       <Filter>Speckle\Event\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Element.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp">
+      <Filter>Speckle\Primitive\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\ArchicadDBaseCore.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Element\ArchicadElementDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMElementDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Content\BIMRecord.cpp">
+      <Filter>Speckle\Database\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Identity\BIMLink.cpp">
+      <Filter>Speckle\Database\Identity</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedReference.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachedWrap.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Detached\DetachmentManager.cpp">
+      <Filter>Speckle\Serialise\Detached</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMAttributeDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Attribute\ArchicadAttributeDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Finish.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Storey.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Types\Units\LengthUnit.cpp">
+      <Filter>Speckle\Serialise\Types\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Column.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\ColumnSegment.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Memo.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Part.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Path.cpp">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Segment.cpp">
+      <Filter>Speckle\Record\Element\Interface\Assembly</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Utility\BIMMemory.cpp">
+      <Filter>Speckle\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Propertied.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Property.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Setting.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Template.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Value.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropertiedWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropertyWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Wrapper\PropsAndClassWrapper.cpp">
+      <Filter>Speckle\Record\Property\Wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Classification\Classified.cpp">
+      <Filter>Speckle\Record\Classification</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\DrawingElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\GenericDrawingElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\GenericModelElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\ModelElement.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMPropertyDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadPropertyDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\BIMGroupDatabase.cpp">
+      <Filter>Speckle\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Database\Storage\ArchicadDBase\Property\ArchicadGroupDBaseEngine.cpp">
+      <Filter>Speckle\Database\Storage\ArchicadDBase\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Property\Group.cpp">
+      <Filter>Speckle\Record\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\SegmentedBeam.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Beam.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\BeamSegment.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Environment\Host.cpp">
+      <Filter>Speckle\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Event\Subscriber\ElementSubscriber.cpp">
+      <Filter>Speckle\Event\Subscriber</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Material.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialQuantity.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\MaterialWrap.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Quants\Surveyor.cpp">
+      <Filter>Speckle\Record\Element\Quants</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp">
+      <Filter>Speckle\Record\Element\Setting</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\MeshElem.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Morph.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Roof.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Shell.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Slab.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Wall.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Interface\Component\Progress.cpp">
+      <Filter>Speckle\Interface\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Serialise\Collection\ConversionReporter.cpp">
+      <Filter>Speckle\Serialise\Collection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,11 +9,11 @@ namespace connector::interfac::browser::bridge {
 	
 	class ConnectorConfig;
 	
-		///Argument for a JS call to update the configuration
+		///Argument for a JS call to update the display configuration settings
 	using UpdateArgs = speckle::interfac::browser::bridge::JSArgType<ConnectorConfig>;
 
 	/*!
-	 JS Function class to retrieve the names of the methods supported by the bridge
+	 JS Function class to update the display configuration settings 
 	*/
 	class UpdateConfig : public speckle::interfac::browser::bridge::BridgeMethod<UpdateArgs, void> {
 	public:
@@ -22,7 +22,6 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		UpdateConfig();
 

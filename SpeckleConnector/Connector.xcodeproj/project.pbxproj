@@ -23,13 +23,27 @@
 
 /* Begin PBXBuildFile section */
 		210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8812C80E6A300610F58 /* TriggerEvent.cpp */; };
+		21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC92CD2EE7400D4602B /* OpenUrl.cpp */; };
 		213CC39C2B1101F500088049 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151077C2AEDB9070022CD24 /* Cocoa.framework */; };
 		214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
 		215F082A2C947F4400CD343B /* CardMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08262C947F4400CD343B /* CardMover.cpp */; };
 		215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F082C2C94C5C000CD343B /* FilterMover.cpp */; };
 		215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08362C95808B00CD343B /* ReceiverModelCard.cpp */; };
 		215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
+		2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
+		2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */; };
+		2199BB7E2CDD3FA800A4BEEC /* HighlightObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */; };
 		219F30422C769283009834E9 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219F30402C769282009834E9 /* ConfigTests.cpp */; };
+		21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
+		21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */; };
+		21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B22CC15C540087E732 /* SelectionInfo.cpp */; };
+		21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B52CC15C540087E732 /* GetSelection.cpp */; };
+		21A890BE2CC15C540087E732 /* SelectionBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B72CC15C540087E732 /* SelectionBridge.cpp */; };
+		21AEF9EB2CAB56E5000B8681 /* SendError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E32CAB56E5000B8681 /* SendError.cpp */; };
+		21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */; };
+		21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9EE2CAB5720000B8681 /* SendObject.cpp */; };
+		21AEF9FA2CAC3897000B8681 /* ConversionResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */; };
+		21AEF9FD2CAD3FD8000B8681 /* GetSendSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */; };
 		21B67CA32C769CB400FD64FC /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
 		21B67CA42C769CB400FD64FC /* libArchicad27.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69ECD2C64C035008B6A06 /* libArchicad27.a */; };
 		21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA52C77329800FD64FC /* BaseBridge.cpp */; };
@@ -220,6 +234,7 @@
 		21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */; };
 		21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB42C762EF0008B6A06 /* ConfigBridge.cpp */; };
 		21F69FBC2C762EF0008B6A06 /* GetConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB62C762EF0008B6A06 /* GetConfig.cpp */; };
+		21FF70492CA1A7F400AAD99A /* RecordCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21FF70462CA1A7F400AAD99A /* RecordCollection.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +299,8 @@
 /* Begin PBXFileReference section */
 		210CC8812C80E6A300610F58 /* TriggerEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriggerEvent.cpp; sourceTree = "<group>"; };
 		210CC8822C80E6A300610F58 /* TriggerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggerEvent.h; sourceTree = "<group>"; };
+		21384BC92CD2EE7400D4602B /* OpenUrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenUrl.cpp; sourceTree = "<group>"; };
+		21384BCC2CD2EE7400D4602B /* OpenUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUrl.h; sourceTree = "<group>"; };
 		213CC3A52B1101F500088049 /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2151077C2AEDB9070022CD24 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		215F08262C947F4400CD343B /* CardMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardMover.cpp; sourceTree = "<group>"; };
@@ -298,10 +315,39 @@
 		215F08452C9633A800CD343B /* EverythingSendFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EverythingSendFilter.cpp; sourceTree = "<group>"; };
 		215F084A2C9782F100CD343B /* ArchicadEverythingFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchicadEverythingFilter.h; sourceTree = "<group>"; };
 		2161FD902BF2600C006D9527 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectCollection.cpp; sourceTree = "<group>"; };
+		2192460C2CA3469D00CF5703 /* ProjectCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCollection.h; sourceTree = "<group>"; };
 		219388682C4E5DE2002A0180 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		2199BB512CDA481A00A4BEEC /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
+		2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectorProject.cpp; sourceTree = "<group>"; };
+		2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectorProject.h; sourceTree = "<group>"; };
+		2199BB5C2CDA93CE00A4BEEC /* ConnectorImagesFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorImagesFix.grc; path = RFIX/ConnectorImagesFix.grc; sourceTree = "<group>"; };
+		2199BB792CDCEA3900A4BEEC /* SendConversionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendConversionResult.h; sourceTree = "<group>"; };
+		2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighlightObjects.cpp; sourceTree = "<group>"; };
+		2199BB7D2CDD3FA800A4BEEC /* HighlightObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightObjects.h; sourceTree = "<group>"; };
 		219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Connector-AC27-Test.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219F30402C769282009834E9 /* ConfigTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Connector-AC27-Debug.xctestplan"; sourceTree = SOURCE_ROOT; };
+		21A0FB942CB723240023F24E /* FinishProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishProxy.cpp; sourceTree = "<group>"; };
+		21A0FB972CB723240023F24E /* FinishProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishProxy.h; sourceTree = "<group>"; };
+		21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighlightModel.cpp; sourceTree = "<group>"; };
+		21A79EC82CCDA45C001754E4 /* HighlightModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightModel.h; sourceTree = "<group>"; };
+		21A890B22CC15C540087E732 /* SelectionInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionInfo.cpp; sourceTree = "<group>"; };
+		21A890B32CC15C540087E732 /* SelectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionInfo.h; sourceTree = "<group>"; };
+		21A890B52CC15C540087E732 /* GetSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSelection.cpp; sourceTree = "<group>"; };
+		21A890B62CC15C540087E732 /* GetSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSelection.h; sourceTree = "<group>"; };
+		21A890B72CC15C540087E732 /* SelectionBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectionBridge.cpp; sourceTree = "<group>"; };
+		21A890B82CC15C540087E732 /* SelectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionBridge.h; sourceTree = "<group>"; };
+		21AEF9E32CAB56E5000B8681 /* SendError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendError.cpp; sourceTree = "<group>"; };
+		21AEF9E42CAB56E5000B8681 /* SendError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendError.h; sourceTree = "<group>"; };
+		21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendViaBrowserArgs.cpp; sourceTree = "<group>"; };
+		21AEF9E62CAB56E5000B8681 /* SendViaBrowserArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViaBrowserArgs.h; sourceTree = "<group>"; };
+		21AEF9ED2CAB5720000B8681 /* SendObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendObject.h; sourceTree = "<group>"; };
+		21AEF9EE2CAB5720000B8681 /* SendObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendObject.cpp; sourceTree = "<group>"; };
+		21AEF9F82CAC3897000B8681 /* ConversionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionResult.h; sourceTree = "<group>"; };
+		21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConversionResult.cpp; sourceTree = "<group>"; };
+		21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSendSettings.cpp; sourceTree = "<group>"; };
+		21AEF9FC2CAD3FD8000B8681 /* GetSendSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSendSettings.h; sourceTree = "<group>"; };
 		21B67CA52C77329800FD64FC /* BaseBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseBridge.cpp; sourceTree = "<group>"; };
 		21B67CA62C77329800FD64FC /* BaseBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseBridge.h; sourceTree = "<group>"; };
 		21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GetSourceApplicationName.cpp; sourceTree = "<group>"; };
@@ -511,7 +557,6 @@
 		21D1E9AC2BF14AF200957EAA /* TeamworkProductVersion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkProductVersion.framework; path = "../Archicad 27/Support/Frameworks/TeamworkProductVersion.framework"; sourceTree = "<group>"; };
 		21D1EA452BF14B0700957EAA /* VWMM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VWMM.framework; path = "../Vectorworks 2024/SDKLib/LibMac/Release/VWMM.framework"; sourceTree = "<group>"; };
 		21D1EA4A2BF14BBC00957EAA /* Connector.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = Connector.grc; path = RINT/Connector.grc; sourceTree = "<group>"; };
-		21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorFix.grc; path = RFIX/ConnectorFix.grc; sourceTree = "<group>"; };
 		21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Module-Info27.plist"; path = "RINT.Archicad/EN-GB/Module-Info27.plist"; sourceTree = "<group>"; };
 		21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SpeckleLib.xcodeproj; path = ../SpeckleLib/SpeckleLib.xcodeproj; sourceTree = "<group>"; };
 		21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConnectorMenu.grc; path = RINT/ConnectorMenu.grc; sourceTree = "<group>"; };
@@ -534,6 +579,8 @@
 		21F69FB72C762EF0008B6A06 /* GetConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetConfig.h; sourceTree = "<group>"; };
 		21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UpdateConfig.cpp; sourceTree = "<group>"; };
 		21F69FBE2C7630B3008B6A06 /* UpdateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateConfig.h; sourceTree = "<group>"; };
+		21FF70462CA1A7F400AAD99A /* RecordCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordCollection.cpp; sourceTree = "<group>"; };
+		21FF70472CA1A7F400AAD99A /* RecordCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCollection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -929,6 +976,24 @@
 			path = Identity;
 			sourceTree = "<group>";
 		};
+		2199BB4E2CDA47F900A4BEEC /* Fixed */ = {
+			isa = PBXGroup;
+			children = (
+				2199BB512CDA481A00A4BEEC /* ConnectorFix.grc */,
+				2199BB5C2CDA93CE00A4BEEC /* ConnectorImagesFix.grc */,
+			);
+			name = Fixed;
+			sourceTree = "<group>";
+		};
+		2199BB542CDA4B1700A4BEEC /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */,
+				2199BB532CDA4B1700A4BEEC /* ConnectorProject.h */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		219F30412C769282009834E9 /* ConnectorTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -937,6 +1002,43 @@
 				219F30432C7693B6009834E9 /* Connector-AC27-Debug.xctestplan */,
 			);
 			path = ConnectorTests;
+			sourceTree = "<group>";
+		};
+		21A890B42CC15C540087E732 /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21A890B22CC15C540087E732 /* SelectionInfo.cpp */,
+				21A890B32CC15C540087E732 /* SelectionInfo.h */,
+			);
+			path = Arg;
+			sourceTree = "<group>";
+		};
+		21A890B92CC15C540087E732 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				21A890B42CC15C540087E732 /* Arg */,
+				21A890B52CC15C540087E732 /* GetSelection.cpp */,
+				21A890B62CC15C540087E732 /* GetSelection.h */,
+				21A890B72CC15C540087E732 /* SelectionBridge.cpp */,
+				21A890B82CC15C540087E732 /* SelectionBridge.h */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
+		21AEF9E72CAB56E5000B8681 /* Arg */ = {
+			isa = PBXGroup;
+			children = (
+				21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */,
+				21AEF9F82CAC3897000B8681 /* ConversionResult.h */,
+				2199BB792CDCEA3900A4BEEC /* SendConversionResult.h */,
+				21AEF9E32CAB56E5000B8681 /* SendError.cpp */,
+				21AEF9E42CAB56E5000B8681 /* SendError.h */,
+				21AEF9EE2CAB5720000B8681 /* SendObject.cpp */,
+				21AEF9ED2CAB5720000B8681 /* SendObject.h */,
+				21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */,
+				21AEF9E62CAB56E5000B8681 /* SendViaBrowserArgs.h */,
+			);
+			path = Arg;
 			sourceTree = "<group>";
 		};
 		21B67CAB2C77329800FD64FC /* Base */ = {
@@ -957,6 +1059,12 @@
 				21B67CA82C77329800FD64FC /* GetSourceApplicationName.h */,
 				21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */,
 				21B67CAA2C77329800FD64FC /* GetSourceApplicationVersion.h */,
+				21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */,
+				21A79EC82CCDA45C001754E4 /* HighlightModel.h */,
+				2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */,
+				2199BB7D2CDD3FA800A4BEEC /* HighlightObjects.h */,
+				21384BC92CD2EE7400D4602B /* OpenUrl.cpp */,
+				21384BCC2CD2EE7400D4602B /* OpenUrl.h */,
 				21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */,
 				21D0BDD62C935DAE0077E104 /* RemoveModel.h */,
 				21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */,
@@ -1023,8 +1131,11 @@
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
+				21AEF9E72CAB56E5000B8681 /* Arg */,
 				21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */,
 				21D0BD952C8F13F30077E104 /* GetSendFilters.h */,
+				21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */,
+				21AEF9FC2CAD3FD8000B8681 /* GetSendSettings.h */,
 				21D0BD8D2C8EE4490077E104 /* Send.cpp */,
 				21D0BD8A2C8EE4490077E104 /* Send.h */,
 				21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */,
@@ -1036,6 +1147,7 @@
 		21D0BDD82C9387E60077E104 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				21FF70482CA1A7F400AAD99A /* Collection */,
 				21D0BDD92C9387F70077E104 /* Model */,
 			);
 			path = Record;
@@ -1080,7 +1192,6 @@
 			isa = PBXGroup;
 			children = (
 				21D1EA4A2BF14BBC00957EAA /* Connector.grc */,
-				21D1EA4B2BF14BC700957EAA /* ConnectorFix.grc */,
 				21F69EDB2C64ED10008B6A06 /* ConnectorMenu.grc */,
 				21D1EA4C2BF14BF000957EAA /* Module-Info27.plist */,
 				21F69EFE2C66AD55008B6A06 /* SpecklePalette.grc */,
@@ -1133,6 +1244,7 @@
 				21B67CCD2C77694500FD64FC /* Connector.h */,
 				21F69F102C677BC0008B6A06 /* ConnectorResource.h */,
 				21B67CCB2C77670400FD64FC /* Database */,
+				2199BB542CDA4B1700A4BEEC /* Environment */,
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
 				21D0BDD82C9387E60077E104 /* Record */,
@@ -1159,6 +1271,7 @@
 				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
 				21D0BD5D2C89BFEA0077E104 /* Send */,
+				21A890B92CC15C540087E732 /* Selection */,
 				21B67CD82C78C83800FD64FC /* Test */,
 			);
 			path = Bridge;
@@ -1188,6 +1301,19 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		21FF70482CA1A7F400AAD99A /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				21A0FB942CB723240023F24E /* FinishProxy.cpp */,
+				21A0FB972CB723240023F24E /* FinishProxy.h */,
+				21FF70462CA1A7F400AAD99A /* RecordCollection.cpp */,
+				21FF70472CA1A7F400AAD99A /* RecordCollection.h */,
+				2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */,
+				2192460C2CA3469D00CF5703 /* ProjectCollection.h */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		7EA5F91E157FA18400693CEA /* EN-GB */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,6 +1325,7 @@
 		81494D9D09DA5892006864FB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				2199BB4E2CDA47F900A4BEEC /* Fixed */,
 				7EA5F91E157FA18400693CEA /* EN-GB */,
 			);
 			name = Resource;
@@ -1393,28 +1520,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AEF9FA2CAC3897000B8681 /* ConversionResult.cpp in Sources */,
 				21D0BDAB2C8F363E0077E104 /* CardSetting.cpp in Sources */,
 				21B67CE32C78D1FB00FD64FC /* SayHiArg.cpp in Sources */,
+				21AEF9EB2CAB56E5000B8681 /* SendError.cpp in Sources */,
 				215F08462C9633A800CD343B /* EverythingSendFilter.cpp in Sources */,
 				21F69FBB2C762EF0008B6A06 /* ConfigBridge.cpp in Sources */,
 				21F69F8A2C70D2C4008B6A06 /* AccountBridge.cpp in Sources */,
+				21A890BE2CC15C540087E732 /* SelectionBridge.cpp in Sources */,
 				21D0BD8E2C8EE4490077E104 /* Send.cpp in Sources */,
 				21D0BDCF2C92DAC60077E104 /* AddModel.cpp in Sources */,
 				21B67CF72C78D4DE00FD64FC /* GetComplexType.cpp in Sources */,
 				21D0BDDC2C93897B0077E104 /* SenderModelCard.cpp in Sources */,
 				21B67CAE2C77329800FD64FC /* GetSourceApplicationVersion.cpp in Sources */,
+				21A0FB982CB723240023F24E /* FinishProxy.cpp in Sources */,
 				21B67CC32C77649F00FD64FC /* GetDocumentState.cpp in Sources */,
+				2199BB7E2CDD3FA800A4BEEC /* HighlightObjects.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
 				21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
+				2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */,
 				21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */,
 				210CC8832C80E6A300610F58 /* TriggerEvent.cpp in Sources */,
 				21B67CEB2C78D27200FD64FC /* DocumentInfo.cpp in Sources */,
 				21B67CB92C774BFA00FD64FC /* GetConnectorVersion.cpp in Sources */,
 				21B67CD92C78C83800FD64FC /* TestBridge.cpp in Sources */,
+				21AEF9FD2CAD3FD8000B8681 /* GetSendSettings.cpp in Sources */,
 				214B7A372C764BCD00D586C1 /* UpdateConfig.cpp in Sources */,
+				21AEF9EC2CAB56E5000B8681 /* SendViaBrowserArgs.cpp in Sources */,
+				21FF70492CA1A7F400AAD99A /* RecordCollection.cpp in Sources */,
+				21A79EC92CCDA45C001754E4 /* HighlightModel.cpp in Sources */,
 				21B67CC02C775A0D00FD64FC /* GetDocumentInfo.cpp in Sources */,
 				21D0BDD42C935D1A0077E104 /* UpdateModel.cpp in Sources */,
+				21A890BD2CC15C540087E732 /* GetSelection.cpp in Sources */,
 				21B67CE72C78D23B00FD64FC /* ConnectorConfig.cpp in Sources */,
 				21B67CAD2C77329800FD64FC /* GetSourceApplicationName.cpp in Sources */,
 				21D0BDE02C9393980077E104 /* SendFilter.cpp in Sources */,
@@ -1422,6 +1560,10 @@
 				215F082A2C947F4400CD343B /* CardMover.cpp in Sources */,
 				215F08372C95808B00CD343B /* ReceiverModelCard.cpp in Sources */,
 				21D0BDD72C935DAE0077E104 /* RemoveModel.cpp in Sources */,
+				21A890BC2CC15C540087E732 /* SelectionInfo.cpp in Sources */,
+				2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */,
+				21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */,
+				21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
@@ -1967,7 +2109,7 @@
 				);
 				LOCALISATION_SUFFIX = "EN-GB";
 				MACH_O_TYPE = mh_bundle;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
 				OBJROOT = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -2074,7 +2216,7 @@
 				);
 				LOCALISATION_SUFFIX = "EN-GB";
 				MACH_O_TYPE = mh_bundle;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				NNA_WARNING_CPLUSPLUSFLAGS = "-Wno-deprecated";
 				OBJROOT = "";
 				PLUGIN_FOLDER = "";

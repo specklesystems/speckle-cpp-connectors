@@ -2,10 +2,34 @@
 
 #include "Active/Serialise/CargoHold.h"
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Connector/Connector.h"
+#include "Connector/ConnectorResource.h"
+#include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Environment/ConnectorProject.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendConversionResult.h"
+#include "Connector/Interface/Browser/Bridge/Send/Arg/SendViaBrowserArgs.h"
+#include "Connector/Record/Collection/ProjectCollection.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
+#include "Speckle/Database/AccountDatabase.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Database/Content/BIMRecord.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Environment/Host.h"
+#include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
+#include "Speckle/Record/Credentials/Account.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Serialise/Detached/Storage/DetachedMemoryStore.h"
 #include "Speckle/Utility/Exception.h"
 
 using namespace active::serialise;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
+using namespace connector::record;
+using namespace speckle::database;
+using namespace speckle::environment;
+using namespace speckle::record::element;
+using namespace speckle::serialise;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
@@ -19,9 +43,56 @@ Send::Send() : BridgeMethod{"Send", [&](const SendArgs& args) {
 /*--------------------------------------------------------------------
 	Send a specified model
  
-	modelCardID: The ID of the madel to send
+	modelCardID: The ID of the model card identifying the objects to send
   --------------------------------------------------------------------*/
 void Send::run(const String& modelCardID) const {
-		///TODO: Find and send selected elements - the following is a placeholder
-	throw Exception{"No objects were found to convert. Please update your publish filter!"};
+		//We can currently only send from the 3D model view
+	host()->makeModelViewActive(true);
+		//Get the active project
+	auto project = connector()->getActiveProject().lock();
+	if (!project) {
+		getBridge()->sendEvent("setModelError",
+					std::make_unique<SendError>(connector()->getLocalString(errorString, noProjectOpenID), modelCardID));
+		return;
+	}
+	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+	if (!connectorProject)
+		return;
+		//Find the specified model card
+	auto modelCardDatabase = connectorProject->getModelCardDatabase();
+	auto modelCard = modelCardDatabase->getCard(modelCardID);
+	if (!modelCard) {
+		getBridge()->sendEvent("setModelError",
+					std::make_unique<SendError>(connector()->getLocalString(errorString, modelCardNotFoundID), modelCardID));
+		return;
+	}
+		//Get the user account
+	auto accountDatabase = connector()->getAccountDatabase();
+	auto account = accountDatabase->getAccount(modelCard->getAccountID(), modelCard->getServerURL());
+	if (!account) {
+		getBridge()->sendEvent("setModelError",
+					std::make_unique<SendError>(connector()->getLocalString(errorString, accountNotFoundID), modelCardID));
+		return;
+	}
+		//Get the selected elements from the modelcard
+	auto elementDatabase = project->getElementDatabase();
+	ElementIDList selected{};
+	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
+		selected = senderCard->getFilter().getElementIDs();
+	}
+		//Build a collection from the selected elements
+	auto collection = std::make_unique<ProjectCollection>(project, modelCard->getID());
+	for (const auto& link : selected) {
+		if (auto element = elementDatabase->getElement(link); element)
+			collection->addElement(*element);
+		else {
+				//Report failure to convert element
+			collection->logRecord(link, {ConversionReporter::Data::Status::failure, String{}, String{},
+					connector()->getLocalString(errorString, elementTypeNotConvertedID)}, false);
+			collection->incrementSkippedRecords();
+		}
+	}
+		//Send the collected information
+	auto result = std::make_unique<SendViaBrowserArgs>(*modelCard, *account, SendObject{std::move(collection)});
+	getBridge()->sendEvent("sendByBrowser", std::move(result));
 } //Send::run

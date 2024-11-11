@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_RECORD_DIRECT_SELECT_SEND_FILTER
 #define CONNECTOR_RECORD_DIRECT_SELECT_SEND_FILTER
 
-#include "Connector/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/RecordID.h"
 #include "Connector/Record/Model/Filter/SendFilter.h"
 
 namespace connector::record {
@@ -36,7 +36,7 @@ namespace connector::record {
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		const database::ElementIDList& getElementIDs() const override { return m_selectedElements; }
+		const speckle::database::ElementIDList& getElementIDs() const override { return m_selectedElements; }
 		
 		// MARK: - Serialisation
 		
@@ -59,7 +59,7 @@ namespace connector::record {
 		
 	private:
 			///A list of selected element IDs
-		database::ElementIDList m_selectedElements;
+		speckle::database::ElementIDList m_selectedElements;
 	};
 
 }
