@@ -3,6 +3,7 @@ build/
 Documents/
 ResourceObjects/
 Install/
+enc_temp_folder/
 .vs/
 .vscode/
 xcuserdata/
@@ -26,3 +27,6 @@ XCBuildData/
 .idea
 *.mui
 *.aps
+**/obj
+**/bin
+output/

@@ -72,6 +72,16 @@ ModelCardDatabase::~ModelCardDatabase() {}
 
 
 /*--------------------------------------------------------------------
+	Get a specified card from the database
+ 
+	return: The requested card (nullptr on failure)
+  --------------------------------------------------------------------*/
+ModelCard::Unique ModelCardDatabase::getCard(const speckle::utility::String& cardID) const {
+	return m_store->getObject(cardID);
+} //ModelCardDatabase::getCard
+
+
+/*--------------------------------------------------------------------
 	Get all model cards
  
 	return: All the cards
@@ -99,6 +109,16 @@ void ModelCardDatabase::write(const ModelCard& card) const {
 void ModelCardDatabase::erase(const String& cardID) const {
 	m_store->erase(cardID);
 } //ModelCardDatabase::erase
+
+
+/*--------------------------------------------------------------------
+	Get the unique ID of the engine storage
+ 
+	return: The databas unique ID
+  --------------------------------------------------------------------*/
+RecordID ModelCardDatabase::getStoreID() const {
+	return m_engine->getUniqueID();
+} //ModelCardDatabase::getStoreID
 
 
 /*--------------------------------------------------------------------

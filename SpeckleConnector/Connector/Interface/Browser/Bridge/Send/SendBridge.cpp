@@ -1,9 +1,28 @@
 #include "Connector/Interface/Browser/Bridge/Send/SendBridge.h"
-
 #include "Connector/Interface/Browser/Bridge/Send/GetSendFilters.h"
+#include "Connector/Interface/Browser/Bridge/Send/GetSendSettings.h"
 #include "Connector/Interface/Browser/Bridge/Send/Send.h"
+#include "Connector/Connector.h"
+#include "Connector/ConnectorResource.h"
+#include "Connector/Database/ModelCardDatabase.h"
+#include "Connector/Environment/ConnectorProject.h"
+#include "Speckle/Event/Type/ElementEvent.h"
+#include "Speckle/Record/Element/Element.h"
+#include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Project.h"
+#include "Speckle/Database/Identity/RecordID.h"
+#include "Active/Serialise/CargoHold.h"
+#include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Connector/Record/Model/SenderModelCard.h"
+#include "Connector/Record/Model/Filter/SendFilter.h"
 
+using namespace speckle::database;
+using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
+using namespace speckle::utility;
+using namespace speckle::event;
+using namespace active::serialise;
+using namespace connector::record;
 
 /*--------------------------------------------------------------------
 	Default constructor
@@ -11,5 +30,58 @@ using namespace connector::interfac::browser::bridge;
 SendBridge::SendBridge() : BrowserBridge{"sendBinding"} {
 		//Add bridge methods
 	addMethod<GetSendFilters>();
+	addMethod<GetSendSettings>();
 	addMethod<Send>();
 } //SendBridge::SendBridge
+
+
+/*--------------------------------------------------------------------
+	Handle an element change
+
+	event: The selection event
+
+	return: True if the event should be closed
+  --------------------------------------------------------------------*/
+bool SendBridge::handle(const ElementEvent& event) {
+	using enum ElementEvent::Type;
+	auto eventType = event.getEventType();
+	switch (eventType) {
+		case begin:
+			m_changedElements.clear();
+			break;
+		case end: {
+			auto project = connector()->getActiveProject().lock();
+			auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
+			if (!connectorProject)
+				return false;
+			auto modelCardDatabase = connectorProject->getModelCardDatabase();
+			auto modelCards = modelCardDatabase->getCards();
+				// POC: this is probably not efficient, should test, review and refactor it
+			RecordIDList expiredModelCardIds;
+			for (const auto& modelCard : modelCards) {
+				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
+					auto modelCardSelection = senderCard->getFilter().getElementIDs();
+					for (const auto& elemId : modelCardSelection) {
+						if (std::find(m_changedElements.begin(), m_changedElements.end(), elemId) != m_changedElements.end()) {
+							expiredModelCardIds.push_back(modelCard->getID());
+							break;
+						}
+					}
+				}
+			}
+			if (!expiredModelCardIds.empty()) {
+				auto wrapped = std::make_unique<CargoHold<ContainerWrap<RecordIDList>, RecordIDList>>(std::move(expiredModelCardIds));
+				sendEvent("setModelsExpired", std::move(wrapped));
+			}
+			break;
+		}
+		case changeElem: case editElem: case deleteElem: {
+			if (event.getElmentID())
+				m_changedElements.push_back(*event.getElmentID());
+			break;
+		}
+		default:
+		  break;
+	}
+	return false;
+} //SendBridge::handle

@@ -28,6 +28,22 @@ void Platform::writeToConsole(const active::utility::String& message) {
 
 
 /*--------------------------------------------------------------------
+	Open a URL
+ 
+	URL: The URL to open
+ --------------------------------------------------------------------*/
+void Platform::openURL(const active::utility::String& URL) {
+#if WINDOWS
+	std::system((String{"start "} + URL).data());
+#elif __APPLE__
+	std::system((String{"open "} + URL).data());
+#elif __linux__
+	std::system((String{"xdg-open"} + url).data());
+#endif
+} //Platform::openURL
+
+
+/*--------------------------------------------------------------------
 	Get an object representing the parent process/application
  
 	return: The active application instance

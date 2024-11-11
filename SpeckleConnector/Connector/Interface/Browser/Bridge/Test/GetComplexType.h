@@ -1,5 +1,5 @@
-#ifndef CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
-#define CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
+#ifndef CONNECTOR_INTERFACE_BRIDGE_GET_COMPLEX_TYPE
+#define CONNECTOR_INTERFACE_BRIDGE_GET_COMPLEX_TYPE
 
 #include "Speckle/Interface/Browser/Bridge/BridgeMethod.h"
 
@@ -15,7 +15,6 @@ namespace connector::interfac::browser::bridge {
 		
 		/*!
 		 Constructor
-		 @param bridge The parent bridge object (provides access to bridge methods)
 		 */
 		GetComplexType();
 
@@ -30,4 +29,4 @@ namespace connector::interfac::browser::bridge {
 
 }
 
-#endif	//CONNECTOR_INTERFACE_BRIDGE_GET_CONFIG
+#endif	//CONNECTOR_INTERFACE_BRIDGE_GET_COMPLEX_TYPE

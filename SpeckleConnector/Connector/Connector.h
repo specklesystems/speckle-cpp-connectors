@@ -4,9 +4,6 @@
 namespace speckle::database {
 	class AccountDatabase;
 }
-namespace connector::database {
-	class ModelCardDatabase;
-}
 
 namespace connector {
 	
@@ -16,11 +13,6 @@ namespace connector {
 		
 		// MARK: Functions (const)
 		
-		/*!
-		 Get the model card database
-		 @return The model card database
-		 */
-		const virtual database::ModelCardDatabase* getModelCardDatabase() const = 0;
 		/*!
 		 Get the account database
 		 @return The account database

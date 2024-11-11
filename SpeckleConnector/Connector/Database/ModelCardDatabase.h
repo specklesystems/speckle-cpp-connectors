@@ -30,6 +30,11 @@ namespace connector::database {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Get a specified card from the database
+		 @return The requested card (nullptr on failure)
+		 */
+		record::ModelCard::Unique getCard(const speckle::utility::String& cardID) const;
+		/*!
 		 Get all model cards
 		 @return All the cards
 		 */
@@ -49,6 +54,11 @@ namespace connector::database {
 		 @return A database wrapper
 		 */
 		std::unique_ptr<active::serialise::Cargo> wrapper() const;
+		/*!
+		 Get the unique ID of the engine storage
+		 @return The database unique ID
+		 */
+		speckle::database::RecordID getStoreID() const;
 		
 		// MARK: - Functions (mutating)
 

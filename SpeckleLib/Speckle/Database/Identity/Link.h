@@ -2,6 +2,7 @@
 #define SPECKLE_DATABASE_LINK
 
 #include "Active/Setting/SettingList.h"
+#include "Active/Database/Identity/Link.h"
 #include "Speckle/Database/Identity/Index.h"
 
 namespace speckle::database {
@@ -29,13 +30,6 @@ namespace speckle::database {
 		using base::base;
 		
 		Link() = default;
-#ifdef ARCHICAD
-		/*!
-		 Constructor
-		 @param selected Information about a selected Archicad element
-		 */
-		Link(const API_Neig& selected);
-#endif
 	};
 	
 }

@@ -89,7 +89,7 @@ Cargo::Unique ServerInfo::getCargo(const Inventory::Item& item) const {
 		case frontEndID:
 			return std::make_unique<ValueWrap<bool>>(m_frontend2);
 		case urlID:
-			return std::make_unique<StringOptWrap>(m_url);
+			return std::make_unique<StringWrap>(m_url);
 		case migrationID:
 			return std::make_unique<Mover>(PackageUniqueWrap{m_migration});
 		default:

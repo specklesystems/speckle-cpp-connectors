@@ -46,6 +46,7 @@ namespace speckle::database {
 		using base = active::database::DBaseEngine<Obj, ObjID, RecordID, RecordID>;
 		using Filter = base::Filter;
 		using Outline = base::Outline;
+		using ObjIDList = base::ObjIDList;
 		using Cache = active::database::RecordCache<Obj, ObjWrapper, ObjID, RecordID, RecordID>;
 		
 		// MARK: - Constructors
@@ -60,6 +61,15 @@ namespace speckle::database {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Find a filtered list of objects
+		 @param filter The object filter (nullptr = find all objects)
+		 @param tableID Optional table ID (defaults to the first table)
+		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
+		 @return A list containing IDs of found elements (empty if none found)
+		 */
+		virtual ObjIDList findObjects(const Filter& filter = nullptr, std::optional<RecordID> tableID = std::nullopt,
+									  std::optional<RecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
+		/*!
 		 Get an object by index
 		 @param ID The object ID
 		 @param tableID Optional table ID (defaults to the first table)
@@ -72,7 +82,7 @@ namespace speckle::database {
 		 @param ID The object ID
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
-		 @return: The requested wrapped cargo (nullptr on failure)
+		 @return The requested wrapped cargo (nullptr on failure)
 		 */
 		active::serialise::Cargo::Unique getObjectCargo(const ObjID& objID, std::optional<RecordID> tableID = std::nullopt, std::optional<RecordID> documentID = std::nullopt) const override;
 		/*!
@@ -122,6 +132,11 @@ namespace speckle::database {
 		 @return The database outline
 		 */
 		Outline getOutline() const override;
+		/*!
+		 Get the engine unique ID
+		 @return The unique ID
+		 */
+		RecordID getUniqueID() const { return getCache()->getID(); }
 		
 	protected:
 		/*!
@@ -166,8 +181,10 @@ namespace speckle::database {
 			//Read the data stored in the document
 		auto storedData = readStore();
 		m_cache = std::make_unique<Cache>();
-		if (!storedData)
+		if (!storedData) {
+			m_cache->setID(speckle::utility::Guid{true}.operator speckle::utility::String()); //Needs an ID - substitute for the Speckle 'document ID'
 			return m_cache.get();	//Return an empty container if there's no data
+		}
 			//Import the document data into the record cache
 		if constexpr (std::is_same_v<ObjWrapper, Obj>)
 			Transport().receive(std::forward<active::serialise::Cargo&&>(*m_cache), active::serialise::Identity{}, storedData);

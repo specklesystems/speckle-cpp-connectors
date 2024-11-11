@@ -28,6 +28,7 @@ enum StringResource {
 enum TitleString {
 	addonNameID = 1,
 	addonDescriptionID,
+	noStoreyID,
 };
 
 
@@ -37,7 +38,7 @@ enum PromptString {
 
 
 	//Information strings (in UI content, logging, reports)
-enum InfoString {
+enum GeneralString {
 };
 
 
@@ -53,6 +54,11 @@ enum WarningString {
 
 	//Error strings (errors displayed in alerts)
 enum ErrorString {
+	noSelectedModelItemsID = 1,
+	modelCardNotFoundID,
+	noProjectOpenID,
+	accountNotFoundID,
+	elementTypeNotConvertedID,
 };
 
 #endif	//CONNECTOR_RESOURCE

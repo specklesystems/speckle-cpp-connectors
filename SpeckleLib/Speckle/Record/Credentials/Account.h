@@ -48,6 +48,17 @@ namespace speckle::record::cred {
 
 		// MARK: - Functions (const)
 		
+		/*!
+		 Get the account server URL
+		 @return The account server URL (nullopt if none specified)
+		 */
+		speckle::utility::String getServerURL() const { return m_serverInfo.getURL(); }
+		/*!
+		 Get the account token
+		 @return The account token
+		 */
+		speckle::utility::String getToken() const { return m_token; }
+		
 		// MARK: - Functions (mutating)
 		
 		// MARK: - Serialisation
