@@ -7,7 +7,7 @@ name: MSBuild
 
 on:
   push:
-    branches: ["main", "dev", "release/*", "alan/*"] # Continuous delivery on every long-lived branch
+    branches: ["main", "develop", "release/*", "alan/*"] # Continuous delivery on every long-lived branch
     tags: ["v3.*"] # Manual delivery on every 3.x tag
 
 permissions:
@@ -28,6 +28,7 @@ jobs:
         with:
           repository: r-wessel/ActiveLib
           path: ActiveLib
+          ref: develop
 
       - name: Download zip file
         run: |
