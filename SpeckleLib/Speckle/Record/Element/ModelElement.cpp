@@ -16,6 +16,13 @@
 #include <ModelElement.hpp>
 #include <ModelMaterial.hpp>
 #include <ModelMeshBody.hpp>
+
+#ifndef ServerMainVers_2600
+#include "Speckle/Utility/Legacy/random_shuffle.h"
+#include <AttributeReader.hpp>
+#include <exp.h>
+#endif
+
 #include <Sight.hpp>
 #endif
 
@@ -289,7 +296,11 @@ MaterialQuantityList ModelElement::getMaterialQuantities() const {
 			measureQuantities(getHead().guid, elementQuantity, extendedQuantity, quantityMask);
 				//Create material quantities from the quantity takeoff (one oer skin in the composite structure)
 			for (auto& skinQuant : compositeQuantity)
+#ifdef ServerMainVers_2600
 				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices.GenerateHashValue())}, skinQuant.projectedArea, skinQuant.volumes});
+#else
+				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices)}, skinQuant.projectedArea, skinQuant.volumes});
+#endif
 #endif
 			break;
 		}
@@ -310,25 +321,36 @@ ModelElement::Body* ModelElement::getBody() const {
 	if (m_data && m_data->m_cache)
 		return m_data->m_cache.get();
 	void* dummy = nullptr;
-	GSErrCode err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
+#ifdef ServerMainVers_2600
+	auto err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
+#else
+	auto err = ACAPI_3D_GetCurrentWindowSight(&dummy);
+#endif
 	if (err != NoError) {
 		// TODO: should this throw?
 	}
 	Modeler::SightPtr currentSightPtr((Modeler::Sight*)dummy); // init the shared ptr with the raw pointer
 	ModelerAPI::Model acModel;
+#ifdef ServerMainVers_2600
 	Modeler::IAttributeReader* attrReader = ACAPI_Attribute_GetCurrentAttributeSetReader();
 	err = EXPGetModel(currentSightPtr, &acModel, attrReader);
+#else
+	AttributeReader attrReader;
+	EXPGetModel(currentSightPtr, &acModel, &attrReader);
+#endif
 	if (err != NoError) {
 		// TODO: should this throw?
 	}
 	auto elementBody = new ModelElement::Body();
 	// Map to collect meshes per material name
 	std::unordered_map<String, primitive::Mesh> materialMeshMap;
-
 	std::unique_ptr<Memo> memo;
 	loadMemo(APIMemoMask_All, memo);
-
+#ifdef ServerMainVers_2600
     auto partIDs = collectPartIDs(getHead().guid, getHead().type.typeID, *memo);
+#else
+	auto partIDs = collectPartIDs(getHead().guid, getHead().typeID, *memo);
+#endif
 	memo.reset();
 	Int32 nElements = acModel.GetElementCount();
 	for (Int32 iElement = 1; iElement <= nElements; iElement++) {

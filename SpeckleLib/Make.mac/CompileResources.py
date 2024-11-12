@@ -41,23 +41,19 @@ class ResourceCompiler (object):
 		return True
 
 	def RunResConv (self, platformSign, codepage, inputFilePath, nativeResourceFileExtenion):
-		resourcesFolders = [
-			os.path.join (self.resourcesPath, 'RFIX', 'Images'),
-			os.path.join (self.resourcesPath, 'RFIX')
-		]
+		imageResourcesFolder = os.path.join (self.resourcesPath, 'RFIX', 'Images')
 		inputFileBaseName = os.path.splitext (os.path.split (inputFilePath)[1])[0]
 		nativeResourceFilePath = os.path.join (self.resourceObjectsPath, inputFileBaseName + nativeResourceFileExtenion)
-		buildcommand = [
+		result = subprocess.call ([
 			self.resConvPath,
-			'-m', 'r',							# resource compile mode
-			'-T', platformSign,					# target platform
-			'-q', 'utf8', codepage,				# code page conversion
-			'-w', '2',							# HiDPI image size list
-			'-p', ';'.join (resourcesFolders),	# resource search paths
-			'-i', inputFilePath,				# input path
-			'-o', nativeResourceFilePath		# output path
-		]
-		result = subprocess.call (buildcommand)
+			'-m', 'r',						# resource compile mode
+			'-T', platformSign,				# target platform
+			'-q', 'utf8', codepage,			# code page conversion
+			'-w', '2',						# HiDPI image size list
+			'-p', imageResourcesFolder,		# image search path
+			'-i', inputFilePath,			# input path
+			'-o', nativeResourceFilePath	# output path
+		])
 		if result != 0:
 			return False
 		return True
@@ -98,13 +94,13 @@ class WinResourceCompiler (ResourceCompiler):
 			'/I', os.path.join (self.devKitPath, 'Support', 'Modules', 'DGLib'),
 			'/I', self.sourcesPath,
 			'/DWINDOWS',
-			'/utf-8',
+			'/execution-charset:utf-8',
 			'/Fi{}'.format (precompiledGrcFilePath),
 			grcFilePath,
 		])
 		if result != 0:
 			return False
-		return self.RunResConv ('W', 'utf8', precompiledGrcFilePath, '.rc2')
+		return self.RunResConv ('W', '1252', precompiledGrcFilePath, '.rc2')
 
 	def CompileNativeResource (self, resultResourcePath):
 		nativeResourceFiles = self.CollectFilesFromFolderWithExtension (os.path.join (self.resourcesPath, 'RFIX.win'), '.rc2')
@@ -116,7 +112,6 @@ class WinResourceCompiler (ResourceCompiler):
 			return False
 		result = subprocess.call ([
 			'rc',
-			'/c65001',
 			'/i', os.path.join (self.devKitPath, 'Support', 'Inc'),
 			'/i', os.path.join (self.devKitPath, 'Support', 'Modules', 'DGLib'),
 			'/i', self.sourcesPath,

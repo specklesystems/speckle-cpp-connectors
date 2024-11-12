@@ -26,8 +26,10 @@
 #include "Speckle/Utility/String.h"
 
 #include <ACAPinc.h>
-#include <ACAPI_Database.h>
 #include <BM.hpp>
+#ifdef ServerMainVers_2600
+#include <ACAPI_Database.h>
+#endif
 
 using namespace active::event;
 using namespace active::setting;
@@ -59,7 +61,11 @@ namespace {
 			dbaseInfo.typeID = APIWind_3DModelID;
 		else
 			dbaseInfo.databaseUnId.elemSetId = tableID;
+#ifdef ServerMainVers_2600
 		if (auto err = ACAPI_Window_GetDatabaseInfo(&dbaseInfo); err == NoError)
+#else
+		if (auto err = ACAPI_Database(APIDb_GetDatabaseInfoID, &dbaseInfo, 0, 0); err == NoError)
+#endif
 			return dbaseInfo;
 		return std::nullopt;
 	} //getTableInfo
@@ -78,7 +84,11 @@ namespace {
 		auto dbaseInfo = getTableInfo(tableID);
 		if (!dbaseInfo)
 			return false;
+#ifdef ServerMainVers_2600
 		return ACAPI_Database_ChangeCurrentDatabase(&*dbaseInfo) == NoError;
+#else
+		return ACAPI_Database(APIDb_ChangeCurrentDatabaseID, &dbaseInfo, 0, 0) == NoError;
+#endif
 	} //setActiveTable
 	
 	
@@ -89,7 +99,11 @@ namespace {
 	 @return A new element object (nullptr on failure)
 	 */
 	Element::Unique makeElement(const API_Element& elementData, const BIMRecordID& tableID) {
+#ifdef ServerMainVers_2600
 		switch (elementData.header.type.typeID) {
+#else
+		switch (elementData.header.typeID) {
+#endif
 			case API_ColumnID:
 				return std::make_unique<Column>(elementData, tableID);
 			case API_ColumnSegmentID:
@@ -112,7 +126,11 @@ namespace {
 				return std::make_unique<Wall>(elementData, tableID);
 			case API_ObjectID:
 				// POC: change this case once we are ready to convert Grid Elements
+#ifdef ServerMainVers_2600
 				if (elementData.header.type.variationID == APIVarId_GridElement)
+#else
+				if (elementData.header.variationID == APIVarId_GridElement)
+#endif
 					return nullptr;
 			default:
 				return std::make_unique<GenericModelElement>(elementData, tableID);
@@ -128,7 +146,12 @@ namespace {
 std::optional<BIMRecordID> ArchicadElementDBaseEngine::getActiveTable() {
 	API_WindowInfo dbaseInfo;
 	active::utility::Memory::erase(dbaseInfo);
-	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError) {
+#ifdef ServerMainVers_2600
+	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError)
+#else
+	if (auto err = ACAPI_Database(APIDb_GetCurrentDatabaseID, &dbaseInfo); err == NoError)
+#endif
+	{
 		if (dbaseInfo.typeID == APIWind_FloorPlanID)
 			return primary2DViewID;
 		else if (dbaseInfo.typeID == APIWind_3DModelID)
@@ -152,7 +175,11 @@ void ArchicadElementDBaseEngine::bringViewToFront(BIMRecordID tableID) const {
 	windowInfo.typeID = dbaseInfo->typeID;
 	if ((windowInfo.typeID != APIWind_FloorPlanID) && (windowInfo.typeID != APIWind_3DModelID))
 		windowInfo.databaseUnId = dbaseInfo->databaseUnId;
+#ifdef ServerMainVers_2600
 	ACAPI_Window_ChangeWindow(&windowInfo);
+#else
+	ACAPI_Automate(APIDo_ChangeWindowID, &windowInfo);
+#endif
 } //ArchicadElementDBaseEngine::bringViewToFront
 
 
@@ -186,7 +213,11 @@ void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) con
 		API_Neig neig(elemID);
 		selNeigs.Push(neig);
 	}
+#ifdef ServerMainVers_2600
 	ACAPI_Selection_Select(selNeigs, true);
+#else
+	ACAPI_Element_Select(selNeigs, true);
+#endif
 } //ArchicadElementDBaseEngine::setSelection
 
 
@@ -194,7 +225,11 @@ void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) con
 	Clear the element selection
   --------------------------------------------------------------------*/
 void ArchicadElementDBaseEngine::clearSelection() const {
+#ifdef ServerMainVers_2600
 	ACAPI_Selection_DeselectAll();
+#else
+	ACAPI_Element_DeselectAll();
+#endif
 } //ArchicadElementDBaseEngine::clearSelection
 
 
@@ -299,7 +334,11 @@ std::unique_ptr<Element> ArchicadElementDBaseEngine::getObject(const BIMRecordID
 	API_Element element;
 	active::utility::Memory::erase(element);
 	API_Guid guid{ID.operator API_Guid()};
+#ifdef ServerMainVers_2600
 	if (ACAPI_Element_GetElementFromAnywhere(&guid, &element) != NoError)
+#else
+	if (ACAPI_Database(APIDb_GetElementFromAnywhereID, &guid, &element, 0) != NoError)
+#endif
 		return nullptr;
 	return makeElement(element, *tableID);
 } //ArchicadElementDBaseEngine::getObject

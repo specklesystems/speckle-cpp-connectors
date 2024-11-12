@@ -51,10 +51,6 @@ namespace speckle::event {
 		 @return True if the participant is able to continue
 		 */
 		virtual bool start() override;
-		/*!
-		 Stop participation (release resources etc)
-		 */
-		void stop() override;
 		
 	protected:
 

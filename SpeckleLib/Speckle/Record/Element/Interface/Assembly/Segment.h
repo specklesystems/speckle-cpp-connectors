@@ -7,8 +7,10 @@
 #include <optional>
 
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 struct API_AssemblySegmentCutData;
 struct API_AssemblySegmentSchemeData;
+#endif
 class ProfileVectorImage;
 #endif
 

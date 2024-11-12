@@ -33,12 +33,24 @@ bool Host::makeModelViewActive(bool isSelectionOnly) const {
 #ifdef ARCHICAD
 	API_WindowInfo windowInfo;
 	active::utility::Memory::erase(windowInfo);
+#ifdef ServerMainVers_2600
 	if ((ACAPI_Window_GetCurrentWindow(&windowInfo) == NoError) && (windowInfo.typeID == APIWind_3DModelID))
+#else
+	if ((ACAPI_Database(APIDb_GetCurrentWindowID, &windowInfo) == NoError) && (windowInfo.typeID == APIWind_3DModelID))
+#endif
 		return true;
 	if (isSelectionOnly)
+#ifdef ServerMainVers_2600
 		return (ACAPI_View_ShowSelectionIn3D() == NoError);
-	return (ACAPI_View_ShowAllIn3D() == NoError);
+#else
+		return (ACAPI_Automate(APIDo_ShowSelectionIn3DID) == NoError);
 #endif
+#ifdef ServerMainVers_2600
+	return (ACAPI_View_ShowAllIn3D() == NoError);
+#else
+	return (ACAPI_Automate(APIDo_ShowAllIn3DID) == NoError);
+#endif
+#endif //ARCHICAD
 } //Host::makeModelViewActive
 
 

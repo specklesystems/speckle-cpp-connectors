@@ -6,7 +6,14 @@
 #include "Speckle/Utility/String.h"
 
 #include <Ref.hpp>
+#ifdef ServerMainVers_2600
 #include <JSValues.hpp>
+#else //ServerMainVers_2600
+#include <DGBrowserEventArgs.hpp>
+namespace JS {
+	using Base = DG::JSBase;
+}
+#endif //ServerMainVers_2600
 
 namespace active::serialise {
 	

@@ -1,5 +1,7 @@
 #include "Speckle/Serialise/JSBase/JSBaseTransport.h"
 
+#ifdef ARCHICAD
+
 #include "Active/Serialise/Item/Item.h"
 #include "Active/Serialise/Item/Wrapper/AnyValueWrap.h"
 #include "Active/Serialise/Null.h"
@@ -13,16 +15,22 @@
 #include "Active/Serialise/XML/Item/XMLDateTime.h"
 #include "Speckle/Environment/Platform.h"
 
-#ifdef ARCHICAD
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferOut.h"
-#endif
-
 
 #include <JSON/JDOMWriter.hpp>
 #include <JSON/Value.hpp>
 
-#include <iostream>
+#ifndef ServerMainVers_2600
+#include <DGBrowserEventArgs.hpp>
+namespace JS {
+	using Base = DG::JSBase;
+	using Array = DG::JSArray;
+	using Function = DG::JSFunction;
+	using Object = DG::JSObject;
+	using Value = DG::JSValue;
+}
+#endif
 
 using namespace active::serialise;
 using namespace active::setting;
@@ -519,3 +527,5 @@ String JSBaseTransport::convertToJSON(const GS::Ref<JS::Base>& jsBase) {
 	} catch (...) {}
 	return resultString;
 } //JSBaseTransport::convertToJSON
+
+#endif //ARCHICAD

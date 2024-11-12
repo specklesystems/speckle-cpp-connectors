@@ -86,7 +86,11 @@ Shell::~Shell() {}
   --------------------------------------------------------------------*/
 std::optional<Material> Shell::getMaterial() const {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return Material{Guid{Guid::fromInt(m_data->root.shellBase.buildingMaterial.GenerateHashValue())}};
+#else
+	return Material{Guid{Guid::fromInt(m_data->root.shellBase.buildingMaterial)}};
+#endif
 #endif
 } //Shell::getMaterial
 

@@ -4,7 +4,8 @@
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21379E072AE47A6400A1584C"
-               BuildableName = "libArchicad27.a"
-               BlueprintName = "Archicad27"
-               ReferencedContainer = "container:SpeckleLib.xcodeproj">
+               BlueprintIdentifier = "21BD79802CE23E4D00526AD1"
+               BuildableName = "Connector-AC25-EN-GB.bundle"
+               BlueprintName = "Connector-AC25-EN-GB"
+               ReferencedContainer = "container:Connector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -39,6 +40,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <PathRunnable
+         runnableDebuggingMode = "0"
+         FilePath = "/Applications/Graphisoft/ARCHICAD 25/ARCHICAD 25.app">
+      </PathRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -49,10 +54,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21379E072AE47A6400A1584C"
-            BuildableName = "libArchicad27.a"
-            BlueprintName = "Archicad27"
-            ReferencedContainer = "container:SpeckleLib.xcodeproj">
+            BlueprintIdentifier = "21BD79802CE23E4D00526AD1"
+            BuildableName = "Connector-AC25-EN-GB.bundle"
+            BlueprintName = "Connector-AC25-EN-GB"
+            ReferencedContainer = "container:Connector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

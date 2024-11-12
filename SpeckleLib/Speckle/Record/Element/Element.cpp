@@ -109,7 +109,9 @@ namespace {
         case API_BeamSegmentID: return "BeamSegment";
         case API_ColumnSegmentID: return "ColumnSegment";
         case API_OpeningID: return "Opening";
+#ifdef ServerMainVers_2600
         case API_ExternalElemID: return "ExternalElem";
+#endif
         default: return "UnknownElemType";
         }
     }
@@ -192,7 +194,11 @@ BIMLink Element::getBIMLink() const {
 String Element::getLocalisedTypeName() const {
 #ifdef ARCHICAD
 	GS::UniString typeName;
+#ifdef ServerMainVers_2600
 	if (auto err = ACAPI_Element_GetElemTypeName(getHead().type, typeName); err != NoError)
+#else
+	if (auto err = ACAPI_Goodies(APIAny_GetElemTypeNameID, (void*) getHead().typeID, &typeName); err != NoError)
+#endif
 		return addon()->getLocalString(titleStringLib, unknownElementTypeID);
 	return typeName;
 #endif
@@ -206,7 +212,11 @@ String Element::getLocalisedTypeName() const {
   --------------------------------------------------------------------*/
 #include "Speckle/Environment/Platform.h"
 String Element::getTypeName() const {
+#ifdef ServerMainVers_2600
     return GetElemTypeName(getHead().type.typeID);
+#else
+	return GetElemTypeName(getHead().typeID);
+#endif
 } //Element::getTypeName
 
 

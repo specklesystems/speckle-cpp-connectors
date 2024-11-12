@@ -7,7 +7,9 @@
 #include <optional>
 
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 struct API_ElementMemo;
+#endif
 #endif
 
 namespace speckle::record::element {

@@ -77,9 +77,8 @@ void Send::run(const String& modelCardID) const {
 		//Get the selected elements from the modelcard
 	auto elementDatabase = project->getElementDatabase();
 	ElementIDList selected{};
-	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
+	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get()))
 		selected = senderCard->getFilter().getElementIDs();
-	}
 		//Build a collection from the selected elements
 	auto collection = std::make_unique<ProjectCollection>(project, modelCard->getID());
 	for (const auto& link : selected) {

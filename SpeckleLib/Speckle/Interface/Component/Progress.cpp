@@ -3,7 +3,9 @@
 #include <mutex>
 
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 #include "ACAPI_Interface.h"
+#endif
 #endif
 
 using namespace speckle::interfac;
@@ -23,7 +25,11 @@ namespace {
   --------------------------------------------------------------------*/
 Progress::~Progress() {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	ACAPI_ProcessWindow_CloseProcessWindow();
+#else
+	ACAPI_Interface(APIIo_CloseProcessWindowID);
+#endif
 #endif
 } //Progress::~Progress
 
@@ -43,7 +49,11 @@ Progress::Shared Progress::getInstance(const String& title, size_t stages) {
 #ifdef ARCHICAD
 	GS::UniString gsTitle{title};
 	auto phases = static_cast<Int32>(stages);
+#ifdef ServerMainVers_2600
 	if (ACAPI_ProcessWindow_InitProcessWindow(&gsTitle, &phases) != NoError)
+#else
+	if (ACAPI_Interface(APIIo_InitProcessWindowID, &gsTitle, &phases) != NoError)
+#endif
 		return nullptr;
 #endif
 	auto result = Progress::Shared{new Progress};
@@ -60,7 +70,11 @@ Progress::Shared Progress::getInstance(const String& title, size_t stages) {
 void Progress::operator+= (size_t toAdd) {
 #ifdef ARCHICAD
 	auto incVal = static_cast<Int32>(toAdd);
+#ifdef ServerMainVers_2600
 	ACAPI_ProcessWindow_IncProcessValue(&incVal);
+#else
+	ACAPI_Interface(APIIo_IncProcessValueID, &incVal);
+#endif
 #endif
 } //Progress::operator+=
 
@@ -84,7 +98,11 @@ void Progress::startStage(const String& title, size_t stepCount, bool showPercen
 #ifdef ARCHICAD
 	GS::UniString gsTitle{title};
 	auto maxVal = static_cast<Int32>(stepCount);
+#ifdef ServerMainVers_2600
 	ACAPI_ProcessWindow_SetNextProcessPhase(&gsTitle, &maxVal, &showPercentage);
+#else
+	ACAPI_Interface(APIIo_SetNextProcessPhaseID, &gsTitle, &maxVal, &showPercentage);
+#endif
 #endif
 } //Progress::startStage
 
@@ -96,6 +114,10 @@ void Progress::startStage(const String& title, size_t stepCount, bool showPercen
   --------------------------------------------------------------------*/
 bool Progress::isCancelled() {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return (ACAPI_ProcessWindow_IsProcessCanceled() != NoError);
+#else
+	return (ACAPI_Interface(APIIo_IsProcessCanceledID) != NoError);
+#endif
 #endif
 } //Progress::isCancelled

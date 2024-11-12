@@ -1,9 +1,10 @@
 #include "Connector/Interface/ConnectorPalette.h"
 
 #include "Active/Event/Event.h"
-#include "Active/Utility/String.h"
+#include "Active/Setting/ValueSetting.h"
 #include "Active/Serialise/JSON/JSONTransport.h"
 #include "Active/Utility/BufferOut.h"
+#include "Active/Utility/String.h"
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Event/ConnectorEventID.h"
@@ -15,9 +16,8 @@
 #include "Connector/Interface/Browser/Bridge/Test/TestBridge.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Event/Type/MenuEvent.h"
-#include "Speckle/Interface/Browser/JSPortal.h"
-
 #include "Speckle/Event/Type/ProjectEvent.h"
+#include "Speckle/Interface/Browser/JSPortal.h"
 
 #include <ACAPinc.h>
 #include <DGModule.hpp>
@@ -25,6 +25,7 @@
 
 using namespace active::environment;
 using namespace active::event;
+using namespace active::setting;
 using namespace connector;
 using namespace speckle::interfac::browser;
 using namespace connector::interfac::browser::bridge;
@@ -134,20 +135,19 @@ bool ConnectorPalette::start() {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorPalette::receive(const active::event::Event& event) {
-	if (event == toggleConnectorPaletteID) {
-		if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
-			BrowserPalette::GetInstance().Hide();
-		}
-		else {
-			if (!BrowserPalette::HasInstance())
-				BrowserPalette::CreateInstance();
-			BrowserPalette::GetInstance().Show();
-		}
-		return true;
-	}
-
-	return ProjectSubscriber::receive(event);
-	
+    if (event == toggleConnectorPaletteID) {
+        if (BrowserPalette::HasInstance() && BrowserPalette::GetInstance().IsVisible()) {
+            BrowserPalette::GetInstance().Hide();
+        }
+        else {
+            if (!BrowserPalette::HasInstance())
+                BrowserPalette::CreateInstance();
+            BrowserPalette::GetInstance().Show();
+        }
+        return true;
+    }
+    
+    return ProjectSubscriber::receive(event);
 } //ConnectorPalette::receive
 
 /*--------------------------------------------------------------------
@@ -198,34 +198,33 @@ static GSErrCode __ACENV_CALL NotificationHandler(API_NotifyEventID notifID, Int
 BrowserPalette::BrowserPalette() :
 	DG::Palette(ACAPI_GetOwnResModule(), BrowserPaletteResId, ACAPI_GetOwnResModule(), paletteGuid) {
 	browser = std::make_shared<DG::Browser>(GetReference(), BrowserId);
+#ifdef ServerMainVers_2600
 	ACAPI_ProjectOperation_CatchProjectEvent(APINotify_Quit, NotificationHandler);
+#else
+	ACAPI_Notify_CatchProjectEvent(APINotify_Quit, NotificationHandler);
+#endif
 	Attach(*this);
 	BeginEventProcessing();
 		//Install required connector bridges
 	install<AccountBridge>();
-
 	if (auto ref = install<BaseBridge>(); ref) {
 		if (auto baseBridgeRef = std::dynamic_pointer_cast<BaseBridge>(ref); baseBridgeRef) {
 			connector::connector()->addWeak(baseBridgeRef);
 		}
 	}
-
 	install<ConfigBridge>();
-
 	if (auto ref = install<SendBridge>(); ref) {
 		if (auto sendBridgeRef = std::dynamic_pointer_cast<SendBridge>(ref); sendBridgeRef) {
 			connector::connector()->addWeak(sendBridgeRef);
 			sendBridgeRef->start();
 		}
 	}
-
 	if (auto ref = install<SelectionBridge>(); ref) {
 		if (auto selectionBridgeRef = std::dynamic_pointer_cast<SelectionBridge>(ref); selectionBridgeRef) {
 			connector::connector()->addWeak(selectionBridgeRef);
 			selectionBridgeRef->start();
 		}
 	}
-
 	install<TestBridge>();
 	InitBrowserControl();
 }
@@ -274,18 +273,8 @@ void BrowserPalette::InitBrowserControl() {
 
 
 void BrowserPalette::SetMenuItemCheckedState(bool isChecked) {
-	API_MenuItemRef	itemRef = {};
-	GSFlags			itemFlags = {};
-
-	itemRef.menuResID = BrowserPaletteMenuResId;
-	itemRef.itemIndex = BrowserPaletteMenuItemIndex;
-
-	ACAPI_MenuItem_GetMenuItemFlags(&itemRef, &itemFlags);
-	if(isChecked)
-		itemFlags |= API_MenuItemChecked;
-	else
-		itemFlags &= ~API_MenuItemChecked;
-	ACAPI_MenuItem_SetMenuItemFlags(&itemRef, &itemFlags);
+		//Request a change to the menu checked state
+	app()->publish(Event{setConnectorMenuCheckID, { ValueSetting{isChecked, menuCheckStateID} }});
 }
 
 void BrowserPalette::PanelResized(const DG::PanelResizeEvent& ev) {
@@ -319,7 +308,7 @@ GSErrCode __ACENV_CALL	BrowserPalette::PaletteControlCallBack(Int32, API_Palette
 			break;
 
 		case APIPalMsg_HidePalette_End:
-			if (HasInstance() && !GetInstance().IsVisible())
+			if(HasInstance() && !GetInstance().IsVisible())
 			{
 				GetInstance().Show();
 			}

@@ -116,7 +116,11 @@ ModelElement::Composition ColumnSegment::getComposition() const {
   --------------------------------------------------------------------*/
 std::optional<Material> ColumnSegment::getMaterial() const {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return Material{Guid{Guid::fromInt(m_data->root.assemblySegmentData.buildingMaterial.GenerateHashValue())}};
+#else
+	return Material{Guid{Guid::fromInt(m_data->root.assemblySegmentData.buildingMaterial)}};
+#endif
 #endif
 } //ColumnSegment::getMaterial
 

@@ -2,6 +2,7 @@
 #define SPECKLE_EVENT_MENU_SUBSCRIBER
 
 #include "Active/Event/Subscriber.h"
+#include "Speckle/Utility/String.h"
 
 #ifdef ARCHICAD
 #include <ACAPinc.h>
@@ -60,6 +61,24 @@ namespace speckle::event {
 		 @return The subscription list (an empty list will put the subscriber into a suspended state)
 		*/
 		virtual Subscription subscription() const override;
+		/*!
+		 Set whether a menu item is enabled
+		 @param item The menu item index
+		 @param state True if the menu item is enabled
+		 */
+		void setMenuEnabled(uint16_t item, bool state) const;
+		/*!
+		 Set whether a menu item is checked
+		 @param item The menu item index
+		 @param state True if the menu item is checked
+		 */
+		void setMenuChecked(uint16_t item, bool state) const;
+		/*!
+		 Set the label of a menu item
+		 @param item The menu item index
+		 @param text The menu item text
+		 */
+		void setMenuLabel(uint16_t item, const speckle::utility::String& text) const;
 		
 		// MARK: - Functions (mutating)
 		

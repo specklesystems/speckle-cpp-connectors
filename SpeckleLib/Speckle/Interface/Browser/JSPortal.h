@@ -7,10 +7,19 @@
 #include "Speckle/Utility/String.h"
 
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 #include <JavascriptEngine.hpp>
-#endif
-
-#include <iostream>
+#else
+#include <DGBrowser.hpp>
+#include <DGBrowserEventArgs.hpp>
+namespace JS {
+	using Base = DG::JSBase;
+	using Function = DG::JSFunction;
+	using Object = DG::JSObject;
+}
+using JavascriptEngine = DG::Browser;
+#endif //ServerMainVers_2600
+#endif //ARCHICAD
 
 namespace speckle::interfac::browser {
 	

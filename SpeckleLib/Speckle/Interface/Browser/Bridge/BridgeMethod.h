@@ -11,7 +11,6 @@
 #include "Speckle/Serialise/JSBase/JSBaseTransport.h"
 
 #include <Ref.hpp>
-#include <JSValues.hpp>
 #else
 #include "Active/Serialise/JSON/JSONTransport.h"
 #endif

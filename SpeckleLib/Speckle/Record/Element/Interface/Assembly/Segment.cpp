@@ -6,6 +6,11 @@
 #ifdef ARCHICAD
 #include <ACAPinc.h>
 #include <APIdefs_Elements.h>
+
+#ifndef ServerMainVers_2600
+#include "Speckle/Utility/Legacy/random_shuffle.h"
+#endif
+
 #include <ProfileVectorImage.hpp>
 #endif
 

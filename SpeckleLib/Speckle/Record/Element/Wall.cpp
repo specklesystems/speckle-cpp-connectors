@@ -98,7 +98,11 @@ ModelElement::Composition Wall::getComposition() const {
   --------------------------------------------------------------------*/
 std::optional<Material> Wall::getMaterial() const {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return Material{Guid{Guid::fromInt(m_data->root.buildingMaterial.GenerateHashValue())}};
+#else
+	return Material{Guid{Guid::fromInt(m_data->root.buildingMaterial)}};
+#endif
 #endif
 } //Wall::getMaterial
 

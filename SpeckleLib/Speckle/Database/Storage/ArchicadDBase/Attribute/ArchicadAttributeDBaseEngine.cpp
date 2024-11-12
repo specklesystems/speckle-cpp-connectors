@@ -16,8 +16,10 @@
 #include "Speckle/Utility/String.h"
 
 #include <ACAPinc.h>
-#include <ACAPI_Database.h>
 #include <BM.hpp>
+#ifdef ServerMainVers_2600
+#include <ACAPI_Database.h>
+#endif
 
 using namespace active::event;
 using namespace active::setting;
@@ -51,7 +53,11 @@ namespace speckle::database {
 			clear();
 			API_StoryInfo storeyInfo;
 			active::utility::Memory::erase(storeyInfo);
+#ifdef ServerMainVers_2600
 			ACAPI_ProjectSetting_GetStorySettings(&storeyInfo);
+#else
+			ACAPI_Environment(APIEnv_GetStorySettingsID, &storeyInfo, (void*) APIElemMask_FromFloorplan);
+#endif
 			auto storeyCount = storeyInfo.lastStory - storeyInfo.firstStory + 1;
 			for (auto i = 0; i < storeyCount; ++i)
 				push_back((*storeyInfo.data)[i]);
@@ -111,7 +117,11 @@ namespace {
 	std::optional<API_Attribute> getAPIData(const BIMRecordID& ID, std::optional<BIMRecordID> tableID) {
 		API_Attribute attribute;
 		active::utility::Memory::erase(attribute);
+#ifdef ServerMainVers_2600
 		attribute.header.index = ACAPI_CreateAttributeIndex(static_cast<int32_t>(Guid::toInt(ID)));
+#else
+		attribute.header.index = static_cast<int32_t>(Guid::toInt(ID));
+#endif
 		attribute.header.typeID = static_cast<API_AttrTypeID>(Guid::toInt(*tableID));
 		if (ACAPI_Attribute_Get(&attribute) != NoError)
 			return std::nullopt;

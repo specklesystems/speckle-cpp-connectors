@@ -4,6 +4,7 @@
 #include "Active/Setting/Setting.h"
 
 #ifdef ARCHICAD
+#include "ACAPinc.h"
 #include "APIdefs_Elements.h"
 #endif
 
@@ -18,6 +19,21 @@ namespace speckle::record::element {
 		using base = active::setting::Setting;
 			///BIM platform-specific typoe identifier
 #ifdef ARCHICAD
+#ifndef ServerMainVers_2600
+		struct API_ElemType {
+				///The typeID of the element (see @ref API_ElemTypeID).
+			API_ElemTypeID typeID;
+				///Subcategory of the element (see @ref API_ElemVariationID).
+			API_ElemVariationID variationID;
+				///The classID of the element. It is used when the typeID is @ref API_ExternalElemType.
+			API_Guid classID;
+				///Equality operator - returns true if ref is equal to this
+			bool operator==(const API_ElemType& ref) const { return ((typeID == ref.typeID) && (variationID == ref.variationID) &&
+																	 (classID == ref.classID)); }
+				///Equality operator - returns true if ref is equal to this
+			bool operator==(API_ElemTypeID ref) const { return (typeID == ref); }
+		};
+#endif
 		using BIMIdentity = API_ElemType;
 #endif
 			///Unique pointer
@@ -43,7 +59,13 @@ namespace speckle::record::element {
 		 Constructor
 		 @param head An Archicad element header
 		 */
-		TypeSetting(const API_Elem_Head& head) : base{ID}, type{head.type}	{}
+		TypeSetting(const API_Elem_Head& head) : base{ID},
+#ifdef ServerMainVers_2600
+				type{head.type}
+#else
+				type{head.typeID, head.variationID, {}}
+#endif
+		{}
 #endif
 
 		/*!

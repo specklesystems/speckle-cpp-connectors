@@ -67,10 +67,14 @@ bool SelectionSubscriber::receive(const Event& event) {
   --------------------------------------------------------------------*/
 bool SelectionSubscriber::start() {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return (ACAPI_Notification_CatchSelectionChange(selectionCallback) == NoError);
 #else
+	return (ACAPI_Notify_CatchSelectionChange(selectionCallback) == NoError);
+#endif //ServerMainVers_2600
+#else //ARCHICAD
 	return false;
-#endif
+#endif //ARCHICAD
 } //SelectionSubscriber::start
 
 
@@ -79,6 +83,10 @@ bool SelectionSubscriber::start() {
   --------------------------------------------------------------------*/
 void SelectionSubscriber::stop() {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	ACAPI_Notification_CatchSelectionChange(nullptr);
-#endif
+#else
+	ACAPI_Notify_CatchSelectionChange(nullptr);
+#endif //ServerMainVers_2600
+#endif //ARCHICAD
 } //SelectionSubscriber::stop

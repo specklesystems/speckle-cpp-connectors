@@ -69,8 +69,12 @@ bool ProjectSubscriber::start() {
 		return true;
 	m_isStarted = true;
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return (ACAPI_ProjectOperation_CatchProjectEvent(API_AllNotificationMask, projectCallback) == NoError);
 #else
+	return (ACAPI_Notify_CatchProjectEvent(API_AllNotificationMask, projectCallback) == NoError);
+#endif //ServerMainVers_2600
+#else //ARCHICAD
 	return false;
 #endif
 } //ProjectSubscriber::start

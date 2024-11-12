@@ -41,7 +41,11 @@ namespace speckle::record::attribute {
 		 @return An attribute index
 		 */
 		static API_AttributeIndex getIndex(const active::utility::Guid& recordID) {
+#ifdef ServerMainVers_2600
 			return ACAPI_CreateAttributeIndex(static_cast<int32_t>(active::utility::Guid::toInt(recordID)));
+#else
+			return static_cast<int32_t>(active::utility::Guid::toInt(recordID));
+#endif //ServerMainVers_2600
 		}
 #endif
 

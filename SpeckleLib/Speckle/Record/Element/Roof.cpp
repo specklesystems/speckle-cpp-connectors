@@ -98,7 +98,11 @@ ModelElement::Composition Roof::getComposition() const {
   --------------------------------------------------------------------*/
 std::optional<Material> Roof::getMaterial() const {
 #ifdef ARCHICAD
+#ifdef ServerMainVers_2600
 	return Material{Guid{Guid::fromInt(m_data->root.shellBase.buildingMaterial.GenerateHashValue())}};
+#else
+	return Material{Guid{Guid::fromInt(m_data->root.shellBase.buildingMaterial)}};
+#endif
 #endif
 } //Roof::getMaterial
 

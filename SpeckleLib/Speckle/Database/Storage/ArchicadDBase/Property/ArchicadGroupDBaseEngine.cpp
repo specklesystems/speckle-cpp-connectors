@@ -12,7 +12,6 @@
 #include "Speckle/Utility/String.h"
 
 #include <ACAPinc.h>
-#include <ACAPI_Database.h>
 
 using namespace active::event;
 using namespace active::setting;

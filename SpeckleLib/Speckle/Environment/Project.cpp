@@ -49,7 +49,12 @@ Project::Info Project::getInfo() const {
 	Info result{addon()->getLocalString(titleStringLib, untitledProjectID)};
 #ifdef ARCHICAD
 	API_ProjectInfo	projectInfo;
-	if (ACAPI_ProjectOperation_Project(&projectInfo) == NoError) {
+#ifdef ServerMainVers_2600
+	if (ACAPI_ProjectOperation_Project(&projectInfo) == NoError)
+#else
+	if (ACAPI_Environment(APIEnv_ProjectID, &projectInfo) == NoError)
+#endif
+	{
 		if ((projectInfo.projectName != nullptr) && !projectInfo.projectName->IsEmpty())
 			result.name = *projectInfo.projectName;
 		result.isShared = projectInfo.teamwork;

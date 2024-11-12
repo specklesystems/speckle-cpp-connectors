@@ -92,22 +92,19 @@ bool ElementSubscriber::receive(const Event& event) {
   --------------------------------------------------------------------*/
 bool ElementSubscriber::start() {
 #ifdef ARCHICAD
-	GSErrCode err = ACAPI_Element_InstallElementObserver(elementChangedCallback);
+#ifdef ServerMainVers_2600
+	auto err = ACAPI_Element_InstallElementObserver(elementChangedCallback);
+#else
+	auto err = ACAPI_Notify_InstallElementObserver(elementChangedCallback);
+#endif
 	if (err != NoError)
 		return false;
-	
+#ifdef ServerMainVers_2600
 	return (ACAPI_Element_CatchNewElement(nullptr, elementChangedCallback) == NoError);
+#else
+	return (ACAPI_Notify_CatchNewElement(nullptr, elementChangedCallback) == NoError);
+#endif
 #else
 	return false;
 #endif
 } //ElementSubscriber::start
-
-
-/*--------------------------------------------------------------------
-	Stop participation (release resources etc)
-  --------------------------------------------------------------------*/
-void ElementSubscriber::stop() {
-#ifdef ARCHICAD
-	ACAPI_Notification_CatchSelectionChange(nullptr);
-#endif
-} //ElementSubscriber::stop
