@@ -167,7 +167,6 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\SendBridge.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClCompile>
-    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Send\Send.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClCompile>
@@ -258,6 +257,9 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Base\HighlightObjects.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\ConnectorResource.h">
@@ -338,7 +340,6 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\SendBridge.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClInclude>
-    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Send\Send.h">
       <Filter>Connector\Interface\Browser\Bridge\Send</Filter>
     </ClInclude>
@@ -440,6 +441,9 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Base\HighlightObjects.h">
       <Filter>Connector\Interface\Browser\Bridge\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h">
+      <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
