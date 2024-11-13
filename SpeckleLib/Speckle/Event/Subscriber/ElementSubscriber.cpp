@@ -92,14 +92,14 @@ bool ElementSubscriber::receive(const Event& event) {
   --------------------------------------------------------------------*/
 bool ElementSubscriber::start() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	auto err = ACAPI_Element_InstallElementObserver(elementChangedCallback);
 #else
 	auto err = ACAPI_Notify_InstallElementObserver(elementChangedCallback);
 #endif
 	if (err != NoError)
 		return false;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return (ACAPI_Element_CatchNewElement(nullptr, elementChangedCallback) == NoError);
 #else
 	return (ACAPI_Notify_CatchNewElement(nullptr, elementChangedCallback) == NoError);

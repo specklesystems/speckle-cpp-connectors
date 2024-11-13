@@ -17,10 +17,11 @@
 #include <ModelMaterial.hpp>
 #include <ModelMeshBody.hpp>
 
-#ifndef ServerMainVers_2600
+#ifndef ServerMainVers_2700
 #include "Speckle/Utility/Legacy/random_shuffle.h"
+#endif
+#ifndef ServerMainVers_2600
 #include <AttributeReader.hpp>
-#include <exp.h>
 #endif
 
 #include <Sight.hpp>
@@ -296,7 +297,7 @@ MaterialQuantityList ModelElement::getMaterialQuantities() const {
 			measureQuantities(getHead().guid, elementQuantity, extendedQuantity, quantityMask);
 				//Create material quantities from the quantity takeoff (one oer skin in the composite structure)
 			for (auto& skinQuant : compositeQuantity)
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices.GenerateHashValue())}, skinQuant.projectedArea, skinQuant.volumes});
 #else
 				result.push_back({Guid{Guid::fromInt(skinQuant.buildMatIndices)}, skinQuant.projectedArea, skinQuant.volumes});
@@ -321,7 +322,7 @@ ModelElement::Body* ModelElement::getBody() const {
 	if (m_data && m_data->m_cache)
 		return m_data->m_cache.get();
 	void* dummy = nullptr;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	auto err = ACAPI_Sight_GetCurrentWindowSight(&dummy);
 #else
 	auto err = ACAPI_3D_GetCurrentWindowSight(&dummy);

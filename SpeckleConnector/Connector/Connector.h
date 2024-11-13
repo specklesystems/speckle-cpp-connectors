@@ -1,5 +1,4 @@
 #include "Speckle/Environment/Addon.h"
-#include "Speckle/Utility/String.h"
 
 namespace speckle::database {
 	class AccountDatabase;

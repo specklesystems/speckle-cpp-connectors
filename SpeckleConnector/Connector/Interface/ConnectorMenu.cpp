@@ -35,7 +35,7 @@ ConnectorMenu::ConnectorMenu()
   --------------------------------------------------------------------*/
 Subscriber::Subscription ConnectorMenu::subscription() const {
 	auto result = MenuSubscriber::subscription();
-	result.insert(setConnectorMenuCheckID);
+	result.insert(reflectPaletteVisibilityID);
 	return result;
 } //ConnectorMenu::subscription
 
@@ -48,10 +48,10 @@ Subscriber::Subscription ConnectorMenu::subscription() const {
 	return: True if the event should be closed
   --------------------------------------------------------------------*/
 bool ConnectorMenu::receive(const active::event::Event& event) {
-	if (event != setConnectorMenuCheckID)
+	if (event != reflectPaletteVisibilityID)
 		return MenuSubscriber::receive(event);
-		//Get the menu checked state from the event and apply it to the menu
-	if (auto menuState = event.findValue(menuCheckStateID); menuState != nullptr)
+		//Set the menu checked state based on the palette visibility from the event
+	if (auto menuState = event.findValue(paletteVisibilityStateID); menuState != nullptr)
 		setMenuChecked(connectorMenuItem, menuState->boolVal());
 	return false;
 } //ConnectorMenu::receive

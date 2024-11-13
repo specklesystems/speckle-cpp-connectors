@@ -15,25 +15,25 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21BD79802CE23E4D00526AD1"
-               BuildableName = "Speckle Connector.bundle"
-               BlueprintName = "Connector-AC25-EN-GB"
+               BlueprintIdentifier = "21CE8A922CE4F3370076522F"
+               BuildableName = "Connector-AC26-EN-GB.bundle"
+               BlueprintName = "Connector-AC26-EN-GB"
                ReferencedContainer = "container:Connector.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -42,7 +42,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         FilePath = "/Applications/Graphisoft/ARCHICAD 25/ARCHICAD 25.app">
+         FilePath = "/Applications/Graphisoft/Archicad 26/Archicad 26.app">
       </PathRunnable>
    </LaunchAction>
    <ProfileAction
@@ -54,15 +54,15 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21BD79802CE23E4D00526AD1"
-            BuildableName = "Speckle Connector.bundle"
-            BlueprintName = "Connector-AC25-EN-GB"
+            BlueprintIdentifier = "21CE8A922CE4F3370076522F"
+            BuildableName = "Connector-AC26-EN-GB.bundle"
+            BlueprintName = "Connector-AC26-EN-GB"
             ReferencedContainer = "container:Connector.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

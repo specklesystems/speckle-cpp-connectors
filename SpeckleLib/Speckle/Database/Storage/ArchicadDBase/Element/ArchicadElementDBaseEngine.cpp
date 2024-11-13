@@ -27,7 +27,7 @@
 
 #include <ACAPinc.h>
 #include <BM.hpp>
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 #include <ACAPI_Database.h>
 #endif
 
@@ -61,7 +61,7 @@ namespace {
 			dbaseInfo.typeID = APIWind_3DModelID;
 		else
 			dbaseInfo.databaseUnId.elemSetId = tableID;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 		if (auto err = ACAPI_Window_GetDatabaseInfo(&dbaseInfo); err == NoError)
 #else
 		if (auto err = ACAPI_Database(APIDb_GetDatabaseInfoID, &dbaseInfo, 0, 0); err == NoError)
@@ -84,7 +84,7 @@ namespace {
 		auto dbaseInfo = getTableInfo(tableID);
 		if (!dbaseInfo)
 			return false;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 		return ACAPI_Database_ChangeCurrentDatabase(&*dbaseInfo) == NoError;
 #else
 		return ACAPI_Database(APIDb_ChangeCurrentDatabaseID, &dbaseInfo, 0, 0) == NoError;
@@ -146,7 +146,7 @@ namespace {
 std::optional<BIMRecordID> ArchicadElementDBaseEngine::getActiveTable() {
 	API_WindowInfo dbaseInfo;
 	active::utility::Memory::erase(dbaseInfo);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	if (auto err = ACAPI_Database_GetCurrentDatabase(&dbaseInfo); err == NoError)
 #else
 	if (auto err = ACAPI_Database(APIDb_GetCurrentDatabaseID, &dbaseInfo); err == NoError)
@@ -175,7 +175,7 @@ void ArchicadElementDBaseEngine::bringViewToFront(BIMRecordID tableID) const {
 	windowInfo.typeID = dbaseInfo->typeID;
 	if ((windowInfo.typeID != APIWind_FloorPlanID) && (windowInfo.typeID != APIWind_3DModelID))
 		windowInfo.databaseUnId = dbaseInfo->databaseUnId;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_Window_ChangeWindow(&windowInfo);
 #else
 	ACAPI_Automate(APIDo_ChangeWindowID, &windowInfo);
@@ -213,7 +213,7 @@ void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) con
 		API_Neig neig(elemID);
 		selNeigs.Push(neig);
 	}
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_Selection_Select(selNeigs, true);
 #else
 	ACAPI_Element_Select(selNeigs, true);
@@ -225,7 +225,7 @@ void ArchicadElementDBaseEngine::setSelection(const BIMLinkList& elementIDs) con
 	Clear the element selection
   --------------------------------------------------------------------*/
 void ArchicadElementDBaseEngine::clearSelection() const {
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_Selection_DeselectAll();
 #else
 	ACAPI_Element_DeselectAll();
@@ -334,7 +334,7 @@ std::unique_ptr<Element> ArchicadElementDBaseEngine::getObject(const BIMRecordID
 	API_Element element;
 	active::utility::Memory::erase(element);
 	API_Guid guid{ID.operator API_Guid()};
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	if (ACAPI_Element_GetElementFromAnywhere(&guid, &element) != NoError)
 #else
 	if (ACAPI_Database(APIDb_GetElementFromAnywhereID, &guid, &element, 0) != NoError)

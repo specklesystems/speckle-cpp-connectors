@@ -7,12 +7,12 @@
 
 	//Identifier for event signalling the connector palette visibility should be toggled
 inline const active::utility::NameID toggleConnectorPaletteID{"toggleConnectorPalette"};
-	//Identifier for event signalling the connector palette menu checked state should be set (state carried with event)
-inline const active::utility::NameID setConnectorMenuCheckID{"setConnectorMenuCheck"};
+	//Identifier for event signalling the connector palette has changed (state carried with event)
+inline const active::utility::NameID reflectPaletteVisibilityID{"setConnectorMenuCheck"};
 
 // MARK: - Event setting identities
 
-	//Identifier for event signalling the connector palette menu checked state should be set (state carried with event)
-inline const active::utility::NameID menuCheckStateID{"menuCheckState"};
+	//Identifier for event signalling the connector palette visibility state
+inline const active::utility::NameID paletteVisibilityStateID{"menuCheckState"};
 
 #endif	//CONNECTOR_EVENT_ID

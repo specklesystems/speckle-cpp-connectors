@@ -49,7 +49,7 @@ Project::Info Project::getInfo() const {
 	Info result{addon()->getLocalString(titleStringLib, untitledProjectID)};
 #ifdef ARCHICAD
 	API_ProjectInfo	projectInfo;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	if (ACAPI_ProjectOperation_Project(&projectInfo) == NoError)
 #else
 	if (ACAPI_Environment(APIEnv_ProjectID, &projectInfo) == NoError)

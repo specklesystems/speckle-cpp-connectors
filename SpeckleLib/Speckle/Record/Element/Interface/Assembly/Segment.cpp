@@ -7,7 +7,7 @@
 #include <ACAPinc.h>
 #include <APIdefs_Elements.h>
 
-#ifndef ServerMainVers_2600
+#ifndef ServerMainVers_2700
 #include "Speckle/Utility/Legacy/random_shuffle.h"
 #endif
 

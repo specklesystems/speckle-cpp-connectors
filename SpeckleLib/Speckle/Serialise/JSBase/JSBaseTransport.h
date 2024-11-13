@@ -6,7 +6,7 @@
 #include "Speckle/Utility/String.h"
 
 #include <Ref.hpp>
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 #include <JSValues.hpp>
 #else //ServerMainVers_2600
 #include <DGBrowserEventArgs.hpp>

@@ -7,7 +7,7 @@
 #include "Speckle/Utility/String.h"
 
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 #include <JavascriptEngine.hpp>
 #else
 #include <DGBrowser.hpp>

@@ -54,7 +54,7 @@ namespace {
 		active::utility::Memory::erase(header);
 			//NB: This is not intended to be used for API attribute calls - it only transports core properties within this framework, e.g. name
 		header.typeID = static_cast<API_AttrTypeID>(Attribute::storeyTableID);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 		header.index = ACAPI_CreateAttributeIndex(storey.index);
 #else
 		header.index = storey.index;

@@ -65,7 +65,7 @@ bool DocStoreSubscriber::receive(const Event& event) {
   --------------------------------------------------------------------*/
 bool DocStoreSubscriber::attach() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_AddOnObject_RegisterAddOnObjectHandler();
 #else
 	ACAPI_Register_AddOnObjectHandler();
@@ -85,7 +85,7 @@ bool DocStoreSubscriber::start() {
 		return true;
 	m_isStarted = true;
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return (ACAPI_AddOnObject_InstallAddOnObjectMergeHandler(docMergeCallback) == NoError);
 #else
 	return (ACAPI_Install_AddOnObjectMergeHandler(docMergeCallback) == NoError);

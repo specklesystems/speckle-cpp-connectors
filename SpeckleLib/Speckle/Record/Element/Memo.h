@@ -7,7 +7,7 @@
 #include <optional>
 
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 struct API_ElementMemo;
 #endif
 #endif

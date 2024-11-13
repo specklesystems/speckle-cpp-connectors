@@ -76,7 +76,7 @@ namespace {
 		std::shared_ptr<DG::Browser> browser;
 
 		void InitBrowserControl();
-		void SetMenuItemCheckedState(bool);
+		void publshVisibilityChange(bool);
 
 		virtual void PanelResized(const DG::PanelResizeEvent& ev) override;
 		virtual	void PanelCloseRequested(const DG::PanelCloseRequestEvent& ev, bool* accepted) override;
@@ -198,7 +198,7 @@ static GSErrCode __ACENV_CALL NotificationHandler(API_NotifyEventID notifID, Int
 BrowserPalette::BrowserPalette() :
 	DG::Palette(ACAPI_GetOwnResModule(), BrowserPaletteResId, ACAPI_GetOwnResModule(), paletteGuid) {
 	browser = std::make_shared<DG::Browser>(GetReference(), BrowserId);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_ProjectOperation_CatchProjectEvent(APINotify_Quit, NotificationHandler);
 #else
 	ACAPI_Notify_CatchProjectEvent(APINotify_Quit, NotificationHandler);
@@ -254,12 +254,12 @@ void BrowserPalette::DestroyInstance() {
 
 void BrowserPalette::Show() {
 	DG::Palette::Show();
-	SetMenuItemCheckedState(true);
+	publshVisibilityChange(true);
 }
 
 void BrowserPalette::Hide() {
 	DG::Palette::Hide();
-	SetMenuItemCheckedState(false);
+	publshVisibilityChange(false);
 }
 
 void BrowserPalette::InitBrowserControl() {
@@ -272,9 +272,9 @@ void BrowserPalette::InitBrowserControl() {
 }
 
 
-void BrowserPalette::SetMenuItemCheckedState(bool isChecked) {
-		//Request a change to the menu checked state
-	app()->publish(Event{setConnectorMenuCheckID, { ValueSetting{isChecked, menuCheckStateID} }});
+void BrowserPalette::publshVisibilityChange(bool isChecked) {
+		//Signal that the palette visibility has changed
+	app()->publish(Event{reflectPaletteVisibilityID, { ValueSetting{isChecked, paletteVisibilityStateID} }});
 }
 
 void BrowserPalette::PanelResized(const DG::PanelResizeEvent& ev) {

@@ -8,6 +8,8 @@
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
 
+#include <mutex>
+
 using namespace active::file;
 using namespace active::environment;
 using namespace connector;
@@ -23,10 +25,21 @@ namespace {
 		//The account database name
 	const char* accountDBaseName = "Accounts.db";
 	
-		///The Connector addon class
+	
+	/*!
+	 Class for a concrete instance of an add-on
+	 
+	 This class is private to prevent ad-hoc construction of instances while fulfilling the requirements of the public interface. Essentially
+	 this should behave as a singleton, representing the sole instance of the running add-on
+	 */
 	class ConnectorInstance : public ConnectorAddon {
 	public:
+		/*!
+		 Constructor
+		 @param name The connector add-on name
+		 */
 		ConnectorInstance(const String& name) : ConnectorAddon{name} {
+				//Define the connector UI components
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
 		}
@@ -49,8 +62,12 @@ namespace {
 		}
 		
 	private:
+			///The accounts database - always a single instance for the active user
 		mutable std::unique_ptr<AccountDatabase> m_account;
+			///Mutex to control access to the accounts database
+		mutable std::mutex m_accountMutex;
 	};
+	
 	
 		///The active addon instance
 	std::unique_ptr<ConnectorAddon> m_addonInstance;
@@ -85,6 +102,7 @@ ConnectorAddon::ConnectorAddon(const speckle::utility::String& name) : Addon{nam
 	return: The account database
  --------------------------------------------------------------------*/
 const AccountDatabase* ConnectorInstance::getAccountDatabase() const {
+	const std::lock_guard<std::mutex> lock{m_accountMutex};
 	if (!m_account) {
 		auto speckleDirectory = getAppDataDirectory();
 		if (!speckleDirectory)

@@ -21,7 +21,7 @@
 #include <JSON/JDOMWriter.hpp>
 #include <JSON/Value.hpp>
 
-#ifndef ServerMainVers_2600
+#ifndef ServerMainVers_2700
 #include <DGBrowserEventArgs.hpp>
 namespace JS {
 	using Base = DG::JSBase;

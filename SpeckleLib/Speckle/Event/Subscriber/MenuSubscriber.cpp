@@ -4,7 +4,7 @@
 #include "Speckle/Event/Type/MenuEvent.h"
 
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 #include <ACAPI_Interface.h>
 #endif
 #endif
@@ -51,7 +51,7 @@ void MenuSubscriber::setMenuEnabled(uint16_t item, bool state) const {
 	API_MenuItemRef menuRef{};
 	menuRef.menuResID = m_resourceID;
 	menuRef.itemIndex = item;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	GSFlags flags{};
 	if (ACAPI_MenuItem_GetMenuItemFlags(&menuRef, &flags) == NoError)
 #else
@@ -65,7 +65,7 @@ void MenuSubscriber::setMenuEnabled(uint16_t item, bool state) const {
 				flags &= ~API_MenuItemDisabled;
 			else
 				flags |= API_MenuItemDisabled;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 			ACAPI_MenuItem_SetMenuItemFlags(&menuRef, &flags);
 #else
 			ACAPI_Interface(APIIo_SetMenuItemFlagsID, &menuRef, &flags);
@@ -87,7 +87,7 @@ void MenuSubscriber::setMenuChecked(uint16_t item, bool state) const {
 	API_MenuItemRef menuRef{};
 	menuRef.menuResID = m_resourceID;
 	menuRef.itemIndex = item;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	GSFlags flags{};
 	if (ACAPI_MenuItem_GetMenuItemFlags(&menuRef, &flags) == NoError)
 #else
@@ -101,7 +101,7 @@ void MenuSubscriber::setMenuChecked(uint16_t item, bool state) const {
 				flags |= API_MenuItemChecked;
 			else
 				flags &= ~API_MenuItemChecked;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 			ACAPI_MenuItem_SetMenuItemFlags(&menuRef, &flags);
 #else
 			ACAPI_Interface(APIIo_SetMenuItemFlagsID, &menuRef, &flags);
@@ -124,7 +124,7 @@ void MenuSubscriber::setMenuLabel(uint16_t item, const speckle::utility::String&
 	menuRef.menuResID = m_resourceID;
 	menuRef.itemIndex = item;
 	GS::UniString label(text);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_MenuItem_SetMenuItemText(&menuRef, nullptr, &label);
 #else
 	ACAPI_Interface(APIIo_SetMenuItemTextID, &menuRef, nullptr, (void*) &label);
@@ -155,7 +155,7 @@ bool MenuSubscriber::receive(const Event& event) {
   --------------------------------------------------------------------*/
 bool MenuSubscriber::attach() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return (ACAPI_MenuItem_RegisterMenu(m_resourceID, m_helpID, m_location, m_flags) == NoError);
 #else
 	return (ACAPI_Register_Menu(m_resourceID, m_helpID, m_location, m_flags) == NoError);
@@ -173,7 +173,7 @@ bool MenuSubscriber::attach() {
   --------------------------------------------------------------------*/
 bool MenuSubscriber::start() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return (ACAPI_MenuItem_InstallMenuHandler(m_resourceID, menuCallback) == NoError);
 #else
 	return (ACAPI_Install_MenuHandler(m_resourceID, menuCallback) == NoError);

@@ -86,7 +86,7 @@ Mesh::~Mesh() {}
   --------------------------------------------------------------------*/
 std::optional<Material> Mesh::getMaterial() const {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return Material{Guid{Guid::fromInt(m_data->root.buildingMaterial.GenerateHashValue())}};
 #else
 	return Material{Guid{Guid::fromInt(m_data->root.buildingMaterial)}};

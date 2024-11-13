@@ -3,7 +3,7 @@
 #include <mutex>
 
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 #include "ACAPI_Interface.h"
 #endif
 #endif
@@ -25,7 +25,7 @@ namespace {
   --------------------------------------------------------------------*/
 Progress::~Progress() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_ProcessWindow_CloseProcessWindow();
 #else
 	ACAPI_Interface(APIIo_CloseProcessWindowID);
@@ -49,7 +49,7 @@ Progress::Shared Progress::getInstance(const String& title, size_t stages) {
 #ifdef ARCHICAD
 	GS::UniString gsTitle{title};
 	auto phases = static_cast<Int32>(stages);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	if (ACAPI_ProcessWindow_InitProcessWindow(&gsTitle, &phases) != NoError)
 #else
 	if (ACAPI_Interface(APIIo_InitProcessWindowID, &gsTitle, &phases) != NoError)
@@ -70,7 +70,7 @@ Progress::Shared Progress::getInstance(const String& title, size_t stages) {
 void Progress::operator+= (size_t toAdd) {
 #ifdef ARCHICAD
 	auto incVal = static_cast<Int32>(toAdd);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_ProcessWindow_IncProcessValue(&incVal);
 #else
 	ACAPI_Interface(APIIo_IncProcessValueID, &incVal);
@@ -98,7 +98,7 @@ void Progress::startStage(const String& title, size_t stepCount, bool showPercen
 #ifdef ARCHICAD
 	GS::UniString gsTitle{title};
 	auto maxVal = static_cast<Int32>(stepCount);
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	ACAPI_ProcessWindow_SetNextProcessPhase(&gsTitle, &maxVal, &showPercentage);
 #else
 	ACAPI_Interface(APIIo_SetNextProcessPhaseID, &gsTitle, &maxVal, &showPercentage);
@@ -114,7 +114,7 @@ void Progress::startStage(const String& title, size_t stepCount, bool showPercen
   --------------------------------------------------------------------*/
 bool Progress::isCancelled() {
 #ifdef ARCHICAD
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	return (ACAPI_ProcessWindow_IsProcessCanceled() != NoError);
 #else
 	return (ACAPI_Interface(APIIo_IsProcessCanceledID) != NoError);

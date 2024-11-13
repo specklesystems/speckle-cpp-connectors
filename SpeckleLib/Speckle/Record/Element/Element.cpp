@@ -194,14 +194,16 @@ BIMLink Element::getBIMLink() const {
 String Element::getLocalisedTypeName() const {
 #ifdef ARCHICAD
 	GS::UniString typeName;
-#ifdef ServerMainVers_2600
+#ifdef ServerMainVers_2700
 	if (auto err = ACAPI_Element_GetElemTypeName(getHead().type, typeName); err != NoError)
+#elif defined(ServerMainVers_2600)
+	if (auto err = ACAPI_Goodies_GetElemTypeName(getHead().type, typeName); err != NoError)
 #else
 	if (auto err = ACAPI_Goodies(APIAny_GetElemTypeNameID, (void*) getHead().typeID, &typeName); err != NoError)
 #endif
 		return addon()->getLocalString(titleStringLib, unknownElementTypeID);
 	return typeName;
-#endif
+#endif //ARCHICAD
 } //Element::getLocalisedTypeName
 
 
