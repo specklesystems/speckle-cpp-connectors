@@ -15,6 +15,11 @@
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Graphisoft\Archicad 26\Archicad.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC25|x64'">
     <LocalDebuggerCommand>C:\Program Files\Graphisoft\ARCHICAD 25\Archicad.exe</LocalDebuggerCommand>
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
@@ -35,8 +40,13 @@
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|x64'">
+    <LocalDebuggerCommand>C:\Program Files\Graphisoft\Archicad 26\Archicad.exe</LocalDebuggerCommand>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC25|x64'">
-    <LocalDebuggerCommand>C:\Program Files\Graphisoft\Archicad 27\Archicad.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>C:\Program Files\Graphisoft\ARCHICAD 25\Archicad.exe</LocalDebuggerCommand>
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
