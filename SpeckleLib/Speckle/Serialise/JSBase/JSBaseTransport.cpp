@@ -260,7 +260,11 @@ namespace {
 		if (auto object = dynamic_cast<JS::Object*>(&source); object != nullptr) {
 				//Decompose an object
 			for (auto& item : object->GetItemTable())
+#ifdef ServerMainVers_2800
+				result.push_back({ item.value, String{item.key} });
+#else
 				result.push_back({ item.value->operator JS::Base * (), String{*item.key} });
+#endif
 		}
 		else if (auto array = dynamic_cast<JS::Array*>(&source); array != nullptr) {
 				//Decompose an array
@@ -433,7 +437,11 @@ namespace {
 		if (objectJS != nullptr) {
 			JSON::ObjectValueRef objectJSON = new JSON::ObjectValue();
 			for (const auto& member : objectJS->GetItemTable())
+#ifdef ServerMainVers_2800
+				objectJSON->AddValue(member.key, convertToJSONValue(member.value));
+#else
 				objectJSON->AddValue(*member.key, convertToJSONValue(*member.value));
+#endif
 			return objectJSON;
 		}
 		JS::Array* arrayJs = dynamic_cast<JS::Array*> ((JS::Base*)jsBase);

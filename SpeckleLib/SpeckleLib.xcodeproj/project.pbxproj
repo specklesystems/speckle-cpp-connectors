@@ -480,6 +480,173 @@
 		21CE8A882CE4F2860076522F /* Memo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBF32CBD6B700023F24E /* Memo.cpp */; };
 		21CE8A892CE4F2860076522F /* Morph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1A2CD586D800D4602B /* Morph.cpp */; };
 		21CE8A8A2CE4F2860076522F /* DetachedReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9B92CA606B4000B8681 /* DetachedReference.cpp */; };
+		21CE8D252CE5134E0076522F /* Memo.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBF22CBD6B700023F24E /* Memo.h */; };
+		21CE8D262CE5134E0076522F /* ArchicadDBaseCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08882CA195EC00CD343B /* ArchicadDBaseCore.h */; };
+		21CE8D272CE5134E0076522F /* SegmentedBeam.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19AB2CC8F214004DBCFC /* SegmentedBeam.h */; };
+		21CE8D282CE5134E0076522F /* Morph.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C1B2CD586D800D4602B /* Morph.h */; };
+		21CE8D292CE5134E0076522F /* RecordID.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDE42C943D3F0077E104 /* RecordID.h */; };
+		21CE8D2A2CE5134E0076522F /* Progress.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199BB712CDCB0D500A4BEEC /* Progress.h */; };
+		21CE8D2B2CE5134E0076522F /* AccountDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD1E2C86F0280077E104 /* AccountDatabase.h */; };
+		21CE8D2C2CE5134E0076522F /* Str256.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBB42CBA5E380023F24E /* Str256.h */; };
+		21CE8D2D2CE5134E0076522F /* ArgumentBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC86D2C7E879700610F58 /* ArgumentBase.h */; };
+		21CE8D2E2CE5134E0076522F /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19852CC7FF5F004DBCFC /* Group.h */; };
+		21CE8D2F2CE5134E0076522F /* Platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC89E2C81E34400610F58 /* Platform.h */; };
+		21CE8D302CE5134E0076522F /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 2192460F2CA34DCE00CF5703 /* Mesh.h */; };
+		21CE8D312CE5134E0076522F /* GenericDrawingElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A890CB2CC1B87B0087E732 /* GenericDrawingElement.h */; };
+		21CE8D322CE5134E0076522F /* BIMLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 219246012CA2CE2700CF5703 /* BIMLink.h */; };
+		21CE8D332CE5134E0076522F /* ErrorReport.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67D092C7E0E8D00FD64FC /* ErrorReport.h */; };
+		21CE8D342CE5134E0076522F /* Beam.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19A52CC8F1F8004DBCFC /* Beam.h */; };
+		21CE8D352CE5134E0076522F /* BIMElementDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08942CA19AF800CD343B /* BIMElementDatabase.h */; };
+		21CE8D362CE5134E0076522F /* Material.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BEA2CD3EBE200D4602B /* Material.h */; };
+		21CE8D372CE5134E0076522F /* Attribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 2196F2EE2CB4823C00450DFC /* Attribute.h */; };
+		21CE8D382CE5134E0076522F /* Link.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD2F2C86FE090077E104 /* Link.h */; };
+		21CE8D392CE5134E0076522F /* Setting.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE195F2CC2D358004DBCFC /* Setting.h */; };
+		21CE8D3A2CE5134E0076522F /* UserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD582C8910400077E104 /* UserInfo.h */; };
+		21CE8D3B2CE5134E0076522F /* DrawingElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A890C72CC1B5FF0087E732 /* DrawingElement.h */; };
+		21CE8D3C2CE5134E0076522F /* ServerMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD542C890B1C0077E104 /* ServerMigration.h */; };
+		21CE8D3D2CE5134E0076522F /* Guid64.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC88D2C81A98500610F58 /* Guid64.h */; };
+		21CE8D3E2CE5134E0076522F /* MeshElem.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C222CD59B4100D4602B /* MeshElem.h */; };
+		21CE8D3F2CE5134E0076522F /* DetachedObjectStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AEF9DB2CAAA4EA000B8681 /* DetachedObjectStore.h */; };
+		21CE8D402CE5134E0076522F /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBE92CBD6B1A0023F24E /* Column.h */; };
+		21CE8D412CE5134E0076522F /* BIMPropertyDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19642CC2F702004DBCFC /* BIMPropertyDatabase.h */; };
+		21CE8D422CE5134E0076522F /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FC022CBE59A80023F24E /* Path.h */; };
+		21CE8D432CE5134E0076522F /* FinishCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FB9F2CB880690023F24E /* FinishCollector.h */; };
+		21CE8D442CE5134E0076522F /* Roof.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C172CD585A600D4602B /* Roof.h */; };
+		21CE8D452CE5134E0076522F /* PropertiedWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE197E2CC7D265004DBCFC /* PropertiedWrapper.h */; };
+		21CE8D462CE5134E0076522F /* UserCancel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199BB812CDE508800A4BEEC /* UserCancel.h */; };
+		21CE8D472CE5134E0076522F /* Segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FC092CBE5E220023F24E /* Segment.h */; };
+		21CE8D482CE5134E0076522F /* ArchicadElementDBaseEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08892CA195EC00CD343B /* ArchicadElementDBaseEngine.h */; };
+		21CE8D492CE5134E0076522F /* ElementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC72CD24ADC00D4602B /* ElementEvent.h */; };
+		21CE8D4A2CE5134E0076522F /* Shell.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C1E2CD5880400D4602B /* Shell.h */; };
+		21CE8D4B2CE5134E0076522F /* Finish.h in Headers */ = {isa = PBXBuildFile; fileRef = 2196F2F22CB483D600450DFC /* Finish.h */; };
+		21CE8D4C2CE5134E0076522F /* Part.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBE42CBD6B1A0023F24E /* Part.h */; };
+		21CE8D4D2CE5134E0076522F /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B67CFE2C7CE15100FD64FC /* Exception.h */; };
+		21CE8D4E2CE5134E0076522F /* Surveyor.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BF32CD4D65700D4602B /* Surveyor.h */; };
+		21CE8D4F2CE5134E0076522F /* ColumnSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBE22CBD6B1A0023F24E /* ColumnSegment.h */; };
+		21CE8D502CE5134E0076522F /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD262C86FC350077E104 /* Record.h */; };
+		21CE8D512CE5134E0076522F /* DocumentStoreCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDAD2C8F8AB60077E104 /* DocumentStoreCore.h */; };
+		21CE8D522CE5134E0076522F /* Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08792CA18E1400CD343B /* Element.h */; };
+		21CE8D532CE5134E0076522F /* PropsAndClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19772CC7CE1A004DBCFC /* PropsAndClassWrapper.h */; };
+		21CE8D542CE5134E0076522F /* BIMAttributeDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 2196F2F72CB51ED400450DFC /* BIMAttributeDatabase.h */; };
+		21CE8D552CE5134E0076522F /* Project.h in Headers */ = {isa = PBXBuildFile; fileRef = 215F08542C99DA8D00CD343B /* Project.h */; };
+		21CE8D562CE5134E0076522F /* BIMRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 219245FD2CA2CC4300CF5703 /* BIMRecord.h */; };
+		21CE8D572CE5134E0076522F /* BridgeChild.h in Headers */ = {isa = PBXBuildFile; fileRef = 210CC87D2C80CD2A00610F58 /* BridgeChild.h */; };
+		21CE8D582CE5134E0076522F /* ArchicadGroupDBaseEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE198D2CC80541004DBCFC /* ArchicadGroupDBaseEngine.h */; };
+		21CE8D592CE5134E0076522F /* ServerInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD4B2C8901A00077E104 /* ServerInfo.h */; };
+		21CE8D5A2CE5134E0076522F /* Storey.h in Headers */ = {isa = PBXBuildFile; fileRef = 2196F3022CB57E7F00450DFC /* Storey.h */; };
+		21CE8D5B2CE5134E0076522F /* Wall.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384C022CD57CA500D4602B /* Wall.h */; };
+		21CE8D5C2CE5134E0076522F /* Classified.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE196C2CC64D37004DBCFC /* Classified.h */; };
+		21CE8D5D2CE5134E0076522F /* ConversionReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199BB6A2CDBF09900A4BEEC /* ConversionReporter.h */; };
+		21CE8D5E2CE5134E0076522F /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE194B2CC273F1004DBCFC /* Property.h */; };
+		21CE8D5F2CE5134E0076522F /* BIMMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBF72CBDB9A70023F24E /* BIMMemory.h */; };
+		21CE8D602CE5134E0076522F /* BeamSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19A62CC8F1F8004DBCFC /* BeamSegment.h */; };
+		21CE8D612CE5134E0076522F /* MaterialWrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BEF2CD3F3A500D4602B /* MaterialWrap.h */; };
+		21CE8D622CE5134E0076522F /* BIMGroupDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19922CC82866004DBCFC /* BIMGroupDatabase.h */; };
+		21CE8D632CE5134E0076522F /* Template.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE194D2CC273F1004DBCFC /* Template.h */; };
+		21CE8D642CE5134E0076522F /* ArchicadRGB.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FBB92CBBC04C0023F24E /* ArchicadRGB.h */; };
+		21CE8D652CE5134E0076522F /* Conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BFB2CD52C7500D4602B /* Conversion.h */; };
+		21CE8D662CE5134E0076522F /* PropertyWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19822CC7D517004DBCFC /* PropertyWrapper.h */; };
+		21CE8D672CE5134E0076522F /* SegmentedColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FC002CBE59A80023F24E /* SegmentedColumn.h */; };
+		21CE8D682CE5134E0076522F /* ModelElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0FC0D2CBE92F10023F24E /* ModelElement.h */; };
+		21CE8D692CE5134E0076522F /* DocumentStoreEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDAE2C8F8AB60077E104 /* DocumentStoreEngine.h */; };
+		21CE8D6A2CE5134E0076522F /* MaterialQuantity.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BE42CD3DD6200D4602B /* MaterialQuantity.h */; };
+		21CE8D6B2CE5134E0076522F /* GenericModelElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A890CC2CC1B87B0087E732 /* GenericModelElement.h */; };
+		21CE8D6C2CE5134E0076522F /* Slab.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BFE2CD558D000D4602B /* Slab.h */; };
+		21CE8D6D2CE5134E0076522F /* ArchicadPropertyDBaseEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A890C02CC171D80087E732 /* ArchicadPropertyDBaseEngine.h */; };
+		21CE8D6E2CE5134E0076522F /* Host.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BA92CCDA9B400D4602B /* Host.h */; };
+		21CE8D6F2CE5134E0076522F /* TypeSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BF62CD50CD400D4602B /* TypeSetting.h */; };
+		21CE8D702CE5134E0076522F /* ProjectSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDC32C9241940077E104 /* ProjectSubscriber.h */; };
+		21CE8D712CE5134E0076522F /* Propertied.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19682CC57832004DBCFC /* Propertied.h */; };
+		21CE8D722CE5134E0076522F /* ArchicadAttributeDBaseEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2196F2E92CB4816B00450DFC /* ArchicadAttributeDBaseEngine.h */; };
+		21CE8D732CE5134E0076522F /* Value.h in Headers */ = {isa = PBXBuildFile; fileRef = 21AE19562CC27DB3004DBCFC /* Value.h */; };
+		21CE8D742CE5134E0076522F /* ElementSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 21384BC42CD24AB200D4602B /* ElementSubscriber.h */; };
+		21CE8D752CE5134E0076522F /* Index.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD2D2C86FE090077E104 /* Index.h */; };
+		21CE8D772CE5134E0076522F /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FC082CBE5E220023F24E /* Segment.cpp */; };
+		21CE8D782CE5134E0076522F /* ServerMigration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD512C890B1C0077E104 /* ServerMigration.cpp */; };
+		21CE8D792CE5134E0076522F /* BridgeArgument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FA52C733EDA008B6A06 /* BridgeArgument.cpp */; };
+		21CE8D7A2CE5134E0076522F /* RunMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F662C6DFB01008B6A06 /* RunMethod.cpp */; };
+		21CE8D7B2CE5134E0076522F /* BridgeArgumentWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F802C6FF3B0008B6A06 /* BridgeArgumentWrap.cpp */; };
+		21CE8D7C2CE5134E0076522F /* PropertiedWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE197D2CC7D265004DBCFC /* PropertiedWrapper.cpp */; };
+		21CE8D7D2CE5134E0076522F /* ArchicadDBaseCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08872CA195EC00CD343B /* ArchicadDBaseCore.cpp */; };
+		21CE8D7E2CE5134E0076522F /* MenuSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351782C624FC100E5A69C /* MenuSubscriber.cpp */; };
+		21CE8D7F2CE5134E0076522F /* Attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F2ED2CB4823C00450DFC /* Attribute.cpp */; };
+		21CE8D802CE5134E0076522F /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C012CD57CA500D4602B /* Wall.cpp */; };
+		21CE8D812CE5134E0076522F /* GetBindingsMethodNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */; };
+		21CE8D822CE5134E0076522F /* ProjectEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08652C9B006700CD343B /* ProjectEvent.cpp */; };
+		21CE8D832CE5134E0076522F /* BIMGroupDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19912CC82866004DBCFC /* BIMGroupDatabase.cpp */; };
+		21CE8D842CE5134E0076522F /* Beam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19A12CC8F1F8004DBCFC /* Beam.cpp */; };
+		21CE8D852CE5134E0076522F /* DocStoreSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDBB2C90F2830077E104 /* DocStoreSubscriber.cpp */; };
+		21CE8D862CE5134E0076522F /* PropsAndClassWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19762CC7CE1A004DBCFC /* PropsAndClassWrapper.cpp */; };
+		21CE8D872CE5134E0076522F /* DocumentStoreCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDAC2C8F8AB60077E104 /* DocumentStoreCore.cpp */; };
+		21CE8D882CE5134E0076522F /* ArchicadElementDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219246072CA2ED2F00CF5703 /* ArchicadElementDBaseEngine.cpp */; };
+		21CE8D892CE5134E0076522F /* LengthUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F2E22CB05BAF00450DFC /* LengthUnit.cpp */; };
+		21CE8D8A2CE5134E0076522F /* Addon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F93AEA2B2F406D009A2C5B /* Addon.cpp */; };
+		21CE8D8B2CE5134E0076522F /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08782CA18E1400CD343B /* Element.cpp */; };
+		21CE8D8C2CE5134E0076522F /* BIMAttributeDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F2F62CB51ED400450DFC /* BIMAttributeDatabase.cpp */; };
+		21CE8D8D2CE5134E0076522F /* ServerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD4C2C8901A00077E104 /* ServerInfo.cpp */; };
+		21CE8D8E2CE5134E0076522F /* Property.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE194A2CC273F1004DBCFC /* Property.cpp */; };
+		21CE8D8F2CE5134E0076522F /* Progress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB702CDCB0D500A4BEEC /* Progress.cpp */; };
+		21CE8D902CE5134E0076522F /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BEB2CD3EBE200D4602B /* Material.cpp */; };
+		21CE8D912CE5134E0076522F /* MeshElem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C232CD59B4100D4602B /* MeshElem.cpp */; };
+		21CE8D922CE5134E0076522F /* ErrorReport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67D0C2C7E0E8D00FD64FC /* ErrorReport.cpp */; };
+		21CE8D932CE5134E0076522F /* ArchicadGroupDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE198E2CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp */; };
+		21CE8D942CE5134E0076522F /* Propertied.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19672CC57832004DBCFC /* Propertied.cpp */; };
+		21CE8D952CE5134E0076522F /* GetCallResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F7A2C6FD9FC008B6A06 /* GetCallResult.cpp */; };
+		21CE8D962CE5134E0076522F /* Storey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F3032CB57E7F00450DFC /* Storey.cpp */; };
+		21CE8D972CE5134E0076522F /* BIMRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219245FA2CA2CC4300CF5703 /* BIMRecord.cpp */; };
+		21CE8D982CE5134E0076522F /* Value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19552CC27DB3004DBCFC /* Value.cpp */; };
+		21CE8D992CE5134E0076522F /* Slab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BFD2CD558D000D4602B /* Slab.cpp */; };
+		21CE8D9A2CE5134E0076522F /* BeamSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19A42CC8F1F8004DBCFC /* BeamSegment.cpp */; };
+		21CE8D9B2CE5134E0076522F /* DetachedWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BD2CA6FDA4000B8681 /* DetachedWrap.cpp */; };
+		21CE8D9C2CE5134E0076522F /* Path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FC012CBE59A80023F24E /* Path.cpp */; };
+		21CE8D9D2CE5134E0076522F /* Finish.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F2F32CB483D600450DFC /* Finish.cpp */; };
+		21CE8D9E2CE5134E0076522F /* ColumnSegment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBDF2CBD6B1A0023F24E /* ColumnSegment.cpp */; };
+		21CE8D9F2CE5134E0076522F /* TypeSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BF92CD51B6F00D4602B /* TypeSetting.cpp */; };
+		21CE8DA02CE5134E0076522F /* SelectionSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351992C6278D900E5A69C /* SelectionSubscriber.cpp */; };
+		21CE8DA12CE5134E0076522F /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD252C86FC350077E104 /* Record.cpp */; };
+		21CE8DA22CE5134E0076522F /* MaterialWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BEE2CD3F3A500D4602B /* MaterialWrap.cpp */; };
+		21CE8DA32CE5134E0076522F /* BIMLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219246022CA2CE2700CF5703 /* BIMLink.cpp */; };
+		21CE8DA42CE5134E0076522F /* GenericDrawingElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890CA2CC1B87B0087E732 /* GenericDrawingElement.cpp */; };
+		21CE8DA52CE5134E0076522F /* BIMElementDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08932CA19AF800CD343B /* BIMElementDatabase.cpp */; };
+		21CE8DA62CE5134E0076522F /* ModelElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FC0C2CBE92F10023F24E /* ModelElement.cpp */; };
+		21CE8DA72CE5134E0076522F /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460E2CA34DCE00CF5703 /* Mesh.cpp */; };
+		21CE8DA82CE5134E0076522F /* Column.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBE82CBD6B1A0023F24E /* Column.cpp */; };
+		21CE8DA92CE5134E0076522F /* ArchicadPropertyDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890BF2CC171D80087E732 /* ArchicadPropertyDBaseEngine.cpp */; };
+		21CE8DAA2CE5134E0076522F /* PropertyWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19812CC7D517004DBCFC /* PropertyWrapper.cpp */; };
+		21CE8DAB2CE5134E0076522F /* Classified.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE196B2CC64D37004DBCFC /* Classified.cpp */; };
+		21CE8DAC2CE5134E0076522F /* DrawingElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890C62CC1B5FF0087E732 /* DrawingElement.cpp */; };
+		21CE8DAD2CE5134E0076522F /* BIMPropertyDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19632CC2F702004DBCFC /* BIMPropertyDatabase.cpp */; };
+		21CE8DAE2CE5134E0076522F /* UserInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD572C8910400077E104 /* UserInfo.cpp */; };
+		21CE8DAF2CE5134E0076522F /* Guid64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC88E2C81A98500610F58 /* Guid64.cpp */; };
+		21CE8DB02CE5134E0076522F /* ProjectSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDC22C9241940077E104 /* ProjectSubscriber.cpp */; };
+		21CE8DB12CE5134E0076522F /* MaterialQuantity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BE32CD3DD6200D4602B /* MaterialQuantity.cpp */; };
+		21CE8DB22CE5134E0076522F /* Setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19602CC2D358004DBCFC /* Setting.cpp */; };
+		21CE8DB32CE5134E0076522F /* String.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351AE2C62CC1A00E5A69C /* String.cpp */; };
+		21CE8DB42CE5134E0076522F /* Guid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219351AC2C62CC1A00E5A69C /* Guid.cpp */; };
+		21CE8DB52CE5134E0076522F /* BrowserBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */; };
+		21CE8DB62CE5134E0076522F /* Part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FC102CBEE5C30023F24E /* Part.cpp */; };
+		21CE8DB72CE5134E0076522F /* Shell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1F2CD5880400D4602B /* Shell.cpp */; };
+		21CE8DB82CE5134E0076522F /* ConversionReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB6E2CDC2B2500A4BEEC /* ConversionReporter.cpp */; };
+		21CE8DB92CE5134E0076522F /* GenericModelElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890CD2CC1B87C0087E732 /* GenericModelElement.cpp */; };
+		21CE8DBA2CE5134E0076522F /* DetachmentManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9BB2CA6DF84000B8681 /* DetachmentManager.cpp */; };
+		21CE8DBB2CE5134E0076522F /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08512C99DA8D00CD343B /* Project.cpp */; };
+		21CE8DBC2CE5134E0076522F /* Group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19862CC7FF5F004DBCFC /* Group.cpp */; };
+		21CE8DBD2CE5134E0076522F /* Roof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C162CD585A600D4602B /* Roof.cpp */; };
+		21CE8DBE2CE5134E0076522F /* JSBaseTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F382C6B880B008B6A06 /* JSBaseTransport.cpp */; };
+		21CE8DBF2CE5134E0076522F /* ElementSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC12CD24AB200D4602B /* ElementSubscriber.cpp */; };
+		21CE8DC02CE5134E0076522F /* Surveyor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BF22CD4D65700D4602B /* Surveyor.cpp */; };
+		21CE8DC12CE5134E0076522F /* ArchicadAttributeDBaseEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2196F2E82CB4816B00450DFC /* ArchicadAttributeDBaseEngine.cpp */; };
+		21CE8DC22CE5134E0076522F /* Template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE194C2CC273F1004DBCFC /* Template.cpp */; };
+		21CE8DC32CE5134E0076522F /* Host.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BAA2CCDA9B400D4602B /* Host.cpp */; };
+		21CE8DC42CE5134E0076522F /* SegmentedColumn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBFF2CBE59A80023F24E /* SegmentedColumn.cpp */; };
+		21CE8DC52CE5134E0076522F /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC89D2C81E34400610F58 /* Platform.cpp */; };
+		21CE8DC62CE5134E0076522F /* AccountDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */; };
+		21CE8DC72CE5134E0076522F /* SegmentedBeam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AE19AC2CC8F214004DBCFC /* SegmentedBeam.cpp */; };
+		21CE8DC82CE5134E0076522F /* Account.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F922C71087A008B6A06 /* Account.cpp */; };
+		21CE8DC92CE5134E0076522F /* BIMMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBF62CBDB9A70023F24E /* BIMMemory.cpp */; };
+		21CE8DCA2CE5134E0076522F /* Memo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBF32CBD6B700023F24E /* Memo.cpp */; };
+		21CE8DCB2CE5134E0076522F /* Morph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1A2CD586D800D4602B /* Morph.cpp */; };
+		21CE8DCC2CE5134E0076522F /* DetachedReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9B92CA606B4000B8681 /* DetachedReference.cpp */; };
 		21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */; };
 		21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD1E2C86F0280077E104 /* AccountDatabase.h */; };
 		21D0BD2B2C86FC350077E104 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD252C86FC350077E104 /* Record.cpp */; };
@@ -705,6 +872,7 @@
 		21BD7B112CE23FA800526AD1 /* libArchicad25.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad25.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BD7B1A2CE276E200526AD1 /* random_shuffle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random_shuffle.h; sourceTree = "<group>"; };
 		21CE8A8F2CE4F2860076522F /* libArchicad26.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad26.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		21CE8DD12CE5134E0076522F /* libArchicad28.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad28.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AccountDatabase.cpp; sourceTree = "<group>"; };
 		21D0BD1E2C86F0280077E104 /* AccountDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDatabase.h; sourceTree = "<group>"; };
 		21D0BD252C86FC350077E104 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
@@ -779,6 +947,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21CE8DCD2CE5134E0076522F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -834,6 +1009,7 @@
 				21379E082AE47A6400A1584C /* libArchicad27.a */,
 				21BD7B112CE23FA800526AD1 /* libArchicad25.a */,
 				21CE8A8F2CE4F2860076522F /* libArchicad26.a */,
+				21CE8DD12CE5134E0076522F /* libArchicad28.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1659,6 +1835,94 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21CE8D242CE5134E0076522F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21CE8D252CE5134E0076522F /* Memo.h in Headers */,
+				21CE8D262CE5134E0076522F /* ArchicadDBaseCore.h in Headers */,
+				21CE8D272CE5134E0076522F /* SegmentedBeam.h in Headers */,
+				21CE8D282CE5134E0076522F /* Morph.h in Headers */,
+				21CE8D292CE5134E0076522F /* RecordID.h in Headers */,
+				21CE8D2A2CE5134E0076522F /* Progress.h in Headers */,
+				21CE8D2B2CE5134E0076522F /* AccountDatabase.h in Headers */,
+				21CE8D2C2CE5134E0076522F /* Str256.h in Headers */,
+				21CE8D2D2CE5134E0076522F /* ArgumentBase.h in Headers */,
+				21CE8D2E2CE5134E0076522F /* Group.h in Headers */,
+				21CE8D2F2CE5134E0076522F /* Platform.h in Headers */,
+				21CE8D302CE5134E0076522F /* Mesh.h in Headers */,
+				21CE8D312CE5134E0076522F /* GenericDrawingElement.h in Headers */,
+				21CE8D322CE5134E0076522F /* BIMLink.h in Headers */,
+				21CE8D332CE5134E0076522F /* ErrorReport.h in Headers */,
+				21CE8D342CE5134E0076522F /* Beam.h in Headers */,
+				21CE8D352CE5134E0076522F /* BIMElementDatabase.h in Headers */,
+				21CE8D362CE5134E0076522F /* Material.h in Headers */,
+				21CE8D372CE5134E0076522F /* Attribute.h in Headers */,
+				21CE8D382CE5134E0076522F /* Link.h in Headers */,
+				21CE8D392CE5134E0076522F /* Setting.h in Headers */,
+				21CE8D3A2CE5134E0076522F /* UserInfo.h in Headers */,
+				21CE8D3B2CE5134E0076522F /* DrawingElement.h in Headers */,
+				21CE8D3C2CE5134E0076522F /* ServerMigration.h in Headers */,
+				21CE8D3D2CE5134E0076522F /* Guid64.h in Headers */,
+				21CE8D3E2CE5134E0076522F /* MeshElem.h in Headers */,
+				21CE8D3F2CE5134E0076522F /* DetachedObjectStore.h in Headers */,
+				21CE8D402CE5134E0076522F /* Column.h in Headers */,
+				21CE8D412CE5134E0076522F /* BIMPropertyDatabase.h in Headers */,
+				21CE8D422CE5134E0076522F /* Path.h in Headers */,
+				21CE8D432CE5134E0076522F /* FinishCollector.h in Headers */,
+				21CE8D442CE5134E0076522F /* Roof.h in Headers */,
+				21CE8D452CE5134E0076522F /* PropertiedWrapper.h in Headers */,
+				21CE8D462CE5134E0076522F /* UserCancel.h in Headers */,
+				21CE8D472CE5134E0076522F /* Segment.h in Headers */,
+				21CE8D482CE5134E0076522F /* ArchicadElementDBaseEngine.h in Headers */,
+				21CE8D492CE5134E0076522F /* ElementEvent.h in Headers */,
+				21CE8D4A2CE5134E0076522F /* Shell.h in Headers */,
+				21CE8D4B2CE5134E0076522F /* Finish.h in Headers */,
+				21CE8D4C2CE5134E0076522F /* Part.h in Headers */,
+				21CE8D4D2CE5134E0076522F /* Exception.h in Headers */,
+				21CE8D4E2CE5134E0076522F /* Surveyor.h in Headers */,
+				21CE8D4F2CE5134E0076522F /* ColumnSegment.h in Headers */,
+				21CE8D502CE5134E0076522F /* Record.h in Headers */,
+				21CE8D512CE5134E0076522F /* DocumentStoreCore.h in Headers */,
+				21CE8D522CE5134E0076522F /* Element.h in Headers */,
+				21CE8D532CE5134E0076522F /* PropsAndClassWrapper.h in Headers */,
+				21CE8D542CE5134E0076522F /* BIMAttributeDatabase.h in Headers */,
+				21CE8D552CE5134E0076522F /* Project.h in Headers */,
+				21CE8D562CE5134E0076522F /* BIMRecord.h in Headers */,
+				21CE8D572CE5134E0076522F /* BridgeChild.h in Headers */,
+				21CE8D582CE5134E0076522F /* ArchicadGroupDBaseEngine.h in Headers */,
+				21CE8D592CE5134E0076522F /* ServerInfo.h in Headers */,
+				21CE8D5A2CE5134E0076522F /* Storey.h in Headers */,
+				21CE8D5B2CE5134E0076522F /* Wall.h in Headers */,
+				21CE8D5C2CE5134E0076522F /* Classified.h in Headers */,
+				21CE8D5D2CE5134E0076522F /* ConversionReporter.h in Headers */,
+				21CE8D5E2CE5134E0076522F /* Property.h in Headers */,
+				21CE8D5F2CE5134E0076522F /* BIMMemory.h in Headers */,
+				21CE8D602CE5134E0076522F /* BeamSegment.h in Headers */,
+				21CE8D612CE5134E0076522F /* MaterialWrap.h in Headers */,
+				21CE8D622CE5134E0076522F /* BIMGroupDatabase.h in Headers */,
+				21CE8D632CE5134E0076522F /* Template.h in Headers */,
+				21CE8D642CE5134E0076522F /* ArchicadRGB.h in Headers */,
+				21CE8D652CE5134E0076522F /* Conversion.h in Headers */,
+				21CE8D662CE5134E0076522F /* PropertyWrapper.h in Headers */,
+				21CE8D672CE5134E0076522F /* SegmentedColumn.h in Headers */,
+				21CE8D682CE5134E0076522F /* ModelElement.h in Headers */,
+				21CE8D692CE5134E0076522F /* DocumentStoreEngine.h in Headers */,
+				21CE8D6A2CE5134E0076522F /* MaterialQuantity.h in Headers */,
+				21CE8D6B2CE5134E0076522F /* GenericModelElement.h in Headers */,
+				21CE8D6C2CE5134E0076522F /* Slab.h in Headers */,
+				21CE8D6D2CE5134E0076522F /* ArchicadPropertyDBaseEngine.h in Headers */,
+				21CE8D6E2CE5134E0076522F /* Host.h in Headers */,
+				21CE8D6F2CE5134E0076522F /* TypeSetting.h in Headers */,
+				21CE8D702CE5134E0076522F /* ProjectSubscriber.h in Headers */,
+				21CE8D712CE5134E0076522F /* Propertied.h in Headers */,
+				21CE8D722CE5134E0076522F /* ArchicadAttributeDBaseEngine.h in Headers */,
+				21CE8D732CE5134E0076522F /* Value.h in Headers */,
+				21CE8D742CE5134E0076522F /* ElementSubscriber.h in Headers */,
+				21CE8D752CE5134E0076522F /* Index.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1713,6 +1977,23 @@
 			productReference = 21CE8A8F2CE4F2860076522F /* libArchicad26.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		21CE8D232CE5134E0076522F /* Archicad28 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21CE8DCE2CE5134E0076522F /* Build configuration list for PBXNativeTarget "Archicad28" */;
+			buildPhases = (
+				21CE8D242CE5134E0076522F /* Headers */,
+				21CE8D762CE5134E0076522F /* Sources */,
+				21CE8DCD2CE5134E0076522F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Archicad28;
+			productName = SpeckleLib;
+			productReference = 21CE8DD12CE5134E0076522F /* libArchicad28.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1746,6 +2027,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				21CE8D232CE5134E0076522F /* Archicad28 */,
 				21379E072AE47A6400A1584C /* Archicad27 */,
 				21CE89E12CE4F2860076522F /* Archicad26 */,
 				21BD7A612CE23FA800526AD1 /* Archicad25 */,
@@ -2047,6 +2329,99 @@
 				21CE8A882CE4F2860076522F /* Memo.cpp in Sources */,
 				21CE8A892CE4F2860076522F /* Morph.cpp in Sources */,
 				21CE8A8A2CE4F2860076522F /* DetachedReference.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21CE8D762CE5134E0076522F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21CE8D772CE5134E0076522F /* Segment.cpp in Sources */,
+				21CE8D782CE5134E0076522F /* ServerMigration.cpp in Sources */,
+				21CE8D792CE5134E0076522F /* BridgeArgument.cpp in Sources */,
+				21CE8D7A2CE5134E0076522F /* RunMethod.cpp in Sources */,
+				21CE8D7B2CE5134E0076522F /* BridgeArgumentWrap.cpp in Sources */,
+				21CE8D7C2CE5134E0076522F /* PropertiedWrapper.cpp in Sources */,
+				21CE8D7D2CE5134E0076522F /* ArchicadDBaseCore.cpp in Sources */,
+				21CE8D7E2CE5134E0076522F /* MenuSubscriber.cpp in Sources */,
+				21CE8D7F2CE5134E0076522F /* Attribute.cpp in Sources */,
+				21CE8D802CE5134E0076522F /* Wall.cpp in Sources */,
+				21CE8D812CE5134E0076522F /* GetBindingsMethodNames.cpp in Sources */,
+				21CE8D822CE5134E0076522F /* ProjectEvent.cpp in Sources */,
+				21CE8D832CE5134E0076522F /* BIMGroupDatabase.cpp in Sources */,
+				21CE8D842CE5134E0076522F /* Beam.cpp in Sources */,
+				21CE8D852CE5134E0076522F /* DocStoreSubscriber.cpp in Sources */,
+				21CE8D862CE5134E0076522F /* PropsAndClassWrapper.cpp in Sources */,
+				21CE8D872CE5134E0076522F /* DocumentStoreCore.cpp in Sources */,
+				21CE8D882CE5134E0076522F /* ArchicadElementDBaseEngine.cpp in Sources */,
+				21CE8D892CE5134E0076522F /* LengthUnit.cpp in Sources */,
+				21CE8D8A2CE5134E0076522F /* Addon.cpp in Sources */,
+				21CE8D8B2CE5134E0076522F /* Element.cpp in Sources */,
+				21CE8D8C2CE5134E0076522F /* BIMAttributeDatabase.cpp in Sources */,
+				21CE8D8D2CE5134E0076522F /* ServerInfo.cpp in Sources */,
+				21CE8D8E2CE5134E0076522F /* Property.cpp in Sources */,
+				21CE8D8F2CE5134E0076522F /* Progress.cpp in Sources */,
+				21CE8D902CE5134E0076522F /* Material.cpp in Sources */,
+				21CE8D912CE5134E0076522F /* MeshElem.cpp in Sources */,
+				21CE8D922CE5134E0076522F /* ErrorReport.cpp in Sources */,
+				21CE8D932CE5134E0076522F /* ArchicadGroupDBaseEngine.cpp in Sources */,
+				21CE8D942CE5134E0076522F /* Propertied.cpp in Sources */,
+				21CE8D952CE5134E0076522F /* GetCallResult.cpp in Sources */,
+				21CE8D962CE5134E0076522F /* Storey.cpp in Sources */,
+				21CE8D972CE5134E0076522F /* BIMRecord.cpp in Sources */,
+				21CE8D982CE5134E0076522F /* Value.cpp in Sources */,
+				21CE8D992CE5134E0076522F /* Slab.cpp in Sources */,
+				21CE8D9A2CE5134E0076522F /* BeamSegment.cpp in Sources */,
+				21CE8D9B2CE5134E0076522F /* DetachedWrap.cpp in Sources */,
+				21CE8D9C2CE5134E0076522F /* Path.cpp in Sources */,
+				21CE8D9D2CE5134E0076522F /* Finish.cpp in Sources */,
+				21CE8D9E2CE5134E0076522F /* ColumnSegment.cpp in Sources */,
+				21CE8D9F2CE5134E0076522F /* TypeSetting.cpp in Sources */,
+				21CE8DA02CE5134E0076522F /* SelectionSubscriber.cpp in Sources */,
+				21CE8DA12CE5134E0076522F /* Record.cpp in Sources */,
+				21CE8DA22CE5134E0076522F /* MaterialWrap.cpp in Sources */,
+				21CE8DA32CE5134E0076522F /* BIMLink.cpp in Sources */,
+				21CE8DA42CE5134E0076522F /* GenericDrawingElement.cpp in Sources */,
+				21CE8DA52CE5134E0076522F /* BIMElementDatabase.cpp in Sources */,
+				21CE8DA62CE5134E0076522F /* ModelElement.cpp in Sources */,
+				21CE8DA72CE5134E0076522F /* Mesh.cpp in Sources */,
+				21CE8DA82CE5134E0076522F /* Column.cpp in Sources */,
+				21CE8DA92CE5134E0076522F /* ArchicadPropertyDBaseEngine.cpp in Sources */,
+				21CE8DAA2CE5134E0076522F /* PropertyWrapper.cpp in Sources */,
+				21CE8DAB2CE5134E0076522F /* Classified.cpp in Sources */,
+				21CE8DAC2CE5134E0076522F /* DrawingElement.cpp in Sources */,
+				21CE8DAD2CE5134E0076522F /* BIMPropertyDatabase.cpp in Sources */,
+				21CE8DAE2CE5134E0076522F /* UserInfo.cpp in Sources */,
+				21CE8DAF2CE5134E0076522F /* Guid64.cpp in Sources */,
+				21CE8DB02CE5134E0076522F /* ProjectSubscriber.cpp in Sources */,
+				21CE8DB12CE5134E0076522F /* MaterialQuantity.cpp in Sources */,
+				21CE8DB22CE5134E0076522F /* Setting.cpp in Sources */,
+				21CE8DB32CE5134E0076522F /* String.cpp in Sources */,
+				21CE8DB42CE5134E0076522F /* Guid.cpp in Sources */,
+				21CE8DB52CE5134E0076522F /* BrowserBridge.cpp in Sources */,
+				21CE8DB62CE5134E0076522F /* Part.cpp in Sources */,
+				21CE8DB72CE5134E0076522F /* Shell.cpp in Sources */,
+				21CE8DB82CE5134E0076522F /* ConversionReporter.cpp in Sources */,
+				21CE8DB92CE5134E0076522F /* GenericModelElement.cpp in Sources */,
+				21CE8DBA2CE5134E0076522F /* DetachmentManager.cpp in Sources */,
+				21CE8DBB2CE5134E0076522F /* Project.cpp in Sources */,
+				21CE8DBC2CE5134E0076522F /* Group.cpp in Sources */,
+				21CE8DBD2CE5134E0076522F /* Roof.cpp in Sources */,
+				21CE8DBE2CE5134E0076522F /* JSBaseTransport.cpp in Sources */,
+				21CE8DBF2CE5134E0076522F /* ElementSubscriber.cpp in Sources */,
+				21CE8DC02CE5134E0076522F /* Surveyor.cpp in Sources */,
+				21CE8DC12CE5134E0076522F /* ArchicadAttributeDBaseEngine.cpp in Sources */,
+				21CE8DC22CE5134E0076522F /* Template.cpp in Sources */,
+				21CE8DC32CE5134E0076522F /* Host.cpp in Sources */,
+				21CE8DC42CE5134E0076522F /* SegmentedColumn.cpp in Sources */,
+				21CE8DC52CE5134E0076522F /* Platform.cpp in Sources */,
+				21CE8DC62CE5134E0076522F /* AccountDatabase.cpp in Sources */,
+				21CE8DC72CE5134E0076522F /* SegmentedBeam.cpp in Sources */,
+				21CE8DC82CE5134E0076522F /* Account.cpp in Sources */,
+				21CE8DC92CE5134E0076522F /* BIMMemory.cpp in Sources */,
+				21CE8DCA2CE5134E0076522F /* Memo.cpp in Sources */,
+				21CE8DCB2CE5134E0076522F /* Morph.cpp in Sources */,
+				21CE8DCC2CE5134E0076522F /* DetachedReference.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2541,6 +2916,104 @@
 			};
 			name = Release;
 		};
+		21CE8DCF2CE5134E0076522F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 28;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = T4C464595P;
+				DSTROOT = "";
+				ENABLE_TESTABILITY = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ARCHICAD=1",
+					ACExtension,
+					"macintosh=1",
+					"$(inherited)",
+					"'__ACENV_CALL= '",
+				);
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OBJROOT = "";
+				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = "";
+				SKIP_INSTALL = YES;
+				SYMROOT = "";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+				);
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_6)\"",
+					"\"$(HEADER_PATH_8)\"",
+				);
+			};
+			name = Debug;
+		};
+		21CE8DD02CE5134E0076522F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 28;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = T4C464595P;
+				DSTROOT = "";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ARCHICAD=1",
+					ACExtension,
+					"macintosh=1",
+					"'__ACENV_CALL= '",
+					"$(inherited)",
+				);
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OBJROOT = "";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SHARED_PRECOMPS_DIR = "";
+				SKIP_INSTALL = YES;
+				SYMROOT = "";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+				);
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_6)\"",
+					"\"$(HEADER_PATH_8)\"",
+				);
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2576,6 +3049,15 @@
 			buildConfigurations = (
 				21CE8A8D2CE4F2860076522F /* Debug */,
 				21CE8A8E2CE4F2860076522F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21CE8DCE2CE5134E0076522F /* Build configuration list for PBXNativeTarget "Archicad28" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21CE8DCF2CE5134E0076522F /* Debug */,
+				21CE8DD02CE5134E0076522F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

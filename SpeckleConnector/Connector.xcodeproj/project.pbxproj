@@ -768,6 +768,108 @@
 		21CE8D1F2CE4F5A80076522F /* VBElemOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE8C062CE4F5A80076522F /* VBElemOperations.framework */; };
 		21CE8D202CE4F5A80076522F /* VBElemOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE8C062CE4F5A80076522F /* VBElemOperations.framework */; };
 		21CE8D222CE4F5B70076522F /* libACAP_STAT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE8D212CE4F5B70076522F /* libACAP_STAT.a */; };
+		21CE8DD82CE5137C0076522F /* ConversionResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9F92CAC3897000B8681 /* ConversionResult.cpp */; };
+		21CE8DD92CE5137C0076522F /* CardSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDAA2C8F363E0077E104 /* CardSetting.cpp */; };
+		21CE8DDA2CE5137C0076522F /* SayHiArg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE02C78D1FB00FD64FC /* SayHiArg.cpp */; };
+		21CE8DDB2CE5137C0076522F /* SendError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E32CAB56E5000B8681 /* SendError.cpp */; };
+		21CE8DDC2CE5137C0076522F /* EverythingSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08452C9633A800CD343B /* EverythingSendFilter.cpp */; };
+		21CE8DDD2CE5137C0076522F /* ConfigBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB42C762EF0008B6A06 /* ConfigBridge.cpp */; };
+		21CE8DDE2CE5137C0076522F /* AccountBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F832C70D2C4008B6A06 /* AccountBridge.cpp */; };
+		21CE8DDF2CE5137C0076522F /* SelectionBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B72CC15C540087E732 /* SelectionBridge.cpp */; };
+		21CE8DE02CE5137C0076522F /* Send.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD8D2C8EE4490077E104 /* Send.cpp */; };
+		21CE8DE12CE5137C0076522F /* AddModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDCB2C92DAC60077E104 /* AddModel.cpp */; };
+		21CE8DE22CE5137C0076522F /* GetComplexType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF52C78D4DD00FD64FC /* GetComplexType.cpp */; };
+		21CE8DE32CE5137C0076522F /* SenderModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDDA2C93897B0077E104 /* SenderModelCard.cpp */; };
+		21CE8DE42CE5137C0076522F /* GetSourceApplicationVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA92C77329800FD64FC /* GetSourceApplicationVersion.cpp */; };
+		21CE8DE52CE5137C0076522F /* FinishProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FB942CB723240023F24E /* FinishProxy.cpp */; };
+		21CE8DE62CE5137C0076522F /* GetDocumentState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC22C77649F00FD64FC /* GetDocumentState.cpp */; };
+		21CE8DE72CE5137C0076522F /* HighlightObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB7C2CDD3FA800A4BEEC /* HighlightObjects.cpp */; };
+		21CE8DE82CE5137C0076522F /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
+		21CE8DE92CE5137C0076522F /* GetSendFilters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD962C8F13F30077E104 /* GetSendFilters.cpp */; };
+		21CE8DEA2CE5137C0076522F /* BaseBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA52C77329800FD64FC /* BaseBridge.cpp */; };
+		21CE8DEB2CE5137C0076522F /* ProjectCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2192460B2CA3469D00CF5703 /* ProjectCollection.cpp */; };
+		21CE8DEC2CE5137C0076522F /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
+		21CE8DED2CE5137C0076522F /* TriggerEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 210CC8812C80E6A300610F58 /* TriggerEvent.cpp */; };
+		21CE8DEE2CE5137C0076522F /* DocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE82C78D27200FD64FC /* DocumentInfo.cpp */; };
+		21CE8DEF2CE5137C0076522F /* GetConnectorVersion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CB72C774BFA00FD64FC /* GetConnectorVersion.cpp */; };
+		21CE8DF02CE5137C0076522F /* TestBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CD62C78C83800FD64FC /* TestBridge.cpp */; };
+		21CE8DF12CE5137C0076522F /* GetSendSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9FB2CAD3FD8000B8681 /* GetSendSettings.cpp */; };
+		21CE8DF22CE5137C0076522F /* UpdateConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FBD2C7630B3008B6A06 /* UpdateConfig.cpp */; };
+		21CE8DF32CE5137C0076522F /* SendViaBrowserArgs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9E52CAB56E5000B8681 /* SendViaBrowserArgs.cpp */; };
+		21CE8DF42CE5137C0076522F /* RecordCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21FF70462CA1A7F400AAD99A /* RecordCollection.cpp */; };
+		21CE8DF52CE5137C0076522F /* HighlightModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A79EC52CCDA45C001754E4 /* HighlightModel.cpp */; };
+		21CE8DF62CE5137C0076522F /* GetDocumentInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CBF2C775A0D00FD64FC /* GetDocumentInfo.cpp */; };
+		21CE8DF72CE5137C0076522F /* UpdateModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD22C935D1A0077E104 /* UpdateModel.cpp */; };
+		21CE8DF82CE5137C0076522F /* GetSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B52CC15C540087E732 /* GetSelection.cpp */; };
+		21CE8DF92CE5137C0076522F /* ConnectorConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CE42C78D23B00FD64FC /* ConnectorConfig.cpp */; };
+		21CE8DFA2CE5137C0076522F /* GetSourceApplicationName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CA72C77329800FD64FC /* GetSourceApplicationName.cpp */; };
+		21CE8DFB2CE5137C0076522F /* SendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDDD2C9393980077E104 /* SendFilter.cpp */; };
+		21CE8DFC2CE5137C0076522F /* ModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDA72C8F33AC0077E104 /* ModelCard.cpp */; };
+		21CE8DFD2CE5137C0076522F /* CardMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08262C947F4400CD343B /* CardMover.cpp */; };
+		21CE8DFE2CE5137C0076522F /* ReceiverModelCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F08362C95808B00CD343B /* ReceiverModelCard.cpp */; };
+		21CE8DFF2CE5137C0076522F /* RemoveModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDD52C935DAE0077E104 /* RemoveModel.cpp */; };
+		21CE8E002CE5137C0076522F /* SelectionInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A890B22CC15C540087E732 /* SelectionInfo.cpp */; };
+		21CE8E012CE5137C0076522F /* ConnectorProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2199BB522CDA4B1700A4BEEC /* ConnectorProject.cpp */; };
+		21CE8E022CE5137C0076522F /* SendObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9EE2CAB5720000B8681 /* SendObject.cpp */; };
+		21CE8E032CE5137C0076522F /* OpenUrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384BC92CD2EE7400D4602B /* OpenUrl.cpp */; };
+		21CE8E042CE5137C0076522F /* SayHi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CDA2C78C87F00FD64FC /* SayHi.cpp */; };
+		21CE8E052CE5137C0076522F /* FilterMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215F082C2C94C5C000CD343B /* FilterMover.cpp */; };
+		21CE8E062CE5137C0076522F /* ConnectorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0A2C677BC0008B6A06 /* ConnectorMenu.cpp */; };
+		21CE8E072CE5137C0076522F /* GetAccounts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F8B2C70D7EE008B6A06 /* GetAccounts.cpp */; };
+		21CE8E082CE5137C0076522F /* ModelCardDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CC72C77670400FD64FC /* ModelCardDatabase.cpp */; };
+		21CE8E092CE5137C0076522F /* ConnectorPalette.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0C2C677BC0008B6A06 /* ConnectorPalette.cpp */; };
+		21CE8E0A2CE5137C0076522F /* GetConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69FB62C762EF0008B6A06 /* GetConfig.cpp */; };
+		21CE8E0B2CE5137C0076522F /* DirectSelectionSendFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDE12C943C630077E104 /* DirectSelectionSendFilter.cpp */; };
+		21CE8E0C2CE5137C0076522F /* GoAway.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B67CF02C78D38000FD64FC /* GoAway.cpp */; };
+		21CE8E0D2CE5137C0076522F /* Connector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F0F2C677BC0008B6A06 /* Connector.cpp */; };
+		21CE8E102CE5137C0076522F /* libActiveLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F69EF52C64FE91008B6A06 /* libActiveLib.a */; };
+		21CE8F452CE5146B0076522F /* libArchicad28.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE8F412CE5137D0076522F /* libArchicad28.a */; };
+		21CE987D2CE514C50076522F /* libACAP_STAT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE987C2CE514C50076522F /* libACAP_STAT.a */; };
+		21CE98AB2CE515460076522F /* VectorImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE987E2CE515430076522F /* VectorImage.framework */; };
+		21CE98AC2CE515460076522F /* Graphix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE987F2CE515430076522F /* Graphix.framework */; };
+		21CE98AD2CE515460076522F /* MEPAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98802CE515430076522F /* MEPAPI.framework */; };
+		21CE98AE2CE515460076522F /* TransparentWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98812CE515430076522F /* TransparentWindow.framework */; };
+		21CE98AF2CE515460076522F /* CADInfrastructureBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98822CE515430076522F /* CADInfrastructureBase.framework */; };
+		21CE98B02CE515460076522F /* DG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98832CE515430076522F /* DG.framework */; };
+		21CE98B12CE515460076522F /* CommunicationCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98842CE515430076522F /* CommunicationCommon.framework */; };
+		21CE98B22CE515460076522F /* HTTPClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98852CE515430076522F /* HTTPClient.framework */; };
+		21CE98B32CE515460076522F /* KeynoteAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98862CE515430076522F /* KeynoteAPI.framework */; };
+		21CE98B42CE515460076522F /* UserInterfaceAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98872CE515430076522F /* UserInterfaceAPI.framework */; };
+		21CE98B52CE515460076522F /* RS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98882CE515430076522F /* RS.framework */; };
+		21CE98B62CE515460076522F /* GSXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98892CE515430076522F /* GSXML.framework */; };
+		21CE98B72CE515460076522F /* InputOutput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988A2CE515440076522F /* InputOutput.framework */; };
+		21CE98B82CE515460076522F /* Model3DViewerControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988B2CE515440076522F /* Model3DViewerControl.framework */; };
+		21CE98B92CE515460076522F /* GSRoot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988C2CE515440076522F /* GSRoot.framework */; };
+		21CE98BA2CE515460076522F /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988D2CE515440076522F /* Network.framework */; };
+		21CE98BB2CE515460076522F /* QGDrawing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988E2CE515440076522F /* QGDrawing.framework */; };
+		21CE98BC2CE515460076522F /* UD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE988F2CE515440076522F /* UD.framework */; };
+		21CE98BD2CE515460076522F /* CommunicationClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98902CE515440076522F /* CommunicationClient.framework */; };
+		21CE98BE2CE515460076522F /* DesignOptionsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98912CE515440076522F /* DesignOptionsAPI.framework */; };
+		21CE98BF2CE515460076522F /* AnalyticalModelAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98922CE515440076522F /* AnalyticalModelAPI.framework */; };
+		21CE98C02CE515460076522F /* GSUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98932CE515440076522F /* GSUtils.framework */; };
+		21CE98C12CE515460076522F /* GSXMLUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98942CE515440076522F /* GSXMLUtils.framework */; };
+		21CE98C22CE515460076522F /* Geometry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98952CE515440076522F /* Geometry.framework */; };
+		21CE98C32CE515460076522F /* JavascriptEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98962CE515440076522F /* JavascriptEngine.framework */; };
+		21CE98C42CE515460076522F /* Pattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98972CE515440076522F /* Pattern.framework */; };
+		21CE98C52CE515460076522F /* HTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98982CE515440076522F /* HTTP.framework */; };
+		21CE98C62CE515460076522F /* Model3D.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98992CE515440076522F /* Model3D.framework */; };
+		21CE98C72CE515460076522F /* GXImageBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989A2CE515450076522F /* GXImageBase.framework */; };
+		21CE98C82CE515460076522F /* IFCInOutAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989B2CE515450076522F /* IFCInOutAPI.framework */; };
+		21CE98C92CE515460076522F /* JSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989C2CE515450076522F /* JSON.framework */; };
+		21CE98CA2CE515460076522F /* ArchicadAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989D2CE515450076522F /* ArchicadAPI.framework */; };
+		21CE98CB2CE515460076522F /* RoomBoundaryManagerAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989E2CE515450076522F /* RoomBoundaryManagerAPI.framework */; };
+		21CE98CC2CE515460076522F /* VBElemDialogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE989F2CE515450076522F /* VBElemDialogs.framework */; };
+		21CE98CD2CE515460076522F /* BuiltInLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A02CE515450076522F /* BuiltInLibrary.framework */; };
+		21CE98CE2CE515460076522F /* APICore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A12CE515450076522F /* APICore.framework */; };
+		21CE98CF2CE515460076522F /* JSONConversion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A22CE515450076522F /* JSONConversion.framework */; };
+		21CE98D02CE515460076522F /* GXImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A32CE515450076522F /* GXImage.framework */; };
+		21CE98D12CE515460076522F /* DGGraphix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A42CE515450076522F /* DGGraphix.framework */; };
+		21CE98D22CE515460076522F /* APIAddOnBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A52CE515450076522F /* APIAddOnBridge.framework */; };
+		21CE98D32CE515460076522F /* GSModeler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A62CE515450076522F /* GSModeler.framework */; };
+		21CE98D42CE515460076522F /* UC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A72CE515450076522F /* UC.framework */; };
+		21CE98D52CE515460076522F /* libXL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A82CE515450076522F /* libXL.dylib */; };
+		21CE98D62CE515460076522F /* GX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98A92CE515460076522F /* GX.framework */; };
+		21CE98D72CE515460076522F /* GSTextEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE98AA2CE515460076522F /* GSTextEngine.framework */; };
 		21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
 		21D0BD672C89D7410077E104 /* AccountTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD642C89D7400077E104 /* AccountTests.cpp */; };
 		21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
@@ -861,6 +963,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 21CE89E12CE4F2860076522F;
 			remoteInfo = Archicad26;
+		};
+		21CE8DD62CE5137C0076522F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EED2C64FE91008B6A06 /* ActiveLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21379E072AE47A6400A1584C;
+			remoteInfo = ActiveLib;
+		};
+		21CE8F402CE5137D0076522F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21CE8DD12CE5134E0076522F;
+			remoteInfo = Archicad28;
+		};
+		21CE8F422CE5142D0076522F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21F69EC62C64C035008B6A06 /* SpeckleLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 21CE8D232CE5134E0076522F;
+			remoteInfo = Archicad28;
 		};
 		21F69ECC2C64C035008B6A06 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1421,6 +1544,53 @@
 		21CE8C052CE4F5A80076522F /* TeamworkServerProjectManagerMessages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TeamworkServerProjectManagerMessages.framework; path = "../../Archicad 26/Support/Frameworks/TeamworkServerProjectManagerMessages.framework"; sourceTree = "<group>"; };
 		21CE8C062CE4F5A80076522F /* VBElemOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElemOperations.framework; path = "../../Archicad 26/Support/Frameworks/VBElemOperations.framework"; sourceTree = "<group>"; };
 		21CE8D212CE4F5B70076522F /* libACAP_STAT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libACAP_STAT.a; path = "../../Archicad 26/Support/Lib/Mactel/libACAP_STAT.a"; sourceTree = "<group>"; };
+		21CE8F3D2CE5137C0076522F /* Speckle Connector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speckle Connector.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21CE987C2CE514C50076522F /* libACAP_STAT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libACAP_STAT.a; path = "../../Archicad 28/Support/Lib/libACAP_STAT.a"; sourceTree = "<group>"; };
+		21CE987E2CE515430076522F /* VectorImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VectorImage.framework; path = "../../Archicad 28/Support/Frameworks/VectorImage.framework"; sourceTree = "<group>"; };
+		21CE987F2CE515430076522F /* Graphix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Graphix.framework; path = "../../Archicad 28/Support/Frameworks/Graphix.framework"; sourceTree = "<group>"; };
+		21CE98802CE515430076522F /* MEPAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MEPAPI.framework; path = "../../Archicad 28/Support/Frameworks/MEPAPI.framework"; sourceTree = "<group>"; };
+		21CE98812CE515430076522F /* TransparentWindow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TransparentWindow.framework; path = "../../Archicad 28/Support/Frameworks/TransparentWindow.framework"; sourceTree = "<group>"; };
+		21CE98822CE515430076522F /* CADInfrastructureBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CADInfrastructureBase.framework; path = "../../Archicad 28/Support/Frameworks/CADInfrastructureBase.framework"; sourceTree = "<group>"; };
+		21CE98832CE515430076522F /* DG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DG.framework; path = "../../Archicad 28/Support/Frameworks/DG.framework"; sourceTree = "<group>"; };
+		21CE98842CE515430076522F /* CommunicationCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationCommon.framework; path = "../../Archicad 28/Support/Frameworks/CommunicationCommon.framework"; sourceTree = "<group>"; };
+		21CE98852CE515430076522F /* HTTPClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTTPClient.framework; path = "../../Archicad 28/Support/Frameworks/HTTPClient.framework"; sourceTree = "<group>"; };
+		21CE98862CE515430076522F /* KeynoteAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeynoteAPI.framework; path = "../../Archicad 28/Support/Frameworks/KeynoteAPI.framework"; sourceTree = "<group>"; };
+		21CE98872CE515430076522F /* UserInterfaceAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserInterfaceAPI.framework; path = "../../Archicad 28/Support/Frameworks/UserInterfaceAPI.framework"; sourceTree = "<group>"; };
+		21CE98882CE515430076522F /* RS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RS.framework; path = "../../Archicad 28/Support/Frameworks/RS.framework"; sourceTree = "<group>"; };
+		21CE98892CE515430076522F /* GSXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSXML.framework; path = "../../Archicad 28/Support/Frameworks/GSXML.framework"; sourceTree = "<group>"; };
+		21CE988A2CE515440076522F /* InputOutput.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InputOutput.framework; path = "../../Archicad 28/Support/Frameworks/InputOutput.framework"; sourceTree = "<group>"; };
+		21CE988B2CE515440076522F /* Model3DViewerControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Model3DViewerControl.framework; path = "../../Archicad 28/Support/Frameworks/Model3DViewerControl.framework"; sourceTree = "<group>"; };
+		21CE988C2CE515440076522F /* GSRoot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSRoot.framework; path = "../../Archicad 28/Support/Frameworks/GSRoot.framework"; sourceTree = "<group>"; };
+		21CE988D2CE515440076522F /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = "../../Archicad 28/Support/Frameworks/Network.framework"; sourceTree = "<group>"; };
+		21CE988E2CE515440076522F /* QGDrawing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QGDrawing.framework; path = "../../Archicad 28/Support/Frameworks/QGDrawing.framework"; sourceTree = "<group>"; };
+		21CE988F2CE515440076522F /* UD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UD.framework; path = "../../Archicad 28/Support/Frameworks/UD.framework"; sourceTree = "<group>"; };
+		21CE98902CE515440076522F /* CommunicationClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommunicationClient.framework; path = "../../Archicad 28/Support/Frameworks/CommunicationClient.framework"; sourceTree = "<group>"; };
+		21CE98912CE515440076522F /* DesignOptionsAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DesignOptionsAPI.framework; path = "../../Archicad 28/Support/Frameworks/DesignOptionsAPI.framework"; sourceTree = "<group>"; };
+		21CE98922CE515440076522F /* AnalyticalModelAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnalyticalModelAPI.framework; path = "../../Archicad 28/Support/Frameworks/AnalyticalModelAPI.framework"; sourceTree = "<group>"; };
+		21CE98932CE515440076522F /* GSUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSUtils.framework; path = "../../Archicad 28/Support/Frameworks/GSUtils.framework"; sourceTree = "<group>"; };
+		21CE98942CE515440076522F /* GSXMLUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSXMLUtils.framework; path = "../../Archicad 28/Support/Frameworks/GSXMLUtils.framework"; sourceTree = "<group>"; };
+		21CE98952CE515440076522F /* Geometry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Geometry.framework; path = "../../Archicad 28/Support/Frameworks/Geometry.framework"; sourceTree = "<group>"; };
+		21CE98962CE515440076522F /* JavascriptEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavascriptEngine.framework; path = "../../Archicad 28/Support/Frameworks/JavascriptEngine.framework"; sourceTree = "<group>"; };
+		21CE98972CE515440076522F /* Pattern.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pattern.framework; path = "../../Archicad 28/Support/Frameworks/Pattern.framework"; sourceTree = "<group>"; };
+		21CE98982CE515440076522F /* HTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTTP.framework; path = "../../Archicad 28/Support/Frameworks/HTTP.framework"; sourceTree = "<group>"; };
+		21CE98992CE515440076522F /* Model3D.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Model3D.framework; path = "../../Archicad 28/Support/Frameworks/Model3D.framework"; sourceTree = "<group>"; };
+		21CE989A2CE515450076522F /* GXImageBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXImageBase.framework; path = "../../Archicad 28/Support/Frameworks/GXImageBase.framework"; sourceTree = "<group>"; };
+		21CE989B2CE515450076522F /* IFCInOutAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IFCInOutAPI.framework; path = "../../Archicad 28/Support/Frameworks/IFCInOutAPI.framework"; sourceTree = "<group>"; };
+		21CE989C2CE515450076522F /* JSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSON.framework; path = "../../Archicad 28/Support/Frameworks/JSON.framework"; sourceTree = "<group>"; };
+		21CE989D2CE515450076522F /* ArchicadAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArchicadAPI.framework; path = "../../Archicad 28/Support/Frameworks/ArchicadAPI.framework"; sourceTree = "<group>"; };
+		21CE989E2CE515450076522F /* RoomBoundaryManagerAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RoomBoundaryManagerAPI.framework; path = "../../Archicad 28/Support/Frameworks/RoomBoundaryManagerAPI.framework"; sourceTree = "<group>"; };
+		21CE989F2CE515450076522F /* VBElemDialogs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBElemDialogs.framework; path = "../../Archicad 28/Support/Frameworks/VBElemDialogs.framework"; sourceTree = "<group>"; };
+		21CE98A02CE515450076522F /* BuiltInLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuiltInLibrary.framework; path = "../../Archicad 28/Support/Frameworks/BuiltInLibrary.framework"; sourceTree = "<group>"; };
+		21CE98A12CE515450076522F /* APICore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APICore.framework; path = "../../Archicad 28/Support/Frameworks/APICore.framework"; sourceTree = "<group>"; };
+		21CE98A22CE515450076522F /* JSONConversion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONConversion.framework; path = "../../Archicad 28/Support/Frameworks/JSONConversion.framework"; sourceTree = "<group>"; };
+		21CE98A32CE515450076522F /* GXImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GXImage.framework; path = "../../Archicad 28/Support/Frameworks/GXImage.framework"; sourceTree = "<group>"; };
+		21CE98A42CE515450076522F /* DGGraphix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DGGraphix.framework; path = "../../Archicad 28/Support/Frameworks/DGGraphix.framework"; sourceTree = "<group>"; };
+		21CE98A52CE515450076522F /* APIAddOnBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIAddOnBridge.framework; path = "../../Archicad 28/Support/Frameworks/APIAddOnBridge.framework"; sourceTree = "<group>"; };
+		21CE98A62CE515450076522F /* GSModeler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSModeler.framework; path = "../../Archicad 28/Support/Frameworks/GSModeler.framework"; sourceTree = "<group>"; };
+		21CE98A72CE515450076522F /* UC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UC.framework; path = "../../Archicad 28/Support/Frameworks/UC.framework"; sourceTree = "<group>"; };
+		21CE98A82CE515450076522F /* libXL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libXL.dylib; path = "../../Archicad 28/Support/Frameworks/libXL.dylib"; sourceTree = "<group>"; };
+		21CE98A92CE515460076522F /* GX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GX.framework; path = "../../Archicad 28/Support/Frameworks/GX.framework"; sourceTree = "<group>"; };
+		21CE98AA2CE515460076522F /* GSTextEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSTextEngine.framework; path = "../../Archicad 28/Support/Frameworks/GSTextEngine.framework"; sourceTree = "<group>"; };
 		21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendBridge.cpp; sourceTree = "<group>"; };
 		21D0BD5C2C89BFEA0077E104 /* SendBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBridge.h; sourceTree = "<group>"; };
 		21D0BD642C89D7400077E104 /* AccountTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AccountTests.cpp; sourceTree = "<group>"; };
@@ -2106,6 +2276,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21CE8E0E2CE5137C0076522F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21CE8E102CE5137C0076522F /* libActiveLib.a in Frameworks */,
+				21CE8F452CE5146B0076522F /* libArchicad28.a in Frameworks */,
+				21CE987D2CE514C50076522F /* libACAP_STAT.a in Frameworks */,
+				21CE98D02CE515460076522F /* GXImage.framework in Frameworks */,
+				21CE98CA2CE515460076522F /* ArchicadAPI.framework in Frameworks */,
+				21CE98AC2CE515460076522F /* Graphix.framework in Frameworks */,
+				21CE98CD2CE515460076522F /* BuiltInLibrary.framework in Frameworks */,
+				21CE98B42CE515460076522F /* UserInterfaceAPI.framework in Frameworks */,
+				21CE98D12CE515460076522F /* DGGraphix.framework in Frameworks */,
+				21CE98CF2CE515460076522F /* JSONConversion.framework in Frameworks */,
+				21CE98C22CE515460076522F /* Geometry.framework in Frameworks */,
+				21CE98B72CE515460076522F /* InputOutput.framework in Frameworks */,
+				21CE98BE2CE515460076522F /* DesignOptionsAPI.framework in Frameworks */,
+				21CE98BB2CE515460076522F /* QGDrawing.framework in Frameworks */,
+				21CE98C62CE515460076522F /* Model3D.framework in Frameworks */,
+				21CE98B32CE515460076522F /* KeynoteAPI.framework in Frameworks */,
+				21CE98BD2CE515460076522F /* CommunicationClient.framework in Frameworks */,
+				21CE98BC2CE515460076522F /* UD.framework in Frameworks */,
+				21CE98CE2CE515460076522F /* APICore.framework in Frameworks */,
+				21CE98AE2CE515460076522F /* TransparentWindow.framework in Frameworks */,
+				21CE98B62CE515460076522F /* GSXML.framework in Frameworks */,
+				21CE98B52CE515460076522F /* RS.framework in Frameworks */,
+				21CE98C92CE515460076522F /* JSON.framework in Frameworks */,
+				21CE98C72CE515460076522F /* GXImageBase.framework in Frameworks */,
+				21CE98C12CE515460076522F /* GSXMLUtils.framework in Frameworks */,
+				21CE98B82CE515460076522F /* Model3DViewerControl.framework in Frameworks */,
+				21CE98AD2CE515460076522F /* MEPAPI.framework in Frameworks */,
+				21CE98D22CE515460076522F /* APIAddOnBridge.framework in Frameworks */,
+				21CE98B92CE515460076522F /* GSRoot.framework in Frameworks */,
+				21CE98B02CE515460076522F /* DG.framework in Frameworks */,
+				21CE98C52CE515460076522F /* HTTP.framework in Frameworks */,
+				21CE98C02CE515460076522F /* GSUtils.framework in Frameworks */,
+				21CE98CB2CE515460076522F /* RoomBoundaryManagerAPI.framework in Frameworks */,
+				21CE98C82CE515460076522F /* IFCInOutAPI.framework in Frameworks */,
+				21CE98AB2CE515460076522F /* VectorImage.framework in Frameworks */,
+				21CE98B12CE515460076522F /* CommunicationCommon.framework in Frameworks */,
+				21CE98CC2CE515460076522F /* VBElemDialogs.framework in Frameworks */,
+				21CE98D32CE515460076522F /* GSModeler.framework in Frameworks */,
+				21CE98D62CE515460076522F /* GX.framework in Frameworks */,
+				21CE98D72CE515460076522F /* GSTextEngine.framework in Frameworks */,
+				21CE98AF2CE515460076522F /* CADInfrastructureBase.framework in Frameworks */,
+				21CE98BF2CE515460076522F /* AnalyticalModelAPI.framework in Frameworks */,
+				21CE98D52CE515460076522F /* libXL.dylib in Frameworks */,
+				21CE98BA2CE515460076522F /* Network.framework in Frameworks */,
+				21CE98B22CE515460076522F /* HTTPClient.framework in Frameworks */,
+				21CE98C42CE515460076522F /* Pattern.framework in Frameworks */,
+				21CE98D42CE515460076522F /* UC.framework in Frameworks */,
+				21CE98C32CE515460076522F /* JavascriptEngine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -2116,6 +2341,7 @@
 				219F30352C768F0A009834E9 /* Connector-AC27-Test.bundle */,
 				21BD7A5D2CE23E4D00526AD1 /* Speckle Connector.bundle */,
 				21CE8B702CE4F3370076522F /* Speckle Connector.bundle */,
+				21CE8F3D2CE5137C0076522F /* Speckle Connector.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2143,6 +2369,7 @@
 				21BD7C4C2CE29F2200526AD1 /* Archicad25 */,
 				21CE8B762CE4F5350076522F /* Archicad26 */,
 				213CC3AD2B11067400088049 /* Archicad27 */,
+				21CE8F442CE5144F0076522F /* Archicad28 */,
 				213CC3A82B1105E300088049 /* Vectorworks2024 */,
 				2151077C2AEDB9070022CD24 /* Cocoa.framework */,
 			);
@@ -2797,6 +3024,59 @@
 			name = Archicad26;
 			sourceTree = "<group>";
 		};
+		21CE8F442CE5144F0076522F /* Archicad28 */ = {
+			isa = PBXGroup;
+			children = (
+				21CE987C2CE514C50076522F /* libACAP_STAT.a */,
+				21CE98922CE515440076522F /* AnalyticalModelAPI.framework */,
+				21CE98A52CE515450076522F /* APIAddOnBridge.framework */,
+				21CE98A12CE515450076522F /* APICore.framework */,
+				21CE989D2CE515450076522F /* ArchicadAPI.framework */,
+				21CE98A02CE515450076522F /* BuiltInLibrary.framework */,
+				21CE98822CE515430076522F /* CADInfrastructureBase.framework */,
+				21CE98902CE515440076522F /* CommunicationClient.framework */,
+				21CE98842CE515430076522F /* CommunicationCommon.framework */,
+				21CE98912CE515440076522F /* DesignOptionsAPI.framework */,
+				21CE98832CE515430076522F /* DG.framework */,
+				21CE98A42CE515450076522F /* DGGraphix.framework */,
+				21CE98952CE515440076522F /* Geometry.framework */,
+				21CE987F2CE515430076522F /* Graphix.framework */,
+				21CE98A62CE515450076522F /* GSModeler.framework */,
+				21CE988C2CE515440076522F /* GSRoot.framework */,
+				21CE98AA2CE515460076522F /* GSTextEngine.framework */,
+				21CE98932CE515440076522F /* GSUtils.framework */,
+				21CE98892CE515430076522F /* GSXML.framework */,
+				21CE98942CE515440076522F /* GSXMLUtils.framework */,
+				21CE98A92CE515460076522F /* GX.framework */,
+				21CE98A32CE515450076522F /* GXImage.framework */,
+				21CE989A2CE515450076522F /* GXImageBase.framework */,
+				21CE98982CE515440076522F /* HTTP.framework */,
+				21CE98852CE515430076522F /* HTTPClient.framework */,
+				21CE989B2CE515450076522F /* IFCInOutAPI.framework */,
+				21CE988A2CE515440076522F /* InputOutput.framework */,
+				21CE98962CE515440076522F /* JavascriptEngine.framework */,
+				21CE989C2CE515450076522F /* JSON.framework */,
+				21CE98A22CE515450076522F /* JSONConversion.framework */,
+				21CE98862CE515430076522F /* KeynoteAPI.framework */,
+				21CE98A82CE515450076522F /* libXL.dylib */,
+				21CE98802CE515430076522F /* MEPAPI.framework */,
+				21CE98992CE515440076522F /* Model3D.framework */,
+				21CE988B2CE515440076522F /* Model3DViewerControl.framework */,
+				21CE988D2CE515440076522F /* Network.framework */,
+				21CE98972CE515440076522F /* Pattern.framework */,
+				21CE988E2CE515440076522F /* QGDrawing.framework */,
+				21CE989E2CE515450076522F /* RoomBoundaryManagerAPI.framework */,
+				21CE98882CE515430076522F /* RS.framework */,
+				21CE98812CE515430076522F /* TransparentWindow.framework */,
+				21CE98A72CE515450076522F /* UC.framework */,
+				21CE988F2CE515440076522F /* UD.framework */,
+				21CE98872CE515430076522F /* UserInterfaceAPI.framework */,
+				21CE989F2CE515450076522F /* VBElemDialogs.framework */,
+				21CE987E2CE515430076522F /* VectorImage.framework */,
+			);
+			name = Archicad28;
+			sourceTree = "<group>";
+		};
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
@@ -2871,6 +3151,7 @@
 		21F69EC72C64C035008B6A06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				21CE8F412CE5137D0076522F /* libArchicad28.a */,
 				21F69ECD2C64C035008B6A06 /* libArchicad27.a */,
 				21CE8B752CE4F3380076522F /* libArchicad26.a */,
 				21BD7B182CE25C1A00526AD1 /* libArchicad25.a */,
@@ -3082,6 +3363,26 @@
 			productReference = 21CE8B702CE4F3370076522F /* Speckle Connector.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
+		21CE8DD22CE5137C0076522F /* Connector-AC28-EN-GB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21CE8F3A2CE5137C0076522F /* Build configuration list for PBXNativeTarget "Connector-AC28-EN-GB" */;
+			buildPhases = (
+				21CE8DD72CE5137C0076522F /* Sources */,
+				21CE8E0E2CE5137C0076522F /* Frameworks */,
+				21CE8F382CE5137C0076522F /* Compile GS resources */,
+				21CE8F392CE5137C0076522F /* Install */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21CE8F432CE5142D0076522F /* PBXTargetDependency */,
+				21CE8DD52CE5137C0076522F /* PBXTargetDependency */,
+			);
+			name = "Connector-AC28-EN-GB";
+			productName = "Connector24-EN-GB";
+			productReference = 21CE8F3D2CE5137C0076522F /* Speckle Connector.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3122,6 +3423,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				21CE8DD22CE5137C0076522F /* Connector-AC28-EN-GB */,
 				2102A0A22B14B10C00AD42A8 /* Connector-AC27-EN-GB-Notarise */,
 				213CC3942B1101F500088049 /* Connector-AC27-EN-GB */,
 				219F30342C768F0A009834E9 /* Connector-AC27-Test */,
@@ -3144,6 +3446,13 @@
 			fileType = archive.ar;
 			path = libArchicad26.a;
 			remoteRef = 21CE8B742CE4F3380076522F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		21CE8F412CE5137D0076522F /* libArchicad28.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libArchicad28.a;
+			remoteRef = 21CE8F402CE5137D0076522F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		21F69ECD2C64C035008B6A06 /* libArchicad27.a */ = {
@@ -3282,6 +3591,40 @@
 			shellScript = "mkdir -p \"$HEADER_PATH_6/ResourceObjects\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_6\" \"$SRCROOT\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_3\" \"$HEADER_PATH_3\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\ncp \"$HEADER_PATH_5/Inc/PkgInfo\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/PkgInfo\"\ntouch \"$HEADER_PATH_6/ResourceObjects/AddOnResources.stamp\"\n";
 		};
 		21CE8B6C2CE4F3370076522F /* Install */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Install;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/tcsh;
+			shellScript = "/bin/tcsh \"$HEADER_PATH_3/Make.mac/install\"\n";
+		};
+		21CE8F382CE5137C0076522F /* Compile GS resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile GS resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$HEADER_PATH_6/ResourceObjects\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_6\" \"$SRCROOT\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\npython3 \"$HEADER_PATH_5/Tools/CompileResources.py\" INT \"$HEADER_PATH_5/..\" \"$HEADER_PATH_3\" \"$HEADER_PATH_3\" \"$HEADER_PATH_6/ResourceObjects\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/Resources\"\ncp \"$HEADER_PATH_5/Inc/PkgInfo\" \"$SYMROOT/$CONFIGURATION/$PRODUCT_NAME.$WRAPPER_EXTENSION/Contents/PkgInfo\"\ntouch \"$HEADER_PATH_6/ResourceObjects/AddOnResources.stamp\"\n";
+		};
+		21CE8F392CE5137C0076522F /* Install */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -3495,6 +3838,67 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21CE8DD72CE5137C0076522F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21CE8DD82CE5137C0076522F /* ConversionResult.cpp in Sources */,
+				21CE8DD92CE5137C0076522F /* CardSetting.cpp in Sources */,
+				21CE8DDA2CE5137C0076522F /* SayHiArg.cpp in Sources */,
+				21CE8DDB2CE5137C0076522F /* SendError.cpp in Sources */,
+				21CE8DDC2CE5137C0076522F /* EverythingSendFilter.cpp in Sources */,
+				21CE8DDD2CE5137C0076522F /* ConfigBridge.cpp in Sources */,
+				21CE8DDE2CE5137C0076522F /* AccountBridge.cpp in Sources */,
+				21CE8DDF2CE5137C0076522F /* SelectionBridge.cpp in Sources */,
+				21CE8DE02CE5137C0076522F /* Send.cpp in Sources */,
+				21CE8DE12CE5137C0076522F /* AddModel.cpp in Sources */,
+				21CE8DE22CE5137C0076522F /* GetComplexType.cpp in Sources */,
+				21CE8DE32CE5137C0076522F /* SenderModelCard.cpp in Sources */,
+				21CE8DE42CE5137C0076522F /* GetSourceApplicationVersion.cpp in Sources */,
+				21CE8DE52CE5137C0076522F /* FinishProxy.cpp in Sources */,
+				21CE8DE62CE5137C0076522F /* GetDocumentState.cpp in Sources */,
+				21CE8DE72CE5137C0076522F /* HighlightObjects.cpp in Sources */,
+				21CE8DE82CE5137C0076522F /* SendBridge.cpp in Sources */,
+				21CE8DE92CE5137C0076522F /* GetSendFilters.cpp in Sources */,
+				21CE8DEA2CE5137C0076522F /* BaseBridge.cpp in Sources */,
+				21CE8DEB2CE5137C0076522F /* ProjectCollection.cpp in Sources */,
+				21CE8DEC2CE5137C0076522F /* GetIsDevMode.cpp in Sources */,
+				21CE8DED2CE5137C0076522F /* TriggerEvent.cpp in Sources */,
+				21CE8DEE2CE5137C0076522F /* DocumentInfo.cpp in Sources */,
+				21CE8DEF2CE5137C0076522F /* GetConnectorVersion.cpp in Sources */,
+				21CE8DF02CE5137C0076522F /* TestBridge.cpp in Sources */,
+				21CE8DF12CE5137C0076522F /* GetSendSettings.cpp in Sources */,
+				21CE8DF22CE5137C0076522F /* UpdateConfig.cpp in Sources */,
+				21CE8DF32CE5137C0076522F /* SendViaBrowserArgs.cpp in Sources */,
+				21CE8DF42CE5137C0076522F /* RecordCollection.cpp in Sources */,
+				21CE8DF52CE5137C0076522F /* HighlightModel.cpp in Sources */,
+				21CE8DF62CE5137C0076522F /* GetDocumentInfo.cpp in Sources */,
+				21CE8DF72CE5137C0076522F /* UpdateModel.cpp in Sources */,
+				21CE8DF82CE5137C0076522F /* GetSelection.cpp in Sources */,
+				21CE8DF92CE5137C0076522F /* ConnectorConfig.cpp in Sources */,
+				21CE8DFA2CE5137C0076522F /* GetSourceApplicationName.cpp in Sources */,
+				21CE8DFB2CE5137C0076522F /* SendFilter.cpp in Sources */,
+				21CE8DFC2CE5137C0076522F /* ModelCard.cpp in Sources */,
+				21CE8DFD2CE5137C0076522F /* CardMover.cpp in Sources */,
+				21CE8DFE2CE5137C0076522F /* ReceiverModelCard.cpp in Sources */,
+				21CE8DFF2CE5137C0076522F /* RemoveModel.cpp in Sources */,
+				21CE8E002CE5137C0076522F /* SelectionInfo.cpp in Sources */,
+				21CE8E012CE5137C0076522F /* ConnectorProject.cpp in Sources */,
+				21CE8E022CE5137C0076522F /* SendObject.cpp in Sources */,
+				21CE8E032CE5137C0076522F /* OpenUrl.cpp in Sources */,
+				21CE8E042CE5137C0076522F /* SayHi.cpp in Sources */,
+				21CE8E052CE5137C0076522F /* FilterMover.cpp in Sources */,
+				21CE8E062CE5137C0076522F /* ConnectorMenu.cpp in Sources */,
+				21CE8E072CE5137C0076522F /* GetAccounts.cpp in Sources */,
+				21CE8E082CE5137C0076522F /* ModelCardDatabase.cpp in Sources */,
+				21CE8E092CE5137C0076522F /* ConnectorPalette.cpp in Sources */,
+				21CE8E0A2CE5137C0076522F /* GetConfig.cpp in Sources */,
+				21CE8E0B2CE5137C0076522F /* DirectSelectionSendFilter.cpp in Sources */,
+				21CE8E0C2CE5137C0076522F /* GoAway.cpp in Sources */,
+				21CE8E0D2CE5137C0076522F /* Connector.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3537,6 +3941,16 @@
 			isa = PBXTargetDependency;
 			name = Archicad26;
 			targetProxy = 21CE8B772CE4F5550076522F /* PBXContainerItemProxy */;
+		};
+		21CE8DD52CE5137C0076522F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ActiveLib;
+			targetProxy = 21CE8DD62CE5137C0076522F /* PBXContainerItemProxy */;
+		};
+		21CE8F432CE5142D0076522F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Archicad28;
+			targetProxy = 21CE8F422CE5142D0076522F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -4420,6 +4834,232 @@
 			};
 			name = Release;
 		};
+		21CE8F3B2CE5137C0076522F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BIM_PATH = "/Applications/Graphisoft/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 28;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
+				CLANG_ANALYZER_GCD = NO;
+				CLANG_ANALYZER_OBJC_ATSYNC = NO;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = NO;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
+				CLANG_ANALYZER_OBJC_SELF_INIT = NO;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = NO;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TESTING_MODE,
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+					"'__ACENV_CALL= '",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "RINT.$BIM_PLATFORM/$LOCALISATION_SUFFIX/Module-Info$(BIM_VERSION).plist";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+					"\"$(HEADER_PATH_9)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				OBJROOT = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				OTHER_LDFLAGS = "";
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_BUNDLE_IDENTIFIER = systems.speckle.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				RESOURCE_EXTENSION = "";
+				SDKROOT = macosx;
+				SDK_PATH = Support;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = (
+					"-multiply_defined",
+					suppress,
+				);
+			};
+			name = Debug;
+		};
+		21CE8F3C2CE5137C0076522F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				BIM_PATH = "/Applications/Graphisoft/$BIM_PLATFORM $BIM_VERSION";
+				BIM_PLATFORM = Archicad;
+				BIM_VERSION = 28;
+				CLANG_ANALYZER_DEADCODE_DEADSTORES = NO;
+				CLANG_ANALYZER_GCD = NO;
+				CLANG_ANALYZER_OBJC_ATSYNC = NO;
+				CLANG_ANALYZER_OBJC_COLLECTIONS = NO;
+				CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = NO;
+				CLANG_ANALYZER_OBJC_NSCFERROR = NO;
+				CLANG_ANALYZER_OBJC_SELF_INIT = NO;
+				CLANG_ANALYZER_OBJC_UNUSED_IVARS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_MKSTEMP = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = NO;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_VFORK = NO;
+				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "\"$(HEADER_PATH_5)/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TESTING_MODE,
+					ARCHICAD,
+					AddOn_EXPORTS,
+					"'macintosh=1'",
+					ACExtension,
+					"$(inherited)",
+					"'__ACENV_CALL= '",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = NO;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_UNUSED_VALUE = NO;
+				HEADER_PATH_5 = "$(SRCROOT)/../../$BIM_PLATFORM $BIM_VERSION/$SDK_PATH";
+				HEADER_PATH_7 = "$(SRCROOT)/RINT.$BIM_PLATFORM/$(LOCALISATION_SUFFIX)";
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "RINT.$BIM_PLATFORM/$LOCALISATION_SUFFIX/Module-Info$(BIM_VERSION).plist";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_5)/Lib\"",
+					"\"$(HEADER_PATH_9)\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				OBJROOT = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-multichar",
+					"-Wno-ctor-dtor-privacy",
+					"-Wno-invalid-offsetof",
+					"-Wno-ignored-qualifiers",
+					"-Wno-reorder",
+					"-Wno-overloaded-virtual",
+					"-Wno-unused-parameter",
+					"-Wno-missing-field-initializers",
+					"-Wno-unknown-pragmas",
+					"-Wno-missing-braces",
+					"-Wno-unused-private-field",
+					"-Wno-return-std-move",
+					"-Wno-unused-value",
+					"-Wno-switch",
+					"-Wno-deprecated",
+					"-Wno-shorten-64-to-32",
+				);
+				OTHER_LDFLAGS = "";
+				PLUGIN_FOLDER = "Add-Ons";
+				PRODUCT_BUNDLE_IDENTIFIER = systems.speckle.connector;
+				PRODUCT_NAME = "$(BASE_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				RESOURCE_EXTENSION = "";
+				SDKROOT = macosx;
+				SDK_PATH = Support;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = macosx;
+				SYMROOT = "";
+				USER_HEADER_SEARCH_PATHS = (
+					"\"$(HEADER_PATH_1)\"",
+					"\"$(HEADER_PATH_2)\"",
+					"\"$(HEADER_PATH_3)\"",
+					"\"$(HEADER_PATH_4)\"",
+					"\"$(HEADER_PATH_5)\"",
+					"\"$(HEADER_PATH_5)/Extensions\"",
+					"\"$(HEADER_PATH_5)/Inc\"",
+					"\"$(HEADER_PATH_5)/Modules\"/**",
+					"\"$(HEADER_PATH_5)/Frameworks\"",
+					"\"$(HEADER_PATH_6)\"",
+				);
+				WARNING_CFLAGS = "";
+				WARNING_LDFLAGS = (
+					"-multiply_defined",
+					suppress,
+				);
+			};
+			name = Release;
+		};
 		7E2B7BFF18C0E73E00358572 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4684,6 +5324,15 @@
 			buildConfigurations = (
 				21CE8B6E2CE4F3370076522F /* Debug */,
 				21CE8B6F2CE4F3370076522F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		21CE8F3A2CE5137C0076522F /* Build configuration list for PBXNativeTarget "Connector-AC28-EN-GB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21CE8F3B2CE5137C0076522F /* Debug */,
+				21CE8F3C2CE5137C0076522F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
