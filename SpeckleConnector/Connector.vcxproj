@@ -25,6 +25,14 @@
       <Configuration>DebugAC27</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugAC28|Win32">
+      <Configuration>DebugAC28</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugAC28|x64">
+      <Configuration>DebugAC28</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="DebugRV2024|Win32">
       <Configuration>DebugRV2024</Configuration>
       <Platform>Win32</Platform>
@@ -59,6 +67,14 @@
     </ProjectConfiguration>
     <ProjectConfiguration Include="ReleaseAC27|x64">
       <Configuration>ReleaseAC27</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseAC28|Win32">
+      <Configuration>ReleaseAC28</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseAC28|x64">
+      <Configuration>ReleaseAC28</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="ReleaseRV2024|Win32">
@@ -96,18 +112,22 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseRV2024|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugVW2024|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC25|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugRV2024|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC26|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC25|x64'">true</ExcludedFromBuild>
     </None>
     <None Include="RFIX.win\Connector.rc2">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseAC25|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC26|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugAC25|x64'">true</ExcludedFromBuild>
     </None>
@@ -277,6 +297,12 @@
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -304,6 +330,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
@@ -349,6 +382,14 @@
     <VCToolsVersion>
     </VCToolsVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion />
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -393,6 +434,15 @@
     <VCToolsVersion>
     </VCToolsVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <VCToolsVersion />
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -425,6 +475,9 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -438,6 +491,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|Win32'" Label="PropertySheets">
@@ -460,6 +516,11 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\SpeckleLib\Make.win\AC27.props" />
     <Import Project="Make.win\ConnectorAC27.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\SpeckleLib\Make.win\AC28.props" />
+    <Import Project="Make.win\ConnectorAC28.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -486,6 +547,11 @@
     <Import Project="..\SpeckleLib\Make.win\AC27.props" />
     <Import Project="Make.win\ConnectorAC27.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\SpeckleLib\Make.win\AC28.props" />
+    <Import Project="Make.win\ConnectorAC28.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\SpeckleLib\Make.win\AC26.props" />
@@ -506,6 +572,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC26|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -519,6 +588,9 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC26|Win32'">
@@ -542,6 +614,13 @@
     <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <SourcePath>$(SourcePath)</SourcePath>
+    <TargetExt>.apx</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'">
     <LinkIncremental>true</LinkIncremental>
     <SourcePath>$(SourcePath)</SourcePath>
     <TargetExt>.apx</TargetExt>
@@ -575,6 +654,12 @@
     <TargetName>$(BASE_NAME)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.apx</TargetExt>
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>$(BASE_NAME)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.apx</TargetExt>
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
@@ -623,6 +708,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC27|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
@@ -706,6 +806,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC27|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -910,6 +1029,77 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STATD.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EntryPointSymbol>DllMainEntry</EntryPointSymbol>
+      <AdditionalOptions>/export:GetExportedFuncAddrs,%401 /export:SetImportedFuncAddrs,%402 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>REM Archicad installbuild script
+
+SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+ECHO ON
+ECHO "Starting Install"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\SpeckleLib\Make.win\buildResAC.bat"</Command>
+    </PreBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAC28|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>TESTING_MODE;DEBUG;ARCHICAD;"__ACENV_CALL= ";WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_STLP_DONT_FORCE_MSVC_LIB_NAME;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+      <CallingConvention>FastCall</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STATD.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
@@ -1240,6 +1430,80 @@ CALL "$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STAT.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\TextEngine\Win\TextEngineImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;msvcrt.lib;msvcprt.lib;IPHLPAPI.lib;Wininet.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrtd.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>/export:GetExportedFuncAddrs,%401 /export:SetImportedFuncAddrs,%402 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>../zlib/x64/ZlibStatRelease/zlibstat.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>REM Archicad installbuild script
+
+SET PROJECTDIR=$(ProjectDir)
+SET TARGETNAME=$(TargetName)
+SET TARGETDIR=$(TargetDir)
+SET BIMVERSION=$(BIM_VERSION)
+ECHO ON
+ECHO "Starting Install $(TargetName)"
+set CONFIGURATION=$(Configuration)
+set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\SpeckleLib\Make.win\install.bat"</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Creating VWR File</Message>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>set PLATFORM_NAME=$(Platform)
+set SYMROOT=$(SolutionDir)
+"$(ProjectDir)..\SpeckleLib\Make.win\buildResAC.bat"</Command>
+    </PreBuildEvent>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(HEADER_PATH_5)\Inc;$(HEADER_PATH_5)\Modules\DGLib;$(RES_OUTPUT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAC28|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;ARCHICAD;"__ACENV_CALL= ";WIN32;_WINDOWS;WINDOWS;AddOn_EXPORTS;ACExtension;_USRDLL;_WIN_EXTERNAL_;_WINDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX20_DEPRECATION_WARNINGS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>./;$(HEADER_PATH_1)/;$(HEADER_PATH_2)/;$(HEADER_PATH_3)/;$(HEADER_PATH_3)/$(BIM_PLATFORM)/;$(HEADER_PATH_4)/;$(HEADER_PATH_5)/;$(HEADER_PATH_5)/Inc;$(HEADER_PATH_5)/Modules/AnalyticalModelAPI;$(HEADER_PATH_5)/Modules/ArchicadAPI;$(HEADER_PATH_5)/Modules/Brep;$(HEADER_PATH_5)/Modules/BuiltInLibrary;$(HEADER_PATH_5)/Modules/CADInfrastructureBase;$(HEADER_PATH_5)/Modules/CommunicationClient;$(HEADER_PATH_5)/Modules/CommunicationCommon;$(HEADER_PATH_5)/Modules/DGGraphix;$(HEADER_PATH_5)/Modules/DGLib;$(HEADER_PATH_5)/Modules/DesignVariantAPI;$(HEADER_PATH_5)/Modules/GDL;$(HEADER_PATH_5)/Modules/GSMSections;$(HEADER_PATH_5)/Modules/GSModelDevLib;$(HEADER_PATH_5)/Modules/GSModeler;$(HEADER_PATH_5)/Modules/GSModeler2D;$(HEADER_PATH_5)/Modules/GSRoot;$(HEADER_PATH_5)/Modules/GSUtils;$(HEADER_PATH_5)/Modules/GSXML;$(HEADER_PATH_5)/Modules/GSXMLUtils;$(HEADER_PATH_5)/Modules/GX;$(HEADER_PATH_5)/Modules/GXImage;$(HEADER_PATH_5)/Modules/GXImageBase;$(HEADER_PATH_5)/Modules/GXMedia;$(HEADER_PATH_5)/Modules/Geometry;$(HEADER_PATH_5)/Modules/Graphix;$(HEADER_PATH_5)/Modules/HTTP;$(HEADER_PATH_5)/Modules/InputOutput;$(HEADER_PATH_5)/Modules/JSON;$(HEADER_PATH_5)/Modules/JSONConversion;$(HEADER_PATH_5)/Modules/JavascriptEngine;$(HEADER_PATH_5)/Modules/LibXL;$(HEADER_PATH_5)/Modules/MEPAPI;$(HEADER_PATH_5)/Modules/MPIInterfaceDevLib;$(HEADER_PATH_5)/Modules/MPIInterfaceImpDevLib;$(HEADER_PATH_5)/Modules/Model3D;$(HEADER_PATH_5)/Modules/Model3DViewerControl;$(HEADER_PATH_5)/Modules/Network;$(HEADER_PATH_5)/Modules/Pattern;$(HEADER_PATH_5)/Modules/PointCloud;$(HEADER_PATH_5)/Modules/PointCloudManager;$(HEADER_PATH_5)/Modules/QGDrawing;$(HEADER_PATH_5)/Modules/RS;$(HEADER_PATH_5)/Modules/RapidJSON;$(HEADER_PATH_5)/Modules/SecureCommunication;$(HEADER_PATH_5)/Modules/TWClientLib;$(HEADER_PATH_5)/Modules/TWRoot;$(HEADER_PATH_5)/Modules/TextEngine;$(HEADER_PATH_5)/Modules/TransparentWindowLib;$(HEADER_PATH_5)/Modules/UCLib;$(HEADER_PATH_5)/Modules/UDLib;$(HEADER_PATH_5)/Modules/UserInterfaceAPI;$(HEADER_PATH_5)/Modules/VBElemDialogs;$(HEADER_PATH_5)/Modules/VBUtils;$(HEADER_PATH_5)/Modules/VectorImage $(inherited)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <ForceConformanceInForLoopScope>
+      </ForceConformanceInForLoopScope>
+      <CallingConvention>FastCall</CallingConvention>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <AdditionalDependencies>$(HEADER_PATH_5)\Lib\ACAP_STAT.lib;$(HEADER_PATH_5)\Modules\DGGraphix\Win\DGGraphixImp.LIB;$(HEADER_PATH_5)\Modules\DGLib\Win\DGImp.lib;$(HEADER_PATH_5)\Modules\Geometry\Win\GeometryImp.LIB;$(HEADER_PATH_5)\Modules\Graphix\Win\GraphixImp.LIB;$(HEADER_PATH_5)\Modules\GSModeler\Win\GSModelerImp.LIB;$(HEADER_PATH_5)\Modules\GSRoot\Win\GSRootImp.lib;$(HEADER_PATH_5)\Modules\GXImage\Win\GXImageImp.lib;$(HEADER_PATH_5)\Modules\GXImageBase\Win\GXImageBaseImp.lib;$(HEADER_PATH_5)\Modules\GX\Win\GXImp.LIB;$(HEADER_PATH_5)\Modules\InputOutput\Win\InputOutputImp.lib;$(HEADER_PATH_5)\Modules\RS\Win\RSImp.LIB;$(HEADER_PATH_5)\Modules\UCLib\Win\UCImp.lib;$(HEADER_PATH_5)\Modules\UDLib\Win\UDImp.lib;$(HEADER_PATH_5)\Modules\VBElemDialogs\Win\VBElemDialogsImp.LIB;$(HEADER_PATH_5)\Modules\VectorImage\Win\VectorImageImp.LIB;$(HEADER_PATH_5)\Modules\JavascriptEngine\Win\JavascriptEngineImp.LIB;$(HEADER_PATH_5)\Modules\JSON\Win\JSONImp.LIB;msvcrt.lib;msvcprt.lib;IPHLPAPI.lib;Wininet.lib;Dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(HEADER_PATH_5)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
