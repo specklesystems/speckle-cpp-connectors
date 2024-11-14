@@ -647,6 +647,62 @@
 		21CE8DCA2CE5134E0076522F /* Memo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21A0FBF32CBD6B700023F24E /* Memo.cpp */; };
 		21CE8DCB2CE5134E0076522F /* Morph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21384C1A2CD586D800D4602B /* Morph.cpp */; };
 		21CE8DCC2CE5134E0076522F /* DetachedReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21AEF9B92CA606B4000B8681 /* DetachedReference.cpp */; };
+		21CE98DC2CE550C60076522F /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98DA2CE550C60076522F /* Stair.cpp */; };
+		21CE98DD2CE550C60076522F /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98DA2CE550C60076522F /* Stair.cpp */; };
+		21CE98DE2CE550C60076522F /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98DA2CE550C60076522F /* Stair.cpp */; };
+		21CE98DF2CE550C60076522F /* Stair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98DA2CE550C60076522F /* Stair.cpp */; };
+		21CE98E02CE550C60076522F /* Stair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98DB2CE550C60076522F /* Stair.h */; };
+		21CE98E12CE550C60076522F /* Stair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98DB2CE550C60076522F /* Stair.h */; };
+		21CE98E22CE550C60076522F /* Stair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98DB2CE550C60076522F /* Stair.h */; };
+		21CE98E32CE550C60076522F /* Stair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98DB2CE550C60076522F /* Stair.h */; };
+		21CE98E62CE552920076522F /* Risers.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98E42CE552910076522F /* Risers.h */; };
+		21CE98E72CE552920076522F /* Risers.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98E42CE552910076522F /* Risers.h */; };
+		21CE98E82CE552920076522F /* Risers.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98E42CE552910076522F /* Risers.h */; };
+		21CE98E92CE552920076522F /* Risers.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98E42CE552910076522F /* Risers.h */; };
+		21CE98EA2CE552920076522F /* Risers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98E52CE552920076522F /* Risers.cpp */; };
+		21CE98EB2CE552920076522F /* Risers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98E52CE552920076522F /* Risers.cpp */; };
+		21CE98EC2CE552920076522F /* Risers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98E52CE552920076522F /* Risers.cpp */; };
+		21CE98ED2CE552920076522F /* Risers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98E52CE552920076522F /* Risers.cpp */; };
+		21CE98F02CE5539B0076522F /* StairRiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98EE2CE5539B0076522F /* StairRiser.cpp */; };
+		21CE98F12CE5539B0076522F /* StairRiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98EE2CE5539B0076522F /* StairRiser.cpp */; };
+		21CE98F22CE5539B0076522F /* StairRiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98EE2CE5539B0076522F /* StairRiser.cpp */; };
+		21CE98F32CE5539B0076522F /* StairRiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98EE2CE5539B0076522F /* StairRiser.cpp */; };
+		21CE98F42CE5539B0076522F /* StairRiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98EF2CE5539B0076522F /* StairRiser.h */; };
+		21CE98F52CE5539B0076522F /* StairRiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98EF2CE5539B0076522F /* StairRiser.h */; };
+		21CE98F62CE5539B0076522F /* StairRiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98EF2CE5539B0076522F /* StairRiser.h */; };
+		21CE98F72CE5539B0076522F /* StairRiser.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98EF2CE5539B0076522F /* StairRiser.h */; };
+		21CE98FA2CE563A50076522F /* StairTread.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98F82CE563A50076522F /* StairTread.h */; };
+		21CE98FB2CE563A50076522F /* StairTread.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98F82CE563A50076522F /* StairTread.h */; };
+		21CE98FC2CE563A50076522F /* StairTread.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98F82CE563A50076522F /* StairTread.h */; };
+		21CE98FD2CE563A50076522F /* StairTread.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE98F82CE563A50076522F /* StairTread.h */; };
+		21CE98FE2CE563A50076522F /* StairTread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98F92CE563A50076522F /* StairTread.cpp */; };
+		21CE98FF2CE563A50076522F /* StairTread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98F92CE563A50076522F /* StairTread.cpp */; };
+		21CE99002CE563A50076522F /* StairTread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98F92CE563A50076522F /* StairTread.cpp */; };
+		21CE99012CE563A50076522F /* StairTread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE98F92CE563A50076522F /* StairTread.cpp */; };
+		21CE99042CE563C60076522F /* Treads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE99022CE563C60076522F /* Treads.cpp */; };
+		21CE99052CE563C60076522F /* Treads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE99022CE563C60076522F /* Treads.cpp */; };
+		21CE99062CE563C60076522F /* Treads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE99022CE563C60076522F /* Treads.cpp */; };
+		21CE99072CE563C60076522F /* Treads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE99022CE563C60076522F /* Treads.cpp */; };
+		21CE99082CE563C60076522F /* Treads.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE99032CE563C60076522F /* Treads.h */; };
+		21CE99092CE563C60076522F /* Treads.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE99032CE563C60076522F /* Treads.h */; };
+		21CE990A2CE563C60076522F /* Treads.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE99032CE563C60076522F /* Treads.h */; };
+		21CE990B2CE563C60076522F /* Treads.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE99032CE563C60076522F /* Treads.h */; };
+		21CE990E2CE5EF670076522F /* StructuredStair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE990C2CE5EF670076522F /* StructuredStair.cpp */; };
+		21CE990F2CE5EF670076522F /* StructuredStair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE990C2CE5EF670076522F /* StructuredStair.cpp */; };
+		21CE99102CE5EF670076522F /* StructuredStair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE990C2CE5EF670076522F /* StructuredStair.cpp */; };
+		21CE99112CE5EF670076522F /* StructuredStair.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE990C2CE5EF670076522F /* StructuredStair.cpp */; };
+		21CE99122CE5EF670076522F /* StructuredStair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE990D2CE5EF670076522F /* StructuredStair.h */; };
+		21CE99132CE5EF670076522F /* StructuredStair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE990D2CE5EF670076522F /* StructuredStair.h */; };
+		21CE99142CE5EF670076522F /* StructuredStair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE990D2CE5EF670076522F /* StructuredStair.h */; };
+		21CE99152CE5EF670076522F /* StructuredStair.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE990D2CE5EF670076522F /* StructuredStair.h */; };
+		21CE992C2CE622FC0076522F /* StairStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE992A2CE622FC0076522F /* StairStructure.cpp */; };
+		21CE992D2CE622FC0076522F /* StairStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE992A2CE622FC0076522F /* StairStructure.cpp */; };
+		21CE992E2CE622FC0076522F /* StairStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE992A2CE622FC0076522F /* StairStructure.cpp */; };
+		21CE992F2CE622FC0076522F /* StairStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE992A2CE622FC0076522F /* StairStructure.cpp */; };
+		21CE99302CE622FC0076522F /* StairStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE992B2CE622FC0076522F /* StairStructure.h */; };
+		21CE99312CE622FC0076522F /* StairStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE992B2CE622FC0076522F /* StairStructure.h */; };
+		21CE99322CE622FC0076522F /* StairStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE992B2CE622FC0076522F /* StairStructure.h */; };
+		21CE99332CE622FC0076522F /* StairStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CE992B2CE622FC0076522F /* StairStructure.h */; };
 		21D0BD202C86F0280077E104 /* AccountDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */; };
 		21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BD1E2C86F0280077E104 /* AccountDatabase.h */; };
 		21D0BD2B2C86FC350077E104 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD252C86FC350077E104 /* Record.cpp */; };
@@ -873,6 +929,20 @@
 		21BD7B1A2CE276E200526AD1 /* random_shuffle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random_shuffle.h; sourceTree = "<group>"; };
 		21CE8A8F2CE4F2860076522F /* libArchicad26.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad26.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CE8DD12CE5134E0076522F /* libArchicad28.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArchicad28.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		21CE98DA2CE550C60076522F /* Stair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stair.cpp; sourceTree = "<group>"; };
+		21CE98DB2CE550C60076522F /* Stair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stair.h; sourceTree = "<group>"; };
+		21CE98E42CE552910076522F /* Risers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risers.h; sourceTree = "<group>"; };
+		21CE98E52CE552920076522F /* Risers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Risers.cpp; sourceTree = "<group>"; };
+		21CE98EE2CE5539B0076522F /* StairRiser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StairRiser.cpp; sourceTree = "<group>"; };
+		21CE98EF2CE5539B0076522F /* StairRiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StairRiser.h; sourceTree = "<group>"; };
+		21CE98F82CE563A50076522F /* StairTread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StairTread.h; sourceTree = "<group>"; };
+		21CE98F92CE563A50076522F /* StairTread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StairTread.cpp; sourceTree = "<group>"; };
+		21CE99022CE563C60076522F /* Treads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Treads.cpp; sourceTree = "<group>"; };
+		21CE99032CE563C60076522F /* Treads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Treads.h; sourceTree = "<group>"; };
+		21CE990C2CE5EF670076522F /* StructuredStair.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StructuredStair.cpp; sourceTree = "<group>"; };
+		21CE990D2CE5EF670076522F /* StructuredStair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructuredStair.h; sourceTree = "<group>"; };
+		21CE992A2CE622FC0076522F /* StairStructure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StairStructure.cpp; sourceTree = "<group>"; };
+		21CE992B2CE622FC0076522F /* StairStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StairStructure.h; sourceTree = "<group>"; };
 		21D0BD1D2C86F0280077E104 /* AccountDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AccountDatabase.cpp; sourceTree = "<group>"; };
 		21D0BD1E2C86F0280077E104 /* AccountDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDatabase.h; sourceTree = "<group>"; };
 		21D0BD252C86FC350077E104 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
@@ -1093,6 +1163,14 @@
 				21384C1E2CD5880400D4602B /* Shell.h */,
 				21384BFD2CD558D000D4602B /* Slab.cpp */,
 				21384BFE2CD558D000D4602B /* Slab.h */,
+				21CE98DA2CE550C60076522F /* Stair.cpp */,
+				21CE98DB2CE550C60076522F /* Stair.h */,
+				21CE98EE2CE5539B0076522F /* StairRiser.cpp */,
+				21CE98EF2CE5539B0076522F /* StairRiser.h */,
+				21CE992A2CE622FC0076522F /* StairStructure.cpp */,
+				21CE992B2CE622FC0076522F /* StairStructure.h */,
+				21CE98F92CE563A50076522F /* StairTread.cpp */,
+				21CE98F82CE563A50076522F /* StairTread.h */,
 				21384C012CD57CA500D4602B /* Wall.cpp */,
 				21384C022CD57CA500D4602B /* Wall.h */,
 			);
@@ -1279,10 +1357,16 @@
 				21A0FC032CBE59A80023F24E /* Assembly */,
 				21A0FC102CBEE5C30023F24E /* Part.cpp */,
 				21A0FBE42CBD6B1A0023F24E /* Part.h */,
+				21CE98E52CE552920076522F /* Risers.cpp */,
+				21CE98E42CE552910076522F /* Risers.h */,
 				21AE19AC2CC8F214004DBCFC /* SegmentedBeam.cpp */,
 				21AE19AB2CC8F214004DBCFC /* SegmentedBeam.h */,
 				21A0FBFF2CBE59A80023F24E /* SegmentedColumn.cpp */,
 				21A0FC002CBE59A80023F24E /* SegmentedColumn.h */,
+				21CE990C2CE5EF670076522F /* StructuredStair.cpp */,
+				21CE990D2CE5EF670076522F /* StructuredStair.h */,
+				21CE99022CE563C60076522F /* Treads.cpp */,
+				21CE99032CE563C60076522F /* Treads.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1579,15 +1663,18 @@
 				215F088C2CA195EC00CD343B /* ArchicadDBaseCore.h in Headers */,
 				21AE19AD2CC8F214004DBCFC /* SegmentedBeam.h in Headers */,
 				21384C1D2CD586D800D4602B /* Morph.h in Headers */,
+				21CE98E12CE550C60076522F /* Stair.h in Headers */,
 				21D0BDE72C943D3F0077E104 /* RecordID.h in Headers */,
 				2199BB742CDCB0D500A4BEEC /* Progress.h in Headers */,
 				21D0BD212C86F0280077E104 /* AccountDatabase.h in Headers */,
 				21A0FBB52CBA5E380023F24E /* Str256.h in Headers */,
 				210CC86F2C7E879700610F58 /* ArgumentBase.h in Headers */,
+				21CE99312CE622FC0076522F /* StairStructure.h in Headers */,
 				21AE19872CC7FF5F004DBCFC /* Group.h in Headers */,
 				210CC8A02C81E34400610F58 /* Platform.h in Headers */,
 				219246132CA34DCE00CF5703 /* Mesh.h in Headers */,
 				21A890CF2CC1B87C0087E732 /* GenericDrawingElement.h in Headers */,
+				21CE98F52CE5539B0076522F /* StairRiser.h in Headers */,
 				219246032CA2CE2700CF5703 /* BIMLink.h in Headers */,
 				21B67D0D2C7E0E8D00FD64FC /* ErrorReport.h in Headers */,
 				21AE19A92CC8F1F8004DBCFC /* Beam.h in Headers */,
@@ -1608,6 +1695,7 @@
 				21A0FBA42CB880690023F24E /* FinishCollector.h in Headers */,
 				21384C192CD585A600D4602B /* Roof.h in Headers */,
 				21AE19802CC7D265004DBCFC /* PropertiedWrapper.h in Headers */,
+				21CE99132CE5EF670076522F /* StructuredStair.h in Headers */,
 				2199BB842CDE508800A4BEEC /* UserCancel.h in Headers */,
 				21A0FC0B2CBE5E220023F24E /* Segment.h in Headers */,
 				215F088D2CA195EC00CD343B /* ArchicadElementDBaseEngine.h in Headers */,
@@ -1640,11 +1728,13 @@
 				21AE19542CC273F1004DBCFC /* Template.h in Headers */,
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
 				21384BFC2CD52C7500D4602B /* Conversion.h in Headers */,
+				21CE99092CE563C60076522F /* Treads.h in Headers */,
 				21AE19842CC7D517004DBCFC /* PropertyWrapper.h in Headers */,
 				21A0FC052CBE59A80023F24E /* SegmentedColumn.h in Headers */,
 				21A0FC0F2CBE92F10023F24E /* ModelElement.h in Headers */,
 				21D0BDB52C8F8AB60077E104 /* DocumentStoreEngine.h in Headers */,
 				21384BE92CD3DD6200D4602B /* MaterialQuantity.h in Headers */,
+				21CE98E72CE552920076522F /* Risers.h in Headers */,
 				21A890D02CC1B87C0087E732 /* GenericModelElement.h in Headers */,
 				21384C002CD558D100D4602B /* Slab.h in Headers */,
 				21A890C52CC171D80087E732 /* ArchicadPropertyDBaseEngine.h in Headers */,
@@ -1654,6 +1744,7 @@
 				21AE196A2CC57832004DBCFC /* Propertied.h in Headers */,
 				2196F2EC2CB4816B00450DFC /* ArchicadAttributeDBaseEngine.h in Headers */,
 				21AE19582CC27DB3004DBCFC /* Value.h in Headers */,
+				21CE98FB2CE563A50076522F /* StairTread.h in Headers */,
 				21384BC62CD24AB200D4602B /* ElementSubscriber.h in Headers */,
 				21D0BD312C86FE090077E104 /* Index.h in Headers */,
 			);
@@ -1667,15 +1758,18 @@
 				21BD7A642CE23FA800526AD1 /* ArchicadDBaseCore.h in Headers */,
 				21BD7A652CE23FA800526AD1 /* SegmentedBeam.h in Headers */,
 				21BD7A662CE23FA800526AD1 /* Morph.h in Headers */,
+				21CE98E32CE550C60076522F /* Stair.h in Headers */,
 				21BD7A672CE23FA800526AD1 /* RecordID.h in Headers */,
 				21BD7A682CE23FA800526AD1 /* Progress.h in Headers */,
 				21BD7A692CE23FA800526AD1 /* AccountDatabase.h in Headers */,
 				21BD7A6A2CE23FA800526AD1 /* Str256.h in Headers */,
 				21BD7A6B2CE23FA800526AD1 /* ArgumentBase.h in Headers */,
+				21CE99332CE622FC0076522F /* StairStructure.h in Headers */,
 				21BD7A6C2CE23FA800526AD1 /* Group.h in Headers */,
 				21BD7A6D2CE23FA800526AD1 /* Platform.h in Headers */,
 				21BD7A6E2CE23FA800526AD1 /* Mesh.h in Headers */,
 				21BD7A6F2CE23FA800526AD1 /* GenericDrawingElement.h in Headers */,
+				21CE98F72CE5539B0076522F /* StairRiser.h in Headers */,
 				21BD7A702CE23FA800526AD1 /* BIMLink.h in Headers */,
 				21BD7A712CE23FA800526AD1 /* ErrorReport.h in Headers */,
 				21BD7A722CE23FA800526AD1 /* Beam.h in Headers */,
@@ -1696,6 +1790,7 @@
 				21BD7A812CE23FA800526AD1 /* FinishCollector.h in Headers */,
 				21BD7A822CE23FA800526AD1 /* Roof.h in Headers */,
 				21BD7A832CE23FA800526AD1 /* PropertiedWrapper.h in Headers */,
+				21CE99152CE5EF670076522F /* StructuredStair.h in Headers */,
 				21BD7A842CE23FA800526AD1 /* UserCancel.h in Headers */,
 				21BD7A852CE23FA800526AD1 /* Segment.h in Headers */,
 				21BD7A862CE23FA800526AD1 /* ArchicadElementDBaseEngine.h in Headers */,
@@ -1728,11 +1823,13 @@
 				21BD7AA12CE23FA800526AD1 /* Template.h in Headers */,
 				21BD7AA22CE23FA800526AD1 /* ArchicadRGB.h in Headers */,
 				21BD7AA32CE23FA800526AD1 /* Conversion.h in Headers */,
+				21CE990B2CE563C60076522F /* Treads.h in Headers */,
 				21BD7AA42CE23FA800526AD1 /* PropertyWrapper.h in Headers */,
 				21BD7AA52CE23FA800526AD1 /* SegmentedColumn.h in Headers */,
 				21BD7AA62CE23FA800526AD1 /* ModelElement.h in Headers */,
 				21BD7AA72CE23FA800526AD1 /* DocumentStoreEngine.h in Headers */,
 				21BD7AA82CE23FA800526AD1 /* MaterialQuantity.h in Headers */,
+				21CE98E92CE552920076522F /* Risers.h in Headers */,
 				21BD7AA92CE23FA800526AD1 /* GenericModelElement.h in Headers */,
 				21BD7AAA2CE23FA800526AD1 /* Slab.h in Headers */,
 				21BD7AAB2CE23FA800526AD1 /* ArchicadPropertyDBaseEngine.h in Headers */,
@@ -1742,6 +1839,7 @@
 				21BD7AAF2CE23FA800526AD1 /* Propertied.h in Headers */,
 				21BD7AB02CE23FA800526AD1 /* ArchicadAttributeDBaseEngine.h in Headers */,
 				21BD7AB12CE23FA800526AD1 /* Value.h in Headers */,
+				21CE98FD2CE563A50076522F /* StairTread.h in Headers */,
 				21BD7AB22CE23FA800526AD1 /* ElementSubscriber.h in Headers */,
 				21BD7AB32CE23FA800526AD1 /* Index.h in Headers */,
 			);
@@ -1755,15 +1853,18 @@
 				21CE89E42CE4F2860076522F /* ArchicadDBaseCore.h in Headers */,
 				21CE89E52CE4F2860076522F /* SegmentedBeam.h in Headers */,
 				21CE89E62CE4F2860076522F /* Morph.h in Headers */,
+				21CE98E22CE550C60076522F /* Stair.h in Headers */,
 				21CE89E72CE4F2860076522F /* RecordID.h in Headers */,
 				21CE89E82CE4F2860076522F /* Progress.h in Headers */,
 				21CE89E92CE4F2860076522F /* AccountDatabase.h in Headers */,
 				21CE89EA2CE4F2860076522F /* Str256.h in Headers */,
 				21CE89EB2CE4F2860076522F /* ArgumentBase.h in Headers */,
+				21CE99322CE622FC0076522F /* StairStructure.h in Headers */,
 				21CE89EC2CE4F2860076522F /* Group.h in Headers */,
 				21CE89ED2CE4F2860076522F /* Platform.h in Headers */,
 				21CE89EE2CE4F2860076522F /* Mesh.h in Headers */,
 				21CE89EF2CE4F2860076522F /* GenericDrawingElement.h in Headers */,
+				21CE98F62CE5539B0076522F /* StairRiser.h in Headers */,
 				21CE89F02CE4F2860076522F /* BIMLink.h in Headers */,
 				21CE89F12CE4F2860076522F /* ErrorReport.h in Headers */,
 				21CE89F22CE4F2860076522F /* Beam.h in Headers */,
@@ -1784,6 +1885,7 @@
 				21CE8A012CE4F2860076522F /* FinishCollector.h in Headers */,
 				21CE8A022CE4F2860076522F /* Roof.h in Headers */,
 				21CE8A032CE4F2860076522F /* PropertiedWrapper.h in Headers */,
+				21CE99142CE5EF670076522F /* StructuredStair.h in Headers */,
 				21CE8A042CE4F2860076522F /* UserCancel.h in Headers */,
 				21CE8A052CE4F2860076522F /* Segment.h in Headers */,
 				21CE8A062CE4F2860076522F /* ArchicadElementDBaseEngine.h in Headers */,
@@ -1816,11 +1918,13 @@
 				21CE8A212CE4F2860076522F /* Template.h in Headers */,
 				21CE8A222CE4F2860076522F /* ArchicadRGB.h in Headers */,
 				21CE8A232CE4F2860076522F /* Conversion.h in Headers */,
+				21CE990A2CE563C60076522F /* Treads.h in Headers */,
 				21CE8A242CE4F2860076522F /* PropertyWrapper.h in Headers */,
 				21CE8A252CE4F2860076522F /* SegmentedColumn.h in Headers */,
 				21CE8A262CE4F2860076522F /* ModelElement.h in Headers */,
 				21CE8A272CE4F2860076522F /* DocumentStoreEngine.h in Headers */,
 				21CE8A282CE4F2860076522F /* MaterialQuantity.h in Headers */,
+				21CE98E82CE552920076522F /* Risers.h in Headers */,
 				21CE8A292CE4F2860076522F /* GenericModelElement.h in Headers */,
 				21CE8A2A2CE4F2860076522F /* Slab.h in Headers */,
 				21CE8A2B2CE4F2860076522F /* ArchicadPropertyDBaseEngine.h in Headers */,
@@ -1830,6 +1934,7 @@
 				21CE8A2F2CE4F2860076522F /* Propertied.h in Headers */,
 				21CE8A302CE4F2860076522F /* ArchicadAttributeDBaseEngine.h in Headers */,
 				21CE8A312CE4F2860076522F /* Value.h in Headers */,
+				21CE98FC2CE563A50076522F /* StairTread.h in Headers */,
 				21CE8A322CE4F2860076522F /* ElementSubscriber.h in Headers */,
 				21CE8A332CE4F2860076522F /* Index.h in Headers */,
 			);
@@ -1843,15 +1948,18 @@
 				21CE8D262CE5134E0076522F /* ArchicadDBaseCore.h in Headers */,
 				21CE8D272CE5134E0076522F /* SegmentedBeam.h in Headers */,
 				21CE8D282CE5134E0076522F /* Morph.h in Headers */,
+				21CE98E02CE550C60076522F /* Stair.h in Headers */,
 				21CE8D292CE5134E0076522F /* RecordID.h in Headers */,
 				21CE8D2A2CE5134E0076522F /* Progress.h in Headers */,
 				21CE8D2B2CE5134E0076522F /* AccountDatabase.h in Headers */,
 				21CE8D2C2CE5134E0076522F /* Str256.h in Headers */,
 				21CE8D2D2CE5134E0076522F /* ArgumentBase.h in Headers */,
+				21CE99302CE622FC0076522F /* StairStructure.h in Headers */,
 				21CE8D2E2CE5134E0076522F /* Group.h in Headers */,
 				21CE8D2F2CE5134E0076522F /* Platform.h in Headers */,
 				21CE8D302CE5134E0076522F /* Mesh.h in Headers */,
 				21CE8D312CE5134E0076522F /* GenericDrawingElement.h in Headers */,
+				21CE98F42CE5539B0076522F /* StairRiser.h in Headers */,
 				21CE8D322CE5134E0076522F /* BIMLink.h in Headers */,
 				21CE8D332CE5134E0076522F /* ErrorReport.h in Headers */,
 				21CE8D342CE5134E0076522F /* Beam.h in Headers */,
@@ -1872,6 +1980,7 @@
 				21CE8D432CE5134E0076522F /* FinishCollector.h in Headers */,
 				21CE8D442CE5134E0076522F /* Roof.h in Headers */,
 				21CE8D452CE5134E0076522F /* PropertiedWrapper.h in Headers */,
+				21CE99122CE5EF670076522F /* StructuredStair.h in Headers */,
 				21CE8D462CE5134E0076522F /* UserCancel.h in Headers */,
 				21CE8D472CE5134E0076522F /* Segment.h in Headers */,
 				21CE8D482CE5134E0076522F /* ArchicadElementDBaseEngine.h in Headers */,
@@ -1904,11 +2013,13 @@
 				21CE8D632CE5134E0076522F /* Template.h in Headers */,
 				21CE8D642CE5134E0076522F /* ArchicadRGB.h in Headers */,
 				21CE8D652CE5134E0076522F /* Conversion.h in Headers */,
+				21CE99082CE563C60076522F /* Treads.h in Headers */,
 				21CE8D662CE5134E0076522F /* PropertyWrapper.h in Headers */,
 				21CE8D672CE5134E0076522F /* SegmentedColumn.h in Headers */,
 				21CE8D682CE5134E0076522F /* ModelElement.h in Headers */,
 				21CE8D692CE5134E0076522F /* DocumentStoreEngine.h in Headers */,
 				21CE8D6A2CE5134E0076522F /* MaterialQuantity.h in Headers */,
+				21CE98E62CE552920076522F /* Risers.h in Headers */,
 				21CE8D6B2CE5134E0076522F /* GenericModelElement.h in Headers */,
 				21CE8D6C2CE5134E0076522F /* Slab.h in Headers */,
 				21CE8D6D2CE5134E0076522F /* ArchicadPropertyDBaseEngine.h in Headers */,
@@ -1918,6 +2029,7 @@
 				21CE8D712CE5134E0076522F /* Propertied.h in Headers */,
 				21CE8D722CE5134E0076522F /* ArchicadAttributeDBaseEngine.h in Headers */,
 				21CE8D732CE5134E0076522F /* Value.h in Headers */,
+				21CE98FA2CE563A50076522F /* StairTread.h in Headers */,
 				21CE8D742CE5134E0076522F /* ElementSubscriber.h in Headers */,
 				21CE8D752CE5134E0076522F /* Index.h in Headers */,
 			);
@@ -2066,8 +2178,10 @@
 				215F088B2CA195EC00CD343B /* ArchicadDBaseCore.cpp in Sources */,
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				2196F2F02CB4823C00450DFC /* Attribute.cpp in Sources */,
+				21CE992D2CE622FC0076522F /* StairStructure.cpp in Sources */,
 				21384C032CD57CA500D4602B /* Wall.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
+				21CE98F12CE5539B0076522F /* StairRiser.cpp in Sources */,
 				215F08662C9B006800CD343B /* ProjectEvent.cpp in Sources */,
 				21AE19932CC82866004DBCFC /* BIMGroupDatabase.cpp in Sources */,
 				21AE19A72CC8F1F8004DBCFC /* Beam.cpp in Sources */,
@@ -2080,10 +2194,12 @@
 				215F087D2CA18E1400CD343B /* Element.cpp in Sources */,
 				2196F2F82CB51ED400450DFC /* BIMAttributeDatabase.cpp in Sources */,
 				21D0BD4E2C8901A00077E104 /* ServerInfo.cpp in Sources */,
+				21CE990F2CE5EF670076522F /* StructuredStair.cpp in Sources */,
 				21AE19512CC273F1004DBCFC /* Property.cpp in Sources */,
 				2199BB732CDCB0D500A4BEEC /* Progress.cpp in Sources */,
 				21384BED2CD3EBE200D4602B /* Material.cpp in Sources */,
 				21384C252CD59B4100D4602B /* MeshElem.cpp in Sources */,
+				21CE98EB2CE552920076522F /* Risers.cpp in Sources */,
 				21B67D0E2C7E0E8D00FD64FC /* ErrorReport.cpp in Sources */,
 				21AE19902CC80541004DBCFC /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21AE19692CC57832004DBCFC /* Propertied.cpp in Sources */,
@@ -2098,9 +2214,12 @@
 				2196F2F52CB483D600450DFC /* Finish.cpp in Sources */,
 				21A0FBEA2CBD6B1A0023F24E /* ColumnSegment.cpp in Sources */,
 				21384BFA2CD51B6F00D4602B /* TypeSetting.cpp in Sources */,
+				21CE98DD2CE550C60076522F /* Stair.cpp in Sources */,
 				2193519B2C6278D900E5A69C /* SelectionSubscriber.cpp in Sources */,
 				21D0BD2B2C86FC350077E104 /* Record.cpp in Sources */,
+				21CE98FF2CE563A50076522F /* StairTread.cpp in Sources */,
 				21384BF02CD3F3A500D4602B /* MaterialWrap.cpp in Sources */,
+				21CE99052CE563C60076522F /* Treads.cpp in Sources */,
 				219246042CA2CE2700CF5703 /* BIMLink.cpp in Sources */,
 				21A890CE2CC1B87C0087E732 /* GenericDrawingElement.cpp in Sources */,
 				215F08952CA19AF800CD343B /* BIMElementDatabase.cpp in Sources */,
@@ -2159,8 +2278,10 @@
 				21BD7ABB2CE23FA800526AD1 /* ArchicadDBaseCore.cpp in Sources */,
 				21BD7ABC2CE23FA800526AD1 /* MenuSubscriber.cpp in Sources */,
 				21BD7ABD2CE23FA800526AD1 /* Attribute.cpp in Sources */,
+				21CE992F2CE622FC0076522F /* StairStructure.cpp in Sources */,
 				21BD7ABE2CE23FA800526AD1 /* Wall.cpp in Sources */,
 				21BD7ABF2CE23FA800526AD1 /* GetBindingsMethodNames.cpp in Sources */,
+				21CE98F32CE5539B0076522F /* StairRiser.cpp in Sources */,
 				21BD7AC02CE23FA800526AD1 /* ProjectEvent.cpp in Sources */,
 				21BD7AC12CE23FA800526AD1 /* BIMGroupDatabase.cpp in Sources */,
 				21BD7AC22CE23FA800526AD1 /* Beam.cpp in Sources */,
@@ -2173,10 +2294,12 @@
 				21BD7AC92CE23FA800526AD1 /* Element.cpp in Sources */,
 				21BD7ACA2CE23FA800526AD1 /* BIMAttributeDatabase.cpp in Sources */,
 				21BD7ACB2CE23FA800526AD1 /* ServerInfo.cpp in Sources */,
+				21CE99112CE5EF670076522F /* StructuredStair.cpp in Sources */,
 				21BD7ACC2CE23FA800526AD1 /* Property.cpp in Sources */,
 				21BD7ACD2CE23FA800526AD1 /* Progress.cpp in Sources */,
 				21BD7ACE2CE23FA800526AD1 /* Material.cpp in Sources */,
 				21BD7ACF2CE23FA800526AD1 /* MeshElem.cpp in Sources */,
+				21CE98ED2CE552920076522F /* Risers.cpp in Sources */,
 				21BD7AD02CE23FA800526AD1 /* ErrorReport.cpp in Sources */,
 				21BD7AD12CE23FA800526AD1 /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21BD7AD22CE23FA800526AD1 /* Propertied.cpp in Sources */,
@@ -2191,9 +2314,12 @@
 				21BD7ADB2CE23FA800526AD1 /* Finish.cpp in Sources */,
 				21BD7ADC2CE23FA800526AD1 /* ColumnSegment.cpp in Sources */,
 				21BD7ADD2CE23FA800526AD1 /* TypeSetting.cpp in Sources */,
+				21CE98DF2CE550C60076522F /* Stair.cpp in Sources */,
 				21BD7ADE2CE23FA800526AD1 /* SelectionSubscriber.cpp in Sources */,
 				21BD7ADF2CE23FA800526AD1 /* Record.cpp in Sources */,
+				21CE99012CE563A50076522F /* StairTread.cpp in Sources */,
 				21BD7AE02CE23FA800526AD1 /* MaterialWrap.cpp in Sources */,
+				21CE99072CE563C60076522F /* Treads.cpp in Sources */,
 				21BD7AE12CE23FA800526AD1 /* BIMLink.cpp in Sources */,
 				21BD7AE22CE23FA800526AD1 /* GenericDrawingElement.cpp in Sources */,
 				21BD7AE32CE23FA800526AD1 /* BIMElementDatabase.cpp in Sources */,
@@ -2252,8 +2378,10 @@
 				21CE8A3B2CE4F2860076522F /* ArchicadDBaseCore.cpp in Sources */,
 				21CE8A3C2CE4F2860076522F /* MenuSubscriber.cpp in Sources */,
 				21CE8A3D2CE4F2860076522F /* Attribute.cpp in Sources */,
+				21CE992E2CE622FC0076522F /* StairStructure.cpp in Sources */,
 				21CE8A3E2CE4F2860076522F /* Wall.cpp in Sources */,
 				21CE8A3F2CE4F2860076522F /* GetBindingsMethodNames.cpp in Sources */,
+				21CE98F22CE5539B0076522F /* StairRiser.cpp in Sources */,
 				21CE8A402CE4F2860076522F /* ProjectEvent.cpp in Sources */,
 				21CE8A412CE4F2860076522F /* BIMGroupDatabase.cpp in Sources */,
 				21CE8A422CE4F2860076522F /* Beam.cpp in Sources */,
@@ -2266,10 +2394,12 @@
 				21CE8A492CE4F2860076522F /* Element.cpp in Sources */,
 				21CE8A4A2CE4F2860076522F /* BIMAttributeDatabase.cpp in Sources */,
 				21CE8A4B2CE4F2860076522F /* ServerInfo.cpp in Sources */,
+				21CE99102CE5EF670076522F /* StructuredStair.cpp in Sources */,
 				21CE8A4C2CE4F2860076522F /* Property.cpp in Sources */,
 				21CE8A4D2CE4F2860076522F /* Progress.cpp in Sources */,
 				21CE8A4E2CE4F2860076522F /* Material.cpp in Sources */,
 				21CE8A4F2CE4F2860076522F /* MeshElem.cpp in Sources */,
+				21CE98EC2CE552920076522F /* Risers.cpp in Sources */,
 				21CE8A502CE4F2860076522F /* ErrorReport.cpp in Sources */,
 				21CE8A512CE4F2860076522F /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21CE8A522CE4F2860076522F /* Propertied.cpp in Sources */,
@@ -2284,9 +2414,12 @@
 				21CE8A5B2CE4F2860076522F /* Finish.cpp in Sources */,
 				21CE8A5C2CE4F2860076522F /* ColumnSegment.cpp in Sources */,
 				21CE8A5D2CE4F2860076522F /* TypeSetting.cpp in Sources */,
+				21CE98DE2CE550C60076522F /* Stair.cpp in Sources */,
 				21CE8A5E2CE4F2860076522F /* SelectionSubscriber.cpp in Sources */,
 				21CE8A5F2CE4F2860076522F /* Record.cpp in Sources */,
+				21CE99002CE563A50076522F /* StairTread.cpp in Sources */,
 				21CE8A602CE4F2860076522F /* MaterialWrap.cpp in Sources */,
+				21CE99062CE563C60076522F /* Treads.cpp in Sources */,
 				21CE8A612CE4F2860076522F /* BIMLink.cpp in Sources */,
 				21CE8A622CE4F2860076522F /* GenericDrawingElement.cpp in Sources */,
 				21CE8A632CE4F2860076522F /* BIMElementDatabase.cpp in Sources */,
@@ -2345,8 +2478,10 @@
 				21CE8D7D2CE5134E0076522F /* ArchicadDBaseCore.cpp in Sources */,
 				21CE8D7E2CE5134E0076522F /* MenuSubscriber.cpp in Sources */,
 				21CE8D7F2CE5134E0076522F /* Attribute.cpp in Sources */,
+				21CE992C2CE622FC0076522F /* StairStructure.cpp in Sources */,
 				21CE8D802CE5134E0076522F /* Wall.cpp in Sources */,
 				21CE8D812CE5134E0076522F /* GetBindingsMethodNames.cpp in Sources */,
+				21CE98F02CE5539B0076522F /* StairRiser.cpp in Sources */,
 				21CE8D822CE5134E0076522F /* ProjectEvent.cpp in Sources */,
 				21CE8D832CE5134E0076522F /* BIMGroupDatabase.cpp in Sources */,
 				21CE8D842CE5134E0076522F /* Beam.cpp in Sources */,
@@ -2359,10 +2494,12 @@
 				21CE8D8B2CE5134E0076522F /* Element.cpp in Sources */,
 				21CE8D8C2CE5134E0076522F /* BIMAttributeDatabase.cpp in Sources */,
 				21CE8D8D2CE5134E0076522F /* ServerInfo.cpp in Sources */,
+				21CE990E2CE5EF670076522F /* StructuredStair.cpp in Sources */,
 				21CE8D8E2CE5134E0076522F /* Property.cpp in Sources */,
 				21CE8D8F2CE5134E0076522F /* Progress.cpp in Sources */,
 				21CE8D902CE5134E0076522F /* Material.cpp in Sources */,
 				21CE8D912CE5134E0076522F /* MeshElem.cpp in Sources */,
+				21CE98EA2CE552920076522F /* Risers.cpp in Sources */,
 				21CE8D922CE5134E0076522F /* ErrorReport.cpp in Sources */,
 				21CE8D932CE5134E0076522F /* ArchicadGroupDBaseEngine.cpp in Sources */,
 				21CE8D942CE5134E0076522F /* Propertied.cpp in Sources */,
@@ -2377,9 +2514,12 @@
 				21CE8D9D2CE5134E0076522F /* Finish.cpp in Sources */,
 				21CE8D9E2CE5134E0076522F /* ColumnSegment.cpp in Sources */,
 				21CE8D9F2CE5134E0076522F /* TypeSetting.cpp in Sources */,
+				21CE98DC2CE550C60076522F /* Stair.cpp in Sources */,
 				21CE8DA02CE5134E0076522F /* SelectionSubscriber.cpp in Sources */,
 				21CE8DA12CE5134E0076522F /* Record.cpp in Sources */,
+				21CE98FE2CE563A50076522F /* StairTread.cpp in Sources */,
 				21CE8DA22CE5134E0076522F /* MaterialWrap.cpp in Sources */,
+				21CE99042CE563C60076522F /* Treads.cpp in Sources */,
 				21CE8DA32CE5134E0076522F /* BIMLink.cpp in Sources */,
 				21CE8DA42CE5134E0076522F /* GenericDrawingElement.cpp in Sources */,
 				21CE8DA52CE5134E0076522F /* BIMElementDatabase.cpp in Sources */,

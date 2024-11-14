@@ -21,6 +21,10 @@
 #include "Speckle/Record/Element/Roof.h"
 #include "Speckle/Record/Element/Shell.h"
 #include "Speckle/Record/Element/Slab.h"
+#include "Speckle/Record/Element/Stair.h"
+#include "Speckle/Record/Element/StairRiser.h"
+#include "Speckle/Record/Element/StairStructure.h"
+#include "Speckle/Record/Element/StairTread.h"
 #include "Speckle/Record/Element/Wall.h"
 #include "Speckle/Utility/Guid.h"
 #include "Speckle/Utility/String.h"
@@ -116,12 +120,20 @@ namespace {
 				return std::make_unique<Mesh>(elementData, tableID);
 			case API_MorphID:
 				return std::make_unique<Morph>(elementData, tableID);
+			case API_RiserID:
+				return std::make_unique<StairRiser>(elementData, tableID);
+			case API_StairStructureID:
+				return std::make_unique<StairStructure>(elementData, tableID);
+			case API_TreadID:
+				return std::make_unique<StairTread>(elementData, tableID);
 			case API_RoofID:
 				return std::make_unique<Roof>(elementData, tableID);
 			case API_ShellID:
 				return std::make_unique<Shell>(elementData, tableID);
 			case API_SlabID:
 				return std::make_unique<Slab>(elementData, tableID);
+			case API_StairID:
+				return std::make_unique<Stair>(elementData, tableID);
 			case API_WallID:
 				return std::make_unique<Wall>(elementData, tableID);
 			case API_ObjectID:
