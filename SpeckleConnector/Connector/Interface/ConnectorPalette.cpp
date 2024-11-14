@@ -11,6 +11,7 @@
 #include "Connector/Interface/Browser/Bridge/Account/AccountBridge.h"
 #include "Connector/Interface/Browser/Bridge/Base/BaseBridge.h"
 #include "Connector/Interface/Browser/Bridge/Config/ConfigBridge.h"
+#include "Connector/Interface/Browser/Bridge/Receive/ReceiveBridge.h"
 #include "Connector/Interface/Browser/Bridge/Send/SendBridge.h"
 #include "Connector/Interface/Browser/Bridge/Selection/SelectionBridge.h"
 #include "Connector/Interface/Browser/Bridge/Test/TestBridge.h"
@@ -213,6 +214,7 @@ BrowserPalette::BrowserPalette() :
 		}
 	}
 	install<ConfigBridge>();
+	install<ReceiveBridge>();
 	if (auto ref = install<SendBridge>(); ref) {
 		if (auto sendBridgeRef = std::dynamic_pointer_cast<SendBridge>(ref); sendBridgeRef) {
 			connector::connector()->addWeak(sendBridgeRef);

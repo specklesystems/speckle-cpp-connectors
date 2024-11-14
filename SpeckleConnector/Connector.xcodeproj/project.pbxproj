@@ -726,6 +726,14 @@
 		21CE9B7B2CE627640076522F /* GSProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE9AEE2CE627640076522F /* GSProfiler.framework */; };
 		21CE9B7C2CE627640076522F /* VBAttributeList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE9AEF2CE627640076522F /* VBAttributeList.framework */; };
 		21CE9B7D2CE627640076522F /* Property.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CE9AF02CE627640076522F /* Property.framework */; };
+		21CE9B832CE69A230076522F /* Receive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B7E2CE69A230076522F /* Receive.cpp */; };
+		21CE9B842CE69A230076522F /* Receive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B7E2CE69A230076522F /* Receive.cpp */; };
+		21CE9B852CE69A230076522F /* Receive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B7E2CE69A230076522F /* Receive.cpp */; };
+		21CE9B862CE69A230076522F /* Receive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B7E2CE69A230076522F /* Receive.cpp */; };
+		21CE9B872CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
+		21CE9B882CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
+		21CE9B892CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
+		21CE9B8A2CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
 		21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
 		21D0BD672C89D7410077E104 /* AccountTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD642C89D7400077E104 /* AccountTests.cpp */; };
 		21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
@@ -1445,6 +1453,10 @@
 		21CE9AEE2CE627640076522F /* GSProfiler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSProfiler.framework; path = "../../Archicad 26/Support/Frameworks/GSProfiler.framework"; sourceTree = "<group>"; };
 		21CE9AEF2CE627640076522F /* VBAttributeList.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VBAttributeList.framework; path = "../../Archicad 26/Support/Frameworks/VBAttributeList.framework"; sourceTree = "<group>"; };
 		21CE9AF02CE627640076522F /* Property.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Property.framework; path = "../../Archicad 26/Support/Frameworks/Property.framework"; sourceTree = "<group>"; };
+		21CE9B7E2CE69A230076522F /* Receive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Receive.cpp; sourceTree = "<group>"; };
+		21CE9B7F2CE69A230076522F /* Receive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receive.h; sourceTree = "<group>"; };
+		21CE9B802CE69A230076522F /* ReceiveBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReceiveBridge.cpp; sourceTree = "<group>"; };
+		21CE9B812CE69A230076522F /* ReceiveBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveBridge.h; sourceTree = "<group>"; };
 		21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendBridge.cpp; sourceTree = "<group>"; };
 		21D0BD5C2C89BFEA0077E104 /* SendBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBridge.h; sourceTree = "<group>"; };
 		21D0BD642C89D7400077E104 /* AccountTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AccountTests.cpp; sourceTree = "<group>"; };
@@ -2785,6 +2797,17 @@
 			name = Archicad28;
 			sourceTree = "<group>";
 		};
+		21CE9B822CE69A230076522F /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				21CE9B7E2CE69A230076522F /* Receive.cpp */,
+				21CE9B7F2CE69A230076522F /* Receive.h */,
+				21CE9B802CE69A230076522F /* ReceiveBridge.cpp */,
+				21CE9B812CE69A230076522F /* ReceiveBridge.h */,
+			);
+			path = Receive;
+			sourceTree = "<group>";
+		};
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
@@ -2929,6 +2952,7 @@
 				21F69F852C70D2C4008B6A06 /* Account */,
 				21B67CAB2C77329800FD64FC /* Base */,
 				21F69FB82C762EF0008B6A06 /* Config */,
+				21CE9B822CE69A230076522F /* Receive */,
 				21D0BD5D2C89BFEA0077E104 /* Send */,
 				21A890B92CC15C540087E732 /* Selection */,
 				21B67CD82C78C83800FD64FC /* Test */,
@@ -3376,6 +3400,7 @@
 				2199BB7E2CDD3FA800A4BEEC /* HighlightObjects.cpp in Sources */,
 				21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */,
 				21D0BD972C8F13F30077E104 /* GetSendFilters.cpp in Sources */,
+				21CE9B882CE69A230076522F /* ReceiveBridge.cpp in Sources */,
 				21B67CAC2C77329800FD64FC /* BaseBridge.cpp in Sources */,
 				2192460D2CA3469D00CF5703 /* ProjectCollection.cpp in Sources */,
 				21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */,
@@ -3402,6 +3427,7 @@
 				2199BB552CDA4B1700A4BEEC /* ConnectorProject.cpp in Sources */,
 				21AEF9EF2CAB5720000B8681 /* SendObject.cpp in Sources */,
 				21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */,
+				21CE9B842CE69A230076522F /* Receive.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
@@ -3446,6 +3472,7 @@
 				21BD79952CE23E4D00526AD1 /* HighlightObjects.cpp in Sources */,
 				21BD79962CE23E4D00526AD1 /* SendBridge.cpp in Sources */,
 				21BD79972CE23E4D00526AD1 /* GetSendFilters.cpp in Sources */,
+				21CE9B8A2CE69A230076522F /* ReceiveBridge.cpp in Sources */,
 				21BD79982CE23E4D00526AD1 /* BaseBridge.cpp in Sources */,
 				21BD79992CE23E4D00526AD1 /* ProjectCollection.cpp in Sources */,
 				21BD799A2CE23E4D00526AD1 /* GetIsDevMode.cpp in Sources */,
@@ -3472,6 +3499,7 @@
 				21BD79AF2CE23E4D00526AD1 /* ConnectorProject.cpp in Sources */,
 				21BD79B02CE23E4D00526AD1 /* SendObject.cpp in Sources */,
 				21BD79B12CE23E4D00526AD1 /* OpenUrl.cpp in Sources */,
+				21CE9B862CE69A230076522F /* Receive.cpp in Sources */,
 				21BD79B22CE23E4D00526AD1 /* SayHi.cpp in Sources */,
 				21BD79B32CE23E4D00526AD1 /* FilterMover.cpp in Sources */,
 				21BD79B42CE23E4D00526AD1 /* ConnectorMenu.cpp in Sources */,
@@ -3507,6 +3535,7 @@
 				21CE8AA72CE4F3370076522F /* HighlightObjects.cpp in Sources */,
 				21CE8AA82CE4F3370076522F /* SendBridge.cpp in Sources */,
 				21CE8AA92CE4F3370076522F /* GetSendFilters.cpp in Sources */,
+				21CE9B892CE69A230076522F /* ReceiveBridge.cpp in Sources */,
 				21CE8AAA2CE4F3370076522F /* BaseBridge.cpp in Sources */,
 				21CE8AAB2CE4F3370076522F /* ProjectCollection.cpp in Sources */,
 				21CE8AAC2CE4F3370076522F /* GetIsDevMode.cpp in Sources */,
@@ -3533,6 +3562,7 @@
 				21CE8AC12CE4F3370076522F /* ConnectorProject.cpp in Sources */,
 				21CE8AC22CE4F3370076522F /* SendObject.cpp in Sources */,
 				21CE8AC32CE4F3370076522F /* OpenUrl.cpp in Sources */,
+				21CE9B852CE69A230076522F /* Receive.cpp in Sources */,
 				21CE8AC42CE4F3370076522F /* SayHi.cpp in Sources */,
 				21CE8AC52CE4F3370076522F /* FilterMover.cpp in Sources */,
 				21CE8AC62CE4F3370076522F /* ConnectorMenu.cpp in Sources */,
@@ -3568,6 +3598,7 @@
 				21CE8DE72CE5137C0076522F /* HighlightObjects.cpp in Sources */,
 				21CE8DE82CE5137C0076522F /* SendBridge.cpp in Sources */,
 				21CE8DE92CE5137C0076522F /* GetSendFilters.cpp in Sources */,
+				21CE9B872CE69A230076522F /* ReceiveBridge.cpp in Sources */,
 				21CE8DEA2CE5137C0076522F /* BaseBridge.cpp in Sources */,
 				21CE8DEB2CE5137C0076522F /* ProjectCollection.cpp in Sources */,
 				21CE8DEC2CE5137C0076522F /* GetIsDevMode.cpp in Sources */,
@@ -3594,6 +3625,7 @@
 				21CE8E012CE5137C0076522F /* ConnectorProject.cpp in Sources */,
 				21CE8E022CE5137C0076522F /* SendObject.cpp in Sources */,
 				21CE8E032CE5137C0076522F /* OpenUrl.cpp in Sources */,
+				21CE9B832CE69A230076522F /* Receive.cpp in Sources */,
 				21CE8E042CE5137C0076522F /* SayHi.cpp in Sources */,
 				21CE8E052CE5137C0076522F /* FilterMover.cpp in Sources */,
 				21CE8E062CE5137C0076522F /* ConnectorMenu.cpp in Sources */,
