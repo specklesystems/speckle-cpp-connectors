@@ -481,6 +481,27 @@
     <ClInclude Include="Speckle\Utility\UserCancel.h">
       <Filter>Speckle\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Stair.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\StairRiser.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\StairStructure.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\StairTread.h">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Risers.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\StructuredStair.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Element\Interface\Treads.h">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -740,6 +761,27 @@
     </ClCompile>
     <ClCompile Include="Speckle\Serialise\Collection\ConversionReporter.cpp">
       <Filter>Speckle\Serialise\Collection</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Stair.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\StairRiser.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\StairStructure.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\StairTread.cpp">
+      <Filter>Speckle\Record\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Risers.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\StructuredStair.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Element\Interface\Treads.cpp">
+      <Filter>Speckle\Record\Element\Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

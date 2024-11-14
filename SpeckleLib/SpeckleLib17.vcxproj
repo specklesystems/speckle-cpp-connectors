@@ -140,8 +140,11 @@
     <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Path.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\Assembly\Segment.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\Part.h" />
+    <ClInclude Include="Speckle\Record\Element\Interface\Risers.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedBeam.h" />
     <ClInclude Include="Speckle\Record\Element\Interface\SegmentedColumn.h" />
+    <ClInclude Include="Speckle\Record\Element\Interface\StructuredStair.h" />
+    <ClInclude Include="Speckle\Record\Element\Interface\Treads.h" />
     <ClInclude Include="Speckle\Record\Element\Memo.h" />
     <ClInclude Include="Speckle\Record\Element\MeshElem.h" />
     <ClInclude Include="Speckle\Record\Element\ModelElement.h" />
@@ -154,6 +157,10 @@
     <ClInclude Include="Speckle\Record\Element\Setting\TypeSetting.h" />
     <ClInclude Include="Speckle\Record\Element\Shell.h" />
     <ClInclude Include="Speckle\Record\Element\Slab.h" />
+    <ClInclude Include="Speckle\Record\Element\Stair.h" />
+    <ClInclude Include="Speckle\Record\Element\StairRiser.h" />
+    <ClInclude Include="Speckle\Record\Element\StairStructure.h" />
+    <ClInclude Include="Speckle\Record\Element\StairTread.h" />
     <ClInclude Include="Speckle\Record\Element\Wall.h" />
     <ClInclude Include="Speckle\Record\Property\Group.h" />
     <ClInclude Include="Speckle\Record\Property\Propertied.h" />
@@ -239,8 +246,11 @@
     <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Path.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\Assembly\Segment.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\Part.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Interface\Risers.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedBeam.cpp" />
     <ClCompile Include="Speckle\Record\Element\Interface\SegmentedColumn.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Interface\StructuredStair.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Interface\Treads.cpp" />
     <ClCompile Include="Speckle\Record\Element\Memo.cpp" />
     <ClCompile Include="Speckle\Record\Element\MeshElem.cpp" />
     <ClCompile Include="Speckle\Record\Element\ModelElement.cpp" />
@@ -252,6 +262,10 @@
     <ClCompile Include="Speckle\Record\Element\Setting\TypeSetting.cpp" />
     <ClCompile Include="Speckle\Record\Element\Shell.cpp" />
     <ClCompile Include="Speckle\Record\Element\Slab.cpp" />
+    <ClCompile Include="Speckle\Record\Element\Stair.cpp" />
+    <ClCompile Include="Speckle\Record\Element\StairRiser.cpp" />
+    <ClCompile Include="Speckle\Record\Element\StairStructure.cpp" />
+    <ClCompile Include="Speckle\Record\Element\StairTread.cpp" />
     <ClCompile Include="Speckle\Record\Element\Wall.cpp" />
     <ClCompile Include="Speckle\Record\Property\Group.cpp" />
     <ClCompile Include="Speckle\Record\Property\Propertied.cpp" />
