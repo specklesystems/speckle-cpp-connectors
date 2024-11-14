@@ -9,12 +9,14 @@
 #include "Speckle/Interface/Browser/Bridge/BrowserBridge.h"
 #include "Speckle/Record/Element/Element.h"
 #include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Host.h"
 #include "Speckle/Environment/Project.h"
 
-using namespace speckle::record::element;
 using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
+using namespace speckle::environment;
+using namespace speckle::record::element;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
@@ -51,5 +53,6 @@ void HighlightModel::run(const String& modelCardID) const {
 		auto elementDatabase = project->getElementDatabase();
 		elementDatabase->clearSelection();
 		elementDatabase->setSelection(modelCardSelection);
+		host()->zoomToFit(true);
 	}
 } //HighlightModel::run

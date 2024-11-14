@@ -27,6 +27,11 @@ namespace speckle::environment {
 		*/
 		bool makeModelViewActive(bool isSelectionOnly = false) const;
 		/*!
+		 Zoom the active view to fit the content bounds
+		 @param isSelectionOnly True to zoom to fit just the current selection
+		*/
+		void zoomToFit(bool isSelectionOnly = false) const;
+		/*!
 		 Display an alert dialog
 		 @param message The alert message
 		*/

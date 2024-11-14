@@ -3,11 +3,13 @@
 #include "Connector/Connector.h"
 #include "Connector/Environment/ConnectorProject.h"
 #include "Speckle/Database/BIMElementDatabase.h"
+#include "Speckle/Environment/Host.h"
 #include "Speckle/Environment/Project.h"
 
 using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::database;
+using namespace speckle::environment;
 using namespace speckle::utility;
 
 /*--------------------------------------------------------------------
@@ -37,4 +39,5 @@ void HighlightObjects::run(const StringList& objectIDs) const {
 	auto elementDatabase = project->getElementDatabase();
 	elementDatabase->clearSelection();
 	elementDatabase->setSelection(objectSelection);
+	host()->zoomToFit(true);
 } //HighlightObjects::run

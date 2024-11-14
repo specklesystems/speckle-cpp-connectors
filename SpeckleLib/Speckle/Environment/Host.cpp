@@ -55,6 +55,29 @@ bool Host::makeModelViewActive(bool isSelectionOnly) const {
 
 
 /*--------------------------------------------------------------------
+	Zoom the active view to fit the content bounds
+ 
+	isSelectionOnly: True to zoom to fit just the current selection
+ --------------------------------------------------------------------*/
+void Host::zoomToFit(bool isSelectionOnly) const {
+#ifdef ARCHICAD
+	if (isSelectionOnly)
+#ifdef ServerMainVers_2700
+		ACAPI_View_Zoom();
+#else
+		ACAPI_Automate(APIDo_ZoomToSelectedID);
+#endif
+	else
+#ifdef ServerMainVers_2700
+		ACAPI_View_ZoomToSelected();
+#else
+		ACAPI_Automate(APIDo_ZoomID);
+#endif
+#endif //ARCHICAD
+} //Host::zoomToFit
+
+
+/*--------------------------------------------------------------------
 	Display an alert dialog
  
 	message: The alert message
