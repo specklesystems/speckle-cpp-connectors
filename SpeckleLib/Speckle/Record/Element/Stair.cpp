@@ -1,6 +1,9 @@
 #include "Speckle/Record/Element/Stair.h"
 
 #include "Active/Serialise/Package/Wrapper/PackageWrap.h"
+#include "Speckle/Record/Element/StairRiser.h"
+#include "Speckle/Record/Element/StairStructure.h"
+#include "Speckle/Record/Element/StairTread.h"
 
 using namespace active::serialise;
 using namespace speckle::record::attribute;
@@ -31,11 +34,15 @@ namespace {
 	///Serialisation fields
 	enum FieldIndex {
 		riserID,
+		structStairID,
+		treadID,
 	};
 
 	///Serialisation field IDs
 	static std::array fieldID = {
 		Identity{"risers"},
+		Identity{"structures"},
+		Identity{"treads"},
 	};
 
 }
@@ -105,13 +112,23 @@ void Stair::loadMemo(filter_bits filter, std::unique_ptr<Memo>& memo) const {
 		//Establish the memo filter for this element
 	if (!Risers::isMemoLoaded())
 		filter |= Risers::getPartFilter();
+	if (!StructuredStair::isMemoLoaded())
+		filter |= StructuredStair::getPartFilter();
+	if (!Treads::isMemoLoaded())
+		filter |= Treads::getPartFilter();
 	ModelElement::loadMemo(filter, memo);
 		//Receive the memo data into the element (when available)
 	if (memo) {
 		if (filter & Risers::getPartFilter())
 			Risers::receive(*memo);
+		if (filter & StructuredStair::getPartFilter())
+			StructuredStair::receive(*memo);
+		if (filter & Treads::getPartFilter())
+			Treads::receive(*memo);
 	}
 	Risers::setMemoLoaded(true); //Always mark the data as loaded to prevent repeated attempts on error
+	StructuredStair::setMemoLoaded(true); //Always mark the data as loaded to prevent repeated attempts on error
+	Treads::setMemoLoaded(true); //Always mark the data as loaded to prevent repeated attempts on error
 } //Stair::loadMemo
 #endif
 
@@ -128,6 +145,8 @@ bool Stair::fillInventory(Inventory& inventory) const {
 	inventory.merge(Inventory{
 		{
 			{ fieldID[riserID], riserID, getRiserCount(), std::nullopt },	//TODO: implement other fields
+			{ fieldID[structStairID], structStairID, getStructureCount(), std::nullopt },	//TODO: implement other fields
+			{ fieldID[treadID], treadID, getTreadCount(), std::nullopt },	//TODO: implement other fields
 		},
 	}.withType(&typeid(Stair)));
 	return base::fillInventory(inventory);
@@ -149,6 +168,16 @@ Cargo::Unique Stair::getCargo(const Inventory::Item& item) const {
 	case riserID:
 		if (auto riser = getRiser(item.available); riser != nullptr) {
 			return Cargo::Unique{new PackageWrap{*riser}};
+		} else
+			return nullptr;
+	case structStairID:
+		if (auto structure = getStructure(item.available); structure != nullptr) {
+			return Cargo::Unique{new PackageWrap{*structure}};
+		} else
+			return nullptr;
+	case treadID:
+		if (auto tread = getTread(item.available); tread != nullptr) {
+			return Cargo::Unique{new PackageWrap{*tread}};
 		} else
 			return nullptr;
 	default:

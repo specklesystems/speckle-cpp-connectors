@@ -150,11 +150,6 @@ namespace {
 		if (!memo)
 			return partIDs;
 		switch (typeID) {
-			case API_StairID:
-				getPartIDs(memo.root()->stairRisers, partIDs);
-				getPartIDs(memo.root()->stairTreads, partIDs);
-				getPartIDs(memo.root()->stairStructures, partIDs);
-				break;
 			case API_RailingID:
 				getPartIDs(memo.root()->railingSegments, partIDs);
 				getPartIDs(memo.root()->railingPatterns, partIDs);

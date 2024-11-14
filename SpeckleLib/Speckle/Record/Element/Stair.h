@@ -1,19 +1,18 @@
 #ifndef SPECKLE_RECORD_ELEMENT_STAIR
 #define SPECKLE_RECORD_ELEMENT_STAIR
 
-#include "Speckle/Record/Element/StairRiser.h"
 #include "Speckle/Record/Element/ModelElement.h"
 #include "Speckle/Record/Element/Interface/Assembly/Path.h"
 #include "Speckle/Record/Element/Interface/Risers.h"
+#include "Speckle/Record/Element/Interface/StructuredStair.h"
+#include "Speckle/Record/Element/Interface/Treads.h"
 
 namespace speckle::record::element {
-	
-	class StairRiser;
 	
 	/*!
 	 BIM stair class
 	 */
-	class Stair : public ModelElement, public Risers {
+	class Stair : public ModelElement, public Risers, public StructuredStair, public Treads {
 	public:
 
 		// MARK: - Types
