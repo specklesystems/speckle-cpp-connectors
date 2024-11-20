@@ -55,7 +55,7 @@ namespace speckle::database {
 		 Write an attribute to storage
 		 @param attribute The attribute to write
 		 */
-		void write(const record::attribute::Attribute& attribute) const;
+		void write(record::attribute::Attribute& attribute) const;
 		/*!
 		 Erase an attribute
 		 @param attributeID The ID of the attribute to erase

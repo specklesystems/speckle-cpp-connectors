@@ -2,6 +2,7 @@
 
 #include "Active/Serialise/Item/Wrapper/ValueWrap.h"
 #include "Active/Serialise/Package/Wrapper/ContainerWrap.h"
+#include "Speckle/Database/Identity/BIMRecordID.h"
 
 #include <array>
 
@@ -81,7 +82,7 @@ Cargo::Unique ReceiverModelCard::getCargo(const Inventory::Item& item) const {
 		case warningDismissedID:
 			return std::make_unique<BoolWrap>(m_hasDismissedUpdateWarning);
 		case bakedObjectsID:
-			return std::make_unique<ContainerWrap<ElementIDList>>(m_bakedObjectIDs);
+			return std::make_unique<ContainerWrap<BIMRecordIDList>>(m_bakedObjectIDs);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

@@ -33,16 +33,22 @@ namespace connector::record {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Determine if the send filter contains a specified record ID
+		 @param recordID The record ID to search for
+		 @return True if the filter contains the record ID
+		 */
+		virtual bool contains(const speckle::database::BIMRecordID& recordID) const override { return true; }
+		/*!
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		const speckle::database::ElementIDList& getElementIDs() const override { return m_emptyList; }
+		const speckle::database::BIMRecordIDList& getElementIDs() const override { return m_emptyList; }
 		/*!
 		 Determine if the filter has expired because an element in the selection has changed
 		 @param changed The list of changed element IDs
 		 @return True if the one of the changed elements is in the selection
 		 */
-		virtual bool checkExpiry(const speckle::database::ElementIDList& changed) const override { return true; }
+		virtual bool checkExpiry(const speckle::database::BIMRecordIDList& changed) const override { return true; }
 		
 		// MARK: - Serialisation
 		
@@ -65,7 +71,7 @@ namespace connector::record {
 		
 	private:
 			///Enables a const empty list to be returned
-		speckle::database::ElementIDList m_emptyList;
+		speckle::database::BIMRecordIDList m_emptyList;
 	};
 
 }

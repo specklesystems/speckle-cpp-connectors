@@ -29,6 +29,7 @@ enum TitleString {
 	addonNameID = 1,
 	addonDescriptionID,
 	noStoreyID,
+	showLayersID,
 };
 
 
@@ -39,6 +40,7 @@ enum PromptString {
 
 	//Information strings (in UI content, logging, reports)
 enum GeneralString {
+	showHiddenLayersID = 1,
 };
 
 

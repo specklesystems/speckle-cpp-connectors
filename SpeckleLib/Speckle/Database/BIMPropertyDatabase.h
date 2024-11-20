@@ -63,7 +63,7 @@ namespace speckle::database {
 		 Write an property to storage
 		 @param property The property to write
 		 */
-		void write(const record::property::Template& property) const;
+		void write(record::property::Template& property) const;
 		/*!
 		 Erase an property
 		 @param propertyID The ID of the property to erase

@@ -34,12 +34,10 @@ namespace {
  
 	return: True if the one of the changed elements is in the selection
   --------------------------------------------------------------------*/
-bool SendFilter::checkExpiry(const ElementIDList& changed) const {
-	ElementIDList intersect;
-	ElementIDList mine{getElementIDs()}, theirs{changed};
-	std::sort(mine.begin(), mine.end());
-	std::sort(theirs.begin(), theirs.end());
-	std::set_intersection (mine.begin(), mine.end(), theirs.begin(), theirs.end(), std::back_inserter(intersect));
+bool SendFilter::checkExpiry(const BIMRecordIDList& changed) const {
+	BIMRecordIDList intersect;
+	BIMRecordIDList mine{getElementIDs()}, theirs{changed};
+	std::set_intersection(mine.begin(), mine.end(), theirs.begin(), theirs.end(), std::inserter(intersect, intersect.begin()));
 	return !intersect.empty();
 } //SendFilter::checkExpiry
 

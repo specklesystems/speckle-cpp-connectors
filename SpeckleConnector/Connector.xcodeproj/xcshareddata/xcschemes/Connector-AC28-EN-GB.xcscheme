@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1530"
+   LastUpgradeVersion = "1610"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21CE8DD22CE5137C0076522F"
-               BuildableName = "Connector-AC28-EN-GB.bundle"
+               BuildableName = "Speckle Connector.bundle"
                BlueprintName = "Connector-AC28-EN-GB"
                ReferencedContainer = "container:Connector.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21CE8DD22CE5137C0076522F"
-            BuildableName = "Connector-AC28-EN-GB.bundle"
+            BuildableName = "Speckle Connector.bundle"
             BlueprintName = "Connector-AC28-EN-GB"
             ReferencedContainer = "container:Connector.xcodeproj">
          </BuildableReference>

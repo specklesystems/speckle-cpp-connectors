@@ -9,6 +9,8 @@
 #include "Active/Utility/NameID.h"
 #include "Speckle/Event/Subscriber/ProjectSubscriber.h"
 
+#include <Definitions.hpp>
+
 namespace speckle::database {
 	
 	using ArchicadDBaseSchema = active::database::DBaseSchema<>;
@@ -35,9 +37,16 @@ namespace speckle::database {
 		
 		/*!
 		 Make an error code for ArchicadElementDBase processing
+		 @param code An ArchicadDBaseCore status code
 		 @return An STL error code
 		 */
 		static std::error_code makeError(ArchicadDBaseCore::Status code);
+		/*!
+		 Make an error code for ArchicadElementDBase processing
+		 @param code An Archicad API error code
+		 @return An STL error code
+		 */
+		static std::error_code makeError(GSErrCode code);
 
 		// MARK: - Constructors
 		

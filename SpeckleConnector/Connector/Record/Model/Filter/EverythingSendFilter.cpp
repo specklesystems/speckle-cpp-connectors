@@ -58,7 +58,7 @@ Cargo::Unique EverythingSendFilter::getCargo(const Inventory::Item& item) const 
 	using namespace active::serialise;
 	switch (item.index) {
 		case selectedElemID:
-			return std::make_unique<ContainerWrap<ElementIDList>>(m_emptyList);
+			return std::make_unique<ContainerWrap<BIMRecordIDList>>(m_emptyList);
 		default:
 			return nullptr;	//Requested an unknown index
 	}

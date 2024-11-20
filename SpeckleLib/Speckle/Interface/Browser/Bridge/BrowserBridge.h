@@ -95,7 +95,7 @@ namespace speckle::interfac::browser::bridge {
 		}
 		
 	private:
-			///List of methods supported by the bridge
+			///Definition of a bridge method container
 		using BridgedMethods = std::vector<std::shared_ptr<Functional<>>>;
 			///Methods supported by the bridge
 		std::unique_ptr<BridgedMethods> m_methods = std::make_unique<BridgedMethods>();

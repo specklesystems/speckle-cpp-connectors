@@ -178,7 +178,7 @@ active::container::Vector<Template> ArchicadPropertyDBaseEngine::getObjects(cons
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (when the object is bound to a specific document)
   --------------------------------------------------------------------*/
-void ArchicadPropertyDBaseEngine::write(const Template& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
+void ArchicadPropertyDBaseEngine::write(Template& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
 										std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
 		//TODO: Implement
 } //ArchicadPropertyDBaseEngine::write

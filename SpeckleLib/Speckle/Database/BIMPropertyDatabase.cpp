@@ -126,7 +126,7 @@ std::vector<std::shared_ptr<Template>> BIMPropertyDatabase::findTemplatesByClass
  
 	property: The property to write
   --------------------------------------------------------------------*/
-void BIMPropertyDatabase::write(const Template& property) const {
+void BIMPropertyDatabase::write(Template& property) const {
 	m_store->write(property);
 } //BIMPropertyDatabase::write
 

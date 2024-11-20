@@ -2,8 +2,9 @@
 #define SPECKLE_RECORD_ELEMENT
 
 #include "Speckle/Database/Content/BIMRecord.h"
-#include "Speckle/Record/Element/Interface/Part.h"
+#include "Speckle/Record/Attribute/Layer.h"
 #include "Speckle/Record/Attribute/Storey.h"
+#include "Speckle/Record/Element/Interface/Part.h"
 #include "Speckle/Utility/String.h"
 
 namespace speckle::primitive {
@@ -71,6 +72,11 @@ namespace speckle::record::element {
 		 @return The type name
 		 */
 		virtual speckle::utility::String getTypeName() const;
+		/*!
+		 Get the element layer
+		 @return The element layer (nullopt if not applicable to the element)
+		 */
+		record::attribute::Layer::Option getLayer() const;
 		/*!
 		 Get the element storey
 		 @return The element storey (nullopt if the element isn't linked to a storey)

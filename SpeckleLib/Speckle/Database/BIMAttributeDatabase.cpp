@@ -27,7 +27,7 @@ namespace speckle::database {
 
 		///Attribute database engine declaration
 	class BIMAttributeDatabase::Engine : public AttributeDatabaseEngine {
-		using base = ArchicadAttributeDBaseEngine;
+		using base = AttributeDatabaseEngine;
 		using base::base;
 	};
 
@@ -102,7 +102,7 @@ Vector<Attribute> BIMAttributeDatabase::getAttributes() const {
  
 	attribute: The attribute to write
   --------------------------------------------------------------------*/
-void BIMAttributeDatabase::write(const Attribute& attribute) const {
+void BIMAttributeDatabase::write(Attribute& attribute) const {
 	m_store->write(attribute);
 } //BIMAttributeDatabase::write
 

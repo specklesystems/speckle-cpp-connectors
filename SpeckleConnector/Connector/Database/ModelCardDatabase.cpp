@@ -96,7 +96,7 @@ Vector<ModelCard> ModelCardDatabase::getCards() const {
  
 	card: The card to write
   --------------------------------------------------------------------*/
-void ModelCardDatabase::write(const ModelCard& card) const {
+void ModelCardDatabase::write(ModelCard& card) const {
 	m_store->write(card);
 } //ModelCardDatabase::write
 

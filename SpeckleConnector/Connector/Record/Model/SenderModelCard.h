@@ -2,6 +2,7 @@
 #define CONNECTOR_RECORD_SENDER_MODEL_CARD
 
 #include "Connector/Record/Model/ModelCard.h"
+#include "Speckle/Database/Identity/BIMRecordID.h"
 
 namespace connector::record {
 	
@@ -46,6 +47,12 @@ namespace connector::record {
 		
 		// MARK: - Functions (const)
 		
+		/*!
+		 Determine if the send filter contains a specified record ID
+		 @param recordID The record ID to search for
+		 @return True if the filter contains the record ID
+		 */
+		bool contains(const speckle::database::BIMRecordID& recordID) const;
 		/*!
 		 Get the filter applied when the model was sent
 		 @return The model filter

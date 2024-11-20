@@ -221,9 +221,26 @@ active::container::Vector<Attribute> ArchicadAttributeDBaseEngine::getObjects(co
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (when the object is bound to a specific document)
   --------------------------------------------------------------------*/
-void ArchicadAttributeDBaseEngine::write(const Attribute& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
-																   std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
-		//TODO: Implement
+void ArchicadAttributeDBaseEngine::write(Attribute& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
+										 std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
+	auto attributeData = object.getData();
+		//An record with no index has not been written (and needs to be created in the dbase)
+	GSErrCode status = NoError;
+#ifdef ServerMainVers_2700
+	if (attributeData.header.index.GenerateHashValue() == 0)
+#else
+	if (attributeData.header.index == 0)
+#endif
+	{
+		status = ACAPI_Attribute_CreateExt(&attributeData, nullptr);	//TODO: Handle attribute extended definition
+			//Archicad assigns record guids - we need to capture this for the caller
+		object.setBIMID(attributeData.header.guid);
+	} else
+		status = ACAPI_Attribute_ModifyExt(&attributeData, nullptr);
+	if (status != NoError)
+		throw std::system_error(makeError(status));
+		//Archicad modifies record headers on write - need to capture this data for the caller
+	object.getHead() = attributeData.header;
 } //ArchicadAttributeDBaseEngine::write
 
 

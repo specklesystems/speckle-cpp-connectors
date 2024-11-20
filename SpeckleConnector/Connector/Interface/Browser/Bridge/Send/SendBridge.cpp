@@ -59,10 +59,9 @@ bool SendBridge::handle(const ElementEvent& event) {
 				// POC: this is probably not efficient, should test, review and refactor it
 			RecordIDList expiredModelCardIds;
 			for (const auto& modelCard : modelCards) {
-				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
-					auto modelCardSelection = senderCard->getFilter().getElementIDs();
-					for (const auto& elemId : modelCardSelection) {
-						if (std::find(m_changedElements.begin(), m_changedElements.end(), elemId) != m_changedElements.end()) {
+				if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get()); senderCard) {
+					for (const auto& recordID : m_changedElements) {
+						if (senderCard->contains(recordID)) {
 							expiredModelCardIds.push_back(modelCard->getID());
 							break;
 						}
@@ -76,8 +75,8 @@ bool SendBridge::handle(const ElementEvent& event) {
 			break;
 		}
 		case changeElem: case editElem: case deleteElem: {
-			if (event.getElmentID())
-				m_changedElements.push_back(*event.getElmentID());
+			if (event.getElementID())
+				m_changedElements.insert(*event.getElementID());
 			break;
 		}
 		default:

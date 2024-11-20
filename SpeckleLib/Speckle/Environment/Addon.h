@@ -103,6 +103,26 @@ namespace speckle::environment {
 		 */
 		virtual std::shared_ptr<Project> makeProject() const;
 		
+		// MARK: - Functions (transactions)
+		
+		/*!
+		 Determine if a transaction can be started
+		 @return True if a transaction can be started
+		 */
+		bool canTransactionStart() const override;
+		/*!
+		 Perform a transaction
+		 @param transaction The transaction to perform
+		 @return True if the transaction was successfully performed
+		 */
+		bool performTransaction(active::database::Transaction& transaction) const override;
+		/*!
+		 Finalise a transaction
+		 @param transaction The transaction to be finalised
+		 @param wasPerformedSuccessfully True if the transaction was successfully performed
+		 */
+		void finaliseTransaction(active::database::Transaction& transaction, bool wasPerformedSuccessfully) const override;
+		
 	private:
 			///The active project
 		std::shared_ptr<Project> m_activeProject;

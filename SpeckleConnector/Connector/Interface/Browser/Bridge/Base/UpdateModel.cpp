@@ -36,6 +36,8 @@ void UpdateModel::run(const ModelCard& card) const {
 	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
 	if (!connectorProject)
 		return;
-	if (auto modelCardDBase = connectorProject->getModelCardDatabase(); modelCardDBase != nullptr)
-		modelCardDBase->write(card);
+	if (auto modelCardDBase = connectorProject->getModelCardDatabase(); modelCardDBase != nullptr) {
+		auto newCard = clone(card);
+		modelCardDBase->write(*newCard);
+	}
 } //UpdateModel::run

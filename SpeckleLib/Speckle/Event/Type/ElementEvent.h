@@ -5,6 +5,7 @@
 
 #include "Active/Utility/Guid.h"
 #include "Active/Utility/String.h"
+#include "Speckle/Database/Identity/BIMRecordID.h"
 
 namespace speckle::event {
 	
@@ -33,7 +34,7 @@ namespace speckle::event {
 		 @param eventType An event type identifier
 		 @param targetID The ID of the element targeted by the database transaction (nullopt = undefined, e.g. for a begin/end event)
 		 */
-		ElementEvent(Type eventType, database::ElementID::Option targetID = std::nullopt) : Event{ID}, m_elementID{targetID}, m_eventType{eventType} {}
+		ElementEvent(Type eventType, database::BIMRecordID::Option targetID = std::nullopt) : Event{ID}, m_elementID{targetID}, m_eventType{eventType} {}
 		/*!
 		 Copy constructor
 		 @param source The object to copy
@@ -50,12 +51,12 @@ namespace speckle::event {
 		 Get the ID of the database transaction target element
 		 @return The target element ID (nullopt = no target, e.g. a begin/end event)
 		 */
-		database::ElementID::Option getElmentID() const { return m_elementID; }
+		database::BIMRecordID::Option getElementID() const { return m_elementID; }
 		Type getEventType() const { return m_eventType; }
 
 	private:
 			///The ID of the target element (nullopt = undefined)
-		database::ElementID::Option m_elementID;
+		database::BIMRecordID::Option m_elementID;
 			///The specific database operation performed
 		Type m_eventType;
 	};

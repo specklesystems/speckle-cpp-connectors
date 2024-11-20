@@ -76,7 +76,7 @@ void Send::run(const String& modelCardID) const {
 	}
 		//Get the selected elements from the modelcard
 	auto elementDatabase = project->getElementDatabase();
-	ElementIDList selected{};
+	BIMRecordIDList selected{};
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get()))
 		selected = senderCard->getFilter().getElementIDs();
 		//Build a collection from the selected elements

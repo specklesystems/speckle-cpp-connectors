@@ -74,12 +74,13 @@ namespace speckle::database {
 		/*!
 		 Find a filtered list of objects
 		 @param filter The object filter (nullptr = find all objects)
+		 @param subset A subset of the database content to search (specified by record ID)
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		BIMRecordIDList findElements(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
-											  std::optional<BIMRecordID> documentID = std::nullopt) const;
+		BIMRecordIDList findElements(const Filter& filter = nullptr, const BIMRecordIDList& subset = {},
+									 std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const;
 		/*!
 		 Get a specified element
 		 @param elementID The ID of the target element
@@ -114,7 +115,7 @@ namespace speckle::database {
 		 Write an element to storage
 		 @param element The element to write
 		 */
-		void write(const record::element::Element& element) const;
+		void write(record::element::Element& element) const;
 		/*!
 		 Erase an element
 		 @param elementID The ID of the element to erase

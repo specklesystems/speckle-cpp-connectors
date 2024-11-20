@@ -33,16 +33,16 @@ namespace {
 			case APINotifyElement_New: {
 				// POC: Put this back once we decide to use Object Tracking
 				// ACAPI_Element_AttachObserver(elemType->elemHead.guid);
-				addon()->publishExternal(ElementEvent{newElem, ElementID{elemType->elemHead.guid}});
+				addon()->publishExternal(ElementEvent{newElem, BIMRecordID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Change: {
-				addon()->publishExternal(ElementEvent{changeElem, ElementID{elemType->elemHead.guid}});
+				addon()->publishExternal(ElementEvent{changeElem, BIMRecordID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Edit: {
-				addon()->publishExternal(ElementEvent{editElem, ElementID{elemType->elemHead.guid}});
+				addon()->publishExternal(ElementEvent{editElem, BIMRecordID{elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_Delete: {
-				addon()->publishExternal(ElementEvent{deleteElem, ElementID{ elemType->elemHead.guid}});
+				addon()->publishExternal(ElementEvent{deleteElem, BIMRecordID{ elemType->elemHead.guid}});
 			} break;
 			case APINotifyElement_BeginEvents:
 				addon()->publishExternal(ElementEvent{begin});

@@ -63,11 +63,12 @@ namespace speckle::database {
 		/*!
 		 Find a filtered list of objects
 		 @param filter The object filter (nullptr = find all objects)
+		 @param subset A subset of the database content to search (specified by record ID)
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		virtual ObjIDList findObjects(const Filter& filter = nullptr, std::optional<RecordID> tableID = std::nullopt,
+		virtual ObjIDList findObjects(const Filter& filter = nullptr, const ObjIDList& subset = {}, std::optional<RecordID> tableID = std::nullopt,
 									  std::optional<RecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
 		/*!
 		 Get an object by index
@@ -109,7 +110,7 @@ namespace speckle::database {
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 */
-		void write(const Obj& object, const ObjID& objID, std::optional<ObjID> objDocID = std::nullopt,
+		void write(Obj& object, const ObjID& objID, std::optional<ObjID> objDocID = std::nullopt,
 				   std::optional<RecordID> tableID = std::nullopt, std::optional<RecordID> documentID = std::nullopt) const override;
 		/*!
 		 Erase an object by index
@@ -274,7 +275,7 @@ namespace speckle::database {
 	  --------------------------------------------------------------------*/
 	template<typename Obj, typename ObjWrapper, typename Transport, typename ObjID>
 	requires DocumentStorable<Obj, ObjWrapper, Transport>
-	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::write(const Obj& object, const ObjID& objID, std::optional<ObjID> objDocID,
+	void DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::write(Obj& object, const ObjID& objID, std::optional<ObjID> objDocID,
 																	   std::optional<RecordID> tableID, std::optional<RecordID> documentID) const {
 		getCache()->write(object);	//NB: In future we might support duplicating records if objID != obj.id
 	} //DocumentStoreEngine<Obj, ObjWrapper, Transport, ObjID>::write

@@ -57,7 +57,7 @@ namespace speckle::database {
 		 Write an group to storage
 		 @param group The group to write
 		 */
-		void write(const record::property::Group& group) const;
+		void write(record::property::Group& group) const;
 		/*!
 		 Erase an group
 		 @param groupID The ID of the group to erase

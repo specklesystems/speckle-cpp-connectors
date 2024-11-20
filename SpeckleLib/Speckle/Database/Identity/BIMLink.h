@@ -41,18 +41,35 @@ namespace speckle::database {
 #endif
 	};
 	
-		//A list of links to BIM records
-	//using BIMLinkList = std::vector<BIMLink>;
+	/*!
+	 A list of links to BIM records
+	 */
 	class BIMLinkList : public std::vector<BIMLink> {
 	public:
-
+		
+		// MARK: - Types
+		
 		using base = std::vector<BIMLink>;
-
+		
+		// MARK: - Constructors
+		
 		using base::base;
 
 		BIMLinkList() = default;
 
-		BIMLinkList(const ElementIDList& elementIDList);
+		/*!
+		 Constructor
+		 @param elementIDList BIM record IDs to populate the links
+		 */
+		BIMLinkList(const BIMRecordIDList& elementIDList);
+		
+		// MARK: - Operators
+		
+		/*!
+		 Conversion operator
+		 @return A list of BIM record IDs from this list
+		 */
+		operator BIMRecordIDList() const;
 	};
 
 }

@@ -734,6 +734,10 @@
 		21CE9B882CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
 		21CE9B892CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
 		21CE9B8A2CE69A230076522F /* ReceiveBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B802CE69A230076522F /* ReceiveBridge.cpp */; };
+		21CE9B8E2CE75CFC0076522F /* ElementHighlighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */; };
+		21CE9B8F2CE75CFC0076522F /* ElementHighlighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */; };
+		21CE9B902CE75CFC0076522F /* ElementHighlighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */; };
+		21CE9B912CE75CFC0076522F /* ElementHighlighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */; };
 		21D0BD602C89BFEA0077E104 /* SendBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */; };
 		21D0BD672C89D7410077E104 /* AccountTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD642C89D7400077E104 /* AccountTests.cpp */; };
 		21D0BD6A2C8A0DB40077E104 /* GetIsDevMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BD682C8A0DB40077E104 /* GetIsDevMode.cpp */; };
@@ -1457,6 +1461,8 @@
 		21CE9B7F2CE69A230076522F /* Receive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receive.h; sourceTree = "<group>"; };
 		21CE9B802CE69A230076522F /* ReceiveBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReceiveBridge.cpp; sourceTree = "<group>"; };
 		21CE9B812CE69A230076522F /* ReceiveBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiveBridge.h; sourceTree = "<group>"; };
+		21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ElementHighlighter.cpp; sourceTree = "<group>"; };
+		21CE9B8C2CE75CFC0076522F /* ElementHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElementHighlighter.h; sourceTree = "<group>"; };
 		21D0BD5B2C89BFEA0077E104 /* SendBridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SendBridge.cpp; sourceTree = "<group>"; };
 		21D0BD5C2C89BFEA0077E104 /* SendBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendBridge.h; sourceTree = "<group>"; };
 		21D0BD642C89D7400077E104 /* AccountTests.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AccountTests.cpp; sourceTree = "<group>"; };
@@ -2808,6 +2814,15 @@
 			path = Receive;
 			sourceTree = "<group>";
 		};
+		21CE9B8D2CE75CFC0076522F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				21CE9B8B2CE75CFC0076522F /* ElementHighlighter.cpp */,
+				21CE9B8C2CE75CFC0076522F /* ElementHighlighter.h */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		21D0BD5D2C89BFEA0077E104 /* Send */ = {
 			isa = PBXGroup;
 			children = (
@@ -2930,6 +2945,7 @@
 				21F69F092C677BC0008B6A06 /* Event */,
 				21F69F0E2C677BC0008B6A06 /* Interface */,
 				21D0BDD82C9387E60077E104 /* Record */,
+				21CE9B8D2CE75CFC0076522F /* Tool */,
 				21B67CBA2C774C6500FD64FC /* Version.h */,
 			);
 			path = Connector;
@@ -3122,7 +3138,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					219F30342C768F0A009834E9 = {
 						CreatedOnToolsVersion = 15.3;
@@ -3429,6 +3445,7 @@
 				21384BCD2CD2EE7400D4602B /* OpenUrl.cpp in Sources */,
 				21CE9B842CE69A230076522F /* Receive.cpp in Sources */,
 				21B67CDC2C78C88000FD64FC /* SayHi.cpp in Sources */,
+				21CE9B8F2CE75CFC0076522F /* ElementHighlighter.cpp in Sources */,
 				215F082E2C94C5C000CD343B /* FilterMover.cpp in Sources */,
 				21F69F122C677BC0008B6A06 /* ConnectorMenu.cpp in Sources */,
 				21F69F8D2C70D7EE008B6A06 /* GetAccounts.cpp in Sources */,
@@ -3501,6 +3518,7 @@
 				21BD79B12CE23E4D00526AD1 /* OpenUrl.cpp in Sources */,
 				21CE9B862CE69A230076522F /* Receive.cpp in Sources */,
 				21BD79B22CE23E4D00526AD1 /* SayHi.cpp in Sources */,
+				21CE9B912CE75CFC0076522F /* ElementHighlighter.cpp in Sources */,
 				21BD79B32CE23E4D00526AD1 /* FilterMover.cpp in Sources */,
 				21BD79B42CE23E4D00526AD1 /* ConnectorMenu.cpp in Sources */,
 				21BD79B52CE23E4D00526AD1 /* GetAccounts.cpp in Sources */,
@@ -3564,6 +3582,7 @@
 				21CE8AC32CE4F3370076522F /* OpenUrl.cpp in Sources */,
 				21CE9B852CE69A230076522F /* Receive.cpp in Sources */,
 				21CE8AC42CE4F3370076522F /* SayHi.cpp in Sources */,
+				21CE9B902CE75CFC0076522F /* ElementHighlighter.cpp in Sources */,
 				21CE8AC52CE4F3370076522F /* FilterMover.cpp in Sources */,
 				21CE8AC62CE4F3370076522F /* ConnectorMenu.cpp in Sources */,
 				21CE8AC72CE4F3370076522F /* GetAccounts.cpp in Sources */,
@@ -3627,6 +3646,7 @@
 				21CE8E032CE5137C0076522F /* OpenUrl.cpp in Sources */,
 				21CE9B832CE69A230076522F /* Receive.cpp in Sources */,
 				21CE8E042CE5137C0076522F /* SayHi.cpp in Sources */,
+				21CE9B8E2CE75CFC0076522F /* ElementHighlighter.cpp in Sources */,
 				21CE8E052CE5137C0076522F /* FilterMover.cpp in Sources */,
 				21CE8E062CE5137C0076522F /* ConnectorMenu.cpp in Sources */,
 				21CE8E072CE5137C0076522F /* GetAccounts.cpp in Sources */,
@@ -3721,6 +3741,7 @@
 					"\"$(HEADER_PATH_5)/Frameworks\"",
 					"\"$(HEADER_PATH_5)/Lib\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-multichar",
 					"-Wno-ctor-dtor-privacy",
@@ -3785,6 +3806,7 @@
 					"\"$(HEADER_PATH_5)/Frameworks\"",
 					"\"$(HEADER_PATH_5)/Lib\"",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-multichar",
 					"-Wno-ctor-dtor-privacy",

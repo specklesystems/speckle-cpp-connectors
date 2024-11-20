@@ -62,6 +62,18 @@ SenderModelCard::~SenderModelCard() {
 
 
 /*--------------------------------------------------------------------
+	Determine if the send filter contains a specified record ID
+ 
+	recordID: The record ID to search for
+ 
+	return: True if the filter contains the record ID
+  --------------------------------------------------------------------*/
+bool SenderModelCard::contains(const speckle::database::BIMRecordID& recordID) const {
+	return m_filter->contains(recordID);
+} //SenderModelCard::contains
+
+
+/*--------------------------------------------------------------------
 	Fill an inventory with the package items
  
 	inventory: The inventory to receive the package items

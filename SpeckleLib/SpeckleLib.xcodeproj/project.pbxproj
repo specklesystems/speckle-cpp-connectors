@@ -722,6 +722,22 @@
 		21D0BDC42C9241940077E104 /* ProjectSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21D0BDC22C9241940077E104 /* ProjectSubscriber.cpp */; };
 		21D0BDC52C9241940077E104 /* ProjectSubscriber.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDC32C9241940077E104 /* ProjectSubscriber.h */; };
 		21D0BDE72C943D3F0077E104 /* RecordID.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D0BDE42C943D3F0077E104 /* RecordID.h */; };
+		21F0AE312CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */; };
+		21F0AE322CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */; };
+		21F0AE332CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */; };
+		21F0AE342CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */; };
+		21F0AE352CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */; };
+		21F0AE362CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */; };
+		21F0AE372CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */; };
+		21F0AE382CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */; };
+		21F0AE3D2CEB91F9003AD722 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE3C2CEB91F9003AD722 /* Layer.cpp */; };
+		21F0AE3E2CEB91F9003AD722 /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE3B2CEB91F9003AD722 /* Layer.h */; };
+		21F0AE3F2CEB91F9003AD722 /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE3B2CEB91F9003AD722 /* Layer.h */; };
+		21F0AE402CEB91F9003AD722 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE3C2CEB91F9003AD722 /* Layer.cpp */; };
+		21F0AE412CEB91F9003AD722 /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE3B2CEB91F9003AD722 /* Layer.h */; };
+		21F0AE422CEB91F9003AD722 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE3C2CEB91F9003AD722 /* Layer.cpp */; };
+		21F0AE432CEB91F9003AD722 /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 21F0AE3B2CEB91F9003AD722 /* Layer.h */; };
+		21F0AE442CEB91F9003AD722 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F0AE3C2CEB91F9003AD722 /* Layer.cpp */; };
 		21F69F3B2C6B880C008B6A06 /* JSBaseTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F382C6B880B008B6A06 /* JSBaseTransport.cpp */; };
 		21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F4A2C6CCC25008B6A06 /* BrowserBridge.cpp */; };
 		21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F69F602C6D0286008B6A06 /* GetBindingsMethodNames.cpp */; };
@@ -965,6 +981,10 @@
 		21D0BDC32C9241940077E104 /* ProjectSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSubscriber.h; sourceTree = "<group>"; };
 		21D0BDC62C9245E40077E104 /* ProjectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectEvent.h; sourceTree = "<group>"; };
 		21D0BDE42C943D3F0077E104 /* RecordID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordID.h; sourceTree = "<group>"; };
+		21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElementVisibilityCollector.h; sourceTree = "<group>"; };
+		21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ElementVisibilityCollector.cpp; sourceTree = "<group>"; };
+		21F0AE3B2CEB91F9003AD722 /* Layer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
+		21F0AE3C2CEB91F9003AD722 /* Layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		21F69F012C66C229008B6A06 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Doxyfile; path = Documentation/Doxyfile; sourceTree = "<group>"; };
 		21F69F192C6A0FE2008B6A06 /* JSBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBinding.h; sourceTree = "<group>"; };
 		21F69F352C6AA9B3008B6A06 /* JSFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSFunction.h; sourceTree = "<group>"; };
@@ -1180,8 +1200,8 @@
 		215F088A2CA195EC00CD343B /* ArchicadDBase */ = {
 			isa = PBXGroup;
 			children = (
-				215F08872CA195EC00CD343B /* ArchicadDBaseCore.cpp */,
 				215F08882CA195EC00CD343B /* ArchicadDBaseCore.h */,
+				215F08872CA195EC00CD343B /* ArchicadDBaseCore.cpp */,
 				2196F2EA2CB4816B00450DFC /* Attribute */,
 				219246062CA2D22D00CF5703 /* Element */,
 				21A890C12CC171D80087E732 /* Property */,
@@ -1297,6 +1317,8 @@
 				2196F2EE2CB4823C00450DFC /* Attribute.h */,
 				2196F2F32CB483D600450DFC /* Finish.cpp */,
 				2196F2F22CB483D600450DFC /* Finish.h */,
+				21F0AE3C2CEB91F9003AD722 /* Layer.cpp */,
+				21F0AE3B2CEB91F9003AD722 /* Layer.h */,
 				21384BEB2CD3EBE200D4602B /* Material.cpp */,
 				21384BEA2CD3EBE200D4602B /* Material.h */,
 				2196F3032CB57E7F00450DFC /* Storey.cpp */,
@@ -1531,6 +1553,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		21F0AE302CEB7045003AD722 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				21F0AE2F2CEB7045003AD722 /* ElementVisibilityCollector.cpp */,
+				21F0AE2E2CEB7045003AD722 /* ElementVisibilityCollector.h */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		21F69F1A2C6A0FE2008B6A06 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1619,6 +1650,7 @@
 				21AE196D2CC64D37004DBCFC /* Classification */,
 				21F69F942C71087A008B6A06 /* Credentials */,
 				215F087A2CA18E1400CD343B /* Element */,
+				21F0AE302CEB7045003AD722 /* Filter */,
 				21AE194E2CC273F1004DBCFC /* Property */,
 			);
 			path = Record;
@@ -1695,6 +1727,7 @@
 				21A0FBA42CB880690023F24E /* FinishCollector.h in Headers */,
 				21384C192CD585A600D4602B /* Roof.h in Headers */,
 				21AE19802CC7D265004DBCFC /* PropertiedWrapper.h in Headers */,
+				21F0AE3F2CEB91F9003AD722 /* Layer.h in Headers */,
 				21CE99132CE5EF670076522F /* StructuredStair.h in Headers */,
 				2199BB842CDE508800A4BEEC /* UserCancel.h in Headers */,
 				21A0FC0B2CBE5E220023F24E /* Segment.h in Headers */,
@@ -1729,6 +1762,7 @@
 				21A0FBBC2CBBC04C0023F24E /* ArchicadRGB.h in Headers */,
 				21384BFC2CD52C7500D4602B /* Conversion.h in Headers */,
 				21CE99092CE563C60076522F /* Treads.h in Headers */,
+				21F0AE372CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */,
 				21AE19842CC7D517004DBCFC /* PropertyWrapper.h in Headers */,
 				21A0FC052CBE59A80023F24E /* SegmentedColumn.h in Headers */,
 				21A0FC0F2CBE92F10023F24E /* ModelElement.h in Headers */,
@@ -1790,6 +1824,7 @@
 				21BD7A812CE23FA800526AD1 /* FinishCollector.h in Headers */,
 				21BD7A822CE23FA800526AD1 /* Roof.h in Headers */,
 				21BD7A832CE23FA800526AD1 /* PropertiedWrapper.h in Headers */,
+				21F0AE3E2CEB91F9003AD722 /* Layer.h in Headers */,
 				21CE99152CE5EF670076522F /* StructuredStair.h in Headers */,
 				21BD7A842CE23FA800526AD1 /* UserCancel.h in Headers */,
 				21BD7A852CE23FA800526AD1 /* Segment.h in Headers */,
@@ -1824,6 +1859,7 @@
 				21BD7AA22CE23FA800526AD1 /* ArchicadRGB.h in Headers */,
 				21BD7AA32CE23FA800526AD1 /* Conversion.h in Headers */,
 				21CE990B2CE563C60076522F /* Treads.h in Headers */,
+				21F0AE362CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */,
 				21BD7AA42CE23FA800526AD1 /* PropertyWrapper.h in Headers */,
 				21BD7AA52CE23FA800526AD1 /* SegmentedColumn.h in Headers */,
 				21BD7AA62CE23FA800526AD1 /* ModelElement.h in Headers */,
@@ -1885,6 +1921,7 @@
 				21CE8A012CE4F2860076522F /* FinishCollector.h in Headers */,
 				21CE8A022CE4F2860076522F /* Roof.h in Headers */,
 				21CE8A032CE4F2860076522F /* PropertiedWrapper.h in Headers */,
+				21F0AE432CEB91F9003AD722 /* Layer.h in Headers */,
 				21CE99142CE5EF670076522F /* StructuredStair.h in Headers */,
 				21CE8A042CE4F2860076522F /* UserCancel.h in Headers */,
 				21CE8A052CE4F2860076522F /* Segment.h in Headers */,
@@ -1919,6 +1956,7 @@
 				21CE8A222CE4F2860076522F /* ArchicadRGB.h in Headers */,
 				21CE8A232CE4F2860076522F /* Conversion.h in Headers */,
 				21CE990A2CE563C60076522F /* Treads.h in Headers */,
+				21F0AE332CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */,
 				21CE8A242CE4F2860076522F /* PropertyWrapper.h in Headers */,
 				21CE8A252CE4F2860076522F /* SegmentedColumn.h in Headers */,
 				21CE8A262CE4F2860076522F /* ModelElement.h in Headers */,
@@ -1980,6 +2018,7 @@
 				21CE8D432CE5134E0076522F /* FinishCollector.h in Headers */,
 				21CE8D442CE5134E0076522F /* Roof.h in Headers */,
 				21CE8D452CE5134E0076522F /* PropertiedWrapper.h in Headers */,
+				21F0AE412CEB91F9003AD722 /* Layer.h in Headers */,
 				21CE99122CE5EF670076522F /* StructuredStair.h in Headers */,
 				21CE8D462CE5134E0076522F /* UserCancel.h in Headers */,
 				21CE8D472CE5134E0076522F /* Segment.h in Headers */,
@@ -2014,6 +2053,7 @@
 				21CE8D642CE5134E0076522F /* ArchicadRGB.h in Headers */,
 				21CE8D652CE5134E0076522F /* Conversion.h in Headers */,
 				21CE99082CE563C60076522F /* Treads.h in Headers */,
+				21F0AE312CEB7045003AD722 /* ElementVisibilityCollector.h in Headers */,
 				21CE8D662CE5134E0076522F /* PropertyWrapper.h in Headers */,
 				21CE8D672CE5134E0076522F /* SegmentedColumn.h in Headers */,
 				21CE8D682CE5134E0076522F /* ModelElement.h in Headers */,
@@ -2113,7 +2153,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					21379E072AE47A6400A1584C = {
 						CreatedOnToolsVersion = 15.0;
@@ -2179,6 +2219,7 @@
 				2193517B2C624FC100E5A69C /* MenuSubscriber.cpp in Sources */,
 				2196F2F02CB4823C00450DFC /* Attribute.cpp in Sources */,
 				21CE992D2CE622FC0076522F /* StairStructure.cpp in Sources */,
+				21F0AE382CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */,
 				21384C032CD57CA500D4602B /* Wall.cpp in Sources */,
 				21F69F612C6D0286008B6A06 /* GetBindingsMethodNames.cpp in Sources */,
 				21CE98F12CE5539B0076522F /* StairRiser.cpp in Sources */,
@@ -2237,6 +2278,7 @@
 				21384BE82CD3DD6200D4602B /* MaterialQuantity.cpp in Sources */,
 				21AE19622CC2D358004DBCFC /* Setting.cpp in Sources */,
 				219351B32C62CC1A00E5A69C /* String.cpp in Sources */,
+				21F0AE402CEB91F9003AD722 /* Layer.cpp in Sources */,
 				219351B12C62CC1A00E5A69C /* Guid.cpp in Sources */,
 				21F69F512C6CCC25008B6A06 /* BrowserBridge.cpp in Sources */,
 				21A0FC112CBEE5C30023F24E /* Part.cpp in Sources */,
@@ -2279,6 +2321,7 @@
 				21BD7ABC2CE23FA800526AD1 /* MenuSubscriber.cpp in Sources */,
 				21BD7ABD2CE23FA800526AD1 /* Attribute.cpp in Sources */,
 				21CE992F2CE622FC0076522F /* StairStructure.cpp in Sources */,
+				21F0AE352CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */,
 				21BD7ABE2CE23FA800526AD1 /* Wall.cpp in Sources */,
 				21BD7ABF2CE23FA800526AD1 /* GetBindingsMethodNames.cpp in Sources */,
 				21CE98F32CE5539B0076522F /* StairRiser.cpp in Sources */,
@@ -2337,6 +2380,7 @@
 				21BD7AEF2CE23FA800526AD1 /* MaterialQuantity.cpp in Sources */,
 				21BD7AF02CE23FA800526AD1 /* Setting.cpp in Sources */,
 				21BD7AF12CE23FA800526AD1 /* String.cpp in Sources */,
+				21F0AE3D2CEB91F9003AD722 /* Layer.cpp in Sources */,
 				21BD7AF22CE23FA800526AD1 /* Guid.cpp in Sources */,
 				21BD7AF32CE23FA800526AD1 /* BrowserBridge.cpp in Sources */,
 				21BD7AF42CE23FA800526AD1 /* Part.cpp in Sources */,
@@ -2379,6 +2423,7 @@
 				21CE8A3C2CE4F2860076522F /* MenuSubscriber.cpp in Sources */,
 				21CE8A3D2CE4F2860076522F /* Attribute.cpp in Sources */,
 				21CE992E2CE622FC0076522F /* StairStructure.cpp in Sources */,
+				21F0AE342CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */,
 				21CE8A3E2CE4F2860076522F /* Wall.cpp in Sources */,
 				21CE8A3F2CE4F2860076522F /* GetBindingsMethodNames.cpp in Sources */,
 				21CE98F22CE5539B0076522F /* StairRiser.cpp in Sources */,
@@ -2437,6 +2482,7 @@
 				21CE8A6F2CE4F2860076522F /* MaterialQuantity.cpp in Sources */,
 				21CE8A702CE4F2860076522F /* Setting.cpp in Sources */,
 				21CE8A712CE4F2860076522F /* String.cpp in Sources */,
+				21F0AE442CEB91F9003AD722 /* Layer.cpp in Sources */,
 				21CE8A722CE4F2860076522F /* Guid.cpp in Sources */,
 				21CE8A732CE4F2860076522F /* BrowserBridge.cpp in Sources */,
 				21CE8A742CE4F2860076522F /* Part.cpp in Sources */,
@@ -2479,6 +2525,7 @@
 				21CE8D7E2CE5134E0076522F /* MenuSubscriber.cpp in Sources */,
 				21CE8D7F2CE5134E0076522F /* Attribute.cpp in Sources */,
 				21CE992C2CE622FC0076522F /* StairStructure.cpp in Sources */,
+				21F0AE322CEB7045003AD722 /* ElementVisibilityCollector.cpp in Sources */,
 				21CE8D802CE5134E0076522F /* Wall.cpp in Sources */,
 				21CE8D812CE5134E0076522F /* GetBindingsMethodNames.cpp in Sources */,
 				21CE98F02CE5539B0076522F /* StairRiser.cpp in Sources */,
@@ -2537,6 +2584,7 @@
 				21CE8DB12CE5134E0076522F /* MaterialQuantity.cpp in Sources */,
 				21CE8DB22CE5134E0076522F /* Setting.cpp in Sources */,
 				21CE8DB32CE5134E0076522F /* String.cpp in Sources */,
+				21F0AE422CEB91F9003AD722 /* Layer.cpp in Sources */,
 				21CE8DB42CE5134E0076522F /* Guid.cpp in Sources */,
 				21CE8DB52CE5134E0076522F /* BrowserBridge.cpp in Sources */,
 				21CE8DB62CE5134E0076522F /* Part.cpp in Sources */,
