@@ -308,7 +308,7 @@ void ArchicadElementDBaseEngine::setDefaultTable(const BIMRecordID& tableID) con
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter& filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
+BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter* filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
 														std::optional<BIMRecordID> documentID) const {
 		//Switch to the target table (when specified). Otherwise the currently active table will be used
 	if (tableID)
@@ -328,8 +328,10 @@ BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter& filter, co
 	}
 		//Run the filter on the specified elements
 	for (const auto& elemID : *source) {
-		if (auto element = getObject(elemID); element && filter(*element))
-			result.insert(elemID);
+		if (auto element = getObject(elemID); element) {
+			if ((*filter)(*element))
+				result.insert(elemID);
+		}
 	}
 	return result;
 } //ArchicadElementDBaseEngine::findObjects

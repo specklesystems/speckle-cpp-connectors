@@ -154,7 +154,7 @@ void BIMElementDatabase::clearSelection() const {
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-BIMRecordIDList BIMElementDatabase::findElements(const Filter& filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
+BIMRecordIDList BIMElementDatabase::findElements(const Filter* filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
 												 std::optional<BIMRecordID> documentID) const {
 	return m_engine->findObjects(filter, subset, tableID, documentID);
 } //BIMElementDatabase::findElements

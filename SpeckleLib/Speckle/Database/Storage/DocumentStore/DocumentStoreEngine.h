@@ -68,7 +68,7 @@ namespace speckle::database {
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		virtual ObjIDList findObjects(const Filter& filter = nullptr, const ObjIDList& subset = {}, std::optional<RecordID> tableID = std::nullopt,
+		virtual ObjIDList findObjects(const Filter* filter = nullptr, const ObjIDList& subset = {}, std::optional<RecordID> tableID = std::nullopt,
 									  std::optional<RecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
 		/*!
 		 Get an object by index

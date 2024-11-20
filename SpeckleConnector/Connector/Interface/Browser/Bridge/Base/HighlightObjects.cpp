@@ -1,12 +1,13 @@
 #include "Connector/Interface/Browser/Bridge/Base/HighlightObjects.h"
 
+#include "Active/Setting/ValueSetting.h"
+#include "Active/Event/Event.h"
 #include "Connector/Connector.h"
-#include "Connector/Environment/ConnectorProject.h"
-#include "Speckle/Database/BIMElementDatabase.h"
-#include "Speckle/Environment/Host.h"
-#include "Speckle/Environment/Project.h"
+#include "Connector/Event/ConnectorEventID.h"
 
-using namespace connector::environment;
+using namespace active::event;
+using namespace active::setting;
+using namespace connector;
 using namespace connector::interfac::browser::bridge;
 using namespace speckle::database;
 using namespace speckle::environment;
@@ -26,18 +27,5 @@ HighlightObjects::HighlightObjects() : BridgeMethod{"HighlightObjects", [&](cons
 	objectIDs: List of object IDs to be highlighted
   --------------------------------------------------------------------*/
 void HighlightObjects::run(const StringList& objectIDs) const {
-	BIMLinkList objectSelection;
-	for (const auto& text : objectIDs)
-		if (Guid guid{text}; !guid.empty())
-			objectSelection.emplace_back(guid);
-	if (objectSelection.empty())
-		return;
-	auto project = connector()->getActiveProject().lock();
-	auto connectorProject = dynamic_cast<ConnectorProject*>(project.get());
-	if (!connectorProject)
-		return;
-	auto elementDatabase = project->getElementDatabase();
-	elementDatabase->clearSelection();
-	elementDatabase->setSelection(objectSelection);
-	host()->zoomToFit(true);
+	connector()->publish(Event{setElementHighlight, { ValueSetting{objectIDs, recordLinks} }});
 } //HighlightObjects::run

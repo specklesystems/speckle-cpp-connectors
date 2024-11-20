@@ -86,11 +86,11 @@ Subscriber::Subscription ElementHighlighter::subscription() const {
 bool ElementHighlighter::receive(const active::event::Event& event) {
 		//Collect the IDs of elements to be highlighted
 	ValueSetting* elementIDs = nullptr;
-	if (elementIDs = event.findValue(recordLinks); elementIDs != nullptr)
+	if (elementIDs = event.findValue(recordLinks); elementIDs == nullptr)
 		return false;
 	BIMLinkList elementSelection;
 	for (const auto& value : *elementIDs)
-		if (Guid guid{*value}; guid)
+		if (Guid guid{value->operator active::utility::Guid()}; guid)
 			elementSelection.emplace_back(guid);
 	if (elementSelection.empty())
 		return false;
@@ -101,7 +101,8 @@ bool ElementHighlighter::receive(const active::event::Event& event) {
 	auto elementDatabase = project->getElementDatabase();
 		//Collect the layers assigned to the model card elements
 	ElementVisibilityCollector collector;
-	elementDatabase->findElements(collector, elementSelection);
+	BIMElementDatabase::Filter filter = [&collector](const speckle::record::element::Element& elem) { return collector(elem); };
+	elementDatabase->findElements(&filter, elementSelection);
 		//If any collected layers are hidden, the useer is prompted to show them (otherwise they may see nothing happen when a model card is clicked)
 	for (const auto& layer : collector.getLayers()) {
 		if (layer.second.isHidden()) {

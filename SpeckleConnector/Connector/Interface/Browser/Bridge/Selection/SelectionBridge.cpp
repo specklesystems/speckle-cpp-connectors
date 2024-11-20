@@ -24,7 +24,7 @@ SelectionBridge::SelectionBridge() : BrowserBridge{"selectionBinding"} {
   --------------------------------------------------------------------*/
 bool SelectionBridge::handle(const speckle::event::SelectionEvent& event) {
 	auto selectionInfo = std::make_unique<SelectionInfo>();
-	auto wrapped =  std::make_unique<CargoHold<PackageWrap, SelectionInfo>>(std::move(selectionInfo));
+	auto wrapped = std::make_unique<CargoHold<PackageWrap, SelectionInfo>>(std::move(selectionInfo));
 	sendEvent("setSelection", std::move(wrapped));
 	return true;
 } //SelectionBridge::handle

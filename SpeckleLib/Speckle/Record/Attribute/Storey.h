@@ -104,6 +104,13 @@ namespace speckle::record::attribute {
 		 */
 		void setDefault() override;
 
+	protected:
+		/*!
+		 Get the attribute data to be written to the database
+		 @return The attribute data (for internal use to write to the database)
+		 */
+		API_Attribute getDataOut() const override;
+
 	private:
 		/*!
 		 Confirm the internal data, either loading from the BIM application or setting a default

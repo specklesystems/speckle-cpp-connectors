@@ -122,6 +122,7 @@
     <ClInclude Include="Speckle\Primitive\Mesh\Mesh.h" />
     <ClInclude Include="Speckle\Record\Attribute\Attribute.h" />
     <ClInclude Include="Speckle\Record\Attribute\Finish.h" />
+    <ClInclude Include="Speckle\Record\Attribute\Layer.h" />
     <ClInclude Include="Speckle\Record\Attribute\Material.h" />
     <ClInclude Include="Speckle\Record\Attribute\Storey.h" />
     <ClInclude Include="Speckle\Record\Classification\Classified.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Speckle\Record\Element\StairStructure.h" />
     <ClInclude Include="Speckle\Record\Element\StairTread.h" />
     <ClInclude Include="Speckle\Record\Element\Wall.h" />
+    <ClInclude Include="Speckle\Record\Filter\ElementVisibilityCollector.h" />
     <ClInclude Include="Speckle\Record\Property\Group.h" />
     <ClInclude Include="Speckle\Record\Property\Propertied.h" />
     <ClInclude Include="Speckle\Record\Property\Property.h" />
@@ -228,6 +230,7 @@
     <ClCompile Include="Speckle\Primitive\Mesh\Mesh.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Attribute.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Finish.cpp" />
+    <ClCompile Include="Speckle\Record\Attribute\Layer.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Material.cpp" />
     <ClCompile Include="Speckle\Record\Attribute\Storey.cpp" />
     <ClCompile Include="Speckle\Record\Classification\Classified.cpp" />
@@ -267,6 +270,7 @@
     <ClCompile Include="Speckle\Record\Element\StairStructure.cpp" />
     <ClCompile Include="Speckle\Record\Element\StairTread.cpp" />
     <ClCompile Include="Speckle\Record\Element\Wall.cpp" />
+    <ClCompile Include="Speckle\Record\Filter\ElementVisibilityCollector.cpp" />
     <ClCompile Include="Speckle\Record\Property\Group.cpp" />
     <ClCompile Include="Speckle\Record\Property\Propertied.cpp" />
     <ClCompile Include="Speckle\Record\Property\Property.cpp" />

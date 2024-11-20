@@ -223,7 +223,7 @@ active::container::Vector<Attribute> ArchicadAttributeDBaseEngine::getObjects(co
   --------------------------------------------------------------------*/
 void ArchicadAttributeDBaseEngine::write(Attribute& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
 										 std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
-	auto attributeData = object.getData();
+	auto attributeData = object.getDataOut();
 		//An record with no index has not been written (and needs to be created in the dbase)
 	GSErrCode status = NoError;
 #ifdef ServerMainVers_2700

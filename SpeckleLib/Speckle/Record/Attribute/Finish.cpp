@@ -276,6 +276,20 @@ bool Finish::validate() {
 
 
 /*--------------------------------------------------------------------
+	Get the attribute data to be written to the database
+
+	return: The attribute data (for internal use to write to the database)
+  --------------------------------------------------------------------*/
+API_Attribute Finish::getDataOut() const {
+	confirmData();
+	API_Attribute result;
+	active::utility::Memory::erase(result);
+	result.material = m_data->root;
+	return result;
+} //Finish::getDataOut
+
+
+/*--------------------------------------------------------------------
 	Confirm the internal data, either loading from the BIM application or setting a default
   --------------------------------------------------------------------*/
 void Finish::confirmData() const {

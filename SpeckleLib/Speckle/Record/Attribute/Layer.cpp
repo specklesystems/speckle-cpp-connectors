@@ -125,6 +125,7 @@ Layer& Layer::operator=(const Layer& source) {
 	return: True if the layer is hidden
   --------------------------------------------------------------------*/
 bool Layer::isHidden() const {
+	confirmData();
 	return m_data->isHidden;
 } //Layer::isHidden
 
@@ -135,6 +136,7 @@ bool Layer::isHidden() const {
 	return: True if the layer is locked
   --------------------------------------------------------------------*/
 bool Layer::isLocked() const {
+	confirmData();
 	return m_data->isLocked;
 } //Layer::isLocked
 
@@ -158,6 +160,7 @@ const API_Attr_Head& Layer::getHead() const {
 	state: True if the layer is hidden
   --------------------------------------------------------------------*/
 void Layer::setHidden(bool state) {
+	confirmData();
 	m_data->isHidden = state;
 #ifdef ARCHICAD
 	if (state)
@@ -174,6 +177,7 @@ void Layer::setHidden(bool state) {
 	state: True if the layer is locked
   --------------------------------------------------------------------*/
 void Layer::setLocked(bool state) {
+	confirmData();
 	m_data->isLocked = state;
 #ifdef ARCHICAD
 	if (state)
@@ -263,6 +267,20 @@ bool Layer::validate() {
 #endif
 	return true;
 } //Layer::validate
+
+
+/*--------------------------------------------------------------------
+	Get the attribute data to be written to the database
+
+	return: The attribute data (for internal use to write to the database)
+  --------------------------------------------------------------------*/
+API_Attribute Layer::getDataOut() const {
+	confirmData();
+	API_Attribute result;
+	active::utility::Memory::erase(result);
+	result.layer = m_data->root;
+	return result;
+} //Layer::getDataOut
 
 
 /*--------------------------------------------------------------------

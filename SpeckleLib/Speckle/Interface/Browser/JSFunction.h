@@ -74,6 +74,8 @@ namespace speckle::interfac::browser {
 			//Process any returned result into the binding value type
 		auto processResult = [&, transport](Return* outgoing) -> typename Binding::ValueType {
 			if constexpr(!std::is_same<Return, void>::value) {
+				if (outgoing == nullptr)
+					throw;	//NB: Throw a system exception here in future with a defined error
 				typename Binding::ValueType result;
 				transport.send(std::move(*outgoing), active::serialise::Identity{}, result);
 				return result;

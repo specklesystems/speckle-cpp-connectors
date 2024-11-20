@@ -117,6 +117,11 @@ namespace speckle::record::attribute {
 		 @return The attribute data (for internal use to populate derived classes)
 		 */
 		API_Attribute getData() const;
+		/*!
+		 Get the attribute data to be written to the database
+		 @return The attribute data (for internal use to write to the database)
+		 */
+		virtual API_Attribute getDataOut() const = 0;
 #endif
 	};
 

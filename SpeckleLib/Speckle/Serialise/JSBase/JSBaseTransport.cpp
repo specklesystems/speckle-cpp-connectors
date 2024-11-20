@@ -397,7 +397,7 @@ namespace {
 			isWrapperTag = !identity.name.empty() && !inventory.begin()->identity().name.empty() && (inventory.begin()->identity() != identity);
 		}
 		auto sequence = inventory.sequence();
-		auto container = destination;
+		auto container{destination};
 		if (isWrapperTag) {
 			auto containerType = cargo.entryType().value_or((inventory.size() == 1) && !(inventory.begin()->maximum() == 1) ?
 				Entry::Type::array : Entry::Type::element);
@@ -411,7 +411,7 @@ namespace {
 				destination = container;
 		}
 		for (auto& entry : sequence) {
-			auto item = *entry.second;
+			auto item{*entry.second};
 			if (!item.required)
 				continue;
 				//Each cargo container may contain multiple export items

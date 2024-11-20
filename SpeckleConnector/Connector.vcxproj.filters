@@ -74,6 +74,12 @@
     <Filter Include="Connector\Environment">
       <UniqueIdentifier>{1d9a10c3-cac6-4b15-afb9-f117b99b3a24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Connector\Interface\Browser\Bridge\Receive">
+      <UniqueIdentifier>{896b7b9b-61d8-46e7-8432-cfbdab4918fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Connector\Tool">
+      <UniqueIdentifier>{f9330e8f-8242-4605-b25c-b1ba24451825}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="RFIX.win\Connector.rc2">
@@ -98,9 +104,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Connector\Connector.cpp">
-      <Filter>Connector</Filter>
-    </ClCompile>
     <ClCompile Include="Connector\Interface\ConnectorMenu.cpp">
       <Filter>Connector\Interface</Filter>
     </ClCompile>
@@ -259,6 +262,18 @@
     </ClCompile>
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Receive\Receive.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Receive</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Receive\ReceiveBridge.cpp">
+      <Filter>Connector\Interface\Browser\Bridge\Receive</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Tool\ElementHighlighter.cpp">
+      <Filter>Connector\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="Connector\Connector.cpp">
+      <Filter>Connector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -444,6 +459,15 @@
     </ClInclude>
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h">
       <Filter>Connector\Interface\Browser\Bridge\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Receive\Receive.h">
+      <Filter>Connector\Interface\Browser\Bridge\Receive</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Receive\ReceiveBridge.h">
+      <Filter>Connector\Interface\Browser\Bridge\Receive</Filter>
+    </ClInclude>
+    <ClInclude Include="Connector\Tool\ElementHighlighter.h">
+      <Filter>Connector\Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

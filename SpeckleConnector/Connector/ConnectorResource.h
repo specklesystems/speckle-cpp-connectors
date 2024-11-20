@@ -40,12 +40,12 @@ enum PromptString {
 
 	//Information strings (in UI content, logging, reports)
 enum GeneralString {
-	showHiddenLayersID = 1,
 };
 
 
 	//Notification strings (advice displayed in alerts)
 enum NotifyString {
+	showHiddenLayersID = 1,
 };
 
 

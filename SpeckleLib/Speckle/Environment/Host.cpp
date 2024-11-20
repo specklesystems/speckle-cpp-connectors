@@ -107,8 +107,8 @@ bool Host::displayConfirmation(const speckle::utility::String& question,
 							   const speckle::utility::String::Option negativeOption) const {
 #ifdef ARCHICAD
 	String positivePrompt{positiveOption.value_or(addon()->getLocalString(titleStringLib, positiveResponseTitleID))},
-			negativePrompt{positiveOption.value_or(addon()->getLocalString(titleStringLib, positiveResponseTitleID))};
-	return (DGAlert(DG_WARNING, addon()->getLocalString(titleStringLib, confirmDialogTitleID), question, positivePrompt, negativePrompt) == 1);
+			negativePrompt{positiveOption.value_or(addon()->getLocalString(titleStringLib, negativeResponseTitleID))};
+	return (DGAlert(DG_WARNING, addon()->getLocalString(titleStringLib, confirmDialogTitleID), question, String{}, positivePrompt, negativePrompt) == 1);
 #endif
 } //Host::displayConfirmation
 
