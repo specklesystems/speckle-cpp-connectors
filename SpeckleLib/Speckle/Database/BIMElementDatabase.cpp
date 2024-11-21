@@ -148,14 +148,15 @@ void BIMElementDatabase::clearSelection() const {
 	Find a filtered list of objects
  
 	filter: The object filter (nullptr = find all objects)
+	subset: A subset of the database content to search (specified by record ID)
 	tableID: Optional table ID (defaults to the first table)
 	documentID: Optional document ID (filter for this document only - nullopt = all objects)
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-BIMRecordIDList BIMElementDatabase::findElements(const Filter& filter, std::optional<BIMRecordID> tableID,
-														  std::optional<BIMRecordID> documentID) const {
-	return m_engine->findObjects(filter, tableID, documentID);
+BIMRecordIDList BIMElementDatabase::findElements(const Filter* filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
+												 std::optional<BIMRecordID> documentID) const {
+	return m_engine->findObjects(filter, subset, tableID, documentID);
 } //BIMElementDatabase::findElements
 
 
@@ -212,7 +213,7 @@ Memo::Unique BIMElementDatabase::getMemo(const BIMRecordID& elementID, Part::fil
  
 	element: The element to write
   --------------------------------------------------------------------*/
-void BIMElementDatabase::write(const Element& element) const {
+void BIMElementDatabase::write(Element& element) const {
 	m_store->write(element);
 } //BIMElementDatabase::write
 

@@ -4,11 +4,20 @@
 #include "Connector/Environment/ConnectorProject.h"
 #include "Connector/Interface/ConnectorMenu.h"
 #include "Connector/Interface/ConnectorPalette.h"
+#include "Connector/Tool/ElementHighlighter.h"
 #include "Speckle/Database/AccountDatabase.h"
 #include "Speckle/Environment/Addon.h"
 #include "Speckle/Utility/String.h"
 
 #include <mutex>
+
+#ifdef WINDOWS
+	//NB: VS is ignoring template specialisations unless they are explicitly used in the top-level project
+#include "Active/Setting/Values/GuidValue.h"
+#include "Active/Setting/Values/TimeValue.h"
+#include "Active/Setting/Values/StringValue.h"
+using namespace active::setting;
+#endif
 
 using namespace active::file;
 using namespace active::environment;
@@ -42,6 +51,7 @@ namespace {
 				//Define the connector UI components
 			add<ConnectorMenu>();
 			add<ConnectorPalette>();
+			add<ElementHighlighter>();
 		}
 		
 		// MARK: Functions (const)
@@ -84,6 +94,18 @@ namespace {
 			return std::nullopt;
 		return Directory{*appData, speckleDataDirName, true};
 	} //getAppDataDirectory
+
+#ifdef WINDOWS
+		//NB: VS is ignoring template specialisations unless they are explicitly used in the top-level project
+	void invokeSpecialisation() {
+		StringValue stringValue;
+		active::utility::String unusedString = stringValue;
+		GuidValue guidValue;
+		active::utility::Guid unusedGuid = guidValue;
+		TimeValue timeValue;
+		active::utility::Time unusedTime = timeValue;
+	}
+#endif
 	
 }
 
@@ -93,6 +115,9 @@ namespace {
  	name: The add-on name
  --------------------------------------------------------------------*/
 ConnectorAddon::ConnectorAddon(const speckle::utility::String& name) : Addon{name} {
+#ifdef WINDOWS
+	invokeSpecialisation();
+#endif
 } //ConnectorAddon::ConnectorAddon
 
 

@@ -97,6 +97,21 @@ namespace {
 	
 	
 	/*!
+	 Find indices of all elements in an Archicad database. NB: It is assumed that the active database has already been set
+	 @return A list of all element IDs in the active database
+	 */
+	BIMRecordIDList getAllElementIDs() {
+		GS::Array<API_Guid> found;
+		if ((ACAPI_Element_GetElemList({}, &found) != NoError) || found.IsEmpty())
+			return {};
+		BIMRecordIDList result;
+		for (const auto& item : found)
+			result.insert(item);
+		return result;
+	} //getAllElementIDs
+	
+	
+	/*!
 	 Make a new element object
 	 @param elementData The API element representation
 	 @param tableID The ID of the parent table (defaults to the active drawing)
@@ -287,28 +302,38 @@ void ArchicadElementDBaseEngine::setDefaultTable(const BIMRecordID& tableID) con
 	Find a filtered list of objects
  
 	filter: The object filter (nullptr = find all objects)
+	subset: A subset of the database content to search (specified by record ID)
 	tableID: Optional table ID (defaults to the first table)
 	documentID: Optional document ID (filter for this document only - nullopt = all objects)
  
 	return: A list containing IDs of found elements (empty if none found)
   --------------------------------------------------------------------*/
-BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter& filter, std::optional<BIMRecordID> tableID,
-																		 std::optional<BIMRecordID> documentID) const {
+BIMRecordIDList ArchicadElementDBaseEngine::findObjects(const Filter* filter, const BIMRecordIDList& subset, std::optional<BIMRecordID> tableID,
+														std::optional<BIMRecordID> documentID) const {
 		//Switch to the target table (when specified). Otherwise the currently active table will be used
 	if (tableID)
 		setActiveTable(*tableID);
 		//First check for no filter (in which case we return all objects)
 	if (filter == nullptr) {
-		GS::Array<API_Guid> found;
-		if ((ACAPI_Element_GetElemList({}, &found) != NoError) || found.IsEmpty())
-			return {};
-		BIMRecordIDList result;
-		for (const auto& item : found)
-			result.insert(item);
-		return result;
+		if (!subset.empty())
+			return subset;
+		return getAllElementIDs();
 	}
-		//Implement other filtering as required - ideally identify characteristics supported by API, e.g. filter by type/renovation etc
-	return {};
+	BIMRecordIDList buffer, result;
+		//Pick either all records or the specified subset
+	auto source = &subset;
+	if (subset.empty()) {
+		buffer = getAllElementIDs();
+		source = &buffer;
+	}
+		//Run the filter on the specified elements
+	for (const auto& elemID : *source) {
+		if (auto element = getObject(elemID); element) {
+			if ((*filter)(*element))
+				result.insert(elemID);
+		}
+	}
+	return result;
 } //ArchicadElementDBaseEngine::findObjects
 
 
@@ -423,7 +448,7 @@ active::container::Vector<Element> ArchicadElementDBaseEngine::getObjects(const 
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (when the object is bound to a specific document)
   --------------------------------------------------------------------*/
-void ArchicadElementDBaseEngine::write(const Element& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
+void ArchicadElementDBaseEngine::write(Element& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
 																   std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
 	
 } //ArchicadElementDBaseEngine::write

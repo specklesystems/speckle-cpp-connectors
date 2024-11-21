@@ -175,6 +175,8 @@
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetConfig.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Receive\Receive.cpp" />
+    <ClCompile Include="Connector\Interface\Browser\Bridge\Receive\ReceiveBridge.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.cpp" />
     <ClCompile Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.cpp" />
@@ -206,6 +208,7 @@
     <ClCompile Include="Connector\Record\Model\ModelCard.cpp" />
     <ClCompile Include="Connector\Record\Model\ReceiverModelCard.cpp" />
     <ClCompile Include="Connector\Record\Model\SenderModelCard.cpp" />
+    <ClCompile Include="Connector\Tool\ElementHighlighter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connector\Connector.h" />
@@ -234,6 +237,8 @@
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetConfig.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\GetIsDevMode.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Config\UpdateConfig.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Receive\Receive.h" />
+    <ClInclude Include="Connector\Interface\Browser\Bridge\Receive\ReceiveBridge.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\Arg\SelectionInfo.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\GetSelection.h" />
     <ClInclude Include="Connector\Interface\Browser\Bridge\Selection\SelectionBridge.h" />
@@ -268,6 +273,7 @@
     <ClInclude Include="Connector\Record\Model\ModelCard.h" />
     <ClInclude Include="Connector\Record\Model\ReceiverModelCard.h" />
     <ClInclude Include="Connector\Record\Model\SenderModelCard.h" />
+    <ClInclude Include="Connector\Tool\ElementHighlighter.h" />
     <ClInclude Include="Connector\Version.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

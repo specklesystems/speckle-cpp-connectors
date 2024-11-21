@@ -50,11 +50,13 @@ namespace speckle::database {
 		/*!
 		 Find a filtered list of objects
 		 @param filter The object filter (nullptr = find all objects)
+		 @param subset A subset of the database content to search (specified by record ID)
 		 @param tableID Optional table ID (defaults to the first table)
 		 @param documentID Optional document ID (filter for this document only - nullopt = all objects)
 		 @return A list containing IDs of found elements (empty if none found)
 		 */
-		virtual ObjIDList findObjects(const Filter& filter = nullptr, std::optional<BIMRecordID> tableID = std::nullopt,
+		virtual ObjIDList findObjects(const Filter* filter = nullptr, const ObjIDList& subset = {},
+									  std::optional<BIMRecordID> tableID = std::nullopt,
 									  std::optional<BIMRecordID> documentID = std::nullopt) const override { return {}; }	//Implement when required
 		/*!
 		 Get an object by ID
@@ -96,7 +98,7 @@ namespace speckle::database {
 		 @param tableID Optional table ID (default selected based on record type)
 		 @param documentID Optional document ID (when the object is bound to a specific document)
 		 */
-		void write(const Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
+		void write(Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID = std::nullopt,
 				   std::optional<BIMRecordID> tableID = std::nullopt, std::optional<BIMRecordID> documentID = std::nullopt) const override;
 		/*!
 		 Erase an object by index

@@ -33,7 +33,7 @@ namespace {
 	 
 		return: An equivalent status code
 	 --------------------------------------------------------------------*/
-	ArchicadDBaseCore::Status convertArchicadError(long acErrorCode) {
+	ArchicadDBaseCore::Status convertArchicadError(GSErrCode acErrorCode) {
 		using enum ArchicadDBaseCore::Status;
 		switch (acErrorCode) {
 			case NoError:
@@ -90,6 +90,18 @@ namespace {
  --------------------------------------------------------------------*/
 std::error_code ArchicadDBaseCore::makeError(ArchicadDBaseCore::Status code) {
 	return std::error_code(static_cast<int>(code), instance);
+} //ArchicadDBaseCore::makeError
+
+
+/*--------------------------------------------------------------------
+	Make an error code for ArchicadElementDBase processing
+ 
+	code: An Archicad API error code
+ 
+	return: An STL error code
+ --------------------------------------------------------------------*/
+std::error_code ArchicadDBaseCore::makeError(GSErrCode code) {
+	return makeError(convertArchicadError(code));
 } //ArchicadDBaseCore::makeError
 
 #endif

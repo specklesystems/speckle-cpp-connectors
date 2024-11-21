@@ -186,6 +186,18 @@ void Storey::setDefault() {
 
 
 /*--------------------------------------------------------------------
+	Get the attribute data to be written to the database
+
+	return: The attribute data (for internal use to write to the database)
+  --------------------------------------------------------------------*/
+API_Attribute Storey::getDataOut() const {
+	API_Attribute result;
+	active::utility::Memory::erase(result);
+	return result;
+} //Storey::getDataOut
+
+
+/*--------------------------------------------------------------------
 	Confirm the internal data, either loading from the BIM application or setting a default
   --------------------------------------------------------------------*/
 void Storey::confirmData() const {

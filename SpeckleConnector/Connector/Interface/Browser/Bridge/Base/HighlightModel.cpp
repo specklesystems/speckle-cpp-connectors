@@ -1,7 +1,11 @@
+#include "Active/Setting/ValueSetting.h"
+#include "Active/Setting/Values/GuidValue.h"
+#include "Active/Event/Event.h"
 #include "Connector/Interface/Browser/Bridge/Base/HighlightModel.h"
 #include "Connector/Connector.h"
 #include "Connector/ConnectorResource.h"
 #include "Connector/Environment/ConnectorProject.h"
+#include "Connector/Event/ConnectorEventID.h"
 #include "Connector/Database/ModelCardDatabase.h"
 #include "Connector/Interface/Browser/Bridge/Send/Arg/SendError.h"
 #include "Connector/Record/Model/SenderModelCard.h"
@@ -12,6 +16,8 @@
 #include "Speckle/Environment/Host.h"
 #include "Speckle/Environment/Project.h"
 
+using namespace active::event;
+using namespace active::setting;
 using namespace connector::environment;
 using namespace connector::interfac::browser::bridge;
 using namespace connector::record;
@@ -46,13 +52,9 @@ void HighlightModel::run(const String& modelCardID) const {
 		return;
 	}
 	if (auto senderCard = dynamic_cast<SenderModelCard*>(modelCard.get())) {
-		auto modelCardSelection = senderCard->getFilter().getElementIDs();
-		auto project = connector()->getActiveProject().lock();
-		if (!project)
-			return; // TODO: is this OK? should this throw?
-		auto elementDatabase = project->getElementDatabase();
-		elementDatabase->clearSelection();
-		elementDatabase->setSelection(modelCardSelection);
-		host()->zoomToFit(true);
+		ValueSetting elementIDs{recordLinks};
+		for (const auto& elementID : senderCard->getFilter().getElementIDs())
+			elementIDs.emplace_back(GuidValue{elementID});
+		connector()->publish(Event{setElementHighlight, { elementIDs }});
 	}
 } //HighlightModel::run

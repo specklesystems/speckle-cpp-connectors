@@ -1,5 +1,6 @@
 #include "Speckle/Environment/Addon.h"
 
+#include "Active/Database/Transaction.h"
 #include "Speckle/Environment/Project.h"
 #include "Speckle/Event/Type/ProjectEvent.h"
 #include "Speckle/Event/Subscriber/ProjectSubscriber.h"
@@ -10,6 +11,7 @@
 #include <ACAPinc.h>
 #endif
 
+using namespace active::database;
 using namespace speckle::environment;
 using namespace speckle::event;
 using namespace speckle::utility;
@@ -228,3 +230,46 @@ std::shared_ptr<Project> Addon::makeProject() const {
 	auto project = new Project;	//make_shared can't use protected constructor
 	return std::shared_ptr<Project>{project};
 } //Addon::makeProject
+
+
+/*--------------------------------------------------------------------
+	Determine if a transaction can be started
+ 
+	return: True if a transaction can be started
+  --------------------------------------------------------------------*/
+bool Addon::canTransactionStart() const {
+	return true; //TODO: There are some situations where Archicad cannot accept perform a new transaction - add when determine essential
+} //Addon::canTransactionStart
+
+
+/*--------------------------------------------------------------------
+	Perform a transaction
+ 
+	transaction: The transaction to perform
+ 
+	return: True if the transaction was successfully performed
+  --------------------------------------------------------------------*/
+bool Addon::performTransaction(Transaction& transaction) const {
+		//If this is the opening transaction, we need to enclose it in a host undo session
+	if (isPerforming(transaction)) {
+#ifdef ARCHICAD
+		return ACAPI_CallUndoableCommand(String{transaction.getName()}, [&]() -> GSErrCode {
+			if (App::performTransaction(transaction))
+				return NoError;
+			return APIERR_COMMANDFAILED;
+		});
+#endif
+	}
+	return App::performTransaction(transaction);
+} //Addon::performTransaction
+
+
+/*--------------------------------------------------------------------
+	Finalise a transaction
+ 
+	transaction: The transaction to be finalised
+	wasPerformedSuccessfully: True if the transaction was successfully performed
+  --------------------------------------------------------------------*/
+void Addon::finaliseTransaction(Transaction& transaction, bool wasPerformedSuccessfully) const {
+	
+} //Addon::finaliseTransaction

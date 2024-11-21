@@ -114,7 +114,7 @@ Vector<Group> BIMGroupDatabase::getGroups() const {
  
 	group: The group to write
   --------------------------------------------------------------------*/
-void BIMGroupDatabase::write(const Group& group) const {
+void BIMGroupDatabase::write(Group& group) const {
 	m_store->write(group);
 } //BIMGroupDatabase::write
 

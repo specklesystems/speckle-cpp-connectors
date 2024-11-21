@@ -4,6 +4,10 @@
 #include "Speckle/Database/Content/BIMRecord.h"
 #include "Speckle/Utility/String.h"
 
+namespace speckle::database {
+	class ArchicadAttributeDBaseEngine;
+}
+
 namespace speckle::record::attribute {
 	
 	/*!
@@ -106,11 +110,18 @@ namespace speckle::record::attribute {
 
 	protected:
 #ifdef ARCHICAD
+		friend class speckle::database::ArchicadAttributeDBaseEngine;
+		
 		/*!
 		 Get the attribute data from the host BIM application
 		 @return The attribute data (for internal use to populate derived classes)
 		 */
 		API_Attribute getData() const;
+		/*!
+		 Get the attribute data to be written to the database
+		 @return The attribute data (for internal use to write to the database)
+		 */
+		virtual API_Attribute getDataOut() const = 0;
 #endif
 	};
 

@@ -154,7 +154,7 @@ active::container::Vector<Group> ArchicadGroupDBaseEngine::getObjects(const Filt
 	tableID: Optional table ID (defaults to the floor plan)
 	documentID: Optional document ID (when the object is bound to a specific document)
   --------------------------------------------------------------------*/
-void ArchicadGroupDBaseEngine::write(const Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
+void ArchicadGroupDBaseEngine::write(Group& object, const BIMRecordID& objID, std::optional<BIMRecordID> objDocID,
 										std::optional<BIMRecordID> tableID, std::optional<BIMRecordID> documentID) const {
 		//TODO: Implement
 } //ArchicadGroupDBaseEngine::write

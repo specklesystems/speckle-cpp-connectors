@@ -16,6 +16,11 @@ enum SpeckleTitleString {
 	untitledProjectID = 1,
 	unknownElementTypeID,
 	conversionProgressID,
+	notifyDialogTitleID,
+	confirmDialogTitleID,
+	positiveResponseTitleID,
+	negativeResponseTitleID,
+	okButtonTitleID,
 };
 
 

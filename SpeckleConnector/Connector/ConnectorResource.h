@@ -29,6 +29,7 @@ enum TitleString {
 	addonNameID = 1,
 	addonDescriptionID,
 	noStoreyID,
+	showLayersID,
 };
 
 
@@ -44,6 +45,7 @@ enum GeneralString {
 
 	//Notification strings (advice displayed in alerts)
 enum NotifyString {
+	showHiddenLayersID = 1,
 };
 
 

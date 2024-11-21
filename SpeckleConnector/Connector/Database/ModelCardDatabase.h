@@ -43,7 +43,7 @@ namespace connector::database {
 		 Write a card to storage
 		 @param card The card to write
 		 */
-		void write(const record::ModelCard& card) const;
+		void write(record::ModelCard& card) const;
 		/*!
 		 Erase a card
 		 @param cardID The ID of the card to erase

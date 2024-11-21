@@ -2,7 +2,14 @@
 /* [  1] */		"Speckle Connector"
 /* [  2] */		"Connector to share model content with Speckle"
 /* [  3] */		"No level"
+/* [  4] */		"Show Layers"
 }
+
+
+'STR#' 32602 "Notify strings" {
+/* [  1] */		"Some elements published with the selected model card are on hidden layers - do you wish to make these layers visible?"
+}
+
 
 'STR#' 32604 "Error strings" {
 /* [  1] */		"No objects were found to convert. Please update your publish filter!"

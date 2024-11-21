@@ -33,10 +33,16 @@ namespace connector::record {
 		// MARK: - Functions (const)
 		
 		/*!
+		 Determine if the send filter contains a specified record ID
+		 @param recordID The record ID to search for
+		 @return True if the filter contains the record ID
+		 */
+		virtual bool contains(const speckle::database::BIMRecordID& recordID) const override { return m_selectedElements.contains(recordID); }
+		/*!
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		const speckle::database::ElementIDList& getElementIDs() const override { return m_selectedElements; }
+		const speckle::database::BIMRecordIDList& getElementIDs() const override { return m_selectedElements; }
 		
 		// MARK: - Serialisation
 		
@@ -59,7 +65,7 @@ namespace connector::record {
 		
 	private:
 			///A list of selected element IDs
-		speckle::database::ElementIDList m_selectedElements;
+		speckle::database::BIMRecordIDList m_selectedElements;
 	};
 
 }

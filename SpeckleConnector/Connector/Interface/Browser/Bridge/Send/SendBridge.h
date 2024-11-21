@@ -31,6 +31,10 @@ namespace connector::interfac::browser::bridge {
 		 @return True if the event should be closed
 		 */
 		bool handle(const speckle::event::ElementEvent& event) override;
+		
+	private:
+			///List of changed element IDs
+		speckle::database::BIMRecordIDList m_changedElements;
 	};
 	
 }

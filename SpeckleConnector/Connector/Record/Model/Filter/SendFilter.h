@@ -4,6 +4,7 @@
 #include "Active/Serialise/Package/Package.h"
 #include "Active/Utility/Cloner.h"
 #include "Speckle/Database/Identity/RecordID.h"
+#include "Speckle/Database/Identity/BIMRecordID.h"
 #include "Speckle/Utility/String.h"
 
 namespace connector::record {
@@ -56,16 +57,22 @@ namespace connector::record {
 		*/
 		bool isDefault() const { return m_isDefault; };
 		/*!
+		 Determine if the send filter contains a specified record ID
+		 @param recordID The record ID to search for
+		 @return True if the filter contains the record ID
+		 */
+		virtual bool contains(const speckle::database::BIMRecordID& recordID) const = 0;
+		/*!
 		 Get the filtered element IDs
 		 @return The filter elements
 		 */
-		virtual const speckle::database::ElementIDList& getElementIDs() const = 0;
+		virtual const speckle::database::BIMRecordIDList& getElementIDs() const = 0;
 		/*!
 		 Determine if the filter has expired because an element in the selection has changed
 		 @param changed The list of changed element IDs
 		 @return True if the one of the changed elements is in the selection
 		 */
-		virtual bool checkExpiry(const speckle::database::ElementIDList& changed) const;
+		virtual bool checkExpiry(const speckle::database::BIMRecordIDList& changed) const;
 		
 		// MARK: - Serialisation
 		

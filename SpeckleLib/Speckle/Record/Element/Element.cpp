@@ -161,6 +161,22 @@ Element::~Element() {}
 
 
 /*--------------------------------------------------------------------
+	Get the element layer
+ 
+	return: The element layer (nullopt if not applicable to the element)
+  --------------------------------------------------------------------*/
+Layer::Option Element::getLayer() const {
+#ifdef ARCHICAD
+#ifdef ServerMainVers_2700
+	return Layer{ Guid::fromInt(getHead().layer.GenerateHashValue()) };
+#else
+	return Layer{ Guid::fromInt(getHead().layer) };
+#endif
+#endif
+} //Element::getLayer
+
+
+/*--------------------------------------------------------------------
 	Get the element storey
 
 	return: The element storey (nullopt if the element isn't linked to a storey)

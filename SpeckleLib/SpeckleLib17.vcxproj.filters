@@ -128,6 +128,9 @@
     <Filter Include="Speckle\Interface\Component">
       <UniqueIdentifier>{ccb4ca39-1960-4590-ad5a-8f9092924778}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Speckle\Record\Filter">
+      <UniqueIdentifier>{e6e7128b-795b-441c-9ea6-051c99a0343d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Speckle\Environment\Addon.h">
@@ -502,6 +505,12 @@
     <ClInclude Include="Speckle\Record\Element\Interface\Treads.h">
       <Filter>Speckle\Record\Element\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Speckle\Record\Attribute\Layer.h">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClInclude>
+    <ClInclude Include="Speckle\Record\Filter\ElementVisibilityCollector.h">
+      <Filter>Speckle\Record\Filter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Speckle\Environment\Addon.cpp">
@@ -782,6 +791,12 @@
     </ClCompile>
     <ClCompile Include="Speckle\Record\Element\Interface\Treads.cpp">
       <Filter>Speckle\Record\Element\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Attribute\Layer.cpp">
+      <Filter>Speckle\Record\Attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="Speckle\Record\Filter\ElementVisibilityCollector.cpp">
+      <Filter>Speckle\Record\Filter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

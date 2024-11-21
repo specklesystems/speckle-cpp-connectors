@@ -36,6 +36,17 @@ namespace speckle::environment {
 		 @param message The alert message
 		*/
 		void displayAlert(const speckle::utility::String& message) const;
+		/*!
+		 Display a confirmation dialog (prompting the user to pick one of two options)
+		 @param question The question text, e.g. "Do you wish to continue?"
+		 @param positiveOption The positive option text (nullopt =  "Yes")
+		 @param negativeOption The negative option text (nullopt = "No")
+		 
+		 @return True if the user picked the positive option
+		*/
+		bool displayConfirmation(const speckle::utility::String& question,
+								 const speckle::utility::String::Option positiveOption = std::nullopt,
+								 const speckle::utility::String::Option negativeOption = std::nullopt) const;
 		
 		// MARK: Functions (mutating)
 		

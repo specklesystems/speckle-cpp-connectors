@@ -1,5 +1,8 @@
 #include "Speckle/Environment/Host.h"
+
 #include "Active/Utility/Memory.h"
+#include "Speckle/Environment/Addon.h"
+#include "Speckle/SpeckleResource.h"
 
 #ifdef ARCHICAD
 #include "DG.h"
@@ -84,9 +87,30 @@ void Host::zoomToFit(bool isSelectionOnly) const {
  --------------------------------------------------------------------*/
 void Host::displayAlert(const String& message) const {
 #ifdef ARCHICAD
-	DGAlert(DG_INFORMATION, "Notification", message.data(), "", "OK");
+	DGAlert(DG_INFORMATION, addon()->getLocalString(titleStringLib, notifyDialogTitleID), message, "",
+			addon()->getLocalString(titleStringLib, okButtonTitleID));
 #endif
 } //Host::displayAlert
+
+
+/*--------------------------------------------------------------------
+	Display a confirmation dialog (prompting the user to pick one of two options)
+ 
+	question: The question text, e.g. "Do you wish to continue?"
+	positiveOption: The positive option text (nullopt =  "Yes")
+	negativeOption: The negative option text (nullopt = "No")
+ 
+	return: True if the user picked the positive option
+ --------------------------------------------------------------------*/
+bool Host::displayConfirmation(const speckle::utility::String& question,
+							   const speckle::utility::String::Option positiveOption,
+							   const speckle::utility::String::Option negativeOption) const {
+#ifdef ARCHICAD
+	String positivePrompt{positiveOption.value_or(addon()->getLocalString(titleStringLib, positiveResponseTitleID))},
+			negativePrompt{positiveOption.value_or(addon()->getLocalString(titleStringLib, negativeResponseTitleID))};
+	return (DGAlert(DG_WARNING, addon()->getLocalString(titleStringLib, confirmDialogTitleID), question, String{}, positivePrompt, negativePrompt) == 1);
+#endif
+} //Host::displayConfirmation
 
 
 /*--------------------------------------------------------------------
